@@ -1,0 +1,22 @@
+@import "../assets/styles-yellow-blue.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.next-page-shell main > header,
+.next-page-shell main > footer {
+  display: none;
+}
