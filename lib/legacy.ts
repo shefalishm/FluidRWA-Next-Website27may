@@ -72,11 +72,13 @@ export function legacyJsonLd(file: string) {
 export function legacyMainHtml(file: string) {
   const html = readLegacy(file);
   if (!html) return null;
+  const pageStyles = [...html.matchAll(/<style[^>]*>[\s\S]*?<\/style>/gi)].map((match) => match[0]).join("\n");
   const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] || html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || html;
-  return rewriteLinks(main)
+  const bodyHtml = rewriteLinks(main)
     .replace(/<header[\s\S]*?<\/header>/gi, "")
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, "");
+  return pageStyles ? `${pageStyles}\n${bodyHtml}` : bodyHtml;
 }
 
 function rewriteLinks(html: string) {
