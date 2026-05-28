@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })
     : [];
 
-  return [
+  const routes: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified: "2026-05-27", changeFrequency: "weekly", priority: 1 },
     ...allRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
@@ -24,4 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...blogRoutes
   ];
+
+  return [...new Map(routes.map((route) => [route.url, route])).values()];
 }
