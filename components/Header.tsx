@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const navItems = [
   ["Home", "/"],
-  ["Vendors", "/vendor-ecosystem"],
   ["Solutions", "/solutions"],
   ["Insights", "/blog"],
+  ["Arcade", "/arcade"],
   ["About", "/about"],
   ["Contact", "/contact"]
 ] as const;
