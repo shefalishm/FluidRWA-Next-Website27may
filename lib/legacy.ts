@@ -12,8 +12,18 @@ function readLegacy(file: string) {
   return fs.readFileSync(fullPath, "utf8");
 }
 
+function decodeHtmlEntities(value: string) {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
 function matchTag(html: string, pattern: RegExp) {
-  return html.match(pattern)?.[1]?.trim();
+  const value = html.match(pattern)?.[1]?.trim();
+  return value ? decodeHtmlEntities(value) : value;
 }
 
 export function legacyMetadata(file: string, canonicalPath: string): Metadata {
