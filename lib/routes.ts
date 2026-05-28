@@ -48,6 +48,7 @@ export function fileForRoute(routePath: string) {
   const direct = staticRoutes.find((route) => route.path === routePath);
   if (direct) return direct.file;
   if (routePath === "vendors") return "vendor-ecosystem.html";
+  if (routePath === "insights") return "blog.html";
   if (routePath.startsWith("vendors/")) return path.join(routePath, "index.html");
   if (routePath.startsWith("blog/")) return path.join(routePath, "index.html");
   return null;
@@ -66,6 +67,8 @@ export function allRoutePaths() {
     : [];
   return [
     ...staticRoutes.map((route) => route.path).filter(Boolean),
+    "vendors",
+    "insights",
     "blog/tokenization",
     ...vendorSlugs.map((slug) => `vendors/${slug}`),
     ...blogPaths
