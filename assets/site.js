@@ -346,3 +346,64 @@ document.querySelectorAll("[data-bc-search]").forEach((input) => {
   input.addEventListener("input", updateDirectory);
   updateDirectory();
 });
+
+const sendAnalyticsEvent = (eventName, params = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, {
+    page_path: window.location.pathname + window.location.search,
+    page_title: document.title,
+    ...params
+  });
+};
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest?.("a[href]");
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  const text = (link.textContent || link.getAttribute("aria-label") || "").trim().slice(0, 120);
+  const isExternal = /^https?:\/\//i.test(href) && !href.includes("fluidrwa.com");
+  const isVendorLink = link.classList.contains("bc-company-link") || link.classList.contains("bc-provider-link");
+  const isCta = link.classList.contains("btn") || link.classList.contains("nav-ecosystem-cta") || /submit-project|apply-as-vendor|contact/i.test(href);
+
+  if (isVendorLink || isExternal) {
+    sendAnalyticsEvent("vendor_outbound_click", {
+      link_url: href,
+      link_text: text,
+      outbound: true
+    });
+    return;
+  }
+
+  if (isCta) {
+    sendAnalyticsEvent("cta_click", {
+      link_url: href,
+      link_text: text
+    });
+    return;
+  }
+
+  sendAnalyticsEvent("internal_link_click", {
+    link_url: href,
+    link_text: text
+  });
+});
+
+document.addEventListener("submit", (event) => {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+  sendAnalyticsEvent("form_submit_attempt", {
+    form_id: form.id || "",
+    form_name: form.getAttribute("name") || "",
+    form_action: form.getAttribute("action") || ""
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest?.("#zcWebOptin, [name='SIGNUP_SUBMIT_BUTTON']");
+  if (!button) return;
+  sendAnalyticsEvent("form_submit_attempt", {
+    form_id: button.closest("form")?.id || "zoho-optin",
+    form_name: "FluidRWA form",
+    form_action: button.closest("form")?.getAttribute("action") || ""
+  });
+});

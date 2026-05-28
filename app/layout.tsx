@@ -3,6 +3,7 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { FormScripts } from "@/components/FormScripts";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { MotionShell } from "@/components/MotionShell";
 import { siteUrl } from "@/lib/routes";
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Q5L2HZK162";
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -40,6 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <FormScripts />
         <Script src="/assets/site.js?v=next-1" strategy="afterInteractive" />
+        <GoogleAnalytics measurementId={googleAnalyticsId} />
       </body>
     </html>
   );

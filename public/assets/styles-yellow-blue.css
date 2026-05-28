@@ -4402,6 +4402,121 @@ tr:last-child td { border-bottom: 0; }
   margin: 12px 0 0;
 }
 
+
+.bc-logo-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffe36e, #eaf9ff 70%);
+  color: #12213a;
+  font-weight: 950;
+  box-shadow: inset 0 0 0 1px rgba(38, 100, 169, .14), 0 16px 34px rgba(38, 100, 169, .12);
+}
+
+.bc-best-fit {
+  margin: 18px 0 12px;
+  padding: 14px;
+  border-left: 3px solid #4cb2e0;
+  border-radius: 12px;
+  background: rgba(76, 178, 224, .08);
+  color: #12213a;
+  line-height: 1.56;
+  font-weight: 650;
+}
+
+.bc-company-card > p[itemprop="description"],
+.bc-provider-details p {
+  color: rgba(18, 33, 58, .69);
+  line-height: 1.64;
+}
+
+.bc-provider-details {
+  margin: 14px 0;
+  border-top: 1px solid rgba(38, 100, 169, .1);
+  border-bottom: 1px solid rgba(38, 100, 169, .1);
+  padding: 14px 0;
+}
+
+.bc-provider-details summary,
+.bc-faq-item summary {
+  cursor: pointer;
+  color: #12213a;
+  font-weight: 850;
+}
+
+.bc-company-meta {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.bc-company-meta div {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 12px;
+}
+
+.bc-company-meta dt {
+  color: #2664a9;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.bc-company-meta dd {
+  margin: 0;
+  color: rgba(18, 33, 58, .78);
+}
+
+.bc-company-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 16px 0;
+}
+
+.bc-company-tags span {
+  padding: 6px 9px;
+  border: 1px solid rgba(38, 100, 169, .1);
+  border-radius: 999px;
+  background: rgba(255, 227, 110, .28);
+  color: #12213a;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.bc-company-link {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #12213a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 850;
+}
+
+.bc-faq-item {
+  padding: 20px 22px;
+  border: 1px solid rgba(38, 100, 169, .12);
+  border-radius: 20px;
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 18px 44px rgba(18, 33, 58, .06);
+  backdrop-filter: blur(18px);
+}
+
+.bc-faq-item p {
+  margin: 12px 0 0;
+  color: rgba(18, 33, 58, .68);
+  line-height: 1.65;
+}
+
 @media (max-width: 1100px) {
   .bc-area-grid,
   .bc-company-grid {
