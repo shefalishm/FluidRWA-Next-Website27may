@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const navItems = [
   ["Home", "/"],
@@ -14,9 +13,9 @@ export function Header() {
   return (
     <header className="site-header light-header" data-site-header>
       <nav className="nav" aria-label="Main navigation">
-        <Link className="brand light-brand" href="/" aria-label="FluidRWA home">
+        <a className="brand light-brand" href="/" aria-label="FluidRWA home">
           <Image src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" width={190} height={60} priority />
-        </Link>
+        </a>
         <button className="mobile-toggle light-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
           <span />
           <span />
@@ -24,13 +23,13 @@ export function Header() {
         </button>
         <div className="nav-links light-nav-links" data-nav-links>
           {navItems.map(([label, href]) => (
-            <Link key={href} href={href}>
+            <a key={href} href={href}>
               {label}
-            </Link>
+            </a>
           ))}
-          <Link className="nav-ecosystem-cta" href="/vendor-ecosystem">
+          <a className="nav-ecosystem-cta" href="/vendor-ecosystem">
             Explore Vendor Ecosystem
-          </Link>
+          </a>
         </div>
       </nav>
     </header>

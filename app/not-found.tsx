@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function NotFound() {
   return (
     <main className="light-home">
@@ -10,12 +8,12 @@ export default function NotFound() {
             <h1>Page not found.</h1>
             <p>The page may have moved into the new FluidRWA routing system.</p>
             <div className="hero-actions">
-              <Link className="btn btn-primary light-primary" href="/">
+              <a className="btn btn-primary light-primary" href="/">
                 Go Home
-              </Link>
-              <Link className="btn btn-soft" href="/vendor-ecosystem">
+              </a>
+              <a className="btn btn-soft" href="/vendor-ecosystem">
                 Explore Vendors
-              </Link>
+              </a>
             </div>
           </div>
         </div>
