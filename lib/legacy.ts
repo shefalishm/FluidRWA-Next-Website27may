@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { siteUrl } from "./routes";
+import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
 
 const root = process.cwd();
 
@@ -60,13 +61,15 @@ export function legacyJsonLd(file: string) {
   const html = readLegacy(file);
   if (!html) return [];
   const blocks = [...html.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
-  return blocks.map((block) => {
+  const parsed = blocks.map((block) => {
     try {
       return JSON.parse(block[1]);
     } catch {
       return null;
     }
   }).filter(Boolean);
+  const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
+  return fallback ? [...parsed, fallback] : parsed;
 }
 
 export function legacyMainHtml(file: string) {
@@ -78,7 +81,9 @@ export function legacyMainHtml(file: string) {
     .replace(/<header[\s\S]*?<\/header>/gi, "")
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, "");
-  return pageStyles ? `${pageStyles}\n${bodyHtml}` : bodyHtml;
+  const fallbackDirectory = bodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
+  const renderedHtml = fallbackDirectory ? `${bodyHtml}\n${fallbackDirectory}` : bodyHtml;
+  return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }
 
 function rewriteLinks(html: string) {

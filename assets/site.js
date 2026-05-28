@@ -327,3 +327,22 @@ if (vendorSearch) {
 
   updateVendorDirectory();
 }
+
+document.querySelectorAll("[data-bc-search]").forEach((input) => {
+  const section = input.closest(".bc-section");
+  if (!section) return;
+  const cards = Array.from(section.querySelectorAll(".bc-company-card"));
+  const countNode = section.querySelector("[data-bc-count]");
+  const updateDirectory = () => {
+    const query = input.value.trim().toLowerCase();
+    let count = 0;
+    cards.forEach((card) => {
+      const isVisible = !query || (card.dataset.search || "").includes(query);
+      card.hidden = !isVisible;
+      if (isVisible) count += 1;
+    });
+    if (countNode) countNode.textContent = count.toLocaleString();
+  };
+  input.addEventListener("input", updateDirectory);
+  updateDirectory();
+});
