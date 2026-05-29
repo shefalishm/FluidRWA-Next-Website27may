@@ -18,6 +18,20 @@ export const metadata: Metadata = {
   description: "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors.",
   icons: {
     icon: "/assets/favicon.png"
+  },
+  openGraph: {
+    title: "FluidRWA | Find Trusted RWA and Web3 Infrastructure Vendors",
+    description: "Find trusted Web3 and digital asset infrastructure vendors across tokenization, compliance, custody, payments, legal and AI.",
+    url: siteUrl,
+    siteName: "FluidRWA",
+    images: [{ url: `${siteUrl}/assets/social/fluidrwa-preview.jpg`, width: 1200, height: 630 }],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FluidRWA | Find Trusted RWA and Web3 Infrastructure Vendors",
+    description: "Find trusted Web3 and digital asset infrastructure vendors across tokenization, compliance, custody, payments, legal and AI.",
+    images: [`${siteUrl}/assets/social/fluidrwa-preview.jpg`]
   }
 };
 

@@ -33,6 +33,20 @@ const imports = [
     directoryTitle: "Compare DeFi Infrastructure Providers",
     itemLabel: "protocols",
     cta: "Submit Requirements"
+  },
+  {
+    zip: "/Users/shefalisharma/Desktop/growth-marketing.zip",
+    slug: "growth-marketing",
+    title: "Growth & Marketing Companies",
+    h1: "Growth & Marketing Companies",
+    eyebrow: "FluidRWA vendor category",
+    description:
+      "Compare Web3 growth and marketing companies across go-to-market strategy, branding, PR, community growth, content, SEO, paid media, events and ecosystem partnerships.",
+    summary:
+      "Agencies and ecosystem partners supporting go-to-market strategy, growth, branding, PR, community expansion, content, SEO, paid media and Web3 ecosystem visibility.",
+    directoryTitle: "Compare Web3 Growth & Marketing Companies",
+    itemLabel: "companies",
+    cta: "Submit Requirements"
   }
 ];
 

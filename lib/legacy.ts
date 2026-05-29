@@ -5,6 +5,36 @@ import { siteUrl } from "./routes";
 import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
 
 const root = process.cwd();
+const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
+const preferredVendorLinks: Record<string, string> = {
+  "tokenization-platforms": "tokenization-platforms",
+  "legal-regulatory": "legal-regulatory-vendors",
+  "legal-regulatory-vendors": "legal-regulatory-vendors",
+  "kyc-aml": "kyc-aml-providers",
+  "kyc-aml-providers": "kyc-aml-providers",
+  "smart-contract-development": "smart-contract-development-companies",
+  "smart-contract-development-companies": "smart-contract-development-companies",
+  "ai-infrastructure": "ai-infrastructure-providers",
+  "ai-infrastructure-providers": "ai-infrastructure-providers",
+  "custody-solutions": "crypto-custody-providers",
+  "crypto-custody-providers": "crypto-custody-providers",
+  "fiat-on-off-ramps": "fiat-on-off-ramp-providers",
+  "fiat-on-off-ramp-providers": "fiat-on-off-ramp-providers",
+  "compliance-infrastructure": "compliance-infrastructure-providers",
+  "compliance-infrastructure-providers": "compliance-infrastructure-providers",
+  "defi-infrastructure": "defi-infrastructure-providers",
+  "defi-infrastructure-providers": "defi-infrastructure-providers",
+  "payments-stablecoins": "stablecoin-infrastructure-providers",
+  "stablecoin-infrastructure-providers": "stablecoin-infrastructure-providers",
+  "security-audits": "security-audit-companies",
+  "security-audit-companies": "security-audit-companies",
+  "growth-marketing": "growth-marketing-companies",
+  "growth-marketing-companies": "growth-marketing-companies",
+  "identity-solutions": "identity-solution-providers",
+  "identity-solution-providers": "identity-solution-providers",
+  "blockchain-development": "blockchain-development-companies",
+  "blockchain-development-companies": "blockchain-development-companies"
+};
 
 function readLegacy(file: string) {
   const fullPath = path.join(root, file);
@@ -34,7 +64,8 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
     matchTag(html, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     matchTag(html, /<meta\s+property=["']og:description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors.";
-  const ogImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) || `${siteUrl}/assets/social/home.png`;
+  const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
+  const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const canonical = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
   return {
     title,
@@ -102,16 +133,18 @@ function rewriteLinks(html: string) {
     .replaceAll('href="/index.html"', 'href="/"')
     .replaceAll('href="blog.html"', 'href="/blog"')
     .replaceAll('href="/blog.html"', 'href="/blog"')
-    .replaceAll('href="vendor-ecosystem.html"', 'href="/vendor-ecosystem"')
-    .replaceAll('href="/vendor-ecosystem.html"', 'href="/vendor-ecosystem"')
+    .replaceAll('href="vendor-ecosystem.html"', 'href="/web3vendorecosystem"')
+    .replaceAll('href="/vendor-ecosystem.html"', 'href="/web3vendorecosystem"')
+    .replaceAll('href="/vendor-ecosystem"', 'href="/web3vendorecosystem"')
     .replaceAll('href="solutions.html"', 'href="/solutions"')
     .replaceAll('href="/solutions.html"', 'href="/solutions"')
     .replaceAll('href="team.html"', 'href="/about"')
     .replaceAll('href="/team.html"', 'href="/about"')
     .replaceAll('href="contact.html"', 'href="/contact"')
     .replaceAll('href="/contact.html"', 'href="/contact"')
-    .replaceAll('href="submit-project.html"', 'href="/submit-project"')
-    .replaceAll('href="/submit-project.html"', 'href="/submit-project"')
+    .replaceAll('href="submit-project.html"', 'href="/submit-requirement"')
+    .replaceAll('href="/submit-project.html"', 'href="/submit-requirement"')
+    .replaceAll('href="/submit-project"', 'href="/submit-requirement"')
     .replaceAll('href="apply-as-vendor.html"', 'href="/apply-as-vendor"')
     .replaceAll('href="/apply-as-vendor.html"', 'href="/apply-as-vendor"')
     .replaceAll('href="arcade.html"', 'href="/arcade"')
@@ -120,8 +153,9 @@ function rewriteLinks(html: string) {
     .replaceAll('href="/privacy.html"', 'href="/privacy"')
     .replaceAll('href="terms.html"', 'href="/terms"')
     .replaceAll('href="/terms.html"', 'href="/terms"')
-    .replace(/href=["'](?:\.\.\/)*vendors\/([^"']+)\/index\.html(["'])/g, 'href="/vendors/$1$2')
-    .replace(/href=["']vendors\/([^"']+)\/index\.html(["'])/g, 'href="/vendors/$1$2')
+    .replace(/href=["'](?:\.\.\/)*vendors\/([^"']+)\/index\.html(["'])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
+    .replace(/href=["']vendors\/([^"']+)\/index\.html(["'])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
+    .replace(/href=["']\/vendors\/([^"'#\/]+)\/?(["'#])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
     .replace(/href=["'](?:\.\.\/)*blog\/([^"']+)\/index\.html(["'])/g, 'href="/blog/$1$2')
     .replace(/src=["']assets\//g, 'src="/assets/')
     .replace(/href=["']assets\//g, 'href="/assets/');

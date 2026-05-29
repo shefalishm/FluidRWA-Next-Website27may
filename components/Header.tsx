@@ -27,7 +27,7 @@ export function Header() {
               {label}
             </a>
           ))}
-          <a className="nav-ecosystem-cta" href="/vendor-ecosystem">
+          <a className="nav-ecosystem-cta" href="/web3vendorecosystem">
             Explore Vendor Ecosystem
           </a>
         </div>
