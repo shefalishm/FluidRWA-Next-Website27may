@@ -145,6 +145,7 @@ function rewriteLinks(html: string) {
     .replaceAll('href="submit-project.html"', 'href="/submit-requirement"')
     .replaceAll('href="/submit-project.html"', 'href="/submit-requirement"')
     .replaceAll('href="/submit-project"', 'href="/submit-requirement"')
+    .replace(/href=["'](?:\.\.\/)+submit-project\.html(["'])/g, 'href="/submit-requirement$1')
     .replaceAll('href="apply-as-vendor.html"', 'href="/apply-as-vendor"')
     .replaceAll('href="/apply-as-vendor.html"', 'href="/apply-as-vendor"')
     .replaceAll('href="arcade.html"', 'href="/arcade"')

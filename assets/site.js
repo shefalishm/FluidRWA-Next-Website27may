@@ -340,6 +340,43 @@ if (vendorSearch) {
   updateVendorDirectory();
 }
 
+document.querySelectorAll("[data-blog-tools]").forEach((tools) => {
+  const search = tools.querySelector("[data-blog-search]");
+  const tabs = Array.from(tools.querySelectorAll("[data-blog-category]"));
+  const grid = document.querySelector("[data-blog-grid]");
+  const cards = grid ? Array.from(grid.querySelectorAll("[data-blog-card]")) : [];
+  const empty = tools.querySelector("[data-blog-empty]");
+  let activeCategory = "all";
+
+  const updateBlogCards = () => {
+    const query = (search?.value || "").trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const category = card.dataset.category || "";
+      const text = card.dataset.search || "";
+      const matchesCategory = activeCategory === "all" || category === activeCategory;
+      const matchesQuery = !query || text.includes(query);
+      const shouldShow = matchesCategory && matchesQuery;
+      card.hidden = !shouldShow;
+      if (shouldShow) visible += 1;
+    });
+
+    if (empty) empty.hidden = visible !== 0;
+  };
+
+  search?.addEventListener("input", updateBlogCards);
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      activeCategory = tab.dataset.blogCategory || "all";
+      tabs.forEach((item) => item.classList.toggle("is-active", item === tab));
+      updateBlogCards();
+    });
+  });
+
+  updateBlogCards();
+});
+
 const arcadeShell = document.querySelector(".arcade-shell");
 
 if (arcadeShell) {

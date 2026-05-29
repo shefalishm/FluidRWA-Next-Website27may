@@ -57,22 +57,6 @@ export const vendorRouteAliases: Record<string, string> = {
   "blockchain-development-companies": "blockchain-development"
 };
 
-export const legacyVendorRedirects: Record<string, string> = {
-  "legal-regulatory": "legal-regulatory-vendors",
-  "kyc-aml": "kyc-aml-providers",
-  "smart-contract-development": "smart-contract-development-companies",
-  "ai-infrastructure": "ai-infrastructure-providers",
-  "custody-solutions": "crypto-custody-providers",
-  "fiat-on-off-ramps": "fiat-on-off-ramp-providers",
-  "compliance-infrastructure": "compliance-infrastructure-providers",
-  "defi-infrastructure": "defi-infrastructure-providers",
-  "payments-stablecoins": "stablecoin-infrastructure-providers",
-  "security-audits": "security-audit-companies",
-  "growth-marketing": "growth-marketing-companies",
-  "identity-solutions": "identity-solution-providers",
-  "blockchain-development": "blockchain-development-companies"
-};
-
 export function normalizePath(slug?: string[]) {
   return (slug || []).join("/").replace(/\/$/, "").replace(/\.html$/, "");
 }
