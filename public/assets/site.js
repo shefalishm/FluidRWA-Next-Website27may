@@ -88,6 +88,7 @@ if (gameShell) {
 
   const state = {
     running: false,
+    visible: true,
     score: 0,
     streak: 0,
     best: getBestScore(),
@@ -103,7 +104,7 @@ if (gameShell) {
 
   const resizeGame = () => {
     const rect = gameShell.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1.25 : 1.75);
     canvas.width = Math.max(320, Math.floor(rect.width * dpr));
     canvas.height = Math.max(260, Math.floor(rect.height * dpr));
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -160,6 +161,11 @@ if (gameShell) {
     const rect = gameShell.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
+    if (document.hidden || !state.visible || width < 24 || height < 24) {
+      state.lastTime = now;
+      window.setTimeout(() => requestAnimationFrame(renderGame), 180);
+      return;
+    }
     const dt = Math.min(32, now - (state.lastTime || now)) / 1000;
     state.lastTime = now;
 
@@ -268,6 +274,12 @@ if (gameShell) {
     gameShell.classList.add("is-playing");
   });
   window.addEventListener("resize", resizeGame);
+  if ("IntersectionObserver" in window) {
+    const gameObserver = new IntersectionObserver((entries) => {
+      state.visible = entries.some((entry) => entry.isIntersecting);
+    }, { threshold: 0.05 });
+    gameObserver.observe(gameShell);
+  }
   resizeGame();
   requestAnimationFrame(renderGame);
 }
@@ -326,6 +338,257 @@ if (vendorSearch) {
   });
 
   updateVendorDirectory();
+}
+
+const arcadeShell = document.querySelector(".arcade-shell");
+
+if (arcadeShell) {
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+  const shuffle = (items) => [...items].sort(() => Math.random() - 0.5);
+  const getStorage = (key, fallback = "--") => {
+    try {
+      return localStorage.getItem(key) || fallback;
+    } catch (error) {
+      return fallback;
+    }
+  };
+  const setStorage = (key, value) => {
+    try {
+      localStorage.setItem(key, String(value));
+    } catch (error) {
+      // Storage can be unavailable in private browsing; the game still works without it.
+    }
+  };
+
+  $$(".arcade-tab", arcadeShell).forEach((tab) => {
+    tab.addEventListener("click", () => {
+      $$(".arcade-tab", arcadeShell).forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+      $$(".game-panel", arcadeShell).forEach((panel) => panel.classList.toggle("active", panel.dataset.gamePanel === tab.dataset.gameTab));
+    });
+  });
+
+  const prompts = [
+    ["A real estate firm wants fractional ownership, investor onboarding, and ownership records.", "Tokenization Platforms"],
+    ["A wallet needs users to buy crypto with cards and local bank methods.", "Fiat On & Off Ramps"],
+    ["A fund needs qualified asset safekeeping, wallet policies, and treasury approvals.", "Custody Solutions"],
+    ["A marketplace must screen sanctions, wallets, and suspicious transactions.", "Compliance Infrastructure"],
+    ["A protocol needs contracts designed, tested, deployed, and maintained.", "Smart Contract Development"],
+    ["A tokenized fund needs counsel for securities, fund structure, and cross-border rules.", "Legal & Regulatory"],
+    ["A digital asset app needs identity checks, KYC, AML, and user verification.", "KYC / AML Providers"],
+    ["A company wants analytics, automation, and intelligent tooling for Web3 operations.", "AI Infrastructure"],
+    ["A platform needs stablecoin settlement, merchant payments, and treasury movement.", "Payments & Stablecoins"],
+    ["An issuer needs audit support, penetration testing, and incident monitoring.", "Security & Audits"]
+  ];
+  const categories = ["Tokenization Platforms", "Fiat On & Off Ramps", "Custody Solutions", "Compliance Infrastructure", "Smart Contract Development", "Legal & Regulatory", "KYC / AML Providers", "AI Infrastructure", "Payments & Stablecoins", "Security & Audits"];
+  const match = { score: 0, streak: 0, time: 45, round: 0, active: false, current: null, timer: null };
+  const renderMatch = () => {
+    $("[data-match-score]") && ($("[data-match-score]").textContent = match.score);
+    $("[data-match-streak]") && ($("[data-match-streak]").textContent = match.streak);
+    $("[data-match-time]") && ($("[data-match-time]").textContent = match.time);
+    $("[data-match-round]") && ($("[data-match-round]").textContent = match.active ? `Round ${match.round}` : "Ready");
+  };
+  const nextMatch = () => {
+    match.round += 1;
+    match.current = prompts[Math.floor(Math.random() * prompts.length)];
+    const options = shuffle([match.current[1], ...shuffle(categories.filter((category) => category !== match.current[1])).slice(0, 3)]);
+    const scenario = $("[data-match-scenario]");
+    const grid = $("[data-match-choices]");
+    if (!scenario || !grid) return;
+    scenario.textContent = match.current[0];
+    grid.innerHTML = "";
+    options.forEach((option) => {
+      const button = document.createElement("button");
+      button.className = "game-btn";
+      button.type = "button";
+      button.textContent = option;
+      button.addEventListener("click", () => {
+        if (!match.active) return;
+        const correct = option === match.current[1];
+        button.classList.add(correct ? "correct" : "wrong");
+        if (correct) {
+          match.streak += 1;
+          match.score += 10 + Math.min(match.streak * 2, 20);
+          match.time = Math.min(60, match.time + 2);
+          $("[data-match-feedback]").textContent = `Correct. ${match.current[1]} is the best category.`;
+        } else {
+          match.streak = 0;
+          match.time = Math.max(0, match.time - 4);
+          $("[data-match-feedback]").textContent = `Close. This points to ${match.current[1]}.`;
+        }
+        renderMatch();
+        window.setTimeout(() => match.active && nextMatch(), 420);
+      });
+      grid.appendChild(button);
+    });
+    renderMatch();
+  };
+  $("[data-match-start]")?.addEventListener("click", () => {
+    clearInterval(match.timer);
+    Object.assign(match, { score: 0, streak: 0, time: 45, round: 0, active: true });
+    $("[data-match-start]").textContent = "Restart";
+    $("[data-match-feedback]").textContent = "Pick quickly. Correct answers add points and time.";
+    nextMatch();
+    match.timer = window.setInterval(() => {
+      match.time -= 1;
+      renderMatch();
+      if (match.time <= 0) {
+        match.active = false;
+        clearInterval(match.timer);
+        $("[data-match-feedback]").textContent = `Sprint complete. Final score: ${match.score}.`;
+        $("[data-match-start]").textContent = "Play Again";
+        $("[data-match-choices]").innerHTML = "";
+        renderMatch();
+      }
+    }, 1000);
+  });
+  renderMatch();
+
+  const stackOrder = ["Legal & Regulatory", "Tokenization Platforms", "KYC / AML Providers", "Custody Solutions", "Payments & Stablecoins", "Compliance Infrastructure"];
+  const stack = { step: 0, score: 0 };
+  const renderStack = () => {
+    $("[data-stack-built]").textContent = stack.step;
+    $("[data-stack-step]").textContent = Math.min(stack.step + 1, stackOrder.length);
+    $("[data-stack-score]").textContent = stack.score;
+    const grid = $("[data-stack-choices]");
+    if (!grid) return;
+    grid.innerHTML = "";
+    shuffle(stackOrder).forEach((label) => {
+      const button = document.createElement("button");
+      button.className = "game-btn";
+      button.type = "button";
+      button.textContent = label;
+      button.disabled = stack.step >= stackOrder.length;
+      button.addEventListener("click", () => {
+        const correct = label === stackOrder[stack.step];
+        button.classList.add(correct ? "correct" : "wrong");
+        if (correct) {
+          stack.step += 1;
+          stack.score += 15;
+          $("[data-stack-feedback]").textContent = stack.step === stackOrder.length ? "Stack complete. That is a launch-ready path." : `Good. Next add ${stackOrder[stack.step]}.`;
+        } else {
+          stack.score = Math.max(0, stack.score - 5);
+          $("[data-stack-feedback]").textContent = `Not yet. The next layer should be ${stackOrder[stack.step]}.`;
+        }
+        window.setTimeout(renderStack, 360);
+      });
+      grid.appendChild(button);
+    });
+  };
+  $("[data-stack-start]")?.addEventListener("click", () => {
+    stack.step = 0;
+    stack.score = 0;
+    $("[data-stack-feedback]").textContent = "Start with structure, then onboarding, asset safety, money movement and reporting.";
+    renderStack();
+  });
+  renderStack();
+
+  const riskControls = ["Sanctions Screening", "Wallet Monitoring", "KYC Check", "Transfer Rules", "Audit Trail", "PEP Screening"];
+  const riskNoise = ["Logo Refresh", "Discord Emoji", "Meme Contest", "Hero Gradient", "Sticker Pack", "Mascot Name"];
+  const risk = { score: 0, round: 1, lives: 3 };
+  const renderRisk = () => {
+    $("[data-risk-score]").textContent = risk.score;
+    $("[data-risk-round]").textContent = risk.round;
+    $("[data-risk-lives]").textContent = risk.lives;
+    const grid = $("[data-risk-choices]");
+    if (!grid) return;
+    grid.innerHTML = "";
+    shuffle([...shuffle(riskControls).slice(0, 4), ...shuffle(riskNoise).slice(0, 2)]).forEach((label) => {
+      const button = document.createElement("button");
+      button.className = "game-btn";
+      button.type = "button";
+      button.textContent = label;
+      button.addEventListener("click", () => {
+        const correct = riskControls.includes(label);
+        button.classList.add(correct ? "correct" : "wrong");
+        button.disabled = true;
+        if (correct) {
+          risk.score += 10;
+          $("[data-risk-feedback]").textContent = `Caught: ${label}.`;
+        } else {
+          risk.lives -= 1;
+          $("[data-risk-feedback]").textContent = "Noise. Save attention for compliance controls.";
+          if (risk.lives <= 0) {
+            risk.score = 0;
+            risk.lives = 3;
+            risk.round = 1;
+            $("[data-risk-feedback]").textContent = "Reset. Compliance teams need precision.";
+          }
+        }
+        $("[data-risk-score]").textContent = risk.score;
+        $("[data-risk-lives]").textContent = risk.lives;
+      });
+      grid.appendChild(button);
+    });
+  };
+  $("[data-risk-next]")?.addEventListener("click", () => {
+    risk.round += 1;
+    renderRisk();
+  });
+  renderRisk();
+
+  const memoryPairs = [["KYC", "Verify users"], ["Custody", "Safekeep assets"], ["Legal", "Structure offering"], ["Payments", "Move money"], ["Audits", "Secure code"], ["AI", "Automate analysis"]];
+  let memory = { first: null, lock: false, pairs: 0, moves: 0 };
+  const renderMemory = () => {
+    memory = { first: null, lock: false, pairs: 0, moves: 0 };
+    $("[data-memory-pairs]").textContent = "0";
+    $("[data-memory-moves]").textContent = "0";
+    $("[data-memory-best]").textContent = getStorage("fluidrwaMemoryBest");
+    $("[data-memory-feedback]").textContent = "Flip two cards. Match each vendor category with its buyer need.";
+    const grid = $("[data-memory-grid]");
+    if (!grid) return;
+    grid.innerHTML = "";
+    shuffle(memoryPairs.flatMap(([label, need], index) => [{ text: label, pair: index }, { text: need, pair: index }])).forEach((card) => {
+      const button = document.createElement("button");
+      button.className = "memory-card";
+      button.type = "button";
+      button.textContent = "?";
+      button.dataset.text = card.text;
+      button.dataset.pair = String(card.pair);
+      button.addEventListener("click", () => {
+        if (memory.lock || button.classList.contains("matched") || button.classList.contains("revealed")) return;
+        button.classList.add("revealed");
+        button.textContent = button.dataset.text;
+        if (!memory.first) {
+          memory.first = button;
+          return;
+        }
+        memory.moves += 1;
+        $("[data-memory-moves]").textContent = memory.moves;
+        const correct = memory.first.dataset.pair === button.dataset.pair;
+        if (correct) {
+          memory.first.classList.add("matched");
+          button.classList.add("matched");
+          memory.pairs += 1;
+          $("[data-memory-pairs]").textContent = memory.pairs;
+          $("[data-memory-feedback]").textContent = "Matched.";
+          memory.first = null;
+          if (memory.pairs === memoryPairs.length) {
+            const best = getStorage("fluidrwaMemoryBest", "");
+            if (!best || memory.moves < Number(best)) {
+              setStorage("fluidrwaMemoryBest", memory.moves);
+              $("[data-memory-best]").textContent = memory.moves;
+            }
+            $("[data-memory-feedback]").textContent = `Board complete in ${memory.moves} moves.`;
+          }
+        } else {
+          memory.lock = true;
+          $("[data-memory-feedback]").textContent = "Not a pair. Try the ecosystem logic.";
+          window.setTimeout(() => {
+            memory.first.classList.remove("revealed");
+            button.classList.remove("revealed");
+            memory.first.textContent = "?";
+            button.textContent = "?";
+            memory.first = null;
+            memory.lock = false;
+          }, 560);
+        }
+      });
+      grid.appendChild(button);
+    });
+  };
+  $("[data-memory-reset]")?.addEventListener("click", renderMemory);
+  renderMemory();
 }
 
 document.querySelectorAll("[data-bc-search]").forEach((input) => {

@@ -4653,3 +4653,122 @@ tr:last-child td { border-bottom: 0; }
     width: 100%;
   }
 }
+
+/* Mobile QA fixes: avoid nested page scroll traps and keep lightweight games responsive. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+main,
+.next-page-shell {
+  overflow-x: clip;
+}
+
+.vendor-game {
+  contain: layout paint;
+}
+
+.vendor-game canvas {
+  touch-action: pan-y;
+}
+
+@media (max-width: 720px) {
+  .category-grid {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+
+  .category-section,
+  .category-section .light-container {
+    overflow: visible !important;
+  }
+
+  .listing-tile {
+    min-height: auto;
+    padding: 18px 58px 18px 18px;
+  }
+
+  .listing-tile em {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .vendor-game {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .question-copy,
+  .question-copy p,
+  .arcade-hero-grid > div,
+  .arcade-hero p,
+  .arcade-hero h1 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .question-copy h1,
+  .arcade-hero h1 {
+    font-size: clamp(30px, 8.2vw, 36px) !important;
+    line-height: 1.12 !important;
+    text-wrap: auto !important;
+  }
+
+  .question-copy p:not(.eyebrow),
+  .arcade-hero p:not(.eyebrow) {
+    font-size: 15.5px !important;
+    line-height: 1.58 !important;
+  }
+
+  .arcade-hero {
+    padding: 112px 0 28px !important;
+  }
+
+  .arcade-hero-grid {
+    gap: 18px !important;
+  }
+
+  .arcade-shell {
+    border-radius: 18px !important;
+    box-shadow: 0 16px 40px rgba(18,33,58,.08) !important;
+  }
+
+  .game-panel {
+    padding: 14px !important;
+  }
+
+  .scenario-card {
+    min-height: 104px !important;
+    padding: 15px !important;
+  }
+
+  .scenario-card strong {
+    font-size: clamp(18px, 5.8vw, 24px) !important;
+  }
+
+  .game-btn,
+  .memory-card,
+  .arcade-tab {
+    touch-action: manipulation;
+  }
+
+  .game-btn,
+  .memory-card {
+    min-height: 52px !important;
+    border-radius: 14px !important;
+    padding: 12px !important;
+    transition: none !important;
+    box-shadow: 0 8px 18px rgba(18,33,58,.04) !important;
+  }
+
+  .memory-grid {
+    gap: 8px !important;
+  }
+}
