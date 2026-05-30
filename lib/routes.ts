@@ -27,20 +27,37 @@ export const staticRoutes = [
 
 export const vendorSlugs = [
   "tokenization-platforms",
-  "legal-regulatory",
-  "kyc-aml",
-  "smart-contract-development",
-  "ai-infrastructure",
-  "custody-solutions",
-  "fiat-on-off-ramps",
-  "compliance-infrastructure",
-  "defi-infrastructure",
-  "payments-stablecoins",
-  "security-audits",
-  "growth-marketing",
-  "identity-solutions",
-  "blockchain-development"
+  "legal-regulatory-vendors",
+  "kyc-aml-providers",
+  "smart-contract-development-companies",
+  "ai-infrastructure-providers",
+  "crypto-custody-providers",
+  "fiat-on-off-ramp-providers",
+  "compliance-infrastructure-providers",
+  "defi-infrastructure-providers",
+  "stablecoin-infrastructure-providers",
+  "security-audit-companies",
+  "growth-marketing-companies",
+  "identity-solution-providers",
+  "blockchain-development-companies"
 ] as const;
+
+const vendorFileMap: Record<string, string> = {
+  "tokenization-platforms": "tokenization-platforms",
+  "legal-regulatory-vendors": "legal-regulatory",
+  "kyc-aml-providers": "kyc-aml",
+  "smart-contract-development-companies": "smart-contract-development",
+  "ai-infrastructure-providers": "ai-infrastructure",
+  "crypto-custody-providers": "custody-solutions",
+  "fiat-on-off-ramp-providers": "fiat-on-off-ramps",
+  "compliance-infrastructure-providers": "compliance-infrastructure",
+  "defi-infrastructure-providers": "defi-infrastructure",
+  "stablecoin-infrastructure-providers": "payments-stablecoins",
+  "security-audit-companies": "security-audits",
+  "growth-marketing-companies": "growth-marketing",
+  "identity-solution-providers": "identity-solutions",
+  "blockchain-development-companies": "blockchain-development"
+};
 
 export function normalizePath(slug?: string[]) {
   return (slug || []).join("/").replace(/\/$/, "").replace(/\.html$/, "");
@@ -50,7 +67,11 @@ export function fileForRoute(routePath: string) {
   const direct = staticRoutes.find((route) => route.path === routePath);
   if (direct) return direct.file;
   if (routePath === "vendors") return "vendor-ecosystem.html";
-  if (routePath.startsWith("vendors/")) return path.join(routePath, "index.html");
+  if (routePath.startsWith("vendors/")) {
+    const slug = routePath.replace(/^vendors\//, "");
+    const fileSlug = vendorFileMap[slug] || slug;
+    return path.join("vendors", fileSlug, "index.html");
+  }
   if (routePath.startsWith("blog/")) return path.join(routePath, "index.html");
   return null;
 }
