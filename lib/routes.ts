@@ -5,12 +5,14 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fluidrwa
 
 export const staticRoutes = [
   { path: "", file: "index.html", title: "FluidRWA | Web3 Vendor Discovery" },
+  { path: "vendor-ecosystem", file: "vendor-ecosystem.html", title: "Vendor Ecosystem | FluidRWA" },
   { path: "web3vendorecosystem", file: "vendor-ecosystem.html", title: "Web3 Vendor Ecosystem | FluidRWA" },
   { path: "solutions", file: "solutions.html", title: "Solutions | FluidRWA" },
   { path: "blog", file: "blog.html", title: "Insights | FluidRWA" },
   { path: "about", file: "team.html", title: "About FluidRWA" },
   { path: "team", file: "team.html", title: "Team | FluidRWA" },
   { path: "contact", file: "contact.html", title: "Contact FluidRWA" },
+  { path: "submit-project", file: "submit-project.html", title: "Submit a Project | FluidRWA" },
   { path: "submit-requirement", file: "submit-project.html", title: "Submit Requirements | FluidRWA" },
   { path: "apply-as-vendor", file: "apply-as-vendor.html", title: "Apply as Vendor | FluidRWA" },
   { path: "arcade", file: "arcade.html", title: "FluidRWA Arcade" },
@@ -25,37 +27,20 @@ export const staticRoutes = [
 
 export const vendorSlugs = [
   "tokenization-platforms",
-  "legal-regulatory-vendors",
-  "kyc-aml-providers",
-  "smart-contract-development-companies",
-  "ai-infrastructure-providers",
-  "crypto-custody-providers",
-  "fiat-on-off-ramp-providers",
-  "compliance-infrastructure-providers",
-  "defi-infrastructure-providers",
-  "stablecoin-infrastructure-providers",
-  "security-audit-companies",
-  "growth-marketing-companies",
-  "identity-solution-providers",
-  "blockchain-development-companies"
+  "legal-regulatory",
+  "kyc-aml",
+  "smart-contract-development",
+  "ai-infrastructure",
+  "custody-solutions",
+  "fiat-on-off-ramps",
+  "compliance-infrastructure",
+  "defi-infrastructure",
+  "payments-stablecoins",
+  "security-audits",
+  "growth-marketing",
+  "identity-solutions",
+  "blockchain-development"
 ] as const;
-
-export const vendorRouteAliases: Record<string, string> = {
-  "tokenization-platforms": "tokenization-platforms",
-  "legal-regulatory-vendors": "legal-regulatory",
-  "kyc-aml-providers": "kyc-aml",
-  "smart-contract-development-companies": "smart-contract-development",
-  "ai-infrastructure-providers": "ai-infrastructure",
-  "crypto-custody-providers": "custody-solutions",
-  "fiat-on-off-ramp-providers": "fiat-on-off-ramps",
-  "compliance-infrastructure-providers": "compliance-infrastructure",
-  "defi-infrastructure-providers": "defi-infrastructure",
-  "stablecoin-infrastructure-providers": "payments-stablecoins",
-  "security-audit-companies": "security-audits",
-  "growth-marketing-companies": "growth-marketing",
-  "identity-solution-providers": "identity-solutions",
-  "blockchain-development-companies": "blockchain-development"
-};
 
 export function normalizePath(slug?: string[]) {
   return (slug || []).join("/").replace(/\/$/, "").replace(/\.html$/, "");
@@ -65,11 +50,7 @@ export function fileForRoute(routePath: string) {
   const direct = staticRoutes.find((route) => route.path === routePath);
   if (direct) return direct.file;
   if (routePath === "vendors") return "vendor-ecosystem.html";
-  if (routePath === "insights") return "blog.html";
-  if (routePath.startsWith("vendors/")) {
-    const slug = routePath.replace("vendors/", "");
-    return path.join("vendors", vendorRouteAliases[slug] || slug, "index.html");
-  }
+  if (routePath.startsWith("vendors/")) return path.join(routePath, "index.html");
   if (routePath.startsWith("blog/")) return path.join(routePath, "index.html");
   return null;
 }
@@ -87,8 +68,6 @@ export function allRoutePaths() {
     : [];
   return [
     ...staticRoutes.map((route) => route.path).filter(Boolean),
-    "vendors",
-    "insights",
     "blog/tokenization",
     ...vendorSlugs.map((slug) => `vendors/${slug}`),
     ...blogPaths
