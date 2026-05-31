@@ -48,6 +48,16 @@ const nextConfig = {
       { source: "/vendors/blockchain-development", destination: "/vendors/blockchain-development-companies", permanent: true },
       { source: "/vendors/:slug/index.html", destination: "/vendors/:slug", permanent: true },
       { source: "/blog/:slug/index.html", destination: "/blog/:slug", permanent: true }
+      ,
+      { source: "/submission-success", destination: "/", permanent: true },
+      { source: "/lead-board", destination: "/", permanent: true },
+      { source: "/unlocked-lead-detail", destination: "/", permanent: true },
+      { source: "/service-category-a", destination: "/web3vendorecosystem", permanent: true },
+      { source: "/service-category-b", destination: "/web3vendorecosystem", permanent: true },
+      { source: "/service-category-c", destination: "/web3vendorecosystem", permanent: true },
+      { source: "/groups", destination: "/", permanent: true },
+      { source: "/product-page/:slug*", destination: "/", permanent: true },
+      { source: "/post/:slug*", destination: "/blog", permanent: true }
     ];
   }
 };

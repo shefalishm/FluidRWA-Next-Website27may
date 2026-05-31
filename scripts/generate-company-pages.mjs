@@ -350,10 +350,6 @@ function pageHtml(company, profile, alternatives) {
     {
       q: `What are alternatives to ${company.name}?`,
       a: `Relevant alternatives include ${alternatives.slice(0, 4).map((item) => item.name).join(", ") || "other providers in the same FluidRWA category"}.`
-    },
-    {
-      q: `Does FluidRWA endorse ${company.name}?`,
-      a: "No. FluidRWA is a discovery and research layer. Inclusion helps buyers compare vendors, but every organization should complete its own legal, technical, security and commercial diligence."
     }
   ];
 
@@ -512,6 +508,42 @@ function patchCategoryCards(companies) {
   }
 }
 
+function patchVendorEcosystemProfileIndex(companies) {
+  const ecosystemPath = path.join(root, "vendor-ecosystem.html");
+  if (!fs.existsSync(ecosystemPath)) return;
+  let html = fs.readFileSync(ecosystemPath, "utf8");
+  const start = "<!-- FLUIDRWA_COMPANY_PROFILE_INDEX_START -->";
+  const end = "<!-- FLUIDRWA_COMPANY_PROFILE_INDEX_END -->";
+  const grouped = new Map();
+  for (const company of companies) {
+    if (!grouped.has(company.categoryTitle)) grouped.set(company.categoryTitle, []);
+    grouped.get(company.categoryTitle).push(company);
+  }
+  const indexHtml = `${start}
+    <section class="vendor-profile-index" aria-labelledby="company-profile-index-title">
+      <div class="light-container">
+        <div class="solutions-section-head">
+          <p class="eyebrow light-eyebrow">Company profiles</p>
+          <h2 id="company-profile-index-title">Explore crawlable vendor profile pages</h2>
+          <p>Use these profile pages to compare official website summaries, category fit, alternatives and FAQs for selected companies across the FluidRWA ecosystem.</p>
+        </div>
+        <div class="vendor-profile-index-grid">
+          ${[...grouped.entries()].map(([category, items]) => `<article class="vendor-profile-index-card">
+            <h3>${esc(category)}</h3>
+            <div>${items.map((item) => `<a href="/fluidrwa/${item.slug}">${esc(item.name)}</a>`).join("")}</div>
+          </article>`).join("")}
+        </div>
+      </div>
+    </section>
+${end}`;
+  if (html.includes(start) && html.includes(end)) {
+    html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), indexHtml);
+  } else {
+    html = html.replace("</main>", `${indexHtml}\n  </main>`);
+  }
+  fs.writeFileSync(ecosystemPath, html);
+}
+
 async function main() {
   fs.mkdirSync(fluidrwaDir, { recursive: true });
   const cache = readJsonCache();
@@ -527,6 +559,7 @@ async function main() {
   }
 
   patchCategoryCards(companies);
+  patchVendorEcosystemProfileIndex(companies);
   writeJsonCache(cache);
   console.log(`Generated ${companies.length} FluidRWA company profile pages.`);
 }
