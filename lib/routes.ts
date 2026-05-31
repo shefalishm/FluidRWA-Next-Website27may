@@ -22,7 +22,19 @@ export const staticRoutes = [
   { path: "compliance", file: "compliance.html", title: "Compliance | FluidRWA" },
   { path: "custody", file: "custody.html", title: "Custody | FluidRWA" },
   { path: "ai", file: "ai.html", title: "AI Infrastructure | FluidRWA" },
-  { path: "providers", file: "providers.html", title: "Providers | FluidRWA" }
+  { path: "providers", file: "providers.html", title: "Providers | FluidRWA" },
+  { path: "industries/asset-managers", file: "industries/asset-managers.html", title: "Asset Managers | FluidRWA" },
+  { path: "industries/financial-institutions", file: "industries/financial-institutions.html", title: "Financial Institutions | FluidRWA" },
+  { path: "industries/real-estate-firms", file: "industries/real-estate-firms.html", title: "Real Estate Firms | FluidRWA" },
+  { path: "industries/enterprises", file: "industries/enterprises.html", title: "Enterprises | FluidRWA" },
+  { path: "industries/web3-startups", file: "industries/web3-startups.html", title: "Web3 Startups | FluidRWA" },
+  { path: "industries/funds-investment-platforms", file: "industries/funds-investment-platforms.html", title: "Funds & Investment Platforms | FluidRWA" },
+  { path: "industries/governments-regulatory-initiatives", file: "industries/governments-regulatory-initiatives.html", title: "Governments & Regulatory Initiatives | FluidRWA" },
+  { path: "industries/service-providers-infrastructure-companies", file: "industries/service-providers-infrastructure-companies.html", title: "Service Providers & Infrastructure Companies | FluidRWA" },
+  { path: "industries/healthcare-life-sciences", file: "industries/healthcare-life-sciences.html", title: "Healthcare & Life Sciences | FluidRWA" },
+  { path: "industries/maritime-logistics", file: "industries/maritime-logistics.html", title: "Maritime & Logistics | FluidRWA" },
+  { path: "industries/data-centers-compute-infrastructure", file: "industries/data-centers-compute-infrastructure.html", title: "Data Centers & Compute Infrastructure | FluidRWA" },
+  { path: "industries/carbon-credits-climate-markets", file: "industries/carbon-credits-climate-markets.html", title: "Carbon Credits & Climate Markets | FluidRWA" }
 ] as const;
 
 export const vendorSlugs = [
