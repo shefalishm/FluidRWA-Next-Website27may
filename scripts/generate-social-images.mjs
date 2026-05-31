@@ -4,8 +4,10 @@ import zlib from "node:zlib";
 
 const root = process.cwd();
 const socialDir = path.join(root, "assets/social");
+const publicSocialDir = path.join(root, "public/assets/social");
 const contentDir = path.join(root, "content/blog");
 fs.mkdirSync(socialDir, { recursive: true });
+fs.mkdirSync(publicSocialDir, { recursive: true });
 
 const W = 1200;
 const H = 630;
@@ -229,7 +231,9 @@ function card({ title, label, slug, output }) {
   wrap(title, 880, 8, 3).forEach((lineText, i) => drawText(buf, lineText, 132, 292 + i * 70, 8, ink));
   rect(buf, 132, 494, 590, 52, ink, 0.95);
   drawText(buf, "DISCOVERY FOR TOKENIZED FINANCE", 160, 512, 3, [255, 255, 255]);
-  fs.writeFileSync(path.join(socialDir, output), png(W, H, buf));
+  const image = png(W, H, buf);
+  fs.writeFileSync(path.join(socialDir, output), image);
+  fs.writeFileSync(path.join(publicSocialDir, output), image);
 }
 
 const pageCards = [

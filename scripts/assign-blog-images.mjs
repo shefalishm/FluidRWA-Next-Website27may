@@ -4,7 +4,9 @@ import path from "node:path";
 const root = process.cwd();
 const blogDir = path.join(root, "content/blog");
 const imageDir = path.join(root, "assets/blog-images");
+const publicImageDir = path.join(root, "public/assets/blog-images");
 fs.mkdirSync(imageDir, { recursive: true });
+fs.mkdirSync(publicImageDir, { recursive: true });
 
 function esc(value = "") {
   return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -140,10 +142,15 @@ files.forEach((file, index) => {
   const full = path.join(blogDir, file);
   const parsed = parse(fs.readFileSync(full, "utf8"));
   const slug = parsed.data.slug || file.replace(/\.md$/, "");
+  if (String(parsed.data.imageLocked || "").toLowerCase() === "true") {
+    return;
+  }
   const imagePath = `/assets/blog-images/${slug}.svg`;
   parsed.data.image = imagePath;
   parsed.data.imageAlt = `${parsed.data.title} editorial infrastructure visual`;
-  fs.writeFileSync(path.join(imageDir, `${slug}.svg`), svg(parsed.data, index));
+  const imageSvg = svg(parsed.data, index);
+  fs.writeFileSync(path.join(imageDir, `${slug}.svg`), imageSvg);
+  fs.writeFileSync(path.join(publicImageDir, `${slug}.svg`), imageSvg);
   fs.writeFileSync(full, `---\n${frontmatter(parsed.data)}\n---\n${parsed.body}`);
 });
 
