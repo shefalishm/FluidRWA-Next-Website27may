@@ -79,6 +79,7 @@ export function fileForRoute(routePath: string) {
   const direct = staticRoutes.find((route) => route.path === routePath);
   if (direct) return direct.file;
   if (routePath === "vendors") return "vendor-ecosystem.html";
+  if (routePath.startsWith("fluidrwa/")) return path.join(routePath, "index.html");
   if (routePath.startsWith("vendors/")) {
     const slug = routePath.replace(/^vendors\//, "");
     const fileSlug = vendorFileMap[slug] || slug;
@@ -99,9 +100,16 @@ export function allRoutePaths() {
           return `blog/${slug}`;
         })
     : [];
+  const companyRoot = path.join(process.cwd(), "fluidrwa");
+  const companyPaths = fs.existsSync(companyRoot)
+    ? fs.readdirSync(companyRoot)
+        .filter((dir) => fs.existsSync(path.join(companyRoot, dir, "index.html")))
+        .map((dir) => `fluidrwa/${dir}`)
+    : [];
   return [
     ...staticRoutes.map((route) => route.path).filter(Boolean),
     "blog/tokenization",
+    ...companyPaths,
     ...vendorSlugs.map((slug) => `vendors/${slug}`),
     ...blogPaths
   ];
