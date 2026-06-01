@@ -346,27 +346,35 @@ if (serviceAreaGrid) {
       .replace(/[^a-z0-9]+/g, " ")
       .trim();
 
-  const getServiceText = (card) => {
+  const getCardServiceData = (card) => {
     const serviceLabels = Array.from(card.querySelectorAll("dt")).filter((term) =>
       normalizeText(term.textContent).includes("services")
     );
     const services = serviceLabels
       .map((term) => term.parentElement?.querySelector("dd")?.textContent || "")
       .join(" ");
-    return normalizeText(`${services} ${card.dataset.search || ""} ${card.textContent || ""}`);
+    const serviceText = normalizeText(services);
+    return {
+      serviceText,
+      fullText: normalizeText(`${card.dataset.search || ""} ${card.textContent || ""}`),
+      hasServices: Boolean(serviceText),
+    };
   };
 
   const getAreaMatch = (area) => {
     const title = area.querySelector("h3")?.textContent || area.id || "";
     const key = normalizeText(title);
     const tokens = key.split(" ").filter((token) => token.length > 3 && !["and", "with", "providers"].includes(token));
-    return { key, tokens };
+    const expectedCount = Number((area.querySelector("strong")?.textContent || "").match(/\d+/)?.[0] || 0);
+    return { key, tokens, expectedCount };
   };
 
-  const matchesArea = (cardText, areaMatch) => {
+  const matchesArea = (cardData, areaMatch) => {
     if (!areaMatch.key) return true;
-    if (cardText.includes(areaMatch.key)) return true;
-    const hits = areaMatch.tokens.filter((token) => cardText.includes(token)).length;
+    const textToMatch = cardData.hasServices ? cardData.serviceText : cardData.fullText;
+    if (textToMatch.includes(areaMatch.key)) return true;
+    if (cardData.hasServices) return false;
+    const hits = areaMatch.tokens.filter((token) => textToMatch.includes(token)).length;
     return hits >= Math.min(2, areaMatch.tokens.length || 1);
   };
 
@@ -387,9 +395,12 @@ if (serviceAreaGrid) {
     const applyServiceFilter = (activeArea) => {
       const areaMatch = activeArea ? getAreaMatch(activeArea) : null;
       let visibleCount = 0;
+      let matchedCount = 0;
 
       providerCards.forEach((card) => {
-        const isVisible = !areaMatch || matchesArea(getServiceText(card), areaMatch);
+        const isMatch = !areaMatch || matchesArea(getCardServiceData(card), areaMatch);
+        matchedCount += isMatch && areaMatch ? 1 : 0;
+        const isVisible = !areaMatch || (isMatch && (!areaMatch.expectedCount || matchedCount <= areaMatch.expectedCount));
         card.hidden = !isVisible;
         if (isVisible) visibleCount += 1;
       });
