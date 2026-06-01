@@ -330,3 +330,105 @@ if (vendorSearch) {
 
   updateVendorDirectory();
 }
+
+const serviceAreaGrid = document.querySelector(".bc-area-grid");
+
+if (serviceAreaGrid) {
+  const serviceAreaCards = Array.from(serviceAreaGrid.querySelectorAll(".bc-area-card"));
+  const providerCards = Array.from(document.querySelectorAll(".bc-provider-card, .bc-company-card"));
+  const directorySection = document.querySelector("#vendor-directory");
+  const directoryHead = directorySection?.querySelector(".bc-directory-head") || directorySection;
+
+  const normalizeText = (value) =>
+    (value || "")
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+
+  const getServiceText = (card) => {
+    const serviceLabels = Array.from(card.querySelectorAll("dt")).filter((term) =>
+      normalizeText(term.textContent).includes("services")
+    );
+    const services = serviceLabels
+      .map((term) => term.parentElement?.querySelector("dd")?.textContent || "")
+      .join(" ");
+    return normalizeText(`${services} ${card.dataset.search || ""} ${card.textContent || ""}`);
+  };
+
+  const getAreaMatch = (area) => {
+    const title = area.querySelector("h3")?.textContent || area.id || "";
+    const key = normalizeText(title);
+    const tokens = key.split(" ").filter((token) => token.length > 3 && !["and", "with", "providers"].includes(token));
+    return { key, tokens };
+  };
+
+  const matchesArea = (cardText, areaMatch) => {
+    if (!areaMatch.key) return true;
+    if (cardText.includes(areaMatch.key)) return true;
+    const hits = areaMatch.tokens.filter((token) => cardText.includes(token)).length;
+    return hits >= Math.min(2, areaMatch.tokens.length || 1);
+  };
+
+  if (serviceAreaCards.length && providerCards.length) {
+    const allButton = document.createElement("button");
+    allButton.type = "button";
+    allButton.className = "bc-area-filter-reset is-active";
+    allButton.textContent = "Show all providers";
+    allButton.setAttribute("aria-pressed", "true");
+    serviceAreaGrid.before(allButton);
+
+    const status = document.createElement("p");
+    status.className = "bc-count";
+    status.setAttribute("aria-live", "polite");
+    status.hidden = true;
+    directoryHead?.after(status);
+
+    const applyServiceFilter = (activeArea) => {
+      const areaMatch = activeArea ? getAreaMatch(activeArea) : null;
+      let visibleCount = 0;
+
+      providerCards.forEach((card) => {
+        const isVisible = !areaMatch || matchesArea(getServiceText(card), areaMatch);
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      serviceAreaCards.forEach((area) => {
+        const isActive = area === activeArea;
+        area.classList.toggle("is-active", isActive);
+        area.setAttribute("aria-pressed", String(isActive));
+      });
+
+      allButton.classList.toggle("is-active", !activeArea);
+      allButton.setAttribute("aria-pressed", String(!activeArea));
+
+      if (status) {
+        status.hidden = !activeArea;
+        status.textContent = activeArea
+          ? `${visibleCount.toLocaleString()} providers shown for ${activeArea.querySelector("h3")?.textContent || "this service area"}`
+          : "";
+      }
+    };
+
+    allButton.addEventListener("click", () => {
+      applyServiceFilter(null);
+      directorySection?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    serviceAreaCards.forEach((area) => {
+      area.tabIndex = 0;
+      area.setAttribute("role", "button");
+      area.setAttribute("aria-pressed", "false");
+      area.addEventListener("click", () => {
+        applyServiceFilter(area);
+        directorySection?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      area.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        area.click();
+      });
+    });
+  }
+}
