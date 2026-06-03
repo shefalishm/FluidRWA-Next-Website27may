@@ -66,29 +66,103 @@
         <div class="question-copy reveal">
           <p class="eyebrow light-eyebrow">Web3 vendor discovery</p>
           <h1 id="hero-title">Finding a Web3 vendor is not easy</h1>
-          <p class="lede light-lede"><strong>That is why FluidRWA exists.</strong> The first discovery place where you can find vendors for RWA, tokenization, compliance, custody, payments, legal and AI.</p>
+          <p class="lede light-lede">The first discovery place where you can find vendors for RWA, tokenization, compliance, custody, payments, legal and AI.</p>
+          <p class="lede light-lede hero-why"><strong>That is why FluidRWA exists</strong></p>
           <div class="hero-actions">
             <a class="btn btn-primary light-primary" href="#categories">Find Vendors</a>
-            <a class="btn btn-soft" href="submit-project.html">Submit Project</a>
+            <a class="btn btn-soft" href="submit-requirement">Submit Project</a>
           </div>
-          <div class="directory-search reveal" role="search" aria-label="Search vendor categories">
+          <form class="directory-search home-vendor-search reveal" role="search" aria-label="Search FluidRWA vendor categories and companies" data-home-vendor-search>
             <span>Search by category</span>
-            <strong>Tokenization, KYC, custody, payments...</strong>
-          </div>
+            <label class="sr-only" for="home-vendor-search-input">Search vendor categories, companies, or keywords</label>
+            <input id="home-vendor-search-input" name="q" type="search" list="home-vendor-search-suggestions" autocomplete="off" placeholder="Tokenization, KYC, custody, payments..." data-home-vendor-search-input>
+            <button type="submit">Search</button>
+            <datalist id="home-vendor-search-suggestions">
+              <option value="Tokenization">
+              <option value="KYC AML">
+              <option value="Custody">
+              <option value="Stablecoins">
+              <option value="Compliance">
+              <option value="Security audits">
+              <option value="Growth marketing">
+              <option value="Blockchain development">
+              <option value="Zoniqx">
+              <option value="Chainalysis">
+              <option value="Fireblocks">
+              <option value="Circle">
+              <option value="OpenZeppelin">
+              <option value="Brands Essential">
+            </datalist>
+          </form>
         </div>
-        <div class="vendor-game reveal" data-vendor-game aria-label="Endless FluidRWA vendor discovery game">
-          <div class="game-topbar">
-            <div><span>Score</span><strong data-game-score>0</strong></div>
-            <div><span>Streak</span><strong data-game-streak>0</strong></div>
-            <div><span>Best</span><strong data-game-best>0</strong></div>
-          </div>
-          <canvas data-game-canvas width="720" height="560" aria-label="Catch trusted Web3 vendors and avoid hype cards"></canvas>
-          <div class="game-copy">
-            <span>Endless vendor hunt</span>
-            <strong>Catch useful vendors. Avoid hype.</strong>
-            <p>Move the directory tray with your mouse, finger, or arrow keys.</p>
-          </div>
-          <button class="game-start" type="button" data-game-start>Start Game</button>
+      </div>
+    </section>
+
+    <section class="logo-ecosystem-section compact-screen" id="ecosystem-logos" aria-labelledby="ecosystem-logos-title">
+      <div class="light-container">
+        <h2 class="sr-only" id="ecosystem-logos-title">FluidRWA Web3 vendor ecosystem logos</h2>
+
+        <div class="category-logo-grid reveal" aria-label="Representative companies by vendor category">
+          <a class="category-logo-card" href="vendors/tokenization-platforms">
+            <span class="category-logo-label">Tokenization Platforms</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/zoniqx.png" alt="Zoniqx logo"><img src="assets/company-logos/addx.png" alt="ADDX logo"><img src="assets/company-logos/backed-finance.png" alt="Backed Finance logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/legal-regulatory-vendors">
+            <span class="category-logo-label">Legal and Regulatory</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/allen-and-overy.svg" alt="Allen & Overy logo"><img src="assets/company-logos/baker-mckenzie.png" alt="Baker McKenzie logo"><img src="assets/company-logos/trm-labs.png" alt="TRM Labs logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/kyc-aml-providers">
+            <span class="category-logo-label">KYC and AML Providers</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/blockpass.png" alt="Blockpass logo"><img src="assets/company-logos/alloy.png" alt="Alloy logo"><img src="assets/company-logos/au10tix.png" alt="AU10TIX logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/smart-contract-development-companies">
+            <span class="category-logo-label">Smart Contract Development</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/openzeppelin.png" alt="OpenZeppelin logo"><img src="assets/company-logos/trail-of-bits.png" alt="Trail of Bits logo"><img src="assets/company-logos/ackee-blockchain.png" alt="Ackee Blockchain logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/ai-infrastructure-providers">
+            <span class="category-logo-label">AI Infrastructure</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/anthropic-claude.png" alt="Anthropic logo"><img src="assets/company-logos/akash-network.ico" alt="Akash Network logo"><img src="assets/company-logos/alchemy.svg" alt="Alchemy logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/crypto-custody-providers">
+            <span class="category-logo-label">Custody Solutions</span>
+            <span class="category-logo-stack"><img class="dark-logo-tile" src="assets/company-logos/anchorage-digital.svg" alt="Anchorage Digital logo"><img src="assets/company-logos/bitgo.png" alt="BitGo logo"><img src="assets/company-logos/bakkt.png" alt="Bakkt logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/fiat-on-off-ramp-providers">
+            <span class="category-logo-label">Fiat On and Off Ramps</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/banxa.png" alt="Banxa logo"><img src="assets/company-logos/alchemy-pay.ico" alt="Alchemy Pay logo"><img src="assets/company-logos/beans-app.svg" alt="Beans app logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/compliance-infrastructure-providers">
+            <span class="category-logo-label">Compliance Infrastructure</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/chainalysis.png" alt="Chainalysis logo"><img src="assets/company-logos/elliptic.png" alt="Elliptic logo"><img src="assets/company-logos/trm-labs.png" alt="TRM Labs logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/defi-infrastructure-providers">
+            <span class="category-logo-label">DeFi Infrastructure</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/dydx.ico" alt="dYdX logo"><img src="assets/company-logos/curve-finance.png" alt="Curve Finance logo"><img src="assets/company-logos/blocknative.png" alt="Blocknative logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/stablecoin-infrastructure-providers">
+            <span class="category-logo-label">Stablecoin Infrastructure</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/circle-usdc.avif" alt="Circle USDC logo"><img src="assets/company-logos/paypal-pyusd.png" alt="PayPal PYUSD logo"><img src="assets/company-logos/backed-finance.png" alt="Backed Finance logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/security-audit-companies">
+            <span class="category-logo-label">Security and Audits</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/certik.png" alt="CertiK logo"><img src="assets/company-logos/trail-of-bits.png" alt="Trail of Bits logo"><img src="assets/company-logos/openzeppelin.png" alt="OpenZeppelin logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/growth-marketing-companies">
+            <span class="category-logo-label">Growth and Marketing</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/brands-essential.jpg" alt="Brands Essential logo"><img src="assets/company-logos/lunar-strategy.svg" alt="Lunar Strategy logo"><img src="assets/company-logos/coinbound.png" alt="Coinbound logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/identity-solution-providers">
+            <span class="category-logo-label">Identity Solutions</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/spruceid.png" alt="SpruceID logo"><img src="assets/company-logos/privado-id.svg" alt="Privado ID logo"><img src="assets/company-logos/civic.png" alt="Civic logo"></span>
+          </a>
+          <a class="category-logo-card" href="vendors/blockchain-development-companies">
+            <span class="category-logo-label">Blockchain Development</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/alchemy.svg" alt="Alchemy logo"><img src="assets/company-logos/ankr.png" alt="Ankr logo"><img src="assets/company-logos/avalanche-ava-labs.jpg" alt="Avalanche logo"></span>
+          </a>
+          <a class="category-logo-card category-logo-card-featured" href="web3vendorecosystem">
+            <span class="category-logo-label">Explore All Vendors</span>
+            <span class="category-logo-stack"><img src="assets/company-logos/archax.svg" alt="Archax logo"><img src="assets/company-logos/blocknative.png" alt="Blocknative logo"><img src="assets/company-logos/privado-id.svg" alt="Privado ID logo"></span>
+          </a>
         </div>
       </div>
     </section>
