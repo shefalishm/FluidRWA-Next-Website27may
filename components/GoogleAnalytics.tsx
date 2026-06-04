@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
+import { useEffect } from "react";
 
-type GoogleAnalyticsProps = {
-  measurementId: string;
-};
+const measurementId = "G-Q5L2HZK162";
 
 declare global {
   interface Window {
@@ -15,37 +13,26 @@ declare global {
   }
 }
 
-export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
+export function GoogleAnalytics() {
   const pathname = usePathname();
-  const hasTrackedInitialView = useRef(false);
 
   useEffect(() => {
-    if (!measurementId || !window.gtag) return;
-    if (!hasTrackedInitialView.current) {
-      hasTrackedInitialView.current = true;
-      return;
-    }
+    if (!window.gtag) return;
+    const query = window.location.search.replace(/^\?/, "");
     window.gtag("config", measurementId, {
-      page_path: window.location.pathname + window.location.search,
-      page_title: document.title
+      page_path: query ? `${pathname}?${query}` : pathname
     });
-  }, [measurementId, pathname]);
-
-  if (!measurementId) return null;
+  }, [pathname]);
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-        strategy="afterInteractive"
-      />
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
       <Script id="fluidrwa-google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          window.gtag = window.gtag || gtag;
           gtag('js', new Date());
-          gtag('config', '${measurementId}');
+          gtag('config', '${measurementId}', { page_path: window.location.pathname + window.location.search });
         `}
       </Script>
     </>

@@ -13,26 +13,33 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 ## Core pages
 
 - Home: https://www.fluidrwa.com/
-- Vendor ecosystem directory: https://www.fluidrwa.com/vendor-ecosystem.html
-- Solutions and specialized vendor categories: https://www.fluidrwa.com/solutions.html
-- FluidRWA Arcade vendor category game: https://www.fluidrwa.com/arcade.html
+- Vendor ecosystem directory: https://www.fluidrwa.com/web3vendorecosystem
+- Solutions and specialized vendor categories: https://www.fluidrwa.com/solutions
+- FluidRWA Arcade vendor category game: https://www.fluidrwa.com/arcade
 - RWA tokenization providers and platforms: https://www.fluidrwa.com/vendors/tokenization-platforms
-- Legal and regulatory advisory firms: https://www.fluidrwa.com/vendors/legal-regulatory
+- Legal and regulatory advisory firms: https://www.fluidrwa.com/vendors/legal-regulatory-vendors
 - KYC, AML and identity verification providers: https://www.fluidrwa.com/vendors/kyc-aml
-- Smart contract development companies and auditors: https://www.fluidrwa.com/vendors/smart-contract-development
+- Smart contract development companies and auditors: https://www.fluidrwa.com/vendors/smart-contract-development-companies
 - AI infrastructure companies for Web3 and digital assets: https://www.fluidrwa.com/vendors/ai-infrastructure
 - Blockchain development companies: https://www.fluidrwa.com/vendors/blockchain-development
-- Crypto custody providers and wallet infrastructure: https://www.fluidrwa.com/vendors/custody-solutions
-- Fiat on and off ramp providers for Web3: https://www.fluidrwa.com/vendors/fiat-on-off-ramps
-- Crypto payment rails and stablecoin infrastructure: https://www.fluidrwa.com/vendors/payments-stablecoins
-- RWA tokenization provider matching: https://www.fluidrwa.com/tokenization.html
-- Compliance, KYC and legal provider matching: https://www.fluidrwa.com/compliance.html
-- AI and Web3 workflow provider matching: https://www.fluidrwa.com/ai.html
-- Digital asset custody and wallet provider matching: https://www.fluidrwa.com/custody.html
-- Provider categories: https://www.fluidrwa.com/providers.html
-- Contact and matching intake: https://www.fluidrwa.com/contact.html
-- Privacy policy: https://www.fluidrwa.com/privacy.html
-- Terms and conditions: https://www.fluidrwa.com/terms.html
+- Crypto custody providers and wallet infrastructure: https://www.fluidrwa.com/vendors/crypto-custody-providers
+- Fiat on and off ramp providers for Web3: https://www.fluidrwa.com/vendors/fiat-on-off-ramp-providers
+- Compliance infrastructure providers: https://www.fluidrwa.com/vendors/compliance-infrastructure
+- DeFi infrastructure vendors: https://www.fluidrwa.com/vendors/defi-infrastructure
+- Stablecoin infrastructure providers: https://www.fluidrwa.com/vendors/stablecoin-infrastructure-providers
+- Security audit companies: https://www.fluidrwa.com/vendors/security-audit-companies
+- Web3 growth and marketing companies: https://www.fluidrwa.com/vendors/growth-marketing-companies
+- RWA tokenization provider matching: https://www.fluidrwa.com/tokenization
+- Compliance, KYC and legal provider matching: https://www.fluidrwa.com/compliance
+- AI and Web3 workflow provider matching: https://www.fluidrwa.com/ai
+- Digital asset custody and wallet provider matching: https://www.fluidrwa.com/custody
+- Provider categories: https://www.fluidrwa.com/providers
+- Contact and matching intake: https://www.fluidrwa.com/contact
+- Privacy policy: https://www.fluidrwa.com/privacy
+- Terms and conditions: https://www.fluidrwa.com/terms
+- LinkedIn: https://www.linkedin.com/company/fluidrwa
+- Instagram: https://www.instagram.com/fluidrwa/
+- YouTube: https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg
 
 ## Blog insights
 
