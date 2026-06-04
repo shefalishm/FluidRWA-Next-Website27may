@@ -6639,12 +6639,24 @@ tr:last-child td { border-bottom: 0; }
   }
 
   .home-insight-card {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
   }
 
   .home-insight-card img {
     aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    max-height: 210px;
     min-height: 0;
+    flex: 0 0 auto;
+  }
+
+  .home-insight-card div {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.82);
   }
 
   .home-insights-preview-actions .btn {
@@ -7219,7 +7231,7 @@ tr:last-child td { border-bottom: 0; }
 .logo-ecosystem-preview .category-logo-stack {
   order: 1;
   justify-content: center;
-  min-width: 0;
+  min-width: 104px;
   transform-style: preserve-3d;
 }
 
@@ -7339,5 +7351,9 @@ tr:last-child td { border-bottom: 0; }
   .logo-ecosystem-preview .category-logo-stack img.logo-wordmark:nth-child(2),
   .logo-ecosystem-preview .category-logo-stack img.logo-wordmark:nth-child(3) {
     margin-left: -18px;
+  }
+
+  .logo-ecosystem-preview .category-logo-stack {
+    min-width: 86px;
   }
 }
