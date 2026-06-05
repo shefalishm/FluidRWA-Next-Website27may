@@ -29,6 +29,7 @@ const nextConfig = {
       { source: "/contact.html", destination: "/contact", permanent: true },
       { source: "/submit-project.html", destination: "/submit-requirement", permanent: true },
       { source: "/submit-project", destination: "/submit-requirement", permanent: true },
+      { source: "/team", destination: "/about", permanent: true },
       { source: "/apply-as-vendor.html", destination: "/apply-as-vendor", permanent: true },
       { source: "/arcade.html", destination: "/arcade", permanent: true },
       { source: "/privacy.html", destination: "/privacy", permanent: true },
@@ -50,6 +51,8 @@ const nextConfig = {
       { source: "/blog/:slug/index.html", destination: "/blog/:slug", permanent: true }
       ,
       { source: "/submission-success", destination: "/", permanent: true },
+      { source: "/book-online", destination: "/contact", permanent: true },
+      { source: "/plans-pricing", destination: "/apply-as-vendor", permanent: true },
       { source: "/lead-board", destination: "/", permanent: true },
       { source: "/unlocked-lead-detail", destination: "/", permanent: true },
       { source: "/service-category-a", destination: "/web3vendorecosystem", permanent: true },

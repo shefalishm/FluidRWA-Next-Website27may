@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { MetadataRoute } from "next";
-import { allRoutePaths, siteUrl } from "@/lib/routes";
+import { sitemapRoutePaths, siteUrl } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoot = path.join(process.cwd(), "content/blog");
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified: "2026-05-27", changeFrequency: "weekly", priority: 1 },
-    ...allRoutePaths().map((route) => ({
+    ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
       lastModified: "2026-05-27",
       changeFrequency: "weekly" as const,

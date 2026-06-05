@@ -54,6 +54,14 @@ export const vendorSlugs = [
   "blockchain-development-companies"
 ] as const;
 
+const sitemapExcludedPaths = new Set([
+  "homepage-flow-preview",
+  "yellowpages-preview",
+  "vendor-ecosystem",
+  "submit-project",
+  "team"
+]);
+
 const vendorFileMap: Record<string, string> = {
   "tokenization-platforms": "tokenization-platforms",
   "legal-regulatory-vendors": "legal-regulatory",
@@ -113,4 +121,8 @@ export function allRoutePaths() {
     ...vendorSlugs.map((slug) => `vendors/${slug}`),
     ...blogPaths
   ];
+}
+
+export function sitemapRoutePaths() {
+  return allRoutePaths().filter((route) => !sitemapExcludedPaths.has(route));
 }
