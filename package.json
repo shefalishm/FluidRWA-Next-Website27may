@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "npm run build:blog-assets && node scripts/build-blog.mjs && node scripts/generate-industry-pages.mjs && node scripts/generate-company-pages.mjs && next build",
     "build:blog-assets": "node scripts/assign-blog-images.mjs && node scripts/generate-social-images.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "start": "next start",
     "lint": "next lint"
   },

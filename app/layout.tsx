@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "FluidRWA",
     template: "%s"
   },
-  description: "Find trusted Web3 and RWA vendors across tokenization, compliance, custody, payments, legal, AI and blockchain infrastructure.",
+  description: "Discover trusted Web3 and RWA vendors across tokenization, compliance, custody, stablecoins, legal, AI, security and blockchain infrastructure.",
   icons: {
     icon: "/assets/favicon.png"
   }
