@@ -9,8 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ? fs.readdirSync(blogRoot).filter((file) => file.endsWith(".md")).map((file) => {
         const raw = fs.readFileSync(path.join(blogRoot, file), "utf8");
         const slug = raw.match(/slug:\s*"([^"]+)"/)?.[1] || file.replace(/\.md$/, "");
-        const date = raw.match(/date:\s*"([^"]+)"/)?.[1] || "2026-05-27";
-        return { url: `${siteUrl}/blog/${slug}`, lastModified: date, changeFrequency: "monthly" as const, priority: 0.72 };
+        return { url: `${siteUrl}/blog/${slug}`, lastModified: "2026-06-06", changeFrequency: "monthly" as const, priority: 0.72 };
       })
     : [];
 
