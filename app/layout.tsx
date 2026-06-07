@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <FormScripts />
         <GoogleAnalytics />
-        <Script src="/assets/site.js?v=next-1" strategy="afterInteractive" />
+        <Script src="/assets/site.js?v=next-3" strategy="afterInteractive" />
       </body>
     </html>
   );

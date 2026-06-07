@@ -5060,6 +5060,224 @@ tr:last-child td { border-bottom: 0; }
   display: none;
 }
 
+.vendor-procurement-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, .9fr) minmax(280px, 1.1fr);
+  gap: 22px 28px;
+  margin: 0 0 18px;
+  padding: clamp(22px, 3vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(38, 100, 169, .15);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 227, 110, .36), transparent 36%),
+    radial-gradient(circle at 92% 10%, rgba(76, 178, 224, .2), transparent 38%),
+    rgba(255, 255, 255, .8);
+  box-shadow: 0 24px 64px rgba(18, 33, 58, .09);
+  backdrop-filter: blur(22px);
+}
+
+.vendor-procurement-panel:after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(76, 178, 224, .2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(76, 178, 224, .04), 0 0 0 56px rgba(255, 227, 110, .04);
+  pointer-events: none;
+}
+
+.vendor-procurement-intro,
+.vendor-procurement-search,
+.vendor-procurement-filters,
+.vendor-procurement-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.vendor-procurement-intro {
+  grid-row: span 2;
+}
+
+.vendor-procurement-intro h3 {
+  max-width: 420px;
+  margin: 8px 0 10px;
+  color: #12213a;
+  font-family: var(--fluid-display);
+  font-size: clamp(27px, 3vw, 40px);
+  font-weight: 650;
+  line-height: 1.08;
+}
+
+.vendor-procurement-intro p:last-child {
+  max-width: 430px;
+  margin: 0;
+  color: rgba(18, 33, 58, .66);
+  line-height: 1.62;
+}
+
+.vendor-procurement-search {
+  min-width: 0;
+}
+
+.vendor-procurement-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.vendor-procurement-filters--ecosystem {
+  margin: 16px 0 28px;
+  padding: 16px;
+  border: 1px solid rgba(38, 100, 169, .13);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 16px 40px rgba(18, 33, 58, .06);
+}
+
+.vendor-filter-field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  color: rgba(18, 33, 58, .58);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.vendor-filter-field input,
+.vendor-filter-field select {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  border: 1px solid rgba(38, 100, 169, .16);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, .9);
+  color: #12213a;
+  padding: 0 13px;
+  font: 750 13px/1.2 var(--fluid-body);
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 10px 24px rgba(18, 33, 58, .04);
+}
+
+.vendor-filter-field input:focus,
+.vendor-filter-field select:focus {
+  border-color: rgba(76, 178, 224, .7);
+  box-shadow: 0 0 0 4px rgba(76, 178, 224, .12);
+}
+
+.vendor-filter-reset {
+  height: 48px;
+  border: 1px solid rgba(38, 100, 169, .16);
+  border-radius: 14px;
+  background: #12213a;
+  color: #fff;
+  padding: 0 16px;
+  cursor: pointer;
+  font: 900 12px/1 var(--fluid-body);
+  white-space: nowrap;
+}
+
+.vendor-filter-reset:hover {
+  background: #2664a9;
+}
+
+.vendor-procurement-actions {
+  grid-column: 2;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vendor-procurement-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe36e, #fff5b6);
+  color: #12213a;
+  padding: 0 17px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 950;
+  box-shadow: 0 12px 28px rgba(95, 73, 16, .12);
+}
+
+.vendor-procurement-actions small {
+  max-width: 320px;
+  color: rgba(18, 33, 58, .5);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.vendor-filter-status {
+  margin: 0 0 22px;
+  color: #2664a9;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .vendor-procurement-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-procurement-intro {
+    grid-row: auto;
+  }
+
+  .vendor-procurement-actions {
+    grid-column: auto;
+  }
+
+  .vendor-procurement-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .vendor-procurement-panel {
+    gap: 18px;
+    border-radius: 22px;
+    padding: 20px;
+  }
+
+  .vendor-procurement-filters,
+  .vendor-procurement-filters--ecosystem {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-procurement-actions {
+    display: grid;
+  }
+
+  .vendor-procurement-actions a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .vendor-procurement-actions small {
+    max-width: none;
+    text-align: left;
+  }
+
+  .vendor-filter-reset {
+    width: 100%;
+  }
+}
+
 .bc-company-top,
 .bc-provider-top {
   display: flex;

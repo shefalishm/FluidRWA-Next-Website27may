@@ -275,6 +275,43 @@ if (gameShell) {
   requestAnimationFrame(renderGame);
 }
 
+const normalizeVendorText = (value) =>
+  (value || "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9+]+/g, " ")
+    .trim();
+
+const inferVendorProfile = (card) => {
+  const text = normalizeVendorText(`${card.dataset.search || ""} ${card.textContent || ""}`);
+  const location =
+    card.querySelector('[itemprop="addressCountry"]')?.textContent?.trim() ||
+    Array.from(card.querySelectorAll("dt"))
+      .find((term) => normalizeVendorText(term.textContent) === "hq")
+      ?.parentElement?.querySelector("dd")?.textContent?.trim() ||
+    "Global";
+  const regulatory = /(licensed|regulated|qualified|sec |finra|fca|mica|mas |bank grade|trust company|custodian)/.test(text)
+    ? "licensed"
+    : /(compliance|kyc|aml|sanctions|policy|audit|legal|regulatory)/.test(text)
+      ? "compliance"
+      : "not-stated";
+  const budget = /(enterprise|institutional|bank|government|global|qualified|regulated|fortune|big four)/.test(text)
+    ? "enterprise"
+    : /(developer|startup|self serve|open source|community|boutique|smb|small business)/.test(text)
+      ? "starter"
+      : "growth";
+  return { text, location, regulatory, budget };
+};
+
+const buildFilterSelect = (label, name, options) => {
+  const wrapper = document.createElement("label");
+  wrapper.className = "vendor-filter-field";
+  wrapper.innerHTML = `<span>${label}</span><select data-vendor-${name}>${options
+    .map(([value, text]) => `<option value="${value}">${text}</option>`)
+    .join("")}</select>`;
+  return wrapper;
+};
+
 const vendorSearch = document.querySelector("[data-vendor-search]");
 
 if (vendorSearch) {
@@ -282,6 +319,24 @@ if (vendorSearch) {
   const categoryLinks = Array.from(document.querySelectorAll("[data-filter]"));
   const categorySections = Array.from(document.querySelectorAll("[data-category-section]"));
   const countNode = document.querySelector("[data-vendor-count]");
+  const profiles = new Map(vendorCards.map((card) => [card, inferVendorProfile(card)]));
+  const controls = vendorSearch.closest(".vendor-controls");
+  const filterBar = document.createElement("div");
+  filterBar.className = "vendor-procurement-filters vendor-procurement-filters--ecosystem";
+  const locations = [...new Set([...profiles.values()].map((profile) => profile.location).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b));
+  const locationSelect = buildFilterSelect("Headquarters", "location", [["all", "All locations"], ...locations.map((location) => [normalizeVendorText(location), location])]);
+  const regulatorySelect = buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
+  const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
+  const resetButton = document.createElement("button");
+  resetButton.type = "button";
+  resetButton.className = "vendor-filter-reset";
+  resetButton.textContent = "Reset filters";
+  filterBar.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
+  controls?.after(filterBar);
+  const locationControl = locationSelect.querySelector("select");
+  const regulatoryControl = regulatorySelect.querySelector("select");
+  const budgetControl = budgetSelect.querySelector("select");
   let activeFilter = "all";
 
   const updateVendorDirectory = () => {
@@ -289,9 +344,13 @@ if (vendorSearch) {
     let visibleCount = 0;
 
     vendorCards.forEach((card) => {
+      const profile = profiles.get(card);
       const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
-      const matchesSearch = !query || (card.dataset.search || "").includes(query);
-      const isVisible = matchesCategory && matchesSearch;
+      const matchesSearch = !query || profile.text.includes(query);
+      const matchesLocation = locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value;
+      const matchesRegulatory = regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value;
+      const matchesBudget = budgetControl.value === "all" || profile.budget === budgetControl.value;
+      const isVisible = matchesCategory && matchesSearch && matchesLocation && matchesRegulatory && matchesBudget;
       card.classList.toggle("is-hidden", !isVisible);
       if (isVisible) visibleCount += 1;
     });
@@ -306,6 +365,16 @@ if (vendorSearch) {
   };
 
   vendorSearch.addEventListener("input", updateVendorDirectory);
+  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", updateVendorDirectory));
+  resetButton.addEventListener("click", () => {
+    vendorSearch.value = "";
+    locationControl.value = "all";
+    regulatoryControl.value = "all";
+    budgetControl.value = "all";
+    activeFilter = "all";
+    categoryLinks.forEach((item) => item.classList.toggle("is-active", item.dataset.filter === "all"));
+    updateVendorDirectory();
+  });
 
   categoryLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -329,6 +398,83 @@ if (vendorSearch) {
   });
 
   updateVendorDirectory();
+}
+
+const providerDirectory = document.querySelector(".bc-provider-grid, .bc-company-grid");
+
+if (providerDirectory) {
+  const providerCards = Array.from(providerDirectory.querySelectorAll(".bc-provider-card, .bc-company-card"));
+  const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
+  const directoryHead = directorySection?.querySelector(".bc-directory-head");
+  const profiles = new Map(providerCards.map((card) => [card, inferVendorProfile(card)]));
+  const locations = [...new Set([...profiles.values()].map((profile) => profile.location).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b));
+  const panel = document.createElement("section");
+  panel.className = "vendor-procurement-panel";
+  panel.setAttribute("aria-label", "Vendor search and filters");
+  panel.innerHTML = `
+    <div class="vendor-procurement-intro">
+      <p class="eyebrow light-eyebrow">Build your shortlist</p>
+      <h3>Find providers that fit your project</h3>
+      <p>Search the directory, narrow the shortlist, then share your requirements for a focused vendor path.</p>
+    </div>
+    <div class="vendor-procurement-search">
+      <label class="vendor-filter-field vendor-filter-field--search"><span>Search providers</span><input type="search" data-provider-query placeholder="Company, service, use case or keyword"></label>
+    </div>
+    <div class="vendor-procurement-actions">
+      <a href="/submit-requirement">Submit your requirements</a>
+      <small>Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers.</small>
+    </div>`;
+  const filters = document.createElement("div");
+  filters.className = "vendor-procurement-filters";
+  const locationSelect = buildFilterSelect("Headquarters", "location", [["all", "All locations"], ...locations.map((location) => [normalizeVendorText(location), location])]);
+  const regulatorySelect = buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
+  const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
+  const resetButton = document.createElement("button");
+  resetButton.type = "button";
+  resetButton.className = "vendor-filter-reset";
+  resetButton.textContent = "Reset filters";
+  filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
+  panel.querySelector(".vendor-procurement-search").after(filters);
+  directoryHead?.after(panel);
+
+  const queryControl = panel.querySelector("[data-provider-query]");
+  const locationControl = locationSelect.querySelector("select");
+  const regulatoryControl = regulatorySelect.querySelector("select");
+  const budgetControl = budgetSelect.querySelector("select");
+  const status = document.createElement("p");
+  status.className = "vendor-filter-status";
+  status.setAttribute("aria-live", "polite");
+  panel.after(status);
+
+  const applyProviderFilters = () => {
+    const query = normalizeVendorText(queryControl.value);
+    let visibleCount = 0;
+    providerCards.forEach((card) => {
+      const profile = profiles.get(card);
+      const matchesProcurement =
+        (!query || profile.text.includes(query)) &&
+        (locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value) &&
+        (regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value) &&
+        (budgetControl.value === "all" || profile.budget === budgetControl.value);
+      card.dataset.procurementHidden = String(!matchesProcurement);
+      const visible = matchesProcurement && card.dataset.serviceHidden !== "true";
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+    status.textContent = `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
+  };
+
+  queryControl.addEventListener("input", applyProviderFilters);
+  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", applyProviderFilters));
+  resetButton.addEventListener("click", () => {
+    queryControl.value = "";
+    locationControl.value = "all";
+    regulatoryControl.value = "all";
+    budgetControl.value = "all";
+    applyProviderFilters();
+  });
+  applyProviderFilters();
 }
 
 const serviceAreaGrid = document.querySelector(".bc-area-grid");
@@ -400,7 +546,9 @@ if (serviceAreaGrid) {
       providerCards.forEach((card) => {
         const isMatch = !areaMatch || matchesArea(getCardServiceData(card), areaMatch);
         matchedCount += isMatch && areaMatch ? 1 : 0;
-        const isVisible = !areaMatch || (isMatch && (!areaMatch.expectedCount || matchedCount <= areaMatch.expectedCount));
+        const matchesService = !areaMatch || (isMatch && (!areaMatch.expectedCount || matchedCount <= areaMatch.expectedCount));
+        card.dataset.serviceHidden = String(!matchesService);
+        const isVisible = matchesService && card.dataset.procurementHidden !== "true";
         card.hidden = !isVisible;
         if (isVisible) visibleCount += 1;
       });
