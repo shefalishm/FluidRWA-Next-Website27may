@@ -9,6 +9,7 @@ export const staticRoutes = [
   { path: "web3vendorecosystem", file: "vendor-ecosystem.html", title: "Web3 Vendor Ecosystem | FluidRWA" },
   { path: "solutions", file: "solutions.html", title: "Solutions | FluidRWA" },
   { path: "blog", file: "blog.html", title: "Insights | FluidRWA" },
+  { path: "reports-research", file: "reports-research.html", title: "Digital Asset Reports and Research | FluidRWA" },
   { path: "about", file: "team.html", title: "About FluidRWA" },
   { path: "team", file: "team.html", title: "Team | FluidRWA" },
   { path: "contact", file: "contact.html", title: "Contact FluidRWA" },
