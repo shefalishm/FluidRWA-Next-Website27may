@@ -6699,6 +6699,11 @@ tr:last-child td { border-bottom: 0; }
   }
 }
 
+.hero-trusted-word {
+  color: #226bb2;
+  text-shadow: 0 10px 28px rgba(34, 107, 178, 0.14);
+}
+
 .home-insights-preview-section {
   padding: 74px 22px 90px !important;
   background:
