@@ -45,6 +45,7 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 - Blog index: https://www.fluidrwa.com/blog.html
 - Tokenization blog category: https://www.fluidrwa.com/blog/tokenization/
+- Web3 Adoption Across Industries: Use Cases, Leaders and Maturity: https://www.fluidrwa.com/blog/web3-adoption-across-industries/
 - Web3 Blockchain Compliance Guide: https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide/
 - AI Infrastructure for Web3 and Digital Asset Teams: https://www.fluidrwa.com/blog/ai-infrastructure-web3-digital-assets/
 - Are Tokenized Assets More Liquid Than Traditional Assets?: https://www.fluidrwa.com/blog/are-tokenized-assets-more-liquid-than-traditional-assets/

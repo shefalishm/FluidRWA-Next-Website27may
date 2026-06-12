@@ -49,6 +49,7 @@ function palette(index) {
 
 function theme(title, category, index) {
   const text = `${title} ${category}`.toLowerCase();
+  if (text.includes("adoption") || text.includes("industries")) return ["globe", ["industries", "adoption", "infrastructure"]];
   if (text.includes("real estate")) return ["real-estate", ["real estate", "ownership", "property"]];
   if (text.includes("custody") || text.includes("wallet")) return ["custody", ["custody", "wallets", "controls"]];
   if (text.includes("kyc") || text.includes("aml") || text.includes("compliance") || text.includes("regulation") || text.includes("secure")) return ["compliance", ["compliance", "identity", "risk"]];

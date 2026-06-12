@@ -1,6 +1,28 @@
 const directory = (slug) => `/vendors/${slug}`;
 
 const blogResearch = {
+  "web3-adoption-across-industries": {
+    label: "Web3 industry adoption snapshot",
+    intro: "The strongest industry deployments use blockchain selectively for settlement, ownership, provenance, credentials or network incentives while existing systems continue to handle private and high-volume operations.",
+    headers: ["Adoption tier", "Industries", "Most credible use cases"],
+    rows: [
+      ["Highest maturity", "Finance, gaming, telecom and supply chain", "Programmable settlement, digital ownership, DePIN connectivity and product provenance"],
+      ["Established but developing", "Sports, retail, media, government, energy, real estate, automotive and education", "Fan access, product passports, credentials, market coordination and asset administration"],
+      ["Emerging", "Agriculture, healthcare and advertising", "Traceability, consented data exchange and privacy-oriented attention models"]
+    ],
+    links: [
+      ["Explore the complete Web3 vendor ecosystem", "/web3vendorecosystem"],
+      ["Compare blockchain development companies", directory("blockchain-development-companies")],
+      ["Compare compliance infrastructure providers", directory("compliance-infrastructure-providers")]
+    ],
+    sources: [
+      ["J.P. Morgan Kinexys institutional blockchain infrastructure", "https://www.jpmorgan.com/kinexys"],
+      ["DIMO connected-vehicle telemetry documentation", "https://www.dimo.org/docs/api-references/telemetry-api/introduction"],
+      ["Energy Web technology documentation", "https://docs.energyweb.org/"],
+      ["European Blockchain Services Infrastructure", "https://hub.ebsi.eu/blockchain"],
+      ["Aura Blockchain Consortium digital product passports", "https://www.auraluxuryblockchain.com/"]
+    ]
+  },
   "web3-blockchain-compliance-guide": {
     label: "Compliance research snapshot",
     intro: "A compliance stack should be selected by regulated activity, customer geography and transaction flow. No single tool replaces legal classification, identity controls, wallet screening and operational governance.",
