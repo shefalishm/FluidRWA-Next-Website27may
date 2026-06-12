@@ -61,16 +61,20 @@
   .sec-head p{color:var(--ink-soft);margin-top:12px;font-size:16px}
 
   /* category board */
-  .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-  .cat{position:relative;border:1px solid var(--line);background:var(--card);border-radius:13px;padding:15px 16px;box-shadow:var(--shadow);transition:transform .15s ease,border-color .2s ease,box-shadow .2s ease}
-  .cat .cname{font-family:var(--disp);font-weight:600;font-size:15.5px}
+  .board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;perspective:1100px}
+  .cat{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(199,205,219,.78);background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(247,251,255,.82));border-radius:16px;padding:20px 19px;min-height:112px;box-shadow:0 10px 25px rgba(18,33,58,.07),inset 0 1px 0 rgba(255,255,255,.9);transform-style:preserve-3d;transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .28s ease}
+  .cat::before{content:"";position:absolute;z-index:-1;inset:-40% 48% 25% -30%;background:linear-gradient(120deg,rgba(127,217,235,.24),rgba(255,227,110,.18),transparent 72%);transform:translate3d(-18%,0,-1px) rotate(-10deg);transition:transform .5s ease,opacity .3s ease;opacity:.72}
+  .cat:nth-last-child(2){grid-column:2}
+  .cat:last-child{grid-column:3}
+  .cat .cname{font-family:var(--disp);font-weight:700;font-size:17px;line-height:1.18;letter-spacing:-.2px;transform:translateZ(16px)}
   .cat .cstat{display:flex;align-items:center;gap:7px;margin-top:9px;font-family:var(--mono);font-size:11px;letter-spacing:.6px;text-transform:uppercase}
   .dot{width:8px;height:8px;border-radius:50%}
   .cat.open .dot{background:var(--teal)} .cat.open .cstat{color:var(--teal)}
   .cat.reserved .dot{background:#e0a93a} .cat.reserved .cstat{color:#c98c16}
   .cat.taken{opacity:.55} .cat.taken .dot{background:var(--ink-mute)} .cat.taken .cstat{color:var(--ink-mute)}
   .cat.open{cursor:pointer}
-  .cat.open:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 10px 26px rgba(15,166,189,.16)}
+  .cat.open:hover{transform:translateY(-7px) rotateX(3deg) rotateY(-2deg);border-color:var(--teal);box-shadow:0 18px 35px rgba(15,166,189,.17),inset 0 1px 0 rgba(255,255,255,.95)}
+  .cat.open:hover::before{transform:translate3d(22%,0,-1px) rotate(-10deg);opacity:1}
   .cat.selected{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;border:1.6px solid transparent;box-shadow:var(--shadow-lg)}
   .cat.selected .cstat{color:var(--purple-dk)} .cat.selected .dot{background:var(--purple)}
   .cat .claimtag{position:absolute;top:-9px;right:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:1px;background:var(--grad);color:#fff;padding:3px 9px;border-radius:999px;opacity:0;transform:translateY(3px);transition:.2s;font-weight:700}
@@ -147,11 +151,16 @@
   .reveal.in{opacity:1;transform:none}
 
   @media(max-width:980px){
+    .board{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cat:nth-last-child(2),.cat:last-child{grid-column:auto}
     .grid{grid-template-columns:repeat(2,1fr)}
     .tier.premium{transform:none} .tier.premium:hover{transform:translateY(-4px)}
     .full{grid-template-columns:1fr}
   }
   @media(max-width:560px){
+    .board{grid-template-columns:1fr;gap:12px}
+    .cat{min-height:0;padding:18px}
+    .cat.open:hover{transform:translateY(-3px)}
     .grid{grid-template-columns:1fr}
     .wrap{padding:0 18px}
     .hero{padding:92px 0 42px}
@@ -252,6 +261,7 @@
         <div class="tname">Vetted Vendor</div>
         <div class="tnote">The trust tier</div>
         <div class="price">$499<span class="per"> / yr</span></div>
+        <div class="perday">Less than $2 a day</div>
         <div class="per">or $998 locked for 2 years</div>
         <ul>
           <li>Vetted badge across the platform</li>
@@ -287,7 +297,7 @@
       <div class="tier reveal">
         <div class="tname">Founding Partner</div>
         <div class="tnote">Platform level &middot; 3 total</div>
-        <div class="price">$7,500<span class="per"> / yr</span></div>
+        <div class="price">$12,000<span class="per"> / yr</span></div>
         <div class="per">For category leaders</div>
         <ul>
           <li>Everything in Premium</li>
@@ -298,7 +308,7 @@
           <li>Reach an industry email list of 7,000 contacts and growing</li>
           <li>First priority on every buyer match</li>
         </ul>
-        <a class="cta" href="mailto:contact@fluidrwa.com?subject=Founding%20Partner%20Membership%20-%20%247%2C500%20per%20year">Apply to partner</a>
+        <a class="cta" href="mailto:contact@fluidrwa.com?subject=Founding%20Partner%20Membership%20-%20%2412%2C000%20per%20year">Apply to partner</a>
       </div>
 
     </div>
