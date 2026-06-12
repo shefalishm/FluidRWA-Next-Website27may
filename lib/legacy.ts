@@ -67,6 +67,9 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
   const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const canonical = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
+  const robotsValue = matchTag(html, /<meta\s+name=["']robots["']\s+content=["']([\s\S]*?)["']\s*\/?>/i)?.toLowerCase() || "";
+  const shouldIndex = !robotsValue.includes("noindex");
+  const shouldFollow = !robotsValue.includes("nofollow");
   return {
     title,
     description,
@@ -86,13 +89,13 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
       images: [ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage]
     },
     robots: {
-      index: true,
-      follow: true,
+      index: shouldIndex,
+      follow: shouldFollow,
       googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1
+        index: shouldIndex,
+        follow: shouldFollow,
+        "max-image-preview": shouldIndex ? "large" : "none",
+        "max-snippet": shouldIndex ? -1 : 0
       }
     }
   };

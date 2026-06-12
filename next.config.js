@@ -18,6 +18,19 @@ const nextConfig = {
       }
     ]
   },
+  async headers() {
+    return [
+      {
+        source: "/vendor-membership",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet"
+          }
+        ]
+      }
+    ];
+  },
   async redirects() {
     return [
       { source: "/index.html", destination: "/", permanent: true },

@@ -16,6 +16,7 @@ export const staticRoutes = [
   { path: "submit-project", file: "submit-project.html", title: "Submit a Project | FluidRWA" },
   { path: "submit-requirement", file: "submit-project.html", title: "Submit Requirements | FluidRWA" },
   { path: "apply-as-vendor", file: "apply-as-vendor.html", title: "Apply as Vendor | FluidRWA" },
+  { path: "vendor-membership", file: "vendor-membership.html", title: "FluidRWA Vendor Membership" },
   { path: "arcade", file: "arcade.html", title: "FluidRWA Arcade" },
   { path: "privacy", file: "privacy.html", title: "Privacy Policy | FluidRWA" },
   { path: "terms", file: "terms.html", title: "Terms & Conditions | FluidRWA" },
@@ -60,7 +61,8 @@ const sitemapExcludedPaths = new Set([
   "yellowpages-preview",
   "vendor-ecosystem",
   "submit-project",
-  "team"
+  "team",
+  "vendor-membership"
 ]);
 
 const vendorFileMap: Record<string, string> = {
