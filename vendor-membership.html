@@ -89,8 +89,8 @@
   .tier li::before{content:"";position:absolute;left:0;top:6px;width:13px;height:13px;border-radius:50%;background:var(--teal-tint)}
   .tier li::after{content:"";position:absolute;left:4.5px;top:9px;width:4px;height:4px;border-radius:50%;background:var(--teal)}
   .tier li.no{color:var(--ink-mute)} .tier li.no::before{background:#f1f2f5} .tier li.no::after{background:var(--ink-mute)}
-  .tier .cta{margin-top:auto;text-align:center;font-family:var(--disp);font-weight:600;font-size:14px;padding:13px;border-radius:12px;border:1.5px solid var(--ink);color:var(--ink);transition:.16s}
-  .tier .cta:hover{background:var(--ink);color:#fff}
+  .tier .cta{margin-top:auto;text-align:center;font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:12px;border:1.5px solid #2f6fb4;background:#2f6fb4;color:#fff;box-shadow:0 8px 20px rgba(47,111,180,.18);transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
+  .tier .cta:hover{background:#f2cc2c;border-color:#f2cc2c;color:var(--ink);box-shadow:0 10px 24px rgba(242,204,44,.24);transform:translateY(-1px)}
 
   /* premium highlighted */
   .tier.premium{border:1.8px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;box-shadow:var(--shadow-lg);transform:scale(1.03);position:relative;z-index:2}
@@ -102,8 +102,8 @@
   .anchor .val{font-family:var(--mono);font-size:10.5px;letter-spacing:.5px;color:var(--purple-dk);background:var(--purple-tint);padding:3px 8px;border-radius:6px;font-weight:700}
   .price.purple{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .perday{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin:6px 0 0;letter-spacing:.3px}
-  .tier.premium .cta{background:var(--grad);color:#fff;border:none;box-shadow:0 8px 22px rgba(124,92,255,.28)}
-  .tier.premium .cta:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .tier.premium .cta{background:#2f6fb4;color:#fff;border:1.5px solid #2f6fb4;box-shadow:0 8px 22px rgba(47,111,180,.25)}
+  .tier.premium .cta:hover{background:#f2cc2c;border-color:#f2cc2c;color:var(--ink);transform:translateY(-1px)}
   .scar{font-family:var(--mono);font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--purple-dk);background:var(--purple-tint);border-radius:8px;padding:7px 10px;text-align:center;margin-bottom:4px}
 
   /* roi band */
@@ -261,7 +261,7 @@
           <li>Category search visibility</li>
           <li>2-year lock adds rate protection and priority</li>
         </ul>
-        <a class="cta" href="mailto:contact@fluidrwa.com?subject=I%20want%20to%20be%20a%20Vetted%20Vendor">Get vetted</a>
+        <a class="cta" href="mailto:contact@fluidrwa.com?subject=Vetted%20Vendor%20Membership%20-%20%24499%20per%20year">Get vetted</a>
       </div>
 
       <div class="tier premium reveal">
@@ -282,7 +282,7 @@
           <li>Co-marketing and an editorial feature</li>
         </ul>
         <div class="scar" id="scarTag">Onboarding starts now</div>
-        <a class="cta" id="premCta" href="mailto:contact@fluidrwa.com?subject=I%20want%20to%20be%20a%20Premium%20Vetted%20Vendor">Claim your category</a>
+        <a class="cta" id="premCta" href="mailto:contact@fluidrwa.com?subject=Premium%20Vetted%20Vendor%20Membership%20-%20%245%2C000%20per%20year">Claim your category</a>
       </div>
 
       <div class="tier reveal">
@@ -299,7 +299,7 @@
           <li>Reach an industry email list of 7,000 contacts and growing</li>
           <li>First priority on every buyer match</li>
         </ul>
-        <a class="cta" href="mailto:contact@fluidrwa.com?subject=I%20want%20to%20be%20a%20Founding%20Partner">Apply to partner</a>
+        <a class="cta" href="mailto:contact@fluidrwa.com?subject=Founding%20Partner%20Membership%20-%20%247%2C500%20per%20year">Apply to partner</a>
       </div>
 
     </div>
@@ -385,7 +385,7 @@
       cat.classList.add('selected');
       const name=cat.querySelector('.cname').textContent;
       cta.textContent='Claim '+name;
-      cta.href='mailto:contact@fluidrwa.com?subject='+encodeURIComponent('I want to claim the Premium Vetted Vendor seat for '+name);
+      cta.href='mailto:contact@fluidrwa.com?subject='+encodeURIComponent('Premium Vetted Vendor Membership - $5,000 per year - '+name);
       scar.textContent='Reserving '+name+' for you';
       document.getElementById('pricing').scrollIntoView({behavior:'smooth'});
     });
