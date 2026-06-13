@@ -20,6 +20,34 @@
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
 }
 
+.post-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.post-cta-actions a {
+  margin-top: 0;
+}
+
+.post-cta a.post-cta-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+@media (max-width: 620px) {
+  .post-cta-actions {
+    display: grid;
+  }
+
+  .post-cta-actions a {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* Concept 2: trusted nostalgic directory, not a neon yellow theme. */
 .light-home {
   --directory-paper: #fff7d1;
