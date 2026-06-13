@@ -1,6 +1,29 @@
 const directory = (slug) => `/vendors/${slug}`;
 
 const blogResearch = {
+  "tokeny-vs-securitize": {
+    label: "Tokeny vs Securitize decision snapshot",
+    intro: "The most important distinction is operating model. Tokeny provides modular, standards-led tokenization infrastructure; Securitize combines tokenization technology with regulated affiliates and a more integrated operating stack.",
+    headers: ["Decision factor", "Tokeny", "Securitize"],
+    rows: [
+      ["Core model", "Modular ERC-3643 software, APIs and partner integrations", "Integrated platform with regulated-service affiliates"],
+      ["Compliance structure", "Issuer-appointed agents plus token-native controls", "Securitize iD plus affiliated regulated services"],
+      ["Secondary market", "Partner venues and interoperable workflows", "Securitize Markets ATS plus ecosystem integrations"],
+      ["Natural fit", "Issuers wanting modular control and partner choice", "Issuers wanting packaged regulated operations"]
+    ],
+    links: [
+      ["Compare tokenization platforms", directory("tokenization-platforms")],
+      ["Compare compliance infrastructure providers", directory("compliance-infrastructure-providers")],
+      ["Submit requirements", "/submit-requirement"]
+    ],
+    sources: [
+      ["Tokeny solutions overview", "https://docs.tokeny.com/docs/solutions-overview-1"],
+      ["Tokeny secondary-market documentation", "https://docs.tokeny.com/docs/secondary-market"],
+      ["Securitize Connect API documentation", "https://sec-connect-api-docs.securitize.io/"],
+      ["FINRA BrokerCheck: Securitize Markets", "https://brokercheck.finra.org/firm/summary/283256"],
+      ["ESMA authorized DLT market infrastructures", "https://www.esma.europa.eu/sites/default/files/2026-01/Authorised_DLT_Market_Infrastructures.pdf"]
+    ]
+  },
   "web3-adoption-across-industries": {
     label: "Web3 industry adoption snapshot",
     intro: "The strongest industry deployments use blockchain selectively for settlement, ownership, provenance, credentials or network incentives while existing systems continue to handle private and high-volume operations.",
