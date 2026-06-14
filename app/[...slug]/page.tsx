@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { VentureCapitalFilters } from "@/components/VentureCapitalFilters";
+import { FamilyOfficeTable } from "@/components/FamilyOfficeTable";
 import { fileForRoute, normalizePath, allRoutePaths } from "@/lib/routes";
 import { legacyJsonLd, legacyMainHtml, legacyMetadata } from "@/lib/legacy";
 
@@ -35,6 +36,7 @@ export default async function AppRoutePage({ params }: RouteParams) {
       ))}
       <div dangerouslySetInnerHTML={{ __html: html }} />
       {routePath === "vendors/venture-capital" ? <VentureCapitalFilters /> : null}
+      {routePath === "vendors/family-offices" ? <FamilyOfficeTable /> : null}
     </main>
   );
 }
