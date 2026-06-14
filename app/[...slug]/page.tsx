@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { VentureCapitalFilters } from "@/components/VentureCapitalFilters";
 import { fileForRoute, normalizePath, allRoutePaths } from "@/lib/routes";
 import { legacyJsonLd, legacyMainHtml, legacyMetadata } from "@/lib/legacy";
 
@@ -33,6 +34,7 @@ export default async function AppRoutePage({ params }: RouteParams) {
         <JsonLd key={index} data={item} />
       ))}
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      {routePath === "vendors/venture-capital" ? <VentureCapitalFilters /> : null}
     </main>
   );
 }
