@@ -113,7 +113,8 @@ export function legacyJsonLd(file: string) {
     }
   }).filter(Boolean);
   const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
-  return fallback ? [...parsed, fallback] : parsed;
+  const withFallback = fallback ? [...parsed, fallback] : parsed;
+  return ensureSailoVendorSchema(file, withFallback);
 }
 
 export function legacyMainHtml(file: string) {
@@ -121,13 +122,77 @@ export function legacyMainHtml(file: string) {
   if (!html) return null;
   const pageStyles = [...html.matchAll(/<style[^>]*>[\s\S]*?<\/style>/gi)].map((match) => match[0]).join("\n");
   const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] || html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || html;
-  const bodyHtml = rewriteLinks(main)
+  const bodyHtml = ensureSailoVendorPlacement(file, rewriteLinks(main)
     .replace(/<header[\s\S]*?<\/header>/gi, "")
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
-    .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, "");
+    .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, ""));
   const fallbackDirectory = bodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
   const renderedHtml = fallbackDirectory ? `${bodyHtml}\n${fallbackDirectory}` : bodyHtml;
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
+}
+
+const sailoSecurityCard = `<article class="bc-company-card reveal" id="sailo-technologies" itemscope itemtype="https://schema.org/Organization" data-search="sailo technologies blockchain security know your risk active proactive protection before incidents risk management money-back guarantee mica readiness dora readiness howden bullet blockchain security infrastructure risk management global"><div class="bc-company-top"><div class="bc-logo-mark" aria-hidden="true">ST</div><div><p class="bc-company-index">30 / Proactive Blockchain Risk Protection</p><h3 itemprop="name">Sailo Technologies</h3></div></div><p class="bc-best-fit"><strong>Best for:</strong> Web3, DeFi and digital asset teams seeking active risk protection designed to identify and reduce exposure before incidents occur</p><p itemprop="description">Sailo Technologies positions itself as a blockchain-security and risk-protection provider focused on Know Your Risk and active protection before an incident, with a company-reported money-back guarantee.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>Sailo says its approach is built around proactive risk protection rather than post-incident response. The company reports MiCA and DORA readiness and names HOWDEN and Bullet Blockchain as client or partner references. Teams should independently verify the scope of protection, guarantee terms, regulatory-readiness claims and partner relationships during diligence.</p></details><dl class="bc-company-meta"><div><dt>Services</dt><dd>Security Infrastructure &amp; Risk Management, Proactive Risk Protection</dd></div><div><dt>Coverage</dt><dd>Global</dd></div><div><dt>Compliance</dt><dd>MiCA &amp; DORA readiness (company-reported)</dd></div><div><dt>References</dt><dd>HOWDEN, Bullet Blockchain (company-reported)</dd></div></dl><div class="bc-company-tags"><span>Know Your Risk</span><span>Proactive Protection</span><span>Risk Management</span><span>MiCA Readiness</span><span>DORA Readiness</span><span>Money-Back Guarantee</span></div><a class="bc-company-link" href="https://sailo.tech/" target="_blank" rel="noopener noreferrer nofollow" itemprop="url">Visit Sailo Technologies</a></article>`;
+
+const sailoEcosystemCard = `<article class="vendor-card" id="sailo-technologies" itemscope itemtype="https://schema.org/Organization"><meta itemprop="additionalType" content="Security &amp; Audits"><div class="card-top"><span class="vendor-number">31</span><div class="tag-row"><span class="tag">Proactive Risk</span><span class="tag">MiCA/DORA Ready</span></div></div><h3 itemprop="name">Sailo Technologies</h3><p itemprop="description">Blockchain-security and risk-protection provider focused on Know Your Risk and active protection before incidents, with a company-reported money-back guarantee.</p><div class="vendor-meta"><span>Global</span><span>Security &amp; Audits</span></div><div class="vendor-links"><a href="https://sailo.tech/" target="_blank" rel="noopener noreferrer nofollow" itemprop="url" aria-label="Visit Sailo Technologies website">Visit</a></div></article>`;
+
+function ensureSailoVendorPlacement(file: string, html: string) {
+  if (html.includes("Sailo Technologies")) return html;
+
+  if (file === "vendors/security-audits/index.html") {
+    return html.replace(
+      /(<\/article><\/div><\/div><\/section><section class="bc-section" aria-labelledby="faq-title">)/,
+      `</article>${sailoSecurityCard}</div></div></section><section class="bc-section" aria-labelledby="faq-title">`
+    );
+  }
+
+  if (file === "vendor-ecosystem.html") {
+    return html
+      .replace(/(<span class="group-count">)30(<\/span>)/, "$131$2")
+      .replace(
+        /(<\/article><\/div><\/div><\/section><section class="directory-section directory-faq")/,
+        `</article>${sailoEcosystemCard}</div></div></section><section class="directory-section directory-faq"`
+      );
+  }
+
+  return html;
+}
+
+function ensureSailoVendorSchema(file: string, items: unknown[]) {
+  if (JSON.stringify(items).includes("Sailo Technologies")) return items;
+  if (file !== "vendors/security-audits/index.html" && file !== "vendor-ecosystem.html") return items;
+
+  return [
+    ...items,
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Sailo Technologies",
+      url: "https://sailo.tech/",
+      description:
+        "Blockchain-security and risk-protection provider focused on Know Your Risk and active protection before incidents, with a company-reported money-back guarantee.",
+      additionalType: "Security & Audits",
+      knowsAbout: [
+        "Know Your Risk",
+        "Proactive Risk Protection",
+        "Blockchain Security",
+        "Web3 Risk Management",
+        "MiCA Readiness",
+        "DORA Readiness"
+      ],
+      additionalProperty: [
+        {
+          "@type": "PropertyValue",
+          name: "Company-reported compliance readiness",
+          value: "MiCA and DORA readiness"
+        },
+        {
+          "@type": "PropertyValue",
+          name: "Company-reported clients and partners",
+          value: "HOWDEN and Bullet Blockchain"
+        }
+      ]
+    }
+  ];
 }
 
 function rewriteLinks(html: string) {
