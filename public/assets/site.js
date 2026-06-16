@@ -2,6 +2,61 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinks = document.querySelector("[data-nav-links]");
 const siteHeader = document.querySelector("[data-site-header]");
 
+const leadConversionForms = document.querySelectorAll(".fluid-intake-form");
+
+leadConversionForms.forEach((form) => {
+  const frameName = form.getAttribute("target");
+  const frame = frameName ? document.querySelector(`iframe[name="${frameName}"]`) : null;
+  const status = form.querySelector("[data-form-status]");
+  const button = form.querySelector('button[type="submit"]');
+  const isVendorForm = frameName === "fluidVendorSubmit";
+  const defaultButtonText = button?.textContent || "Submit";
+  let submitted = false;
+  let conversionReported = false;
+  let submissionTimer;
+
+  form.addEventListener("submit", () => {
+    submitted = true;
+    conversionReported = false;
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Submitting...";
+    }
+    if (status) {
+      status.className = "form-status is-loading";
+      status.textContent = isVendorForm
+        ? "Submitting your vendor interest..."
+        : "Submitting your requirements...";
+    }
+    window.clearTimeout(submissionTimer);
+    submissionTimer = window.setTimeout(() => {
+      if (!submitted || conversionReported) return;
+      if (button) {
+        button.disabled = false;
+        button.textContent = defaultButtonText;
+      }
+      if (status) {
+        status.className = "form-status is-error";
+        status.textContent = "The submission is taking longer than expected. Please check your connection and try again.";
+      }
+    }, 12000);
+  });
+
+  frame?.addEventListener("load", () => {
+    if (!submitted || conversionReported) return;
+    conversionReported = true;
+    window.clearTimeout(submissionTimer);
+    if (button) button.textContent = "Submitted";
+    if (status) {
+      status.className = "form-status is-success";
+      status.textContent = isVendorForm
+        ? "Thank you. Your vendor interest has been received."
+        : "Thank you. Your project requirements have been received.";
+    }
+    window.fluidRwaReportLeadConversion?.();
+  });
+});
+
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");
@@ -49,6 +104,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.14 });
 
 document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
@@ -282,8 +338,140 @@ const normalizeVendorText = (value) =>
     .replace(/[^a-z0-9+]+/g, " ")
     .trim();
 
+const vendorSearchStopWords = new Set([
+  "a",
+  "about",
+  "an",
+  "and",
+  "are",
+  "as",
+  "at",
+  "be",
+  "best",
+  "can",
+  "company",
+  "companies",
+  "do",
+  "does",
+  "find",
+  "for",
+  "from",
+  "get",
+  "help",
+  "helps",
+  "i",
+  "in",
+  "is",
+  "it",
+  "me",
+  "need",
+  "of",
+  "on",
+  "or",
+  "our",
+  "provider",
+  "providers",
+  "service",
+  "services",
+  "solution",
+  "solutions",
+  "that",
+  "the",
+  "to",
+  "vendor",
+  "vendors",
+  "we",
+  "what",
+  "which",
+  "who",
+  "with"
+]);
+
+const vendorSearchAliases = new Map([
+  ["auditor", "audit"],
+  ["auditors", "audit"],
+  ["auditing", "audit"],
+  ["audits", "audit"],
+  ["breach", "security"],
+  ["breaches", "security"],
+  ["bug", "security"],
+  ["bugs", "security"],
+  ["hack", "security"],
+  ["hacked", "security"],
+  ["hacks", "security"],
+  ["protection", "security"],
+  ["protect", "security"],
+  ["protected", "security"],
+  ["risk", "security"],
+  ["risks", "security"],
+  ["dora", "compliance"],
+  ["mica", "compliance"],
+  ["regulation", "compliance"],
+  ["regulatory", "compliance"],
+  ["aml", "compliance"],
+  ["kyc", "identity"],
+  ["screening", "identity"],
+  ["verification", "identity"],
+  ["wallet", "custody"],
+  ["wallets", "custody"],
+  ["custodian", "custody"],
+  ["custodians", "custody"],
+  ["stablecoin", "payments"],
+  ["stablecoins", "payments"],
+  ["onramp", "payments"],
+  ["onramps", "payments"],
+  ["offramp", "payments"],
+  ["offramps", "payments"],
+  ["fiat", "payments"],
+  ["tokenise", "tokenization"],
+  ["tokenised", "tokenization"],
+  ["tokenize", "tokenization"],
+  ["tokenized", "tokenization"],
+  ["tokenizing", "tokenization"],
+  ["rwa", "tokenization"],
+  ["real", "tokenization"],
+  ["estate", "tokenization"],
+  ["contract", "smart"],
+  ["contracts", "smart"],
+  ["developer", "development"],
+  ["developers", "development"],
+  ["engineering", "development"],
+  ["law", "legal"],
+  ["lawyer", "legal"],
+  ["lawyers", "legal"],
+  ["marketing", "growth"],
+  ["pr", "growth"],
+  ["fundraising", "capital"],
+  ["investor", "capital"],
+  ["investors", "capital"]
+]);
+
+const tokenizeVendorSearch = (value) => {
+  const normalized = normalizeVendorText(value);
+  if (!normalized) return [];
+  return normalized
+    .split(/\s+/)
+    .map((token) => vendorSearchAliases.get(token) || token)
+    .filter((token) => token.length > 1 && !vendorSearchStopWords.has(token));
+};
+
+const matchesVendorSearch = (profile, query) => {
+  const normalizedQuery = normalizeVendorText(query);
+  if (!normalizedQuery) return true;
+  if (profile.text.includes(normalizedQuery)) return true;
+
+  const queryTokens = [...new Set(tokenizeVendorSearch(normalizedQuery))];
+  if (!queryTokens.length) return true;
+
+  const matched = queryTokens.filter((token) => profile.tokens.has(token) || profile.text.includes(token));
+  if (matched.length === queryTokens.length) return true;
+  if (queryTokens.length <= 3) return matched.length >= 1;
+  return matched.length >= Math.min(3, queryTokens.length) || matched.length / queryTokens.length >= 0.45;
+};
+
 const inferVendorProfile = (card) => {
   const text = normalizeVendorText(`${card.dataset.search || ""} ${card.textContent || ""}`);
+  const tokens = new Set(tokenizeVendorSearch(text));
   const location =
     card.querySelector('[itemprop="addressCountry"]')?.textContent?.trim() ||
     Array.from(card.querySelectorAll("dt"))
@@ -300,7 +488,7 @@ const inferVendorProfile = (card) => {
     : /(developer|startup|self serve|open source|community|boutique|smb|small business)/.test(text)
       ? "starter"
       : "growth";
-  return { text, location, regulatory, budget };
+  return { text, tokens, location, regulatory, budget };
 };
 
 const buildFilterSelect = (label, name, options) => {
@@ -346,7 +534,7 @@ if (vendorSearch) {
     vendorCards.forEach((card) => {
       const profile = profiles.get(card);
       const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
-      const matchesSearch = !query || profile.text.includes(query);
+      const matchesSearch = matchesVendorSearch(profile, query);
       const matchesLocation = locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value;
       const matchesRegulatory = regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value;
       const matchesBudget = budgetControl.value === "all" || profile.budget === budgetControl.value;
