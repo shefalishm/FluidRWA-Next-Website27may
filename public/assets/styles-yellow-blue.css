@@ -4872,10 +4872,10 @@ tr:last-child td { border-bottom: 0; }
 .bc-snapshot strong {
   display: block;
   color: #2664a9;
-  font-family: var(--fluid-display);
-  font-size: clamp(30px, 3.2vw, 48px);
-  font-weight: 700;
-  line-height: 1;
+  font-family: var(--fluid-body);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 850;
+  line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
@@ -5630,7 +5630,7 @@ tr:last-child td { border-bottom: 0; }
   }
 
   .bc-snapshot strong {
-    font-size: clamp(24px, 8vw, 34px);
+    font-size: clamp(20px, 6vw, 28px);
   }
 
   .bc-snapshot > div span {
