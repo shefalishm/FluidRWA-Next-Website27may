@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, lastModified: "2026-05-27", changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/tools`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/tokenization-readiness-assessment-tool`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.96 },
+    { url: `${siteUrl}/family-office-service-stack-builder`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.94 },
     ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
       lastModified: "2026-05-27",

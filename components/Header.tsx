@@ -30,6 +30,7 @@ export function Header() {
             </a>
             <div className="nav-tool-menu" aria-label="FluidRWA tools">
               <a href="/tokenization-readiness-assessment-tool">Free tokenization readiness tool</a>
+              <a href="/family-office-service-stack-builder">Family office service stack builder</a>
             </div>
           </div>
           <a href="/about">About</a>
