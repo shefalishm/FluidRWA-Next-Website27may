@@ -42,7 +42,57 @@ async function insertSupabaseRow(table: string, row: Record<string, unknown>) {
   return { mode: "supabase" as const, data: await response.json() };
 }
 
-async function sendAssessmentNotification({
+function escapeHtml(value: unknown) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+async function sendResendEmail({
+  to,
+  subject,
+  text,
+  html
+}: {
+  to: string;
+  subject: string;
+  text: string;
+  html: string;
+}) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.ASSESSMENT_NOTIFICATION_FROM;
+
+  if (!apiKey || !from || !to) {
+    return { ok: false, skipped: true };
+  }
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      from,
+      to,
+      subject,
+      text,
+      html
+    })
+  });
+
+  if (!response.ok) {
+    console.error("Assessment email failed:", await response.text());
+    return { ok: false, skipped: false };
+  }
+
+  return { ok: true, skipped: false };
+}
+
+async function sendAssessmentEmails({
   assessmentId,
   lead,
   report,
@@ -55,15 +105,23 @@ async function sendAssessmentNotification({
   answers: AssessmentAnswers;
   budgetRange: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.ASSESSMENT_NOTIFICATION_FROM;
-  const to = process.env.ASSESSMENT_NOTIFICATION_EMAIL || "contact@fluidrwa.com";
+  const adminTo = process.env.ASSESSMENT_NOTIFICATION_EMAIL || "contact@fluidrwa.com";
+  const safeLead = {
+    name: escapeHtml(lead.name),
+    company: escapeHtml(lead.company),
+    email: escapeHtml(lead.email),
+    role: escapeHtml(lead.role),
+    country: escapeHtml(lead.country)
+  };
+  const safeAssessmentId = escapeHtml(assessmentId);
+  const safeAssetType = escapeHtml(answers.assetType || "Not provided");
+  const safeClassification = escapeHtml(report.classification.label);
+  const safeDescription = escapeHtml(report.classification.description);
+  const safeComplexity = escapeHtml(report.complexityRating);
+  const safeTimeline = escapeHtml(report.timelineMonths);
+  const safeBudget = escapeHtml(budgetRange);
 
-  if (!apiKey || !from || !to) {
-    return { ok: false, skipped: true };
-  }
-
-  const subject = `New Tokenization Readiness Assessment - ${lead.company} - Score ${report.score}`;
+  const adminSubject = `New Tokenization Readiness Assessment - ${lead.company} - Score ${report.score}`;
   const lines = [
     `Assessment ID: ${assessmentId}`,
     `Name: ${lead.name}`,
@@ -85,53 +143,83 @@ async function sendAssessmentNotification({
     ...(report.gaps.length ? report.gaps.map((item) => `- ${item.question} (${item.answer})`) : ["- No major gaps captured"])
   ];
 
-  const html = `
+  const adminHtml = `
     <div style="font-family:Arial,sans-serif;color:#12213a;line-height:1.55">
       <h2 style="margin:0 0 12px">New FluidRWA tokenization assessment</h2>
-      <p><strong>${lead.company}</strong> completed the Tokenization Readiness Assessment.</p>
+      <p><strong>${safeLead.company}</strong> completed the Tokenization Readiness Assessment.</p>
       <table cellpadding="8" cellspacing="0" style="border-collapse:collapse;border:1px solid #dbe7f3;width:100%;max-width:720px">
         <tbody>
-          <tr><td><strong>Assessment ID</strong></td><td>${assessmentId}</td></tr>
-          <tr><td><strong>Name</strong></td><td>${lead.name}</td></tr>
-          <tr><td><strong>Email</strong></td><td>${lead.email}</td></tr>
-          <tr><td><strong>Role</strong></td><td>${lead.role}</td></tr>
-          <tr><td><strong>Country</strong></td><td>${lead.country}</td></tr>
-          <tr><td><strong>Asset type</strong></td><td>${answers.assetType || "Not provided"}</td></tr>
+          <tr><td><strong>Assessment ID</strong></td><td>${safeAssessmentId}</td></tr>
+          <tr><td><strong>Name</strong></td><td>${safeLead.name}</td></tr>
+          <tr><td><strong>Email</strong></td><td>${safeLead.email}</td></tr>
+          <tr><td><strong>Role</strong></td><td>${safeLead.role}</td></tr>
+          <tr><td><strong>Country</strong></td><td>${safeLead.country}</td></tr>
+          <tr><td><strong>Asset type</strong></td><td>${safeAssetType}</td></tr>
           <tr><td><strong>Score</strong></td><td>${report.score}/100</td></tr>
-          <tr><td><strong>Classification</strong></td><td>${report.classification.label}</td></tr>
-          <tr><td><strong>Complexity</strong></td><td>${report.complexityRating}</td></tr>
-          <tr><td><strong>Budget range</strong></td><td>${budgetRange}</td></tr>
-          <tr><td><strong>Timeline</strong></td><td>${report.timelineMonths}</td></tr>
+          <tr><td><strong>Classification</strong></td><td>${safeClassification}</td></tr>
+          <tr><td><strong>Complexity</strong></td><td>${safeComplexity}</td></tr>
+          <tr><td><strong>Budget range</strong></td><td>${safeBudget}</td></tr>
+          <tr><td><strong>Timeline</strong></td><td>${safeTimeline}</td></tr>
         </tbody>
       </table>
       <h3>Recommended vendor categories</h3>
-      <ul>${report.recommendations.map((item) => `<li><strong>${item.category}</strong>: ${item.reason}</li>`).join("")}</ul>
+      <ul>${report.recommendations.map((item) => `<li><strong>${escapeHtml(item.category)}</strong>: ${escapeHtml(item.reason)}</li>`).join("")}</ul>
       <h3>Top gaps</h3>
-      <ul>${(report.gaps.length ? report.gaps : [{ question: "No major gaps captured", answer: "" }]).map((item) => `<li>${item.question}${item.answer ? ` (${item.answer})` : ""}</li>`).join("")}</ul>
+      <ul>${(report.gaps.length ? report.gaps : [{ question: "No major gaps captured", answer: "" }]).map((item) => `<li>${escapeHtml(item.question)}${item.answer ? ` (${escapeHtml(item.answer)})` : ""}</li>`).join("")}</ul>
     </div>
   `;
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      subject,
-      text: lines.join("\n"),
-      html
-    })
-  });
+  const userSubject = `Your FluidRWA Tokenization Readiness Report - ${report.score}/100`;
+  const userLines = [
+    `Hi ${lead.name},`,
+    "",
+    `Your FluidRWA Tokenization Readiness Assessment is ready.`,
+    `Score: ${report.score}/100`,
+    `Classification: ${report.classification.label}`,
+    `Complexity: ${report.complexityRating}`,
+    `Budget range: ${budgetRange}`,
+    `Timeline: ${report.timelineMonths}`,
+    "",
+    "Recommended vendor categories:",
+    ...report.recommendations.map((item) => `- ${item.category}`),
+    "",
+    "Top gaps:",
+    ...(report.gaps.length ? report.gaps.slice(0, 6).map((item) => `- ${item.question}`) : ["- No major gaps captured"]),
+    "",
+    "You can explore vendors or submit your project requirements on FluidRWA."
+  ];
+  const userHtml = `
+    <div style="font-family:Arial,sans-serif;color:#12213a;line-height:1.6;background:#f8fbff;padding:24px">
+      <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid #dbe7f3;border-radius:18px;padding:26px">
+        <p style="margin:0 0 8px;color:#2867b2;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700">FluidRWA readiness report</p>
+        <h1 style="margin:0 0 12px;font-size:28px;color:#10203a">Your tokenization readiness score is ${report.score}/100</h1>
+        <p style="margin:0 0 18px;color:#526174">${safeDescription}</p>
+        <table cellpadding="10" cellspacing="0" style="border-collapse:collapse;width:100%;border:1px solid #dbe7f3;margin:18px 0">
+          <tbody>
+            <tr><td><strong>Classification</strong></td><td>${safeClassification}</td></tr>
+            <tr><td><strong>Complexity</strong></td><td>${safeComplexity}</td></tr>
+            <tr><td><strong>Estimated budget</strong></td><td>${safeBudget}</td></tr>
+            <tr><td><strong>Estimated timeline</strong></td><td>${safeTimeline}</td></tr>
+          </tbody>
+        </table>
+        <h2 style="font-size:18px;margin:22px 0 8px">Recommended vendor categories</h2>
+        <ul>${report.recommendations.map((item) => `<li><strong>${escapeHtml(item.category)}</strong>: ${escapeHtml(item.reason)}</li>`).join("")}</ul>
+        <h2 style="font-size:18px;margin:22px 0 8px">Top gaps to review</h2>
+        <ul>${(report.gaps.length ? report.gaps.slice(0, 6) : [{ question: "No major gaps captured", answer: "" }]).map((item) => `<li>${escapeHtml(item.question)}${item.answer ? ` (${escapeHtml(item.answer)})` : ""}</li>`).join("")}</ul>
+        <p style="margin:24px 0 0">
+          <a href="https://www.fluidrwa.com/web3vendorecosystem" style="background:#2867b2;color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;display:inline-block;font-weight:700">Explore vendors</a>
+          <a href="https://www.fluidrwa.com/submit-requirement" style="background:#ffed96;color:#10203a;text-decoration:none;padding:12px 18px;border-radius:10px;display:inline-block;font-weight:700;margin-left:8px">Submit requirements</a>
+        </p>
+      </div>
+    </div>
+  `;
 
-  if (!response.ok) {
-    console.error("Assessment notification failed:", await response.text());
-    return { ok: false, skipped: false };
-  }
+  const [admin, user] = await Promise.all([
+    sendResendEmail({ to: adminTo, subject: adminSubject, text: lines.join("\n"), html: adminHtml }),
+    sendResendEmail({ to: lead.email, subject: userSubject, text: userLines.join("\n"), html: userHtml })
+  ]);
 
-  return { ok: true, skipped: false };
+  return { admin, user };
 }
 
 export async function POST(request: Request) {
@@ -191,7 +279,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const notification = await sendAssessmentNotification({
+    const notification = await sendAssessmentEmails({
       assessmentId,
       lead: validLead,
       report,
