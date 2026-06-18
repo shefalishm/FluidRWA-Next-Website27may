@@ -29,7 +29,7 @@ export function Header() {
               Tools
             </a>
             <div className="nav-tool-menu" aria-label="FluidRWA tools">
-              <a href="/tools/tokenization-readiness-assessment">Free tokenization readiness tool</a>
+              <a href="/tokenization-readiness-assessment-tool">Free tokenization readiness tool</a>
             </div>
           </div>
           <a href="/about">About</a>

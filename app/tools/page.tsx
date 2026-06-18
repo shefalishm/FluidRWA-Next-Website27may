@@ -51,7 +51,7 @@ export default function ToolsPage() {
           "@type": "ListItem",
           position: 1,
           name: "Free Tokenization Readiness Assessment Tool",
-          url: `${siteUrl}/tools/tokenization-readiness-assessment`
+          url: `${siteUrl}/tokenization-readiness-assessment-tool`
         }
       ]
     }
@@ -69,7 +69,7 @@ export default function ToolsPage() {
               Start with the Tokenization Readiness Assessment to understand readiness gaps, budget range, timeline and vendor categories before choosing tokenization providers.
             </p>
             <div className="tra-hero-actions">
-              <Link className="btn-primary" href="/tools/tokenization-readiness-assessment">
+              <Link className="btn-primary" href="/tokenization-readiness-assessment-tool">
                 Free tokenization readiness tool
               </Link>
             </div>

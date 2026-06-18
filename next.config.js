@@ -43,6 +43,7 @@ const nextConfig = {
       { source: "/submit-project.html", destination: "/submit-requirement", permanent: true },
       { source: "/submit-project", destination: "/submit-requirement", permanent: true },
       { source: "/team", destination: "/about", permanent: true },
+      { source: "/tools/tokenization-readiness-assessment", destination: "/tokenization-readiness-assessment-tool", permanent: true },
       { source: "/apply-as-vendor.html", destination: "/apply-as-vendor", permanent: true },
       { source: "/arcade.html", destination: "/arcade", permanent: true },
       { source: "/privacy.html", destination: "/privacy", permanent: true },

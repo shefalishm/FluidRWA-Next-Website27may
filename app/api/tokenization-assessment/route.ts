@@ -179,7 +179,7 @@ export async function POST(request: Request) {
       await insertSupabaseRow("tokenization_assessment_events", {
         assessment_id: assessmentId,
         event_name: "assessment_completion",
-        page_path: "/tools/tokenization-readiness-assessment",
+        page_path: "/tokenization-readiness-assessment-tool",
         asset_type: answers.assetType || null,
         country: validLead.country,
         metadata: {
