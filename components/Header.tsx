@@ -3,10 +3,7 @@ import Image from "next/image";
 const navItems = [
   ["Home", "/"],
   ["Solutions", "/solutions"],
-  ["Insights", "/blog"],
-  ["Arcade", "/arcade"],
-  ["About", "/about"],
-  ["Contact", "/contact"]
+  ["Insights", "/blog"]
 ] as const;
 
 export function Header() {
@@ -27,6 +24,16 @@ export function Header() {
               {label}
             </a>
           ))}
+          <div className="nav-tool-item">
+            <a href="/tools" aria-haspopup="true">
+              Tools
+            </a>
+            <div className="nav-tool-menu" aria-label="FluidRWA tools">
+              <a href="/tools/tokenization-readiness-assessment">Free tokenization readiness tool</a>
+            </div>
+          </div>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
           <a className="nav-ecosystem-cta" href="/web3vendorecosystem">
             Explore Vendor Ecosystem
           </a>

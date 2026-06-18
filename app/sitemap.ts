@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified: "2026-05-27", changeFrequency: "weekly", priority: 1 },
+    { url: `${siteUrl}/tools`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/tools/tokenization-readiness-assessment`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.96 },
     ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
       lastModified: "2026-05-27",
