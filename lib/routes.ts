@@ -41,6 +41,7 @@ export const staticRoutes = [
 
 export const vendorSlugs = [
   "tokenization-platforms",
+  "rwa-protocols-marketplaces",
   "legal-regulatory-vendors",
   "kyc-aml-providers",
   "smart-contract-development-companies",
@@ -70,6 +71,7 @@ const sitemapExcludedPaths = new Set([
 
 const vendorFileMap: Record<string, string> = {
   "tokenization-platforms": "tokenization-platforms",
+  "rwa-protocols-marketplaces": "rwa-protocols-marketplaces",
   "legal-regulatory-vendors": "legal-regulatory",
   "kyc-aml-providers": "kyc-aml",
   "smart-contract-development-companies": "smart-contract-development",
