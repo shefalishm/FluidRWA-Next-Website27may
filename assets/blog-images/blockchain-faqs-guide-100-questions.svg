@@ -1,18 +1,106 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
   <title id="title">Blockchain FAQs: 100 Questions About Blockchain, Smart Contracts, RWA and Web3 Infrastructure</title>
-  <desc id="desc">Editorial infrastructure visual for Blockchain.</desc>
+  <desc id="desc">A premium blockchain-style editorial visual with connected blocks, ledger nodes and 100 questions called out on a separate line.</desc>
   <defs>
-    <radialGradient id="g1" cx="18%" cy="14%" r="60%"><stop stop-color="#38d9f2" stop-opacity=".48"/><stop offset="1" stop-color="#fffdf2" stop-opacity="0"/></radialGradient>
-    <radialGradient id="g2" cx="86%" cy="12%" r="58%"><stop stop-color="#f6c915" stop-opacity=".42"/><stop offset="1" stop-color="#fffdf2" stop-opacity="0"/></radialGradient>
-    <linearGradient id="split" x1="0" x2="1"><stop stop-color="#fffdf2"/><stop offset=".55" stop-color="#fffdf2"/><stop offset=".55" stop-color="#eef8ff"/><stop offset="1" stop-color="#fff7d1"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#12213a" flood-opacity=".14"/></filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6cf"/>
+      <stop offset=".48" stop-color="#eefbff"/>
+      <stop offset="1" stop-color="#f8f1ff"/>
+    </linearGradient>
+    <radialGradient id="blueGlow" cx="76%" cy="24%" r="58%">
+      <stop stop-color="#72d7ee" stop-opacity=".46"/>
+      <stop offset="1" stop-color="#72d7ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="12%" cy="86%" r="62%">
+      <stop stop-color="#ffe36e" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#ffe36e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#eef9ff" stop-opacity=".78"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#12213a"/>
+      <stop offset="1" stop-color="#214f80"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#12213a" flood-opacity=".15"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
   </defs>
-  <rect width="1200" height="675" fill="#fffdf2"/>
-  <rect width="1200" height="675" fill="url(#g1)"/>
-  <rect width="1200" height="675" fill="url(#g2)"/>
-  <g opacity=".9"><path d="M0 80C260 20 560 160 1200 60" fill="none" stroke="#164b7a" stroke-opacity=".09" stroke-width="2"/><path d="M0 146C260 66 560 184 1200 118" fill="none" stroke="#38d9f2" stroke-opacity=".09" stroke-width="3"/><path d="M0 212C260 112 560 208 1200 176" fill="none" stroke="#164b7a" stroke-opacity=".09" stroke-width="4"/><path d="M0 278C260 158 560 232 1200 234" fill="none" stroke="#38d9f2" stroke-opacity=".09" stroke-width="2"/><path d="M0 344C260 204 560 256 1200 292" fill="none" stroke="#164b7a" stroke-opacity=".09" stroke-width="3"/><path d="M0 410C260 250 560 280 1200 350" fill="none" stroke="#38d9f2" stroke-opacity=".09" stroke-width="4"/><path d="M0 476C260 296 560 304 1200 408" fill="none" stroke="#164b7a" stroke-opacity=".09" stroke-width="2"/><path d="M0 542C260 342 560 328 1200 466" fill="none" stroke="#38d9f2" stroke-opacity=".09" stroke-width="3"/><path d="M0 608C260 388 560 352 1200 524" fill="none" stroke="#164b7a" stroke-opacity=".09" stroke-width="4"/></g>
-  <g><line x1="677" y1="503" x2="236" y2="302" stroke="#164b7a" stroke-opacity=".13" stroke-width="1.5"/><line x1="236" y1="302" x2="735" y2="541" stroke="#164b7a" stroke-opacity=".13" stroke-width="2.5"/><line x1="735" y1="541" x2="294" y2="340" stroke="#164b7a" stroke-opacity=".13" stroke-width="3.5"/><line x1="294" y1="340" x2="793" y2="579" stroke="#164b7a" stroke-opacity=".13" stroke-width="1.5"/><line x1="793" y1="579" x2="352" y2="378" stroke="#164b7a" stroke-opacity=".13" stroke-width="2.5"/><line x1="352" y1="378" x2="851" y2="177" stroke="#164b7a" stroke-opacity=".13" stroke-width="3.5"/><line x1="851" y1="177" x2="410" y2="416" stroke="#164b7a" stroke-opacity=".13" stroke-width="1.5"/><line x1="410" y1="416" x2="909" y2="215" stroke="#164b7a" stroke-opacity=".13" stroke-width="2.5"/><circle cx="677" cy="503" r="7" fill="#f6c915" opacity="0.64"/><circle cx="236" cy="302" r="10" fill="#38d9f2" opacity="0.615"/><circle cx="735" cy="541" r="13" fill="#f6c915" opacity="0.59"/><circle cx="294" cy="340" r="16" fill="#38d9f2" opacity="0.565"/><circle cx="793" cy="579" r="7" fill="#f6c915" opacity="0.54"/><circle cx="352" cy="378" r="10" fill="#38d9f2" opacity="0.515"/><circle cx="851" cy="177" r="13" fill="#f6c915" opacity="0.49"/><circle cx="410" cy="416" r="16" fill="#38d9f2" opacity="0.46499999999999997"/><circle cx="909" cy="215" r="7" fill="#f6c915" opacity="0.44"/></g>
-  <g transform="translate(-300 0)"><rect x="628" y="96" width="520" height="420" rx="54" fill="#172033" opacity=".08"/><rect x="676" y="140" width="424" height="326" rx="38" fill="#fff" opacity=".46"/></g>
-  <g transform="translate(-300 0)" filter="url(#shadow)"><g transform="translate(692 112)"><rect x="0" y="0" width="424" height="344" rx="34" fill="#172033" opacity=".94"/><circle cx="44" cy="42" r="10" fill="#38d9f2"/><circle cx="76" cy="42" r="10" fill="#f6c915"/><circle cx="108" cy="42" r="10" fill="#fff" opacity=".7"/><path d="m104 168-54 48 54 48M320 168l54 48-54 48M246 122l-70 188" fill="none" stroke="#f6c915" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/><rect x="66" y="296" width="292" height="16" rx="8" fill="#38d9f2" opacity=".72"/></g></g>
-  <g filter="url(#shadow)" opacity=".82"><circle cx="142" cy="474" r="42" fill="#38d9f2" opacity=".44"/><circle cx="224" cy="506" r="26" fill="#f6c915" opacity=".5"/><circle cx="304" cy="458" r="18" fill="#172033" opacity=".16"/></g>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#blueGlow)"/>
+  <rect width="1200" height="675" fill="url(#goldGlow)"/>
+
+  <g opacity=".16">
+    <path d="M0 96h1200M0 168h1200M0 240h1200M0 312h1200M0 384h1200M0 456h1200M0 528h1200M0 600h1200" stroke="#2664a9" stroke-width="1"/>
+    <path d="M96 0v675M192 0v675M288 0v675M384 0v675M480 0v675M576 0v675M672 0v675M768 0v675M864 0v675M960 0v675M1056 0v675" stroke="#2664a9" stroke-width="1"/>
+  </g>
+
+  <g opacity=".82">
+    <path d="M578 210l134 74 132-72 134 78 88-54" fill="none" stroke="#12213a" stroke-opacity=".18" stroke-width="4"/>
+    <path d="M578 356l134-72 132 72 134-66 88 84" fill="none" stroke="#72d7ee" stroke-opacity=".38" stroke-width="5"/>
+    <path d="M578 502l134-218 132-72 134 78 88 84" fill="none" stroke="#12213a" stroke-opacity=".13" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(600 88)" filter="url(#shadow)">
+    <g transform="translate(0 120)">
+      <polygon points="112,0 224,64 224,190 112,254 0,190 0,64" fill="#ffffff" opacity=".84" stroke="#cfe1f4" stroke-width="2"/>
+      <polygon points="112,0 224,64 112,130 0,64" fill="#dff8ff" opacity=".9"/>
+      <polygon points="0,64 112,130 112,254 0,190" fill="#eefbff"/>
+      <polygon points="224,64 112,130 112,254 224,190" fill="#fff3a9" opacity=".72"/>
+      <text x="112" y="164" text-anchor="middle" fill="#12213a" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900" letter-spacing="3">BLOCK</text>
+    </g>
+    <g transform="translate(806 206) scale(.72)">
+      <polygon points="112,0 224,64 224,190 112,254 0,190 0,64" fill="#ffffff" opacity=".78" stroke="#cfe1f4" stroke-width="2"/>
+      <polygon points="112,0 224,64 112,130 0,64" fill="#fff0a0" opacity=".9"/>
+      <polygon points="0,64 112,130 112,254 0,190" fill="#eefbff"/>
+      <polygon points="224,64 112,130 112,254 224,190" fill="#dff8ff"/>
+    </g>
+    <g transform="translate(346 0) scale(.82)">
+      <polygon points="112,0 224,64 224,190 112,254 0,190 0,64" fill="#ffffff" opacity=".78" stroke="#cfe1f4" stroke-width="2"/>
+      <polygon points="112,0 224,64 112,130 0,64" fill="#dff8ff" opacity=".95"/>
+      <polygon points="0,64 112,130 112,254 0,190" fill="#f7fbff"/>
+      <polygon points="224,64 112,130 112,254 224,190" fill="#fff1a8" opacity=".76"/>
+    </g>
+    <g transform="translate(318 306) scale(.96)">
+      <polygon points="112,0 224,64 224,190 112,254 0,190 0,64" fill="url(#navy)" opacity=".96"/>
+      <polygon points="112,0 224,64 112,130 0,64" fill="#2f79ad" opacity=".92"/>
+      <polygon points="0,64 112,130 112,254 0,190" fill="#183250"/>
+      <polygon points="224,64 112,130 112,254 224,190" fill="#245d8d"/>
+      <text x="112" y="150" text-anchor="middle" fill="#ffe36e" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="3">SMART</text>
+      <text x="112" y="178" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="3">CONTRACT</text>
+    </g>
+    <g fill="#72d7ee" opacity=".95">
+      <circle cx="112" cy="120" r="13"/>
+      <circle cx="438" cy="120" r="13"/>
+      <circle cx="544" cy="426" r="13"/>
+      <circle cx="866" cy="298" r="13"/>
+    </g>
+    <g fill="#ffe36e" opacity=".92">
+      <circle cx="224" cy="310" r="11"/>
+      <circle cx="530" cy="126" r="11"/>
+      <circle cx="430" cy="560" r="11"/>
+      <circle cx="962" cy="386" r="11"/>
+    </g>
+  </g>
+
+  <g transform="translate(86 88)">
+    <rect x="0" y="0" width="510" height="500" rx="48" fill="#fff" opacity=".72" filter="url(#shadow)"/>
+    <rect x="28" y="28" width="454" height="444" rx="34" fill="none" stroke="#dbe8f6" stroke-width="1.5"/>
+    <text x="58" y="96" fill="#2664a9" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="8">BLOCKCHAIN FAQS</text>
+    <text x="58" y="190" fill="#12213a" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">100</text>
+    <text x="58" y="276" fill="#12213a" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-weight="700">Questions</text>
+    <text x="58" y="340" fill="#5f6f86" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Blockchain, smart contracts, RWA,</text>
+    <text x="58" y="378" fill="#5f6f86" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">security, compliance and Web3</text>
+    <text x="58" y="416" fill="#5f6f86" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">infrastructure explained.</text>
+  </g>
+
+  <g opacity=".58" filter="url(#soft)">
+    <rect x="880" y="64" width="168" height="168" rx="48" fill="#ffe36e"/>
+    <rect x="586" y="514" width="160" height="80" rx="34" fill="#72d7ee"/>
+  </g>
 </svg>
