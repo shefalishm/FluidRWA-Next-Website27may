@@ -1,0 +1,40 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="38" fill="#F8F3D8"/>
+  <rect width="1200" height="675" rx="38" fill="url(#bg)"/>
+  <g opacity=".32">
+    <path d="M85 86h1030M85 166h1030M85 246h1030M85 326h1030M85 406h1030M85 486h1030M85 566h1030" stroke="#C7D9E6"/>
+    <path d="M150 54v567M250 54v567M350 54v567M450 54v567M550 54v567M650 54v567M750 54v567M850 54v567M950 54v567M1050 54v567" stroke="#C7D9E6"/>
+  </g>
+  <circle cx="150" cy="116" r="160" fill="#FFE873" opacity=".38"/>
+  <circle cx="1004" cy="195" r="210" fill="#BDEFF7" opacity=".52"/>
+  <circle cx="1008" cy="512" r="162" fill="#F6DE65" opacity=".25"/>
+  <path d="M171 172h278c28 0 51 23 51 51v230c0 28-23 51-51 51H171c-28 0-51-23-51-51V223c0-28 23-51 51-51Z" fill="#fffefa" stroke="#DDE9EF" stroke-width="2"/>
+  <path d="M204 220h211" stroke="#2D6BB3" stroke-width="15" stroke-linecap="round"/>
+  <path d="M204 277h142" stroke="#F3D348" stroke-width="15" stroke-linecap="round"/>
+  <path d="M204 334h220" stroke="#8BDBE9" stroke-width="15" stroke-linecap="round"/>
+  <path d="M204 391h168" stroke="#DDE9EF" stroke-width="15" stroke-linecap="round"/>
+  <path d="M590 152h330c39 0 71 32 71 71v228c0 39-32 71-71 71H590c-39 0-71-32-71-71V223c0-39 32-71 71-71Z" fill="#FFFFFF" fill-opacity=".72" stroke="#DDE9EF" stroke-width="2"/>
+  <path d="M756 216c-48 0-88 40-88 88v58c0 48 40 88 88 88s88-40 88-88v-58c0-48-40-88-88-88Z" fill="#EAF5FB"/>
+  <path d="M756 250c-29 0-53 24-53 53v59c0 29 24 53 53 53s53-24 53-53v-59c0-29-24-53-53-53Z" fill="#fffefa" stroke="#2D6BB3" stroke-width="7"/>
+  <path d="M724 334l22 22 45-57" stroke="#2D6BB3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="586" y="446" width="119" height="42" rx="21" fill="#FFE873"/>
+  <text x="615" y="473" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#12213A">KYC</text>
+  <rect x="722" y="446" width="119" height="42" rx="21" fill="#BDEFF7"/>
+  <text x="752" y="473" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#12213A">AML</text>
+  <rect x="858" y="446" width="86" height="42" rx="21" fill="#F2F6F8"/>
+  <text x="879" y="473" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#12213A">KYB</text>
+  <circle cx="981" cy="256" r="20" fill="#F3D348"/>
+  <circle cx="1016" cy="363" r="13" fill="#8BDBE9"/>
+  <circle cx="562" cy="286" r="16" fill="#8BDBE9"/>
+  <circle cx="539" cy="409" r="10" fill="#F3D348"/>
+  <path d="M562 286l-43-42M562 286l-23 123M981 256l-55-55M981 256l35 107" stroke="#AFC9DA" stroke-width="3"/>
+  <text x="120" y="590" font-family="Georgia, serif" font-size="62" font-weight="700" fill="#12213A">Best KYC AML Providers</text>
+  <text x="122" y="634" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="5" fill="#2D6BB3">FOR WEB3 STARTUPS</text>
+  <defs>
+    <linearGradient id="bg" x1="126" y1="38" x2="1005" y2="601" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3A8"/>
+      <stop offset=".48" stop-color="#FFFDF3"/>
+      <stop offset="1" stop-color="#DDF7FB"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -140,6 +140,33 @@ const blogResearch = {
     ],
     sources: [["FATF recommendations", "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html"]]
   },
+  "best-kyc-aml-providers-web3-startups": {
+    label: "Web3 KYC AML provider decision matrix",
+    intro: "Web3 startups should shortlist KYC AML providers by workflow, not by brand alone. Identity verification, KYB, wallet screening, sanctions monitoring, Travel Rule operations and fraud risk are separate buyer needs.",
+    headers: ["Workflow", "Primary buyer question", "Provider examples"],
+    rows: [
+      ["Identity verification", "Can we verify users across our target markets?", "Sumsub, Persona, Trulioo, Veriff, Jumio, AU10TIX, Blockpass"],
+      ["Wallet screening", "Can we identify risky wallets, counterparties and onchain exposure?", "Chainalysis, TRM Labs, Elliptic"],
+      ["KYB and business onboarding", "Can we verify businesses, UBOs and institutional counterparties?", "Persona, Sumsub, Trulioo and KYB-focused workflows"],
+      ["Travel Rule", "Can we exchange required originator and beneficiary information where applicable?", "Notabene and integrated compliance providers"],
+      ["Fraud and risk operations", "Can we detect synthetic identity, payment risk and suspicious behavior?", "Sardine, ComplyAdvantage and risk-focused platforms"]
+    ],
+    links: [
+      ["Compare KYC and AML providers", directory("kyc-aml-providers")],
+      ["Compare compliance infrastructure providers", directory("compliance-infrastructure-providers")],
+      ["Compare legal and regulatory vendors", directory("legal-regulatory-vendors")],
+      ["Submit requirements", "/submit-requirement"]
+    ],
+    sources: [
+      ["FATF virtual assets guidance", "https://www.fatf-gafi.org/en/topics/virtual-assets.html"],
+      ["OFAC sanctions list service", "https://ofac.treasury.gov/sanctions-list-service"],
+      ["FinCEN statutes, regulations and guidance", "https://www.fincen.gov/resources/statutes-regulations"],
+      ["European Commission crypto-assets policy", "https://finance.ec.europa.eu/digital-finance/crypto-assets_en"],
+      ["Chainalysis KYT", "https://www.chainalysis.com/product/kyt/"],
+      ["TRM Labs", "https://www.trmlabs.com/"],
+      ["Elliptic", "https://www.elliptic.co/"]
+    ]
+  },
   "legal-regulatory-vendors-tokenized-assets": {
     label: "Legal-advisor selection matrix",
     intro: "Tokenized-asset counsel should understand both the underlying financial product and the technology workflow. General blockchain familiarity is not a substitute for relevant asset-class and jurisdiction experience.",
