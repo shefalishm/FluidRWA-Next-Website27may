@@ -250,12 +250,18 @@ const pageCards = [
 for (const [output, label, title, slug] of pageCards) card({ output, label, title, slug });
 
 const files = fs.readdirSync(contentDir).filter((file) => file.endsWith(".md")).sort();
+const preserveCustomSocialImages = new Set([
+  "best-kyc-aml-providers-web3-startups"
+]);
+
 for (const file of files) {
   const full = path.join(contentDir, file);
   const parsed = parseFrontmatter(fs.readFileSync(full, "utf8"));
   const slug = parsed.data.slug || file.replace(/\.md$/, "");
   parsed.data.socialImage = `/assets/social/blog-${slug}.png`;
-  card({ output: `blog-${slug}.png`, label: parsed.data.category || "Insight", title: parsed.data.title, slug });
+  if (!preserveCustomSocialImages.has(slug)) {
+    card({ output: `blog-${slug}.png`, label: parsed.data.category || "Insight", title: parsed.data.title, slug });
+  }
   fs.writeFileSync(full, `---\n${frontmatter(parsed.data)}\n---\n${parsed.body}`);
 }
 
