@@ -4,6 +4,38 @@ const siteHeader = document.querySelector("[data-site-header]");
 
 const leadConversionForms = document.querySelectorAll(".fluid-intake-form");
 
+const hydrateIntakeContext = () => {
+  const params = new URLSearchParams(window.location.search);
+  const vendor = params.get("vendor");
+  const category = params.get("category");
+  const source = params.get("source");
+  if (!vendor && !category) return;
+
+  leadConversionForms.forEach((form) => {
+    const heading = form.querySelector("h2");
+    const textarea = form.querySelector('textarea[name="CONTACT_CF1"]');
+    const leadSource = form.querySelector('input[name="LEAD_SOURCE"]');
+    const vendorField = form.querySelector('input[name="VENDOR_NAME"]');
+    const categoryField = form.querySelector('input[name="VENDOR_CATEGORY"]');
+    const sourceField = form.querySelector('input[name="REQUEST_SOURCE"]');
+    const pageField = form.querySelector('input[name="PAGE_URL"]');
+
+    if (vendorField && vendor) vendorField.value = vendor;
+    if (categoryField && category) categoryField.value = category;
+    if (sourceField && source) sourceField.value = source;
+    if (pageField) pageField.value = window.location.href;
+    if (heading && vendor) heading.textContent = `Request an introduction to ${vendor}`;
+    if (leadSource && source) leadSource.value = `FluidRWA ${source}`;
+    if (textarea && !textarea.value.trim()) {
+      const intro = vendor ? `I would like an introduction to ${vendor}.` : "I would like help finding a vendor.";
+      const categoryLine = category ? ` Category: ${category}.` : "";
+      textarea.value = `${intro}${categoryLine} Please route this through FluidRWA.`;
+    }
+  });
+};
+
+hydrateIntakeContext();
+
 leadConversionForms.forEach((form) => {
   const frameName = form.getAttribute("target");
   const frame = frameName ? document.querySelector(`iframe[name="${frameName}"]`) : null;
@@ -15,7 +47,9 @@ leadConversionForms.forEach((form) => {
   let conversionReported = false;
   let submissionTimer;
 
-  form.addEventListener("submit", () => {
+  const formValue = (formData, name) => String(formData.get(name) || "").trim();
+
+  form.addEventListener("submit", async (event) => {
     submitted = true;
     conversionReported = false;
     if (button) {
@@ -28,6 +62,62 @@ leadConversionForms.forEach((form) => {
         ? "Submitting your vendor interest..."
         : "Submitting your requirements...";
     }
+
+    if (!isVendorForm) {
+      event.preventDefault();
+      const params = new URLSearchParams(window.location.search);
+      const formData = new FormData(form);
+      const payload = {
+        vendorName: formValue(formData, "VENDOR_NAME") || params.get("vendor") || "",
+        vendorCategory: formValue(formData, "VENDOR_CATEGORY") || params.get("category") || "",
+        source: formValue(formData, "REQUEST_SOURCE") || params.get("source") || "submit-requirement",
+        pageUrl: window.location.href,
+        leadSource: formValue(formData, "LEAD_SOURCE"),
+        contactEmail: formValue(formData, "CONTACT_EMAIL"),
+        firstName: formValue(formData, "FIRSTNAME"),
+        lastName: formValue(formData, "LASTNAME"),
+        title: formValue(formData, "TITLE"),
+        companyName: formValue(formData, "COMPANYNAME"),
+        phone: formValue(formData, "PHONE"),
+        country: formValue(formData, "COUNTRY"),
+        website: formValue(formData, "WEBSITE"),
+        linkedin: formValue(formData, "LINKEDIN_HANDLE"),
+        projectDescription: formValue(formData, "CONTACT_CF1"),
+        rawPayload: Object.fromEntries(formData.entries()),
+      };
+
+      try {
+        const response = await fetch("/api/vendor-intro-request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+        if (!response.ok || !result.ok) throw new Error(result.message || "Your request could not be saved.");
+        submitted = false;
+        conversionReported = true;
+        window.clearTimeout(submissionTimer);
+        if (button) button.textContent = "Submitted";
+        if (status) {
+          status.className = "form-status is-success";
+          status.textContent = "Thank you. Your project requirements have been received.";
+        }
+        window.fluidRwaReportLeadConversion?.();
+      } catch (error) {
+        submitted = false;
+        window.clearTimeout(submissionTimer);
+        if (button) {
+          button.disabled = false;
+          button.textContent = defaultButtonText;
+        }
+        if (status) {
+          status.className = "form-status is-error";
+          status.textContent = error instanceof Error ? error.message : "Your request could not be saved. Please try again.";
+        }
+      }
+      return;
+    }
+
     window.clearTimeout(submissionTimer);
     submissionTimer = window.setTimeout(() => {
       if (!submitted || conversionReported) return;

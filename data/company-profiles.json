@@ -471,5 +471,137 @@
     "logoSource": "https://www.civic.com/icon.png?icon.0_ncmaj49h8.0.png?dpl=dpl_HNVybz7kQFM15HnHsZ4TMMgTaGHW",
     "logoPath": "/assets/company-logos/civic.png",
     "researchedAt": "2026-05-31"
+  },
+  "parafi-capital": {
+    "name": "ParaFi Capital",
+    "slug": "parafi-capital",
+    "sourceUrl": "https://parafi.com",
+    "officialTitle": "ParaFi Capital",
+    "siteName": "ParaFi Capital",
+    "officialDescription": "RWA-native venture capital firm investing across defi, rwa and digital asset infrastructure.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "spice-vc": {
+    "name": "SPiCE VC",
+    "slug": "spice-vc",
+    "sourceUrl": "https://spicevc.com",
+    "officialTitle": "SPiCE VC",
+    "siteName": "SPiCE VC",
+    "officialDescription": "RWA-native venture capital firm investing across tokenization, digital securities and blockchain infrastructure.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "borderless-capital": {
+    "name": "Borderless Capital",
+    "slug": "borderless-capital",
+    "sourceUrl": "https://borderlesscapital.io",
+    "officialTitle": "Borderless Capital",
+    "siteName": "Borderless Capital",
+    "officialDescription": "RWA-native venture capital firm investing across rwa, depin and the algorand ecosystem.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "bezos-expeditions": {
+    "name": "Bezos Expeditions",
+    "slug": "bezos-expeditions",
+    "sourceUrl": "https://www.bezosexpeditions.com",
+    "officialTitle": "Bezos Expeditions",
+    "siteName": "Bezos Expeditions",
+    "officialDescription": "Single-family office focused on technology, consumer and long-term innovation.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "emerson-collective": {
+    "name": "Emerson Collective",
+    "slug": "emerson-collective",
+    "sourceUrl": "https://www.emersoncollective.com",
+    "officialTitle": "Emerson Collective",
+    "siteName": "Emerson Collective",
+    "officialDescription": "Family-backed investment company focused on technology, climate, education and media.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "soros-fund-management": {
+    "name": "Soros Fund Management",
+    "slug": "soros-fund-management",
+    "sourceUrl": "https://www.sorosfund.com",
+    "officialTitle": "Soros Fund Management",
+    "siteName": "Soros Fund Management",
+    "officialDescription": "Single-family office focused on global public and private investments.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "bdt-and-msd-partners": {
+    "name": "BDT & MSD Partners",
+    "slug": "bdt-and-msd-partners",
+    "sourceUrl": "https://www.bdtmsd.com",
+    "officialTitle": "BDT & MSD Partners",
+    "siteName": "BDT & MSD Partners",
+    "officialDescription": "Family-backed investment company focused on merchant banking, private capital and growth.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-14"
+  },
+  "securitize-markets": {
+    "name": "Securitize Markets",
+    "slug": "securitize-markets",
+    "sourceUrl": "https://securitize.io",
+    "officialTitle": "Securitize Markets",
+    "siteName": "Securitize Markets",
+    "officialDescription": "Digital Securities / Tokenization offering tokenized securities issuance, placement, transfer agent, marketplace, secondary trading.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-15"
+  },
+  "inx-securities": {
+    "name": "INX Securities",
+    "slug": "inx-securities",
+    "sourceUrl": "https://www.inx.co",
+    "officialTitle": "INX Securities",
+    "siteName": "INX Securities",
+    "officialDescription": "Digital Securities / Tokenization offering security token offerings, digital securities trading, capital markets access.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-15"
+  },
+  "tzero-securities": {
+    "name": "tZERO Securities",
+    "slug": "tzero-securities",
+    "sourceUrl": "https://www.tzero.com",
+    "officialTitle": "tZERO Securities",
+    "siteName": "tZERO Securities",
+    "officialDescription": "Digital Securities / Tokenization offering digital securities trading, ats, private market liquidity.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-15"
+  },
+  "securitize": {
+    "name": "Securitize",
+    "slug": "securitize",
+    "sourceUrl": "https://securitize.io",
+    "officialTitle": "Securitize",
+    "siteName": "Securitize",
+    "officialDescription": "Handles everything from creating your tokenized security to trading it on a secondary market, all under SEC regulation. If you are a fund manager or asset issuer in the US who needs a regulated, end-to-end platform (issuance, compliance, cap table, investor verification, secondary trading), Securitize is the institutional standard. Powers BlackRock's BUIDL fund.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-19"
+  },
+  "tokeny": {
+    "name": "Tokeny",
+    "slug": "tokeny",
+    "sourceUrl": "https://tokeny.com",
+    "officialTitle": "Tokeny",
+    "siteName": "Tokeny",
+    "officialDescription": "Provides the compliance infrastructure for tokenized securities using ERC-3643, the most widely adopted permissioned token standard ($32B+ tokenized). Acquired by Apex Group ($3T+ in assets), giving direct integration with institutional fund administration. If you need proven compliance rails for a large-scale tokenization, Tokeny is the standard.",
+    "logoSource": "",
+    "logoPath": "",
+    "researchedAt": "2026-06-19"
   }
 }

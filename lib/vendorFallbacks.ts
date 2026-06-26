@@ -409,7 +409,6 @@ export function legacyVendorFallbackHtml(file: string) {
             <div><dt>Markets</dt><dd>${escapeHtml(vendor.markets)}</dd></div>
           </dl>
         </details>
-        <a class="bc-visit" href="${escapeHtml(vendor.url)}" target="_blank" rel="noopener noreferrer" itemprop="url">Visit ${escapeHtml(new URL(vendor.url).hostname.replace(/^www\./, ""))}</a>
       </article>`;
     })
     .join("\n");

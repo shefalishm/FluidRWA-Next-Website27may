@@ -61,6 +61,7 @@ const nextConfig = {
       { source: "/vendors/growth-marketing", destination: "/vendors/growth-marketing-companies", permanent: true },
       { source: "/vendors/identity-solutions", destination: "/vendors/identity-solution-providers", permanent: true },
       { source: "/vendors/blockchain-development", destination: "/vendors/blockchain-development-companies", permanent: true },
+      { source: "/vendors/web3-gaming-vendors", destination: "/vendors/gaming-vendors", permanent: true },
       { source: "/vendors/:slug/index.html", destination: "/vendors/:slug", permanent: true },
       { source: "/blog/:slug/index.html", destination: "/blog/:slug", permanent: true }
       ,

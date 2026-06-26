@@ -57,7 +57,8 @@ export const vendorSlugs = [
   "blockchain-development-companies",
   "venture-capital",
   "family-offices",
-  "broker-dealers"
+  "broker-dealers",
+  "gaming-vendors"
 ] as const;
 
 const sitemapExcludedPaths = new Set([
@@ -87,7 +88,9 @@ const vendorFileMap: Record<string, string> = {
   "blockchain-development-companies": "blockchain-development",
   "venture-capital": "venture-capital",
   "family-offices": "family-offices",
-  "broker-dealers": "broker-dealers"
+  "broker-dealers": "broker-dealers",
+  "gaming-vendors": "gaming-vendors",
+  "web3-gaming-vendors": "gaming-vendors"
 };
 
 export function normalizePath(slug?: string[]) {

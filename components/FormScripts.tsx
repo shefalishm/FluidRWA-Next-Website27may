@@ -7,6 +7,7 @@ import { useEffect } from "react";
 declare global {
   interface Window {
     setupSF?: (...args: unknown[]) => void;
+    fluidRwaReportLeadConversion?: () => void;
     runOnFormSubmit_sf3z47ea85b6426f2e102b489a30720e5c270941585e6c69fe550c6cb6cde7c6adea?: (form: unknown) => void;
     runOnFormSubmit_sf3z2687c7153c3320cb3f6d27efe7df1c9284f6d703ed96cc26094444c4a121bf9d?: (form: unknown) => void;
   }
@@ -20,9 +21,35 @@ export function FormScripts() {
     const frame = document.querySelector<HTMLIFrameElement>(".hidden-response-frame");
     const status = document.querySelector<HTMLElement>("[data-form-status]");
     const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
-    if (!form || !frame || !status || !button) return;
+    if (!form || !status || !button) return;
 
     const isVendorForm = pathname === "/apply-as-vendor";
+    if (isVendorForm && !frame) return;
+    const params = new URLSearchParams(window.location.search);
+    const vendor = params.get("vendor");
+    const category = params.get("category");
+    const source = params.get("source");
+    const formHeading = form.querySelector<HTMLHeadingElement>("h2");
+    const descriptionField = form.querySelector<HTMLTextAreaElement>('textarea[name="CONTACT_CF1"]');
+    const leadSource = form.querySelector<HTMLInputElement>('input[name="LEAD_SOURCE"]');
+    const vendorField = form.querySelector<HTMLInputElement>('input[name="VENDOR_NAME"]');
+    const categoryField = form.querySelector<HTMLInputElement>('input[name="VENDOR_CATEGORY"]');
+    const sourceField = form.querySelector<HTMLInputElement>('input[name="REQUEST_SOURCE"]');
+    const pageField = form.querySelector<HTMLInputElement>('input[name="PAGE_URL"]');
+    if (vendorField && vendor) vendorField.value = vendor;
+    if (categoryField && category) categoryField.value = category;
+    if (sourceField && source) sourceField.value = source;
+    if (pageField) pageField.value = window.location.href;
+    if (!isVendorForm && (vendor || category)) {
+      if (formHeading && vendor) formHeading.textContent = `Request an introduction to ${vendor}`;
+      if (leadSource && source) leadSource.value = `FluidRWA ${source}`;
+      if (descriptionField && !descriptionField.value.trim()) {
+        const intro = vendor ? `I would like an introduction to ${vendor}.` : "I would like help finding a vendor.";
+        const categoryLine = category ? ` Category: ${category}.` : "";
+        descriptionField.value = `${intro}${categoryLine} Please route this through FluidRWA.`;
+      }
+    }
+
     const defaultButtonText = isVendorForm ? "Submit Vendor Interest" : "Submit Requirement";
     const loadingText = isVendorForm ? "Submitting your vendor interest..." : "Submitting your requirements...";
     const successTitle = isVendorForm ? "Your vendor interest has been received" : "Your project requirements have been received";
@@ -68,12 +95,67 @@ export function FormScripts() {
       });
     };
 
-    const handleSubmit = () => {
+    const formValue = (formData: FormData, name: string) => String(formData.get(name) || "").trim();
+
+    const handleSubmit = async (event: SubmitEvent) => {
       submitted = true;
       button.disabled = true;
       button.textContent = "Submitting...";
       status.className = "form-status is-loading";
       status.textContent = loadingText;
+
+      if (!isVendorForm) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const formData = new FormData(form);
+        const payload = {
+          vendorName: formValue(formData, "VENDOR_NAME") || vendor || "",
+          vendorCategory: formValue(formData, "VENDOR_CATEGORY") || category || "",
+          source: formValue(formData, "REQUEST_SOURCE") || source || "submit-requirement",
+          pageUrl: window.location.href,
+          leadSource: formValue(formData, "LEAD_SOURCE"),
+          contactEmail: formValue(formData, "CONTACT_EMAIL"),
+          firstName: formValue(formData, "FIRSTNAME"),
+          lastName: formValue(formData, "LASTNAME"),
+          title: formValue(formData, "TITLE"),
+          companyName: formValue(formData, "COMPANYNAME"),
+          phone: formValue(formData, "PHONE"),
+          country: formValue(formData, "COUNTRY"),
+          website: formValue(formData, "WEBSITE"),
+          linkedin: formValue(formData, "LINKEDIN_HANDLE"),
+          projectDescription: formValue(formData, "CONTACT_CF1"),
+          rawPayload: Object.fromEntries(formData.entries())
+        };
+
+        try {
+          const response = await fetch("/api/vendor-intro-request", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+          const result = (await response.json()) as { ok?: boolean; message?: string };
+          if (!response.ok || !result.ok) throw new Error(result.message || "Your request could not be saved.");
+          submitted = false;
+          window.clearTimeout(timeoutId);
+          status.className = "form-status is-success";
+          status.textContent = "Thank you. Your project requirements have been received.";
+          button.disabled = true;
+          button.textContent = "Submitted";
+          showConfirmation();
+          window.fluidRwaReportLeadConversion?.();
+        } catch (error) {
+          submitted = false;
+          window.clearTimeout(timeoutId);
+          button.disabled = false;
+          button.textContent = defaultButtonText;
+          status.className = "form-status is-error";
+          status.textContent = error instanceof Error ? error.message : "Your request could not be saved. Please try again.";
+        }
+        return;
+      }
+
       window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(() => {
         if (!submitted) return;
@@ -100,14 +182,14 @@ export function FormScripts() {
       if (event.key === "Escape") removeConfirmation();
     };
 
-    form.addEventListener("submit", handleSubmit);
-    frame.addEventListener("load", handleFrameLoad);
+    form.addEventListener("submit", handleSubmit, { capture: true });
+    frame?.addEventListener("load", handleFrameLoad);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.clearTimeout(timeoutId);
-      form.removeEventListener("submit", handleSubmit);
-      frame.removeEventListener("load", handleFrameLoad);
+      form.removeEventListener("submit", handleSubmit, { capture: true });
+      frame?.removeEventListener("load", handleFrameLoad);
       document.removeEventListener("keydown", handleKeyDown);
       removeConfirmation();
     };

@@ -280,7 +280,6 @@ function providerCard(vendor, index) {
       <div><dt>Coverage</dt><dd>${esc((vendor.jurisdictions || []).join(", "))}</dd></div>
     </dl>
     <div class="bc-provider-tags">${tags.map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>
-    <a class="bc-provider-link" href="${esc(vendor.url)}" target="_blank" rel="noopener noreferrer nofollow" itemprop="url">Visit ${esc(vendor.name)}</a>
   </article>`;
 }
 

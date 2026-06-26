@@ -47,6 +47,7 @@ const records = parsed.slice(1).filter((row) => row.length === headers.length);
 const get = (row, name) => row[headers.indexOf(name)] || "";
 const esc = (value = "") => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const slug = (value = "") => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const introHref = (name) => `/submit-requirement?vendor=${encodeURIComponent(name)}&category=${encodeURIComponent("Broker Dealers")}&source=broker-dealer-directory`;
 
 // Strict inclusion rule: explicit broker-dealer reference, no relationship-only claims,
 // and High or Medium FluidRWA research priority.
@@ -90,7 +91,7 @@ const rows = dealers.map((row, index) => {
     <td data-label="Best for">${esc(bestFor)}</td>
     <td data-label="Digital asset signal"><span class="bd-signal bd-${signalKey(signal)}">${esc(signal)}</span></td>
     <td data-label="Region">${esc(region)}</td>
-    <td data-label="Source"><a href="${esc(website)}" target="_blank" rel="noopener noreferrer nofollow">Official website</a></td>
+    <td data-label="Source"><a href="${esc(introHref(name))}">Request intro</a></td>
   </tr>`;
 }).join("\n");
 

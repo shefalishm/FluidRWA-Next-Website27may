@@ -327,6 +327,7 @@ function pageHtml(company, profile, alternatives) {
   const logo = profile.logoPath || "/assets/fluidrwa-favicon.png";
   const officialDescription = sentence(profile.officialDescription, company.description);
   const category = company.categoryTitle;
+  const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
   const offers = [
     { title: "Primary Category", text: `${company.name} is listed by FluidRWA under ${category}.` },
@@ -454,7 +455,7 @@ function pageHtml(company, profile, alternatives) {
             <h1>${esc(company.name)} Vendor Profile</h1>
             <p class="company-lede">FluidRWA profile for ${esc(company.name)}, including what the company says it offers, where it fits in the digital asset infrastructure ecosystem, similar providers and buyer FAQs.</p>
             <div class="company-actions">
-              <a class="company-btn primary" href="${esc(profile.sourceUrl)}" target="_blank" rel="noopener noreferrer nofollow">Visit Website</a>
+              <a class="company-btn primary" href="${esc(introHref)}">Request Intro</a>
               <a class="company-btn soft" href="/submit-requirement">Submit Requirements</a>
               <a class="company-btn soft" href="${categoryPath}">View Category</a>
             </div>
@@ -462,7 +463,7 @@ function pageHtml(company, profile, alternatives) {
           <aside class="company-logo-card">
             <img src="${esc(logo)}" alt="${esc(company.name)} logo" loading="eager">
             <p class="company-kicker">${esc(category)}</p>
-            <p class="company-source">Official source used: <a href="${esc(profile.sourceUrl)}" target="_blank" rel="noopener noreferrer nofollow">${esc(profile.siteName || profile.sourceUrl)}</a>. FluidRWA summarizes public vendor information for discovery and comparison.</p>
+            <p class="company-source">Official source used: ${esc(profile.siteName || profile.sourceUrl)}. FluidRWA summarizes public vendor information for discovery and comparison.</p>
           </aside>
         </div>
       </section>

@@ -174,6 +174,7 @@ const instrumentKey = (value) => value.toLowerCase().includes("both") ? "both" :
 const stageKey = (value) => value.toLowerCase().includes("pre-seed") ? "pre-seed" : value.toLowerCase().includes("seed") ? "seed" : value.toLowerCase().includes("late") || value.toLowerCase().includes("growth") ? "growth" : value.toLowerCase().includes("multi") || value.toLowerCase().includes("all") ? "multi-stage" : "early-stage";
 const geographyKey = (value) => value.toLowerCase().includes("asia") ? "asia" : value.toLowerCase().includes("europe") || value.toLowerCase().includes("uk") ? "europe" : value.toLowerCase().includes("usa") ? "north-america" : "global";
 const checkKey = (value) => value.includes("$100K") || value.includes("$250K") || value.includes("$500K") || value.includes("$1M to $2M") ? "under-2m" : value.includes("$5M") || value.includes("$10M") || value.includes("$20M") ? "2m-20m" : value.includes("$40M") || value.includes("$50M") ? "20m-plus" : "not-disclosed";
+const introHref = (name) => `/submit-requirement?vendor=${encodeURIComponent(name)}&category=${encodeURIComponent("Venture Capital")}&source=venture-capital-directory`;
 
 const cards = firms.map((firm, index) => {
   const [name, type, stage, check, thesis, instrument, lead, geography, portfolio, url] = firm;
@@ -188,7 +189,7 @@ const cards = firms.map((firm, index) => {
       <div><dt>Geography</dt><dd>${esc(geography)}</dd></div>
     </dl>
     <p class="vc-portfolio"><strong>Relevant portfolio signals</strong>${esc(portfolio)}</p>
-    <a href="${esc(url)}" target="_blank" rel="noopener noreferrer nofollow" itemprop="url">Visit firm website</a>
+    <a href="${esc(introHref(name))}">Request intro</a>
   </article>`;
 }).join("\n");
 

@@ -116,6 +116,7 @@ const offices = [
 
 const esc = (value = "") => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const slug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const introHref = (name) => `/submit-requirement?vendor=${encodeURIComponent(name)}&category=${encodeURIComponent("Family Offices")}&source=family-office-directory`;
 const geographyKey = (value) => slug(value);
 const typeKey = (value) => slug(value);
 const signalKey = (value) => value.startsWith("Direct") ? "direct" : value.startsWith("Fintech") ? "adjacent" : value.startsWith("RWA") ? "real-assets" : value.startsWith("Alternatives") ? "alternatives" : "not-disclosed";
@@ -129,7 +130,7 @@ const rows = offices.map((office, index) => {
     <td data-label="Geography">${esc(geography)}</td>
     <td data-label="Investment focus">${esc(focus)}</td>
     <td data-label="Web3 / RWA relevance"><span class="fo-signal fo-${signalKey(signal)}">${esc(signal)}</span></td>
-    <td data-label="Source"><a href="${esc(website)}" target="_blank" rel="noopener noreferrer nofollow">Official website</a></td>
+    <td data-label="Source"><a href="${esc(introHref(name))}">Request intro</a></td>
   </tr>`;
 }).join("\n");
 
