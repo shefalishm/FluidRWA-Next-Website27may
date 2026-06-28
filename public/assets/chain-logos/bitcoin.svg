@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bitcoin logo">
+  <rect width="64" height="64" rx="16" fill="#fff8e6"/>
+  <circle cx="32" cy="32" r="23" fill="#f7931a"/>
+  <path d="M35 13v5c6 1 9 4 8 9 0 3-2 5-5 6 4 1 7 4 6 9-1 6-6 8-13 8v5h-4v-5h-4v5h-4v-5h-6l1-5h4V20h-4v-5h6v-5h4v5h4v-5h4Zm-8 17h5c4 0 6-1 6-4s-2-4-6-4h-5v8Zm0 15h6c4 0 6-2 6-5 0-4-3-5-7-5h-5v10Z" fill="#fff"/>
+</svg>

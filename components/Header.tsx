@@ -3,7 +3,8 @@ import Image from "next/image";
 const navItems = [
   ["Home", "/"],
   ["Solutions", "/solutions"],
-  ["Insights", "/blog"]
+  ["Insights", "/blog"],
+  ["Chain Ecosystem", "/ecosystem"]
 ] as const;
 
 export function Header() {

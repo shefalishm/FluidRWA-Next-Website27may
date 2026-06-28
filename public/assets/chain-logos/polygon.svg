@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Polygon logo">
+  <rect width="64" height="64" rx="16" fill="#f8f5ff"/>
+  <path d="m22 24 10-6 10 6v12l-10 6-10-6V24Z" fill="none" stroke="#8247e5" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m4 31 10-6 10 6v12l-10 6-10-6V31Z" fill="none" stroke="#8247e5" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m40 31 10-6 10 6v12l-10 6-10-6V31Z" fill="none" stroke="#8247e5" stroke-width="5" stroke-linejoin="round"/>
+</svg>

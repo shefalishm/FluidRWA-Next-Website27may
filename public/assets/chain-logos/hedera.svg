@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hedera logo">
+  <rect width="64" height="64" rx="16" fill="#f7f7f7"/>
+  <circle cx="32" cy="32" r="23" fill="#111827"/>
+  <path d="M22 17h5v12h10V17h5v30h-5V35H27v12h-5V17Zm5 14v2h10v-2H27Z" fill="#fff"/>
+</svg>
