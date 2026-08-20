@@ -5441,6 +5441,119 @@ tr:last-child td { border-bottom: 0; }
   text-transform: uppercase;
 }
 
+/* Shared vendor contact action: restrained depth, clear hierarchy, and a
+   stable pressed state across directory cards and company profiles. */
+.vendor-card-actions .vendor-contact-trigger,
+.company-actions .company-btn.primary,
+[data-vendor-contact-link="true"] {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(126, 192, 255, .72) !important;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #2d75bd 0%, #1c5fa3 52%, #154c86 100%) !important;
+  color: #fff !important;
+  padding: 12px 17px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(5, 22, 43, .28);
+  cursor: pointer;
+  box-shadow:
+    0 5px 0 #0d3a68,
+    0 12px 24px rgba(18, 72, 123, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .44);
+  transform: translateY(0);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.vendor-card-actions .vendor-contact-trigger::before,
+.company-actions .company-btn.primary::before,
+[data-vendor-contact-link="true"]::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, .14), transparent 42%);
+  pointer-events: none;
+}
+
+.vendor-card-actions .vendor-contact-trigger::after,
+.company-actions .company-btn.primary::after,
+[data-vendor-contact-link="true"]::after {
+  content: "\2192";
+  flex: 0 0 auto;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .18s ease;
+}
+
+.vendor-card-actions .vendor-contact-trigger:hover,
+.company-actions .company-btn.primary:hover,
+[data-vendor-contact-link="true"]:hover {
+  background: linear-gradient(180deg, #347fc9 0%, #2169ad 52%, #17528e 100%) !important;
+  color: #fff;
+  filter: saturate(1.04);
+  transform: translateY(-2px);
+  box-shadow:
+    0 7px 0 #0d3a68,
+    0 16px 28px rgba(18, 72, 123, .28),
+    inset 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+.vendor-card-actions .vendor-contact-trigger:hover::after,
+.company-actions .company-btn.primary:hover::after,
+[data-vendor-contact-link="true"]:hover::after {
+  transform: translateX(3px);
+}
+
+.vendor-card-actions .vendor-contact-trigger:active,
+.company-actions .company-btn.primary:active,
+[data-vendor-contact-link="true"]:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 1px 0 #0d3a68,
+    0 5px 12px rgba(18, 72, 123, .2),
+    inset 0 1px 0 rgba(255, 255, 255, .34);
+}
+
+.vendor-card-actions .vendor-contact-trigger:focus-visible,
+.company-actions .company-btn.primary:focus-visible,
+[data-vendor-contact-link="true"]:focus-visible {
+  outline: 3px solid rgba(255, 220, 76, .9);
+  outline-offset: 4px;
+}
+
+@media (max-width: 620px) {
+  .vendor-card-actions .vendor-contact-trigger,
+  .company-actions .company-btn.primary,
+  [data-vendor-contact-link="true"] {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vendor-card-actions .vendor-contact-trigger,
+  .company-actions .company-btn.primary,
+  [data-vendor-contact-link="true"],
+  .vendor-card-actions .vendor-contact-trigger::after,
+  .company-actions .company-btn.primary::after,
+  [data-vendor-contact-link="true"]::after {
+    transition: none;
+  }
+}
+
 @media (max-width: 980px) {
   .vendor-procurement-panel {
     grid-template-columns: 1fr;

@@ -10266,6 +10266,20 @@ body {
   }
 }
 
+/* Keep the vendor contact action visually consistent when legacy pages are
+   rendered inside the Next shell. */
+.next-page-shell .vendor-card-actions .vendor-contact-trigger,
+.next-page-shell .company-actions .company-btn.primary,
+.next-page-shell [data-vendor-contact-link="true"] {
+  border-radius: 8px;
+  background: linear-gradient(180deg, #2d75bd 0%, #1c5fa3 52%, #154c86 100%);
+  color: #fff;
+  box-shadow:
+    0 5px 0 #0d3a68,
+    0 12px 24px rgba(18, 72, 123, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .44);
+}
+
 /* Native Next routes do not all include next-page-shell. */
 @media (min-width: 769px) {
   .light-home .public-hero,
