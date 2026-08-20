@@ -28,7 +28,7 @@ Asset tokenization converts rights, records or economic interests in an asset in
 
 Real-world examples and case studies. For a business, the practical question is not simply whether tokenization is possible. The real question is whether the asset, investor base, jurisdiction, and operating workflow are strong enough to justify a tokenized structure.
 
-Tokenization projects usually need a coordinated stack: a [tokenization platform](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory/), [KYC and AML providers](/vendors/kyc-aml/), [custody solutions](/vendors/custody-solutions/), and payment or stablecoin rails where money movement is involved.
+Tokenization projects usually need a coordinated stack: a [tokenization platform](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory-vendors/), [KYC and AML providers](/vendors/kyc-aml-providers/), [custody solutions](/vendors/crypto-custody-providers/), and payment or stablecoin rails where money movement is involved.
 
 ## How To Evaluate It
 
@@ -46,7 +46,7 @@ A simple evaluation checklist includes:
 
 ## Vendor Categories To Review
 
-Most teams should begin with [tokenization platforms](/vendors/tokenization-platforms/) and then add adjacent providers based on risk. Regulated products usually need [compliance infrastructure](/vendors/compliance-infrastructure/), [legal support](/vendors/legal-regulatory/), and secure [custody providers](/vendors/custody-solutions/). Projects accepting fiat or stablecoins should also review [fiat on and off ramps](/vendors/fiat-on-off-ramps/) and [payments and stablecoin providers](/vendors/payments-stablecoins/).
+Most teams should begin with [tokenization platforms](/vendors/tokenization-platforms/) and then add adjacent providers based on risk. Regulated products usually need [compliance infrastructure](/vendors/compliance-infrastructure-providers/), [legal support](/vendors/legal-regulatory-vendors/), and secure [custody providers](/vendors/crypto-custody-providers/). Projects accepting fiat or stablecoins should also review [fiat on and off ramps](/vendors/fiat-on-off-ramp-providers/) and [payments and stablecoin providers](/vendors/stablecoin-infrastructure-providers/).
 
 ## Bottom Line
 

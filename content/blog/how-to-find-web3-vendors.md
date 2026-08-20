@@ -30,7 +30,7 @@ Write down the outcome first. Are you issuing a tokenized asset, verifying inves
 
 Most Web3 projects need more than one vendor. A real launch may involve legal, tokenization, KYC, custody, payments and smart contract support. A fintech adding stablecoin payments may need payments infrastructure, risk monitoring, identity checks and treasury operations.
 
-Useful starting points include [FluidRWA vendor categories](/solutions.html), the [vendor ecosystem directory](/vendor-ecosystem.html), and specific pages such as [tokenization platforms](/vendors/tokenization-platforms/) or [fiat on and off ramps](/vendors/fiat-on-off-ramps/).
+Useful starting points include [FluidRWA vendor categories](/solutions.html), the [vendor ecosystem directory](/vendor-ecosystem.html), and specific pages such as [tokenization platforms](/vendors/tokenization-platforms/) or [fiat on and off ramps](/vendors/fiat-on-off-ramp-providers/).
 
 ## Shortlist By Fit, Not Hype
 

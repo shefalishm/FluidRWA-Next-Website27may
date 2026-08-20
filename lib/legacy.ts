@@ -24,6 +24,8 @@ const preferredVendorLinks: Record<string, string> = {
   "compliance-infrastructure-providers": "compliance-infrastructure-providers",
   "defi-infrastructure": "defi-infrastructure-providers",
   "defi-infrastructure-providers": "defi-infrastructure-providers",
+  "defi-trading-margin-infrastructure": "defi-trading-margin-infrastructure",
+  "defi-trading-platforms": "defi-trading-margin-infrastructure",
   "payments-stablecoins": "stablecoin-infrastructure-providers",
   "stablecoin-infrastructure-providers": "stablecoin-infrastructure-providers",
   "security-audits": "security-audit-companies",
@@ -40,6 +42,31 @@ function readLegacy(file: string) {
   const fullPath = path.join(root, file);
   if (!fullPath.startsWith(root) || !fs.existsSync(fullPath)) return null;
   return fs.readFileSync(fullPath, "utf8");
+}
+
+function shouldShowWeb3VettedBadges(file: string) {
+  if (file === "vendor-ecosystem.html") return true;
+  if (!file.startsWith("vendors/")) return false;
+  const category = file.split("/")[1] || "";
+  if (category.startsWith("ai-")) return false;
+  return ![
+    "decentralized-ai-compute-gpu-infrastructure",
+    "verifiable-ai-smart-contract-infrastructure"
+  ].includes(category);
+}
+
+function addVettedBadgeToVendorCard(cardHtml: string) {
+  if (cardHtml.includes('class="bc-vetted-badge"') || cardHtml.includes('class="vendor-vetted-badge"')) {
+    return cardHtml;
+  }
+  return cardHtml.replace(/(<h3\b[^>]*>[\s\S]*?<\/h3>)/i, '$1<span class="bc-vetted-badge">Vetted</span>');
+}
+
+function addWeb3VettedBadges(file: string, html: string) {
+  if (!shouldShowWeb3VettedBadges(file)) return html;
+  return html
+    .replace(/<article class="bc-company-card[\s\S]*?<\/article>/g, addVettedBadgeToVendorCard)
+    .replace(/<article class="vendor-card[\s\S]*?<\/article>/g, addVettedBadgeToVendorCard);
 }
 
 function decodeHtmlEntities(value: string) {
@@ -114,59 +141,113 @@ export function legacyJsonLd(file: string) {
   }).filter(Boolean);
   const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
   const withFallback = fallback ? [...parsed, fallback] : parsed;
-  return ensureSailoVendorSchema(file, withFallback);
+  return ensureSecurityVendorSchema(file, withFallback);
 }
 
 export function legacyMainHtml(file: string) {
   const html = readLegacy(file);
   if (!html) return null;
-  const pageStyles = [...html.matchAll(/<style[^>]*>[\s\S]*?<\/style>/gi)].map((match) => match[0]).join("\n");
+  const pageStyles = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)]
+    .map((match) => {
+      const css = match[1]
+        .replace(/:root/g, ":scope")
+        .replace(/(^|[,{]\s*)html(?=\s*[,>{])/gm, "$1:scope")
+        .replace(/(^|[,{]\s*)body(?=\s*[,>{])/gm, "$1:scope");
+      return `<style>@scope (.next-page-shell) {${css}}</style>`;
+    })
+    .join("\n");
   const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] || html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || html;
-  const bodyHtml = ensureSailoVendorPlacement(file, rewriteLinks(main)
+  const bodyHtml = ensureSecurityVendorPlacement(file, rewriteLinks(main)
     .replace(/<header[\s\S]*?<\/header>/gi, "")
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, ""));
-  const fallbackDirectory = bodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
-  const renderedHtml = fallbackDirectory ? `${bodyHtml}\n${fallbackDirectory}` : bodyHtml;
+  const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
+  const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
+  const renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }
+
+const sureStackSecurityCard = `<article class="bc-company-card reveal vendor-card--vetted" id="surestack" itemscope itemtype="https://schema.org/Organization" data-search="surestack surestack technology group vetted risk management security partner ai powered web3 risk intelligence threat monitoring digital asset security tokenization security vulnerability detection atlas intelligence crypto risk security infrastructure risk management global"><div class="bc-company-top bc-company-top--vetted"><div class="bc-company-mark bc-company-mark--logo" aria-hidden="true"><img src="/assets/company-logos/surestack.png" alt="" loading="lazy" decoding="async"></div><div><p class="bc-company-index">01 / Vetted Risk Management &amp; Security Partner</p><h3 itemprop="name">SureStack</h3><span class="bc-vetted-badge">Vetted</span></div></div><p class="bc-best-fit"><strong>Best for:</strong> Digital asset issuers, tokenization teams, funds and Web3 operators that need AI-powered risk intelligence, threat monitoring and proactive security visibility before launch or while scaling.</p><p itemprop="description">SureStack Technology Group is an AI-powered Web3 risk intelligence platform focused on detecting vulnerabilities, monitoring risk signals and helping teams protect digital asset operations before threats hit the chain.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>SureStack strengthens the security and risk-management layer for teams building tokenized asset workflows, protocol infrastructure and digital asset operations. The company positions Atlas Intelligence around proactive threat reporting, vulnerability detection and operational risk protection. FluidRWA lists SureStack as a vetted risk management and security partner based on the submitted partnership and vendor information; buyers should still verify scope, coverage, response workflows and commercial terms during diligence.</p></details><dl class="bc-company-meta"><div><dt>HQ</dt><dd>Newark, Delaware, United States</dd></div><div><dt>Founded</dt><dd>Not disclosed</dd></div><div><dt>Services</dt><dd>Web3 Risk Intelligence, Threat Monitoring, Digital Asset Security, Tokenization Risk Management</dd></div><div><dt>Coverage</dt><dd>Global</dd></div></dl><div class="bc-company-tags"><span>Vetted Partner</span><span>Risk Intelligence</span><span>Threat Monitoring</span><span>Digital Asset Security</span><span>Tokenization Security</span><span>Atlas Intelligence</span></div><div class="bc-company-actions"><a class="btn btn-primary light-primary" href="https://surestack.tech/" target="_blank" rel="noopener noreferrer">Visit Website</a><a class="btn btn-soft" href="/submit-requirement?vendor=SureStack&amp;category=Security%20Audit%20Companies&amp;source=vendor-card">Request Intro</a></div></article>`;
 
 const sailoSecurityCard = `<article class="bc-company-card reveal" id="sailo-technologies" itemscope itemtype="https://schema.org/Organization" data-search="sailo technologies blockchain security know your risk active proactive protection before incidents risk management money-back guarantee mica readiness dora readiness howden bullet blockchain security infrastructure risk management global"><div class="bc-company-top"><div class="bc-logo-mark" aria-hidden="true">ST</div><div><p class="bc-company-index">30 / Proactive Blockchain Risk Protection</p><h3 itemprop="name">Sailo Technologies</h3></div></div><p class="bc-best-fit"><strong>Best for:</strong> Web3, DeFi and digital asset teams seeking active risk protection designed to identify and reduce exposure before incidents occur</p><p itemprop="description">Sailo Technologies positions itself as a blockchain-security and risk-protection provider focused on Know Your Risk and active protection before an incident, with a company-reported money-back guarantee.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>Sailo says its approach is built around proactive risk protection rather than post-incident response. The company reports MiCA and DORA readiness and names HOWDEN and Bullet Blockchain as client or partner references. Teams should independently verify the scope of protection, guarantee terms, regulatory-readiness claims and partner relationships during diligence.</p></details><dl class="bc-company-meta"><div><dt>Services</dt><dd>Security Infrastructure &amp; Risk Management, Proactive Risk Protection</dd></div><div><dt>Coverage</dt><dd>Global</dd></div><div><dt>Compliance</dt><dd>MiCA &amp; DORA readiness (company-reported)</dd></div><div><dt>References</dt><dd>HOWDEN, Bullet Blockchain (company-reported)</dd></div></dl><div class="bc-company-tags"><span>Know Your Risk</span><span>Proactive Protection</span><span>Risk Management</span><span>MiCA Readiness</span><span>DORA Readiness</span><span>Money-Back Guarantee</span></div></article>`;
 
 const sailoEcosystemSection = `<section class="vendor-category-block" id="security" aria-labelledby="security-title" data-category-section="security"><div class="vendor-category-head"><div><p class="eyebrow light-eyebrow">1 vendor</p><h2 id="security-title">Security &amp; Audits</h2></div><p>Blockchain security, proactive risk protection, smart contract audits and incident-prevention partners</p></div><div class="vendor-grid" data-vendor-grid><article class="vendor-card reveal" id="sailo-technologies" itemscope itemtype="https://schema.org/Organization" data-category="security" data-search="sailo technologies blockchain security know your risk active proactive protection before incidents risk management money-back guarantee mica readiness dora readiness howden bullet blockchain security audits security and audits"><div class="vendor-card-top"><p>Security &amp; Audits</p></div><h3 itemprop="name">Sailo Technologies</h3><p class="vendor-description" itemprop="description">Blockchain-security and risk-protection provider focused on Know Your Risk and active protection before incidents, with a company-reported money-back guarantee.</p><div class="vendor-meta"><span><b>Compliance</b> <em>MiCA &amp; DORA readiness (company-reported)</em></span><span><b>References</b> <em>HOWDEN, Bullet Blockchain (company-reported)</em></span></div><div class="vendor-tags" aria-label="Sailo Technologies tags"><span>Know Your Risk</span><span>Proactive Protection</span><span>Risk Management</span></div></article></div></section>`;
 
-function ensureSailoVendorPlacement(file: string, html: string) {
-  if (html.includes("Sailo Technologies")) return html;
+function renumberSecurityCards(html: string) {
+  let count = 1;
+  return html.replace(/<p class="bc-company-index">(\d{2}) \//g, () => {
+    count += 1;
+    return `<p class="bc-company-index">${String(count).padStart(2, "0")} /`;
+  });
+}
+
+function ensureSecurityVendorPlacement(file: string, html: string) {
+  let nextHtml = html;
+
+  if (file === "vendors/security-audits/index.html" && !nextHtml.includes('id="surestack"')) {
+    nextHtml = renumberSecurityCards(nextHtml);
+    nextHtml = nextHtml.replace(
+      /(<div class="bc-company-grid"[^>]*>)/,
+      `$1${sureStackSecurityCard}`
+    );
+  }
+
+  if (nextHtml.includes("Sailo Technologies")) return nextHtml;
 
   if (file === "vendors/security-audits/index.html") {
-    return html.replace(
+    return nextHtml.replace(
       /(<\/article><\/div><\/div><\/section><section class="bc-section" aria-labelledby="faq-title">)/,
       `</article>${sailoSecurityCard}</div></div></section><section class="bc-section" aria-labelledby="faq-title">`
     );
   }
 
   if (file === "vendor-ecosystem.html") {
-    return html
-      .replace(/(<a href="#all" data-filter="all" class="is-active"><span>All vendors<\/span><strong>)256(<\/strong><\/a>)/, "$1257$3")
-      .replace(/(<a href="#smartcontract" data-filter="smartcontract"><span>Smart Contract &amp; Dev<\/span><strong>)31(<\/strong><\/a>)/, '$130$3<a href="#security" data-filter="security"><span>Security &amp; Audits</span><strong>1</strong></a>')
-      .replace(/(<p class="vendor-result-count" aria-live="polite"><strong data-vendor-count>)256(<\/strong> vendors shown<\/p>)/, "$1257$3")
-      .replace(/(<p class="eyebrow light-eyebrow">)31 vendors(<\/p>\s*<h2 id="smartcontract-title">Smart Contract &amp; Dev<\/h2>)/, "$130 vendors$3")
+    return nextHtml
+      .replace(/(<a href="#all" data-filter="all" class="is-active"><span>All vendors<\/span><strong>)(?:256|257)(<\/strong><\/a>)/, "$11,000+$2")
+      .replace(/<p class="vendor-result-count" aria-live="polite">[\s\S]*?<\/p>/, "")
       .replace(
         /(<\/section>\s*<section class="vendor-category-block" id="exchanges")/,
         `${sailoEcosystemSection}$1`
       );
   }
 
-  return html;
+  return nextHtml;
 }
 
-function ensureSailoVendorSchema(file: string, items: unknown[]) {
-  if (JSON.stringify(items).includes("Sailo Technologies")) return items;
+function ensureSecurityVendorSchema(file: string, items: unknown[]) {
   if (file !== "vendors/security-audits/index.html" && file !== "vendor-ecosystem.html") return items;
 
-  return [
-    ...items,
-    {
+  const serializedItems = JSON.stringify(items);
+  const additions = [];
+
+  if (!serializedItems.includes("SureStack")) {
+    additions.push({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "SureStack",
+      url: "https://surestack.tech/",
+      description:
+        "AI-powered Web3 risk intelligence platform focused on vulnerability detection, threat monitoring and proactive digital asset security for tokenization and Web3 teams.",
+      additionalType: "Vetted Risk Management & Security Partner",
+      knowsAbout: [
+        "Web3 Risk Intelligence",
+        "Threat Monitoring",
+        "Digital Asset Security",
+        "Tokenization Security",
+        "Atlas Intelligence",
+        "Risk Management"
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Newark",
+        addressRegion: "DE",
+        addressCountry: "USA"
+      }
+    });
+  }
+
+  if (!serializedItems.includes("Sailo Technologies")) {
+    additions.push({
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Sailo Technologies",
@@ -194,8 +275,10 @@ function ensureSailoVendorSchema(file: string, items: unknown[]) {
           value: "HOWDEN and Bullet Blockchain"
         }
       ]
-    }
-  ];
+    });
+  }
+
+  return additions.length ? [...additions, ...items] : items;
 }
 
 function rewriteLinks(html: string) {

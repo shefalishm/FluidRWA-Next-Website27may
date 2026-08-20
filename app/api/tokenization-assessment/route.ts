@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assessTokenization, type AssessmentAnswers, type LeadDetails } from "@/lib/tokenizationAssessmentRules";
+import { notificationRecipient } from "@/lib/emailNotifications";
 
 export const runtime = "nodejs";
 
@@ -63,7 +64,7 @@ async function sendResendEmail({
   html: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.ASSESSMENT_NOTIFICATION_FROM;
+  const from = process.env.FORM_NOTIFICATION_FROM || process.env.ASSESSMENT_NOTIFICATION_FROM;
 
   if (!apiKey || !from || !to) {
     return { ok: false, skipped: true };
@@ -105,7 +106,7 @@ async function sendAssessmentEmails({
   answers: AssessmentAnswers;
   budgetRange: string;
 }) {
-  const adminTo = process.env.ASSESSMENT_NOTIFICATION_EMAIL || "contact@fluidrwa.com";
+  const adminTo = notificationRecipient();
   const safeLead = {
     name: escapeHtml(lead.name),
     company: escapeHtml(lead.company),

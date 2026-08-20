@@ -10,7 +10,7 @@ answer: "A fiat on-ramp lets users buy crypto or stablecoins with bank money, ca
 ctaTitle: "Compare fiat ramp providers."
 ctaText: "Find on-ramp, off-ramp, stablecoin and regional payment providers for Web3 workflows."
 ctaLabel: "View Fiat Ramp Providers"
-ctaUrl: "/vendors/fiat-on-off-ramps/"
+ctaUrl: "/vendors/fiat-on-off-ramp-providers/"
 faq1q: "What is a fiat on-ramp?"
 faq1a: "A fiat on-ramp is infrastructure that lets users buy crypto or stablecoins using cards, bank transfers, mobile money or local payment methods."
 faq2q: "What is a crypto off-ramp?"
@@ -40,4 +40,4 @@ The best ramp provider for a consumer wallet may not be the best provider for in
 
 ## Where To Compare Providers
 
-FluidRWA’s [fiat on and off ramp provider page](/vendors/fiat-on-off-ramps/) groups ramp providers, stablecoin infrastructure, payment processors, banking rails and regional specialists so teams can compare by workflow instead of searching from scratch.
+FluidRWA’s [fiat on and off ramp provider page](/vendors/fiat-on-off-ramp-providers/) groups ramp providers, stablecoin infrastructure, payment processors, banking rails and regional specialists so teams can compare by workflow instead of searching from scratch.

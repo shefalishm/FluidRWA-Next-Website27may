@@ -14,6 +14,7 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     gtag_report_conversion?: (url?: string) => false;
     fluidRwaReportLeadConversion?: () => void;
+    fluidRwaTrackEvent?: (eventName: string, params?: Record<string, unknown>) => void;
   }
 }
 
@@ -38,6 +39,14 @@ export function GoogleAnalytics() {
           gtag('js', new Date());
           gtag('config', '${measurementId}', { page_path: window.location.pathname + window.location.search });
           gtag('config', '${googleAdsId}');
+
+          window.fluidRwaTrackEvent = function(eventName, params) {
+            gtag('event', eventName, Object.assign({
+              page_path: window.location.pathname,
+              page_location: window.location.href,
+              engagement_source: 'fluidrwa_site'
+            }, params || {}));
+          };
 
           window.fluidRwaReportLeadConversion = function() {
             gtag('event', 'conversion', {

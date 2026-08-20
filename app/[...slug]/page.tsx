@@ -3,6 +3,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { VentureCapitalFilters } from "@/components/VentureCapitalFilters";
 import { FamilyOfficeTable } from "@/components/FamilyOfficeTable";
 import { BrokerDealerTable } from "@/components/BrokerDealerTable";
+import { SecurityAuditCompaniesPage } from "@/components/SecurityAuditCompaniesPage";
 import { fileForRoute, normalizePath, allRoutePaths } from "@/lib/routes";
 import { legacyJsonLd, legacyMainHtml, legacyMetadata } from "@/lib/legacy";
 
@@ -25,6 +26,10 @@ export async function generateMetadata({ params }: RouteParams) {
 export default async function AppRoutePage({ params }: RouteParams) {
   const { slug } = await params;
   const routePath = normalizePath(slug);
+  if (routePath === "vendors/security-audit-companies") {
+    return <SecurityAuditCompaniesPage />;
+  }
+
   const file = fileForRoute(routePath);
   if (!file) notFound();
   const html = legacyMainHtml(file);

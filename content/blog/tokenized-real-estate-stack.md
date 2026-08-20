@@ -49,4 +49,4 @@ For example, a private real estate fund targeting accredited investors is differ
 
 ## Where To Start
 
-Begin with [tokenization platforms](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory/), [KYC/AML providers](/vendors/kyc-aml/) and [payments infrastructure](/vendors/fiat-on-off-ramps/).
+Begin with [tokenization platforms](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory-vendors/), [KYC/AML providers](/vendors/kyc-aml-providers/) and [payments infrastructure](/vendors/fiat-on-off-ramp-providers/).

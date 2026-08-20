@@ -10,7 +10,7 @@ answer: "Legal and regulatory vendors help tokenized asset teams structure offer
 ctaTitle: "Find legal and regulatory advisors."
 ctaText: "Compare law firms and advisors focused on digital assets, tokenization and cross-border compliance."
 ctaLabel: "View Legal & Regulatory"
-ctaUrl: "/vendors/legal-regulatory/"
+ctaUrl: "/vendors/legal-regulatory-vendors/"
 faq1q: "Do tokenized assets need legal review?"
 faq1a: "Yes. Tokenized assets often involve securities, fund, payments, custody, marketing and jurisdictional questions that require legal review."
 faq2q: "What should legal advisors understand?"
@@ -40,4 +40,4 @@ Ask for relevant experience, not just general blockchain interest.
 
 ## Where To Compare Firms
 
-FluidRWA’s [legal and regulatory directory](/vendors/legal-regulatory/) groups law firms and advisors focused on digital assets, tokenization, funds, compliance and cross-border structures.
+FluidRWA’s [legal and regulatory directory](/vendors/legal-regulatory-vendors/) groups law firms and advisors focused on digital assets, tokenization, funds, compliance and cross-border structures.

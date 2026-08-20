@@ -49,4 +49,4 @@ The more institutional the fund, the more important the operational stack become
 
 ## Useful Vendor Categories
 
-Review [legal and regulatory firms](/vendors/legal-regulatory/), [tokenization platforms](/vendors/tokenization-platforms/), [custody solutions](/vendors/custody-solutions/) and [payment rails](/vendors/payments-stablecoins/) early in the process.
+Review [legal and regulatory firms](/vendors/legal-regulatory-vendors/), [tokenization platforms](/vendors/tokenization-platforms/), [custody solutions](/vendors/crypto-custody-providers/) and [payment rails](/vendors/stablecoin-infrastructure-providers/) early in the process.

@@ -48,4 +48,4 @@ This is why RWA projects should evaluate vendors by asset class and workflow. A 
 
 ## Where To Start
 
-Start by defining the asset, jurisdiction, investor type and distribution model. Then map the required vendor stack. FluidRWA’s [tokenization provider category](/vendors/tokenization-platforms/) is a natural starting point, but most projects should also look at [legal and regulatory firms](/vendors/legal-regulatory/), [KYC/AML providers](/vendors/kyc-aml/) and [custody solutions](/vendors/custody-solutions/).
+Start by defining the asset, jurisdiction, investor type and distribution model. Then map the required vendor stack. FluidRWA’s [tokenization provider category](/vendors/tokenization-platforms/) is a natural starting point, but most projects should also look at [legal and regulatory firms](/vendors/legal-regulatory-vendors/), [KYC/AML providers](/vendors/kyc-aml-providers/) and [custody solutions](/vendors/crypto-custody-providers/).

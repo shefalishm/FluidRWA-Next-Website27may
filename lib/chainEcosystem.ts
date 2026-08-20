@@ -4,6 +4,14 @@ export type ChainProject = {
   description: string;
   status: string;
   region: string;
+  website?: string;
+  useCases?: string[];
+  targetUsers?: string[];
+  keySignals?: string[];
+  verificationStatus?: "Source checked" | "Verified" | "Needs review" | "Historical";
+  lastReviewed?: string;
+  sourceUrls?: string[];
+  listingTier?: "Verified profile" | "Featured profile" | "Partner profile";
 };
 
 export type ChainEcosystem = {
@@ -221,6 +229,627 @@ export const chainEcosystems: ChainEcosystem[] = [
     ]
   },
   {
+    slug: "tron",
+    name: "TRON",
+    logoText: "T",
+    logoSrc: "/assets/chain-logos/tron.svg",
+    accent: "red",
+    summary: "TRON is known for high-volume stablecoin transfers, low-fee payments, consumer wallets and DeFi applications built around TRC-20 assets.",
+    standsOutFor: ["Stablecoin payments", "Low fees", "TRC-20 assets", "Consumer wallets"],
+    projects: [
+      { name: "JustLend DAO", category: "DeFi", description: "Lending and borrowing protocol for TRON ecosystem assets.", status: "Live", region: "Global" },
+      { name: "SUN.io", category: "DeFi", description: "Decentralized exchange and liquidity platform for stablecoin swaps and TRON assets.", status: "Live", region: "Global" },
+      { name: "SunPump", category: "Launchpad", description: "TRON-based memecoin launchpad and token issuance platform.", status: "Live", region: "Global" },
+      { name: "SunX", category: "Trading", description: "TRON ecosystem trading application connected to token market activity.", status: "Live", region: "Global" },
+      { name: "JustStable", category: "Stablecoins", description: "Decentralized stablecoin protocol associated with USDJ issuance and collateralized positions.", status: "Live", region: "Global" },
+      { name: "TronLink", category: "Wallet", description: "Wallet and application access layer for TRON users and dApps.", status: "Live", region: "Global" },
+      { name: "GasFree", category: "Payments", description: "Gasless stablecoin transfer infrastructure for TRON ecosystem payments.", status: "Live", region: "Global" },
+      { name: "BTTC", category: "Interoperability", description: "BitTorrent Chain cross-chain protocol connecting TRON with other blockchain networks.", status: "Live", region: "Global" },
+      { name: "BTFS", category: "Storage", description: "BitTorrent File System decentralized storage infrastructure.", status: "Live", region: "Global" },
+      { name: "USDD", category: "Stablecoins", description: "TRON ecosystem decentralized stablecoin product.", status: "Live", region: "Global" },
+      { name: "stUSDT", category: "Real World Assets", description: "Staked USDT and RWA yield product associated with the TRON ecosystem.", status: "Live", region: "Global" },
+      { name: "Bank of AI", category: "AI", description: "AI-focused TRON ecosystem application listed in TRONSCAN ecosystem coverage.", status: "Live", region: "Global" },
+      { name: "AINFT", category: "NFT Infrastructure", description: "AI and NFT application in the TRON ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "sui",
+    name: "Sui",
+    logoText: "S",
+    logoSrc: "/assets/chain-logos/sui.svg",
+    accent: "blue",
+    summary: "Sui is a Move-based Layer 1 known for object-centric execution, low-latency apps, gaming, DeFi and consumer-scale blockchain experiences.",
+    standsOutFor: ["Move smart contracts", "Consumer apps", "Gaming", "Fast settlement"],
+    projects: [
+      { name: "Cetus", category: "DeFi", description: "Decentralized exchange and concentrated liquidity protocol in the Sui ecosystem.", status: "Live", region: "Global" },
+      { name: "NAVI Protocol", category: "DeFi", description: "Lending and liquidity protocol for Sui assets.", status: "Live", region: "Global" },
+      { name: "Scallop", category: "DeFi", description: "Sui-native money market and lending protocol.", status: "Live", region: "Global" },
+      { name: "Aftermath Finance", category: "DeFi", description: "Sui DeFi platform for swaps, liquid staking and yield products.", status: "Live", region: "Global" },
+      { name: "Bluefin", category: "Trading", description: "Decentralized derivatives and spot trading venue with Sui ecosystem activity.", status: "Live", region: "Global" },
+      { name: "Suilend", category: "DeFi", description: "Lending protocol built for Sui users and liquidity markets.", status: "Live", region: "Global" },
+      { name: "Walrus", category: "Storage", description: "Decentralized storage protocol associated with the Sui ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "aptos",
+    name: "Aptos",
+    logoText: "A",
+    logoSrc: "/assets/chain-logos/aptos.svg",
+    accent: "black",
+    summary: "Aptos is a Move-based Layer 1 focused on scalable applications, institutional-grade infrastructure, DeFi and consumer blockchain experiences.",
+    standsOutFor: ["Move smart contracts", "Institutional infrastructure", "DeFi", "Consumer apps"],
+    projects: [
+      { name: "Thala", category: "DeFi", description: "Aptos-native DeFi platform for swaps, stablecoins and liquid staking.", status: "Live", region: "Global" },
+      { name: "Aries Markets", category: "DeFi", description: "Lending, borrowing and margin trading protocol on Aptos.", status: "Live", region: "Global" },
+      { name: "Amnis Finance", category: "Staking", description: "Liquid staking and yield infrastructure for Aptos.", status: "Live", region: "Global" },
+      { name: "Merkle Trade", category: "Trading", description: "Perpetual futures trading protocol active in the Aptos ecosystem.", status: "Live", region: "Global" },
+      { name: "Petra", category: "Wallet", description: "Wallet and application access layer for Aptos users.", status: "Live", region: "Global" },
+      { name: "Aptos Names", category: "Identity", description: "Naming and identity infrastructure for Aptos addresses and applications.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "stellar",
+    name: "Stellar",
+    logoText: "S",
+    logoSrc: "/assets/chain-logos/stellar.svg",
+    accent: "black",
+    summary: "Stellar is a payments and asset issuance network known for remittances, stablecoins, tokenized funds and financial inclusion infrastructure.",
+    standsOutFor: ["Payments", "Stablecoins", "Asset issuance", "Financial inclusion"],
+    projects: [
+      { name: "MoneyGram Access", category: "Payments", description: "Cash-to-crypto and remittance access connected to Stellar rails.", status: "Live", region: "Global" },
+      { name: "Franklin Templeton BENJI", category: "Real World Assets", description: "Tokenized money market fund infrastructure with Stellar ecosystem support.", status: "Live", region: "United States" },
+      { name: "Circle USDC", category: "Stablecoins", description: "USDC stablecoin issuance and transfer support on Stellar.", status: "Live", region: "Global" },
+      { name: "Lobstr", category: "Wallet", description: "Consumer wallet and asset management application for Stellar users.", status: "Live", region: "Global" },
+      { name: "Soroswap", category: "DeFi", description: "Automated market maker and DeFi protocol for Stellar assets.", status: "Live", region: "Global" },
+      { name: "Stellar DEX", category: "Exchange Infrastructure", description: "Native decentralized exchange functionality for Stellar-issued assets.", status: "Live", region: "Global" },
+      { name: "Soroban", category: "Smart Contracts", description: "Smart contract platform for building applications on Stellar.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "near",
+    name: "NEAR",
+    logoText: "N",
+    logoSrc: "/assets/chain-logos/near.svg",
+    accent: "black",
+    summary: "NEAR is a sharded Layer 1 focused on chain abstraction, AI-adjacent applications, consumer onboarding and multichain user experiences.",
+    standsOutFor: ["Chain abstraction", "Consumer apps", "AI", "Multichain UX"],
+    projects: [
+      { name: "NEAR Intents", category: "Interoperability", description: "Intent-based infrastructure for cross-chain actions and abstracted user flows.", status: "Live", region: "Global" },
+      { name: "Ref Finance", category: "DeFi", description: "Decentralized exchange and liquidity protocol in the NEAR ecosystem.", status: "Live", region: "Global" },
+      { name: "Burrow", category: "DeFi", description: "Lending and borrowing protocol for NEAR assets.", status: "Live", region: "Global" },
+      { name: "Meta Pool", category: "Staking", description: "Liquid staking protocol active across NEAR and adjacent ecosystems.", status: "Live", region: "Global" },
+      { name: "Sweat Economy", category: "Consumer", description: "Move-to-earn consumer application with NEAR ecosystem roots.", status: "Live", region: "Global" },
+      { name: "Aurora", category: "EVM", description: "EVM-compatible environment connected to the NEAR ecosystem.", status: "Live", region: "Global" },
+      { name: "Bitte", category: "AI Agents", description: "AI agent and wallet interaction infrastructure connected to NEAR.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "ton",
+    name: "TON",
+    logoText: "T",
+    logoSrc: "/assets/chain-logos/ton.svg",
+    accent: "blue",
+    summary: "TON is a consumer-focused blockchain ecosystem connected to Telegram distribution, payments, wallets, mini apps and high-volume retail onboarding.",
+    standsOutFor: ["Telegram distribution", "Mini apps", "Payments", "Consumer onboarding"],
+    projects: [
+      { name: "Tonkeeper", category: "Wallet", description: "Wallet and app gateway for TON users.", status: "Live", region: "Global" },
+      { name: "STON.fi", category: "DeFi", description: "Decentralized exchange and liquidity protocol in the TON ecosystem.", status: "Live", region: "Global" },
+      { name: "DeDust", category: "DeFi", description: "TON-native decentralized exchange and liquidity venue.", status: "Live", region: "Global" },
+      { name: "Notcoin", category: "Consumer", description: "Telegram-native consumer token and gaming application associated with TON adoption.", status: "Live", region: "Global" },
+      { name: "Fragment", category: "Marketplace", description: "Marketplace for Telegram usernames and digital collectibles connected to TON.", status: "Live", region: "Global" },
+      { name: "Tonstakers", category: "Staking", description: "Staking and validator participation product for TON holders.", status: "Live", region: "Global" },
+      { name: "USDt on TON", category: "Stablecoins", description: "Tether USDt stablecoin support for payments and transfers on TON.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "plume",
+    name: "Plume",
+    logoText: "P",
+    logoSrc: "/assets/chain-logos/plume.svg",
+    accent: "purple",
+    summary: "Plume is an RWA-focused blockchain ecosystem built for tokenized assets, compliant distribution and real-world asset finance applications.",
+    standsOutFor: ["Real world assets", "RWAfi", "Tokenization", "Compliance"],
+    projects: [
+      { name: "Plume Network", category: "RWA Infrastructure", description: "Purpose-built blockchain infrastructure for real-world asset applications.", status: "Live", region: "Global" },
+      { name: "Nest", category: "Real World Assets", description: "RWA yield and asset access product associated with the Plume ecosystem.", status: "Live", region: "Global" },
+      { name: "Mineral Vault", category: "Real World Assets", description: "Tokenized exposure concept for mineral and commodity-linked assets in RWA ecosystems.", status: "Live", region: "Global" },
+      { name: "Matrixdock", category: "Real World Assets", description: "Tokenized treasury and RWA issuer with multichain ecosystem relevance.", status: "Live", region: "Global" },
+      { name: "Dinari", category: "Real World Assets", description: "Tokenized stock and financial asset infrastructure with RWA ecosystem relevance.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "mantra",
+    name: "MANTRA",
+    logoText: "M",
+    logoSrc: "/assets/chain-logos/mantra.svg",
+    accent: "red",
+    summary: "MANTRA is a real-world asset focused blockchain ecosystem oriented around compliant tokenization, institutional finance and regulated digital assets.",
+    standsOutFor: ["RWA tokenization", "Compliance", "Institutional assets", "Onchain finance"],
+    projects: [
+      { name: "MANTRA Chain", category: "RWA Infrastructure", description: "Purpose-built chain for compliant real-world asset tokenization.", status: "Live", region: "Global" },
+      { name: "MANTRA Finance", category: "DeFi", description: "DeFi and tokenization platform associated with the MANTRA ecosystem.", status: "Live", region: "Global" },
+      { name: "OM Staking", category: "Staking", description: "Staking and network participation infrastructure for MANTRA users.", status: "Live", region: "Global" },
+      { name: "MAG", category: "Real World Assets", description: "MANTRA-aligned real-world asset initiative for tokenized asset access.", status: "Live", region: "Global" },
+      { name: "Zand", category: "Institutional Participant", description: "Digital bank participant associated with MANTRA real-world asset initiatives.", status: "Live", region: "Middle East" }
+    ]
+  },
+  {
+    slug: "celo",
+    name: "Celo",
+    logoText: "C",
+    logoSrc: "/assets/chain-logos/celo.svg",
+    accent: "yellow",
+    summary: "Celo is a mobile-first blockchain ecosystem focused on stablecoin payments, ReFi, emerging markets and real-world utility.",
+    standsOutFor: ["Mobile payments", "Stablecoins", "ReFi", "Emerging markets"],
+    projects: [
+      { name: "Mento", category: "Stablecoins", description: "Stable asset protocol and currency infrastructure for Celo.", status: "Live", region: "Global" },
+      { name: "Valora", category: "Wallet", description: "Mobile wallet and payments app with Celo ecosystem roots.", status: "Live", region: "Global" },
+      { name: "Ubeswap", category: "DeFi", description: "Decentralized exchange and liquidity protocol on Celo.", status: "Live", region: "Global" },
+      { name: "GoodDollar", category: "Financial Inclusion", description: "Universal basic income and financial inclusion project with Celo activity.", status: "Live", region: "Global" },
+      { name: "Toucan Protocol", category: "Climate", description: "Climate and carbon market infrastructure connected to Celo and ReFi ecosystems.", status: "Live", region: "Global" },
+      { name: "Regen Network", category: "Climate", description: "Regenerative finance and ecological asset infrastructure with Celo ecosystem relevance.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "mantle",
+    name: "Mantle",
+    logoText: "M",
+    logoSrc: "/assets/chain-logos/mantle.svg",
+    accent: "black",
+    summary: "Mantle is an Ethereum Layer 2 ecosystem focused on modular scaling, DeFi, liquid staking and institutional-grade Ethereum applications.",
+    standsOutFor: ["Ethereum L2", "Modular scaling", "DeFi", "Liquid staking"],
+    projects: [
+      { name: "Merchant Moe", category: "DeFi", description: "Decentralized exchange and liquidity hub for Mantle.", status: "Live", region: "Global" },
+      { name: "Agni Finance", category: "DeFi", description: "Concentrated liquidity DEX built for Mantle ecosystem users.", status: "Live", region: "Global" },
+      { name: "INIT Capital", category: "DeFi", description: "Liquidity hook money market and DeFi protocol active on Mantle.", status: "Live", region: "Global" },
+      { name: "mETH Protocol", category: "Staking", description: "Liquid staking and ETH yield product associated with Mantle.", status: "Live", region: "Global" },
+      { name: "Ondo Finance", category: "Real World Assets", description: "Tokenized treasury products with Mantle ecosystem availability.", status: "Live", region: "Global" },
+      { name: "LayerBank", category: "DeFi", description: "Lending protocol with Mantle ecosystem activity.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "algorand",
+    name: "Algorand",
+    logoText: "A",
+    logoSrc: "/assets/chain-logos/algorand.svg",
+    accent: "black",
+    summary: "Algorand is a low-fee Layer 1 known for payments, asset issuance, sustainability, tokenization and institutional blockchain use cases.",
+    standsOutFor: ["Payments", "Asset issuance", "Sustainability", "Tokenization"],
+    projects: [
+      { name: "Folks Finance", category: "DeFi", description: "Lending, borrowing and liquid staking protocol in the Algorand ecosystem.", status: "Live", region: "Global" },
+      { name: "Tinyman", category: "DeFi", description: "Decentralized exchange and liquidity protocol on Algorand.", status: "Live", region: "Global" },
+      { name: "Pact", category: "DeFi", description: "Automated market maker and liquidity platform for Algorand assets.", status: "Live", region: "Global" },
+      { name: "Pera Wallet", category: "Wallet", description: "Wallet and application access layer for Algorand users.", status: "Live", region: "Global" },
+      { name: "Lofty", category: "Real World Assets", description: "Fractional real estate investment platform using Algorand infrastructure.", status: "Live", region: "United States" },
+      { name: "TravelX", category: "Enterprise", description: "Blockchain-based travel and ticketing infrastructure associated with Algorand.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "cardano",
+    name: "Cardano",
+    logoText: "C",
+    logoSrc: "/assets/chain-logos/cardano.svg",
+    accent: "blue",
+    summary: "Cardano is a proof-of-stake Layer 1 ecosystem known for formal methods, staking, DeFi, identity, governance and a large community.",
+    standsOutFor: ["Proof of stake", "Governance", "DeFi", "Identity"],
+    projects: [
+      { name: "Minswap", category: "DeFi", description: "Decentralized exchange and liquidity protocol in the Cardano ecosystem.", status: "Live", region: "Global" },
+      { name: "SundaeSwap", category: "DeFi", description: "Automated market maker and DEX on Cardano.", status: "Live", region: "Global" },
+      { name: "Liqwid Finance", category: "DeFi", description: "Lending and borrowing protocol for Cardano assets.", status: "Live", region: "Global" },
+      { name: "Indigo Protocol", category: "Synthetic Assets", description: "Synthetic asset protocol built on Cardano.", status: "Live", region: "Global" },
+      { name: "NMKR", category: "NFT Infrastructure", description: "NFT and tokenization infrastructure for Cardano creators and issuers.", status: "Live", region: "Global" },
+      { name: "World Mobile", category: "DePIN", description: "Decentralized connectivity network associated with the Cardano ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "polkadot",
+    name: "Polkadot",
+    logoText: "P",
+    logoSrc: "/assets/chain-logos/polkadot.svg",
+    accent: "purple",
+    summary: "Polkadot is a multichain ecosystem built around shared security, parachains, interoperability and specialized application chains.",
+    standsOutFor: ["Interoperability", "Parachains", "Shared security", "Appchains"],
+    projects: [
+      { name: "Acala", category: "DeFi", description: "DeFi and liquidity hub in the Polkadot ecosystem.", status: "Live", region: "Global" },
+      { name: "Moonbeam", category: "EVM", description: "EVM-compatible parachain for Ethereum-style applications in Polkadot.", status: "Live", region: "Global" },
+      { name: "Astar", category: "Smart Contracts", description: "Smart contract platform and app ecosystem connected to Polkadot.", status: "Live", region: "Global" },
+      { name: "Centrifuge", category: "Real World Assets", description: "RWA and credit protocol with Polkadot ecosystem roots.", status: "Live", region: "Global" },
+      { name: "Bifrost", category: "Staking", description: "Liquid staking and cross-chain yield protocol.", status: "Live", region: "Global" },
+      { name: "Hydration", category: "DeFi", description: "Liquidity protocol and DeFi hub in the Polkadot ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "cosmos",
+    name: "Cosmos",
+    logoText: "C",
+    logoSrc: "/assets/chain-logos/cosmos.svg",
+    accent: "black",
+    summary: "Cosmos is an appchain ecosystem known for IBC interoperability, sovereign chains, DeFi zones and modular blockchain infrastructure.",
+    standsOutFor: ["IBC", "Appchains", "Sovereign chains", "Modular infrastructure"],
+    projects: [
+      { name: "Osmosis", category: "DeFi", description: "Interchain decentralized exchange and liquidity hub in Cosmos.", status: "Live", region: "Global" },
+      { name: "Cosmos Hub", category: "Interoperability", description: "Core hub for interchain security, staking and IBC connectivity.", status: "Live", region: "Global" },
+      { name: "Stride", category: "Staking", description: "Liquid staking protocol for Cosmos ecosystem assets.", status: "Live", region: "Global" },
+      { name: "Neutron", category: "Smart Contracts", description: "Cosmos smart contract platform for interchain applications.", status: "Live", region: "Global" },
+      { name: "dYdX Chain", category: "Trading", description: "Appchain for decentralized derivatives trading built with Cosmos technology.", status: "Live", region: "Global" },
+      { name: "Akash Network", category: "DePIN", description: "Decentralized compute marketplace built in the Cosmos ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "tezos",
+    name: "Tezos",
+    logoText: "T",
+    logoSrc: "/assets/chain-logos/tezos.svg",
+    accent: "blue",
+    summary: "Tezos is a self-amending proof-of-stake blockchain ecosystem known for governance, NFTs, institutional pilots and smart contract applications.",
+    standsOutFor: ["Governance", "NFTs", "Institutional pilots", "Smart contracts"],
+    projects: [
+      { name: "Objkt", category: "NFT Marketplace", description: "NFT marketplace and creator platform in the Tezos ecosystem.", status: "Live", region: "Global" },
+      { name: "Plenty", category: "DeFi", description: "Decentralized exchange and DeFi protocol for Tezos assets.", status: "Live", region: "Global" },
+      { name: "Youves", category: "DeFi", description: "Synthetic assets and stablecoin protocol on Tezos.", status: "Live", region: "Global" },
+      { name: "Kukai", category: "Wallet", description: "Wallet and user access layer for Tezos applications.", status: "Live", region: "Global" },
+      { name: "fxhash", category: "NFT Infrastructure", description: "Generative art and NFT platform with strong Tezos ecosystem activity.", status: "Live", region: "Global" },
+      { name: "Tezos Domains", category: "Identity", description: "Naming and identity infrastructure for Tezos addresses.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "internet-computer",
+    name: "Internet Computer",
+    logoText: "ICP",
+    logoSrc: "/assets/chain-logos/internet-computer.svg",
+    accent: "purple",
+    summary: "Internet Computer is a web-speed blockchain platform for onchain applications, identity, compute, AI-adjacent apps and fully onchain services.",
+    standsOutFor: ["Onchain compute", "Identity", "Web apps", "AI apps"],
+    projects: [
+      { name: "Internet Identity", category: "Identity", description: "Passwordless identity system for Internet Computer applications.", status: "Live", region: "Global" },
+      { name: "OpenChat", category: "Social", description: "Onchain messaging and community application built on Internet Computer.", status: "Live", region: "Global" },
+      { name: "DSCVR", category: "Social", description: "Social platform and community network with Internet Computer roots.", status: "Live", region: "Global" },
+      { name: "Sonic", category: "DeFi", description: "Decentralized exchange and DeFi protocol on Internet Computer.", status: "Live", region: "Global" },
+      { name: "ICPSwap", category: "DeFi", description: "Swap, liquidity and token launch infrastructure for ICP assets.", status: "Live", region: "Global" },
+      { name: "BOB", category: "Compute", description: "Proof-of-work and compute-oriented project in the Internet Computer ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "sei",
+    name: "Sei",
+    logoText: "S",
+    logoSrc: "/assets/chain-logos/sei.svg",
+    accent: "red",
+    summary: "Sei is a high-performance blockchain ecosystem focused on trading, DeFi, parallelized execution and EVM-compatible applications.",
+    standsOutFor: ["Trading", "Parallel execution", "EVM apps", "DeFi"],
+    projects: [
+      { name: "Astroport", category: "DeFi", description: "Decentralized exchange and liquidity protocol deployed in the Sei ecosystem.", status: "Live", region: "Global" },
+      { name: "Yei Finance", category: "DeFi", description: "Lending and borrowing protocol on Sei.", status: "Live", region: "Global" },
+      { name: "Silo", category: "DeFi", description: "Liquid staking and DeFi infrastructure associated with Sei.", status: "Live", region: "Global" },
+      { name: "Compass Wallet", category: "Wallet", description: "Wallet and app access layer for Sei users.", status: "Live", region: "Global" },
+      { name: "Pallet Exchange", category: "NFT Marketplace", description: "NFT marketplace and collectibles platform in the Sei ecosystem.", status: "Live", region: "Global" },
+      { name: "DragonSwap", category: "DeFi", description: "Decentralized exchange and liquidity protocol for Sei assets.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "injective",
+    name: "Injective",
+    logoText: "I",
+    logoSrc: "/assets/chain-logos/injective.svg",
+    accent: "blue",
+    summary: "Injective is a finance-focused blockchain ecosystem for derivatives, exchanges, structured products, RWAs and institutional onchain markets.",
+    standsOutFor: ["Derivatives", "DeFi", "Onchain finance", "RWAs"],
+    projects: [
+      { name: "Helix", category: "Trading", description: "Decentralized exchange and derivatives trading interface for Injective.", status: "Live", region: "Global" },
+      { name: "Astroport", category: "DeFi", description: "Liquidity and decentralized exchange protocol with Injective deployment.", status: "Live", region: "Global" },
+      { name: "DojoSwap", category: "DeFi", description: "Decentralized exchange and token launch ecosystem on Injective.", status: "Live", region: "Global" },
+      { name: "Hydro Protocol", category: "DeFi", description: "Liquid staking and structured DeFi protocol in the Injective ecosystem.", status: "Live", region: "Global" },
+      { name: "Talis Protocol", category: "NFT Marketplace", description: "NFT marketplace and creator platform connected to Injective.", status: "Live", region: "Global" },
+      { name: "Mito", category: "DeFi", description: "Automated strategy and vault protocol for Injective users.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "gnosis-chain",
+    name: "Gnosis Chain",
+    logoText: "G",
+    logoSrc: "/assets/chain-logos/gnosis-chain.svg",
+    accent: "green",
+    summary: "Gnosis Chain is an EVM network known for payments, DAOs, wallets, public goods and low-cost Ethereum-compatible applications.",
+    standsOutFor: ["EVM apps", "DAOs", "Payments", "Public goods"],
+    projects: [
+      { name: "Gnosis Pay", category: "Payments", description: "Onchain payments and card infrastructure connected to Gnosis.", status: "Live", region: "Global" },
+      { name: "Safe", category: "Wallet Infrastructure", description: "Smart account and multisig infrastructure with Gnosis ecosystem roots.", status: "Live", region: "Global" },
+      { name: "CoW Swap", category: "DeFi", description: "Intent-based trading and MEV-aware swap protocol connected to Gnosis.", status: "Live", region: "Global" },
+      { name: "HOPR", category: "Privacy", description: "Privacy and data transport protocol active in the Gnosis ecosystem.", status: "Live", region: "Global" },
+      { name: "Circles", category: "Community Currency", description: "Community currency and social money application on Gnosis Chain.", status: "Live", region: "Global" },
+      { name: "Balancer", category: "DeFi", description: "Liquidity protocol deployed across Ethereum-compatible networks including Gnosis.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "zksync",
+    name: "zkSync",
+    logoText: "ZK",
+    logoSrc: "/assets/chain-logos/zksync.svg",
+    accent: "black",
+    summary: "zkSync is an Ethereum Layer 2 ecosystem using zero-knowledge proofs for scalable, lower-cost EVM-compatible applications.",
+    standsOutFor: ["ZK rollup", "Ethereum scaling", "DeFi", "EVM apps"],
+    projects: [
+      { name: "SyncSwap", category: "DeFi", description: "Decentralized exchange and liquidity protocol on zkSync.", status: "Live", region: "Global" },
+      { name: "Maverick Protocol", category: "DeFi", description: "Liquidity infrastructure and AMM with zkSync ecosystem activity.", status: "Live", region: "Global" },
+      { name: "Mute", category: "DeFi", description: "DEX and liquidity protocol for zkSync users.", status: "Live", region: "Global" },
+      { name: "Holdstation", category: "Wallet and Trading", description: "Smart wallet and trading application in the zkSync ecosystem.", status: "Live", region: "Global" },
+      { name: "ReactorFusion", category: "DeFi", description: "Lending and borrowing protocol active on zkSync.", status: "Live", region: "Global" },
+      { name: "Koi Finance", category: "DeFi", description: "Liquidity and yield platform for zkSync assets.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "starknet",
+    name: "Starknet",
+    logoText: "S",
+    logoSrc: "/assets/chain-logos/starknet.svg",
+    accent: "purple",
+    summary: "Starknet is an Ethereum Layer 2 ecosystem using validity proofs and Cairo-based smart contracts for scalable applications.",
+    standsOutFor: ["ZK scaling", "Cairo", "Ethereum L2", "DeFi"],
+    projects: [
+      { name: "Argent X", category: "Wallet", description: "Smart wallet and account abstraction gateway for Starknet users.", status: "Live", region: "Global" },
+      { name: "Braavos", category: "Wallet", description: "Smart wallet and user access layer for Starknet applications.", status: "Live", region: "Global" },
+      { name: "Ekubo", category: "DeFi", description: "Automated market maker and liquidity protocol on Starknet.", status: "Live", region: "Global" },
+      { name: "JediSwap", category: "DeFi", description: "Community-driven decentralized exchange in the Starknet ecosystem.", status: "Live", region: "Global" },
+      { name: "Nostra", category: "DeFi", description: "Lending, borrowing and stablecoin protocol on Starknet.", status: "Live", region: "Global" },
+      { name: "AVNU", category: "DeFi Infrastructure", description: "DEX aggregator and trading infrastructure for Starknet.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "linea",
+    name: "Linea",
+    logoText: "L",
+    logoSrc: "/assets/chain-logos/linea.svg",
+    accent: "black",
+    summary: "Linea is an Ethereum Layer 2 ecosystem built by Consensys, focused on EVM-compatible DeFi, wallets, tooling and scalable applications.",
+    standsOutFor: ["Ethereum L2", "EVM", "Consensys ecosystem", "DeFi"],
+    projects: [
+      { name: "MetaMask", category: "Wallet", description: "Wallet and app gateway with deep Linea ecosystem integration.", status: "Live", region: "Global" },
+      { name: "Lynex", category: "DeFi", description: "Decentralized exchange and liquidity hub on Linea.", status: "Live", region: "Global" },
+      { name: "Nile Exchange", category: "DeFi", description: "Liquidity and DEX protocol in the Linea ecosystem.", status: "Live", region: "Global" },
+      { name: "Mendi Finance", category: "DeFi", description: "Lending and borrowing protocol active on Linea.", status: "Live", region: "Global" },
+      { name: "ZeroLend", category: "DeFi", description: "Lending market with Linea deployment.", status: "Live", region: "Global" },
+      { name: "Velocore", category: "DeFi", description: "Decentralized exchange and liquidity protocol for Linea users.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "scroll",
+    name: "Scroll",
+    logoText: "S",
+    logoSrc: "/assets/chain-logos/scroll.svg",
+    accent: "yellow",
+    summary: "Scroll is an Ethereum zkEVM Layer 2 ecosystem focused on Ethereum-equivalent scaling, DeFi, wallets and developer-friendly applications.",
+    standsOutFor: ["zkEVM", "Ethereum scaling", "DeFi", "Developer tooling"],
+    projects: [
+      { name: "Ambient Finance", category: "DeFi", description: "Decentralized exchange and liquidity protocol deployed on Scroll.", status: "Live", region: "Global" },
+      { name: "Pencil Protocol", category: "DeFi", description: "Launchpad and yield infrastructure in the Scroll ecosystem.", status: "Live", region: "Global" },
+      { name: "Zebra", category: "DeFi", description: "DEX and liquidity protocol built for Scroll users.", status: "Live", region: "Global" },
+      { name: "Aave", category: "DeFi", description: "Lending protocol with Scroll ecosystem deployment.", status: "Live", region: "Global" },
+      { name: "LayerBank", category: "DeFi", description: "Lending and borrowing protocol active on Scroll.", status: "Live", region: "Global" },
+      { name: "Scroll Canvas", category: "Identity", description: "Onchain identity and achievement experience for Scroll users.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "celestia",
+    name: "Celestia",
+    logoText: "C",
+    logoSrc: "/assets/chain-logos/celestia.svg",
+    accent: "purple",
+    summary: "Celestia is a modular data availability network used by rollups, appchains and modular blockchain infrastructure teams.",
+    standsOutFor: ["Data availability", "Modular blockchains", "Rollups", "Appchains"],
+    projects: [
+      { name: "Manta Pacific", category: "Layer 2", description: "Modular Ethereum Layer 2 using Celestia data availability.", status: "Live", region: "Global" },
+      { name: "Eclipse", category: "Layer 2", description: "Modular rollup ecosystem using Celestia for data availability.", status: "Live", region: "Global" },
+      { name: "Dymension", category: "Rollup Infrastructure", description: "RollApp infrastructure connected to modular data availability ecosystems.", status: "Live", region: "Global" },
+      { name: "Fuel", category: "Rollup Infrastructure", description: "Modular execution layer and rollup technology ecosystem.", status: "Live", region: "Global" },
+      { name: "Sovereign Labs", category: "Developer Infrastructure", description: "Rollup framework and modular blockchain infrastructure provider.", status: "Live", region: "Global" },
+      { name: "Astria", category: "Sequencing", description: "Shared sequencing infrastructure for modular rollups.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "vechain",
+    name: "VeChain",
+    logoText: "V",
+    logoSrc: "/assets/chain-logos/vechain.svg",
+    accent: "blue",
+    summary: "VeChain is an enterprise blockchain ecosystem focused on supply chains, sustainability, traceability, tokenization and business workflows.",
+    standsOutFor: ["Supply chain", "Sustainability", "Traceability", "Enterprise"],
+    projects: [
+      { name: "VeBetterDAO", category: "Sustainability", description: "Sustainability and impact application ecosystem built around VeChain.", status: "Live", region: "Global" },
+      { name: "VeWorld", category: "Wallet", description: "Wallet and application gateway for VeChain users.", status: "Live", region: "Global" },
+      { name: "VORJ", category: "Developer Infrastructure", description: "No-code and low-code blockchain deployment tools for VeChain.", status: "Live", region: "Global" },
+      { name: "Mugshot", category: "Consumer", description: "Consumer and sustainability application associated with VeBetterDAO.", status: "Live", region: "Global" },
+      { name: "Vyvo Smart Chain", category: "Health and DePIN", description: "Health data and wearable ecosystem connected to VeChain initiatives.", status: "Live", region: "Global" },
+      { name: "VeChain ToolChain", category: "Enterprise", description: "Enterprise blockchain tooling for traceability and business workflows.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "flow",
+    name: "Flow",
+    logoText: "F",
+    logoSrc: "/assets/chain-logos/flow.svg",
+    accent: "green",
+    summary: "Flow is a consumer blockchain ecosystem known for NFTs, sports collectibles, gaming, entertainment and mainstream digital experiences.",
+    standsOutFor: ["Consumer apps", "NFTs", "Sports collectibles", "Gaming"],
+    projects: [
+      { name: "NBA Top Shot", category: "Collectibles", description: "Sports collectible marketplace and mainstream NFT experience built on Flow.", status: "Live", region: "Global" },
+      { name: "NFL ALL DAY", category: "Collectibles", description: "Official football collectible experience using Flow infrastructure.", status: "Live", region: "Global" },
+      { name: "Dapper Wallet", category: "Wallet", description: "Consumer wallet and account system for Flow applications.", status: "Live", region: "Global" },
+      { name: "Flowty", category: "NFT Marketplace", description: "NFT marketplace and lending platform for Flow assets.", status: "Live", region: "Global" },
+      { name: "IncrementFi", category: "DeFi", description: "DeFi and liquidity protocol active in the Flow ecosystem.", status: "Live", region: "Global" },
+      { name: "Blocto", category: "Wallet", description: "Wallet and onboarding layer with Flow ecosystem support.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "iotex",
+    name: "IoTeX",
+    logoText: "I",
+    logoSrc: "/assets/chain-logos/iotex.svg",
+    accent: "blue",
+    summary: "IoTeX is a DePIN and machine economy blockchain ecosystem focused on connected devices, physical infrastructure and verifiable real-world data.",
+    standsOutFor: ["DePIN", "Machine economy", "Devices", "Real-world data"],
+    projects: [
+      { name: "W3bstream", category: "DePIN Infrastructure", description: "Offchain compute and data infrastructure for DePIN applications.", status: "Live", region: "Global" },
+      { name: "ioPay", category: "Wallet", description: "Wallet and application access layer for IoTeX users.", status: "Live", region: "Global" },
+      { name: "Mimo", category: "DeFi", description: "Decentralized exchange and liquidity protocol in the IoTeX ecosystem.", status: "Live", region: "Global" },
+      { name: "Pebble", category: "Device Infrastructure", description: "Trusted hardware and sensor device associated with IoTeX data use cases.", status: "Live", region: "Global" },
+      { name: "DePINscan", category: "Analytics", description: "Analytics and discovery platform for DePIN networks.", status: "Live", region: "Global" },
+      { name: "MachineFi", category: "DePIN", description: "Machine economy and device coordination ecosystem associated with IoTeX.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "peaq",
+    name: "peaq",
+    logoText: "P",
+    logoSrc: "/assets/chain-logos/peaq.svg",
+    accent: "green",
+    summary: "peaq is a DePIN-focused blockchain ecosystem for machine networks, connected devices, mobility, energy and real-world infrastructure applications.",
+    standsOutFor: ["DePIN", "Machine networks", "Mobility", "Energy"],
+    projects: [
+      { name: "Silencio", category: "DePIN", description: "Noise intelligence and community data network in the peaq ecosystem.", status: "Live", region: "Global" },
+      { name: "MapMetrics", category: "DePIN", description: "Drive-to-earn mapping and mobility data network.", status: "Live", region: "Global" },
+      { name: "ELOOP", category: "Mobility", description: "Car-sharing and tokenized mobility initiative connected to peaq.", status: "Live", region: "Europe" },
+      { name: "Natix", category: "DePIN", description: "Camera and geospatial intelligence network associated with DePIN ecosystems.", status: "Live", region: "Global" },
+      { name: "Wingbits", category: "DePIN", description: "Flight tracking and aviation data network with peaq ecosystem relevance.", status: "Live", region: "Global" },
+      { name: "Krest", category: "Test Network", description: "Canary network and testing environment for peaq-oriented DePIN applications.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "berachain",
+    name: "Berachain",
+    logoText: "B",
+    logoSrc: "/assets/chain-logos/berachain.svg",
+    accent: "yellow",
+    summary: "Berachain is an EVM-compatible blockchain ecosystem centered on proof of liquidity, DeFi-native applications and liquidity coordination.",
+    standsOutFor: ["Proof of liquidity", "EVM apps", "DeFi", "Liquidity"],
+    projects: [
+      { name: "BEX", category: "DeFi", description: "Native exchange and liquidity venue for Berachain ecosystem assets.", status: "Live", region: "Global" },
+      { name: "BEND", category: "DeFi", description: "Native lending and borrowing market associated with Berachain.", status: "Live", region: "Global" },
+      { name: "BERPS", category: "Trading", description: "Perpetuals and derivatives product associated with Berachain.", status: "Live", region: "Global" },
+      { name: "Infrared Finance", category: "Staking", description: "Liquid staking and proof-of-liquidity infrastructure for Berachain.", status: "Live", region: "Global" },
+      { name: "Kodiak Finance", category: "DeFi", description: "Decentralized exchange and liquidity protocol in the Berachain ecosystem.", status: "Live", region: "Global" },
+      { name: "Honey", category: "Stablecoins", description: "Native stablecoin and liquidity asset in the Berachain ecosystem.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "monad",
+    name: "Monad",
+    logoText: "M",
+    logoSrc: "/assets/chain-logos/monad.svg",
+    accent: "purple",
+    summary: "Monad is an EVM-compatible high-performance blockchain ecosystem oriented around parallel execution, DeFi, consumer apps and developer migration.",
+    standsOutFor: ["Parallel EVM", "Developer migration", "DeFi", "High performance"],
+    projects: [
+      { name: "Monad", category: "Layer 1", description: "High-performance EVM-compatible blockchain infrastructure.", status: "Live", region: "Global" },
+      { name: "Pyth Network", category: "Oracle Infrastructure", description: "Oracle and market data infrastructure with Monad ecosystem relevance.", status: "Live", region: "Global" },
+      { name: "LayerZero", category: "Interoperability", description: "Cross-chain messaging infrastructure supporting emerging EVM ecosystems.", status: "Live", region: "Global" },
+      { name: "Wormhole", category: "Interoperability", description: "Cross-chain messaging and asset movement infrastructure for new ecosystems.", status: "Live", region: "Global" },
+      { name: "Owlto Finance", category: "Bridge", description: "Bridge and transfer product supporting EVM ecosystem onboarding.", status: "Live", region: "Global" },
+      { name: "Rabby Wallet", category: "Wallet", description: "EVM wallet and app access layer relevant for Monad users.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "kava",
+    name: "Kava",
+    logoText: "K",
+    logoSrc: "/assets/chain-logos/kava.svg",
+    accent: "black",
+    summary: "Kava is a Cosmos and EVM-compatible blockchain ecosystem focused on DeFi, stablecoins, lending and cross-chain liquidity.",
+    standsOutFor: ["Cosmos and EVM", "DeFi", "Stablecoins", "Cross-chain liquidity"],
+    projects: [
+      { name: "Kava Lend", category: "DeFi", description: "Lending and borrowing protocol associated with the Kava ecosystem.", status: "Live", region: "Global" },
+      { name: "Kava Swap", category: "DeFi", description: "Swap and liquidity infrastructure for Kava assets.", status: "Live", region: "Global" },
+      { name: "Curve Finance", category: "DeFi", description: "Stablecoin and liquidity protocol with Kava deployment.", status: "Live", region: "Global" },
+      { name: "Tether USDt", category: "Stablecoins", description: "USDt stablecoin support in the Kava ecosystem.", status: "Live", region: "Global" },
+      { name: "Fireblocks", category: "Custody Infrastructure", description: "Institutional custody and wallet infrastructure with Kava support.", status: "Live", region: "Global" },
+      { name: "Cosmostation", category: "Wallet", description: "Wallet and staking interface supporting Kava and Cosmos ecosystems.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "xdc-network",
+    name: "XDC Network",
+    logoText: "X",
+    logoSrc: "/assets/chain-logos/xdc-network.svg",
+    accent: "blue",
+    summary: "XDC Network is an enterprise and trade finance oriented blockchain ecosystem focused on tokenization, payments and institutional workflows.",
+    standsOutFor: ["Trade finance", "Enterprise", "Tokenization", "Payments"],
+    projects: [
+      { name: "TradeFinex", category: "Trade Finance", description: "Trade finance and enterprise marketplace associated with XDC Network.", status: "Live", region: "Global" },
+      { name: "XDC Trade Network", category: "Enterprise", description: "Enterprise and trade finance workflow infrastructure for XDC users.", status: "Live", region: "Global" },
+      { name: "Fathom", category: "DeFi", description: "DeFi and stablecoin protocol in the XDC ecosystem.", status: "Live", region: "Global" },
+      { name: "XSwap Protocol", category: "DeFi", description: "Decentralized exchange and liquidity protocol on XDC Network.", status: "Live", region: "Global" },
+      { name: "Prime Numbers", category: "NFT and DeFi", description: "NFT, DeFi and ecosystem application suite on XDC.", status: "Live", region: "Global" },
+      { name: "BlocksScan", category: "Explorer", description: "Explorer and analytics interface for XDC Network activity.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "chiliz",
+    name: "Chiliz",
+    logoText: "C",
+    logoSrc: "/assets/chain-logos/chiliz.svg",
+    accent: "red",
+    summary: "Chiliz is a sports and entertainment blockchain ecosystem focused on fan tokens, clubs, loyalty, gaming and brand engagement.",
+    standsOutFor: ["Sports", "Fan tokens", "Entertainment", "Loyalty"],
+    projects: [
+      { name: "Socios.com", category: "Fan Engagement", description: "Fan token and sports engagement platform powered by Chiliz.", status: "Live", region: "Global" },
+      { name: "Chiliz Chain", category: "Sports Infrastructure", description: "Blockchain infrastructure for sports and entertainment applications.", status: "Live", region: "Global" },
+      { name: "Paris Saint-Germain Fan Token", category: "Fan Tokens", description: "Club fan token and engagement product in the Chiliz ecosystem.", status: "Live", region: "Europe" },
+      { name: "FC Barcelona Fan Token", category: "Fan Tokens", description: "Club fan token and engagement product in the Chiliz ecosystem.", status: "Live", region: "Europe" },
+      { name: "Juventus Fan Token", category: "Fan Tokens", description: "Club fan token and engagement product in the Chiliz ecosystem.", status: "Live", region: "Europe" },
+      { name: "Rarible Protocol", category: "NFT Infrastructure", description: "NFT infrastructure with sports and brand ecosystem relevance.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "ronin",
+    name: "Ronin",
+    logoText: "R",
+    logoSrc: "/assets/chain-logos/ronin.svg",
+    accent: "blue",
+    summary: "Ronin is a gaming-focused blockchain ecosystem known for Axie Infinity, game economies, wallets and consumer onboarding.",
+    standsOutFor: ["Gaming", "Consumer apps", "NFTs", "Wallets"],
+    projects: [
+      { name: "Axie Infinity", category: "Gaming", description: "Flagship play-and-own game ecosystem built on Ronin.", status: "Live", region: "Global" },
+      { name: "Ronin Wallet", category: "Wallet", description: "Wallet and user access layer for Ronin games and assets.", status: "Live", region: "Global" },
+      { name: "Katana", category: "DeFi", description: "Decentralized exchange and liquidity protocol for Ronin assets.", status: "Live", region: "Global" },
+      { name: "Pixels", category: "Gaming", description: "Social farming and gaming application active on Ronin.", status: "Live", region: "Global" },
+      { name: "Apeiron", category: "Gaming", description: "Strategy and god-game ecosystem connected to Ronin.", status: "Live", region: "Global" },
+      { name: "Mavis Market", category: "NFT Marketplace", description: "NFT marketplace for Ronin gaming assets.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "moonbeam",
+    name: "Moonbeam",
+    logoText: "M",
+    logoSrc: "/assets/chain-logos/moonbeam.svg",
+    accent: "purple",
+    summary: "Moonbeam is an EVM-compatible smart contract platform in the Polkadot ecosystem focused on cross-chain applications and developer migration.",
+    standsOutFor: ["EVM", "Polkadot", "Cross-chain apps", "DeFi"],
+    projects: [
+      { name: "Moonwell", category: "DeFi", description: "Lending and borrowing protocol with Moonbeam ecosystem roots.", status: "Live", region: "Global" },
+      { name: "StellaSwap", category: "DeFi", description: "Decentralized exchange and liquidity protocol on Moonbeam.", status: "Live", region: "Global" },
+      { name: "Beamswap", category: "DeFi", description: "DEX and DeFi platform in the Moonbeam ecosystem.", status: "Live", region: "Global" },
+      { name: "Solarbeam", category: "DeFi", description: "Automated market maker and liquidity protocol for Moonbeam assets.", status: "Live", region: "Global" },
+      { name: "Axelar", category: "Interoperability", description: "Cross-chain messaging and interoperability infrastructure connected to Moonbeam.", status: "Live", region: "Global" },
+      { name: "SubQuery", category: "Developer Infrastructure", description: "Data indexing and developer infrastructure with Polkadot and Moonbeam support.", status: "Live", region: "Global" }
+    ]
+  },
+  {
+    slug: "rootstock",
+    name: "Rootstock",
+    logoText: "R",
+    logoSrc: "/assets/chain-logos/rootstock.svg",
+    accent: "yellow",
+    summary: "Rootstock is a Bitcoin sidechain ecosystem for EVM-compatible smart contracts, Bitcoin DeFi, payments and asset issuance.",
+    standsOutFor: ["Bitcoin DeFi", "EVM smart contracts", "Payments", "Asset issuance"],
+    projects: [
+      { name: "Sovryn", category: "Bitcoin DeFi", description: "Bitcoin-native DeFi protocol using Rootstock infrastructure.", status: "Live", region: "Global" },
+      { name: "Money on Chain", category: "Stablecoins", description: "Bitcoin-collateralized stablecoin and DeFi protocol on Rootstock.", status: "Live", region: "Global" },
+      { name: "Tropykus", category: "DeFi", description: "Lending and savings protocol in the Rootstock ecosystem.", status: "Live", region: "Latin America" },
+      { name: "RIF", category: "Infrastructure", description: "Infrastructure services for identity, payments and storage in the Rootstock ecosystem.", status: "Live", region: "Global" },
+      { name: "Oku", category: "DeFi", description: "DEX interface and trading product with Rootstock support.", status: "Live", region: "Global" },
+      { name: "Liquality", category: "Wallet", description: "Wallet and cross-chain asset management product with Bitcoin ecosystem support.", status: "Live", region: "Global" }
+    ]
+  },
+  {
     slug: "bnb-chain",
     name: "BNB Chain",
     logoText: "◆",
@@ -274,7 +903,50 @@ const additionalProjectsByChain: Record<string, ChainProject[]> = {
     { name: "Metaplex", category: "NFT Infrastructure", description: "NFT and digital asset protocol used by Solana creators and applications.", status: "Live", region: "Global" },
     { name: "Phantom", category: "Wallet", description: "Consumer wallet and application gateway with strong Solana ecosystem adoption.", status: "Live", region: "Global" },
     { name: "Backpack", category: "Wallet and Exchange", description: "Wallet, xNFT and exchange ecosystem with Solana roots.", status: "Live", region: "Global" },
-    { name: "MarginFi", category: "DeFi", description: "Lending and risk engine protocol in the Solana ecosystem.", status: "Live", region: "Global" }
+    { name: "MarginFi", category: "DeFi", description: "Lending and risk engine protocol in the Solana ecosystem.", status: "Live", region: "Global" },
+    { name: "Meteora", category: "DeFi", description: "DLMM dynamic liquidity protocol formerly known as Mercurial.", status: "Live", region: "Global" },
+    { name: "Save", category: "DeFi", description: "Lending and borrowing protocol formerly known as Solend.", status: "Live", region: "Global" },
+    { name: "Lifinity", category: "DeFi", description: "Oracle-based proactive market maker.", status: "Live", region: "Global" },
+    { name: "Jito", category: "Staking", description: "MEV infrastructure and liquid staking protocol for jitoSOL.", status: "Live", region: "Global" },
+    { name: "Solflare", category: "Wallet", description: "Wallet with deep staking and validator user experience.", status: "Live", region: "Global" },
+    { name: "Solana Pay", category: "Payments", description: "Open merchant-to-consumer payments protocol.", status: "Live", region: "Global" },
+    { name: "pump.fun", category: "Launchpad", description: "Memecoin launchpad and token factory.", status: "Live", region: "Global" },
+    { name: "LetsBONK", category: "Launchpad", description: "Bonding-curve token launchpad in the Bonk.fun ecosystem with Raydium.", status: "Live", region: "Global" },
+    { name: "Ondo Finance", category: "Real World Assets", description: "Tokenized US Treasuries products including USDY and OUSG.", status: "Live", region: "Global" },
+    { name: "Maple Finance", category: "Real World Assets", description: "Private credit and yield infrastructure including syrupUSDC.", status: "Live", region: "Global" },
+    { name: "Etherfuse", category: "Real World Assets", description: "Tokenized government bonds and Stablebonds with a LatAm focus.", status: "Live", region: "Global" },
+    { name: "Zeta Markets", category: "DeFi", description: "Derivatives and perpetuals DEX connected to Bullet L2.", status: "Live", region: "Global" },
+    { name: "Step Finance", category: "Analytics", description: "Portfolio dashboard and Solana data platform.", status: "Live", region: "Global" },
+    { name: "Phoenix", category: "DeFi", description: "Onchain central limit order book DEX built by Ellipsis Labs.", status: "Live", region: "Global" },
+    { name: "Mango", category: "DeFi", description: "Margin trading and lending protocol in the Solana ecosystem.", status: "Live", region: "Global" },
+    { name: "Perena", category: "DeFi", description: "Stablecoin AMM and stablecoin infrastructure for Solana.", status: "Live", region: "Global" },
+    { name: "Switchboard", category: "Oracle Infrastructure", description: "Permissionless oracle and data network.", status: "Live", region: "Global" },
+    { name: "TipLink", category: "Wallet", description: "Link-based wallet for non-crypto users and payments-adjacent onboarding.", status: "Live", region: "Global" },
+    { name: "Sphere", category: "Payments", description: "Stablecoin cross-border payment rails through SpherePay and SphereNet.", status: "Live", region: "Global" },
+    { name: "Coinflow", category: "Payments", description: "Fiat and crypto payment infrastructure.", status: "Live", region: "Global" },
+    { name: "Decaf", category: "Payments", description: "Stablecoin commerce wallet and point-of-sale app with MoneyGram cash on and off ramp support.", status: "Live", region: "Global" },
+    { name: "Helius", category: "Developer Infrastructure", description: "RPC, APIs and data streaming infrastructure for Solana developers.", status: "Live", region: "Global" },
+    { name: "Triton One", category: "Developer Infrastructure", description: "Enterprise RPC and Yellowstone gRPC infrastructure.", status: "Live", region: "Global" },
+    { name: "Syndica", category: "Developer Infrastructure", description: "RPC and node infrastructure for Solana applications.", status: "Live", region: "Global" },
+    { name: "Anza", category: "Developer Infrastructure", description: "Core protocol team and Agave validator client spun out of Solana Labs.", status: "Live", region: "Global" },
+    { name: "Squads", category: "Smart Accounts", description: "Multisig, smart accounts and treasury infrastructure.", status: "Live", region: "Global" },
+    { name: "Believe", category: "Launchpad", description: "Token launches integrated into X.", status: "Live", region: "Global" },
+    { name: "Moonshot", category: "Launchpad", description: "Mobile-first token trading and launch platform.", status: "Live", region: "Global" },
+    { name: "Wormhole", category: "Interoperability", description: "Cross-chain messaging and bridging infrastructure powering Solana connectivity.", status: "Live", region: "Global" },
+    { name: "deBridge", category: "Interoperability", description: "Cross-chain liquidity and messaging protocol.", status: "Live", region: "Global" },
+    { name: "Mayan", category: "Interoperability", description: "Cross-chain swap protocol.", status: "Live", region: "Global" },
+    { name: "Parcl", category: "Real World Assets", description: "Tokenized real estate price indices.", status: "Live", region: "Global" },
+    { name: "BAXUS", category: "Real World Assets", description: "Tokenized whisky and collectibles marketplace.", status: "Live", region: "Global" },
+    { name: "Backed", category: "Real World Assets", description: "Tokenized equities products including xStocks.", status: "Live", region: "Global" },
+    { name: "Securitize", category: "Real World Assets", description: "Tokenization and compliance infrastructure for issuers including BUIDL and ACRED.", status: "Live", region: "Global" },
+    { name: "Superstate", category: "Real World Assets", description: "Onchain equity issuance infrastructure including Opening Bell.", status: "Live", region: "Global" },
+    { name: "io.net", category: "DePIN", description: "Decentralized GPU and compute network.", status: "Live", region: "Global" },
+    { name: "Hivemapper", category: "DePIN", description: "Decentralized mapping network.", status: "Live", region: "Global" },
+    { name: "Exchange Art", category: "NFT Marketplace", description: "Curated art NFT marketplace.", status: "Live", region: "Global" },
+    { name: "DRiP", category: "NFT Infrastructure", description: "Digital collectibles distribution platform.", status: "Live", region: "Global" },
+    { name: "Solayer", category: "Restaking", description: "Restaking, sUSD stablecoin and InfiniSVM infrastructure.", status: "Live", region: "Global" },
+    { name: "Grass", category: "DePIN", description: "Decentralized data and bandwidth network for AI training data.", status: "Live", region: "Global" },
+    { name: "Nosana", category: "DePIN", description: "Decentralized GPU compute network.", status: "Live", region: "Global" }
   ],
   avalanche: [
     { name: "Pangolin", category: "DeFi", description: "Decentralized exchange originally built for Avalanche users and liquidity.", status: "Live", region: "Global" },

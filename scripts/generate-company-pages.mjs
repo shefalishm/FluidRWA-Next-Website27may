@@ -26,10 +26,49 @@ const categorySlugMap = {
   "security-audits": "security-audit-companies",
   "growth-marketing": "growth-marketing-companies",
   "identity-solutions": "identity-solution-providers",
-  "blockchain-development": "blockchain-development-companies"
+  "blockchain-development": "blockchain-development-companies",
+  "fund-administration-transfer-agents": "fund-administration-transfer-agents",
+  "oracles-data-proof-of-reserve": "oracles-data-proof-of-reserve",
+  "insurance-risk-infrastructure": "insurance-risk-infrastructure",
+  "trade-finance-supply-chain-infrastructure": "trade-finance-supply-chain-infrastructure",
+  "carbon-climate-mrv-infrastructure": "carbon-climate-mrv-infrastructure",
+  "ai-agents-autonomous-systems": "ai-agents-autonomous-systems",
+  "ai-document-intelligence-knowledge-retrieval": "ai-document-intelligence-knowledge-retrieval",
+  "ai-risk-analytics-compliance-intelligence": "ai-risk-analytics-compliance-intelligence",
+  "decentralized-ai-compute-gpu-infrastructure": "decentralized-ai-compute-gpu-infrastructure",
+  "ai-data-model-marketplaces": "ai-data-model-marketplaces",
+  "verifiable-ai-smart-contract-infrastructure": "verifiable-ai-smart-contract-infrastructure"
 };
 
-const priorityCompanySlugs = new Set(["zoniqx"]);
+const priorityCompanySlugs = new Set(["zoniqx", "minddeft-technologies", "surestack"]);
+
+const manualCompanyProfiles = [
+  {
+    position: 1,
+    categoryDir: "security-audits",
+    categoryRoute: "security-audit-companies",
+    categoryTitle: "Security & Audit Vendors",
+    anchor: "surestack",
+    name: "SureStack",
+    slug: "surestack",
+    url: "https://surestack.tech/",
+    description:
+      "SureStack is an AI-powered Web3 risk intelligence platform focused on vulnerability detection, threat monitoring and digital asset risk protection before threats hit the chain.",
+    foundingDate: "2024",
+    address: { "@type": "PostalAddress", addressCountry: "Canada" },
+    knowsAbout: [
+      "Web3 Risk Intelligence",
+      "Security Monitoring",
+      "Threat Detection",
+      "Digital Asset Protection",
+      "Tokenization Security",
+      "Risk Management"
+    ],
+    additionalType: "Vetted Risk Management & Security Partner",
+    logoPath: "/assets/company-logos/surestack.png",
+    logoSource: "/assets/company-logos/surestack.png"
+  }
+];
 
 const fallbackCategoryVendors = {
   "identity-solutions": [
@@ -177,6 +216,23 @@ function collectCompanies() {
     }
   }
 
+  for (const company of manualCompanyProfiles) {
+    const targetCategory = categories.find((item) => item.categoryDir === company.categoryDir);
+    if (targetCategory && !targetCategory.vendors.some((item) => slugify(item.name) === company.slug)) {
+      targetCategory.vendors.unshift(company);
+    }
+    if (selected.has(company.slug)) {
+      const current = selected.get(company.slug);
+      selected.set(company.slug, {
+        ...current,
+        ...company,
+        categories: [...new Set([...(current.categories || []), company.categoryTitle])]
+      });
+    } else {
+      selected.set(company.slug, { ...company, categories: [company.categoryTitle] });
+    }
+  }
+
   return { companies: [...selected.values()], categories };
 }
 
@@ -280,8 +336,11 @@ async function researchCompany(company, cache) {
     absoluteUrl(linkHref(html, "icon"), base) ||
     absoluteUrl(metaContent(html, "property", "og:image"), base) ||
     cached.logoSource ||
+    company.logoSource ||
     "";
-  const logoPath = shouldFetch ? (await downloadLogo(company.slug, logoCandidate)) || cached.logoPath || "" : cached.logoPath || "";
+  const logoPath = shouldFetch
+    ? (await downloadLogo(company.slug, logoCandidate)) || cached.logoPath || company.logoPath || ""
+    : cached.logoPath || company.logoPath || "";
 
   const next = {
     name: company.name,
@@ -325,20 +384,23 @@ function pageHtml(company, profile, alternatives) {
   const canonical = `${siteUrl}/fluidrwa/${company.slug}`;
   const categoryPath = `/vendors/${company.categoryRoute}`;
   const logo = profile.logoPath || "/assets/fluidrwa-favicon.png";
-  const officialDescription = sentence(profile.officialDescription, company.description);
+  const officialDescription = company.slug === "minddeft-technologies"
+    ? decodeEntities(stripTags(profile.officialDescription || company.description))
+    : sentence(profile.officialDescription, company.description);
+  const sourceSummary = officialDescription;
   const category = company.categoryTitle;
   const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
   const offers = [
     { title: "Primary Category", text: `${company.name} is listed by FluidRWA under ${category}.` },
-    { title: "What They Offer", text: officialDescription },
+    { title: "What They Offer", text: sourceSummary },
     { title: "Best-Fit Use Case", text: company.additionalType ? `${company.additionalType} for teams evaluating ${knowsAbout.slice(0, 4).join(", ") || category}.` : company.description },
     { title: "Due Diligence Notes", text: "Use FluidRWA to shortlist providers, then verify commercial terms, jurisdictions, integrations and compliance responsibilities directly with the company." }
   ];
   const faqs = [
     {
       q: `What does ${company.name} do?`,
-      a: `Based on ${company.name}'s official website information and FluidRWA category research, ${officialDescription}`
+      a: `${sourceSummary} FluidRWA also classifies the company under ${category} for buyer discovery.`
     },
     {
       q: `Which FluidRWA category includes ${company.name}?`,
@@ -455,7 +517,7 @@ function pageHtml(company, profile, alternatives) {
             <h1>${esc(company.name)} Vendor Profile</h1>
             <p class="company-lede">FluidRWA profile for ${esc(company.name)}, including what the company says it offers, where it fits in the digital asset infrastructure ecosystem, similar providers and buyer FAQs.</p>
             <div class="company-actions">
-              <a class="company-btn primary" href="${esc(introHref)}">Request Intro</a>
+              <a class="company-btn primary" href="${esc(introHref)}">Contact ${esc(company.name)}</a>
               <a class="company-btn soft" href="/submit-requirement">Submit Requirements</a>
               <a class="company-btn soft" href="${categoryPath}">View Category</a>
             </div>
@@ -471,7 +533,7 @@ function pageHtml(company, profile, alternatives) {
         <div class="company-container">
           <p class="company-kicker">What they offer</p>
           <h2>What ${esc(company.name)} says it does</h2>
-          <p class="company-lede">According to the company website, ${esc(officialDescription)}</p>
+          <p class="company-lede">${esc(sourceSummary)}</p>
           <div class="company-grid">${offers.map((item) => `<article class="company-card"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p></article>`).join("")}</div>
           <div class="company-tags">${knowsAbout.map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>
         </div>
@@ -509,7 +571,39 @@ function patchCategoryCards(companies) {
   }
 }
 
-function patchVendorEcosystemProfileIndex(companies) {
+function buildVendorSearchIndex(categories, companyProfiles) {
+  const seen = new Set();
+  const index = [];
+
+  for (const category of categories) {
+    for (const vendor of category.vendors) {
+      const slug = slugify(vendor.name);
+      const key = `${category.categoryDir}:${slug}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const profile = companyProfiles.get(slug);
+      index.push({
+        name: vendor.name,
+        category: vendor.categoryTitle,
+        href: profile ? `/fluidrwa/${slug}` : `/vendors/${categorySlugMap[vendor.categoryDir] || vendor.categoryDir}#${vendor.anchor || slug}`,
+        description: sentence(vendor.description, vendor.additionalType),
+        keywords: [
+          vendor.name,
+          vendor.additionalType,
+          vendor.description,
+          vendor.categoryTitle,
+          vendor.categoryDir,
+          vendor.url,
+          ...(Array.isArray(vendor.knowsAbout) ? vendor.knowsAbout : [])
+        ].filter(Boolean).join(" ")
+      });
+    }
+  }
+
+  return index.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function patchVendorEcosystemProfileIndex(companies, categories, companyProfiles) {
   const ecosystemPath = path.join(root, "vendor-ecosystem.html");
   if (!fs.existsSync(ecosystemPath)) return;
   let html = fs.readFileSync(ecosystemPath, "utf8");
@@ -520,7 +614,9 @@ function patchVendorEcosystemProfileIndex(companies) {
     if (!grouped.has(company.categoryTitle)) grouped.set(company.categoryTitle, []);
     grouped.get(company.categoryTitle).push(company);
   }
+  const searchIndex = buildVendorSearchIndex(categories, companyProfiles);
   const indexHtml = `${start}
+    <script id="vendor-search-index-data" type="application/json">${esc(JSON.stringify(searchIndex))}</script>
     <section class="vendor-profile-index" aria-labelledby="company-profile-index-title">
       <div class="light-container">
         <div class="solutions-section-head">
@@ -560,7 +656,7 @@ async function main() {
   }
 
   patchCategoryCards(companies);
-  patchVendorEcosystemProfileIndex(companies);
+  patchVendorEcosystemProfileIndex(companies, categories, companyProfiles);
   writeJsonCache(cache);
   console.log(`Generated ${companies.length} FluidRWA company profile pages.`);
 }

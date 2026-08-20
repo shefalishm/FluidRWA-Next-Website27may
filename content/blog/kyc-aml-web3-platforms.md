@@ -10,7 +10,7 @@ answer: "Web3 compliance infrastructure helps platforms verify users, screen wal
 ctaTitle: "Find KYC and compliance providers."
 ctaText: "Explore identity verification, AML, sanctions screening and compliance infrastructure providers."
 ctaLabel: "View KYC/AML Providers"
-ctaUrl: "/vendors/kyc-aml/"
+ctaUrl: "/vendors/kyc-aml-providers/"
 faq1q: "Do Web3 platforms need KYC?"
 faq1a: "Many regulated digital asset platforms need KYC, KYB or eligibility checks depending on product, jurisdiction, users and asset type."
 faq2q: "What is AML in Web3?"
@@ -40,4 +40,4 @@ Also confirm how data is stored, what reporting is available and how the provide
 
 ## Where To Start
 
-Use FluidRWA’s [KYC and AML provider directory](/vendors/kyc-aml/) for identity and verification tools, and review [compliance infrastructure](/vendors/compliance-infrastructure/) for monitoring, policy and reporting workflows.
+Use FluidRWA’s [KYC and AML provider directory](/vendors/kyc-aml-providers/) for identity and verification tools, and review [compliance infrastructure](/vendors/compliance-infrastructure-providers/) for monitoring, policy and reporting workflows.

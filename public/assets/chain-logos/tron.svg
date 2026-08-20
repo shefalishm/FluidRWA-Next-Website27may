@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TRON logo">
+  <rect width="64" height="64" rx="16" fill="#fff5f5"/>
+  <circle cx="32" cy="32" r="23" fill="#eb0029"/>
+  <path d="M18 15 49 22 34 50 18 15Zm5 6 8 22 2-16-10-6Zm13 8-2 13 9-16-7 3Zm-10-8 9 5 8-3-17-2Z" fill="#fff"/>
+</svg>

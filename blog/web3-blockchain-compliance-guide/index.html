@@ -1,145 +1,301 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Web3 Blockchain Compliance Guide | FluidRWA</title><meta name="description" content="A practical guide to Web3, blockchain and digital asset compliance covering AML, KYC, Travel Rule, stablecoins, tokenized assets, DeFi, smart contract audits and vendor selection."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="author" content="FluidRWA"><meta property="article:modified_time" content="2026-06-06"><link rel="canonical" href="https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide/"><link rel="icon" href="/assets/favicon.png" type="image/png"><link rel="preload" as="image" href="/assets/fluidrwa-small-logo.png" fetchpriority="high"><link rel="stylesheet" href="/assets/styles-yellow-blue.css?v=forms-1"><meta property="og:type" content="article"><meta property="og:site_name" content="FluidRWA"><meta property="og:title" content="Web3 Blockchain Compliance Guide"><meta property="og:description" content="A practical guide to Web3, blockchain and digital asset compliance covering AML, KYC, Travel Rule, stablecoins, tokenized assets, DeFi, smart contract audits and vendor selection."><meta property="og:url" content="https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide/"><meta property="og:image" content="https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png"><style>
-    .blog-page main{overflow:hidden}.blog-hero,.post-hero{position:relative;padding:156px 0 58px;background:radial-gradient(circle at 14% 14%,rgba(255,227,110,.32),transparent 30%),radial-gradient(circle at 82% 18%,rgba(116,210,239,.24),transparent 32%),linear-gradient(135deg,#fffdf1 0%,#eef8ff 58%,#fff9df 100%);border-bottom:1px solid rgba(38,100,169,.1)}.blog-hero .light-container,.post-hero .light-container{max-width:1040px}.post-hero h1,.blog-hero h1{max-width:980px;margin:12px 0 18px;color:#12213a;font-family:var(--fluid-display);font-size:clamp(42px,5.4vw,78px);font-weight:650;letter-spacing:-.012em;line-height:.98;text-wrap:balance}.post-hero p:not(.post-meta),.blog-hero p:not(.eyebrow){max-width:920px;margin:0;color:rgba(18,33,58,.76);font-size:clamp(17px,1.7vw,21px);line-height:1.62}.post-hero .reviewed-line{margin-top:24px!important;color:rgba(18,33,58,.66);font-size:15px!important;font-weight:850;letter-spacing:0}.post-meta{display:inline-flex;margin:0;color:#2664a9;font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}.post-layout{display:grid;grid-template-columns:minmax(0,1fr)300px;gap:48px;align-items:start;padding:58px 0 80px}.post-main{max-width:880px;min-width:0}.post-main>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:26px;box-shadow:0 24px 70px rgba(18,33,58,.1);margin:0 0 34px}.answer-box,.post-cta,.toc,.research-block{border:1px solid rgba(38,100,169,.12);border-radius:22px;background:rgba(255,255,255,.78);box-shadow:0 18px 44px rgba(18,33,58,.06);padding:24px}.answer-box{margin-bottom:32px;background:linear-gradient(135deg,rgba(255,227,110,.28),rgba(234,249,255,.86))}.answer-box strong{display:block;margin-bottom:7px;color:#12213a}.post-main h2{margin:42px 0 14px;color:#12213a;font-family:var(--fluid-display);font-size:clamp(30px,3.2vw,42px);font-weight:650;line-height:1.08;text-wrap:balance}.post-main h3{margin:30px 0 10px;color:#12213a;font-size:22px;line-height:1.24}.post-main p,.post-main li{color:rgba(18,33,58,.76);font-size:18px;line-height:1.78}.post-main ul,.post-main ol{padding-left:24px}.post-main a{color:#2664a9;font-weight:850;overflow-wrap:anywhere}.toc{position:sticky;top:116px;height:max-content;min-width:0}.toc strong{display:block;margin-bottom:12px;color:#12213a}.toc a{display:block;margin:10px 0;color:#2664a9;text-decoration:none;font-weight:800;line-height:1.35;overflow-wrap:anywhere}.faq-list details{border:1px solid rgba(38,100,169,.12);border-radius:16px;background:#fff;margin:10px 0;padding:18px}.faq-list summary{cursor:pointer;color:#12213a;font-weight:900}.post-cta{margin-top:38px;background:#12213a;color:#fff}.post-cta h2{margin:0 0 8px;color:#fff}.post-cta p{color:rgba(255,255,255,.76)}.post-cta a{display:inline-flex;border-radius:999px;background:#ffe36e;color:#12213a;padding:12px 18px;text-decoration:none;font-weight:950}
-    .report-library{padding:30px 0 16px}.report-library-shell{padding:26px 28px 24px}.report-library-head{align-items:center;margin-bottom:18px}.report-library-head h2{font-size:clamp(27px,3vw,39px)}.report-library-head p:last-child{font-size:14px;line-height:1.5}.report-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.report-card,.report-card:first-child{min-height:0;padding:0;background:rgba(255,255,255,.84);box-shadow:0 14px 34px rgba(18,33,58,.08)}.report-card:first-child h3{color:#12213a;font-size:20px}.report-card:first-child span,.report-card:first-child strong,.report-card:first-child p,.report-card:first-child b{color:inherit}.report-card:first-child span,.report-card:first-child b{color:#2664a9}.report-card:first-child strong{color:rgba(18,33,58,.56)}.report-card:first-child p{color:rgba(18,33,58,.68)}.report-card:first-child time{color:rgba(18,33,58,.48)}.report-card:first-child:after{background:#12213a;color:#fff}.report-cover{position:relative;height:150px;overflow:hidden;background:#dcebf8}.report-cover img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;transition:transform .35s ease}.report-card:hover .report-cover img{transform:scale(1.035)}.report-card-copy{display:flex;min-height:174px;flex-direction:column;padding:16px 16px 17px}.report-card h3,.report-card:first-child h3{margin:8px 0 6px;font-family:var(--fluid-body);font-size:17px;font-weight:950;line-height:1.14}.report-card p{display:none}.report-card b{margin-top:auto}.report-card:after{right:14px;bottom:13px;width:32px;height:32px;font-size:15px}.report-library-action{margin-top:17px}.report-library-action a{padding:11px 17px;font-size:13px}.report-archive .report-card{padding:0}.report-archive .report-card-copy{min-height:260px;padding:20px}.report-archive .report-card p{display:block;margin:14px 0 48px}.report-archive .report-cover{height:190px}@media(max-width:1180px){.report-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.report-card:first-child{grid-column:auto}}@media(max-width:900px){.report-library-head{display:block}.report-library-head p:last-child{margin-top:8px}.report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.report-library-shell{padding:18px}.report-grid,.report-archive .report-grid{display:flex}.report-card,.report-card:first-child{flex:0 0 min(78vw,290px)}.report-cover{height:145px}.report-card-copy{min-height:170px}.report-library-head h2{font-size:29px}}
-    .post-cta-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.post-cta-actions a{margin-top:0}.post-cta a.post-cta-secondary{border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff}@media(max-width:620px){.post-cta-actions{display:grid}.post-cta-actions a{justify-content:center;width:100%}}
-    @media(max-width:980px){.post-layout{grid-template-columns:1fr;gap:34px}.toc{position:static}.post-hero h1,.blog-hero h1{font-size:clamp(38px,8vw,56px)}}
-    @media(max-width:620px){.blog-hero,.post-hero{padding:132px 0 42px}.blog-hero .light-container,.post-hero .light-container{padding-inline:22px}.post-hero h1,.blog-hero h1{font-size:clamp(34px,11vw,46px);line-height:1.02}.post-hero p:not(.post-meta),.blog-hero p:not(.eyebrow){font-size:16px;line-height:1.55}.post-layout{padding:34px 0 52px}.post-main>img{border-radius:20px;margin-bottom:24px}.answer-box,.post-cta,.toc,.research-block{padding:20px}.post-main h2{font-size:29px;margin-top:34px}.post-main h3{font-size:20px}.post-main p,.post-main li{font-size:16px;line-height:1.7}}
-  </style><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Web3 Blockchain Compliance Guide","description":"A practical guide to Web3, blockchain and digital asset compliance covering AML, KYC, Travel Rule, stablecoins, tokenized assets, DeFi, smart contract audits and vendor selection.","image":"https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png","datePublished":"2026-05-31","dateModified":"2026-06-06","author":{"@type":"Organization","name":"FluidRWA","url":"https://www.fluidrwa.com"},"publisher":{"@type":"Organization","name":"FluidRWA","logo":{"@type":"ImageObject","url":"https://www.fluidrwa.com/assets/fluidrwa-small-logo.png"}},"mainEntityOfPage":"https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide/","citation":["https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114","https://www.fatf-gafi.org/en/topics/virtual-assets.html"],"speakable":{"@type":"SpeakableSpecification","cssSelector":[".answer-box",".research-block"]},"about":[{"@type":"Thing","name":"Compliance"},{"@type":"Thing","name":"Web3 vendor discovery"},{"@type":"Thing","name":"Digital asset infrastructure"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.fluidrwa.com"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.fluidrwa.com/blog.html"},{"@type":"ListItem","position":3,"name":"Web3 Blockchain Compliance Guide","item":"https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Web3 compliance?","acceptedAnswer":{"@type":"Answer","text":"Web3 compliance is the set of controls, policies, vendors and technical systems used to make blockchain and digital asset activity safer, auditable and aligned with relevant laws."}},{"@type":"Question","name":"Do Web3 projects need KYC and AML?","acceptedAnswer":{"@type":"Answer","text":"Many Web3 projects do, especially if they involve fiat ramps, tokenized assets, securities, custodial wallets, stablecoins, regulated payments or institutional users."}},{"@type":"Question","name":"What vendors are usually needed for blockchain compliance?","acceptedAnswer":{"@type":"Answer","text":"Common vendor categories include legal and regulatory advisors, KYC and AML providers, Travel Rule tools, compliance monitoring platforms, custody providers and smart contract auditors."}}]}]}</script></head><body class="light-home blog-page"><header class="site-header light-header" data-site-header><nav class="nav" aria-label="Main navigation"><a class="brand light-brand" href="/" aria-label="FluidRWA home"><img src="/assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><button class="mobile-toggle light-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><div class="nav-links light-nav-links" data-nav-links><a href="/">Home</a><a href="/solutions">Solutions</a><a href="/blog" aria-current="page">Insights</a><a href="/arcade">Arcade</a><a href="/about">About</a><a href="/contact">Contact</a><a class="nav-ecosystem-cta" href="/web3vendorecosystem">Explore Vendor Ecosystem</a></div></nav></header><main><section class="post-hero"><div class="light-container"><p class="post-meta">Compliance</p><h1>Web3 Blockchain Compliance Guide</h1><p>A practical guide to Web3, blockchain and digital asset compliance covering AML, KYC, Travel Rule, stablecoins, tokenized assets, DeFi, smart contract audits and vendor selection.</p><p class="reviewed-line">Reviewed and updated by FluidRWA · June 6, 2026</p></div></section><div class="light-container post-layout"><article class="post-main"><img src="/assets/blog-images/web3-blockchain-compliance-guide.svg?v=visual-6" alt="Web3 Blockchain Compliance Guide editorial infrastructure visual" width="960" height="540" loading="eager" decoding="async"><div class="answer-box"><strong>Short answer</strong><p>Web3 compliance is the legal, operational and technical control layer that helps blockchain, tokenization and digital asset projects meet AML, KYC, sanctions, custody, data privacy, securities, stablecoin and smart contract security obligations.</p></div><section class="research-block" aria-labelledby="research-web3-blockchain-compliance-guide"><p class="research-kicker">FluidRWA research brief</p><h2 id="research-web3-blockchain-compliance-guide">Compliance research snapshot</h2><p>A compliance stack should be selected by regulated activity, customer geography and transaction flow. No single tool replaces legal classification, identity controls, wallet screening and operational governance.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Control layer</th><th>What buyers should verify</th><th>Provider examples</th></tr></thead><tbody><tr><td>Identity and KYB</td><td>Document coverage, beneficial ownership, manual review and data handling</td><td>Sumsub, AU10TIX, Blockpass</td></tr><tr><td>Blockchain analytics</td><td>Wallet exposure, sanctions coverage, alert logic and case management</td><td>Chainalysis, TRM Labs, Elliptic</td></tr><tr><td>Travel Rule</td><td>Counterparty discovery, secure messaging and jurisdiction rules</td><td>Notabene and integrated compliance platforms</td></tr><tr><td>Legal classification</td><td>Asset, activity, licensing, marketing and cross-border obligations</td><td>Specialist digital asset counsel</td></tr></tbody></table></div><div class="research-links"><strong>Continue your research</strong><a href="/vendors/compliance-infrastructure-providers">Compare compliance infrastructure</a><a href="/vendors/kyc-aml-providers">Compare KYC and AML providers</a><a href="/vendors/legal-regulatory-vendors">Compare legal and regulatory vendors</a></div><div class="source-list"><strong>Primary and authoritative sources</strong><ul><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114" target="_blank" rel="noopener noreferrer">EU Markets in Crypto-Assets Regulation (MiCA)</a></li><li><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noopener noreferrer">FATF virtual-assets guidance and updates</a></li></ul></div></section><h2 id="what-web3-compliance-means">What Web3 Compliance Means</h2>
-<p>Web3 compliance is the control system around a blockchain product. It connects legal review, identity checks, sanctions screening, transaction monitoring, custody controls, smart contract security and recordkeeping.</p>
-<p>For a serious digital asset project, compliance is not a final checklist before launch. It is part of the product architecture. The earlier a team maps compliance requirements, the easier it becomes to choose the right vendors, design safer workflows and pass institutional diligence.</p>
-<p>This guide is informational and not legal advice. Teams should work with qualified counsel for their jurisdiction, asset type and customer base.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls | FluidRWA</title><meta name="description" content="A practical Web3 compliance guide covering KYC, KYB, AML, wallet screening, Travel Rule, tokenized asset controls, smart contract security and vendor selection."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="author" content="FluidRWA"><meta property="article:modified_time" content="2026-07-26"><link rel="canonical" href="https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide"><link rel="icon" href="/assets/favicon.png" type="image/png"><link rel="preload" as="image" href="/assets/fluidrwa-small-logo.png" fetchpriority="high"><link rel="stylesheet" href="/assets/styles-yellow-blue.css?v=forms-1"><meta property="og:type" content="article"><meta property="og:site_name" content="FluidRWA"><meta property="og:title" content="Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls"><meta property="og:description" content="A practical Web3 compliance guide covering KYC, KYB, AML, wallet screening, Travel Rule, tokenized asset controls, smart contract security and vendor selection."><meta property="og:url" content="https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide"><meta property="og:image" content="https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png"><style>
+    .blog-page main{overflow:hidden}.blog-hero,.post-hero{position:relative;min-height:auto;padding:58px 0 30px;background:radial-gradient(circle at 14% 14%,rgba(255,227,110,.18),transparent 30%),radial-gradient(circle at 82% 18%,rgba(116,210,239,.15),transparent 32%),linear-gradient(135deg,#fffdf1 0%,#f4fbff 62%,#fff 100%);border-bottom:1px solid rgba(38,100,169,.1)}.blog-hero .light-container,.post-hero .light-container{max-width:860px;margin:0 auto;text-align:center}.post-hero h1,.blog-hero h1{max-width:740px;margin:8px auto 12px;color:#12213a;font-family:var(--fluid-body,Inter,ui-sans-serif,system-ui,sans-serif);font-size:clamp(24px,2.35vw,34px);font-weight:820;letter-spacing:0;line-height:1.14;text-wrap:balance}.post-hero p:not(.post-meta),.blog-hero p:not(.eyebrow){max-width:680px;margin:0 auto;color:rgba(18,33,58,.72);font-size:clamp(14px,1vw,16px);line-height:1.55}.post-hero .reviewed-line{margin-top:16px!important;color:rgba(18,33,58,.62);font-size:12.5px!important;font-weight:760;letter-spacing:0}.post-meta{display:inline-flex;margin:0;color:#2664a9;font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.post-layout{display:grid;grid-template-columns:minmax(0,1fr)300px;gap:42px;align-items:start;padding:42px 0 68px}.post-main{max-width:880px;min-width:0}.post-main>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:22px;box-shadow:0 20px 54px rgba(18,33,58,.09);margin:0 0 28px}.answer-box,.post-cta,.toc,.research-block{border:1px solid rgba(38,100,169,.12);border-radius:20px;background:rgba(255,255,255,.82);box-shadow:0 16px 38px rgba(18,33,58,.055);padding:22px}.answer-box{margin-bottom:28px;background:linear-gradient(135deg,rgba(255,227,110,.22),rgba(234,249,255,.78))}.answer-box strong{display:block;margin-bottom:7px;color:#12213a}.research-block{margin-bottom:30px}.research-block h2{margin-top:0}.research-kicker{margin:0 0 8px!important;color:#2664a9!important;font-size:11px!important;font-weight:950!important;letter-spacing:.12em;text-transform:uppercase}.research-table-wrap{margin:18px 0;overflow-x:auto}.research-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(38,100,169,.12);border-radius:14px;overflow:hidden;background:#fff}.research-table th,.research-table td{padding:13px 14px;border-bottom:1px solid rgba(38,100,169,.1);text-align:left;vertical-align:top;font-size:14px;line-height:1.45}.research-table th{background:rgba(234,249,255,.78);color:#12213a;font-weight:950}.research-table tr:last-child td{border-bottom:0}.research-links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 18px;align-items:center}.research-links strong,.source-list strong{display:block;flex-basis:100%;margin:0 0 2px;color:#12213a;font-size:15px;font-weight:950;line-height:1.35}.research-links a{display:inline-flex;align-items:center;min-height:36px;border:1px solid rgba(38,100,169,.18);border-radius:999px;background:#fff;color:#2664a9!important;padding:8px 12px;text-decoration:none;font-size:14px;font-weight:900;line-height:1.25}.source-list{margin-top:8px}.source-list ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;margin:10px 0 0;padding-left:18px}.source-list li{margin:0;font-size:14px!important;line-height:1.45!important}.post-main h2{margin:32px 0 12px;color:#12213a;font-family:var(--fluid-body,Inter,ui-sans-serif,system-ui,sans-serif);font-size:clamp(20px,1.8vw,26px);font-weight:820;line-height:1.18;text-wrap:balance}.post-main h3{margin:22px 0 10px;color:#12213a;font-size:17px;line-height:1.3}.post-main p,.post-main li{color:rgba(18,33,58,.76);font-size:16px;line-height:1.72}.post-main ul,.post-main ol{padding-left:24px}.post-main a{color:#2664a9;font-weight:850;overflow-wrap:anywhere}.toc{position:sticky;top:100px;height:max-content;min-width:0}.toc strong{display:block;margin-bottom:12px;color:#12213a}.toc a{display:block;margin:10px 0;color:#2664a9;text-decoration:none;font-weight:800;line-height:1.35;overflow-wrap:anywhere}.faq-list details{border:1px solid rgba(38,100,169,.12);border-radius:16px;background:#fff;margin:10px 0;padding:18px}.faq-list summary{cursor:pointer;color:#12213a;font-weight:900}.post-cta{margin-top:36px;background:#12213a;color:#fff}.post-cta h2{margin:0 0 8px;color:#fff}.post-cta p{color:rgba(255,255,255,.76)}.post-cta a{display:inline-flex;border-radius:999px;background:#ffe36e;color:#12213a;padding:12px 18px;text-decoration:none;font-weight:950}.blog-category-link{display:inline-flex;margin:18px auto 0;border-radius:14px;background:#12213a;color:#fff;padding:11px 15px;text-decoration:none;font-size:13px;font-weight:900}
+    .report-library{padding:24px 0 14px}.report-library-shell{padding:22px 24px 22px}.report-library-head{align-items:flex-start;margin-bottom:16px}.report-library-head h2{font-size:clamp(22px,2vw,30px)}.report-library-head p:last-child{font-size:13.5px;line-height:1.5}.report-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.report-card,.report-card:first-child{min-height:0;padding:0;background:rgba(255,255,255,.84);box-shadow:0 14px 34px rgba(18,33,58,.08)}.report-card:first-child h3{color:#12213a;font-size:17px}.report-card:first-child span,.report-card:first-child strong,.report-card:first-child p,.report-card:first-child b{color:inherit}.report-card:first-child span,.report-card:first-child b{color:#2664a9}.report-card:first-child strong{color:rgba(18,33,58,.56)}.report-card:first-child p{color:rgba(18,33,58,.68)}.report-card:first-child time{color:rgba(18,33,58,.48)}.report-card:first-child:after{background:#12213a;color:#fff}.report-cover{position:relative;height:148px;overflow:hidden;background:linear-gradient(135deg,#eef8ff,#fffdf4)}.report-cover img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;padding:0;transition:transform .35s ease}.report-card:hover .report-cover img{transform:scale(1.025)}.report-card-copy{display:flex;min-height:154px;flex-direction:column;padding:14px 14px 15px}.report-card h3,.report-card:first-child h3{margin:7px 0 6px;font-family:var(--fluid-body);font-size:15.5px;font-weight:850;line-height:1.18}.report-card p{display:none}.report-card b{margin-top:auto}.report-card:after{right:13px;bottom:12px;width:30px;height:30px;font-size:14px}.report-library-action{margin-top:16px}.report-library-action a{padding:10px 16px;font-size:12.5px}.report-archive .report-card{padding:0}.report-archive .report-card-copy{min-height:224px;padding:18px}.report-archive .report-card p{display:block;margin:12px 0 44px}.report-archive .report-cover{height:184px}@media(max-width:1180px){.report-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.report-card:first-child{grid-column:auto}}@media(max-width:900px){.report-library-head{display:block}.report-library-head p:last-child{margin-top:8px}.report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.report-library-shell{padding:18px}.report-grid,.report-archive .report-grid{display:flex}.report-card,.report-card:first-child{flex:0 0 min(78vw,290px)}.report-cover{height:150px}.report-card-copy{min-height:158px}.report-library-head h2{font-size:24px}}
+    .blog-tools{display:grid;gap:14px;padding:24px 0 18px}.blog-search-wrap input{width:100%;min-height:52px;border:1px solid rgba(38,100,169,.14);border-radius:16px;background:#fff;color:#12213a;padding:0 18px;font-size:15px;font-weight:750;box-shadow:0 14px 34px rgba(18,33,58,.06)}.blog-category-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:4px}.blog-category-tabs button{min-height:38px;border:1px solid rgba(38,100,169,.14);border-radius:999px;background:#fff;color:#344054;padding:0 13px;white-space:nowrap;font:inherit;font-size:12px;font-weight:850;cursor:pointer}.blog-category-tabs button.is-active{background:#12213a;color:#fff}.blog-empty{margin:0;color:#9f3030;font-weight:800}.blog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:20px 0 64px}.blog-card{display:grid;grid-template-rows:auto 1fr;overflow:hidden;border:1px solid rgba(38,100,169,.12);border-radius:18px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 16px 38px rgba(18,33,58,.065);transition:transform .18s ease,box-shadow .18s ease}.blog-card:hover{transform:translateY(-3px);box-shadow:0 24px 56px rgba(18,33,58,.1)}.blog-card img{width:100%;height:172px;object-fit:cover;object-position:center;padding:0;background:linear-gradient(135deg,#eef8ff,#fffdf4);border-bottom:1px solid rgba(38,100,169,.08)}.blog-card div{display:grid;gap:7px;align-content:start;padding:14px}.blog-card span{width:fit-content;border:1px solid rgba(38,100,169,.14);border-radius:999px;background:#f2f7ff;color:#2664a9;padding:5px 8px;font-size:9.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.blog-card h2{margin:0;color:#12213a;font-family:var(--fluid-body,Inter,ui-sans-serif,system-ui,sans-serif);font-size:clamp(15px,1.15vw,18px);line-height:1.25;font-weight:820}.blog-card p{margin:0;color:rgba(18,33,58,.68);font-size:12.5px;line-height:1.45;font-weight:650}.post-cta-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.post-cta-actions a{margin-top:0}.post-cta a.post-cta-secondary{border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff}@media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.post-cta-actions{display:grid}.post-cta-actions a{justify-content:center;width:100%}.blog-grid{grid-template-columns:1fr;padding-bottom:52px}.blog-card img{height:196px}}
+    @media(max-width:980px){.post-layout{grid-template-columns:1fr;gap:34px}.toc{position:static}.post-hero h1,.blog-hero h1{font-size:clamp(24px,4.2vw,32px)}}
+    @media(max-width:620px){.blog-hero,.post-hero{padding:72px 0 30px}.blog-hero .light-container,.post-hero .light-container{padding-inline:22px}.post-hero h1,.blog-hero h1{font-size:clamp(24px,7vw,32px);line-height:1.12}.post-hero p:not(.post-meta),.blog-hero p:not(.eyebrow){font-size:14.5px;line-height:1.55}.post-layout{padding:34px 0 52px}.post-main>img{border-radius:20px;margin-bottom:24px}.answer-box,.post-cta,.toc,.research-block{padding:20px}.research-links{display:grid;grid-template-columns:1fr;gap:8px}.research-links a{justify-content:center;width:100%;text-align:center}.source-list ul{grid-template-columns:1fr}.post-main h2{font-size:22px;margin-top:30px}.post-main h3{font-size:17px}.post-main p,.post-main li{font-size:15px;line-height:1.7}}
+  </style><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls","description":"A practical Web3 compliance guide covering KYC, KYB, AML, wallet screening, Travel Rule, tokenized asset controls, smart contract security and vendor selection.","image":"https://www.fluidrwa.com/assets/social/blog-web3-blockchain-compliance-guide.png","datePublished":"2026-05-31","dateModified":"2026-07-26","author":{"@type":"Organization","name":"FluidRWA","url":"https://www.fluidrwa.com"},"publisher":{"@type":"Organization","name":"FluidRWA","logo":{"@type":"ImageObject","url":"https://www.fluidrwa.com/assets/fluidrwa-small-logo.png"}},"mainEntityOfPage":"https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide","citation":["https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114","https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1113","https://www.fatf-gafi.org/en/topics/virtual-assets.html","https://www.fincen.gov/sites/default/files/2019-05/FinCEN%20Guidance%20CVC%20FINAL%20508.pdf"],"speakable":{"@type":"SpeakableSpecification","cssSelector":[".answer-box",".research-block"]},"about":[{"@type":"Thing","name":"Compliance"},{"@type":"Thing","name":"Web3 vendor discovery"},{"@type":"Thing","name":"Digital asset infrastructure"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.fluidrwa.com"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.fluidrwa.com/blog"},{"@type":"ListItem","position":3,"name":"Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls","item":"https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Web3 compliance?","acceptedAnswer":{"@type":"Answer","text":"Web3 compliance is the combination of legal review, identity checks, wallet screening, transaction monitoring, smart contract controls, custody governance, reporting and operational policies used to manage risk in blockchain and digital asset products."}},{"@type":"Question","name":"Do Web3 companies need KYC and AML?","acceptedAnswer":{"@type":"Answer","text":"Many Web3 companies need KYC, KYB or AML controls when they operate fiat ramps, custodial wallets, tokenized assets, securities-like products, stablecoin payments, marketplaces, institutional platforms or regulated financial services. The exact requirement depends on jurisdiction, product structure and customer type."}},{"@type":"Question","name":"What is the difference between KYC, KYB, AML and wallet screening?","acceptedAnswer":{"@type":"Answer","text":"KYC verifies individual users, KYB verifies businesses and beneficial owners, AML is the broader anti-money-laundering control program, and wallet screening analyzes blockchain addresses, counterparties and transaction exposure."}},{"@type":"Question","name":"Which vendors are needed for Web3 compliance?","acceptedAnswer":{"@type":"Answer","text":"Common vendor categories include digital asset counsel, KYC and KYB providers, AML and sanctions screening providers, blockchain analytics tools, Travel Rule platforms, custody providers, smart contract auditors, compliance workflow tools and reporting systems."}},{"@type":"Question","name":"How should tokenization projects handle compliance?","acceptedAnswer":{"@type":"Answer","text":"Tokenization projects should map the asset type, investor eligibility, jurisdictions, transfer restrictions, wallet model, custody design, payment flows and reporting obligations before choosing vendors. Compliance should be built into onboarding, issuance, transfer logic, servicing and redemption."}},{"@type":"Question","name":"Is smart contract security part of Web3 compliance?","acceptedAnswer":{"@type":"Answer","text":"Yes. Smart contract security is part of Web3 compliance because code can enforce or break transfer restrictions, custody rules, permissions, settlement logic and investor protections. Audits, testing, upgrade controls and monitoring should be part of the compliance file."}},{"@type":"Question","name":"What is the Travel Rule in crypto compliance?","acceptedAnswer":{"@type":"Answer","text":"The Travel Rule requires many virtual asset service providers to share required originator and beneficiary information for certain digital asset transfers. It is especially relevant for exchanges, custodians, payment platforms and other regulated intermediaries."}},{"@type":"Question","name":"Where should a Web3 startup begin with compliance?","acceptedAnswer":{"@type":"Answer","text":"Start by defining the product, asset, users, countries, custody model, fiat or stablecoin flows, wallet permissions and regulated touchpoints. Then shortlist legal, KYC, AML, wallet-screening, custody and security vendors based on the workflow."}}]}]}</script></head><body class="light-home blog-page"><header class="site-header light-header" data-site-header><nav class="nav" aria-label="Main navigation"><a class="brand light-brand" href="/" aria-label="FluidRWA home"><img src="/assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><button class="mobile-toggle light-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><div class="nav-links light-nav-links" data-nav-links><a href="/">Home</a><a href="/web3vendorecosystem">Directory</a><a href="/use-cases">Use Cases</a><a href="/blockchain-projects">Blockchain Projects</a><a href="/blog" aria-current="page">Insights</a><a href="/tokenization-readiness-assessment-tool">Tools</a><a class="nav-secondary-cta" href="/vendor-membership">Become a Vetted Listing</a><a class="nav-ecosystem-cta" href="/web3vendorecosystem">Find Vendors</a></div></nav></header><main><section class="post-hero"><div class="light-container"><p class="post-meta">Compliance</p><h1>Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls</h1><p>A practical Web3 compliance guide covering KYC, KYB, AML, wallet screening, Travel Rule, tokenized asset controls, smart contract security and vendor selection.</p><p class="reviewed-line">Reviewed and updated by FluidRWA · July 26, 2026</p></div></section><div class="light-container post-layout"><article class="post-main"><img src="/assets/blog-images/web3-blockchain-compliance-guide.svg?v=visual-6" alt="Web3 Compliance Guide: KYC, AML, Wallet Screening and Tokenized Asset Controls editorial infrastructure visual" width="960" height="540" loading="eager" decoding="async"><div class="answer-box"><strong>Short answer</strong><p>Web3 compliance is the operating system that helps blockchain, tokenization and digital asset projects verify users, screen wallets, monitor transactions, enforce transfer rules, manage custody risk, document decisions and stay aligned with relevant legal obligations.</p></div><section class="research-block" aria-labelledby="research-web3-blockchain-compliance-guide"><p class="research-kicker">FluidRWA research brief</p><h2 id="research-web3-blockchain-compliance-guide">Web3 compliance vendor map</h2><p>Web3 compliance should be selected by product risk, asset type, customer geography, custody model and transaction flow. No single tool replaces legal classification, KYC, KYB, wallet screening, monitoring, smart contract controls and operational governance.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Control layer</th><th>What buyers should verify</th><th>Common provider types</th></tr></thead><tbody><tr><td>Legal classification</td><td>Asset type, regulated activity, offering model, licensing, marketing and cross-border exposure</td><td>Digital asset counsel and regulatory advisors</td></tr><tr><td>KYC and KYB</td><td>Document coverage, beneficial ownership, investor eligibility, manual review and data handling</td><td>Identity verification and business verification providers</td></tr><tr><td>Wallet and transaction risk</td><td>Wallet exposure, sanctions coverage, transaction monitoring, alert logic and case management</td><td>Blockchain analytics and AML monitoring providers</td></tr><tr><td>Transfer and custody controls</td><td>Wallet allowlisting, transfer restrictions, custody governance, signer permissions and audit trail</td><td>Tokenization platforms, custody providers and smart contract auditors</td></tr></tbody></table></div><div class="research-links"><strong>Continue your research</strong><a href="/vendors/compliance-infrastructure-providers">Compare compliance infrastructure</a><a href="/vendors/kyc-aml-providers">Compare KYC and AML providers</a><a href="/vendors/legal-regulatory-vendors">Compare legal and regulatory vendors</a><a href="/submit-requirement">Submit requirements</a></div><div class="source-list"><strong>Primary and authoritative sources</strong><ul><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114" target="_blank" rel="noopener noreferrer">EU Markets in Crypto-Assets Regulation (MiCA)</a></li><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1113" target="_blank" rel="noopener noreferrer">EU Transfer of Funds Regulation</a></li><li><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noopener noreferrer">FATF virtual-assets guidance and updates</a></li><li><a href="https://www.fincen.gov/sites/default/files/2019-05/FinCEN%20Guidance%20CVC%20FINAL%20508.pdf" target="_blank" rel="noopener noreferrer">FinCEN CVC guidance</a></li></ul></div></section><h2 id="what-web3-compliance-means">What Web3 Compliance Means</h2>
+<p>Web3 compliance is the control layer around a blockchain product. It is how a project connects legal analysis, user verification, wallet risk, transaction monitoring, custody controls, smart contract security, reporting and operational evidence.</p>
+<p>The important point is that Web3 compliance is not only a legal memo and not only a KYC form. For tokenization, stablecoins, wallets, DeFi access, crypto payments and institutional digital asset products, compliance usually becomes part of the product architecture.</p>
+<p>A practical Web3 compliance program answers four questions:</p>
+<ul>
+<li>What is the product legally and commercially?</li>
+<li>Who can use it, buy it, hold it, transfer it or redeem it?</li>
+<li>Which wallets, counterparties and transactions are acceptable?</li>
+<li>What evidence will the team keep if a bank, regulator, auditor, investor or partner asks later?</li>
+</ul>
+<p>This guide is informational and not legal advice. Teams should work with qualified counsel for their jurisdiction, asset type and operating model.</p>
+<h2 id="web3-compliance-in-one-simple-example">Web3 Compliance in One Simple Example</h2>
+<p>Imagine a company launching a tokenized private credit product. The team may need to verify investors, check whether they are allowed to participate, screen sanctions exposure, whitelist approved wallets, restrict transfers, monitor transactions, manage custody, process income distributions and keep records.</p>
+<p>In that workflow, a KYC provider does not solve everything. A tokenization platform does not solve everything. A wallet-screening provider does not solve everything. The project needs a connected operating stack.</p>
+<p>The stack may include:</p>
+<ul>
+<li>legal and regulatory counsel to classify the asset and offering</li>
+<li>KYC and KYB providers to verify investors and businesses</li>
+<li>AML and sanctions providers to screen users and counterparties</li>
+<li>wallet-risk tools to evaluate blockchain addresses</li>
+<li>custody or wallet infrastructure to control asset movement</li>
+<li>smart contract development and audit teams to enforce rules</li>
+<li>compliance workflow software for alerts, reviews and evidence</li>
+<li>reporting tools for tax, investor communication and recordkeeping</li>
+</ul>
+<p>That is the difference between a Web3 compliance checklist and real compliance infrastructure.</p>
 <h2 id="why-compliance-has-become-infrastructure">Why Compliance Has Become Infrastructure</h2>
-<p>In the early crypto market, many teams treated compliance as a legal expense. That is no longer enough. Institutions, banks, payment partners, exchanges, custodians and investors increasingly expect compliance controls to be embedded in the operating model.</p>
-<p>Good compliance infrastructure helps a project:</p>
+<p>In earlier crypto cycles, many teams treated compliance as something to add after product-market fit. That approach is dangerous for serious digital asset businesses.</p>
+<p>Banks, custodians, exchanges, payment partners, market makers, institutional investors and enterprise buyers now look for operational evidence. They want to know how the project handles identity, sanctions, custody, permissions, data, smart contracts, monitoring and incident response.</p>
+<p>Good compliance infrastructure helps a Web3 project:</p>
 <ul>
-<li>reduce regulatory and enforcement risk</li>
-<li>pass investor, banking and partner due diligence</li>
-<li>protect users from fraud and illicit finance exposure</li>
-<li>maintain better audit trails</li>
-<li>support institutional adoption</li>
-<li>avoid costly rebuilds after launch</li>
+<li>pass bank and payment-provider reviews</li>
+<li>reduce sanctions, fraud and illicit-finance exposure</li>
+<li>support enterprise and institutional buyer diligence</li>
+<li>document why a user, wallet or transaction was approved</li>
+<li>avoid rebuilding the product after launch</li>
+<li>protect the brand if a suspicious event occurs</li>
+<li>make vendor responsibilities clear</li>
 </ul>
-<p>Poor compliance is not only a legal problem. It can become a banking problem, a liquidity problem, a trust problem and an existential business problem.</p>
-<h2 id="core-compliance-layers">Core Compliance Layers</h2>
-<p>A Web3 or digital asset compliance stack usually includes:</p>
+<p>Weak compliance creates more than regulatory risk. It can block banking access, delay partnerships, reduce investor confidence, hurt liquidity, make audits harder and create messy operational disputes.</p>
+<h2 id="core-web3-compliance-layers">Core Web3 Compliance Layers</h2>
+<p>A mature Web3 compliance stack usually has seven layers.</p>
+<h3>Legal and regulatory classification</h3>
+<p>Before choosing software, the team needs to understand what the product is. A tokenized fund, stablecoin product, marketplace, wallet, payment tool, DeFi interface and NFT platform may all have different obligations.</p>
+<p>Legal review should cover:</p>
 <ul>
-<li>legal and regulatory classification</li>
-<li>KYC and customer identity checks</li>
-<li>AML and sanctions screening</li>
-<li>Travel Rule compliance for virtual asset transfers</li>
-<li>wallet risk scoring and transaction monitoring</li>
-<li>custody and wallet governance</li>
-<li>smart contract audits and formal security review</li>
-<li>privacy, data governance and consent controls</li>
-<li>tax, reporting and recordkeeping workflows</li>
+<li>asset classification</li>
+<li>licensing and registration exposure</li>
+<li>securities, commodities, payments or money-transmission issues</li>
+<li>marketing and distribution restrictions</li>
+<li>cross-border access</li>
+<li>investor eligibility</li>
+<li>contractual terms and disclosures</li>
+<li>data privacy and recordkeeping obligations</li>
 </ul>
-<p>Not every project needs every layer on day one. A tokenized real estate product, a stablecoin payment platform, a DeFi protocol and a blockchain game have different obligations. The first step is to map the product, users, assets, jurisdictions and transaction flow.</p>
-<h2 id="kyc-aml-and-sanctions-screening">KYC, AML and Sanctions Screening</h2>
-<p>KYC verifies who a user or entity is. AML controls help detect and prevent money laundering, terrorist financing, sanctions evasion and other illicit finance activity. In Web3, these workflows often need to connect off-chain identity with on-chain wallet activity.</p>
-<p>Common requirements include:</p>
+<p>For tokenized assets, legal review should happen before token architecture is finalized because transfer restrictions, investor permissions and redemption rights often need to be reflected in the workflow.</p>
+<h3>KYC and KYB</h3>
+<p>KYC verifies individuals. KYB verifies businesses, beneficial owners and control persons.</p>
+<p>Web3 teams may need KYC or KYB when they onboard investors, issuers, lenders, borrowers, marketplace participants, wallet users, counterparties, service providers or businesses using stablecoin rails.</p>
+<p>Strong KYC and KYB evaluation should include:</p>
 <ul>
-<li>collecting customer or entity information</li>
-<li>verifying documents and beneficial ownership</li>
-<li>screening against sanctions and watchlists</li>
-<li>monitoring wallet exposure to risky activity</li>
-<li>creating alerts and case management workflows</li>
-<li>maintaining audit-ready records</li>
+<li>supported countries and document types</li>
+<li>business registry coverage</li>
+<li>beneficial ownership collection</li>
+<li>manual review process</li>
+<li>sanctions, PEP and adverse-media screening</li>
+<li>pass rates by geography</li>
+<li>API quality and webhook coverage</li>
+<li>data retention and privacy controls</li>
+<li>audit logs and exportable evidence</li>
 </ul>
-<p>The practical challenge is designing these checks without destroying the user experience. The strongest systems use risk-based controls rather than one-size-fits-all friction.</p>
-<h2 id="travel-rule-compliance">Travel Rule Compliance</h2>
-<p>The FATF Travel Rule requires many virtual asset service providers to share originator and beneficiary information when digital assets move between regulated entities. In simple terms, crypto transfers increasingly need identity data to move with the transaction, similar to wire transfer rules.</p>
-<p>Travel Rule infrastructure may include:</p>
+<p>For deeper vendor comparison, use the FluidRWA guide to <a href="/blog/best-kyc-providers-tokenization-projects-2026/">best KYC providers for tokenization projects</a> and the <a href="/vendors/kyc-aml-providers/">KYC and AML provider directory</a>.</p>
+<h3>AML, sanctions and transaction monitoring</h3>
+<p>AML is the broader control program around money laundering, terrorist financing, sanctions evasion, fraud and suspicious activity. In Web3, AML work often combines off-chain identity data with on-chain transaction behavior.</p>
+<p>A practical AML workflow may include:</p>
+<ul>
+<li>sanctions and watchlist screening</li>
+<li>politically exposed person checks</li>
+<li>adverse media review</li>
+<li>wallet address screening</li>
+<li>source-of-funds or source-of-wealth review</li>
+<li>transaction monitoring</li>
+<li>alert triage</li>
+<li>case management</li>
+<li>suspicious-activity escalation</li>
+<li>ongoing monitoring after onboarding</li>
+</ul>
+<p>Teams should avoid treating AML as a one-time onboarding step. Risk can change after the user is approved, especially if assets can move between wallets, counterparties or chains.</p>
+<h3>Wallet screening and blockchain analytics</h3>
+<p>Wallet screening evaluates the risk attached to blockchain addresses and transaction history.</p>
+<p>This matters because an approved person can still connect a risky wallet. A wallet may have exposure to sanctioned addresses, stolen funds, hacks, mixers, scams, darknet markets, ransomware or high-risk services.</p>
+<p>Wallet risk can affect:</p>
+<ul>
+<li>whether an address can be whitelisted</li>
+<li>whether a deposit is accepted</li>
+<li>whether a tokenized asset can be issued to a wallet</li>
+<li>whether a secondary transfer is blocked or reviewed</li>
+<li>whether redemption should trigger enhanced due diligence</li>
+<li>whether a suspicious event should be escalated</li>
+</ul>
+<p>Blockchain analytics providers such as Chainalysis, TRM Labs and Elliptic are commonly evaluated for this layer. They are not replacements for KYC and KYB, but they are often important companions.</p>
+<h3>Travel Rule workflows</h3>
+<p>The FATF Travel Rule requires many virtual asset service providers to exchange required originator and beneficiary information for certain digital asset transfers.</p>
+<p>Travel Rule tooling may support:</p>
 <ul>
 <li>VASP discovery</li>
 <li>secure counterparty messaging</li>
-<li>beneficiary and originator information exchange</li>
-<li>transaction risk scoring</li>
-<li>unhosted wallet ownership verification</li>
-<li>jurisdiction-specific policy rules</li>
+<li>beneficiary and originator data exchange</li>
+<li>jurisdiction-specific thresholds and policies</li>
+<li>unhosted wallet handling</li>
+<li>transaction records</li>
+<li>review workflows</li>
 </ul>
-<p>For self-hosted wallets, projects may need proof of wallet control through methods such as cryptographic signatures, microtransactions or other verification workflows.</p>
-<h2 id="stablecoin-and-payment-compliance">Stablecoin and Payment Compliance</h2>
-<p>Stablecoins are becoming a major part of digital asset settlement, treasury and payment infrastructure. Compliance considerations can include issuer eligibility, reserve requirements, redemption policies, transfer monitoring, sanctions controls, payment licensing, consumer protection and banking partner requirements.</p>
-<p>Teams building with stablecoins should understand whether they are:</p>
+<p>Travel Rule relevance depends on the product and whether the project is operating as a regulated intermediary. Exchanges, custodians, payment platforms and some wallet or transfer workflows should evaluate it early.</p>
+<h3>Custody, wallet governance and access control</h3>
+<p>Custody is not only where the asset sits. It is also who can move it, under what approval process, with what key controls, and with what recovery or incident-response plan.</p>
+<p>Web3 compliance teams should define:</p>
 <ul>
-<li>issuing a stablecoin</li>
-<li>integrating a third-party stablecoin</li>
-<li>accepting stablecoin payments</li>
-<li>settling B2B transactions</li>
-<li>operating a wallet or payment flow</li>
-<li>moving between fiat and digital assets</li>
+<li>custodial, non-custodial or hybrid model</li>
+<li>private key management</li>
+<li>multi-signature or MPC setup</li>
+<li>wallet allowlisting</li>
+<li>signer permissions</li>
+<li>treasury operations</li>
+<li>withdrawal approvals</li>
+<li>administrator access</li>
+<li>recovery workflows</li>
+<li>insurance or risk controls</li>
 </ul>
-<p>Each model creates different vendor needs.</p>
-<h2 id="tokenized-asset-compliance">Tokenized Asset Compliance</h2>
-<p>Tokenized assets require more than token issuance. They usually need legal structuring, investor eligibility checks, transfer restrictions, custody, payment workflows, tax reporting and lifecycle servicing.</p>
-<p>For tokenized funds, real estate, private credit or treasury products, teams should evaluate:</p>
+<p>For institutional products, custody and wallet governance are often central to buyer diligence.</p>
+<h3>Smart contract controls and auditability</h3>
+<p>Smart contracts can enforce investor allowlists, transfer restrictions, role permissions, payment logic, redemptions, caps, lockups and settlement flows. They can also introduce security and compliance failures if the design is wrong.</p>
+<p>Smart contract compliance work may include:</p>
 <ul>
-<li>whether the asset may be a security</li>
-<li>which investors can participate</li>
-<li>what transfer restrictions apply</li>
-<li>how income, dividends or redemptions are handled</li>
-<li>how custody and wallet controls work</li>
-<li>how reporting and investor communications are maintained</li>
-</ul>
-<p>Institutional tokenization often works best when compliance is encoded into the workflow: whitelisted wallets, transfer rules, approved investor records and auditable servicing.</p>
-<h2 id="defi-and-developer-liability">DeFi and Developer Liability</h2>
-<p>DeFi compliance is more complex because protocols may be non-custodial, autonomous or globally accessible. Still, teams need to consider money transmission, sanctions exposure, frontend access controls, governance, protocol monitoring and developer liability.</p>
-<p>The legal debate around privacy tools, mixers and immutable smart contracts shows why teams cannot assume that “non-custodial” automatically removes all compliance risk. Developers, founders and interface operators should evaluate how users interact with the protocol, whether the project facilitates transfers, and whether risk controls are possible.</p>
-<h2 id="smart-contract-security-is-compliance">Smart Contract Security Is Compliance</h2>
-<p>Smart contract security is now part of compliance. A protocol can have strong legal documents but still fail if the code enables theft, manipulation or unauthorized transfers.</p>
-<p>A strong audit process can include:</p>
-<ul>
-<li>static analysis with tools such as Slither or Mythril</li>
-<li>manual code review</li>
-<li>business logic and economic risk review</li>
-<li>oracle and integration testing</li>
-<li>formal verification for critical systems</li>
-<li>bug bounties</li>
+<li>requirements documentation before development</li>
+<li>access-control review</li>
+<li>transfer-restriction testing</li>
+<li>business-logic review</li>
+<li>external audits</li>
+<li>formal verification for critical modules</li>
+<li>upgrade governance</li>
+<li>emergency pause design</li>
 <li>post-deployment monitoring</li>
+<li>incident response planning</li>
 </ul>
-<p>Security reviews should happen before launch and after major upgrades. For institutional projects, the audit trail itself becomes part of vendor diligence.</p>
-<h2 id="privacy-and-data-governance">Privacy and Data Governance</h2>
-<p>Blockchain creates a tension between transparency and privacy. Institutions need auditability, but they also need confidentiality, data minimization and secure handling of personal or commercial information.</p>
-<p>Privacy-oriented compliance design may include:</p>
+<p>If the project involves tokenized assets, compliance and engineering teams should work together. The legal rules have to be translated into operational rules and, where appropriate, code.</p>
+<h2 id="compliance-requirements-by-web3-use-case">Compliance Requirements by Web3 Use Case</h2>
+<p>Different Web3 products need different controls. This is where many teams make mistakes: they buy a generic tool before mapping the actual workflow.</p>
+<h3>Tokenized funds and private credit</h3>
+<p>Usually important:</p>
 <ul>
-<li>keeping sensitive data off-chain</li>
-<li>using attestations instead of exposing raw identity data</li>
-<li>encrypting customer or transaction information</li>
-<li>designing permissioned access to records</li>
-<li>using zero-knowledge or selective disclosure methods where appropriate</li>
-<li>maintaining clear consent and data retention policies</li>
+<li>investor KYC and KYB</li>
+<li>accreditation or eligibility workflow</li>
+<li>sanctions and PEP screening</li>
+<li>subscription document collection</li>
+<li>wallet allowlisting</li>
+<li>transfer restrictions</li>
+<li>custody controls</li>
+<li>reporting and recordkeeping</li>
+<li>legal and fund administration support</li>
 </ul>
-<p>Projects should avoid putting personal data directly on public chains unless counsel and privacy specialists have reviewed the architecture.</p>
-<h2 id="how-to-choose-compliance-vendors">How To Choose Compliance Vendors</h2>
-<p>The right vendor depends on the project’s asset type, jurisdiction, customer base and workflow. A practical selection process is:</p>
+<p>Start with <a href="/vendors/tokenization-platforms/">tokenization platforms</a>, <a href="/vendors/kyc-aml-providers/">KYC and AML providers</a>, <a href="/vendors/compliance-infrastructure-providers/">compliance infrastructure</a> and <a href="/vendors/legal-regulatory-vendors/">legal and regulatory vendors</a>.</p>
+<h3>Stablecoin payments and fiat ramps</h3>
+<p>Usually important:</p>
 <ul>
-<li>define the product and transaction flow</li>
-<li>identify regulated touchpoints</li>
-<li>list required controls</li>
-<li>decide what must be handled internally</li>
-<li>shortlist vendor categories</li>
-<li>compare integrations, coverage and evidence</li>
-<li>test operational workflows before launch</li>
+<li>customer onboarding</li>
+<li>sanctions screening</li>
+<li>fraud monitoring</li>
+<li>transaction monitoring</li>
+<li>fiat rail compliance</li>
+<li>stablecoin issuer or payment-partner review</li>
+<li>chargeback or dispute workflows where relevant</li>
+<li>Travel Rule analysis if virtual asset transfers are involved</li>
 </ul>
-<p>FluidRWA organizes providers by category so teams can compare <a href="/vendors/compliance-infrastructure-providers/">compliance infrastructure</a>, <a href="/vendors/kyc-aml-providers/">KYC and AML providers</a>, <a href="/vendors/legal-regulatory-vendors/">legal and regulatory vendors</a>, <a href="/vendors/crypto-custody-providers/">custody providers</a> and <a href="/vendors/security-audit-companies/">security audit companies</a>.</p>
+<p>Teams should compare <a href="/vendors/fiat-on-off-ramp-providers/">fiat on and off ramp providers</a> and <a href="/vendors/stablecoin-infrastructure-providers/">stablecoin infrastructure providers</a> alongside compliance tools.</p>
+<h3>Wallets and custody products</h3>
+<p>Usually important:</p>
+<ul>
+<li>custody classification</li>
+<li>wallet access controls</li>
+<li>transaction policies</li>
+<li>withdrawal approvals</li>
+<li>wallet screening</li>
+<li>key management</li>
+<li>incident response</li>
+<li>insurance and operational risk review</li>
+</ul>
+<p>Buyers should compare <a href="/vendors/crypto-custody-providers/">crypto custody providers</a> and wallet-risk tools as part of the compliance review.</p>
+<h3>DeFi and onchain applications</h3>
+<p>Usually important:</p>
+<ul>
+<li>sanctions exposure assessment</li>
+<li>frontend access policies</li>
+<li>smart contract audits</li>
+<li>governance controls</li>
+<li>oracle and market-risk review</li>
+<li>transaction monitoring where feasible</li>
+<li>legal review of protocol activity</li>
+</ul>
+<p>Non-custodial design can reduce some risks, but it does not automatically remove all compliance questions. Interface operators, developers, governance participants and treasury managers may still need counsel.</p>
+<h3>Marketplaces and tokenized asset secondary transfers</h3>
+<p>Usually important:</p>
+<ul>
+<li>buyer and seller eligibility</li>
+<li>wallet allowlisting</li>
+<li>sanctions checks</li>
+<li>transfer-agent or approval workflows</li>
+<li>secondary transfer restrictions</li>
+<li>transaction records</li>
+<li>settlement and custody controls</li>
+</ul>
+<p>The hardest part is usually not minting the token. It is controlling who can receive it later.</p>
+<h2 id="how-to-choose-web3-compliance-vendors">How to Choose Web3 Compliance Vendors</h2>
+<p>The right vendor depends on product design. A useful selection process is:</p>
+<ul>
+<li>Map the product, users, assets, jurisdictions and transaction flow.</li>
+<li>Identify regulated touchpoints.</li>
+<li>Decide which controls must be in product, which can be manual and which need a vendor.</li>
+<li>Separate identity verification from wallet risk, monitoring, reporting and legal analysis.</li>
+<li>Compare vendors by evidence quality, coverage, integrations and operating workflow.</li>
+<li>Test edge cases before launch.</li>
+<li>Confirm who owns review, escalation and recordkeeping internally.</li>
+</ul>
+<p>When comparing providers, ask:</p>
+<ul>
+<li>Which countries, documents and business registries are supported?</li>
+<li>Does the provider support KYB and beneficial ownership?</li>
+<li>Are sanctions, PEP and adverse media included?</li>
+<li>Is wallet screening native, integrated or separate?</li>
+<li>How are false positives reviewed?</li>
+<li>Can risk rules vary by product, country or user type?</li>
+<li>What APIs, webhooks and audit logs are available?</li>
+<li>How is personal data stored and deleted?</li>
+<li>Can compliance evidence be exported for audits?</li>
+<li>What happens when a user, wallet or transaction becomes high risk after approval?</li>
+</ul>
+<h2 id="a-practical-compliance-stack-by-stage">A Practical Compliance Stack by Stage</h2>
+<h3>Pre-launch</h3>
+<p>At pre-launch, the team should focus on legal classification, user eligibility, onboarding design, vendor shortlist, custody model and smart contract requirements. This is also the right time to run the FluidRWA <a href="/tokenization-readiness-assessment-tool">tokenization readiness assessment</a> if the product involves real-world assets.</p>
+<h3>Private beta</h3>
+<p>During beta, the team should test identity verification, sanctions screening, wallet checks, manual review, webhook events, error handling, transfer restrictions, audit logs and support workflows.</p>
+<p>The goal is not just to see whether a user can pass KYC. The goal is to see what happens when a user fails, changes country, connects a high-risk wallet, submits incomplete KYB data or attempts a restricted transfer.</p>
+<h3>Public launch</h3>
+<p>At launch, compliance operations should have assigned owners, documented escalation paths, monitoring dashboards, vendor support contacts, incident response workflows and evidence retention rules.</p>
+<h3>Growth and institutional adoption</h3>
+<p>As the product grows, teams may need more advanced controls: ongoing monitoring, jurisdiction-specific policy rules, enterprise KYB, partner reporting, custody reviews, independent audits, SOC or security certifications, and board-level risk reporting.</p>
+<h2 id="common-web3-compliance-mistakes">Common Web3 Compliance Mistakes</h2>
+<p>The most common mistakes are:</p>
+<ul>
+<li>choosing a KYC provider before defining the product risk</li>
+<li>assuming a tokenization platform replaces legal or compliance review</li>
+<li>ignoring KYB when counterparties are businesses</li>
+<li>verifying users but not wallets</li>
+<li>screening at onboarding but not monitoring after launch</li>
+<li>using one global policy for every jurisdiction</li>
+<li>putting personal data onchain</li>
+<li>treating smart contract audits as optional</li>
+<li>failing to record why decisions were made</li>
+<li>letting vendors own critical knowledge without internal accountability</li>
+</ul>
+<p>Most of these mistakes are avoidable if compliance is designed before launch, not patched after the first diligence request.</p>
 <h2 id="web3-compliance-checklist">Web3 Compliance Checklist</h2>
-<p>Before launching a digital asset product, ask:</p>
+<p>Before launching or upgrading a Web3 product, ask:</p>
 <ul>
-<li>What asset or activity is being offered?</li>
-<li>Which jurisdictions are involved?</li>
-<li>Who are the users, investors or counterparties?</li>
+<li>What exactly is the product or activity?</li>
+<li>What does the token represent, if a token exists?</li>
+<li>Which countries are involved?</li>
+<li>Who are the users, investors, issuers or counterparties?</li>
 <li>Is the product custodial, non-custodial or hybrid?</li>
 <li>Are fiat ramps, stablecoins or payments involved?</li>
-<li>Are securities, funds, commodities or real-world assets involved?</li>
-<li>What KYC, AML, sanctions and Travel Rule obligations apply?</li>
-<li>What data is collected and where is it stored?</li>
+<li>Are securities, funds, commodities, credit, real estate or other real-world assets involved?</li>
+<li>What KYC, KYB, AML, sanctions and Travel Rule controls apply?</li>
+<li>How are wallets approved, monitored or restricted?</li>
 <li>What smart contracts need audit or formal review?</li>
+<li>What customer data is collected, and where is it stored?</li>
 <li>What records must be retained?</li>
-<li>Which vendors are mission-critical?</li>
+<li>Which vendor categories are mission-critical?</li>
+<li>Who owns review and escalation internally?</li>
 </ul>
 <p>The answer to these questions becomes the vendor map.</p>
-<h2 id="the-bottom-line">The Bottom Line</h2>
-<p>Web3 compliance is not about making blockchain slower. It is about making digital asset infrastructure usable by institutions, enterprises, funds, payment companies and regulated ecosystems.</p>
-<p>The strongest projects will not bolt compliance on at the end. They will design it into identity, wallet controls, transfer logic, custody, reporting, smart contracts and vendor selection from the start.</p>
-<h2 id="further-reading">Further Reading</h2>
-<p>Useful external reference points include the <a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html">FATF virtual assets guidance</a>, Chainlink’s overview of <a href="https://chain.link/article/blockchain-regulatory-compliance">blockchain regulatory compliance</a>, Global Legal Insights’ <a href="https://www.globallegalinsights.com/practice-areas/blockchain-cryptocurrency-laws-and-regulations/">blockchain and cryptocurrency laws guide</a>, Notabene’s material on <a href="https://notabene.id/">Travel Rule compliance</a>, and J.P. Morgan Kinexys research on <a href="https://www.jpmorgan.com/kinexys/documents/JPMC-Kinexys-Project-Epic-Whitepaper-2024.pdf">institutional blockchain privacy</a>.</p><section class="faq-list" aria-labelledby="faq-title"><h2 id="faq-title">FAQ</h2><details><summary>What is Web3 compliance?</summary><p>Web3 compliance is the set of controls, policies, vendors and technical systems used to make blockchain and digital asset activity safer, auditable and aligned with relevant laws.</p></details><details><summary>Do Web3 projects need KYC and AML?</summary><p>Many Web3 projects do, especially if they involve fiat ramps, tokenized assets, securities, custodial wallets, stablecoins, regulated payments or institutional users.</p></details><details><summary>What vendors are usually needed for blockchain compliance?</summary><p>Common vendor categories include legal and regulatory advisors, KYC and AML providers, Travel Rule tools, compliance monitoring platforms, custody providers and smart contract auditors.</p></details></section><section class="post-cta"><h2>Find compliance infrastructure providers</h2><p>Explore vendors for KYC, AML, Travel Rule, monitoring, legal review, smart contract audits and institutional digital asset operations.</p><div class="post-cta-actions"><a href="/vendors/compliance-infrastructure-providers/">View Compliance Providers</a></div></section></article><aside class="toc"><strong>In this article</strong><a href="#research-web3-blockchain-compliance-guide">Compliance research snapshot</a><a href="#what-web3-compliance-means">What Web3 Compliance Means</a><a href="#why-compliance-has-become-infrastructure">Why Compliance Has Become Infrastructure</a><a href="#core-compliance-layers">Core Compliance Layers</a><a href="#kyc-aml-and-sanctions-screening">KYC, AML and Sanctions Screening</a><a href="#travel-rule-compliance">Travel Rule Compliance</a><a href="#stablecoin-and-payment-compliance">Stablecoin and Payment Compliance</a><a href="#tokenized-asset-compliance">Tokenized Asset Compliance</a><a href="#defi-and-developer-liability">DeFi and Developer Liability</a><a href="#smart-contract-security-is-compliance">Smart Contract Security Is Compliance</a><a href="#privacy-and-data-governance">Privacy and Data Governance</a><a href="#how-to-choose-compliance-vendors">How To Choose Compliance Vendors</a><a href="#web3-compliance-checklist">Web3 Compliance Checklist</a><a href="#the-bottom-line">The Bottom Line</a><a href="#further-reading">Further Reading</a><strong style="margin-top:24px">Related insights</strong><a href="/blog/best-kyc-aml-providers-web3-startups/">Best KYC AML Providers for Web3 Startups</a><a href="/blog/kyc-aml-compliance-web3-platforms/">KYC, AML and Compliance Infrastructure for Web3 Platforms</a><a href="/blog/blockchain-faqs-guide-100-questions/">Blockchain FAQs: 100 Questions About Blockchain, Smart Contracts, RWA and Web3 Infrastructure</a><a href="/blog/eth-smart-contract-development-guide/">ETH Smart Contracts: Ethereum Smart Contract Development Guide</a></aside></div></main><footer class="light-footer"><div class="light-container footer-grid-lite footer-simple"><a class="footer-brand-link" href="/" aria-label="FluidRWA home"><img class="footer-logo-lite" src="/assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><nav class="footer-legal-links" aria-label="Footer navigation"><a href="/contact">Contact Us</a><a href="/about">About</a><a href="/arcade">Arcade</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms & Conditions</a></nav></div><div class="light-container footer-bottom-lite">© <span data-year></span> FluidRWA.</div></footer><script src="/assets/site.js?v=forms-1" defer></script></body></html>
+<h2 id="recommended-fluidrwa-research-path">Recommended FluidRWA Research Path</h2>
+<p>If you are still defining the compliance stack, use this order:</p>
+<ul>
+<li>Start with the <a href="/web3vendorecosystem/">Web3 vendor ecosystem</a> to understand the full vendor map.</li>
+<li>Compare <a href="/vendors/compliance-infrastructure-providers/">compliance infrastructure providers</a> for monitoring, policy and workflow tooling.</li>
+<li>Compare <a href="/vendors/kyc-aml-providers/">KYC and AML providers</a> for identity, KYB and screening.</li>
+<li>Read the detailed guide to <a href="/blog/best-kyc-providers-tokenization-projects-2026/">best KYC providers for tokenization projects</a>.</li>
+<li>If you are launching an RWA project, run the <a href="/tokenization-readiness-assessment-tool">tokenization readiness assessment</a>.</li>
+<li>If you need a guided shortlist, <a href="/submit-requirement">submit your requirements</a>.</li>
+</ul>
+<h2 id="sources-and-further-reading">Sources and Further Reading</h2>
+<p>Useful reference points include the <a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html">FATF virtual assets guidance</a>, the FATF <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-update-virtual-assets-vasps-2025.html">Travel Rule update</a>, the EU <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114">Markets in Crypto-Assets Regulation</a>, the EU <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1113">Transfer of Funds Regulation</a>, FinCEN guidance on <a href="https://www.fincen.gov/sites/default/files/2019-05/FinCEN%20Guidance%20CVC%20FINAL%20508.pdf">convertible virtual currencies</a>, J.P. Morgan Kinexys research on <a href="https://www.jpmorgan.com/kinexys/documents/JPMC-Kinexys-Project-Epic-Whitepaper-2024.pdf">institutional blockchain privacy</a>, and the SEC <a href="https://www.sec.gov/files/dlt-framework.pdf">Framework for Investment Contract Analysis of Digital Assets</a>.</p>
+<h2 id="final-takeaway">Final Takeaway</h2>
+<p>Web3 compliance is not about making blockchain slower. It is about making blockchain products usable by serious buyers.</p>
+<p>The strongest projects design compliance into identity, wallets, smart contracts, custody, monitoring, reporting and vendor selection from the beginning. That is what turns a blockchain experiment into infrastructure that banks, institutions, issuers, investors and partners can evaluate.</p><section class="faq-list" aria-labelledby="faq-title"><h2 id="faq-title">FAQ</h2><details><summary>What is Web3 compliance?</summary><p>Web3 compliance is the combination of legal review, identity checks, wallet screening, transaction monitoring, smart contract controls, custody governance, reporting and operational policies used to manage risk in blockchain and digital asset products.</p></details><details><summary>Do Web3 companies need KYC and AML?</summary><p>Many Web3 companies need KYC, KYB or AML controls when they operate fiat ramps, custodial wallets, tokenized assets, securities-like products, stablecoin payments, marketplaces, institutional platforms or regulated financial services. The exact requirement depends on jurisdiction, product structure and customer type.</p></details><details><summary>What is the difference between KYC, KYB, AML and wallet screening?</summary><p>KYC verifies individual users, KYB verifies businesses and beneficial owners, AML is the broader anti-money-laundering control program, and wallet screening analyzes blockchain addresses, counterparties and transaction exposure.</p></details><details><summary>Which vendors are needed for Web3 compliance?</summary><p>Common vendor categories include digital asset counsel, KYC and KYB providers, AML and sanctions screening providers, blockchain analytics tools, Travel Rule platforms, custody providers, smart contract auditors, compliance workflow tools and reporting systems.</p></details><details><summary>How should tokenization projects handle compliance?</summary><p>Tokenization projects should map the asset type, investor eligibility, jurisdictions, transfer restrictions, wallet model, custody design, payment flows and reporting obligations before choosing vendors. Compliance should be built into onboarding, issuance, transfer logic, servicing and redemption.</p></details><details><summary>Is smart contract security part of Web3 compliance?</summary><p>Yes. Smart contract security is part of Web3 compliance because code can enforce or break transfer restrictions, custody rules, permissions, settlement logic and investor protections. Audits, testing, upgrade controls and monitoring should be part of the compliance file.</p></details><details><summary>What is the Travel Rule in crypto compliance?</summary><p>The Travel Rule requires many virtual asset service providers to share required originator and beneficiary information for certain digital asset transfers. It is especially relevant for exchanges, custodians, payment platforms and other regulated intermediaries.</p></details><details><summary>Where should a Web3 startup begin with compliance?</summary><p>Start by defining the product, asset, users, countries, custody model, fiat or stablecoin flows, wallet permissions and regulated touchpoints. Then shortlist legal, KYC, AML, wallet-screening, custody and security vendors based on the workflow.</p></details></section><section class="post-cta"><h2>Compare Web3 compliance providers</h2><p>Use FluidRWA to compare KYC, KYB, AML, wallet-screening, Travel Rule, legal, audit and compliance infrastructure providers for Web3 and tokenized asset projects.</p><div class="post-cta-actions"><a href="/vendors/compliance-infrastructure-providers/">View Compliance Providers</a><a class="post-cta-secondary" href="/submit-requirement">Submit Requirements</a></div></section></article><aside class="toc"><strong>In this article</strong><a href="#research-web3-blockchain-compliance-guide">Web3 compliance vendor map</a><a href="#what-web3-compliance-means">What Web3 Compliance Means</a><a href="#web3-compliance-in-one-simple-example">Web3 Compliance in One Simple Example</a><a href="#why-compliance-has-become-infrastructure">Why Compliance Has Become Infrastructure</a><a href="#core-web3-compliance-layers">Core Web3 Compliance Layers</a><a href="#compliance-requirements-by-web3-use-case">Compliance Requirements by Web3 Use Case</a><a href="#how-to-choose-web3-compliance-vendors">How to Choose Web3 Compliance Vendors</a><a href="#a-practical-compliance-stack-by-stage">A Practical Compliance Stack by Stage</a><a href="#common-web3-compliance-mistakes">Common Web3 Compliance Mistakes</a><a href="#web3-compliance-checklist">Web3 Compliance Checklist</a><a href="#recommended-fluidrwa-research-path">Recommended FluidRWA Research Path</a><a href="#sources-and-further-reading">Sources and Further Reading</a><a href="#final-takeaway">Final Takeaway</a><strong style="margin-top:24px">Related insights</strong><a href="/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification">Trulioo vs Veriff vs Ondato: KYC and KYB Providers Compared</a><a href="/blog/notabene-vs-sygna-vs-verifyvasp-travel-rule">Notabene vs Sygna vs VerifyVASP: Travel Rule Compliance Provider Comparison</a><a href="/blog/bitwave-vs-cryptio-vs-tres-crypto-accounting">Bitwave vs Cryptio vs TRES: Crypto Accounting Software Comparison</a><a href="/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics">Chainalysis vs TRM Labs vs Elliptic: Blockchain Analytics Provider Comparison</a></aside></div></main><footer class="light-footer"><div class="light-container footer-grid-lite footer-simple"><a class="footer-brand-link" href="/" aria-label="FluidRWA home"><img class="footer-logo-lite" src="/assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><nav class="footer-legal-links" aria-label="Footer navigation"><a href="/contact">Contact Us</a><a href="/about">About</a><a href="/arcade">Arcade</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms & Conditions</a></nav><nav class="footer-social-links" aria-label="FluidRWA social profiles"><a href="https://www.linkedin.com/company/fluidrwa" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/fluid_rwa" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.instagram.com/fluidrwa/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg" target="_blank" rel="noopener noreferrer">YouTube</a></nav></div><div class="light-container footer-bottom-lite">© <span data-year></span> FluidRWA.</div></footer><script src="/assets/site.js?v=forms-1" defer></script></body></html>

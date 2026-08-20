@@ -10,7 +10,7 @@ answer: "Stablecoin payment infrastructure helps businesses accept, send, hold, 
 ctaTitle: "Explore stablecoin payment providers."
 ctaText: "Compare payment rails, stablecoin APIs, merchant processors, treasury tools and settlement infrastructure."
 ctaLabel: "View Payments & Stablecoins"
-ctaUrl: "/vendors/payments-stablecoins/"
+ctaUrl: "/vendors/stablecoin-infrastructure-providers/"
 faq1q: "What are stablecoin payment rails?"
 faq1a: "Stablecoin payment rails are systems that enable businesses or users to move stable-value digital assets for payments, settlement, payouts or treasury operations."
 faq2q: "Why do businesses use stablecoins?"
@@ -40,4 +40,4 @@ Enterprise teams should also evaluate support for KYB, sanctions screening, tran
 
 ## Where To Start
 
-FluidRWA’s [payments and stablecoins provider page](/vendors/payments-stablecoins/) groups stablecoin APIs, payment processors, settlement rails and related infrastructure for easier comparison.
+FluidRWA’s [payments and stablecoins provider page](/vendors/stablecoin-infrastructure-providers/) groups stablecoin APIs, payment processors, settlement rails and related infrastructure for easier comparison.

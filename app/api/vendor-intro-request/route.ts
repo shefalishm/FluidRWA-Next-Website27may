@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyFormSubmission } from "@/lib/emailNotifications";
 
 export const runtime = "nodejs";
 
@@ -6,6 +7,7 @@ type VendorIntroPayload = {
   vendorName?: string;
   vendorCategory?: string;
   source?: string;
+  requestSource?: string;
   pageUrl?: string;
   leadSource?: string;
   contactEmail?: string;
@@ -18,10 +20,20 @@ type VendorIntroPayload = {
   website?: string;
   linkedin?: string;
   projectDescription?: string;
+  paypalSubscriptionId?: string;
+  payuTransactionId?: string;
+  payuPaymentId?: string;
+  payuAmount?: string;
+  payuCurrency?: string;
+  membershipPlan?: string;
+  paymentProvider?: string;
+  paymentStatus?: string;
+  commercialIntent?: string;
   rawPayload?: Record<string, unknown>;
 };
 
 const requiredFields: Array<keyof VendorIntroPayload> = ["contactEmail", "firstName", "lastName", "companyName", "projectDescription"];
+const minimumSubmissionMs = 1200;
 
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -29,6 +41,19 @@ function clean(value: unknown) {
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isLikelyAutomatedSubmission(payload: VendorIntroPayload) {
+  const rawPayload = payload.rawPayload || {};
+  const honeypot = clean(rawPayload.WEBSITE_URL || rawPayload.website_url || rawPayload.websiteUrl);
+  if (honeypot) return true;
+
+  const elapsedValue = Number(rawPayload.FORM_ELAPSED_MS || rawPayload.formElapsedMs || 0);
+  if (Number.isFinite(elapsedValue) && elapsedValue > 0 && elapsedValue < minimumSubmissionMs) {
+    return true;
+  }
+
+  return false;
 }
 
 async function parseRequest(request: Request): Promise<VendorIntroPayload> {
@@ -58,6 +83,15 @@ async function parseRequest(request: Request): Promise<VendorIntroPayload> {
     website: field("WEBSITE"),
     linkedin: field("LINKEDIN_HANDLE"),
     projectDescription: field("CONTACT_CF1"),
+    paypalSubscriptionId: field("PAYPAL_SUBSCRIPTION_ID"),
+    payuTransactionId: field("PAYU_TRANSACTION_ID"),
+    payuPaymentId: field("PAYU_PAYMENT_ID"),
+    payuAmount: field("PAYU_AMOUNT"),
+    payuCurrency: field("PAYU_CURRENCY"),
+    membershipPlan: field("MEMBERSHIP_PLAN"),
+    paymentProvider: field("PAYMENT_PROVIDER"),
+    paymentStatus: field("PAYMENT_STATUS"),
+    commercialIntent: field("COMMERCIAL_INTENT"),
     rawPayload: Object.fromEntries(formData.entries())
   };
 }
@@ -67,7 +101,7 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !serviceRoleKey) {
-    return { mode: "preview" as const, data: null };
+    throw new Error("Supabase lead capture is not configured.");
   }
 
   const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`, {
@@ -92,10 +126,11 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
 export async function POST(request: Request) {
   try {
     const payload = await parseRequest(request);
+    const sourceValue = clean(payload.source) || clean(payload.requestSource) || "submit-requirement";
     const normalized: VendorIntroPayload = {
       vendorName: clean(payload.vendorName),
       vendorCategory: clean(payload.vendorCategory),
-      source: clean(payload.source) || "submit-requirement",
+      source: sourceValue,
       pageUrl: clean(payload.pageUrl),
       leadSource: clean(payload.leadSource),
       contactEmail: clean(payload.contactEmail),
@@ -108,8 +143,28 @@ export async function POST(request: Request) {
       website: clean(payload.website),
       linkedin: clean(payload.linkedin),
       projectDescription: clean(payload.projectDescription),
+      paypalSubscriptionId: clean(payload.paypalSubscriptionId),
+      payuTransactionId: clean(payload.payuTransactionId),
+      payuPaymentId: clean(payload.payuPaymentId),
+      payuAmount: clean(payload.payuAmount),
+      payuCurrency: clean(payload.payuCurrency),
+      membershipPlan: clean(payload.membershipPlan),
+      paymentProvider: clean(payload.paymentProvider),
+      paymentStatus: clean(payload.paymentStatus),
+      commercialIntent: clean(payload.commercialIntent),
       rawPayload: payload.rawPayload || {}
     };
+    if (!normalized.vendorName && normalized.source === "vendor-waitlist") {
+      normalized.vendorName = normalized.companyName;
+    }
+
+    if (isLikelyAutomatedSubmission(normalized)) {
+      return NextResponse.json({
+        ok: true,
+        mode: "filtered",
+        message: "Your request has been received by FluidRWA."
+      });
+    }
 
     const missing = requiredFields.filter((field) => !normalized[field]);
     if (missing.length > 0 || !isValidEmail(normalized.contactEmail || "")) {
@@ -139,23 +194,63 @@ export async function POST(request: Request) {
       linkedin: normalized.linkedin || null,
       project_description: normalized.projectDescription,
       status: "new",
-      raw_payload: normalized.rawPayload
+      raw_payload: {
+        ...(normalized.rawPayload || {}),
+        paypalSubscriptionId: normalized.paypalSubscriptionId || null,
+        payuTransactionId: normalized.payuTransactionId || null,
+        payuPaymentId: normalized.payuPaymentId || null,
+        payuAmount: normalized.payuAmount || null,
+        payuCurrency: normalized.payuCurrency || null,
+        membershipPlan: normalized.membershipPlan || null,
+        paymentProvider: normalized.paymentProvider || null,
+        paymentStatus: normalized.paymentStatus || null,
+        commercialIntent: normalized.commercialIntent || null
+      }
     };
 
     const insert = await insertSupabaseRow(row);
     const insertedRequest = Array.isArray(insert.data) ? insert.data[0] : null;
+    const requestId = insertedRequest?.id || null;
+    const notification = await notifyFormSubmission({
+      requestId,
+      source: row.request_source,
+      firstName: row.first_name,
+      lastName: row.last_name,
+      contactEmail: row.contact_email,
+      companyName: row.company_name,
+      title: row.title,
+      phone: row.phone,
+      country: row.country,
+      website: row.website,
+      linkedin: row.linkedin,
+      vendorName: row.vendor_name,
+      vendorCategory: row.vendor_category,
+      pageUrl: row.page_url,
+      projectDescription: row.project_description,
+      paypalSubscriptionId: normalized.paypalSubscriptionId,
+      payuTransactionId: normalized.payuTransactionId,
+      payuPaymentId: normalized.payuPaymentId,
+      payuAmount: normalized.payuAmount,
+      payuCurrency: normalized.payuCurrency,
+      membershipPlan: normalized.membershipPlan,
+      paymentProvider: normalized.paymentProvider,
+      paymentStatus: normalized.paymentStatus
+    });
 
     return NextResponse.json({
       ok: true,
-      mode: insert.mode,
-      requestId: insertedRequest?.id || `preview-${Date.now()}`,
+      mode: "supabase",
+      requestId,
+      notification,
       message: "Your request has been received by FluidRWA."
     });
   } catch (error) {
+    console.error("vendor intro request failed", error);
     return NextResponse.json(
       {
         ok: false,
-        message: error instanceof Error ? error.message : "Your request could not be saved."
+        message:
+          "Your request could not be saved automatically. Please email contact@fluidrwa.com and we will review it manually."
       },
       { status: 500 }
     );

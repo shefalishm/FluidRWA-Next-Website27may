@@ -40,7 +40,7 @@
         <a href="index.html">Home</a>
         <a href="vendor-ecosystem.html">Vendors</a>
         <a href="solutions.html">Solutions</a>
-        <a href="blog.html">Insights</a>
+        <a href="blog.html">Insights</a><a href="blockchain-projects">Blockchain Projects</a>
         <a href="team.html">Team</a>
         <a href="arcade.html">Arcade</a><a href="contact.html" aria-current="page">Contact</a>
         <a class="nav-ecosystem-cta" href="vendor-ecosystem.html">Explore Vendor Ecosystem</a>
@@ -48,61 +48,41 @@
     </nav>
   </header>
   <main id="main">
-    <section class="form-hero" aria-labelledby="contact-title">
-      <div class="light-container form-hero-grid">
-        <div>
-          <p class="eyebrow light-eyebrow">Contact FluidRWA</p>
-          <h1 id="contact-title">Tell us which path fits you</h1>
-          <p>Submit a project if you are looking for vendors. Apply as a vendor if you want to be discovered by teams exploring digital asset and Web3 infrastructure.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary light-primary" href="submit-project.html">Submit Project</a>
-            <a class="btn btn-soft" href="apply-as-vendor.html">Apply as Vendor</a>
-          </div>
+    <section class="form-section contact-intake-section" aria-labelledby="contact-form-title">
+      <div class="light-container contact-form-only">
+        <div class="intake-frame-card contact-intake-card">
+          <form class="contact-form fluid-intake-form" method="POST" action="/api/vendor-intro-request" data-form-type="project" data-contact-form>
+            <input type="hidden" name="LEAD_SOURCE" value="Contact Page">
+            <input type="hidden" name="VENDOR_NAME" value="">
+            <input type="hidden" name="VENDOR_CATEGORY" value="">
+            <input type="hidden" name="REQUEST_SOURCE" value="contact-project">
+            <input type="hidden" name="PAGE_URL" value="">
+            <div class="contact-form-heading">
+              <p class="eyebrow light-eyebrow" data-contact-eyebrow>Project intake</p>
+              <h2 id="contact-form-title" data-contact-title>Tell FluidRWA what you are building</h2>
+              <p data-contact-body>Share your project, stage, geography and vendor need. FluidRWA will review it and route the next step.</p>
+            </div>
+            <label>Work Email<input name="CONTACT_EMAIL" type="email" autocomplete="email" maxlength="100" required></label>
+            <div class="form-two-col">
+              <label>First Name<input name="FIRSTNAME" autocomplete="given-name" maxlength="100" required></label>
+              <label>Last Name<input name="LASTNAME" autocomplete="family-name" maxlength="50" required></label>
+            </div>
+            <div class="form-two-col">
+              <label>Title<input name="TITLE" autocomplete="organization-title" maxlength="60"></label>
+              <label>Company Name<input name="COMPANYNAME" autocomplete="organization" maxlength="100" required></label>
+            </div>
+            <div class="form-two-col">
+              <label>Phone<input name="PHONE" autocomplete="tel" maxlength="40"></label>
+              <label>Country<input name="COUNTRY" autocomplete="country-name" maxlength="100"></label>
+            </div>
+            <label>Website<input name="WEBSITE" type="url" autocomplete="url" maxlength="250" placeholder="https://"></label>
+            <label>LinkedIn<input name="LINKEDIN_HANDLE" maxlength="200" placeholder="https://www.linkedin.com/in/..."></label>
+            <label>Request Details<textarea name="CONTACT_CF1" maxlength="900" placeholder="Project type, stage, vendor categories, region, timeline and any important requirements." required></textarea></label>
+            <button class="btn btn-primary light-primary" type="submit">Submit Project</button>
+            <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+            <p class="form-note">FluidRWA reviews submissions for relevance, accuracy and ecosystem fit. Paid visibility is optional and never guarantees inclusion or endorsement.</p>
+          </form>
         </div>
-        <aside class="form-hero-card" aria-label="FluidRWA intake options">
-          <p class="eyebrow light-eyebrow">Fast routing</p>
-          <ul>
-            <li>Project teams needing vendor shortlists</li>
-            <li>Infrastructure providers requesting visibility</li>
-            <li>General partnership or media inquiries</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-    <section class="form-section" aria-labelledby="choose-form-title">
-      <div class="light-container">
-        <div class="section-heading-lite">
-          <p class="eyebrow light-eyebrow">Choose a form</p>
-          <h2 id="choose-form-title">Two simple ways to connect</h2>
-          <p>FluidRWA keeps intake focused so the next step is clear.</p>
-        </div>
-        <div class="form-choice-grid">
-          <a class="form-choice-card" href="submit-project.html">
-            <span>For builders</span>
-            <strong>Submit Project</strong>
-            <p>Share what you are building, the region, timeline and vendor categories you need.</p>
-          </a>
-          <a class="form-choice-card" href="apply-as-vendor.html">
-            <span>For providers</span>
-            <strong>Apply as Vendor</strong>
-            <p>Tell FluidRWA about your company, category, geography, services and ideal customers.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="form-section" aria-labelledby="general-title">
-      <div class="light-container form-layout">
-        <div class="form-section-copy">
-          <p class="eyebrow light-eyebrow">General inquiry</p>
-          <h2 id="general-title">Need something else?</h2>
-          <p>For partnerships, press, corrections, or anything that does not fit a project or vendor application, send a short note.</p>
-        </div>
-        <form class="card contact-form" action="mailto:hello@fluidrwa.com" method="post" enctype="text/plain">
-          <label>Name<input name="name" autocomplete="name" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required></label>
-          <label>Message<textarea name="message" placeholder="How can FluidRWA help?" required></textarea></label>
-          <button class="btn btn-primary light-primary" type="submit">Send Message</button>
-        </form>
       </div>
     </section>
   </main>

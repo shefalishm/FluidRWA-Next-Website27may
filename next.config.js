@@ -5,6 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname),
+  outputFileTracingIncludes: {
+    "/*": ["./vendors/**/*", "./data/company-profiles.json"]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -28,6 +31,15 @@ const nextConfig = {
             value: "noindex, nofollow, noarchive, nosnippet"
           }
         ]
+      },
+      {
+        source: "/vendor-membership/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet"
+          }
+        ]
       }
     ];
   },
@@ -42,9 +54,12 @@ const nextConfig = {
       { source: "/contact.html", destination: "/contact", permanent: true },
       { source: "/submit-project.html", destination: "/submit-requirement", permanent: true },
       { source: "/submit-project", destination: "/submit-requirement", permanent: true },
+      { source: "/ecosystem", destination: "/blockchain-projects", permanent: true },
+      { source: "/ecosystem/:chain", destination: "/blockchain-projects/:chain", permanent: true },
       { source: "/team", destination: "/about", permanent: true },
       { source: "/tools/tokenization-readiness-assessment", destination: "/tokenization-readiness-assessment-tool", permanent: true },
       { source: "/apply-as-vendor.html", destination: "/apply-as-vendor", permanent: true },
+      { source: "/specialist-directory", destination: "/apply-as-freelancer", permanent: true },
       { source: "/arcade.html", destination: "/arcade", permanent: true },
       { source: "/privacy.html", destination: "/privacy", permanent: true },
       { source: "/terms.html", destination: "/terms", permanent: true },

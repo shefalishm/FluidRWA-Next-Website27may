@@ -10,7 +10,7 @@ answer: "Choose a custody provider by matching the asset type, investor workflow
 ctaTitle: "Compare custody providers."
 ctaText: "Explore qualified custodians, wallet infrastructure and institutional digital asset safekeeping providers."
 ctaLabel: "View Custody Solutions"
-ctaUrl: "/vendors/custody-solutions/"
+ctaUrl: "/vendors/crypto-custody-providers/"
 faq1q: "What is digital asset custody?"
 faq1a: "Digital asset custody is infrastructure for safekeeping private keys, controlling transactions, managing wallets and protecting tokenized or crypto assets."
 faq2q: "What is MPC custody?"
@@ -40,4 +40,4 @@ For institutions, custody should support both security and operational speed.
 
 ## Where To Compare Providers
 
-FluidRWA’s [custody solutions directory](/vendors/custody-solutions/) covers qualified custodians, wallet infrastructure, MPC providers and institutional digital asset safekeeping options.
+FluidRWA’s [custody solutions directory](/vendors/crypto-custody-providers/) covers qualified custodians, wallet infrastructure, MPC providers and institutional digital asset safekeeping options.

@@ -12,6 +12,13 @@ import {
 } from "@/lib/tokenizationAssessmentRules";
 import { tokenizationAssessmentFaqs } from "@/lib/tokenizationAssessmentContent";
 
+declare global {
+  interface Window {
+    fluidRwaTrackEvent?: (eventName: string, params?: Record<string, unknown>) => void;
+    fluidRwaReportLeadConversion?: () => void;
+  }
+}
+
 type SelectStep = {
   type: "select";
   id: string;
@@ -140,6 +147,38 @@ const assessmentSteps: AssessmentStep[] = [
   )
 ];
 
+const issuerProfiles = [
+  {
+    icon: "IO",
+    title: "Asset owners",
+    text: "Check whether ownership records, valuation, reporting and servicing are ready before speaking to tokenization platforms."
+  },
+  {
+    icon: "FM",
+    title: "Fund managers",
+    text: "Map investor eligibility, subscription workflows, liquidity expectations and the vendor stack needed for tokenized funds."
+  },
+  {
+    icon: "RE",
+    title: "Real estate issuers",
+    text: "Pressure-test SPV structure, investor onboarding, distributions, reporting and transfer controls for property-backed offerings."
+  },
+  {
+    icon: "PM",
+    title: "Private market teams",
+    text: "Estimate complexity for private credit, equity, revenue share, funds or alternative assets before committing budget."
+  }
+] as const;
+
+const assetClasses = [
+  ["Real estate", "SPVs, income assets, property funds"],
+  ["Private credit", "Loans, receivables, yield products"],
+  ["Funds", "Feeder funds, private funds, treasury products"],
+  ["Equity", "Private company shares and cap table workflows"],
+  ["Commodities", "Gold, energy, inventory and physical assets"],
+  ["Intangibles", "IP, royalties, data rights and revenue streams"]
+] as const;
+
 export function TokenizationAssessmentTool() {
   const [answers, setAnswers] = useState<AssessmentAnswers>(defaultAnswers);
   const [lead, setLead] = useState<LeadDetails>(emptyLead);
@@ -171,6 +210,10 @@ export function TokenizationAssessmentTool() {
     setHasStarted(true);
     setShowLeadCapture(false);
     setShowReport(false);
+    window.fluidRwaTrackEvent?.("assessment_started", {
+      assessment_type: "tokenization_readiness",
+      asset_type: answers.assetType
+    });
   };
 
   const goNext = () => {
@@ -179,6 +222,13 @@ export function TokenizationAssessmentTool() {
       return;
     }
     setShowLeadCapture(true);
+    window.fluidRwaTrackEvent?.("assessment_questions_completed", {
+      assessment_type: "tokenization_readiness",
+      asset_type: answers.assetType,
+      investor_type: answers.investorType,
+      cross_border: answers.crossBorder,
+      secondary_trading: answers.secondaryTrading
+    });
   };
 
   const goBack = () => {
@@ -225,6 +275,22 @@ export function TokenizationAssessmentTool() {
       setSaveState(data.mode === "supabase" ? "saved" : "preview");
       setSaveMessage(data.mode === "supabase" ? "Assessment saved. Your report is ready." : "Preview mode: Supabase keys are not connected yet, so this report is stored locally for testing.");
       setShowReport(true);
+      window.fluidRwaTrackEvent?.("assessment_completed", {
+        assessment_type: "tokenization_readiness",
+        asset_type: answers.assetType,
+        country: lead.country,
+        readiness_score: report.score,
+        readiness_classification: report.classification.label,
+        complexity_rating: report.complexityRating,
+        budget_range: report.totalBudgetRange,
+        mode: data.mode
+      });
+      window.fluidRwaTrackEvent?.("assessment_result_viewed", {
+        assessment_type: "tokenization_readiness",
+        readiness_score: report.score,
+        readiness_classification: report.classification.label
+      });
+      window.fluidRwaReportLeadConversion?.();
     } catch (error) {
       setSaveState("error");
       setSaveMessage(error instanceof Error ? error.message : "Assessment could not be saved. Please try again.");
@@ -235,22 +301,77 @@ export function TokenizationAssessmentTool() {
     <div className={`tra-page ${hasStarted ? "is-assessing" : ""}`}>
       {!hasStarted ? (
       <section className="tra-hero">
-        <div className="light-container tra-hero-grid tra-hero-simple">
-          <div>
+        <div className="light-container tra-hero-grid tra-hero-rich">
+          <div className="tra-hero-copy-wrap">
             <p className="eyebrow light-eyebrow">Free tokenization readiness tool</p>
             <h1>Should I Tokenize My Asset?</h1>
             <p className="tra-hero-copy">
-              A common question among asset owners, fund managers, real estate teams, private market issuers and Web3 builders. Use this free FluidRWA tool to understand readiness gaps, likely budget range, timeline and vendor categories before you start tokenization.
+              Get a practical readiness score, budget range, timeline estimate and vendor-category map before you spend months speaking with tokenization platforms, lawyers, KYC providers and smart contract teams.
             </p>
+            <div className="tra-hero-pills" aria-label="Assessment output">
+              <span>Readiness score</span>
+              <span>Budget range</span>
+              <span>Vendor stack</span>
+            </div>
             <div className="tra-hero-actions">
               <button type="button" className="btn-primary" onClick={startAssessment}>Start assessment</button>
+              <a className="btn-secondary" href="#tokenization-use-cases">Who should use it?</a>
             </div>
           </div>
+          <aside className="tra-visual" aria-label="Tokenization readiness preview">
+            <div className="tra-visual-card tra-visual-main">
+              <span>Issuer readiness</span>
+              <strong>82</strong>
+              <p>Sample score</p>
+            </div>
+            <div className="tra-visual-card tra-visual-mini tra-visual-budget">
+              <span>Budget</span>
+              <strong>$5k-$25k</strong>
+            </div>
+            <div className="tra-visual-card tra-visual-mini tra-visual-stack">
+              <span>Stack</span>
+              <strong>Legal + KYC + Custody</strong>
+            </div>
+            <div className="tra-visual-orbit" />
+          </aside>
         </div>
       </section>
       ) : null}
 
       {!hasStarted ? (
+        <>
+        <section className="light-container tra-use-section" id="tokenization-use-cases" aria-labelledby="tokenization-use-title">
+          <div className="tra-section-head">
+            <p className="eyebrow light-eyebrow">Who should use it</p>
+            <h2 id="tokenization-use-title">Built for issuers before vendor selection</h2>
+            <p>Use the tool before asking for quotes, choosing a chain, hiring smart contract developers or committing to a tokenization platform.</p>
+          </div>
+          <div className="tra-issuer-grid">
+            {issuerProfiles.map((profile) => (
+              <article className="tra-issuer-card" key={profile.title}>
+                <div className="tra-3d-icon" aria-hidden="true">{profile.icon}</div>
+                <h3>{profile.title}</h3>
+                <p>{profile.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="light-container tra-asset-section" aria-labelledby="tokenization-assets-title">
+          <div className="tra-section-head">
+            <p className="eyebrow light-eyebrow">Asset classes</p>
+            <h2 id="tokenization-assets-title">See if the asset has enough structure to tokenize</h2>
+            <p>The assessment is useful across income-producing assets, financial products and private market workflows where legal, compliance and investor operations matter.</p>
+          </div>
+          <div className="tra-asset-grid">
+            {assetClasses.map(([title, text], index) => (
+              <article className="tra-asset-tile" key={title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
         <section className="light-container tra-faq-section" aria-labelledby="tokenization-readiness-faq">
           <div className="tra-faq-head">
             <p className="eyebrow light-eyebrow">Tokenization readiness FAQ</p>
@@ -265,6 +386,7 @@ export function TokenizationAssessmentTool() {
             ))}
           </div>
         </section>
+        </>
       ) : null}
 
       {hasStarted && !showLeadCapture && !showReport ? (
@@ -329,7 +451,32 @@ export function TokenizationAssessmentTool() {
             <div className="tra-panel-head">
               <p className="eyebrow light-eyebrow">Get your report</p>
               <h2>Enter your details to view your tokenization readiness report</h2>
-              <p>Your contact details and assessment answers will be saved securely with the report so FluidRWA can follow up with relevant vendor guidance.</p>
+              <p>Your preview is ready. Add your details to unlock the full report, vendor-category map and follow-up guidance.</p>
+            </div>
+            <div className="tra-lead-preview" aria-label="Assessment result preview">
+              <div>
+                <span>Preview score</span>
+                <strong>{report.score}/100</strong>
+                <p>{report.classification.label}</p>
+              </div>
+              <div>
+                <span>Complexity</span>
+                <strong>{report.complexityRating}</strong>
+                <p>{report.timelineMonths}</p>
+              </div>
+              <div>
+                <span>Budget range</span>
+                <strong>{report.totalBudgetRange}</strong>
+                <p>Estimated vendor stack</p>
+              </div>
+            </div>
+            <div className="tra-lead-vendor-preview">
+              <strong>Likely vendor categories</strong>
+              <div>
+                {report.recommendations.slice(0, 4).map((item) => (
+                  <span key={item.category}>{item.category}</span>
+                ))}
+              </div>
             </div>
             <form className="tra-lead-form" onSubmit={submitLead}>
               {(["name", "company", "email", "role", "country"] as const).map((field) => (
@@ -420,8 +567,32 @@ export function TokenizationAssessmentTool() {
             </article>
           </div>
           <div className="tra-report-actions">
-            <a className="btn-primary" href="/submit-requirement">Submit your project</a>
-            <a className="btn-secondary" href="/web3vendorecosystem">Explore vendors</a>
+            <a
+              className="btn-primary"
+              href="/submit-requirement"
+              onClick={() =>
+                window.fluidRwaTrackEvent?.("assessment_cta_clicked", {
+                  assessment_type: "tokenization_readiness",
+                  cta: "submit_project",
+                  readiness_score: report.score
+                })
+              }
+            >
+              Submit your project
+            </a>
+            <a
+              className="btn-secondary"
+              href="/web3vendorecosystem"
+              onClick={() =>
+                window.fluidRwaTrackEvent?.("assessment_cta_clicked", {
+                  assessment_type: "tokenization_readiness",
+                  cta: "explore_vendors",
+                  readiness_score: report.score
+                })
+              }
+            >
+              Explore vendors
+            </a>
           </div>
         </section>
       ) : null}

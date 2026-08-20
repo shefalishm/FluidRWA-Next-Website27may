@@ -492,10 +492,10 @@ Depending on your project, you may need:
 - [Smart Contract Development Companies](/vendors/smart-contract-development-companies/) for contract design and on-chain logic
 - [Security Audit Companies](/vendors/security-audit-companies/) for code audits, monitoring and incident readiness
 - [Compliance Infrastructure Providers](/vendors/compliance-infrastructure-providers/) for transaction monitoring, reporting and policy controls
-- [KYC and AML Providers](/vendors/kyc-aml/) for identity checks and sanctions screening
+- [KYC and AML Providers](/vendors/kyc-aml-providers/) for identity checks and sanctions screening
 - [Tokenization Platforms](/vendors/tokenization-platforms/) for issuing and servicing real-world assets
 - [Stablecoin Infrastructure Providers](/vendors/stablecoin-infrastructure-providers/) for settlement and treasury workflows
-- [Custody Solutions](/vendors/custody-solutions/) for wallets, qualified custody and key management
+- [Custody Solutions](/vendors/crypto-custody-providers/) for wallets, qualified custody and key management
 
 ## References And Further Reading
 

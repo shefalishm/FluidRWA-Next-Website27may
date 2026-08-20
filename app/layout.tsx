@@ -2,10 +2,13 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
+import { FluidRwaSignupPopup } from "@/components/FluidRwaSignupPopup";
 import { FormScripts } from "@/components/FormScripts";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { MotionShell } from "@/components/MotionShell";
+import { PayPalMembershipCheckout } from "@/components/PayPalMembershipCheckout";
+import { RouteReady } from "@/components/RouteReady";
 import { siteUrl } from "@/lib/routes";
 import "./globals.css";
 
@@ -15,7 +18,7 @@ export const metadata: Metadata = {
     default: "FluidRWA",
     template: "%s"
   },
-  description: "Discover trusted Web3 and RWA vendors across tokenization, compliance, custody, stablecoins, legal, AI, security and blockchain infrastructure.",
+  description: "Discover trusted Web3, RWA and AI infrastructure vendors across 1000+ tracked providers and 30+ categories including tokenization, compliance, custody, stablecoins, legal, AI, security and blockchain infrastructure.",
   icons: {
     icon: "/assets/favicon.png"
   }
@@ -29,6 +32,7 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const buildRevision = process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_BUILD_REVISION || "local";
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -39,9 +43,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       "@type": "ImageObject",
       url: `${siteUrl}/assets/fluidrwa-small-logo.png`
     },
-    description: "FluidRWA helps teams discover trusted Web3, RWA and digital asset infrastructure vendors.",
+    description: "FluidRWA helps teams discover trusted Web3, RWA and AI infrastructure vendors across 1000+ tracked providers and 30+ categories.",
     sameAs: [
       "https://www.linkedin.com/company/fluidrwa",
+      "https://x.com/fluid_rwa",
       "https://www.instagram.com/fluidrwa/",
       "https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg"
     ],
@@ -63,14 +68,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang="en">
-      <body className="light-home">
+      <body className="light-home" data-fluidrwa-build={buildRevision}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
         <Header />
         <MotionShell>{children}</MotionShell>
+        <FluidRwaSignupPopup />
         <Footer />
         <FormScripts />
+        <PayPalMembershipCheckout />
+        <RouteReady />
         <GoogleAnalytics />
-        <Script src="/assets/site.js?v=next-3" strategy="afterInteractive" />
+        <Script src="/assets/site.js?v=vendor-search-2" strategy="afterInteractive" />
       </body>
     </html>
   );

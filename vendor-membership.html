@@ -106,10 +106,18 @@
   .tier li.no{color:var(--ink-mute)} .tier li.no::before{background:#f1f2f5} .tier li.no::after{background:var(--ink-mute)}
   .tier .cta{margin-top:auto;text-align:center;font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:12px;border:1.5px solid #2f6fb4;background:#2f6fb4;color:#fff;box-shadow:0 8px 20px rgba(47,111,180,.18);transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease;overflow-wrap:anywhere}
   .tier .cta:hover{background:#f2cc2c;border-color:#f2cc2c;color:var(--ink);box-shadow:0 10px 24px rgba(242,204,44,.24);transform:translateY(-1px)}
-  .payu-membership{margin-top:auto;display:grid;gap:10px}
-  .payu-membership-note{font-size:12px;line-height:1.45;color:var(--ink-soft);margin:0 0 6px;text-align:center}
-  .payu-membership .cta{width:100%}
-  .payu-secondary-link{text-align:center;font-size:12px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+  .paypal-membership{margin-top:auto;display:grid;gap:10px}
+  .paypal-membership-note{font-size:12px;line-height:1.45;color:var(--ink-soft);margin:0 0 6px;text-align:center}
+  .paypal-membership .cta{width:100%}
+  button.cta,button.paypal-secondary-link{font:inherit;cursor:pointer}
+  .paypal-secondary-link{border:0;background:transparent;text-align:center;font-size:12px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+  .paypal-dialog{width:min(520px,calc(100vw - 32px));border:0;border-radius:18px;padding:0;box-shadow:0 24px 80px rgba(18,33,58,.28);color:var(--ink)}
+  .paypal-dialog::backdrop{background:rgba(18,33,58,.58);backdrop-filter:blur(4px)}
+  .paypal-dialog-inner{position:relative;padding:30px;background:#fff}
+  .paypal-dialog-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:0;border-radius:50%;background:#f3f5f8;color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+  .paypal-dialog h3{font-family:var(--disp);font-size:27px;line-height:1.15;margin:8px 44px 8px 0}
+  .paypal-dialog-copy{color:var(--ink-soft);font-size:14px;margin-bottom:20px}
+  .paypal-dialog-status{min-height:20px;margin-top:12px;color:#9b2c2c;font-size:13px;text-align:center}
 
   /* premium highlighted */
   .tier.premium{border:1.8px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;box-shadow:var(--shadow-lg);transform:scale(1.03);position:relative;z-index:2}
@@ -218,7 +226,7 @@
     .ribbon{font-size:9px;padding:6px 13px}
     .tier .price{font-size:32px}
     .tier.is-secondary .price{font-size:32px}
-    .payu-secondary-link{font-size:12px}
+    .paypal-secondary-link{font-size:12px}
     .roi{padding:30px 24px}
     .fitem b{min-width:0}
     .vetting-note{padding:30px 24px}
@@ -341,10 +349,10 @@
           <li>Ability to respond to reviews once reviews go live</li>
           <li>Payment does not guarantee approval or endorsement</li>
         </ul>
-        <div class="payu-membership">
-          <p class="payu-membership-note">Pay with PayU first. The USD membership price is converted to INR at checkout, then you complete the vendor form so FluidRWA receives your payment reference and company details together.</p>
-          <a class="cta" href="https://www.fluidrwa.com/api/payu/start?plan=verified-monthly">Pay $39 monthly</a>
-          <a class="payu-secondary-link" href="https://www.fluidrwa.com/api/payu/start?plan=verified-yearly">Pay $390 annually</a>
+        <div class="paypal-membership">
+          <p class="paypal-membership-note">Subscribe securely with PayPal, then complete the vendor form so FluidRWA can match the subscription to your company details.</p>
+          <button class="cta paypal-plan-trigger" type="button" data-plan="verified-monthly" data-plan-name="Verified monthly" data-price="$39 per month" data-paypal-plan="P-4SV19732BX232642SNJS5KDA">Pay $39 monthly</button>
+          <button class="paypal-secondary-link paypal-plan-trigger" type="button" data-plan="verified-yearly" data-plan-name="Verified annual" data-price="$390 per year" data-paypal-plan="P-70082213N75980739NKCEXSY">Pay $390 annually</button>
         </div>
       </div>
 
@@ -365,8 +373,8 @@
           <li>Published vendor spotlight, short profile or Q&amp;A piece</li>
         </ul>
         <div class="scar" id="scarTag">For vendors ready to be promoted</div>
-        <a class="cta" id="premCta" href="https://www.fluidrwa.com/api/payu/start?plan=spotlight-monthly">Pay $149 monthly</a>
-        <a class="payu-secondary-link" href="https://www.fluidrwa.com/api/payu/start?plan=spotlight-yearly">Pay $1,490 annually</a>
+        <button class="cta paypal-plan-trigger" id="premCta" type="button" data-plan="spotlight-monthly" data-plan-name="Spotlight monthly" data-price="$149 per month" data-paypal-plan="P-6G024370534716903NKCEZOA">Pay $149 monthly</button>
+        <button class="paypal-secondary-link paypal-plan-trigger" type="button" data-plan="spotlight-yearly" data-plan-name="Spotlight annual" data-price="$1,490 per year" data-paypal-plan="P-0RJ597478E7668935NKCEZ2Y">Pay $1,490 annually</button>
       </div>
 
       <div class="tier is-secondary reveal">
@@ -386,8 +394,8 @@
           <li>Inclusion in annual RWA vendor market map and trusted-vendor report</li>
           <li>Dedicated onboarding and support</li>
         </ul>
-        <a class="cta" href="https://www.fluidrwa.com/api/payu/start?plan=flagship-monthly">Pay $399 monthly</a>
-        <a class="payu-secondary-link" href="https://www.fluidrwa.com/api/payu/start?plan=flagship-yearly">Pay $3,990 annually</a>
+        <button class="cta paypal-plan-trigger" type="button" data-plan="flagship-monthly" data-plan-name="Flagship monthly" data-price="$399 per month" data-paypal-plan="P-19J76111U19041239NKCE2UA">Pay $399 monthly</button>
+        <button class="paypal-secondary-link paypal-plan-trigger" type="button" data-plan="flagship-yearly" data-plan-name="Flagship annual" data-price="$3,990 per year" data-paypal-plan="P-0BX02035SS952394FNKCE3JI">Pay $3,990 annually</button>
       </div>
 
     </div>
@@ -433,6 +441,16 @@
 </section>
 
 </div>
+<dialog class="paypal-dialog" id="paypalMembershipDialog" aria-labelledby="paypalMembershipTitle">
+  <div class="paypal-dialog-inner">
+    <button class="paypal-dialog-close" type="button" aria-label="Close PayPal checkout">&times;</button>
+    <div class="eyebrow">Secure subscription</div>
+    <h3 id="paypalMembershipTitle">Complete your FluidRWA membership</h3>
+    <p class="paypal-dialog-copy" id="paypalMembershipCopy"></p>
+    <div id="paypalMembershipButtons"></div>
+    <p class="paypal-dialog-status" id="paypalMembershipStatus" role="status" aria-live="polite"></p>
+  </div>
+</dialog>
 <footer class="light-footer">
   <div class="light-container footer-grid-lite footer-simple">
     <a class="footer-brand-link" href="/" aria-label="FluidRWA home"><img class="footer-logo-lite" src="/assets/fluidrwa-small-logo.png" alt="FluidRWA"></a>
@@ -452,7 +470,6 @@
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   // Select a category and update the Premium CTA.
-  const membershipApplicationUrl='https://docs.google.com/forms/d/1O8nPN7C7j01Ymy-_INxQS980xy0qWjFdMZ7iKJrxIRE/edit?usp=forms_home&ouid=110542813037386386969&ths=true&pli=1';
   const cta=document.getElementById('premCta');
   const scar=document.getElementById('scarTag');
   document.querySelectorAll('.cat.open').forEach(cat=>{
@@ -460,16 +477,11 @@
       const already=cat.classList.contains('selected');
       document.querySelectorAll('.cat.selected').forEach(c=>c.classList.remove('selected'));
       if(already){
-        cta.textContent='Request category access';
         scar.textContent='First cohort now being reviewed';
         return;
       }
       cat.classList.add('selected');
       const name=cat.querySelector('.cname').textContent;
-      cta.textContent='Request '+name+' access';
-      cta.href=membershipApplicationUrl;
-      cta.target='_blank';
-      cta.rel='noopener noreferrer';
       scar.textContent=name+' review selected';
       document.getElementById('pricing').scrollIntoView({behavior:'smooth'});
     });
@@ -486,6 +498,8 @@
     });
   }
 </script>
+<script src="https://www.paypal.com/sdk/js?client-id=AeW5lheoWs1gtjC00QbAcBDHn7k9gJdebFCtbXVYSuZZYJlsFS5yFIVVlbUS8jwGH8AgIzjK2WQzHS0J&amp;vault=true&amp;intent=subscription" defer></script>
+<script src="/assets/paypal-membership.js?v=1" defer></script>
 <script src="/assets/site.js?v=vendor-membership-2" defer></script>
 </body>
 </html>

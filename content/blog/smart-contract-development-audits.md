@@ -10,7 +10,7 @@ answer: "Teams should evaluate smart contract providers by security process, aud
 ctaTitle: "Find smart contract providers."
 ctaText: "Compare development teams, audit firms, monitoring tools and secure Web3 engineering partners."
 ctaLabel: "View Smart Contract Providers"
-ctaUrl: "/vendors/smart-contract-development/"
+ctaUrl: "/vendors/smart-contract-development-companies/"
 faq1q: "Do smart contracts always need audits?"
 faq1a: "High-value or user-facing smart contracts should usually be audited, tested and monitored before and after launch."
 faq2q: "What should a smart contract audit include?"
@@ -32,6 +32,8 @@ Review experience with your chain, token standard, asset type and protocol patte
 
 A good team should explain tradeoffs clearly and help reduce complexity where possible.
 
+If you are still building the shortlist, use the FluidRWA guide to [top smart contract development companies for Web3 and tokenization projects](/blog/top-smart-contract-development-companies-web3-tokenization/) to separate developers, audit firms, tooling providers and infrastructure partners before requesting proposals.
+
 ## What To Check In An Audit
 
 Audits should include manual review, automated tooling, test coverage review and clear severity categories. For complex protocols, economic review and formal verification may also matter.
@@ -40,4 +42,4 @@ Post-launch monitoring is increasingly important. Audits reduce risk, but they d
 
 ## Where To Compare Providers
 
-Use FluidRWA’s [smart contract development category](/vendors/smart-contract-development/) and [security and audits category](/vendors/security-audits/) to compare teams by workflow.
+Use FluidRWA’s [smart contract development category](/vendors/smart-contract-development-companies/), [blockchain development company directory](/vendors/blockchain-development-companies/) and [security audit category](/vendors/security-audit-companies/) to compare teams by workflow.

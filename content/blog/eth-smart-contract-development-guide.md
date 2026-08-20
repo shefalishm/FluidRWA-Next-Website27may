@@ -10,7 +10,7 @@ answer: "ETH smart contracts are programs deployed on Ethereum that execute rule
 ctaTitle: "Compare smart contract development companies"
 ctaText: "Use FluidRWA to find smart contract development services, audit partners and blockchain engineering teams for Web3, DeFi and tokenization projects."
 ctaLabel: "View Smart Contract Providers"
-ctaUrl: "/vendors/smart-contract-development/"
+ctaUrl: "/vendors/smart-contract-development-companies/"
 ctaSecondaryLabel: "View Security Audit Firms"
 ctaSecondaryUrl: "/vendors/security-audit-companies/"
 faq1q: "What is an ETH smart contract?"
@@ -38,7 +38,7 @@ ETH smart contracts are programs deployed on Ethereum that run exactly according
 
 For buyers, the important question is not only "Can someone write Solidity?" The real question is whether the smart contract development company can design secure architecture, test edge cases, prepare for audits, deploy safely and help the product operate after launch.
 
-If you are comparing a smart contract development agency, smart contract development services or a smart contract development service provider, use this guide as a practical due diligence checklist.
+If you are comparing a smart contract development agency, smart contract development services or a smart contract development service provider, use this guide as a practical due diligence checklist. You can also compare the FluidRWA [smart contract development companies directory](/vendors/smart-contract-development-companies/) for audit firms, Solidity developers, Solana specialists, tooling providers and monitoring platforms.
 
 ## What are ETH smart contracts
 
@@ -107,7 +107,7 @@ Good smart contract development services usually include:
 
 A serious Ethereum project should not treat an audit as a final stamp. The best development teams prepare for audits early by writing clean code, documenting assumptions and resolving obvious issues before an external auditor starts.
 
-For high-value contracts, buyers should consider both [smart contract development providers](/vendors/smart-contract-development/) and independent [security audit companies](/vendors/security-audit-companies/). Separating development and audit can reduce blind spots.
+For high-value contracts, buyers should consider both [smart contract development providers](/vendors/smart-contract-development-companies/) and independent [security audit companies](/vendors/security-audit-companies/). Separating development and audit can reduce blind spots.
 
 ### 5. Deployment and monitoring
 
@@ -161,7 +161,7 @@ Payment products use smart contracts to move tokens, route settlement, trigger p
 
 ### Identity and compliance workflows
 
-Smart contracts can enforce allowlists, investor categories, transfer restrictions or credential-based access. These use cases usually need [KYC and AML providers](/vendors/kyc-aml/) and [compliance infrastructure](/vendors/compliance-infrastructure-providers/), not just code.
+Smart contracts can enforce allowlists, investor categories, transfer restrictions or credential-based access. These use cases usually need [KYC and AML providers](/vendors/kyc-aml-providers/) and [compliance infrastructure](/vendors/compliance-infrastructure-providers/), not just code.
 
 ## How to choose a smart contract development company
 
@@ -266,7 +266,7 @@ You should consider hiring a specialist provider when:
 - you need audit-ready documentation
 - the product must integrate with wallets, APIs, oracles or compliance systems
 
-For broader builds, compare [blockchain development companies](/vendors/blockchain-development/) as well. For pure contract logic and protocol security, start with [smart contract development providers](/vendors/smart-contract-development/) and [security audit vendors](/vendors/security-audit-companies/).
+For broader builds, compare [blockchain development companies](/vendors/blockchain-development/) as well. For pure contract logic and protocol security, start with [smart contract development providers](/vendors/smart-contract-development-companies/) and [security audit vendors](/vendors/security-audit-companies/).
 
 ## ETH smart contract development vendor shortlist framework
 
@@ -280,12 +280,12 @@ Some teams combine these roles. Institutional projects should still preserve ind
 
 Use FluidRWA to compare:
 
-- [Smart Contract Development](/vendors/smart-contract-development/)
+- [Smart Contract Development](/vendors/smart-contract-development-companies/)
 - [Security and Audits](/vendors/security-audit-companies/)
 - [Blockchain Development](/vendors/blockchain-development/)
 - [Tokenization Platforms](/vendors/tokenization-platforms/)
 - [Compliance Infrastructure](/vendors/compliance-infrastructure-providers/)
-- [KYC and AML Providers](/vendors/kyc-aml/)
+- [KYC and AML Providers](/vendors/kyc-aml-providers/)
 
 ## Sources and further reading
 

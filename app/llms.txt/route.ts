@@ -7,7 +7,7 @@ export function GET() {
   const filePath = path.join(process.cwd(), "llms.txt");
   const body = fs.existsSync(filePath)
     ? fs.readFileSync(filePath, "utf8")
-    : "# FluidRWA\n\nFluidRWA helps teams discover trusted Web3, RWA and digital asset infrastructure vendors.\n";
+    : "# FluidRWA\n\nFluidRWA helps teams discover 1,000+ tracked Web3, RWA, AI and digital asset infrastructure providers across 30+ searchable categories.\n";
 
   return new Response(body, {
     headers: {
