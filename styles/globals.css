@@ -10271,13 +10271,13 @@ body {
 .next-page-shell .vendor-card-actions .vendor-contact-trigger,
 .next-page-shell .company-actions .company-btn.primary,
 .next-page-shell [data-vendor-contact-link="true"] {
-  border-radius: 8px;
-  background: linear-gradient(180deg, #2d75bd 0%, #1c5fa3 52%, #154c86 100%);
-  color: #fff;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f9ff 44%, #e5f2ff 100%);
+  color: #2470b8;
   box-shadow:
-    0 5px 0 #0d3a68,
-    0 12px 24px rgba(18, 72, 123, .24),
-    inset 0 1px 0 rgba(255, 255, 255, .44);
+    0 10px 24px rgba(32, 104, 173, .12),
+    inset 0 1px 0 rgba(255, 255, 255, .96),
+    inset 0 -1px 0 rgba(91, 157, 219, .08);
 }
 
 /* Native Next routes do not all include next-page-shell. */
