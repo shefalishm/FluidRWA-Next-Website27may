@@ -37,10 +37,11 @@ const categorySlugMap = {
   "ai-risk-analytics-compliance-intelligence": "ai-risk-analytics-compliance-intelligence",
   "decentralized-ai-compute-gpu-infrastructure": "decentralized-ai-compute-gpu-infrastructure",
   "ai-data-model-marketplaces": "ai-data-model-marketplaces",
-  "verifiable-ai-smart-contract-infrastructure": "verifiable-ai-smart-contract-infrastructure"
+  "verifiable-ai-smart-contract-infrastructure": "verifiable-ai-smart-contract-infrastructure",
+  "node-as-a-service-rpc": "node-as-a-service-rpc-providers"
 };
 
-const priorityCompanySlugs = new Set(["zoniqx", "minddeft-technologies", "surestack"]);
+const priorityCompanySlugs = new Set(["zoniqx", "minddeft-technologies", "surestack", "chainstack"]);
 
 const manualCompanyProfiles = [
   {
@@ -183,7 +184,10 @@ function collectCompanies() {
     if (!fs.existsSync(htmlPath)) continue;
     const html = fs.readFileSync(htmlPath, "utf8");
     const extracted = extractJsonLd(html);
-    const title = extracted?.parsed["@graph"]?.find((item) => item?.["@type"] === "CollectionPage")?.name || "Identity Solutions Vendors | FluidRWA";
+    const rawTitle = extracted?.parsed["@graph"]?.find((item) => item?.["@type"] === "CollectionPage")?.name || "Identity Solutions Vendors | FluidRWA";
+    const title = categoryDir === "node-as-a-service-rpc"
+      ? "Node-as-a-Service and RPC Providers | FluidRWA"
+      : rawTitle;
     const rawVendors = extracted?.itemList?.itemListElement || fallbackCategoryVendors[categoryDir]?.map((item) => ({ position: item.position, item })) || [];
     if (!rawVendors.length) continue;
     const vendors = rawVendors

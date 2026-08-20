@@ -1165,6 +1165,17 @@
     "logoPath": "",
     "researchedAt": "2026-07-17"
   },
+  "chainstack": {
+    "name": "Chainstack",
+    "slug": "chainstack",
+    "sourceUrl": "https://chainstack.com/",
+    "officialTitle": "Chainstack - Leading suite of services connecting developers with Web3 infrastructure",
+    "siteName": "Chainstack",
+    "officialDescription": "Low-latency onchain operations and historical data across 70+ chains, with global, dedicated, unlimited and self-hosted node deployment options.",
+    "logoSource": "https://chainstack.com/wp-content/uploads/2019/03/Logo-Blue@3x-Padded.png",
+    "logoPath": "/assets/company-logos/chainstack.png",
+    "researchedAt": "2026-08-20"
+  },
   "surestack": {
     "name": "SureStack",
     "slug": "surestack",
