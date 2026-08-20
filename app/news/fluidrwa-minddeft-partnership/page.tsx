@@ -250,7 +250,7 @@ export default function FluidRwaMinddeftPartnershipPage() {
               organizations to identify trusted service providers, and Minddeft's technical capabilities strengthen the
               options available to projects looking for experienced blockchain development partners."
             </p>
-            <footer>Shefali Sharma, Co-Founder & CMO, FluidRWA</footer>
+            <footer>FluidRWA team</footer>
           </blockquote>
           <blockquote>
             <p>

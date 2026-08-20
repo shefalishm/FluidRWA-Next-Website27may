@@ -272,7 +272,7 @@ export default function FluidRwaSureStackPartnershipPage() {
               ecosystem ensures that asset issuers and enterprises on our platform have access to a world-class security
               and risk intelligence platform."
             </p>
-            <footer>Shefali Sharma, Founder & CEO, FluidRWA</footer>
+            <footer>FluidRWA team</footer>
           </blockquote>
           <blockquote>
             <p>
