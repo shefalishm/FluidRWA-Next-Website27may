@@ -139,11 +139,14 @@ function svg(post, index) {
 </svg>`;
 }
 
+const requestedSlugs = new Set(process.argv.slice(2));
 const files = fs.readdirSync(blogDir).filter((file) => file.endsWith(".md")).sort();
+let generated = 0;
 files.forEach((file, index) => {
   const full = path.join(blogDir, file);
   const parsed = parse(fs.readFileSync(full, "utf8"));
   const slug = parsed.data.slug || file.replace(/\.md$/, "");
+  if (requestedSlugs.size && !requestedSlugs.has(slug)) return;
   if (String(parsed.data.imageLocked || "").toLowerCase() === "true") {
     return;
   }
@@ -154,6 +157,7 @@ files.forEach((file, index) => {
   fs.writeFileSync(path.join(imageDir, `${slug}.svg`), imageSvg);
   fs.writeFileSync(path.join(publicImageDir, `${slug}.svg`), imageSvg);
   fs.writeFileSync(full, `---\n${frontmatter(parsed.data)}\n---\n${parsed.body}`);
+  generated += 1;
 });
 
-console.log(`Assigned ${files.length} unique local blog images.`);
+console.log(`Assigned ${generated} unique local blog images.`);
