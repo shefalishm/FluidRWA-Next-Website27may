@@ -80,6 +80,7 @@ const nextConfig = {
       { source: "/vendors/:slug/index.html", destination: "/vendors/:slug", permanent: true },
       { source: "/blog/:slug/index.html", destination: "/blog/:slug", permanent: true }
       ,
+      { source: "/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers", destination: "/blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers", permanent: true },
       // Preserve authority and citations earned by the previous Wix website.
       { source: "/legal-bison-crypto-licensing-regulatory-review", destination: "/vendors/legal-regulatory-vendors", permanent: true },
       { source: "/vetted-institutional-digital-asset-custody-providers", destination: "/vendors/crypto-custody-providers", permanent: true },

@@ -74,7 +74,7 @@ const blogResearch = {
       ["RedStone official site", "https://redstone.finance/"]
     ]
   },
-  "alchemy-vs-quicknode-vs-chainstack-rpc-node-providers": {
+  "alchemy-vs-quicknode-vs-infura-rpc-node-providers": {
     label: "Chainstack, Alchemy and QuickNode comparison snapshot",
     intro: "RPC providers should be compared against the production workload, not by brand recognition alone. Chainstack, Alchemy and QuickNode overlap on managed blockchain access, but differ in infrastructure control, application APIs, event pipelines, metering and dedicated capacity.",
     headers: ["Decision factor", "Chainstack", "Alchemy", "QuickNode"],
@@ -135,30 +135,6 @@ const blogResearch = {
       ["LeewayHertz software development", "https://www.leewayhertz.com/software-development-company/"],
       ["Blaize enterprise blockchain development", "https://blaize.tech/for-enterprises/"],
       ["Consensys Solutions", "https://consensys.io/solutions"]
-    ]
-  },
-  "alchemy-vs-quicknode-vs-infura-rpc-node-providers": {
-    label: "RPC and node provider comparison snapshot",
-    intro: "RPC and node providers should be compared by reliability, chain coverage, data products, event streaming, rate limits, failover, archive access and the developer workflow around the application. Alchemy, QuickNode and Infura all provide blockchain access, but their best-fit products differ.",
-    headers: ["Decision factor", "Alchemy", "QuickNode", "Infura"],
-    rows: [
-      ["Natural buyer", "Apps needing APIs, smart wallets, webhooks and integrated developer tooling", "Multi-chain apps needing RPC, Streams, Webhooks and dedicated infrastructure", "Ethereum and EVM teams needing familiar managed API access"],
-      ["Strongest workflow", "Application infrastructure, data APIs, smart wallets and transaction tooling", "Multi-chain RPC, event data pipelines, WebSockets and dedicated options", "Managed blockchain API access and Ethereum ecosystem workflows"],
-      ["Best fit", "Investor dashboards, wallet activity, gasless UX, transaction monitoring and app APIs", "High-reliability chain access, event streams and operational monitoring", "Ethereum-based tokenization products needing managed RPC access"],
-      ["Main check before buying", "Whether the team needs a broader developer platform or only node access", "Whether multi-chain performance and event pipelines are required", "Whether chain coverage and rate model fit the product"]
-    ],
-    links: [
-      ["Compare RPC and node providers", directory("node-as-a-service-rpc-providers")],
-      ["Compare blockchain development companies", directory("blockchain-development-companies")],
-      ["Compare oracle and data providers", directory("oracles-data-proof-of-reserve")],
-      ["Submit infrastructure requirements", "/submit-requirement"]
-    ],
-    sources: [
-      ["Alchemy documentation", "https://www.alchemy.com/docs"],
-      ["QuickNode documentation", "https://www.quicknode.com/docs/welcome"],
-      ["QuickNode APIs", "https://www.quicknode.com/docs/build-with-ai/quicknode-apis"],
-      ["Infura documentation", "https://docs.infura.io/"],
-      ["Ethereum nodes documentation", "https://ethereum.org/developers/docs/nodes-and-clients/"]
     ]
   },
   "layerzero-vs-wormhole-vs-axelar-interoperability": {
