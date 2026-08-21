@@ -127,6 +127,7 @@
   <url><loc>https://www.fluidrwa.com/blog</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.fluidrwa.com/reports-research</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/tokenization</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/blockaid-vs-blowfish-vs-hypernative-web3-security</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/complyadvantage-vs-unit21-vs-sardine-aml-fraud</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/safe-vs-squads-vs-fordefi-treasury-wallets</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -171,7 +172,7 @@
   <url><loc>https://www.fluidrwa.com/blog/dune-vs-nansen-vs-token-terminal-crypto-analytics</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/safe-vs-fordefi-vs-utila-wallet-infrastructure</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/the-graph-vs-goldsky-vs-subsquid-indexing-providers</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/chainlink-vs-pyth-vs-redstone-oracle-providers</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/layerzero-vs-wormhole-vs-axelar-interoperability</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
