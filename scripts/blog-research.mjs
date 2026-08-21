@@ -74,6 +74,34 @@ const blogResearch = {
       ["RedStone official site", "https://redstone.finance/"]
     ]
   },
+  "alchemy-vs-quicknode-vs-chainstack-rpc-node-providers": {
+    label: "Chainstack, Alchemy and QuickNode comparison snapshot",
+    intro: "RPC providers should be compared against the production workload, not by brand recognition alone. Chainstack, Alchemy and QuickNode overlap on managed blockchain access, but differ in infrastructure control, application APIs, event pipelines, metering and dedicated capacity.",
+    headers: ["Decision factor", "Chainstack", "Alchemy", "QuickNode"],
+    rows: [
+      ["Natural buyer", "Infrastructure teams prioritizing node control, archive access and dedicated resources", "Application teams wanting RPC plus integrated data, wallet and transaction APIs", "Multi-chain teams wanting RPC, event pipelines, add-ons and flexible capacity"],
+      ["Infrastructure model", "Elastic endpoints plus protocol-specific dedicated nodes and operating modes", "Managed RPC within a broader application-development platform", "Managed multi-chain endpoints with shared, dedicated and selected fixed-rate products"],
+      ["Usage model", "Request Units for elastic access; compute-based pricing for dedicated nodes", "Method-weighted Compute Units, pay-as-you-go and enterprise arrangements", "Credits on standard plans; selected flat-rate RPS products and add-ons"],
+      ["Archive and trace access", "Protocol- and mode-specific archive, debug and trace access; confirm exact deployment", "Archive and trace methods depend on network, method and plan", "Archive and trace support depends on network, endpoint and plan"],
+      ["Strongest RWA fit", "Controlled infrastructure for issuance, servicing, audit queries and dedicated workloads", "Investor applications needing balances, transfers, wallets, simulation or gas sponsorship", "Multi-chain monitoring, settlement-event pipelines and high-throughput data movement"],
+      ["Main check before buying", "Protocol coverage, regional options, storage, support and failover design", "Whether the broader API platform justifies method-weighted usage costs", "Credit consumption, add-on costs and fixed-rate availability for the required chain"]
+    ],
+    links: [
+      ["Compare RPC and node providers", directory("node-as-a-service-rpc-providers")],
+      ["View Chainstack on FluidRWA", "/fluidrwa/chainstack"],
+      ["Use the vendor comparison tool", "/tools/vendor-comparison"],
+      ["Submit infrastructure requirements", "/submit-requirement"]
+    ],
+    sources: [
+      ["Chainstack pricing", "https://chainstack.com/pricing/"],
+      ["Chainstack dedicated nodes", "https://chainstack.com/dedicated-nodes/"],
+      ["Chainstack protocol modes and types", "https://docs.chainstack.com/docs/protocols-modes-and-types"],
+      ["Alchemy pricing", "https://www.alchemy.com/pricing"],
+      ["Alchemy Compute Units", "https://www.alchemy.com/docs/reference/compute-units"],
+      ["QuickNode pricing", "https://www.quicknode.com/pricing"],
+      ["QuickNode flat-rate RPS documentation", "https://www.quicknode.com/docs/platform/billing/flat-rate-rps"]
+    ]
+  },
   "alchemy-vs-quicknode-vs-infura-rpc-node-providers": {
     label: "RPC and node provider comparison snapshot",
     intro: "RPC and node providers should be compared by reliability, chain coverage, data products, event streaming, rate limits, failover, archive access and the developer workflow around the application. Alchemy, QuickNode and Infura all provide blockchain access, but their best-fit products differ.",

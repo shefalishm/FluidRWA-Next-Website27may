@@ -262,7 +262,7 @@ for (const file of files) {
   if (requestedSlugs.size && !requestedSlugs.has(slug)) continue;
   parsed.data.socialImage = `/assets/social/blog-${slug}.png`;
   if (!preserveCustomSocialImages.has(slug)) {
-    card({ output: `blog-${slug}.png`, label: parsed.data.category || "Insight", title: parsed.data.title, slug });
+    card({ output: `blog-${slug}.png`, label: parsed.data.category || "Insight", title: parsed.data.socialTitle || parsed.data.title, slug });
   }
   fs.writeFileSync(full, `---\n${frontmatter(parsed.data)}\n---\n${parsed.body}`);
 }
