@@ -288,8 +288,12 @@ function postPage(post, posts) {
     return faq;
   });
   const headings = [...post.html.matchAll(/<h2>(.*?)<\/h2>/g)].map((m) => m[1].replace(/<[^>]+>/g, ""));
+  const relatedExclusions = String(post.relatedExclusions || "")
+    .split(",")
+    .map((slug) => slug.trim())
+    .filter(Boolean);
   const related = posts
-    .filter((p) => p.slug !== post.slug)
+    .filter((p) => p.slug !== post.slug && !relatedExclusions.includes(p.slug))
     .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
     .slice(0, 4);
   const research = getBlogResearch(post.slug);

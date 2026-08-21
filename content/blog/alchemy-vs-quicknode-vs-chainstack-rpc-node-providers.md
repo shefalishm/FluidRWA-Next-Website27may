@@ -32,6 +32,7 @@ faq7a: "Test p50 and p95 latency, error rate, throttling, WebSocket stability, a
 faq8q: "Are the published prices directly comparable?"
 faq8a: "Not perfectly. Each provider meters usage differently and changes plans over time. Treat public prices as screening inputs and request a workload-specific estimate before contracting."
 socialImage: "/assets/social/blog-alchemy-vs-quicknode-vs-chainstack-rpc-node-providers.png"
+relatedExclusions: "alchemy-vs-quicknode-vs-infura-rpc-node-providers"
 ---
 
 ## The Short Answer
