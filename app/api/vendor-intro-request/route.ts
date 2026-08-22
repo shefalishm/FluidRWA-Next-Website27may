@@ -25,6 +25,17 @@ type VendorIntroPayload = {
 
 const requiredFields: Array<keyof VendorIntroPayload> = ["contactEmail", "firstName", "lastName", "companyName", "projectDescription"];
 const minimumSubmissionMs = 1200;
+const excludedRawPayloadKeys = new Set([
+  "paypalsubscriptionid",
+  "payutransactionid",
+  "payupaymentid",
+  "payuamount",
+  "payucurrency",
+  "membershipplan",
+  "paymentprovider",
+  "paymentstatus",
+  "commercialintent"
+]);
 
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -32,6 +43,12 @@ function clean(value: unknown) {
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function sanitizeRawPayload(payload: Record<string, unknown>) {
+  return Object.fromEntries(
+    Object.entries(payload).filter(([key]) => !excludedRawPayloadKeys.has(key.replace(/_/g, "").toLowerCase()))
+  );
 }
 
 function isLikelyAutomatedSubmission(payload: VendorIntroPayload) {
@@ -125,7 +142,7 @@ export async function POST(request: Request) {
       website: clean(payload.website),
       linkedin: clean(payload.linkedin),
       projectDescription: clean(payload.projectDescription),
-      rawPayload: payload.rawPayload || {}
+      rawPayload: sanitizeRawPayload(payload.rawPayload || {})
     };
     if (!normalized.vendorName && normalized.source === "vendor-waitlist") {
       normalized.vendorName = normalized.companyName;
