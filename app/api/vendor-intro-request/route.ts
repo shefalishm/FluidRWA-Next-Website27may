@@ -20,15 +20,6 @@ type VendorIntroPayload = {
   website?: string;
   linkedin?: string;
   projectDescription?: string;
-  paypalSubscriptionId?: string;
-  payuTransactionId?: string;
-  payuPaymentId?: string;
-  payuAmount?: string;
-  payuCurrency?: string;
-  membershipPlan?: string;
-  paymentProvider?: string;
-  paymentStatus?: string;
-  commercialIntent?: string;
   rawPayload?: Record<string, unknown>;
 };
 
@@ -83,15 +74,6 @@ async function parseRequest(request: Request): Promise<VendorIntroPayload> {
     website: field("WEBSITE"),
     linkedin: field("LINKEDIN_HANDLE"),
     projectDescription: field("CONTACT_CF1"),
-    paypalSubscriptionId: field("PAYPAL_SUBSCRIPTION_ID"),
-    payuTransactionId: field("PAYU_TRANSACTION_ID"),
-    payuPaymentId: field("PAYU_PAYMENT_ID"),
-    payuAmount: field("PAYU_AMOUNT"),
-    payuCurrency: field("PAYU_CURRENCY"),
-    membershipPlan: field("MEMBERSHIP_PLAN"),
-    paymentProvider: field("PAYMENT_PROVIDER"),
-    paymentStatus: field("PAYMENT_STATUS"),
-    commercialIntent: field("COMMERCIAL_INTENT"),
     rawPayload: Object.fromEntries(formData.entries())
   };
 }
@@ -143,15 +125,6 @@ export async function POST(request: Request) {
       website: clean(payload.website),
       linkedin: clean(payload.linkedin),
       projectDescription: clean(payload.projectDescription),
-      paypalSubscriptionId: clean(payload.paypalSubscriptionId),
-      payuTransactionId: clean(payload.payuTransactionId),
-      payuPaymentId: clean(payload.payuPaymentId),
-      payuAmount: clean(payload.payuAmount),
-      payuCurrency: clean(payload.payuCurrency),
-      membershipPlan: clean(payload.membershipPlan),
-      paymentProvider: clean(payload.paymentProvider),
-      paymentStatus: clean(payload.paymentStatus),
-      commercialIntent: clean(payload.commercialIntent),
       rawPayload: payload.rawPayload || {}
     };
     if (!normalized.vendorName && normalized.source === "vendor-waitlist") {
@@ -194,18 +167,7 @@ export async function POST(request: Request) {
       linkedin: normalized.linkedin || null,
       project_description: normalized.projectDescription,
       status: "new",
-      raw_payload: {
-        ...(normalized.rawPayload || {}),
-        paypalSubscriptionId: normalized.paypalSubscriptionId || null,
-        payuTransactionId: normalized.payuTransactionId || null,
-        payuPaymentId: normalized.payuPaymentId || null,
-        payuAmount: normalized.payuAmount || null,
-        payuCurrency: normalized.payuCurrency || null,
-        membershipPlan: normalized.membershipPlan || null,
-        paymentProvider: normalized.paymentProvider || null,
-        paymentStatus: normalized.paymentStatus || null,
-        commercialIntent: normalized.commercialIntent || null
-      }
+      raw_payload: normalized.rawPayload || {}
     };
 
     const insert = await insertSupabaseRow(row);
@@ -226,15 +188,7 @@ export async function POST(request: Request) {
       vendorName: row.vendor_name,
       vendorCategory: row.vendor_category,
       pageUrl: row.page_url,
-      projectDescription: row.project_description,
-      paypalSubscriptionId: normalized.paypalSubscriptionId,
-      payuTransactionId: normalized.payuTransactionId,
-      payuPaymentId: normalized.payuPaymentId,
-      payuAmount: normalized.payuAmount,
-      payuCurrency: normalized.payuCurrency,
-      membershipPlan: normalized.membershipPlan,
-      paymentProvider: normalized.paymentProvider,
-      paymentStatus: normalized.paymentStatus
+      projectDescription: row.project_description
     });
 
     return NextResponse.json({

@@ -51,51 +51,6 @@ const hydrateIntakeContext = () => {
 
 hydrateIntakeContext();
 
-const hydratePaidVendorContext = () => {
-  if (!window.location.pathname.includes("apply-as-vendor")) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const subscription = params.get("subscription") || "";
-  const payment = params.get("payment") || "";
-  const plan = params.get("plan") || "";
-  const membership = params.get("membership") || "";
-  const txnid = params.get("txnid") || "";
-  const payuId = params.get("payu_id") || "";
-  const amount = params.get("amount") || "";
-  const currency = params.get("currency") || "";
-  const status = params.get("status") || "";
-  if (!subscription && !payment && !plan && !membership && !txnid && !payuId) return;
-
-  const setValue = (name, value) => {
-    const field = document.querySelector(`[name="${name}"]`);
-    if (field) field.value = value;
-  };
-
-  setValue("PAYPAL_SUBSCRIPTION_ID", subscription);
-  setValue("PAYMENT_PROVIDER", payment || "paypal");
-  setValue("PAYMENT_STATUS", status || (subscription ? "subscription-approved-before-form" : txnid || payuId ? "payment-returned-before-form" : "payment-started"));
-  setValue("MEMBERSHIP_PLAN", plan || membership || "vetted-vendor-monthly");
-  setValue("PAYU_TRANSACTION_ID", txnid);
-  setValue("PAYU_PAYMENT_ID", payuId);
-  setValue("PAYU_AMOUNT", amount);
-  setValue("PAYU_CURRENCY", currency || (amount ? "INR" : ""));
-  setValue("REQUEST_SOURCE", "paid-vendor-membership");
-
-  const context = document.querySelector("[data-paid-vendor-context]");
-  if (context) {
-    if (payment === "payu" && (txnid || payuId)) {
-      const amountText = amount ? ` for ${currency || "INR"} ${amount}` : "";
-      context.textContent = `Payment returned from PayU${amountText}${txnid ? `, transaction ${txnid}` : payuId ? `, payment ID ${payuId}` : ""}. Complete this profile so FluidRWA can save your listing details and activate the review.`;
-    } else if (subscription) {
-      context.textContent = `Payment received via PayPal subscription ${subscription}. Complete this profile so FluidRWA can activate the review.`;
-    } else {
-      context.textContent = "After payment, complete this profile so FluidRWA can match your paid membership request with your vendor details.";
-    }
-  }
-};
-
-hydratePaidVendorContext();
-
 const vendorContactState = {
   vendorName: "",
   vendorCategory: "",
@@ -115,7 +70,7 @@ const contactCopy = {
   vendor: {
     eyebrow: "Vendor listing",
     title: "Become a Vetted Listing",
-    body: "Share your company category, proof points, buyer fit and regions served. Vendor and project listings require a paid membership before review is activated.",
+    body: "Share your company category, proof points, buyer fit and regions served. FluidRWA will review the application and follow up if there is a fit.",
     source: "contact-vendor",
     button: "Become a Vetted Listing",
     description: "Company category, services, ideal customers, regions served and why your company should be listed.",
@@ -213,12 +168,6 @@ leadConversionForms.forEach((form) => {
       website: formValue(formData, "WEBSITE"),
       linkedin: formValue(formData, "LINKEDIN_HANDLE"),
       projectDescription: formValue(formData, "CONTACT_CF1"),
-      paypalSubscriptionId: formValue(formData, "PAYPAL_SUBSCRIPTION_ID"),
-      payuTransactionId: formValue(formData, "PAYU_TRANSACTION_ID"),
-      payuPaymentId: formValue(formData, "PAYU_PAYMENT_ID"),
-      membershipPlan: formValue(formData, "MEMBERSHIP_PLAN"),
-      paymentProvider: formValue(formData, "PAYMENT_PROVIDER"),
-      paymentStatus: formValue(formData, "PAYMENT_STATUS") || (isReviewApplication ? "review-pending" : isListingSubmission ? "unpaid" : ""),
       rawPayload: Object.fromEntries(formData.entries()),
     };
 
@@ -236,25 +185,10 @@ leadConversionForms.forEach((form) => {
         status.textContent = isReviewApplication
           ? "Thank you. Your application has been received for review. If approved, FluidRWA will contact you with the appropriate visibility options."
           : isListingSubmission
-          ? "Thank you. Your listing details have been saved. Choose a paid membership plan to activate review."
+          ? "Thank you. Your listing details have been received for review."
           : isGeneralInquiry
             ? "Thank you. Your inquiry has been received."
             : "Thank you. Your project requirements have been received.";
-      }
-      const hasPaymentReference = Boolean(
-        payload.paypalSubscriptionId ||
-          payload.payuTransactionId ||
-          payload.payuPaymentId ||
-          payload.paymentProvider ||
-          payload.paymentStatus === "paid" ||
-          payload.paymentStatus === "payment-returned-before-form" ||
-          payload.paymentStatus === "subscription-approved-before-form"
-      );
-      if (isListingSubmission && !isReviewApplication && !hasPaymentReference) {
-        const membershipUrl = `/vendor-membership?source=${encodeURIComponent(payload.source || "vendor-submission")}&status=unpaid#pricing`;
-        window.setTimeout(() => {
-          window.location.href = membershipUrl;
-        }, 1200);
       }
       const eventName = isVendorForm
         ? "vendor_application_submitted"

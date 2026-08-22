@@ -86,15 +86,7 @@ export async function notifyFormSubmission({
   vendorName,
   vendorCategory,
   pageUrl,
-  projectDescription,
-  paypalSubscriptionId,
-  payuTransactionId,
-  payuPaymentId,
-  payuAmount,
-  payuCurrency,
-  membershipPlan,
-  paymentProvider,
-  paymentStatus
+  projectDescription
 }: {
   requestId?: string | null;
   source?: string | null;
@@ -111,14 +103,6 @@ export async function notifyFormSubmission({
   vendorCategory?: string | null;
   pageUrl?: string | null;
   projectDescription?: string | null;
-  paypalSubscriptionId?: string | null;
-  payuTransactionId?: string | null;
-  payuPaymentId?: string | null;
-  payuAmount?: string | null;
-  payuCurrency?: string | null;
-  membershipPlan?: string | null;
-  paymentProvider?: string | null;
-  paymentStatus?: string | null;
 }) {
   const name = [firstName, lastName].filter(Boolean).join(" ").trim() || "Unknown contact";
   const safe = {
@@ -135,29 +119,12 @@ export async function notifyFormSubmission({
     vendorName: escapeEmailHtml(vendorName),
     vendorCategory: escapeEmailHtml(vendorCategory),
     pageUrl: escapeEmailHtml(pageUrl),
-    description: escapeEmailHtml(projectDescription),
-    paypalSubscriptionId: escapeEmailHtml(paypalSubscriptionId),
-    payuTransactionId: escapeEmailHtml(payuTransactionId),
-    payuPaymentId: escapeEmailHtml(payuPaymentId),
-    payuAmount: escapeEmailHtml(payuAmount),
-    payuCurrency: escapeEmailHtml(payuCurrency),
-    membershipPlan: escapeEmailHtml(membershipPlan),
-    paymentProvider: escapeEmailHtml(paymentProvider),
-    paymentStatus: escapeEmailHtml(paymentStatus)
+    description: escapeEmailHtml(projectDescription)
   };
-  const hasPayment = Boolean(paypalSubscriptionId || payuTransactionId || payuPaymentId || membershipPlan || paymentProvider);
-  const subject = `${hasPayment ? "Paid vendor form" : "New FluidRWA form submission"} - ${companyName || name}`;
+  const subject = `New FluidRWA form submission - ${companyName || name}`;
   const text = [
     `Request ID: ${requestId || "Not returned"}`,
     `Source: ${source || "Website form"}`,
-    `Payment provider: ${paymentProvider || ""}`,
-    `Payment status: ${paymentStatus || ""}`,
-    `Membership plan: ${membershipPlan || ""}`,
-    `PayPal subscription ID: ${paypalSubscriptionId || ""}`,
-    `PayU transaction ID: ${payuTransactionId || ""}`,
-    `PayU payment ID: ${payuPaymentId || ""}`,
-    `PayU amount: ${payuAmount || ""}`,
-    `PayU currency: ${payuCurrency || ""}`,
     `Name: ${name}`,
     `Email: ${contactEmail || ""}`,
     `Company: ${companyName || ""}`,
@@ -176,20 +143,11 @@ export async function notifyFormSubmission({
   const html = `
     <div style="font-family:Arial,sans-serif;color:#12213a;line-height:1.55">
       <h2 style="margin:0 0 12px">New FluidRWA form submission</h2>
-      ${hasPayment ? '<p style="background:#eaf7fb;border:1px solid #bfeaf3;border-radius:10px;padding:12px 14px"><strong>Payment step completed before this form.</strong> Match this lead against the PayPal or PayU reference below.</p>' : ""}
       <p><strong>${safe.company || safe.name}</strong> submitted a website form.</p>
       <table cellpadding="8" cellspacing="0" style="border-collapse:collapse;border:1px solid #dbe7f3;width:100%;max-width:760px">
         <tbody>
           <tr><td><strong>Request ID</strong></td><td>${safe.requestId}</td></tr>
           <tr><td><strong>Source</strong></td><td>${safe.source}</td></tr>
-          <tr><td><strong>Payment provider</strong></td><td>${safe.paymentProvider}</td></tr>
-          <tr><td><strong>Payment status</strong></td><td>${safe.paymentStatus}</td></tr>
-          <tr><td><strong>Membership plan</strong></td><td>${safe.membershipPlan}</td></tr>
-          <tr><td><strong>PayPal subscription ID</strong></td><td>${safe.paypalSubscriptionId}</td></tr>
-          <tr><td><strong>PayU transaction ID</strong></td><td>${safe.payuTransactionId}</td></tr>
-          <tr><td><strong>PayU payment ID</strong></td><td>${safe.payuPaymentId}</td></tr>
-          <tr><td><strong>PayU amount</strong></td><td>${safe.payuAmount}</td></tr>
-          <tr><td><strong>PayU currency</strong></td><td>${safe.payuCurrency}</td></tr>
           <tr><td><strong>Name</strong></td><td>${safe.name}</td></tr>
           <tr><td><strong>Email</strong></td><td>${safe.email}</td></tr>
           <tr><td><strong>Company</strong></td><td>${safe.company}</td></tr>

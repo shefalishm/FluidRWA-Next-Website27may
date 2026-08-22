@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Become a Vetted Listing | FluidRWA Vendor Membership</title>
-  <meta name="description" content="Complete your paid FluidRWA vendor profile for Web3, RWA, tokenization, compliance, custody, payments, AI, legal or blockchain infrastructure review.">
+  <meta name="description" content="Apply for FluidRWA vendor review across Web3, RWA, tokenization, compliance, custody, payments, AI, legal and blockchain infrastructure categories.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="author" content="FluidRWA">
   <meta name="theme-color" content="#ffe36e">
@@ -176,7 +176,7 @@
         <div>
           <p class="eyebrow light-eyebrow">Paid vendor intake</p>
           <h1 id="vendor-title">Complete your FluidRWA vendor profile</h1>
-          <p>If you arrived here after payment, your payment reference will be attached to this form automatically. Share your company, market focus, services, proof points and category fit so FluidRWA can review and activate the right listing path.</p>
+          <p>Share your company, market focus, services, proof points and category fit so FluidRWA can assess the right listing path.</p>
           <p class="scarcity-strip">Paid vendor membership is still reviewed for buyer relevance, category fit and profile completeness.</p>
         </div>
         <aside class="form-hero-card" aria-label="Useful vendor details">
@@ -197,18 +197,10 @@
             <input type="hidden" name="LEAD_SOURCE" value="Web Forms">
             <input type="hidden" name="REQUEST_SOURCE" value="vendor-waitlist">
             <input type="hidden" name="PAGE_URL" value="">
-            <input type="hidden" name="PAYPAL_SUBSCRIPTION_ID" value="">
-            <input type="hidden" name="PAYMENT_PROVIDER" value="">
-            <input type="hidden" name="PAYMENT_STATUS" value="">
-            <input type="hidden" name="MEMBERSHIP_PLAN" value="">
-            <input type="hidden" name="PAYU_TRANSACTION_ID" value="">
-            <input type="hidden" name="PAYU_PAYMENT_ID" value="">
-            <input type="hidden" name="PAYU_AMOUNT" value="">
-            <input type="hidden" name="PAYU_CURRENCY" value="">
             <div>
               <p class="eyebrow light-eyebrow">Vendor membership form</p>
               <h2>Enter your vendor details</h2>
-              <p data-paid-vendor-context>Share the context FluidRWA needs to review your company for the vendor ecosystem and category waitlist.</p>
+              <p>Share the context FluidRWA needs to review your company for the vendor ecosystem and category waitlist.</p>
             </div>
             <div class="form-two-col">
               <label>Public Vendor Name<input name="VENDOR_NAME" autocomplete="organization" maxlength="120" placeholder="Brand name shown on FluidRWA" required></label>
@@ -265,7 +257,7 @@
             <label>Why should FluidRWA list this vendor?<textarea name="LISTING_RATIONALE" maxlength="1800" placeholder="Share your strongest buyer-facing reason for inclusion, differentiation and any category where you believe you should be featured."></textarea></label>
             <button class="btn btn-primary light-primary" type="submit">List Your Company on FluidRWA</button>
             <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-            <p class="form-note">After submission, FluidRWA will match this form with your payment and review your company details. Paid visibility remains subject to vetting and approval.</p>
+            <p class="form-note">After submission, FluidRWA will review your company details, evidence and category fit. Application does not guarantee approval, ranking or inclusion.</p>
           </form>
         </div>
       </div>
@@ -285,47 +277,5 @@
     <div class="light-container footer-bottom-lite">© <span data-year></span> FluidRWA.</div>
   </footer>
   <script src="assets/site.js?v=forms-1" defer></script>
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const subscription = params.get("subscription") || "";
-      const payment = params.get("payment") || "";
-      const plan = params.get("plan") || "";
-      const membership = params.get("membership") || "";
-      const txnid = params.get("txnid") || "";
-      const payuId = params.get("payu_id") || "";
-      const amount = params.get("amount") || "";
-      const currency = params.get("currency") || "";
-      const status = params.get("status") || "";
-      if (!subscription && !payment && !plan && !membership && !txnid && !payuId) return;
-
-      const setValue = (name, value) => {
-        const field = document.querySelector(`[name="${name}"]`);
-        if (field) field.value = value;
-      };
-
-      setValue("PAYPAL_SUBSCRIPTION_ID", subscription);
-      setValue("PAYMENT_PROVIDER", payment || "paypal");
-      setValue("PAYMENT_STATUS", status || (subscription ? "subscription-approved-before-form" : txnid || payuId ? "payment-returned-before-form" : "payment-started"));
-      setValue("MEMBERSHIP_PLAN", plan || membership || "vetted-vendor-monthly");
-      setValue("PAYU_TRANSACTION_ID", txnid);
-      setValue("PAYU_PAYMENT_ID", payuId);
-      setValue("PAYU_AMOUNT", amount);
-      setValue("PAYU_CURRENCY", currency || (amount ? "INR" : ""));
-      setValue("REQUEST_SOURCE", "paid-vendor-membership");
-
-      const context = document.querySelector("[data-paid-vendor-context]");
-      if (context) {
-        if (payment === "payu" && (txnid || payuId)) {
-          const amountText = amount ? ` for ${currency || "INR"} ${amount}` : "";
-          context.textContent = `Payment returned from PayU${amountText}${txnid ? `, transaction ${txnid}` : payuId ? `, payment ID ${payuId}` : ""}. Complete this profile so FluidRWA can save your listing details and activate the review.`;
-        } else if (subscription) {
-          context.textContent = `Payment received via PayPal subscription ${subscription}. Complete this profile so FluidRWA can activate the review.`;
-        } else {
-          context.textContent = "After payment, complete this profile so FluidRWA can match your paid membership request with your vendor details.";
-        }
-      }
-    })();
-  </script>
 </body>
 </html>
