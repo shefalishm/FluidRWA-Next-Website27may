@@ -173,7 +173,12 @@ leadConversionForms.forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const isVendorForm = getIsVendorForm();
+    const isReviewApplication = form.dataset.reviewApplication === "true";
     const requestSource = form.querySelector('input[name="REQUEST_SOURCE"]')?.value || "";
     const isGeneralInquiry = requestSource === "contact-general";
     const isListingSubmission = isVendorForm || requestSource === "submit-project-listing";
@@ -213,7 +218,7 @@ leadConversionForms.forEach((form) => {
       payuPaymentId: formValue(formData, "PAYU_PAYMENT_ID"),
       membershipPlan: formValue(formData, "MEMBERSHIP_PLAN"),
       paymentProvider: formValue(formData, "PAYMENT_PROVIDER"),
-      paymentStatus: formValue(formData, "PAYMENT_STATUS") || (isListingSubmission ? "unpaid" : ""),
+      paymentStatus: formValue(formData, "PAYMENT_STATUS") || (isReviewApplication ? "review-pending" : isListingSubmission ? "unpaid" : ""),
       rawPayload: Object.fromEntries(formData.entries()),
     };
 
@@ -228,7 +233,9 @@ leadConversionForms.forEach((form) => {
       if (button) button.textContent = "Submitted";
       if (status) {
         status.className = "form-status is-success";
-        status.textContent = isListingSubmission
+        status.textContent = isReviewApplication
+          ? "Thank you. Your application has been received for review. If approved, FluidRWA will contact you with the appropriate visibility options."
+          : isListingSubmission
           ? "Thank you. Your listing details have been saved. Choose a paid membership plan to activate review."
           : isGeneralInquiry
             ? "Thank you. Your inquiry has been received."
@@ -243,7 +250,7 @@ leadConversionForms.forEach((form) => {
           payload.paymentStatus === "payment-returned-before-form" ||
           payload.paymentStatus === "subscription-approved-before-form"
       );
-      if (isListingSubmission && !hasPaymentReference) {
+      if (isListingSubmission && !isReviewApplication && !hasPaymentReference) {
         const membershipUrl = `/vendor-membership?source=${encodeURIComponent(payload.source || "vendor-submission")}&status=unpaid#pricing`;
         window.setTimeout(() => {
           window.location.href = membershipUrl;
