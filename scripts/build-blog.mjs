@@ -150,6 +150,20 @@ function inlineMarkdown(text) {
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
 }
 
+function markdownTableCells(line) {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function isMarkdownTableDivider(line) {
+  const cells = markdownTableCells(line);
+  return cells.length > 1 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
 function markdownToHtml(body) {
   const lines = body.split("\n");
   const out = [];
@@ -167,14 +181,29 @@ function markdownToHtml(body) {
       list = false;
     }
   };
-  for (const line of lines) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
     const trimmed = line.trim();
     if (!trimmed) {
       flushP();
       closeList();
       continue;
     }
-    if (trimmed.startsWith("### ")) {
+    if (trimmed.includes("|") && index + 1 < lines.length && isMarkdownTableDivider(lines[index + 1])) {
+      flushP();
+      closeList();
+      const headers = markdownTableCells(trimmed);
+      const rows = [];
+      index += 2;
+      while (index < lines.length && lines[index].trim().includes("|")) {
+        const cells = markdownTableCells(lines[index]);
+        if (cells.length !== headers.length) break;
+        rows.push(cells);
+        index += 1;
+      }
+      index -= 1;
+      out.push(`<div class="research-table-wrap"><table class="research-table"><thead><tr>${headers.map((cell) => `<th scope="col">${inlineMarkdown(cell)}</th>`).join("")}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+    } else if (trimmed.startsWith("### ")) {
       flushP();
       closeList();
       out.push(`<h3>${inlineMarkdown(trimmed.slice(4))}</h3>`);
