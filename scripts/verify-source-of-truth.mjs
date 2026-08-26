@@ -25,7 +25,7 @@ if (packageJson.name !== "fluidrwa-may-25-full-website") {
 }
 
 const header = fs.readFileSync(path.join(root, "components/Header.tsx"), "utf8");
-for (const label of ["Web3 Vendors", "AI Vendors", "Become a Vetted Listing", "Find Vendors"]) {
+for (const label of ["Web3 Vendors", "AI Vendors", "Become a Vetted Listing", "Submit Requirements"]) {
   if (!header.includes(label)) failures.push(`Canonical header is missing: ${label}`);
 }
 

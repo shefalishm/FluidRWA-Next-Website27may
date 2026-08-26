@@ -134,8 +134,8 @@ export function Header() {
           <a className="nav-secondary-cta" href="/vendor-membership">
             Become a Vetted Listing
           </a>
-          <a className="nav-ecosystem-cta" href="/web3vendorecosystem">
-            Find Vendors
+          <a className="nav-ecosystem-cta" href="/submit-requirement">
+            Submit Requirements
           </a>
         </div>
       </nav>

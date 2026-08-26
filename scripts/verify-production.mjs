@@ -20,7 +20,7 @@ for (const route of routes) {
   const html = await response.text();
   const headerHtml = html.match(/<header\b[\s\S]*?<\/header>/i)?.[0] || "";
   if (!response.ok) failures.push(`${route} returned ${response.status}`);
-  for (const label of ["Web3 Vendors", "AI Vendors", "Become a Vetted Listing", "Find Vendors"]) {
+  for (const label of ["Web3 Vendors", "AI Vendors", "Become a Vetted Listing", "Submit Requirements"]) {
     if (!headerHtml.includes(label)) failures.push(`${route} is missing canonical navigation label: ${label}`);
   }
   if (headerHtml.includes("Explore Vendor Ecosystem") || headerHtml.includes("Chain Ecosystem")) {
