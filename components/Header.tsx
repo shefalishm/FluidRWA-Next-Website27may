@@ -96,10 +96,10 @@ export function Header() {
           </div>
           <a href="/blockchain-projects">Blockchain Projects</a>
           <div className="nav-menu">
-            <a href="/learn" aria-haspopup="true">
-              Resources
+            <a href="/blog" aria-haspopup="true">
+              Insights
             </a>
-            <div className="nav-mega nav-mega-resources" aria-label="FluidRWA resources">
+            <div className="nav-mega nav-mega-resources" aria-label="FluidRWA insights and resources">
               <div>
                 <strong>Learn and research</strong>
                 <a href="/learn">FluidRWA Learn</a>
