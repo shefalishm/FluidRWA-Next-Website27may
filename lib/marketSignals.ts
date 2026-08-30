@@ -356,10 +356,16 @@ async function supabaseSelect(table: string, query: string) {
   const config = supabaseConfig();
   if (!config) return null;
 
-  const response = await fetch(`${config.url}/rest/v1/${table}?${query}`, {
-    headers: restHeaders(config.key),
-    next: { revalidate: 900 }
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${config.url}/rest/v1/${table}?${query}`, {
+      headers: restHeaders(config.key),
+      next: { revalidate: 900 }
+    });
+  } catch (error) {
+    console.warn(`Supabase select unavailable for ${table}:`, error);
+    return null;
+  }
 
   if (!response.ok) {
     const detail = await response.text();
