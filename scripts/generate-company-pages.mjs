@@ -588,6 +588,7 @@ function pageHtml(company, profile, alternatives) {
       .nowpayments-profile .company-section{padding:54px 0}
       .nowpayments-profile .company-section>.company-container>.company-kicker,.nowpayments-profile .company-section>.company-container>h2,.nowpayments-profile .company-section>.company-container>.company-lede{text-align:center;margin-left:auto;margin-right:auto}
       .nowpayments-profile .company-section>.company-container>.company-lede{max-width:880px}
+      .nowpayments-profile #alternatives .company-lede{max-width:none;white-space:nowrap;font-size:1.12rem}
       .nowpayments-profile .company-grid{grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
       .nowpayments-profile .company-card,.nowpayments-profile .company-alt,.nowpayments-profile .company-faq{padding:28px;border-radius:16px}
       .nowpayments-profile .company-tags{justify-content:center;margin-top:24px}
@@ -596,14 +597,14 @@ function pageHtml(company, profile, alternatives) {
       .nowpayments-profile .company-link-grid{max-width:980px;margin:30px auto 0}
       .nowpayments-profile .company-contact{max-width:640px;margin:28px auto 0;text-align:center;border-radius:16px}
       @media (max-width:900px){.company-hero-grid,.company-grid,.company-alt-grid,.company-link-grid{grid-template-columns:1fr}.company-hero{padding:56px 0 38px}.company-container{width:min(100% - 28px,1120px)}.company-logo-card{padding:24px}.company-actions{flex-direction:column}.company-btn{width:100%}}
-      @media (max-width:900px){.nowpayments-profile .company-container{width:min(100% - 28px,1160px)}.nowpayments-profile .company-hero{padding:64px 0 42px}.nowpayments-profile .company-hero h1{font-size:clamp(2.35rem,12vw,3.35rem)}.nowpayments-profile .company-hero-grid,.nowpayments-profile .company-grid{grid-template-columns:1fr}.nowpayments-profile .company-section{padding:44px 0}.nowpayments-profile .company-logo-card{padding:28px 22px}}
+      @media (max-width:900px){.nowpayments-profile .company-container{width:min(100% - 28px,1160px)}.nowpayments-profile .company-hero{padding:64px 0 42px}.nowpayments-profile .company-hero h1{font-size:clamp(2.35rem,12vw,3.35rem)}.nowpayments-profile .company-hero-grid,.nowpayments-profile .company-grid{grid-template-columns:1fr}.nowpayments-profile .company-section{padding:44px 0}.nowpayments-profile #alternatives .company-lede{white-space:normal}.nowpayments-profile .company-logo-card{padding:28px 22px}}
     </style>
     <article class="company-page${company.slug === "nowpayments" ? " nowpayments-profile" : ""}">
       <section class="company-hero">
         <div class="company-container company-hero-grid">
           <div>
             <p class="company-kicker">FluidRWA company profile</p>
-            <h1>${esc(company.name)} Vendor Profile</h1>
+            <h1>${esc(company.name)}${company.slug === "nowpayments" ? "<br>Vendor Profile" : " Vendor Profile"}</h1>
             <p class="company-lede">FluidRWA profile for ${esc(company.name)}, including what the company says it offers, where it fits in the digital asset infrastructure ecosystem, similar providers and buyer FAQs.</p>
             <div class="company-actions">
               <a class="company-btn primary" href="${esc(introHref)}">Contact ${esc(company.name)}</a>
