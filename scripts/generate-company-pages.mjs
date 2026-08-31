@@ -41,9 +41,67 @@ const categorySlugMap = {
   "node-as-a-service-rpc": "node-as-a-service-rpc-providers"
 };
 
-const priorityCompanySlugs = new Set(["zoniqx", "minddeft-technologies", "surestack", "chainstack"]);
+const priorityCompanySlugs = new Set(["zoniqx", "minddeft-technologies", "surestack", "chainstack", "nowpayments"]);
 
 const manualCompanyProfiles = [
+  {
+    position: 1,
+    categoryDir: "payments-stablecoins",
+    categoryRoute: "stablecoin-infrastructure-providers",
+    categoryTitle: "Stablecoin Infrastructure Providers",
+    anchor: "nowpayments",
+    name: "NOWPayments",
+    slug: "nowpayments",
+    url: "https://nowpayments.io/",
+    description:
+      "NOWPayments is a crypto business ecosystem for accepting digital asset payments, automating mass payouts, converting assets and managing stablecoin treasury operations through unified infrastructure.",
+    fullDescription:
+      "NOWPayments is a crypto business ecosystem for companies that need to accept digital asset payments, automate mass payouts, manage stablecoin treasury operations and scale globally through unified infrastructure. The platform supports 350+ cryptocurrencies and 30+ stablecoins alongside flexible settlement options and enterprise-grade APIs. It brings payments, payouts, conversions, custody balances, wallets and treasury workflows together within one ecosystem. NOWPayments also provides payment tools, plugins, email-based payouts, enterprise automation and 24/7 operational support.",
+    foundingDate: "2019",
+    address: { "@type": "PostalAddress", addressCountry: "Global" },
+    knowsAbout: [
+      "Crypto Payments",
+      "Stablecoin Payments",
+      "Payment API",
+      "Mass Payouts",
+      "Treasury Management",
+      "Asset Conversion",
+      "Payment Plugins",
+      "Subscriptions"
+    ],
+    additionalType: "Crypto Payment Gateway and Stablecoin Payment Infrastructure",
+    logoPath: "/assets/company-logos/nowpayments.png",
+    logoSource: "/assets/company-logos/nowpayments.png",
+    benefits: [
+      ["Complete crypto business ecosystem", "Accept payments, manage funds, convert assets and send payouts from one platform."],
+      ["350+ cryptocurrencies and 30+ stablecoins", "Reach customers and partners across leading digital assets and blockchain networks."],
+      ["Flexible settlement", "Accept one asset and automatically convert or settle in another supported asset."],
+      ["Cost-efficient mass payouts", "Send payouts through API, CSV or dashboard with a stated 0% NOWPayments service fee."],
+      ["Email-based payouts", "Send ChangeNOW PRO payouts using an email address without requiring a wallet address from the recipient."],
+      ["Fast integration and 24/7 support", "Launch through APIs or ready-made payment tools with ongoing operational assistance."]
+    ],
+    productLinks: [
+      ["Main website", "https://nowpayments.io/"],
+      ["Stablecoin payments", "https://nowpayments.io/currencies/stablecoin-payments"],
+      ["Supported cryptocurrencies", "https://nowpayments.io/supported-coins"],
+      ["Payment API", "https://nowpayments.io/api"],
+      ["Mass payouts", "https://nowpayments.io/mass-payments"],
+      ["Mass Payouts API", "https://nowpayments.io/api/mass-payments"]
+    ],
+    externalProfiles: [
+      ["G2 profile and reviews", "https://www.g2.com/products/nowpayments/reviews"],
+      ["Trustpilot reviews", "https://www.trustpilot.com/review/nowpayments.io"],
+      ["Forbes cryptocurrency payment gateway guide", "https://www.forbes.com/advisor/business/software/best-cryptocurrency-payment-gateway/"]
+    ],
+    alternatives: [
+      ["Circle (USDC)", "/vendors/stablecoin-infrastructure-providers#circle-usdc", "Regulated stablecoin issuance and programmable USDC infrastructure."],
+      ["Bridge (Stripe)", "/vendors/stablecoin-infrastructure-providers#bridge-stripe", "Stablecoin orchestration for fiat conversion, transfers and settlement."],
+      ["BVNK", "/vendors/stablecoin-infrastructure-providers#bvnk", "Business stablecoin payments, cross-border settlement and treasury infrastructure."],
+      ["Coinflow", "/vendors/stablecoin-infrastructure-providers#coinflow", "Payment acceptance, settlement and payout infrastructure for digital assets."],
+      ["Zero Hash", "/vendors/stablecoin-infrastructure-providers#zero-hash", "Embedded crypto and stablecoin infrastructure for fintech and enterprise products."]
+    ],
+    partnershipEmail: "partners@nowpayments.io"
+  },
   {
     position: 1,
     categoryDir: "security-audits",
@@ -368,6 +426,9 @@ function sentence(value, fallback) {
 }
 
 function getAlternatives(company, categories, companyProfiles) {
+  if (company.alternatives?.length) {
+    return company.alternatives.map(([name, href, description]) => ({ name, href, description }));
+  }
   const category = categories.find((item) => item.categoryDir === company.categoryDir);
   const alternatives = (category?.vendors || [])
     .filter((item) => slugify(item.name) !== company.slug)
@@ -388,14 +449,16 @@ function pageHtml(company, profile, alternatives) {
   const canonical = `${siteUrl}/fluidrwa/${company.slug}`;
   const categoryPath = `/vendors/${company.categoryRoute}`;
   const logo = profile.logoPath || "/assets/fluidrwa-favicon.png";
-  const officialDescription = company.slug === "minddeft-technologies"
-    ? decodeEntities(stripTags(profile.officialDescription || company.description))
-    : sentence(profile.officialDescription, company.description);
+  const officialDescription = company.fullDescription
+    ? decodeEntities(stripTags(company.fullDescription))
+    : company.slug === "minddeft-technologies"
+      ? decodeEntities(stripTags(profile.officialDescription || company.description))
+      : sentence(profile.officialDescription, company.description);
   const sourceSummary = officialDescription;
   const category = company.categoryTitle;
   const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
-  const offers = [
+  const offers = company.benefits?.length ? company.benefits.map(([title, text]) => ({ title, text })) : [
     { title: "Primary Category", text: `${company.name} is listed by FluidRWA under ${category}.` },
     { title: "What They Offer", text: sourceSummary },
     { title: "Best-Fit Use Case", text: company.additionalType ? `${company.additionalType} for teams evaluating ${knowsAbout.slice(0, 4).join(", ") || category}.` : company.description },
@@ -511,7 +574,12 @@ function pageHtml(company, profile, alternatives) {
       .company-alt a{color:#2e67ad;font-weight:900;text-decoration:none}
       .company-faq-list{display:grid;gap:14px;margin-top:26px}
       .company-faq h3{margin:0 0 8px;font-size:1.05rem}
-      @media (max-width:900px){.company-hero-grid,.company-grid,.company-alt-grid{grid-template-columns:1fr}.company-hero{padding:56px 0 38px}.company-container{width:min(100% - 28px,1120px)}.company-logo-card{padding:24px}.company-actions{flex-direction:column}.company-btn{width:100%}}
+      .company-link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+      .company-resource{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.76);border:1px solid rgba(43,77,110,.13);border-radius:18px;padding:18px 20px;color:#2e67ad;font-weight:900;text-decoration:none;box-shadow:0 14px 34px rgba(42,55,73,.06)}
+      .company-resource::after{content:"↗";font-size:1.1rem}
+      .company-contact{margin-top:24px;padding:20px 22px;border-radius:20px;background:#12213a;color:#fff}
+      .company-contact a{color:#ffe57a;font-weight:900}
+      @media (max-width:900px){.company-hero-grid,.company-grid,.company-alt-grid,.company-link-grid{grid-template-columns:1fr}.company-hero{padding:56px 0 38px}.company-container{width:min(100% - 28px,1120px)}.company-logo-card{padding:24px}.company-actions{flex-direction:column}.company-btn{width:100%}}
     </style>
     <article class="company-page">
       <section class="company-hero">
@@ -550,6 +618,8 @@ function pageHtml(company, profile, alternatives) {
           <div class="company-alt-grid">${alternatives.slice(0, 6).map((alt) => `<article class="company-alt"><h3>${esc(alt.name)}</h3><p>${esc(alt.description)}</p><p><a href="${esc(alt.href)}">Compare ${esc(alt.name)}</a></p></article>`).join("")}</div>
         </div>
       </section>
+      ${company.productLinks?.length ? `<section class="company-section"><div class="company-container"><p class="company-kicker">Product links</p><h2>Explore NOWPayments products</h2><p class="company-lede">Use these official links to verify product coverage, supported assets and integration options directly with NOWPayments.</p><div class="company-link-grid">${company.productLinks.map(([label, href]) => `<a class="company-resource" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join("")}</div></div></section>` : ""}
+      ${company.externalProfiles?.length ? `<section class="company-section"><div class="company-container"><p class="company-kicker">Independent sources</p><h2>Reviews and recognition</h2><p class="company-lede">Independent sources can add useful context, but buyers should still verify current pricing, terms, geographic availability and compliance responsibilities directly.</p><div class="company-link-grid">${company.externalProfiles.map(([label, href]) => `<a class="company-resource" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join("")}</div>${company.partnershipEmail ? `<p class="company-contact">Partnership contact: <a href="mailto:${esc(company.partnershipEmail)}">${esc(company.partnershipEmail)}</a></p>` : ""}</div></section>` : ""}
       <section class="company-section">
         <div class="company-container">
           <p class="company-kicker">FAQs</p>
@@ -568,9 +638,13 @@ function patchCategoryCards(companies) {
     const htmlPath = path.join(vendorsDir, company.categoryDir, "index.html");
     if (!fs.existsSync(htmlPath)) continue;
     let html = fs.readFileSync(htmlPath, "utf8");
-    if (html.includes(`/fluidrwa/${company.slug}`)) continue;
+    const headEnd = html.indexOf("</head>");
+    const head = headEnd >= 0 ? html.slice(0, headEnd + 7) : "";
+    let body = headEnd >= 0 ? html.slice(headEnd + 7) : html;
+    if (body.includes(`/fluidrwa/${company.slug}`)) continue;
     const articleRe = new RegExp(`(<article[^>]+id=["']${company.anchor || company.slug}["'][\\s\\S]*?)(<a class=["'](?:bc-visit|bc-provider-link)["'][^>]+>)`, "i");
-    html = html.replace(articleRe, `$1<a class="bc-profile-link" href="/fluidrwa/${company.slug}">View Company Profile</a>$2`);
+    body = body.replace(articleRe, `$1<a class="bc-profile-link" href="/fluidrwa/${company.slug}">View Company Profile</a>$2`);
+    html = `${head}${body}`;
     fs.writeFileSync(htmlPath, html);
   }
 }

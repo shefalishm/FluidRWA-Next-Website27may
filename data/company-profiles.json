@@ -1186,5 +1186,16 @@
     "logoSource": "/assets/company-logos/surestack.png",
     "logoPath": "/assets/company-logos/surestack.png",
     "researchedAt": "2026-08-04"
+  },
+  "nowpayments": {
+    "name": "NOWPayments",
+    "slug": "nowpayments",
+    "sourceUrl": "https://nowpayments.io/",
+    "officialTitle": "NOWPayments",
+    "siteName": "NOWPayments",
+    "officialDescription": "NOWPayments is a crypto business ecosystem for accepting digital asset payments, automating mass payouts, converting assets and managing stablecoin treasury operations through unified infrastructure.",
+    "logoSource": "/assets/company-logos/nowpayments.png",
+    "logoPath": "/assets/company-logos/nowpayments.png",
+    "researchedAt": "2026-08-31"
   }
 }
