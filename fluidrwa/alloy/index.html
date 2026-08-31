@@ -45,7 +45,30 @@
       .company-alt a{color:#2e67ad;font-weight:900;text-decoration:none}
       .company-faq-list{display:grid;gap:14px;margin-top:26px}
       .company-faq h3{margin:0 0 8px;font-size:1.05rem}
-      @media (max-width:900px){.company-hero-grid,.company-grid,.company-alt-grid{grid-template-columns:1fr}.company-hero{padding:56px 0 38px}.company-container{width:min(100% - 28px,1120px)}.company-logo-card{padding:24px}.company-actions{flex-direction:column}.company-btn{width:100%}}
+      .company-link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+      .company-resource{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.76);border:1px solid rgba(43,77,110,.13);border-radius:18px;padding:18px 20px;color:#2e67ad;font-weight:900;text-decoration:none;box-shadow:0 14px 34px rgba(42,55,73,.06)}
+      .company-resource::after{content:"↗";font-size:1.1rem}
+      .company-contact{margin-top:24px;padding:20px 22px;border-radius:20px;background:#12213a;color:#fff}
+      .company-contact a{color:#ffe57a;font-weight:900}
+      .nowpayments-profile .company-container{width:min(1160px,calc(100% - 56px))}
+      .nowpayments-profile .company-hero{padding:104px 0 72px}
+      .nowpayments-profile .company-hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(320px,.7fr);gap:64px}
+      .nowpayments-profile .company-hero h1{font-size:clamp(2.8rem,5vw,4.65rem);line-height:1}
+      .nowpayments-profile .company-logo-card{padding:40px;border-radius:20px}
+      .nowpayments-profile .company-logo-card img{max-width:260px;max-height:76px;margin:0 auto 26px}
+      .nowpayments-profile .company-logo-card .company-kicker,.nowpayments-profile .company-logo-card .company-source{text-align:center}
+      .nowpayments-profile .company-section{padding:54px 0}
+      .nowpayments-profile .company-section>.company-container>.company-kicker,.nowpayments-profile .company-section>.company-container>h2,.nowpayments-profile .company-section>.company-container>.company-lede{text-align:center;margin-left:auto;margin-right:auto}
+      .nowpayments-profile .company-section>.company-container>.company-lede{max-width:880px}
+      .nowpayments-profile .company-grid{grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+      .nowpayments-profile .company-card,.nowpayments-profile .company-alt,.nowpayments-profile .company-faq{padding:28px;border-radius:16px}
+      .nowpayments-profile .company-tags{justify-content:center;margin-top:24px}
+      .nowpayments-profile .company-alt-grid{gap:22px;margin-top:30px}
+      .nowpayments-profile .company-faq-list{max-width:920px;margin:32px auto 0}
+      .nowpayments-profile .company-link-grid{max-width:980px;margin:30px auto 0}
+      .nowpayments-profile .company-contact{max-width:640px;margin:28px auto 0;text-align:center;border-radius:16px}
+      @media (max-width:900px){.company-hero-grid,.company-grid,.company-alt-grid,.company-link-grid{grid-template-columns:1fr}.company-hero{padding:56px 0 38px}.company-container{width:min(100% - 28px,1120px)}.company-logo-card{padding:24px}.company-actions{flex-direction:column}.company-btn{width:100%}}
+      @media (max-width:900px){.nowpayments-profile .company-container{width:min(100% - 28px,1160px)}.nowpayments-profile .company-hero{padding:64px 0 42px}.nowpayments-profile .company-hero h1{font-size:clamp(2.35rem,12vw,3.35rem)}.nowpayments-profile .company-hero-grid,.nowpayments-profile .company-grid{grid-template-columns:1fr}.nowpayments-profile .company-section{padding:44px 0}.nowpayments-profile .company-logo-card{padding:28px 22px}}
     </style>
     <article class="company-page">
       <section class="company-hero">
@@ -84,6 +107,8 @@
           <div class="company-alt-grid"><article class="company-alt"><h3>AU10TIX</h3><p>Provides 98.8% accuracy identity verification with multi-layer deepfake detection.</p><p><a href="/fluidrwa/au10tix">Compare AU10TIX</a></p></article><article class="company-alt"><h3>Blockpass</h3><p>Lets your users verify their identity once and reuse that verification across multiple Web3 platforms.</p><p><a href="/fluidrwa/blockpass">Compare Blockpass</a></p></article><article class="company-alt"><h3>Chainalysis</h3><p>The dominant blockchain analytics platform used by 70+ government agencies and most major exchanges.</p><p><a href="/fluidrwa/chainalysis">Compare Chainalysis</a></p></article><article class="company-alt"><h3>Civic</h3><p>Issues on-chain identity credentials (Civic Pass) that verify a user has completed KYC without exposing their personal data on-chain.</p><p><a href="/fluidrwa/civic">Compare Civic</a></p></article><article class="company-alt"><h3>ComplyAdvantage</h3><p>Provides AI-driven financial crime detection with real-time AML screening.</p><p><a href="/vendors/kyc-aml-providers#complyadvantage">Compare ComplyAdvantage</a></p></article></div>
         </div>
       </section>
+      
+      
       <section class="company-section">
         <div class="company-container">
           <p class="company-kicker">FAQs</p>
