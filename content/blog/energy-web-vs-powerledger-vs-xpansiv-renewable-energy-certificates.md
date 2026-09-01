@@ -7,7 +7,7 @@ reviewedLabel: "September 1, 2026"
 category: "Energy and Sustainability"
 slug: "energy-web-vs-powerledger-vs-xpansiv-renewable-energy-certificates"
 image: "/assets/blog-images/energy-web-vs-powerledger-vs-xpansiv-renewable-energy-certificates.svg"
-imageAlt: "Energy Web vs Powerledger vs Xpansiv: Renewable Energy Certificate Infrastructure Comparison (2026) editorial infrastructure visual"
+imageAlt: "Energy Web vs Powerledger vs Xpansiv: Renewable Energy Certificate Infrastructure Comparison (2026) editorial comparison visual"
 answer: "Choose Energy Web when a market needs configurable, cryptographically verifiable book-and-claim and registry infrastructure; Powerledger when energy trading, environmental commodities and traceability need to operate in a modular market platform; and Xpansiv's I-REC Registry when the immediate need is to issue, transfer or redeem I-REC(E) certificates through the established registry system in eligible markets."
 ctaTitle: "Explore energy and sustainability vendors"
 ctaText: "Build a shortlist around your architecture, controls and operating model."
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-energy-web-vs-powerledger-vs-xpansiv-renewable-energy-certificates.png"
 socialTitle: "Energy Web vs Powerledger vs Xpansiv I-REC Registry"
 ---
@@ -255,11 +255,13 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 Choose Energy Web when a market needs configurable, cryptographically verifiable book-and-claim and registry infrastructure; Powerledger when energy trading, environmental commodities and traceability need to operate in a modular market platform; and Xpansiv's I-REC Registry when the immediate need is to issue, transfer or redeem I-REC(E) certificates through the established registry system in eligible markets. The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-- [Energy Web solutions](https://energyweb.org/solutions/)
-- [Energy Web Green Proofs](https://energyweb.org/green-proofs/)
-- [Powerledger platform](https://powerledger.io/platform/)
-- [Xpansiv I-REC Registry](https://xpansiv-frontend-dev-bgf7f9cxdegeajct.a03.azurefd.net/registries/irec)
-- [I-TRACK Foundation](https://www.trackingstandard.org/)
-- [I-TRACK FAQ](https://www.irecstandard.org/faq/)
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+- Energy Web solutions
+- Energy Web Green Proofs
+- Powerledger platform
+- Xpansiv I-REC Registry
+- I-TRACK Foundation
+- I-TRACK FAQ

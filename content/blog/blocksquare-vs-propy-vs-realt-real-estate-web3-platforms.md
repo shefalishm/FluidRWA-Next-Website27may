@@ -7,7 +7,7 @@ reviewedLabel: "September 1, 2026"
 category: "Real Estate"
 slug: "blocksquare-vs-propy-vs-realt-real-estate-web3-platforms"
 image: "/assets/blog-images/blocksquare-vs-propy-vs-realt-real-estate-web3-platforms.svg"
-imageAlt: "Blocksquare vs Propy vs RealT: Web3 Platforms for Real Estate (2026) editorial infrastructure visual"
+imageAlt: "Blocksquare vs Propy vs RealT: Web3 Platforms for Real Estate (2026) editorial comparison visual"
 answer: "Choose Blocksquare when you are an owner, operator or platform building tokenized-real-estate issuance and distribution infrastructure; Propy when the core problem is digitizing a property sale and closing workflow; and RealT when the goal is to access a curated marketplace of fractionalized property investments rather than launch an issuer platform."
 ctaTitle: "Explore real estate vendors"
 ctaText: "Build a shortlist around your architecture, controls and operating model."
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-blocksquare-vs-propy-vs-realt-real-estate-web3-platforms.png"
 socialTitle: "Blocksquare vs Propy vs RealT"
 ---
@@ -255,11 +255,13 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 Choose Blocksquare when you are an owner, operator or platform building tokenized-real-estate issuance and distribution infrastructure; Propy when the core problem is digitizing a property sale and closing workflow; and RealT when the goal is to access a curated marketplace of fractionalized property investments rather than launch an issuer platform. The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-- [Blocksquare products](https://blocksquare.io/products)
-- [Blocksquare protocol documentation](https://docs.blocksquare.io/infrastructure)
-- [Propy FAQ](https://propy.com/browse/faq/)
-- [Propy overview](https://propy.com/browse/about/)
-- [RealT investor FAQ](https://faq.realt.co/en/article/what-is-realt-who-can-invest-how-do-i-invest-1yyc5h5/)
-- [RealT white paper](https://realt.co/wp-content/uploads/2019/05/RealToken_White_Paper_US_v03.pdf)
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+- Blocksquare products
+- Blocksquare protocol documentation
+- Propy FAQ
+- Propy overview
+- RealT investor FAQ
+- RealT white paper

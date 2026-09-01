@@ -7,7 +7,7 @@ reviewedLabel: "September 1, 2026"
 category: "Trade Finance"
 slug: "enigio-vs-wave-bl-vs-bolero-electronic-trade-documents"
 image: "/assets/blog-images/enigio-vs-wave-bl-vs-bolero-electronic-trade-documents.svg"
-imageAlt: "Enigio vs Wave BL vs Bolero: Electronic Trade Document Comparison (2026) editorial infrastructure visual"
+imageAlt: "Enigio vs Wave BL vs Bolero: Electronic Trade Document Comparison (2026) editorial comparison visual"
 answer: "Choose Enigio when the priority is creating transferable digital originals that can work across document types and existing processes; Wave BL when carrier and forwarder electronic-bill-of-lading workflows, including master and house bills, are central; and Bolero when eBL lifecycle management must connect closely with broader bank, corporate and trade-finance workflows."
 ctaTitle: "Explore trade finance vendors"
 ctaText: "Build a shortlist around your architecture, controls and operating model."
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-enigio-vs-wave-bl-vs-bolero-electronic-trade-documents.png"
 socialTitle: "Enigio vs Wave BL vs Bolero"
 ---
@@ -255,11 +255,13 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 Choose Enigio when the priority is creating transferable digital originals that can work across document types and existing processes; Wave BL when carrier and forwarder electronic-bill-of-lading workflows, including master and house bills, are central; and Bolero when eBL lifecycle management must connect closely with broader bank, corporate and trade-finance workflows. The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-- [Enigio trace:original](https://enigio.com/traceoriginal/)
-- [Enigio technology](https://enigio.com/how-it-works/technology/)
-- [Wave BL](https://wavebl.com/)
-- [Bolero platform](https://www.bolero.net/)
-- [Bolero electronic bills of lading](https://www.bolero.net/solutions/electronic-bills-of-lading/)
-- [Bolero connectivity](https://www.bolero.net/connectivity/)
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+- Enigio trace:original
+- Enigio technology
+- Wave BL
+- Bolero platform
+- Bolero electronic bills of lading
+- Bolero connectivity

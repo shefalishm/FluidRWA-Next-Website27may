@@ -7,7 +7,7 @@ reviewedLabel: "September 1, 2026"
 category: "Gaming"
 slug: "immutable-vs-ronin-vs-oasys-web3-gaming-infrastructure"
 image: "/assets/blog-images/immutable-vs-ronin-vs-oasys-web3-gaming-infrastructure.svg"
-imageAlt: "Immutable vs Ronin vs Oasys: Web3 Gaming Infrastructure Comparison (2026) editorial infrastructure visual"
+imageAlt: "Immutable vs Ronin vs Oasys: Web3 Gaming Infrastructure Comparison (2026) editorial comparison visual"
 answer: "Choose Immutable when a studio wants a broad gaming stack that combines chain infrastructure with player onboarding, assets, commerce and growth tooling; Ronin when access to a gaming-native chain and Sky Mavis ecosystem distribution is central; and Oasys when a studio wants an EVM-compatible, multi-layer gaming chain architecture designed around gas-free player interactions."
 ctaTitle: "Explore gaming vendors"
 ctaText: "Build a shortlist around your architecture, controls and operating model."
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-immutable-vs-ronin-vs-oasys-web3-gaming-infrastructure.png"
 socialTitle: "Immutable vs Ronin vs Oasys"
 ---
@@ -255,11 +255,13 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 Choose Immutable when a studio wants a broad gaming stack that combines chain infrastructure with player onboarding, assets, commerce and growth tooling; Ronin when access to a gaming-native chain and Sky Mavis ecosystem distribution is central; and Oasys when a studio wants an EVM-compatible, multi-layer gaming chain architecture designed around gas-free player interactions. The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-- [Immutable Chain](https://www.immutable.com/chain)
-- [Immutable documentation](https://docs.immutable.com/v1/sdks/zkEVM/overview)
-- [Ronin documentation](https://docs.roninchain.com/)
-- [Ronin Developer Console](https://developers.roninchain.com/)
-- [Oasys developers](https://www.oasys.games/developers)
-- [Oasys documentation](https://docs.oasys.games/)
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+- Immutable Chain
+- Immutable documentation
+- Ronin documentation
+- Ronin Developer Console
+- Oasys developers
+- Oasys documentation

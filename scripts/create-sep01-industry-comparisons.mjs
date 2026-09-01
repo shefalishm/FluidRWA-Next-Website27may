@@ -182,9 +182,11 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 ${g.answer} The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-${g.sources.map(([label, url]) => `- [${label}](${url})`).join("\n")}
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+${g.sources.map(([label]) => `- ${label}`).join("\n")}
 `;
 
 for (const g of guides) {
@@ -196,7 +198,7 @@ for (const g of guides) {
     ["Does vendor use transfer regulatory responsibility?", "No. The buyer should obtain advice on its own custody, data, outsourcing, settlement, consumer and compliance obligations."],
     ["How should roadmap features be scored?", "Treat them as unavailable unless delivery timing and acceptance criteria are contractually committed."],
     ["What is the most important exit question?", "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."],
-    ["How current is this comparison?", "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."]
+    ["How current is this comparison?", "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."]
   ];
   const front = `---\ntitle: "${g.title}"\ndescription: "${g.description}"\ndate: "2026-09-01"\nreviewedDate: "2026-09-01"\nreviewedLabel: "September 1, 2026"\ncategory: "${g.category}"\nslug: "${g.slug}"\nimage: "/assets/blog-images/${g.slug}.svg"\nimageAlt: "${g.title} editorial comparison visual"\nanswer: "${g.answer.replaceAll('"', "'")}"\nctaTitle: "Explore ${g.category.toLowerCase()} vendors"\nctaText: "Build a shortlist around your architecture, controls and operating model."\nctaLabel: "Explore Vendor Ecosystem"\nctaUrl: "/web3vendorecosystem"\nctaSecondaryLabel: "Compare Vendor Websites"\nctaSecondaryUrl: "/tools/vendor-comparison"\n${faqs.map((f, i) => `faq${i + 1}q: "${f[0]}"\nfaq${i + 1}a: "${f[1].replaceAll('"', "'")}"`).join("\n")}\nsocialImage: "/assets/social/blog-${g.slug}.png"\nsocialTitle: "${g.vendors.join(" vs ")}"\n---\n`;
   fs.writeFileSync(path.join(out, `${g.slug}.md`), front + "\n" + shared(g).trim() + "\n");

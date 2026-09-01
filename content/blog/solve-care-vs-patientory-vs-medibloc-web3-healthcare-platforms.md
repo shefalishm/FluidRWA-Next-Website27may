@@ -7,7 +7,7 @@ reviewedLabel: "September 1, 2026"
 category: "Healthcare"
 slug: "solve-care-vs-patientory-vs-medibloc-web3-healthcare-platforms"
 image: "/assets/blog-images/solve-care-vs-patientory-vs-medibloc-web3-healthcare-platforms.svg"
-imageAlt: "Solve.Care vs Patientory vs MediBloc: Web3 Healthcare Platform Comparison (2026) editorial infrastructure visual"
+imageAlt: "Solve.Care vs Patientory vs MediBloc: Web3 Healthcare Platform Comparison (2026) editorial comparison visual"
 answer: "Choose Solve.Care when the core use case is healthcare-network coordination across benefits, care and payments; Patientory when a patient-facing health wallet, data marketplace and consumer engagement are central; and MediBloc when the programme is focused on a patient-controlled health-data ecosystem, verifiable credentials and integration with its Panacea-based services."
 ctaTitle: "Explore healthcare vendors"
 ctaText: "Build a shortlist around your architecture, controls and operating model."
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 1, 2026 using the linked primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 1, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-solve-care-vs-patientory-vs-medibloc-web3-healthcare-platforms.png"
 socialTitle: "Solve.Care vs Patientory vs MediBloc"
 ---
@@ -255,11 +255,13 @@ State the selected workflow, weighted criteria, evidence, proof-of-concept resul
 
 Choose Solve.Care when the core use case is healthcare-network coordination across benefits, care and payments; Patientory when a patient-facing health wallet, data marketplace and consumer engagement are central; and MediBloc when the programme is focused on a patient-controlled health-data ecosystem, verifiable credentials and integration with its Panacea-based services. The defensible selection is the one that matches a documented operating model and survives technical, security, legal, operational and commercial review. Use this comparison to form a shortlist, then verify every material claim directly with the provider.
 
-## Primary sources
+## Research basis
 
-- [Solve.Care platform](https://solve.care/homepage/)
-- [Solve.Care about](https://solve.care/about/)
-- [Patientory](https://patientory.com/)
-- [Patientory FAQ](https://patientory.com/faq)
-- [MediBloc](https://medibloc.com/)
-- [MediBloc roadmap](https://medibloc.com/2023/08/01/new_roadmap_for_expanding_the_data_pool/)
+This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+
+- Solve.Care platform
+- Solve.Care about
+- Patientory
+- Patientory FAQ
+- MediBloc
+- MediBloc roadmap
