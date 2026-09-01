@@ -56,6 +56,11 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 - Blog index: https://www.fluidrwa.com/blog
 - Tokenization blog category: https://www.fluidrwa.com/blog/tokenization
+- Blocksquare vs Propy vs RealT: Web3 Platforms for Real Estate (2026): https://www.fluidrwa.com/blog/blocksquare-vs-propy-vs-realt-real-estate-web3-platforms
+- Energy Web vs Powerledger vs Xpansiv: Renewable Energy Certificate Infrastructure Comparison (2026): https://www.fluidrwa.com/blog/energy-web-vs-powerledger-vs-xpansiv-renewable-energy-certificates
+- Enigio vs Wave BL vs Bolero: Electronic Trade Document Comparison (2026): https://www.fluidrwa.com/blog/enigio-vs-wave-bl-vs-bolero-electronic-trade-documents
+- Immutable vs Ronin vs Oasys: Web3 Gaming Infrastructure Comparison (2026): https://www.fluidrwa.com/blog/immutable-vs-ronin-vs-oasys-web3-gaming-infrastructure
+- Solve.Care vs Patientory vs MediBloc: Web3 Healthcare Platform Comparison (2026): https://www.fluidrwa.com/blog/solve-care-vs-patientory-vs-medibloc-web3-healthcare-platforms
 - How Supply Chains Are Using Web3: 50 Use Cases, Real Examples and Implementation Guide (2026): https://www.fluidrwa.com/blog/web3-supply-chain-use-cases-50-applications
 - How Healthcare Is Using Web3: 50 Use Cases, Real Examples and Implementation Guide (2026): https://www.fluidrwa.com/blog/web3-healthcare-use-cases-50-applications
 - Copperx vs Sphere vs BlindPay: Stablecoin Payment Infrastructure Comparison (2026): https://www.fluidrwa.com/blog/copperx-vs-sphere-vs-blindpay-stablecoin-payments
