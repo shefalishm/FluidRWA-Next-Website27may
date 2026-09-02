@@ -100,17 +100,6 @@ export default function Web3EventsPage() {
 
       <Web3EventsCalendar />
 
-      <section className="events-note-section">
-        <div className="light-container events-note-grid">
-          <div>
-            <p className="eyebrow light-eyebrow">Calendar standard</p>
-            <h2>Useful signal, not an event dump</h2>
-          </div>
-          <p>
-            This page prioritizes material Web3 conferences, builder gatherings, policy forums and private-capital meetings with an organizer-announced 2026 or first-half 2027 edition. It intentionally excludes most individual side events and unconfirmed conference rumours.
-          </p>
-        </div>
-      </section>
     </main>
   );
 }

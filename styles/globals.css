@@ -6324,31 +6324,8 @@ body {
   box-shadow: 0 0 0 5px rgba(102, 201, 223, .16);
 }
 
-.events-note-section {
-  padding: clamp(42px, 6vw, 78px) 0;
-  border-top: 1px solid rgba(38, 100, 169, .12);
-  background: rgba(255,255,255,.5);
-}
-
-.events-note-grid {
-  display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
-  gap: clamp(28px, 6vw, 84px);
-  align-items: start;
-}
-
-.events-note-grid > p {
-  max-width: 660px;
-  margin: 0;
-  color: rgba(18, 33, 58, .72);
-  font-size: 17px;
-  font-weight: 680;
-  line-height: 1.65;
-}
-
 @media (max-width: 920px) {
-  .events-hero-grid,
-  .events-note-grid { grid-template-columns: 1fr; }
+  .events-hero-grid { grid-template-columns: 1fr; }
 
   .events-planning-inner,
   .events-section-head,
