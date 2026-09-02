@@ -381,3 +381,259 @@ export const web3Events: Web3Event[] = [
 ];
 
 export const web3EventTracks = ["All", "Builders", "Institutional", "Policy", "Ecosystem"] as const;
+
+export type EventTheme = "Web3 & digital assets" | "Family offices & private capital";
+export type EventRegion = "North America" | "Europe" | "Asia-Pacific" | "Middle East" | "Africa" | "Global / online";
+
+export type CalendarEvent = Web3Event & {
+  theme: EventTheme;
+  region: EventRegion;
+  imageUrl?: string;
+};
+
+const regionForCountry = (country: string): EventRegion => {
+  if (country === "Global") return "Global / online";
+  if (["United States", "Canada"].includes(country)) return "North America";
+  if (["United Kingdom", "Germany", "Italy", "Austria", "Ukraine", "Switzerland"].includes(country)) return "Europe";
+  if (["Singapore", "Japan", "South Korea", "India", "Hong Kong", "New Zealand"].includes(country)) return "Asia-Pacific";
+  if (["United Arab Emirates", "Saudi Arabia"].includes(country)) return "Middle East";
+  if (country === "Mexico") return "North America";
+  return "Africa";
+};
+
+// Official event imagery is used where an organizer has supplied a stable public visual.
+// Remaining cards retain an intentional location-led treatment instead of hotlinking uncertain assets.
+const officialEventImages: Partial<Record<string, string>> = {
+  "avalanche-summit-new-york-2026": "https://irp.cdn-website.com/02019734/dms3rep/multi/opt/868a330c-4545-461a-bb39-78e9473ba81b-2880w.jpg",
+  "token2049-singapore-2026": "https://token2049.nyc3.cdn.digitaloceanspaces.com/Singapore/OG/T2049%20Singapore%20-%20OpenGraph%20(2026)%202%20OCT%202025.avif"
+};
+
+export const familyOfficeEvents: CalendarEvent[] = [
+  {
+    slug: "family-office-forum-frankfurt-2026",
+    name: "Family Office Forum Frankfurt",
+    startDate: "2026-09-22",
+    endDate: "2026-09-23",
+    dateLabel: "22-23 Sep 2026",
+    month: "September",
+    year: 2026,
+    city: "Frankfurt",
+    country: "Germany",
+    focus: "Private capital, governance and direct-investment conversations",
+    audience: "Family principals, single family office executives and select partners",
+    description: "A private-capital forum for family office decision-makers and investment partners in continental Europe.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Europe",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-forum-new-york-2026",
+    name: "Family Office Forum New York",
+    startDate: "2026-10-13",
+    endDate: "2026-10-14",
+    dateLabel: "13-14 Oct 2026",
+    month: "October",
+    year: 2026,
+    city: "New York",
+    country: "United States",
+    focus: "Private markets, direct investments and family capital",
+    audience: "Family offices, principals, private investors and selected advisers",
+    description: "A family-office focused meeting for US private capital allocators and investment specialists.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "North America",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-forum-zurich-2026",
+    name: "Family Office Forum Zurich",
+    startDate: "2026-11-10",
+    endDate: "2026-11-11",
+    dateLabel: "10-11 Nov 2026",
+    month: "November",
+    year: 2026,
+    city: "Zurich",
+    country: "Switzerland",
+    focus: "European family capital and investment governance",
+    audience: "Family office principals, executives and investment partners",
+    description: "A closed-door European forum for family office leaders, wealth owners and selected experts.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Europe",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-forum-riyadh-2026",
+    name: "Family Office Forum Riyadh",
+    startDate: "2026-12-02",
+    endDate: "2026-12-03",
+    dateLabel: "2-3 Dec 2026",
+    month: "December",
+    year: 2026,
+    city: "Riyadh",
+    country: "Saudi Arabia",
+    focus: "MENA private wealth, co-investment and long-term capital",
+    audience: "Family offices, wealth owners and select regional partners",
+    description: "A focused Riyadh event for family capital, private markets and regional investment relationships.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Middle East",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-super-summit-2026",
+    name: "Family Office Super Summit",
+    startDate: "2026-12-15",
+    endDate: "2026-12-17",
+    dateLabel: "15-17 Dec 2026",
+    month: "December",
+    year: 2026,
+    city: "Fort Lauderdale",
+    country: "United States",
+    focus: "Private investing, co-investment and family-office networking",
+    audience: "Family offices, investors, fund managers and deal sponsors",
+    description: "A large family-office investor gathering with capital-allocation and relationship-building programming.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "North America"
+  },
+  {
+    slug: "digital-family-office-forum-2027",
+    name: "Digital Family Office Forum",
+    startDate: "2027-02-09",
+    endDate: "2027-02-10",
+    dateLabel: "9-10 Feb 2027",
+    month: "February",
+    year: 2027,
+    city: "Online",
+    country: "Global",
+    focus: "Long-term capital, governance and private-market strategy",
+    audience: "Family office principals, wealth owners and institutional investors",
+    description: "A live global forum on capital allocation, governance, succession and the operating realities of family enterprise.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Global / online"
+  },
+  {
+    slug: "family-office-forum-dubai-2027",
+    name: "Family Office Forum Dubai",
+    startDate: "2027-03-24",
+    endDate: "2027-03-25",
+    dateLabel: "24-25 Mar 2027",
+    month: "March",
+    year: 2027,
+    city: "Dubai",
+    country: "United Arab Emirates",
+    focus: "MENA family capital, private wealth and direct investment",
+    audience: "Single family offices, principals, wealth owners and select partners",
+    description: "A MENA private-capital forum designed for family office decision-makers and invited specialists.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Middle East",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-forum-singapore-2027",
+    name: "Family Office Forum Singapore",
+    startDate: "2027-04-20",
+    endDate: "2027-04-21",
+    dateLabel: "20-21 Apr 2027",
+    month: "April",
+    year: 2027,
+    city: "Singapore",
+    country: "Singapore",
+    focus: "Asian family capital, investment strategy and private markets",
+    audience: "South-East Asian family offices, principals and selected advisers",
+    description: "A Singapore meeting point for family office decision-makers and private-capital partners in the region.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Asia-Pacific",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "family-office-forum-los-angeles-2027",
+    name: "Family Office Forum Los Angeles",
+    startDate: "2027-06-02",
+    endDate: "2027-06-03",
+    dateLabel: "2-3 Jun 2027",
+    month: "June",
+    year: 2027,
+    city: "Los Angeles",
+    country: "United States",
+    focus: "Family capital, private markets and investment partnerships",
+    audience: "Family offices, wealth owners and private investment specialists",
+    description: "A West Coast private-capital forum for family office leaders and carefully selected investment partners.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "North America",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  },
+  {
+    slug: "global-family-office-conference-2027",
+    name: "Global Family Office Conference",
+    startDate: "2027-06-08",
+    endDate: "2027-06-08",
+    dateLabel: "8 Jun 2027",
+    month: "June",
+    year: 2027,
+    city: "London",
+    country: "United Kingdom",
+    focus: "Family enterprise, direct investing and long-term wealth",
+    audience: "Family office principals, next-generation leaders and executives",
+    description: "A member-led annual gathering for family-office principals, next-gens and executives from around the world.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "Europe",
+    imageUrl: "https://www.globalfamilyofficeconference.com/s/img/emotionheader.png"
+  },
+  {
+    slug: "family-office-forum-los-cabos-2027",
+    name: "Family Office Forum Los Cabos",
+    startDate: "2027-06-09",
+    endDate: "2027-06-10",
+    dateLabel: "9-10 Jun 2027",
+    month: "June",
+    year: 2027,
+    city: "Los Cabos",
+    country: "Mexico",
+    focus: "Private investing, family capital and peer exchange",
+    audience: "Family office principals, executives and invited specialists",
+    description: "A private-capital meeting for family office leaders and investment partners in North America.",
+    status: "Confirmed dates",
+    track: "Institutional",
+    theme: "Family offices & private capital",
+    region: "North America",
+    imageUrl: "https://prestelandpartner.com/images/prestel_and_partner_meta_image.jpg"
+  }
+];
+
+export const calendarEvents: CalendarEvent[] = [
+  ...web3Events.map((event) => ({
+    ...event,
+    theme: "Web3 & digital assets" as const,
+    region: regionForCountry(event.country),
+    imageUrl: officialEventImages[event.slug]
+  })),
+  ...familyOfficeEvents
+];
+
+export const eventRegions: Array<"All locations" | EventRegion> = [
+  "All locations",
+  "North America",
+  "Europe",
+  "Asia-Pacific",
+  "Middle East",
+  "Africa",
+  "Global / online"
+];
