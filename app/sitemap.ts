@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/tools`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/tools/vendor-comparison`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.94 },
     { url: `${siteUrl}/news`, lastModified: "2026-07-23", changeFrequency: "hourly", priority: 0.86 },
+    { url: `${siteUrl}/web3-events`, lastModified: "2026-09-02", changeFrequency: "weekly", priority: 0.87 },
     { url: `${siteUrl}/news/fluidrwa-surestack-partnership`, lastModified: "2026-07-23", changeFrequency: "monthly", priority: 0.76 },
     { url: `${siteUrl}/news/fluidrwa-minddeft-partnership`, lastModified: "2026-07-09", changeFrequency: "monthly", priority: 0.74 },
     { url: `${siteUrl}/learn`, lastModified: "2026-07-10", changeFrequency: "weekly", priority: 0.9 },

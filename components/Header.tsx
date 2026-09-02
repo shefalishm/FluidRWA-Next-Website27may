@@ -105,6 +105,7 @@ export function Header() {
                 <a href="/learn">FluidRWA Learn</a>
                 <a href="/blog">Insights library</a>
                 <a href="/news">News and market signals</a>
+                <a href="/web3-events">Web3 events calendar</a>
                 <a href="/reports-research">Reports and research</a>
                 <a href="/apply-as-freelancer">Apply as a freelancer</a>
               </div>
