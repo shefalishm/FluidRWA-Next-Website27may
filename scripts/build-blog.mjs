@@ -167,7 +167,7 @@ function isMarkdownTableDivider(line) {
 function markdownToHtml(body) {
   const lines = body.split("\n");
   const out = [];
-  let list = false;
+  let listType = "";
   let paragraph = [];
   const flushP = () => {
     if (paragraph.length) {
@@ -176,9 +176,9 @@ function markdownToHtml(body) {
     }
   };
   const closeList = () => {
-    if (list) {
-      out.push("</ul>");
-      list = false;
+    if (listType) {
+      out.push(listType === "ordered" ? "</ol>" : "</ul>");
+      listType = "";
     }
   };
   for (let index = 0; index < lines.length; index += 1) {
@@ -213,11 +213,24 @@ function markdownToHtml(body) {
       out.push(`<h2>${inlineMarkdown(trimmed.slice(3))}</h2>`);
     } else if (trimmed.startsWith("- ")) {
       flushP();
-      if (!list) {
+      if (listType && listType !== "unordered") {
+        closeList();
+      }
+      if (!listType) {
         out.push("<ul>");
-        list = true;
+        listType = "unordered";
       }
       out.push(`<li>${inlineMarkdown(trimmed.slice(2))}</li>`);
+    } else if (/^\d+\.\s+/.test(trimmed)) {
+      flushP();
+      if (listType && listType !== "ordered") {
+        closeList();
+      }
+      if (!listType) {
+        out.push("<ol>");
+        listType = "ordered";
+      }
+      out.push(`<li>${inlineMarkdown(trimmed.replace(/^\d+\.\s+/, ""))}</li>`);
     } else {
       paragraph.push(trimmed);
     }
