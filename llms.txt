@@ -56,6 +56,11 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 - Blog index: https://www.fluidrwa.com/blog
 - Tokenization blog category: https://www.fluidrwa.com/blog/tokenization
+- ChatGPT Alternatives for Web3 and Fintech Teams (2026): https://www.fluidrwa.com/blog/chatgpt-alternatives-web3-fintech-teams
+- ChatGPT vs Claude vs Gemini for Web3 and Fintech Teams (2026): https://www.fluidrwa.com/blog/chatgpt-vs-claude-vs-gemini-web3-fintech
+- Perplexity Alternatives for Market Research Teams (2026): https://www.fluidrwa.com/blog/perplexity-alternatives-market-research-teams
+- Perplexity vs ChatGPT vs Gemini for Web3 Research (2026): https://www.fluidrwa.com/blog/perplexity-vs-chatgpt-vs-gemini-ai-research-web3
+- Synthesia Alternatives for Web3 Video Teams (2026): https://www.fluidrwa.com/blog/synthesia-alternatives-web3-video-teams
 - Alchemy vs Moralis vs thirdweb: Web3 Development Platform Comparison (2026): https://www.fluidrwa.com/blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms
 - LeewayHertz vs PixelPlex vs Unicsoft: Blockchain Development Companies Compared (2026): https://www.fluidrwa.com/blog/leewayhertz-vs-pixelplex-vs-unicsoft-blockchain-development-companies
 - NOWPayments vs Coinbase Commerce vs BitPay: Crypto Payment Gateway Comparison (2026): https://www.fluidrwa.com/blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways
