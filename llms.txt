@@ -56,6 +56,11 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 - Blog index: https://www.fluidrwa.com/blog
 - Tokenization blog category: https://www.fluidrwa.com/blog/tokenization
+- Art Tokenization: A Complete Guide to Fractional Ownership, Provenance and Compliance (2026): https://www.fluidrwa.com/blog/art-tokenization-guide-fractional-ownership
+- Film Tokenization: A Complete Guide to Tokenized Movie Financing and Revenue Rights (2026): https://www.fluidrwa.com/blog/film-tokenization-guide-movie-financing
+- Music Tokenization: A Complete Guide to Royalties, Rights and Digital Ownership (2026): https://www.fluidrwa.com/blog/music-tokenization-guide-royalties-rights
+- Private Credit Tokenization: A Complete Guide for Fund Managers and Investors (2026): https://www.fluidrwa.com/blog/private-credit-tokenization-guide
+- Real Estate Tokenization: A Complete Guide for Owners, Fund Managers and Investors (2026): https://www.fluidrwa.com/blog/real-estate-tokenization-complete-guide
 - ChatGPT Alternatives for Web3 and Fintech Teams (2026): https://www.fluidrwa.com/blog/chatgpt-alternatives-web3-fintech-teams
 - ChatGPT vs Claude vs Gemini for Web3 and Fintech Teams (2026): https://www.fluidrwa.com/blog/chatgpt-vs-claude-vs-gemini-web3-fintech
 - Perplexity Alternatives for Market Research Teams (2026): https://www.fluidrwa.com/blog/perplexity-alternatives-market-research-teams
