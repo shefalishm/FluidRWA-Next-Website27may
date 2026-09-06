@@ -163,7 +163,29 @@ export function legacyMainHtml(file: string) {
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, ""));
   const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
   const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
-  const renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
+  let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
+  const buyerCategories: Record<string, string> = {
+    "vendors/custody-solutions/index.html": "Custody and wallets",
+    "vendors/tokenization-platforms/index.html": "Tokenization platform",
+    "vendors/blockchain-development/index.html": "Blockchain development",
+    "vendors/smart-contract-development/index.html": "Smart contract development",
+    "vendors/fiat-on-off-ramps/index.html": "Payments and stablecoins",
+    "blog/top-tokenization-companies-2026/index.html": "Tokenization platform"
+  };
+  const buyerCategory = buyerCategories[file];
+  if (buyerCategory) {
+    const briefHref = `/submit-requirement?category=${encodeURIComponent(buyerCategory)}&amp;source=buyer-guide`;
+    const nextSteps = `<aside aria-label="Plan your next step" style="max-width:1200px;margin:24px auto;padding:24px;box-sizing:border-box;border-top:1px solid #dce4eb;border-bottom:1px solid #dce4eb"><h2 style="font-size:24px;line-height:1.3;margin:0 0 12px">Find the right providers for your project</h2><p style="font-size:17px;line-height:1.6;margin:0 0 16px">Already defining your requirements? Share your project brief. Still exploring tokenization? Start with the free readiness assessment.</p><div style="display:flex;flex-wrap:wrap;gap:16px"><a href="${briefHref}">Submit project requirements</a><a href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></div></aside>`;
+    renderedHtml = renderedHtml.replace(/<\/section>/i, `</section>${nextSteps}`);
+  }
+  if (file === "vendor-ecosystem.html") {
+    const index = html.match(/<script id="vendor-search-index-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
+    if (index) {
+      const parsed = JSON.parse(decodeHtmlEntities(index));
+      const safeJson = JSON.stringify(parsed).replace(/</g, "\\u003c");
+      renderedHtml += `<script id="vendor-search-index-data" type="application/json">${safeJson}</script>`;
+    }
+  }
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }
 

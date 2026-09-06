@@ -920,6 +920,33 @@ const matchesNormalizedVendorSearch = (searchText, query) => {
   return matched.length >= Math.min(3, queryTokens.length) || matched.length / queryTokens.length >= 0.45;
 };
 
+const vendorSearchScore = (item, query) => {
+  const q = normalizeVendorText(query);
+  if (!q) return 0;
+  const name = normalizeVendorText(item.name || "");
+  const category = normalizeVendorText(item.category || "");
+  const terms = [...new Set(tokenizeVendorSearch(q))];
+  const categoryTerms = new Set(tokenizeVendorSearch(category));
+  const textTerms = new Set(tokenizeVendorSearch(item.text || ""));
+  if (name === q) return 10000;
+  if (name.startsWith(q)) return 8000;
+  if (name.includes(q)) return 6000;
+  const categoryHits = terms.filter((term) => categoryTerms.has(term)).length;
+  const hits = terms.filter((term) => textTerms.has(term)).length;
+  const intentCategories = [
+    [/tokeniz|tokenis|\brwa\b/, /tokenization platforms|tokenization providers/],
+    [/\brpc\b|\bnode\b/, /rpc|node as a service/],
+    [/custody|custodian|wallet/, /custody|wallet/],
+    [/smart contract/, /smart contract/],
+    [/blockchain develop/, /blockchain develop/],
+    [/\bkyc\b|\baml\b/, /kyc|aml/],
+    [/\blegal\b|\blaw\b/, /legal|regulatory/]
+  ];
+  const intentBoost = intentCategories.some(([intent, target]) => intent.test(q) && target.test(category)) ? 2000 : 0;
+  return intentBoost + (terms.length && categoryHits === terms.length ? 4000 : 0) +
+    categoryHits * 300 + hits * 30 + ((item.text || "").includes(q) ? 10 : 0);
+};
+
 const inferVendorProfile = (card) => {
   const text = normalizeVendorText(`${card.dataset.search || ""} ${card.textContent || ""}`);
   const tokens = new Set(tokenizeVendorSearch(text));
@@ -947,7 +974,9 @@ const inferVendorProfile = (card) => {
     : /(developer|startup|self serve|open source|community|boutique|smb|small business)/.test(text)
       ? "starter"
       : "growth";
-  return { text, tokens, location, regulatory, budget };
+  const name = card.querySelector("h3")?.textContent || "";
+  const category = card.dataset.category || card.closest("[data-category-section]")?.querySelector("h2")?.textContent || "";
+  return { text, tokens, location, regulatory, budget, name, category };
 };
 
 const buildFilterSelect = (label, name, options) => {
@@ -1067,7 +1096,8 @@ if (vendorSearch) {
       ? categorySearchIndex.filter((item) => matchesNormalizedVendorSearch(item.text, normalizedQuery))
       : [];
     const seenResultHrefs = new Set();
-    const combinedMatches = [...matchingProfileLinks, ...categoryMatches].filter((item) => {
+    const hasFilters = activeFilter !== "all" || locationControl.value !== "all" || regulatoryControl.value !== "all" || budgetControl.value !== "all";
+    const combinedMatches = (hasFilters ? [] : [...matchingProfileLinks, ...categoryMatches]).sort((a, b) => vendorSearchScore(b, query) - vendorSearchScore(a, query)).filter((item) => {
       const key = `${item.href}:${item.name}`;
       if (seenResultHrefs.has(key)) return false;
       seenResultHrefs.add(key);
@@ -1075,19 +1105,34 @@ if (vendorSearch) {
     });
     const matchingProfileCards = new Set(matchingProfileLinks.map((item) => item.card).filter(Boolean));
 
+    // Sort within each category without moving cards out of their semantic section.
+    const parents = new Set(vendorCards.map((card) => card.parentElement));
+    parents.forEach((parent) => {
+      vendorCards.filter((card) => card.parentElement === parent)
+        .sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
+        .forEach((card) => parent.appendChild(card));
+    });
+
     profileIndexCards.forEach((card) => {
       card.hidden = Boolean(normalizedQuery) && !matchingProfileCards.has(card);
     });
 
     if (profileIndexSection) {
-      profileIndexSection.hidden = Boolean(normalizedQuery) && !matchingProfileCards.size;
+      profileIndexSection.hidden = hasFilters || Boolean(normalizedQuery) && !matchingProfileCards.size;
     }
 
     if (profileResultsList) {
-      profileResultsList.innerHTML = combinedMatches
-        .slice(0, 24)
-        .map((item) => `<a href="${item.href}"><strong>${item.name}</strong><span>${item.category}</span>${item.description ? `<small>${item.description}</small>` : ""}</a>`)
-        .join("");
+      profileResultsList.replaceChildren(...combinedMatches.slice(0, 24).map((item) => {
+        const link = document.createElement("a");
+        link.href = item.href;
+        [["strong", item.name], ["span", item.category], ["small", item.description]].forEach(([tag, value]) => {
+          if (!value) return;
+          const element = document.createElement(tag);
+          element.textContent = value;
+          link.appendChild(element);
+        });
+        return link;
+      }));
       profileResults.hidden = !combinedMatches.length;
     }
 
@@ -1103,7 +1148,7 @@ if (vendorSearch) {
       const categoryMatchCount = categoryMatches.length;
       const totalMatches = visibleCount + combinedMatches.length;
       statusNode.textContent = normalizedQuery
-        ? `${totalMatches.toLocaleString()} matches found: ${visibleCount.toLocaleString()} on-page vendors, ${profileMatchCount.toLocaleString()} FluidRWA profile links and ${categoryMatchCount.toLocaleString()} category-page vendor links.`
+        ? totalMatches ? `${visibleCount.toLocaleString()} directory matches${hasFilters ? " within your filters" : ` and ${combinedMatches.length} related links`}.` : "No matching vendors. Try a broader search or reset filters."
         : `${visibleCount.toLocaleString()} on-page vendors searchable, plus ${categorySearchIndex.length.toLocaleString()} vendor links indexed across category pages.`;
     }
   };
@@ -1170,6 +1215,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   const locations = [...new Set([...profiles.values()].map((profile) => profile.location).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
   const panel = document.createElement("section");
+  const briefCategory = document.querySelector("h1")?.textContent?.trim() || "";
   panel.className = "vendor-procurement-panel";
   panel.setAttribute("aria-label", "Vendor search and filters");
   panel.innerHTML = `
@@ -1182,7 +1228,7 @@ const initLegacyVendorDirectoryWidgets = () => {
       <label class="vendor-filter-field vendor-filter-field--search"><span>Search providers</span><input type="search" data-provider-query placeholder="Company, service, use case or keyword"></label>
     </div>
     <div class="vendor-procurement-actions">
-      <a href="/submit-requirement">Submit your requirements</a>
+      <a href="/submit-requirement?category=${encodeURIComponent(briefCategory)}&source=category-shortlist">Submit your requirements</a>
       <a href="/tokenization-readiness-assessment-tool?source=vendor-directory">Run readiness assessment</a>
       <small>Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers.</small>
     </div>`;
@@ -1214,7 +1260,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     providerCards.forEach((card) => {
       const profile = profiles.get(card);
       const matchesProcurement =
-        (!query || profile.text.includes(query)) &&
+        matchesVendorSearch(profile, query) &&
         (locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value) &&
         (regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value) &&
         (budgetControl.value === "all" || profile.budget === budgetControl.value);
@@ -1223,6 +1269,8 @@ const initLegacyVendorDirectoryWidgets = () => {
       card.hidden = !visible;
       if (visible) visibleCount += 1;
     });
+    [...providerCards].sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
+      .forEach((card) => providerDirectory.appendChild(card));
     status.textContent = `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
   };
 

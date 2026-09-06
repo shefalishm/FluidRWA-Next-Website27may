@@ -82,7 +82,18 @@ export function FormScripts() {
       const pageField = form.querySelector<HTMLInputElement>('input[name="PAGE_URL"]');
       if (vendorField && vendor) vendorField.value = vendor;
       if (categoryField && category) categoryField.value = category;
-      if (sourceField) sourceField.value = source || (isVendorForm ? "vendor-waitlist" : sourceField.value || "submit-requirement");
+      const requirementCategory = form.querySelector<HTMLSelectElement>('[name="REQUIREMENT_CATEGORY"]');
+      if (!isVendorForm && requirementCategory && category) {
+        const mappings: Array<[RegExp, string]> = [
+          [/smart.contract/i, "Smart contract development"],
+          [/blockchain.develop/i, "Blockchain development"], [/custod|wallet/i, "Custody and wallets"],
+          [/kyc|aml|compliance/i, "KYC, AML and compliance"], [/payment|stablecoin|ramp/i, "Payments and stablecoins"],
+          [/security|audit/i, "Security and audits"], [/legal|regulatory/i, "Legal and regulatory"],
+          [/\bai\b/i, "AI infrastructure or tools"], [/tokeniz/i, "Tokenization platform"]
+        ];
+        requirementCategory.value = mappings.find(([pattern]) => pattern.test(category))?.[1] || "Other / multiple categories";
+      }
+      if (sourceField) sourceField.value = isVendorForm ? (sourceField.value || "vendor-review") : sourceField.value === "contact-general" ? "contact-general" : source || sourceField.value || "submit-requirement";
       if (pageField) pageField.value = window.location.href;
       if (!isVendorForm && (vendor || category)) {
         if (formHeading && vendor) formHeading.textContent = `Request an introduction to ${vendor}`;
