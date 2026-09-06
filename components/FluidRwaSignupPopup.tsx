@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type SignupDraft = {
   name: string;
@@ -23,23 +24,26 @@ function currentPath() {
 }
 
 export function FluidRwaSignupPopup() {
+  const pathname = usePathname();
   const [showPopup, setShowPopup] = useState(false);
   const [signup, setSignup] = useState<SignupDraft>(emptySignup);
   const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const isEditorialPage = ["/blog", "/learn", "/news"].some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`));
 
   useEffect(() => {
-    const ignoredPaths = ["/auth/callback"];
+    setShowPopup(false);
+    if (!isEditorialPage) return;
     const timer = window.setTimeout(() => {
-      const shouldIgnorePath = ignoredPaths.some((path) => window.location.pathname.startsWith(path));
       const alreadyHandled = window.localStorage.getItem(popupStorageKey) || window.localStorage.getItem(signedUpStorageKey);
-
-      if (!shouldIgnorePath && !alreadyHandled) {
+      const isInteracting = document.activeElement?.closest("form") || document.querySelector('[role="dialog"]');
+      if (!alreadyHandled && !isInteracting) {
         setShowPopup(true);
       }
-    }, 20000);
+    }, 60000);
 
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [pathname, isEditorialPage]);
 
   function updateSignup(field: keyof SignupDraft, value: string) {
     setSignup((current) => ({
@@ -60,29 +64,38 @@ export function FluidRwaSignupPopup() {
 
   async function submitSignup(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     if (!signup.email) {
       setStatus("Please add your email so we can keep you in the loop.");
       return;
     }
 
+    setSubmitting(true);
     setStatus("Saving...");
-    const response = await fetch("/api/freelancer-marketplace-waitlist", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...signup,
-        authMethod: "email",
-        source: "fluidrwa-general-signup-popup",
-        pageUrl: window.location.href
-      })
-    });
-    const result = (await response.json()) as { message?: string };
-    window.localStorage.setItem(signedUpStorageKey, "true");
-    window.localStorage.setItem(popupStorageKey, "true");
-    setStatus(result.message || "You are on the FluidRWA list.");
+    try {
+      const response = await fetch("/api/freelancer-marketplace-waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...signup,
+          authMethod: "email",
+          source: "fluidrwa-general-signup-popup",
+          pageUrl: window.location.href
+        })
+      });
+      const result = (await response.json()) as { message?: string; ok?: boolean };
+      if (!response.ok || result.ok === false) throw new Error(result.message || "We could not save your signup. Please try again.");
+      window.localStorage.setItem(signedUpStorageKey, "true");
+      window.localStorage.setItem(popupStorageKey, "true");
+      setStatus(result.message || "You are on the FluidRWA list.");
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "We could not save your signup. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
-  if (!showPopup) return null;
+  if (!showPopup || !isEditorialPage) return null;
 
   return (
     <div className="freelancer-popup-backdrop" role="dialog" aria-modal="true" aria-labelledby="fluidrwa-signup-popup-title">
@@ -101,18 +114,18 @@ export function FluidRwaSignupPopup() {
           </button>
         </div>
         <form className="freelancer-popup-form" onSubmit={submitSignup}>
-          <input value={signup.name} onChange={(event) => updateSignup("name", event.target.value)} placeholder="Name" />
-          <input value={signup.email} onChange={(event) => updateSignup("email", event.target.value)} placeholder="Email" type="email" />
-          <select value={signup.role} onChange={(event) => updateSignup("role", event.target.value)}>
+          <input value={signup.name} onChange={(event) => updateSignup("name", event.target.value)} placeholder="Name" aria-label="Name" />
+          <input value={signup.email} onChange={(event) => updateSignup("email", event.target.value)} placeholder="Email" aria-label="Email" type="email" required />
+          <select value={signup.role} onChange={(event) => updateSignup("role", event.target.value)} aria-label="Your role">
             <option>Founder / Operator</option>
             <option>Investor</option>
             <option>Service provider</option>
             <option>Researcher</option>
             <option>Other</option>
           </select>
-          <button type="submit">Join FluidRWA</button>
+          <button type="submit" disabled={submitting}>{submitting ? "Saving..." : "Join FluidRWA"}</button>
         </form>
-        {status ? <p className="freelancer-popup-status">{status}</p> : null}
+        {status ? <p className="freelancer-popup-status" role="status">{status}</p> : null}
       </div>
     </div>
   );

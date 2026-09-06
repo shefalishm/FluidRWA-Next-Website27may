@@ -38,6 +38,20 @@ if (/build-blog|generate-|enhance-organic/.test(buildCommand)) {
   failures.push("Production build must not regenerate or rewrite source pages.");
 }
 
+// The browser receives the public copy, not the legacy source asset.
+const formScript = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
+const publicFormScript = fs.readFileSync(path.join(root, "public/assets/site.js"), "utf8");
+if (formScript !== publicFormScript) {
+  failures.push("assets/site.js and public/assets/site.js differ. Review and sync the form asset before deployment.");
+}
+const formComponent = fs.readFileSync(path.join(root, "components/FormScripts.tsx"), "utf8");
+for (const [name, source] of [["FormScripts.tsx", formComponent], ["site.js", formScript]]) {
+  if (/status=unpaid|vendor-membership#pricing|hydratePaidVendorContext|paypalSubscriptionId|payuTransactionId/.test(source)) {
+    failures.push(`${name} contains the retired payment-first application flow.`);
+  }
+  if (!source.includes("form.checkValidity()")) failures.push(`${name} must validate intake forms.`);
+}
+
 if (failures.length) {
   console.error("FluidRWA source-of-truth check failed:\n");
   failures.forEach((failure) => console.error(`- ${failure}`));

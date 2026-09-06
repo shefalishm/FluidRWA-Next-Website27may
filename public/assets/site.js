@@ -51,46 +51,6 @@ const hydrateIntakeContext = () => {
 
 hydrateIntakeContext();
 
-const hydratePaidVendorContext = () => {
-  if (!window.location.pathname.includes("apply-as-vendor")) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const subscription = params.get("subscription") || "";
-  const payment = params.get("payment") || "";
-  const plan = params.get("plan") || "";
-  const membership = params.get("membership") || "";
-  const txnid = params.get("txnid") || "";
-  const payuId = params.get("payu_id") || "";
-  const status = params.get("status") || "";
-  if (!subscription && !payment && !plan && !membership && !txnid && !payuId) return;
-
-  const setValue = (name, value) => {
-    const field = document.querySelector(`[name="${name}"]`);
-    if (field) field.value = value;
-  };
-
-  setValue("PAYPAL_SUBSCRIPTION_ID", subscription);
-  setValue("PAYMENT_PROVIDER", payment || "paypal");
-  setValue("PAYMENT_STATUS", status || (subscription ? "subscription-approved-before-form" : txnid || payuId ? "payment-returned-before-form" : "payment-started"));
-  setValue("MEMBERSHIP_PLAN", plan || membership || "vetted-vendor-monthly");
-  setValue("PAYU_TRANSACTION_ID", txnid);
-  setValue("PAYU_PAYMENT_ID", payuId);
-  setValue("REQUEST_SOURCE", "paid-vendor-membership");
-
-  const context = document.querySelector("[data-paid-vendor-context]");
-  if (context) {
-    if (payment === "payu" && (txnid || payuId)) {
-      context.textContent = `Payment returned from PayU${txnid ? `, transaction ${txnid}` : ""}. Complete this profile so FluidRWA can activate the review.`;
-    } else if (subscription) {
-      context.textContent = `Payment received via PayPal subscription ${subscription}. Complete this profile so FluidRWA can activate the review.`;
-    } else {
-      context.textContent = "Complete this profile so FluidRWA can match your paid membership request with your vendor details.";
-    }
-  }
-};
-
-hydratePaidVendorContext();
-
 const vendorContactState = {
   vendorName: "",
   vendorCategory: "",
@@ -110,7 +70,7 @@ const contactCopy = {
   vendor: {
     eyebrow: "Vendor listing",
     title: "Become a Vetted Listing",
-    body: "Share your company category, proof points, buyer fit and regions served. Vendor and project listings require a paid membership before review is activated.",
+    body: "Share your company category, proof points, buyer fit and regions served. FluidRWA will review the application and follow up if there is a fit.",
     source: "contact-vendor",
     button: "Become a Vetted Listing",
     description: "Company category, services, ideal customers, regions served and why your company should be listed.",
@@ -168,7 +128,13 @@ leadConversionForms.forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (button?.disabled) return;
     const isVendorForm = getIsVendorForm();
+    const isReviewApplication = form.dataset.reviewApplication === "true";
     const requestSource = form.querySelector('input[name="REQUEST_SOURCE"]')?.value || "";
     const isGeneralInquiry = requestSource === "contact-general";
     const isListingSubmission = isVendorForm || requestSource === "submit-project-listing";
@@ -185,7 +151,6 @@ leadConversionForms.forEach((form) => {
     const formData = new FormData(form);
     formData.set("FORM_RENDERED_AT", String(formRenderedAt));
     formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
-    formData.set("WEBSITE_URL", "");
     const companyName = formValue(formData, "COMPANYNAME");
     const payload = {
       vendorName: formValue(formData, "VENDOR_NAME") || params.get("vendor") || (isVendorForm ? companyName : ""),
@@ -203,12 +168,6 @@ leadConversionForms.forEach((form) => {
       website: formValue(formData, "WEBSITE"),
       linkedin: formValue(formData, "LINKEDIN_HANDLE"),
       projectDescription: formValue(formData, "CONTACT_CF1"),
-      paypalSubscriptionId: formValue(formData, "PAYPAL_SUBSCRIPTION_ID"),
-      payuTransactionId: formValue(formData, "PAYU_TRANSACTION_ID"),
-      payuPaymentId: formValue(formData, "PAYU_PAYMENT_ID"),
-      membershipPlan: formValue(formData, "MEMBERSHIP_PLAN"),
-      paymentProvider: formValue(formData, "PAYMENT_PROVIDER"),
-      paymentStatus: formValue(formData, "PAYMENT_STATUS") || (isListingSubmission ? "unpaid" : ""),
       rawPayload: Object.fromEntries(formData.entries()),
     };
 
@@ -223,27 +182,15 @@ leadConversionForms.forEach((form) => {
       if (button) button.textContent = "Submitted";
       if (status) {
         status.className = "form-status is-success";
-        status.textContent = isListingSubmission
-          ? "Thank you. Your listing details have been saved. Choose a paid membership plan to activate review."
+        status.textContent = isReviewApplication
+          ? "Thank you. Your application has been received for review. If approved, FluidRWA will contact you with the appropriate visibility options."
+          : isListingSubmission
+          ? "Thank you. Your listing details have been received for review."
           : isGeneralInquiry
             ? "Thank you. Your inquiry has been received."
             : "Thank you. Your project requirements have been received.";
       }
-      const hasPaymentReference = Boolean(
-        payload.paypalSubscriptionId ||
-          payload.payuTransactionId ||
-          payload.payuPaymentId ||
-          payload.paymentProvider ||
-          payload.paymentStatus === "paid" ||
-          payload.paymentStatus === "payment-returned-before-form" ||
-          payload.paymentStatus === "subscription-approved-before-form"
-      );
-      if (isListingSubmission && !hasPaymentReference) {
-        const membershipUrl = `/vendor-membership?source=${encodeURIComponent(payload.source || "vendor-submission")}&status=unpaid#pricing`;
-        window.setTimeout(() => {
-          window.location.href = membershipUrl;
-        }, 1200);
-      }
+      if (result.mode === "filtered") return;
       const eventName = isVendorForm
         ? "vendor_application_submitted"
         : isGeneralInquiry

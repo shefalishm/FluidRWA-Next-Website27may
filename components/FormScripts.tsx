@@ -28,16 +28,11 @@ export function FormScripts() {
 
     const showConfirmation = (
       successTitle: string,
-      successCopy: string,
-      options: { vendorListing?: boolean; redirectUrl?: string } = {}
+      successCopy: string
     ) => {
       removeConfirmation();
-      const primaryAction = options.vendorListing
-        ? `<a class="btn btn-primary light-primary" href="${options.redirectUrl || "/vendor-membership#pricing"}">Become a Vetted Listing</a>`
-        : `<button type="button" class="btn btn-primary light-primary" data-confirmation-close>Done</button>`;
-      const secondaryAction = options.vendorListing
-        ? `<a class="btn btn-secondary light-secondary" href="/vendor-membership#pricing">View Pricing</a>`
-        : `<a class="btn btn-secondary light-secondary" href="/web3vendorecosystem">Explore Vendors</a>`;
+      const primaryAction = `<button type="button" class="btn btn-primary light-primary" data-confirmation-close>Done</button>`;
+      const secondaryAction = `<a class="btn btn-secondary light-secondary" href="/web3vendorecosystem">Explore Vendors</a>`;
       const overlay = document.createElement("div");
       overlay.className = "form-confirmation-overlay";
       overlay.dataset.fluidConfirmation = "true";
@@ -113,7 +108,7 @@ export function FormScripts() {
               ? "Your inquiry has been received"
               : "Your project requirements have been received",
           successCopy: vendorListingSubmission
-            ? "To activate listing review, choose a paid FluidRWA membership plan. FluidRWA does not publish free vendor or project listings."
+            ? "Your application has been received for review. If approved, FluidRWA will contact you with appropriate visibility options and a private commercial proposal."
             : generalInquiry
               ? "Thank you for contacting FluidRWA. Our team will review your note and follow up if there is a fit."
               : "Thank you for sharing your requirements. Our team will review your project and contact you with the most relevant next steps."
@@ -131,9 +126,13 @@ export function FormScripts() {
       const handleSubmit = async (event: SubmitEvent) => {
         event.preventDefault();
         event.stopImmediatePropagation();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        if (button.disabled) return;
         const isVendorSubmission = getIsVendorForm();
         const sourceValue = sourceField?.value || "";
-        const vendorListingSubmission = isVendorSubmission || sourceValue === "submit-project-listing";
         const { defaultButtonText, loadingText, successTitle, successCopy } = getFormMessages();
         button.disabled = true;
         button.textContent = "Submitting...";
@@ -143,7 +142,6 @@ export function FormScripts() {
         const formData = new FormData(form);
         formData.set("FORM_RENDERED_AT", String(formRenderedAt));
         formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
-        formData.set("WEBSITE_URL", "");
         const companyName = formValue(formData, "COMPANYNAME");
         const payload = {
           vendorName: formValue(formData, "VENDOR_NAME") || vendor || (isVendorSubmission ? companyName : ""),
@@ -161,14 +159,6 @@ export function FormScripts() {
           website: formValue(formData, "WEBSITE"),
           linkedin: formValue(formData, "LINKEDIN_HANDLE"),
           projectDescription: formValue(formData, "CONTACT_CF1"),
-          paypalSubscriptionId: formValue(formData, "PAYPAL_SUBSCRIPTION_ID"),
-          payuTransactionId: formValue(formData, "PAYU_TRANSACTION_ID"),
-          payuPaymentId: formValue(formData, "PAYU_PAYMENT_ID"),
-          payuAmount: formValue(formData, "PAYU_AMOUNT"),
-          payuCurrency: formValue(formData, "PAYU_CURRENCY"),
-          membershipPlan: formValue(formData, "MEMBERSHIP_PLAN"),
-          paymentProvider: formValue(formData, "PAYMENT_PROVIDER"),
-          paymentStatus: formValue(formData, "PAYMENT_STATUS") || (vendorListingSubmission ? "unpaid" : ""),
           rawPayload: Object.fromEntries(formData.entries())
         };
 
@@ -180,31 +170,15 @@ export function FormScripts() {
             },
             body: JSON.stringify(payload)
           });
-          const result = (await response.json()) as { ok?: boolean; message?: string };
+          const result = (await response.json()) as { ok?: boolean; message?: string; mode?: string };
           if (!response.ok || !result.ok) throw new Error(result.message || "Your request could not be saved.");
           status.className = "form-status is-success";
           status.textContent = `Thank you. ${successTitle}.`;
           button.disabled = true;
           button.textContent = "Submitted";
-          const hasPaymentReference = Boolean(
-            payload.paypalSubscriptionId ||
-              payload.payuTransactionId ||
-              payload.payuPaymentId ||
-              payload.paymentProvider ||
-              payload.paymentStatus === "paid" ||
-              payload.paymentStatus === "payment-returned-before-form" ||
-              payload.paymentStatus === "subscription-approved-before-form"
-          );
-          const membershipUrl = `/vendor-membership?source=${encodeURIComponent(payload.source || "vendor-submission")}&status=unpaid#pricing`;
-          showConfirmation(successTitle, successCopy, {
-            vendorListing: vendorListingSubmission && !hasPaymentReference,
-            redirectUrl: membershipUrl
-          });
-          if (vendorListingSubmission && !hasPaymentReference) {
-            window.setTimeout(() => {
-              window.location.href = membershipUrl;
-            }, 1800);
-          }
+          showConfirmation(successTitle, successCopy);
+          // Filtered spam receives a neutral response but is not a conversion.
+          if (result.mode === "filtered") return;
           window.fluidRwaTrackEvent?.(getAnalyticsEventName(), {
             form_type: isVendorSubmission ? "vendor" : "project",
             request_source: payload.source,
@@ -216,6 +190,10 @@ export function FormScripts() {
           });
           window.fluidRwaReportLeadConversion?.();
         } catch (error) {
+          window.fluidRwaTrackEvent?.("intake_error", {
+            form_type: isVendorSubmission ? "vendor" : "project",
+            request_source: sourceValue
+          });
           button.disabled = false;
           button.textContent = defaultButtonText;
           status.className = "form-status is-error";
@@ -223,6 +201,17 @@ export function FormScripts() {
         }
       };
 
+      let started = false;
+      const handleStart = () => {
+        if (started) return;
+        started = true;
+        window.fluidRwaTrackEvent?.("intake_start", {
+          form_type: isVendorForm ? "vendor" : "project",
+          request_source: sourceField?.value || "submit-requirement"
+        });
+      };
+      form.addEventListener("focusin", handleStart);
+      cleanups.push(() => form.removeEventListener("focusin", handleStart));
       form.addEventListener("submit", handleSubmit, { capture: true });
       cleanups.push(() => form.removeEventListener("submit", handleSubmit, { capture: true }));
     });

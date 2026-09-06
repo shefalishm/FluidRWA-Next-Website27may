@@ -124,7 +124,7 @@ export function Header() {
             </a>
             <div className="nav-mega nav-mega-tools" aria-label="FluidRWA tools">
               <div>
-                <strong>Lead-gen Tools</strong>
+                <strong>Project Planning Tools</strong>
                 <a href="/tools/vendor-comparison">Vendor Comparison Tool</a>
                 <a href="/tokenization-readiness-assessment-tool">Tokenization Readiness Tool</a>
                 <a href="/family-office-service-stack-builder">Family Office Stack Builder</a>

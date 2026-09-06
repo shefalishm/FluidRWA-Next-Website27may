@@ -132,6 +132,7 @@ leadConversionForms.forEach((form) => {
       form.reportValidity();
       return;
     }
+    if (button?.disabled) return;
     const isVendorForm = getIsVendorForm();
     const isReviewApplication = form.dataset.reviewApplication === "true";
     const requestSource = form.querySelector('input[name="REQUEST_SOURCE"]')?.value || "";
@@ -150,7 +151,6 @@ leadConversionForms.forEach((form) => {
     const formData = new FormData(form);
     formData.set("FORM_RENDERED_AT", String(formRenderedAt));
     formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
-    formData.set("WEBSITE_URL", "");
     const companyName = formValue(formData, "COMPANYNAME");
     const payload = {
       vendorName: formValue(formData, "VENDOR_NAME") || params.get("vendor") || (isVendorForm ? companyName : ""),
@@ -190,6 +190,7 @@ leadConversionForms.forEach((form) => {
             ? "Thank you. Your inquiry has been received."
             : "Thank you. Your project requirements have been received.";
       }
+      if (result.mode === "filtered") return;
       const eventName = isVendorForm
         ? "vendor_application_submitted"
         : isGeneralInquiry
