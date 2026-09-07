@@ -1,8 +1,35 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export function Header() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const openOnHover = (pointerType: string, menu: string) => {
+    if (pointerType === "mouse" && window.matchMedia("(min-width: 1121px)").matches) setOpenMenu(menu);
+  };
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setOpenMenu(null);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      headerRef.current?.querySelector<HTMLAnchorElement>('[aria-expanded="true"][aria-haspopup]')?.focus();
+      setOpenMenu(null);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", closeOutside); document.removeEventListener("keydown", escape); };
+  }, []);
   return (
-    <header className="site-header light-header" data-site-header>
+    <header ref={headerRef} className="site-header light-header" data-site-header onPointerLeave={(event) => { if (event.pointerType === "mouse") setOpenMenu(null); }} onClick={(event) => {
+      const trigger = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[aria-haspopup]');
+      if (!trigger) { if ((event.target as HTMLElement).closest('.nav-mega a')) setOpenMenu(null); return; }
+      event.preventDefault();
+      const name = trigger.parentElement?.getAttribute('data-menu') || null;
+      setOpenMenu(current => window.matchMedia("(max-width: 1120px)").matches && current === name ? null : name);
+    }}>
       <nav className="nav" aria-label="Main navigation">
         <a className="brand light-brand" href="/" aria-label="FluidRWA home">
           <Image src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" width={190} height={60} priority />
@@ -15,8 +42,8 @@ export function Header() {
         </button>
         <div className="nav-links light-nav-links" data-nav-links>
           <a href="/">Home</a>
-          <div className="nav-menu">
-            <a href="/web3vendorecosystem" aria-haspopup="true">
+          <div className="nav-menu" data-menu="web3" data-open={openMenu === "web3"} onPointerEnter={(e) => openOnHover(e.pointerType, "web3")}>
+            <a href="/web3vendorecosystem" aria-haspopup="true" aria-expanded={openMenu === "web3"}>
               Web3 Vendors
             </a>
             <div className="nav-mega" aria-label="Web3 vendor categories">
@@ -43,8 +70,8 @@ export function Header() {
               </div>
             </div>
           </div>
-          <div className="nav-menu">
-            <a href="/ai-vendors" aria-haspopup="true">
+          <div className="nav-menu" data-menu="ai" data-open={openMenu === "ai"} onPointerEnter={(e) => openOnHover(e.pointerType, "ai")}>
+            <a href="/ai-vendors" aria-haspopup="true" aria-expanded={openMenu === "ai"}>
               AI Vendors
             </a>
             <div className="nav-mega nav-mega-ai" aria-label="AI vendor categories">
@@ -70,8 +97,8 @@ export function Header() {
               </div>
             </div>
           </div>
-          <div className="nav-menu">
-            <a href="/use-cases" aria-haspopup="true">
+          <div className="nav-menu" data-menu="use-cases" data-open={openMenu === "use-cases"} onPointerEnter={(e) => openOnHover(e.pointerType, "use-cases")}>
+            <a href="/use-cases" aria-haspopup="true" aria-expanded={openMenu === "use-cases"}>
               Use Cases
             </a>
             <div className="nav-mega nav-mega-use-cases" aria-label="Use case library">
@@ -95,8 +122,8 @@ export function Header() {
             </div>
           </div>
           <a href="/blockchain-projects">Blockchain Projects</a>
-          <div className="nav-menu">
-            <a href="/blog" aria-haspopup="true">
+          <div className="nav-menu" data-menu="insights" data-open={openMenu === "insights"} onPointerEnter={(e) => openOnHover(e.pointerType, "insights")}>
+            <a href="/blog" aria-haspopup="true" aria-expanded={openMenu === "insights"}>
               Insights
             </a>
             <div className="nav-mega nav-mega-resources" aria-label="FluidRWA insights and resources">
@@ -118,8 +145,8 @@ export function Header() {
               </div>
             </div>
           </div>
-          <div className="nav-menu">
-            <a href="/tools" aria-haspopup="true">
+          <div className="nav-menu" data-menu="tools" data-open={openMenu === "tools"} onPointerEnter={(e) => openOnHover(e.pointerType, "tools")}>
+            <a href="/tools" aria-haspopup="true" aria-expanded={openMenu === "tools"}>
               Tools
             </a>
             <div className="nav-mega nav-mega-tools" aria-label="FluidRWA tools">

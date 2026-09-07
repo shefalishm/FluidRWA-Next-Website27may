@@ -164,6 +164,8 @@ export function legacyMainHtml(file: string) {
   const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
   const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
+  renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
+    (_match, links: string) => `<div class="buyer-guide-actions">${links.replace(/ · /g, "")}</div>`);
   const buyerCategories: Record<string, string> = {
     "vendors/custody-solutions/index.html": "Custody and wallets",
     "vendors/tokenization-platforms/index.html": "Tokenization platform",

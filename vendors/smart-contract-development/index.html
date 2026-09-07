@@ -418,6 +418,21 @@
         <div class="research-links" style="margin-top:24px"><strong>Related FluidRWA resources</strong><a href="/blog/what-are-smart-contracts/">Smart contract explainer</a><a href="/blog/top-smart-contract-development-companies-web3-tokenization/">Top smart contract development companies</a><a href="/vendors/security-audit-companies/">Security audit companies</a><a href="/tokenization-readiness-assessment-tool">Tokenization readiness assessment</a></div>
       </div>
     </section>
+    <section class="bc-section" aria-labelledby="smart-demo-title"><div class="light-container">
+      <div class="solutions-section-head"><p class="eyebrow light-eyebrow">Procurement checklist</p><h2 id="smart-demo-title">Define what must be proven before deployment</h2><p>Separate the developer's implementation scope from independent review and post-launch operation. Ask every team to demonstrate the same privileged and ordinary-user actions in a sandbox, including actions that must fail.</p></div>
+      <div class="buyer-evidence-scroll" role="region" aria-label="Smart contract evaluation checklist" tabindex="0" style="overflow-x:auto;max-width:100%;margin-top:24px">
+        <style>.buyer-evidence-table{width:100%;min-width:680px;border-collapse:collapse;text-align:left;font-size:16px;line-height:1.6}.buyer-evidence-table th,.buyer-evidence-table td{padding:16px;vertical-align:top;border-bottom:1px solid #cbd5df}.buyer-evidence-table th{color:#12213a;background:#edf5fc}.buyer-evidence-table caption{text-align:left;font-weight:700;padding:12px 0}</style>
+        <table class="buyer-evidence-table"><caption>Smart contract delivery and review gates</caption><thead><tr><th scope="col">Gate</th><th scope="col">Evidence to request</th><th scope="col">Demonstration</th></tr></thead><tbody>
+          <tr><th scope="row">Specification</th><td>State transitions, invariants, trust assumptions and dependency inventory.</td><td>Explain what must remain true after minting, transfer, redemption and failure, where applicable.</td></tr>
+          <tr><th scope="row">Permissions</th><td>Role matrix identifying who can mint, pause, upgrade, change rules or grant roles.</td><td>Attempt each privileged action from an unauthorised account and verify rejection.</td></tr>
+          <tr><th scope="row">Testing</th><td>Reproducible tests, boundary cases, fuzz or invariant tests appropriate to scope.</td><td>Run tests from a clean checkout and explain important risks not represented by coverage percentages.</td></tr>
+          <tr><th scope="row">Independent review</th><td>Review scope tied to a commit, findings, remediation and unresolved limitations.</td><td>Show how the reviewed version maps to the intended deployment and how later changes are reviewed.</td></tr>
+          <tr><th scope="row">Administration</th><td>Upgrade or immutability decision, signing policy, recovery plan and monitoring ownership.</td><td>Rehearse the chosen administrative process in a sandbox, including delays and role removal where used.</td></tr>
+        </tbody></table>
+      </div>
+      <p style="margin-top:20px">An audit is a scoped review, not a guarantee that a contract is safe. A delay or multi-approver process also introduces operational dependencies: document who can act during an incident and what happens if a signer is unavailable. Include remediation, deployment support and continuing maintenance in the commercial scope.</p>
+      <p><a href="/downloads/fluidrwa-buyer-brief.txt" download>Download the buyer requirements worksheet</a> · <a href="/submit-requirement?category=Smart%20contract%20development&amp;source=smart-contract-checklist">Submit smart contract requirements</a> · <a href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></p>
+    </div></section>
     <!-- organic-smart-contract-depth -->
     <section class="bc-section" aria-labelledby="smart-depth-title">
       <div class="light-container">
