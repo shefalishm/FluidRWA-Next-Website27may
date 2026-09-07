@@ -128,7 +128,7 @@ export async function POST(request: Request) {
     const sourceValue = clean(payload.source) || clean(payload.requestSource) || "submit-requirement";
     const normalized: VendorIntroPayload = {
       vendorName: clean(payload.vendorName),
-      vendorCategory: clean(payload.vendorCategory),
+      vendorCategory: clean(payload.rawPayload?.REQUIREMENT_CATEGORY) || clean(payload.vendorCategory),
       source: sourceValue,
       pageUrl: clean(payload.pageUrl),
       leadSource: clean(payload.leadSource),
@@ -205,7 +205,9 @@ export async function POST(request: Request) {
       vendorName: row.vendor_name,
       vendorCategory: row.vendor_category,
       pageUrl: row.page_url,
-      projectDescription: row.project_description
+      projectDescription: [row.project_description, ...Object.entries(normalized.rawPayload || {})
+        .filter(([key, value]) => ["REQUIREMENT_CATEGORY", "PROJECT_STAGE", "PROJECT_TIMELINE", "PROJECT_BUDGET", "CLIENT_PROOF", "PROOF_LINK", "VISIBILITY_GOAL"].includes(key) && clean(value))
+        .map(([key, value]) => `${key.replace(/_/g, " ")}: ${clean(value)}`)].join("\n\n")
     });
 
     return NextResponse.json({

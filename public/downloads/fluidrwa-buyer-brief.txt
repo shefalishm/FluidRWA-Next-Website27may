@@ -1,0 +1,62 @@
+FLUIDRWA BUYER REQUIREMENTS WORKSHEET
+Version: 7 September 2026
+
+Use a business overview only. Do not include private keys, passwords,
+customer records or confidential investment documents. Leave unknowns
+as "undecided"; they are useful questions for a provider discussion.
+
+1. PROJECT AND OUTCOME
+Company / project:
+Contact name and business email:
+What workflow should improve, and how will you measure success?
+Current stage and target launch date:
+
+2. MARKET AND ASSET
+Asset or product, if relevant:
+Issuer / operating jurisdiction:
+Target customer or investor markets:
+Who is responsible for legal and regulatory review?
+What rights would a token represent, if applicable?
+
+3. PROVIDER REQUIREMENTS
+Categories needed (development, tokenization, custody, compliance,
+payments, security, legal, infrastructure, other):
+Three must-have capabilities:
+Nice-to-have capabilities:
+Existing systems, supported chains and required integrations:
+Who will operate and support the system after launch?
+
+4. DEMONSTRATION AND ACCEPTANCE
+One realistic workflow every shortlisted provider must demonstrate:
+Expected transaction volume and peak workload:
+Failure scenario (outage, rejected transfer, duplicate event, lost access):
+Required recovery time and acceptable data loss:
+Evidence required (test results, exports, audit scope, customer references):
+Conditions that would rule out a provider:
+
+5. DELIVERY AND COMMERCIAL SCOPE
+Budget range, currency and items included:
+Implementation deadline and dependencies:
+Recurring costs, minimum commitments and usage assumptions:
+Who owns code, records, signing permissions and migration tools?
+Exit, data export and handover requirements:
+Decision-maker and expected selection date:
+
+6. SHORTLIST NOTES (REPEAT FOR EACH PROVIDER)
+Provider:
+Exact product and contracting entity:
+Fit with required workflow:
+Evidence received / still missing:
+Demonstration result:
+Estimated first-year cost and assumptions:
+Open questions and next action:
+
+NEXT STEP
+Submit your business brief for FluidRWA review:
+https://www.fluidrwa.com/submit-requirement?source=buyer-worksheet
+
+Still exploring whether tokenization fits?
+https://www.fluidrwa.com/tokenization-readiness-assessment-tool
+
+Submitting does not create a paid engagement or guarantee a recommendation.
+This worksheet is for procurement planning, not legal or investment advice.

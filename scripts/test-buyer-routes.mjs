@@ -14,4 +14,13 @@ assert(JSON.parse(index[1]).length > 800, "Category search index unexpectedly in
 const contact = fs.readFileSync(".next/server/app/contact.html", "utf8");
 assert(contact.includes('value="contact-general"'));
 assert(contact.includes("Send Inquiry"));
+for (const route of ["vendors/crypto-custody-providers", "vendors/tokenization-platforms", "submit-requirement"]) {
+  const html = fs.readFileSync(`.next/server/app/${route}.html`, "utf8");
+  assert(html.includes('/downloads/fluidrwa-buyer-brief.txt'), `${route}: worksheet missing`);
+  if (route.startsWith('vendors/')) {
+    assert(html.includes('class="buyer-evidence-table"'), `${route}: evidence table missing`);
+    assert(html.includes('overflow-x:auto'), `${route}: table scroll missing`);
+  }
+}
+assert(fs.readFileSync('public/downloads/fluidrwa-buyer-brief.txt', 'utf8').includes('6. SHORTLIST NOTES'));
 console.log("Six buyer CTA routes, category index and general contact checks passed.");

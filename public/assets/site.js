@@ -154,7 +154,7 @@ leadConversionForms.forEach((form) => {
     const companyName = formValue(formData, "COMPANYNAME");
     const payload = {
       vendorName: formValue(formData, "VENDOR_NAME") || params.get("vendor") || (isVendorForm ? companyName : ""),
-      vendorCategory: formValue(formData, "VENDOR_CATEGORY") || params.get("category") || "",
+      vendorCategory: formValue(formData, "REQUIREMENT_CATEGORY") || formValue(formData, "VENDOR_CATEGORY") || params.get("category") || "",
       source: formValue(formData, "REQUEST_SOURCE") || params.get("source") || (isVendorForm ? "vendor-waitlist" : "submit-requirement"),
       pageUrl: window.location.href,
       leadSource: formValue(formData, "LEAD_SOURCE"),
@@ -190,12 +190,12 @@ leadConversionForms.forEach((form) => {
             ? "Thank you. Your inquiry has been received."
             : "Thank you. Your project requirements have been received.";
       }
-      if (result.mode === "filtered") return;
+      if (result.mode === "filtered" || params.get("source") === "qa-test") return;
       const eventName = isVendorForm
         ? "vendor_application_submitted"
         : isGeneralInquiry
           ? "contact_form_submitted"
-          : payload.vendorName || payload.vendorCategory
+          : payload.vendorName || payload.source.includes("vendor-contact")
             ? "vendor_intro_requested"
             : "project_requirement_submitted";
       trackFluidRwaEvent(eventName, {

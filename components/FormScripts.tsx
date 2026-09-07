@@ -130,7 +130,7 @@ export function FormScripts() {
         const sourceValue = sourceField?.value || "";
         if (getIsVendorForm()) return "vendor_application_submitted";
         if (sourceValue === "contact-general") return "contact_form_submitted";
-        if (sourceValue.includes("vendor-contact") || vendor || category) return "vendor_intro_requested";
+        if (sourceValue.includes("vendor-contact") || vendor) return "vendor_intro_requested";
         return "project_requirement_submitted";
       };
 
@@ -156,7 +156,7 @@ export function FormScripts() {
         const companyName = formValue(formData, "COMPANYNAME");
         const payload = {
           vendorName: formValue(formData, "VENDOR_NAME") || vendor || (isVendorSubmission ? companyName : ""),
-          vendorCategory: formValue(formData, "VENDOR_CATEGORY") || category || "",
+          vendorCategory: formValue(formData, "REQUIREMENT_CATEGORY") || formValue(formData, "VENDOR_CATEGORY") || category || "",
           source: formValue(formData, "REQUEST_SOURCE") || source || (isVendorSubmission ? "vendor-waitlist" : "submit-requirement"),
           pageUrl: window.location.href,
           leadSource: formValue(formData, "LEAD_SOURCE"),
@@ -189,7 +189,7 @@ export function FormScripts() {
           button.textContent = "Submitted";
           showConfirmation(successTitle, successCopy);
           // Filtered spam receives a neutral response but is not a conversion.
-          if (result.mode === "filtered") return;
+          if (result.mode === "filtered" || params.get("source") === "qa-test") return;
           window.fluidRwaTrackEvent?.(getAnalyticsEventName(), {
             form_type: isVendorSubmission ? "vendor" : "project",
             request_source: payload.source,
@@ -214,6 +214,7 @@ export function FormScripts() {
 
       let started = false;
       const handleStart = () => {
+        if (params.get("source") === "qa-test") return;
         if (started) return;
         started = true;
         window.fluidRwaTrackEvent?.("intake_start", {
