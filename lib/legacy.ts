@@ -177,7 +177,7 @@ export function legacyMainHtml(file: string) {
   const buyerCategory = buyerCategories[file];
   if (buyerCategory) {
     const briefHref = `/submit-requirement?category=${encodeURIComponent(buyerCategory)}&amp;source=buyer-guide`;
-    const nextSteps = `<aside aria-label="Plan your next step" style="max-width:1200px;margin:24px auto;padding:24px;box-sizing:border-box;border-top:1px solid #dce4eb;border-bottom:1px solid #dce4eb"><h2 style="font-size:24px;line-height:1.3;margin:0 0 12px">Find the right providers for your project</h2><p style="font-size:17px;line-height:1.6;margin:0 0 16px">Already defining your requirements? Share your project brief. Still exploring tokenization? Start with the free readiness assessment.</p><div style="display:flex;flex-wrap:wrap;gap:16px"><a href="${briefHref}">Submit project requirements</a><a href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></div></aside>`;
+    const nextSteps = `<aside class="buyer-next-step" aria-label="Plan your next step"><div class="buyer-next-step-copy"><p class="buyer-next-step-kicker">Buyer support</p><h2>Find the right providers for your project</h2><p>Already defining your requirements? Share your project brief. Still exploring tokenization? Start with the free readiness assessment.</p></div><div class="buyer-next-step-actions"><a class="buyer-next-step-primary" href="${briefHref}">Submit project requirements</a><a class="buyer-next-step-secondary" href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></div></aside>`;
     renderedHtml = renderedHtml.replace(/<\/section>/i, `</section>${nextSteps}`);
   }
   if (file === "vendor-ecosystem.html") {

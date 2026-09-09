@@ -5076,6 +5076,75 @@ tr:last-child td { border-bottom: 0; }
   overflow: hidden;
 }
 
+/* Keep vendor evidence and actions aligned across cards with different copy lengths. */
+.bc-company-grid,
+.bc-provider-grid {
+  align-items: stretch;
+}
+
+.bc-company-card {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.bc-company-card > .bc-company-top { order: 1; }
+.bc-company-card > .bc-best,
+.bc-company-card > .bc-best-fit { order: 2; }
+.bc-company-card > .bc-desc,
+.bc-company-card > p[itemprop="description"] { order: 3; }
+.bc-company-card > .bc-tags,
+.bc-company-card > .bc-company-tags { order: 4; }
+.bc-company-card > .bc-details,
+.bc-company-card > .bc-provider-details { order: 5; margin-top: auto; }
+.bc-company-card > .bc-company-meta { order: 6; }
+.bc-company-card > .bc-profile-link { order: 7; }
+.bc-company-card > .vendor-card-actions { order: 8; }
+
+.bc-vetted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 6px 9px;
+  border: 1px solid rgba(38, 100, 169, .2);
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #155fa7;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.bc-vetted-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2d75bc;
+  box-shadow: 0 0 0 3px rgba(45, 117, 188, .12);
+}
+
+.bc-company-card > .bc-profile-link,
+.bc-company-card > .vendor-card-actions,
+.bc-company-card > .vendor-card-actions > * {
+  width: 100%;
+  max-width: 100%;
+}
+
+.bc-company-card > .bc-profile-link {
+  min-height: 46px;
+  margin-top: 16px;
+  border-radius: 8px;
+}
+
+.bc-company-card > .vendor-card-actions {
+  display: grid;
+  margin-top: 10px;
+}
+
 .bc-provider-card--premium {
   position: relative;
   grid-column: 1 / -1;

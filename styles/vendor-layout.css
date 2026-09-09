@@ -84,3 +84,175 @@
   .light-home .site-header.light-header .nav-menu[data-menu] > .nav-mega { display: none !important; }
   .light-home .site-header.light-header .nav-menu[data-open="true"] > .nav-mega { display: grid !important; grid-template-columns: 1fr !important; }
 }
+
+/* Shared vendor-directory polish. Keep research readable while making every
+   card end with the same predictable decision controls. */
+.light-home main .bc-company-grid,
+.light-home main .bc-provider-grid {
+  align-items: stretch;
+}
+
+.light-home main .bc-company-card,
+.light-home main .bc-provider-card {
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 14px 38px rgba(18, 33, 58, .07);
+}
+
+.light-home main .bc-company-card > .bc-company-top { order: 1; }
+.light-home main .bc-company-card > .bc-best,
+.light-home main .bc-company-card > .bc-best-fit { order: 2; }
+.light-home main .bc-company-card > .bc-desc,
+.light-home main .bc-company-card > p[itemprop="description"] { order: 3; }
+.light-home main .bc-company-card > .bc-tags,
+.light-home main .bc-company-card > .bc-company-tags { order: 4; }
+.light-home main .bc-company-card > .bc-details,
+.light-home main .bc-company-card > .bc-provider-details {
+  order: 5;
+  margin-top: auto;
+}
+.light-home main .bc-company-card > .bc-company-meta { order: 6; }
+.light-home main .bc-company-card > .bc-profile-link { order: 7; }
+.light-home main .bc-company-card > .vendor-card-actions { order: 8; }
+
+.light-home main .bc-vetted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 6px 9px;
+  border: 1px solid rgba(38, 100, 169, .2);
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #155fa7;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.light-home main .bc-vetted-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2d75bc;
+  box-shadow: 0 0 0 3px rgba(45, 117, 188, .12);
+}
+
+.light-home main .bc-company-card > .bc-profile-link,
+.light-home main .bc-company-card > .vendor-card-actions,
+.light-home main .bc-company-card > .vendor-card-actions > * {
+  width: 100%;
+  max-width: 100%;
+}
+
+.light-home main .bc-company-card > .bc-profile-link {
+  min-height: 46px;
+  margin-top: 16px;
+  border-radius: 8px;
+}
+
+.light-home main .bc-company-card > .vendor-card-actions {
+  display: grid;
+  margin-top: 10px;
+}
+
+.light-home main .bc-company-card > .vendor-card-actions .vendor-contact-trigger {
+  min-height: 46px;
+  border-radius: 8px;
+}
+
+/* Buyer CTA injected into legacy category and guide pages. */
+.light-home main .buyer-next-step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 32px;
+  width: min(1200px, calc(100% - 40px));
+  margin: 32px auto;
+  padding: 30px 0;
+  border-top: 1px solid #dce6ef;
+  border-bottom: 1px solid #dce6ef;
+  box-sizing: border-box;
+}
+
+.light-home main .buyer-next-step-kicker {
+  margin: 0 0 8px;
+  color: #2d6eb1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.light-home main .buyer-next-step h2 {
+  margin: 0 0 8px;
+  color: #12213a;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.light-home main .buyer-next-step-copy > p:last-child {
+  max-width: 760px;
+  margin: 0;
+  color: #5a687c;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.light-home main .buyer-next-step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.light-home main .buyer-next-step-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #bfd4e8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+}
+
+.light-home main .buyer-next-step-primary {
+  border-color: #2d6eb1 !important;
+  background: #2d6eb1;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(45, 110, 177, .16);
+}
+
+.light-home main .buyer-next-step-secondary {
+  background: #f6faff;
+  color: #155fa7;
+}
+
+@media (max-width: 820px) {
+  .light-home main .buyer-next-step {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: min(100% - 28px, 1200px);
+    margin: 24px auto;
+    padding: 24px 0;
+  }
+
+  .light-home main .buyer-next-step-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .light-home main .buyer-next-step-actions a { width: 100%; }
+}
