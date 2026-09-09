@@ -48,37 +48,10 @@
     </nav>
   </header>
   <main id="main">
-    <section class="form-hero" aria-labelledby="project-title">
-      <div class="light-container form-hero-grid">
-        <div>
-          <p class="eyebrow light-eyebrow">Buyer requirements</p>
+    <section class="form-section form-section--centered" aria-labelledby="project-title">
+      <div class="light-container form-centered-shell">
+        <div class="form-page-heading">
           <h1 id="project-title">Tell us what your project needs</h1>
-          <p>Share your workflow, stage, market and vendor requirements. FluidRWA will review the brief and use it to understand which infrastructure categories and providers may fit.</p>
-          <p class="trust-note">This form is for project teams and buyers. Want to list your company? <a href="/vendor-membership">Apply for vendor review.</a></p>
-        </div>
-        <aside class="form-hero-card" aria-label="Useful project details">
-          <p class="eyebrow light-eyebrow">A useful brief includes</p>
-          <ul>
-            <li>Project stage and target launch date</li>
-            <li>Jurisdictions, users and asset type</li>
-            <li>Required capabilities, budget and constraints</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-    <section class="form-section" aria-labelledby="project-form-title">
-      <div class="light-container form-layout">
-        <div class="form-section-copy">
-          <p class="eyebrow light-eyebrow">Project brief</p>
-          <h2 id="project-form-title">Submit your requirements</h2>
-          <p>Tell us what you need a provider to deliver. An early-stage brief is welcome; you do not need to have every decision finalised.</p>
-          <div class="form-mini-grid">
-            <div class="form-mini-card">Project context</div>
-            <div class="form-mini-card">Vendor capabilities</div>
-            <div class="form-mini-card">Timeline and constraints</div>
-          </div>
-          <p class="form-note trust-link">Submitting a brief does not create a paid engagement or guarantee a vendor recommendation.</p>
-          <p><a href="/downloads/fluidrwa-buyer-brief.txt" download>Download the buyer requirements worksheet</a></p>
         </div>
         <div class="intake-frame-card">
           <form class="contact-form fluid-intake-form" method="POST" action="/api/vendor-intro-request" data-form-type="project">
@@ -87,11 +60,6 @@
             <input type="hidden" name="VENDOR_CATEGORY" value="">
             <input type="hidden" name="REQUEST_SOURCE" value="submit-requirement">
             <input type="hidden" name="PAGE_URL" value="">
-            <div>
-              <p class="eyebrow light-eyebrow">Requirements form</p>
-              <h2>Describe the project and vendor need</h2>
-              <p>All fields are required unless marked optional. Please share a business overview, not confidential documents.</p>
-            </div>
             <label>Contact Email<input name="CONTACT_EMAIL" type="email" autocomplete="email" maxlength="100" required></label>
             <div class="form-two-col">
               <label>First Name<input name="FIRSTNAME" autocomplete="given-name" maxlength="100" required></label>
@@ -118,7 +86,6 @@
             <label>LinkedIn (optional)<input name="LINKEDIN_HANDLE" maxlength="200" placeholder="https://www.linkedin.com/in/..."></label>
             <button class="btn btn-primary light-primary" type="submit">Submit Requirements</button>
             <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-            <p class="form-note">Your brief is stored securely for FluidRWA review and follow-up. Do not include passwords, private keys or confidential personal data.</p>
           </form>
         </div>
       </div>

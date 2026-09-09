@@ -19,12 +19,111 @@ const trackFluidRwaEvent = (eventName, params = {}) => {
   }
 };
 
+const attributionStorageKey = "fluidrwa:conversion-attribution";
+const entryPathStorageKey = "fluidrwa:session-entry-path";
+
+const readSessionValue = (key) => {
+  try {
+    return window.sessionStorage.getItem(key) || "";
+  } catch {
+    return "";
+  }
+};
+
+const writeSessionValue = (key, value) => {
+  try {
+    window.sessionStorage.setItem(key, value);
+  } catch {
+    // Attribution is helpful but must never interrupt navigation or form submission.
+  }
+};
+
+if (!readSessionValue(entryPathStorageKey)) {
+  writeSessionValue(entryPathStorageKey, `${window.location.pathname}${window.location.search}`);
+}
+
+const getCurrentConversionContext = () => {
+  const params = new URLSearchParams(window.location.search);
+  const path = window.location.pathname;
+  const profilePage = path.startsWith("/fluidrwa/");
+  const categoryPage = path.startsWith("/vendors/");
+  const contextualLink = (profilePage || categoryPage) ? [...document.querySelectorAll('a[href*="submit-requirement?"]')]
+    .map((link) => {
+      try {
+        return new URL(link.getAttribute("href") || "", window.location.origin);
+      } catch {
+        return null;
+      }
+    })
+    .find((url) => url?.searchParams.get("vendor") || url?.searchParams.get("category")) : null;
+  const vendor = params.get("vendor") || (profilePage ? contextualLink?.searchParams.get("vendor") : "") || "";
+  const category = params.get("category") || contextualLink?.searchParams.get("category") || "";
+  const source =
+    params.get("source") ||
+    contextualLink?.searchParams.get("source") ||
+    (profilePage ? "company-profile" : categoryPage ? "organic-category-page" : "site-page");
+
+  return {
+    vendor,
+    category,
+    source,
+    originPath: `${path}${window.location.search}`,
+    originTitle: document.title,
+    pageType: profilePage ? "vendor-profile" : categoryPage ? "vendor-category" : "site-page",
+    entryPath: readSessionValue(entryPathStorageKey),
+    utmSource: params.get("utm_source") || "",
+    utmMedium: params.get("utm_medium") || "",
+    utmCampaign: params.get("utm_campaign") || "",
+  };
+};
+
+const storeConversionContext = (context) => {
+  writeSessionValue(attributionStorageKey, JSON.stringify(context));
+};
+
+const readConversionContext = () => {
+  try {
+    return JSON.parse(readSessionValue(attributionStorageKey) || "{}") || {};
+  } catch {
+    return {};
+  }
+};
+
+const ensureHiddenField = (form, name, value) => {
+  let field = form.querySelector(`input[name="${name}"]`);
+  if (!field) {
+    field = document.createElement("input");
+    field.type = "hidden";
+    field.name = name;
+    form.appendChild(field);
+  }
+  field.value = value || "";
+};
+
+if (!window.location.pathname.includes("submit-requirement")) {
+  const currentContext = getCurrentConversionContext();
+  if (currentContext.vendor || currentContext.category) storeConversionContext(currentContext);
+}
+
 const hydrateIntakeContext = () => {
   const params = new URLSearchParams(window.location.search);
   const vendor = params.get("vendor");
   const category = params.get("category");
   const source = params.get("source");
-  if (!vendor && !category) return;
+  const useStoredContext = !window.location.pathname.includes("submit-requirement") || params.has("origin_path");
+  const storedContext = useStoredContext ? readConversionContext() : {};
+  const context = {
+    vendor: vendor || storedContext.vendor || "",
+    category: category || storedContext.category || "",
+    source: source || storedContext.source || "submit-requirement",
+    originPath: params.get("origin_path") || storedContext.originPath || "",
+    originTitle: params.get("origin_title") || storedContext.originTitle || "",
+    pageType: params.get("origin_type") || storedContext.pageType || "direct",
+    entryPath: storedContext.entryPath || readSessionValue(entryPathStorageKey),
+    utmSource: params.get("utm_source") || storedContext.utmSource || "",
+    utmMedium: params.get("utm_medium") || storedContext.utmMedium || "",
+    utmCampaign: params.get("utm_campaign") || storedContext.utmCampaign || "",
+  };
 
   leadConversionForms.forEach((form) => {
     const heading = form.querySelector("h2");
@@ -35,17 +134,27 @@ const hydrateIntakeContext = () => {
     const sourceField = form.querySelector('input[name="REQUEST_SOURCE"]');
     const pageField = form.querySelector('input[name="PAGE_URL"]');
 
-    if (vendorField && vendor) vendorField.value = vendor;
-    if (categoryField && category) categoryField.value = category;
-    if (sourceField && source) sourceField.value = source;
+    if (vendorField && context.vendor) vendorField.value = context.vendor;
+    if (categoryField && context.category) categoryField.value = context.category;
+    if (sourceField && context.source) sourceField.value = context.source;
     if (pageField) pageField.value = window.location.href;
-    if (heading && vendor) heading.textContent = `Request an introduction to ${vendor}`;
-    if (leadSource && source) leadSource.value = `FluidRWA ${source}`;
-    if (textarea && !textarea.value.trim()) {
-      const intro = vendor ? `I would like an introduction to ${vendor}.` : "I would like help finding a vendor.";
-      const categoryLine = category ? ` Category: ${category}.` : "";
+    if (heading && context.vendor) heading.textContent = `Request an introduction to ${context.vendor}`;
+    if (leadSource && context.source) leadSource.value = `FluidRWA ${context.source}`;
+    const isVendorApplication = form.dataset.formType === "vendor";
+    if (textarea && !isVendorApplication && !textarea.value.trim()) {
+      const intro = context.vendor ? `I would like an introduction to ${context.vendor}.` : "I would like help finding a vendor.";
+      const categoryLine = context.category ? ` Category: ${context.category}.` : "";
       textarea.value = `${intro}${categoryLine} Please route this through FluidRWA.`;
     }
+    ensureHiddenField(form, "ATTRIBUTION_VENDOR_NAME", context.vendor);
+    ensureHiddenField(form, "ATTRIBUTION_VENDOR_CATEGORY", context.category);
+    ensureHiddenField(form, "ATTRIBUTION_ORIGIN_PATH", context.originPath);
+    ensureHiddenField(form, "ATTRIBUTION_ORIGIN_TITLE", context.originTitle);
+    ensureHiddenField(form, "ATTRIBUTION_PAGE_TYPE", context.pageType);
+    ensureHiddenField(form, "ATTRIBUTION_ENTRY_PATH", context.entryPath);
+    ensureHiddenField(form, "ATTRIBUTION_UTM_SOURCE", context.utmSource);
+    ensureHiddenField(form, "ATTRIBUTION_UTM_MEDIUM", context.utmMedium);
+    ensureHiddenField(form, "ATTRIBUTION_UTM_CAMPAIGN", context.utmCampaign);
   });
 };
 
@@ -206,6 +315,12 @@ leadConversionForms.forEach((form) => {
         country: payload.country || undefined,
         has_company: Boolean(payload.companyName),
         has_phone: Boolean(payload.phone),
+        origin_path: formValue(formData, "ATTRIBUTION_ORIGIN_PATH") || undefined,
+        origin_page_type: formValue(formData, "ATTRIBUTION_PAGE_TYPE") || undefined,
+        entry_path: formValue(formData, "ATTRIBUTION_ENTRY_PATH") || undefined,
+        utm_source: formValue(formData, "ATTRIBUTION_UTM_SOURCE") || undefined,
+        utm_medium: formValue(formData, "ATTRIBUTION_UTM_MEDIUM") || undefined,
+        utm_campaign: formValue(formData, "ATTRIBUTION_UTM_CAMPAIGN") || undefined,
       });
       window.fluidRwaReportLeadConversion?.();
     } catch (error) {
@@ -1422,7 +1537,24 @@ const initFluidRwaClickAttribution = () => {
     let clickType = "internal_link";
 
     if (url.pathname.includes("tokenization-readiness-assessment-tool")) clickType = "assessment_cta";
-    else if (url.pathname.includes("submit-requirement")) clickType = "submit_requirement_cta";
+    else if (url.pathname.includes("submit-requirement")) {
+      clickType = "submit_requirement_cta";
+      const context = getCurrentConversionContext();
+      const mergedContext = {
+        ...context,
+        vendor: url.searchParams.get("vendor") || context.vendor,
+        category: url.searchParams.get("category") || context.category,
+        source: url.searchParams.get("source") || context.source,
+      };
+      if (mergedContext.vendor && !url.searchParams.has("vendor")) url.searchParams.set("vendor", mergedContext.vendor);
+      if (mergedContext.category && !url.searchParams.has("category")) url.searchParams.set("category", mergedContext.category);
+      if (mergedContext.source && !url.searchParams.has("source")) url.searchParams.set("source", mergedContext.source);
+      url.searchParams.set("origin_path", mergedContext.originPath);
+      url.searchParams.set("origin_title", mergedContext.originTitle);
+      url.searchParams.set("origin_type", mergedContext.pageType);
+      storeConversionContext(mergedContext);
+      link.href = url.href;
+    }
     else if (url.pathname.includes("vendor-membership") || url.pathname.includes("apply-as-vendor")) clickType = "vendor_signup_cta";
     else if (url.pathname.includes("/vendors/")) clickType = "vendor_category_click";
     else if (url.pathname.includes("/blog/")) clickType = "blog_internal_click";
@@ -1434,6 +1566,7 @@ const initFluidRwaClickAttribution = () => {
       link_text: text || undefined,
       link_url: url.href,
       outbound: isExternal,
+      origin_path: window.location.pathname,
     });
 
     const conversionEvents = {
@@ -1450,6 +1583,10 @@ const initFluidRwaClickAttribution = () => {
         link_text: text || undefined,
         link_url: url.href,
         outbound: isExternal,
+        vendor_name: url.searchParams.get("vendor") || undefined,
+        vendor_category: url.searchParams.get("category") || undefined,
+        request_source: url.searchParams.get("source") || undefined,
+        origin_path: window.location.pathname,
       });
     }
   });

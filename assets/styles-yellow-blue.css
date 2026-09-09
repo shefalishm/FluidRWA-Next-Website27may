@@ -1229,6 +1229,62 @@ tr:last-child td { border-bottom: 0; }
   padding: 82px 0;
 }
 
+.form-section--centered {
+  min-height: calc(100vh - 110px);
+  padding: 150px 0 76px;
+  background: #f7f9fc;
+}
+
+.form-centered-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.form-page-heading {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.form-page-heading h1 {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: #12213a;
+  font-family: var(--fluid-display);
+  font-size: 56px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.08;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.form-section--centered .intake-frame-card {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  min-height: 0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 44px rgba(18, 33, 58, .08);
+  backdrop-filter: none;
+}
+
+.form-section--centered .fluid-intake-form {
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.form-section--centered .contact-form input,
+.form-section--centered .contact-form textarea,
+.form-section--centered .contact-form select {
+  border-radius: 6px;
+}
+
+.form-section--centered .contact-form button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  justify-content: center;
+}
+
 .form-section h2 {
   font-size: clamp(32px, 4.5vw, 56px);
 }
@@ -1367,6 +1423,25 @@ tr:last-child td { border-bottom: 0; }
 
   .form-hero {
     padding: 122px 0 54px;
+  }
+
+  .form-section--centered {
+    padding: 118px 0 54px;
+  }
+
+  .form-centered-shell {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .form-page-heading h1 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 620px) {
+  .form-page-heading h1 {
+    font-size: 38px;
+    white-space: normal;
   }
 }
 .cta-band {
