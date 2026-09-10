@@ -103,7 +103,7 @@ def create(size, filename):
     muted = (177, 190, 207, 220)
 
     draw.text((w * 0.047, h * 0.062), "V E T T E D   V E N D O R   A N N O U N C E M E N T", font=top, fill=accent)
-    label = "STABLECOIN INFRASTRUCTURE"
+    label = "STABLECOIN INFRASTRUCTURE PROVIDERS"
     label_box = draw.textbbox((0, 0), label, font=small)
     draw.text((w - (label_box[2] - label_box[0]) - w * 0.047, h * 0.062), label, font=small, fill=muted)
 

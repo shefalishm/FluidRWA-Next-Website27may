@@ -131,9 +131,8 @@ export default function NowPaymentsFeaturedPage() {
       </section>
 
       <article className="light-container news-article-card">
-        <section className="news-answer-box" aria-labelledby="feature-summary">
+        <section className="news-answer-box" aria-label="Vendor announcement summary">
           <p className="eyebrow light-eyebrow">Vendor announcement</p>
-          <h2 id="feature-summary">What changed?</h2>
           <p>
             FluidRWA welcomes NOWPayments as a new vetted vendor in its Stablecoin Infrastructure Providers directory,
             giving teams a direct path to research its crypto and stablecoin payment infrastructure.
