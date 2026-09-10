@@ -113,13 +113,12 @@ def create(size, filename):
     bridge = font("Arial.ttf", int(w * 0.03))
     draw.text((w * 0.5, logo_y), ">", font=bridge, fill=muted, anchor="mm")
 
-    headline = "FluidRWA welcomes NOWPayments as a new vetted vendor"
-    box = draw.textbbox((0, 0), headline, font=title_face)
-    draw.text(((w - (box[2] - box[0])) / 2, h * 0.43), headline, font=title_face, fill="white")
+    headline = "FluidRWA welcomes NOWPayments as a new vetted vendor under the Stablecoin Infrastructure Providers directory"
+    draw_centered_wrapped(draw, headline, h * 0.41, title_face, "white", w * 0.88, int(h * 0.012))
     draw_centered_wrapped(
         draw,
         "NOWPayments joins FluidRWA as a new vetted vendor for crypto payments, stablecoin settlement, treasury tools and Mass Payouts.",
-        h * 0.55,
+        h * 0.58,
         body,
         (226, 232, 242, 238),
         w * 0.64,

@@ -4,9 +4,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
 
 const pageUrl = `${siteUrl}/news/nowpayments-featured-on-fluidrwa`;
-const title = "FluidRWA Welcomes NOWPayments as a New Vetted Vendor";
+const title = "FluidRWA Welcomes NOWPayments as a New Vetted Vendor Under the Stablecoin Infrastructure Providers Directory";
 const description =
-  "FluidRWA welcomes NOWPayments as a new vetted vendor for crypto payments, stablecoin settlement, treasury operations and mass payouts.";
+  "NOWPayments has joined FluidRWA as a new vetted vendor under the Stablecoin Infrastructure Providers directory.";
 const publishedAt = "2026-09-10T00:00:00.000Z";
 const coverImagePath = "/assets/news/nowpayments-featured-on-fluidrwa-cover.jpg";
 const previewImageUrl = `${siteUrl}/assets/news/nowpayments-featured-on-fluidrwa-og.jpg`;
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     type: "article",
     publishedTime: publishedAt,
-    images: [{ url: previewImageUrl, width: 1200, height: 675, alt: "FluidRWA welcomes NOWPayments as a new vetted vendor" }]
+    images: [{ url: previewImageUrl, width: 1200, height: 675, alt: title }]
   },
   twitter: {
     card: "summary_large_image",
@@ -112,7 +112,7 @@ export default function NowPaymentsFeaturedPage() {
           <figure className="news-cover-card news-cover-card--wide" aria-label="NOWPayments vetted vendor announcement cover image">
             <img
               src={coverImagePath}
-              alt="FluidRWA welcomes NOWPayments as a new vetted vendor"
+              alt={title}
               width={1600}
               height={900}
               loading="eager"
@@ -120,8 +120,8 @@ export default function NowPaymentsFeaturedPage() {
             />
           </figure>
           <p>
-            NOWPayments joins FluidRWA as a new vetted vendor, with a dedicated profile covering payment acceptance,
-            settlement, treasury operations and mass payouts.
+            NOWPayments has joined FluidRWA as a new vetted vendor under the Stablecoin Infrastructure Providers
+            directory.
           </p>
           <div className="news-detail-meta">
             <span>New vetted vendor</span>
@@ -134,8 +134,8 @@ export default function NowPaymentsFeaturedPage() {
         <section className="news-answer-box" aria-label="Vendor announcement summary">
           <p className="eyebrow light-eyebrow">Vendor announcement</p>
           <p>
-            FluidRWA welcomes NOWPayments as a new vetted vendor in its Stablecoin Infrastructure Providers directory,
-            giving teams a direct path to research its crypto and stablecoin payment infrastructure.
+            NOWPayments has joined FluidRWA as a new vetted vendor under the Stablecoin Infrastructure Providers
+            directory, giving teams a direct path to research its crypto and stablecoin payment infrastructure.
           </p>
           <div className="news-answer-links">
             <Link href="/fluidrwa/nowpayments">NOWPayments profile</Link>
@@ -151,8 +151,9 @@ export default function NowPaymentsFeaturedPage() {
         </section>
 
         <p>
-          NOWPayments has joined FluidRWA as a new vetted vendor. FluidRWA is a research and vendor discovery platform
-          focused on Web3, tokenization and digital asset infrastructure.
+          NOWPayments has joined FluidRWA as a new vetted vendor under the Stablecoin Infrastructure Providers
+          directory. FluidRWA is a research and vendor discovery platform focused on Web3, tokenization and digital
+          asset infrastructure.
         </p>
         <p>
           FluidRWA's directories help businesses explore providers across payments, settlement, custody, compliance,

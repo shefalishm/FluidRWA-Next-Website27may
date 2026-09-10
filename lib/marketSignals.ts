@@ -117,10 +117,10 @@ const fluidRwaNewsItems: NewsItem[] = [
   {
     sourceName: "FluidRWA",
     sourceUrl: "https://www.fluidrwa.com/news",
-    title: "FluidRWA welcomes NOWPayments as a new vetted vendor",
+    title: "FluidRWA welcomes NOWPayments as a new vetted vendor under the Stablecoin Infrastructure Providers directory",
     canonicalUrl: "https://www.fluidrwa.com/news/nowpayments-featured-on-fluidrwa",
     summary:
-      "FluidRWA welcomes NOWPayments as a new vetted vendor for crypto payments, stablecoin settlement, treasury operations and mass payouts.",
+      "NOWPayments has joined FluidRWA as a new vetted vendor under the Stablecoin Infrastructure Providers directory.",
     category: "Stablecoins & Payments",
     publishedAt: "2026-09-10T00:00:00.000Z",
     imageUrl: "/assets/news/nowpayments-featured-on-fluidrwa-cover.jpg"
