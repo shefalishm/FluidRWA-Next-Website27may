@@ -114,16 +114,7 @@ def create(size, filename):
     draw.text((w * 0.5, logo_y), ">", font=bridge, fill=muted, anchor="mm")
 
     headline = "FluidRWA welcomes NOWPayments as a new vetted vendor under the Stablecoin Infrastructure Providers directory"
-    draw_centered_wrapped(draw, headline, h * 0.41, title_face, "white", w * 0.88, int(h * 0.012))
-    draw_centered_wrapped(
-        draw,
-        "NOWPayments joins FluidRWA as a new vetted vendor for crypto payments, stablecoin settlement, treasury tools and Mass Payouts.",
-        h * 0.58,
-        body,
-        (226, 232, 242, 238),
-        w * 0.64,
-        int(h * 0.018),
-    )
+    draw_centered_wrapped(draw, headline, h * 0.43, title_face, "white", w * 0.72, int(h * 0.014))
 
     draw.line((w * 0.047, h * 0.82, w * 0.953, h * 0.82), fill=(255, 255, 255, 45), width=1)
     draw.text((w * 0.047, h * 0.855), "fluidrwa.com  |  NOWPayments", font=footer, fill=muted)
