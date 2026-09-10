@@ -117,6 +117,17 @@ const fluidRwaNewsItems: NewsItem[] = [
   {
     sourceName: "FluidRWA",
     sourceUrl: "https://www.fluidrwa.com/news",
+    title: "NOWPayments is now featured on FluidRWA",
+    canonicalUrl: "https://www.fluidrwa.com/news/nowpayments-featured-on-fluidrwa",
+    summary:
+      "NOWPayments is featured first among 30 companies in FluidRWA's Stablecoin Infrastructure Providers directory, with a profile covering crypto payments, settlement, treasury operations and mass payouts.",
+    category: "Stablecoins & Payments",
+    publishedAt: "2026-09-10T00:00:00.000Z",
+    imageUrl: "/assets/news/nowpayments-featured-on-fluidrwa-cover.jpg"
+  },
+  {
+    sourceName: "FluidRWA",
+    sourceUrl: "https://www.fluidrwa.com/news",
     title: "FluidRWA welcomes SureStack as a new vetted risk management and security partner",
     canonicalUrl: "https://www.fluidrwa.com/news/fluidrwa-surestack-partnership",
     summary:

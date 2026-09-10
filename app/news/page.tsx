@@ -89,8 +89,17 @@ export default async function NewsPage() {
             {announcementItems.map((item, index) => {
               const relativeUrl = item.canonicalUrl.replace(siteUrl, "");
               const isSureStack = relativeUrl.includes("surestack");
-              const secondaryHref = isSureStack ? "/vendors/security-audit-companies" : "/fluidrwa/minddeft-technologies";
-              const secondaryText = isSureStack ? "Explore security vendors" : "View Minddeft profile";
+              const isNowPayments = relativeUrl.includes("nowpayments");
+              const secondaryHref = isNowPayments
+                ? "/fluidrwa/nowpayments"
+                : isSureStack
+                  ? "/vendors/security-audit-companies"
+                  : "/fluidrwa/minddeft-technologies";
+              const secondaryText = isNowPayments
+                ? "View NOWPayments profile"
+                : isSureStack
+                  ? "Explore security vendors"
+                  : "View Minddeft profile";
 
               return (
                 <article className="signal-pinned-card signal-announcement-card" key={item.canonicalUrl}>
@@ -104,7 +113,7 @@ export default async function NewsPage() {
                   </a>
                   <div className="signal-pinned-content">
                     <div className="signal-card-meta">
-                      <span>Partnership announcement</span>
+                      <span>{isNowPayments ? "Feature announcement" : "Partnership announcement"}</span>
                       <time dateTime={item.publishedAt}>{formatSignalDate(item.publishedAt)}</time>
                     </div>
                     <h3>{item.title}</h3>
