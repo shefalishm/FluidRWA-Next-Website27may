@@ -108,7 +108,9 @@ export default function NowPaymentsFeaturedPage() {
       <section className="news-detail-hero">
         <div className="light-container news-detail-hero-stack">
           <p className="eyebrow light-eyebrow">FluidRWA news</p>
-          <h1>{title}</h1>
+          <h1 id="nowpayments-announcement-title" className="news-detail-title--compact">
+            {title}
+          </h1>
           <figure className="news-cover-card news-cover-card--wide" aria-label="NOWPayments vetted vendor announcement cover image">
             <img
               src={coverImagePath}
