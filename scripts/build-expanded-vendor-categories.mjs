@@ -49,6 +49,31 @@ const categories = [
     ]
   },
   {
+    slug: "physical-asset-verification-oracles",
+    title: "Physical Asset Verification and Oracles",
+    eyebrow: "Real-world verification",
+    dateModified: "2026-09-10",
+    description: "Compare providers that inspect, capture, attest and structure physical asset condition, provenance, construction progress and device data for RWA and real estate workflows.",
+    snapshot: ["8", "Site data", "Proofs", "RWA data"],
+    heroImage: "/assets/physical-asset-inspection.jpg",
+    hideWebsiteLinks: true,
+    checklist: [
+      ["Condition and technical evidence", "For real estate, infrastructure and other physical assets that need inspection findings, defects, CapEx assumptions or condition history."],
+      ["Machine-readable asset records", "For teams converting photos, scans, reports, device signals and certifications into structured data that can support underwriting or monitoring."],
+      ["Trusted off-chain inputs", "For RWA systems that need verifiable provenance, device attestations, digital twins or expert evidence before data is used on-chain."]
+    ],
+    vendors: [
+      ["Mattereum", "MA", "Asset passports", "RWA issuers linking physical assets to verifiable identity, condition, ownership and legally backed certifications.", "Mattereum provides asset passports that record and verify the identity, condition and ownership of physical assets, with expert certifications and legal warranties.", ["Asset passports", "Condition", "Ownership", "Legal verification"], "https://mattereum.com/"],
+      ["Inspectify", "IN", "Property inspections", "Real estate operators, lenders and insurers needing standardized property inspections, valuations and repair data through APIs.", "Inspectify combines inspection services with structured, API-ready property data, reports, valuations and repair planning for real estate workflows.", ["Property inspection", "Structured data", "API", "Valuation"], "https://www.inspectify.com/solutions"],
+      ["SiteAware", "SA", "Construction verification", "Developers and construction teams that need continuous verification of installed elements against plans and tolerances.", "SiteAware uses 3D scanning, AI and digital construction verification to compare physical site conditions with design data and flag deviations during construction.", ["Construction quality", "3D scanning", "AI verification", "As-built data"], "https://siteaware.com/how-it-works/"],
+      ["OpenSpace", "OS", "Reality capture", "Construction owners and lenders needing timestamped site records, work-in-place validation and progress evidence.", "OpenSpace combines 360-degree reality capture with AI analytics and milestone-based progress tracking to document and verify what has been built.", ["Reality capture", "Progress tracking", "Work-in-place", "Site records"], "https://www.openspace.ai/products/capture/"],
+      ["DroneDeploy", "DD", "Remote asset inspection", "Property and infrastructure teams capturing repeatable aerial, ground and thermal evidence across asset portfolios.", "DroneDeploy digitizes physical sites and assets through drone mapping, robotics, 360 capture, thermal imagery and inspection workflows that track condition over time.", ["Drone inspection", "Digital twins", "Thermal data", "Portfolio monitoring"], "https://www.dronedeploy.com/solutions/property-management/"],
+      ["IoTeX W3bstream", "I0", "Device data proofs", "RWA and DePIN builders that need verifiable real-world device data and off-chain computation for smart contracts.", "IoTeX W3bstream uses signed device data and verifiable computation to create proofs about real-world activity, device identity, location and utility.", ["IoT data", "Device identity", "Verifiable compute", "On-chain proofs"], "https://iotex.io/blog/modular-infrastructure-for-verifiable-depins/"],
+      ["TÜV SÜD", "TS", "Technical due diligence", "Real estate and infrastructure investors assessing building condition, technical systems, risk and future CapEx or OpEx needs.", "TÜV SÜD provides technical due diligence and property condition assessments covering structures, materials, systems, defects, risks and investment assumptions.", ["Technical due diligence", "Property condition", "CapEx", "Risk assessment"], "https://www.tuvsud.com/en-us/industries/building-and-construction/due-diligence-services"],
+      ["DEKRA", "DE", "Property condition", "Owners, investors and managers needing independent condition assessments for buildings, infrastructure and technical installations.", "DEKRA provides technical due diligence, building condition assessments and property condition assessments for real estate and infrastructure assets.", ["Building condition", "Property assessment", "Technical audit", "Asset integrity"], "https://www.dekra.com/en/technical-due-dilligence/"]
+    ]
+  },
+  {
     slug: "defi-trading-margin-infrastructure",
     title: "DeFi Trading and Margin Infrastructure",
     eyebrow: "Perps and margin",
@@ -157,6 +182,7 @@ function page(category) {
     item: {
       "@type": "Organization",
       name: vendor[0],
+      ...(vendor[6] ? { url: vendor[6] } : {}),
       description: vendor[4],
       knowsAbout: vendor[5],
       additionalType: category.title
@@ -173,7 +199,7 @@ function page(category) {
         description: category.description,
         isPartOf: { "@type": "WebSite", name: "FluidRWA", url: "https://www.fluidrwa.com/" },
         inLanguage: "en",
-        dateModified: "2026-07-01",
+        dateModified: category.dateModified || "2026-07-01",
         mainEntity: { "@id": `${canonical}#providers` }
       },
       {
@@ -198,9 +224,13 @@ function page(category) {
   const checklist = category.checklist.map((item, index) => `<article class="bc-area-card reveal"><span>${String(index + 1).padStart(2, "0")}</span><h3>${esc(item[0])}</h3><p>${esc(item[1])}</p></article>`).join("");
   const cards = category.vendors.map((vendor, index) => {
     const id = vendor[0].toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    return `<article class="bc-company-card reveal" id="${id}"><div class="bc-company-top"><div class="bc-company-mark">${esc(vendor[1])}</div><div><p class="bc-company-index">${String(index + 1).padStart(2, "0")} / ${esc(vendor[2])}</p><h3>${esc(vendor[0])}</h3></div></div><p class="bc-best"><span>Best for</span>${esc(vendor[3])}</p><p class="bc-desc">${esc(vendor[4])}</p><div class="bc-tags">${vendor[5].map((tag) => `<span>${esc(tag)}</span>`).join("")}</div></article>`;
+    const website = vendor[6] && !category.hideWebsiteLinks ? `<a class="bc-visit" href="${esc(vendor[6])}" target="_blank" rel="noopener noreferrer">Visit Official Website</a>` : "";
+    return `<article class="bc-company-card reveal" id="${id}"><div class="bc-company-top"><div class="bc-company-mark">${esc(vendor[1])}</div><div><p class="bc-company-index">${String(index + 1).padStart(2, "0")} / ${esc(vendor[2])}</p><h3>${esc(vendor[0])}</h3></div></div><p class="bc-best"><span>Best for</span>${esc(vendor[3])}</p><p class="bc-desc">${esc(vendor[4])}</p><div class="bc-tags">${vendor[5].map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>${website}</article>`;
   }).join("\n      ");
 
+  const snapshot = category.heroImage
+    ? `<img src="${esc(category.heroImage)}" alt="Construction workers and exposed reinforcement at a physical building site" width="1400" height="927" style="display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px">`
+    : `<aside class="bc-snapshot" aria-label="${esc(category.title)} snapshot">${category.snapshot.map((value, index) => `<div><strong>${esc(value)}</strong><span>${["providers", "focus", "workflows", "coverage"][index]}</span></div>`).join("")}</aside>`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -224,7 +254,7 @@ function page(category) {
 <body class="home-page light-home solutions-page">
   <header class="site-header light-header" data-site-header><nav class="nav" aria-label="Main navigation"><a class="brand light-brand" href="../../index.html" aria-label="FluidRWA home"><img src="../../assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><button class="mobile-toggle light-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><div class="nav-links light-nav-links" data-nav-links><a href="../../index.html">Home</a><a href="../../solutions.html">Solutions</a><a href="../../blog.html">Insights</a><a href="../../blockchain-projects">Blockchain Projects</a><a href="../../tools">Tools</a><a href="../../contact.html">Contact</a><a class="nav-ecosystem-cta" href="../../web3vendorecosystem">Explore Vendor Ecosystem</a></div></nav></header>
   <main id="main">
-    <section class="bc-hero"><div class="light-container bc-hero-inner"><div class="bc-hero-copy"><p class="eyebrow light-eyebrow">${esc(category.eyebrow)}</p><h1>${esc(category.title)}</h1><p>${esc(category.description)}</p><div class="hero-actions"><a class="btn btn-primary light-primary" href="#vendor-directory">Explore Providers</a><a class="btn btn-soft" href="../../submit-requirement">Submit Requirements</a></div></div><aside class="bc-snapshot" aria-label="${esc(category.title)} snapshot"><div><strong>${esc(category.snapshot[0])}</strong><span>providers</span></div><div><strong>${esc(category.snapshot[1])}</strong><span>focus</span></div><div><strong>${esc(category.snapshot[2])}</strong><span>workflows</span></div><div><strong>${esc(category.snapshot[3])}</strong><span>coverage</span></div></aside></div></section>
+    <section class="bc-hero"><div class="light-container bc-hero-inner"><div class="bc-hero-copy"><p class="eyebrow light-eyebrow">${esc(category.eyebrow)}</p><h1>${esc(category.title)}</h1><p>${esc(category.description)}</p><div class="hero-actions"><a class="btn btn-primary light-primary" href="#vendor-directory">Explore Providers</a><a class="btn btn-soft" href="../../submit-requirement">Submit Requirements</a></div></div>${snapshot}</div></section>
     <section class="bc-section"><div class="light-container"><div class="solutions-section-head"><p class="eyebrow light-eyebrow">Buyer checklist</p><h2>When to shortlist this category</h2><p>Use this page as a starting point for category discovery. Vendor fit is based on public product positioning, public documentation and category relevance, not a FluidRWA endorsement.</p></div><div class="bc-area-grid">${checklist}</div></div></section>
     <section class="bc-section" id="vendor-directory"><div class="light-container"><div class="bc-directory-head"><div><p class="eyebrow light-eyebrow">Directory</p><h2>Compare ${esc(category.title.toLowerCase())}</h2><p>Verified category fit based on public positioning and buyer relevance for RWA, Web3, AI and digital asset teams.</p></div></div><div class="bc-company-grid" id="bcGrid">
       ${cards}
@@ -237,10 +267,12 @@ function page(category) {
 `;
 }
 
-for (const category of categories) {
+const selectedCategories = process.argv[2] ? categories.filter(category => category.slug === process.argv[2]) : categories;
+if (!selectedCategories.length) throw new Error("Unknown vendor category");
+for (const category of selectedCategories) {
   const dir = path.join(root, "vendors", category.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), page(category));
 }
 
-console.log(`Generated ${categories.length} expanded vendor category pages.`);
+console.log(`Generated ${selectedCategories.length} expanded vendor category pages.`);

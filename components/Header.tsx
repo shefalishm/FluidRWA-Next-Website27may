@@ -63,6 +63,7 @@ export function Header() {
                 <a href="/vendors/security-audit-companies">Security and audits</a>
                 <a href="/vendors/legal-regulatory-vendors">Legal and regulatory</a>
                 <a href="/vendors/oracles-data-proof-of-reserve">Oracles and data providers</a>
+                <a href="/vendors/physical-asset-verification-oracles">Physical asset verification</a>
                 <a href="/vendors/node-as-a-service-rpc-providers">RPC and node providers</a>
                 <a href="/vendors/rollup-as-a-service-appchains">RaaS and appchains</a>
                 <a href="/vendors/fund-administration-transfer-agents">Fund administration</a>
