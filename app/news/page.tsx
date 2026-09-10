@@ -113,7 +113,7 @@ export default async function NewsPage() {
                   </a>
                   <div className="signal-pinned-content">
                     <div className="signal-card-meta">
-                      <span>{isNowPayments ? "Feature announcement" : "Partnership announcement"}</span>
+                      <span>{isNowPayments ? "New vetted vendor" : "Partnership announcement"}</span>
                       <time dateTime={item.publishedAt}>{formatSignalDate(item.publishedAt)}</time>
                     </div>
                     <h3>{item.title}</h3>

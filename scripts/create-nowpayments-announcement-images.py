@@ -96,13 +96,13 @@ def create(size, filename):
 
     top = font("Arial Bold.ttf", int(w * 0.014))
     small = font("Arial Bold.ttf", int(w * 0.012))
-    title_face = font("Arial Black.ttf", int(w * 0.043))
+    title_face = font("Arial Black.ttf", int(w * 0.028))
     body = font("Arial.ttf", int(w * 0.022))
     footer = font("Arial Bold.ttf", int(w * 0.013))
     accent = (100, 172, 255, 255)
     muted = (177, 190, 207, 220)
 
-    draw.text((w * 0.047, h * 0.062), "F E A T U R E   A N N O U N C E M E N T", font=top, fill=accent)
+    draw.text((w * 0.047, h * 0.062), "V E T T E D   V E N D O R   A N N O U N C E M E N T", font=top, fill=accent)
     label = "STABLECOIN INFRASTRUCTURE"
     label_box = draw.textbbox((0, 0), label, font=small)
     draw.text((w - (label_box[2] - label_box[0]) - w * 0.047, h * 0.062), label, font=small, fill=muted)
@@ -113,12 +113,12 @@ def create(size, filename):
     bridge = font("Arial.ttf", int(w * 0.03))
     draw.text((w * 0.5, logo_y), ">", font=bridge, fill=muted, anchor="mm")
 
-    headline = "NOWPayments is featured on FluidRWA"
+    headline = "FluidRWA welcomes NOWPayments as a new vetted vendor"
     box = draw.textbbox((0, 0), headline, font=title_face)
     draw.text(((w - (box[2] - box[0])) / 2, h * 0.43), headline, font=title_face, fill="white")
     draw_centered_wrapped(
         draw,
-        "Discover crypto and stablecoin payments, settlement, treasury tools and Mass Payouts in FluidRWA's vendor ecosystem.",
+        "NOWPayments joins FluidRWA as a new vetted vendor for crypto payments, stablecoin settlement, treasury tools and Mass Payouts.",
         h * 0.55,
         body,
         (226, 232, 242, 238),
