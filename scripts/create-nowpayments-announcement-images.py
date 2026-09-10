@@ -113,8 +113,19 @@ def create(size, filename):
     bridge = font("Arial.ttf", int(w * 0.03))
     draw.text((w * 0.5, logo_y), ">", font=bridge, fill=muted, anchor="mm")
 
-    headline = "FluidRWA welcomes NOWPayments as a new vetted vendor under the Stablecoin Infrastructure Providers directory"
-    draw_centered_wrapped(draw, headline, h * 0.43, title_face, "white", w * 0.72, int(h * 0.014))
+    headline_lines = [
+        "FluidRWA welcomes NOWPayments",
+        "as a new vetted vendor under the",
+        "Stablecoin Infrastructure Providers directory",
+    ]
+    headline_y = h * 0.43
+    headline_gap = h * 0.014
+    for line in headline_lines:
+        box = draw.textbbox((0, 0), line, font=title_face)
+        line_width = box[2] - box[0]
+        line_height = box[3] - box[1]
+        draw.text(((w - line_width) / 2, headline_y), line, font=title_face, fill="white")
+        headline_y += line_height + headline_gap
 
     draw.line((w * 0.047, h * 0.82, w * 0.953, h * 0.82), fill=(255, 255, 255, 45), width=1)
     draw.text((w * 0.047, h * 0.855), "fluidrwa.com  |  NOWPayments", font=footer, fill=muted)
