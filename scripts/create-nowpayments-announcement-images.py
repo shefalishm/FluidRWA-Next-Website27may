@@ -96,7 +96,7 @@ def create(size, filename):
 
     top = font("Arial Bold.ttf", int(w * 0.014))
     small = font("Arial Bold.ttf", int(w * 0.012))
-    title_face = font("Arial Black.ttf", int(w * 0.023))
+    title_face = font("Arial Black.ttf", int(w * 0.015))
     body = font("Arial.ttf", int(w * 0.022))
     footer = font("Arial Bold.ttf", int(w * 0.013))
     accent = (100, 172, 255, 255)
@@ -118,8 +118,8 @@ def create(size, filename):
         "as a new vetted vendor under the",
         "Stablecoin Infrastructure Providers directory",
     ]
-    headline_y = h * 0.43
-    headline_gap = h * 0.016
+    headline_y = h * 0.445
+    headline_gap = h * 0.02
     for line in headline_lines:
         box = draw.textbbox((0, 0), line, font=title_face)
         line_width = box[2] - box[0]
