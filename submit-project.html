@@ -60,32 +60,23 @@
             <input type="hidden" name="VENDOR_CATEGORY" value="">
             <input type="hidden" name="REQUEST_SOURCE" value="submit-requirement">
             <input type="hidden" name="PAGE_URL" value="">
-            <label>Contact Email<input name="CONTACT_EMAIL" type="email" autocomplete="email" maxlength="100" required></label>
             <div class="form-two-col">
               <label>First Name<input name="FIRSTNAME" autocomplete="given-name" maxlength="100" required></label>
-              <label>Last Name<input name="LASTNAME" autocomplete="family-name" maxlength="50" required></label>
+              <label>Work Email<input name="CONTACT_EMAIL" type="email" autocomplete="email" maxlength="100" required></label>
             </div>
             <div class="form-two-col">
-              <label>Title (optional)<input name="TITLE" autocomplete="organization-title" maxlength="60"></label>
               <label>Company Name<input name="COMPANYNAME" autocomplete="organization" maxlength="100" required></label>
+              <label>Country / Jurisdiction<input name="COUNTRY" autocomplete="country-name" maxlength="100"></label>
             </div>
-            <div class="form-two-col">
-              <label>Phone (optional)<input name="PHONE" autocomplete="tel" maxlength="40"></label>
-              <label>Country / Jurisdiction<input name="COUNTRY" autocomplete="country-name" maxlength="100" required></label>
-            </div>
-            <label>Company Website (optional)<input name="WEBSITE" type="url" autocomplete="url" maxlength="250" placeholder="https://"></label>
             <div class="form-two-col">
               <label>Requirement Category<select name="REQUIREMENT_CATEGORY" required><option value="">Select a category</option><option>Tokenization platform</option><option>Physical asset verification and oracles</option><option>Smart contract development</option><option>Blockchain development</option><option>Custody and wallets</option><option>KYC, AML and compliance</option><option>Payments and stablecoins</option><option>Security and audits</option><option>Legal and regulatory</option><option>AI infrastructure or tools</option><option>Other / multiple categories</option></select></label>
               <label>Project Stage<select name="PROJECT_STAGE" required><option value="">Select a stage</option><option>Exploring feasibility</option><option>Planning and requirements</option><option>Building or integrating</option><option>Pilot or testnet</option><option>Live and replacing a provider</option></select></label>
             </div>
-            <div class="form-two-col">
-              <label>Expected Timeline<select name="PROJECT_TIMELINE" required><option value="">Select a timeline</option><option>Under 1 month</option><option>1-3 months</option><option>3-6 months</option><option>6-12 months</option><option>More than 12 months / undecided</option></select></label>
-              <label>Estimated Vendor Budget (optional)<select name="PROJECT_BUDGET"><option value="">Prefer not to say</option><option>Under $10,000</option><option>$10,000-$50,000</option><option>$50,000-$150,000</option><option>$150,000-$500,000</option><option>Over $500,000</option></select></label>
-            </div>
-            <label>Project Requirements<textarea name="CONTACT_CF1" maxlength="2500" placeholder="Describe what you are building, intended users, asset or workflow, target chains, markets, integrations, regulatory constraints, required vendor capabilities and any providers already under consideration." required></textarea></label>
-            <label>LinkedIn (optional)<input name="LINKEDIN_HANDLE" maxlength="200" placeholder="https://www.linkedin.com/in/..."></label>
-            <button class="btn btn-primary light-primary" type="submit">Submit Requirements</button>
+            <label>Expected Timeline<select name="PROJECT_TIMELINE" required><option value="">Select a timeline</option><option>Under 1 month</option><option>1-3 months</option><option>3-6 months</option><option>6-12 months</option><option>More than 12 months / undecided</option></select></label>
+            <label>What are you trying to achieve?<textarea name="CONTACT_CF1" maxlength="1800" placeholder="Briefly describe the project, asset or workflow and the kind of provider you need." required></textarea></label>
+            <button class="btn btn-primary light-primary" type="submit">Share Project Brief</button>
             <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+            <p class="form-privacy-note">FluidRWA uses these details only to review your requirements and follow up with relevant next steps.</p>
           </form>
         </div>
       </div>

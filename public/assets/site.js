@@ -141,7 +141,7 @@ const hydrateIntakeContext = () => {
     if (heading && context.vendor) heading.textContent = `Request an introduction to ${context.vendor}`;
     if (leadSource && context.source) leadSource.value = `FluidRWA ${context.source}`;
     const isVendorApplication = form.dataset.formType === "vendor";
-    if (textarea && !isVendorApplication && !textarea.value.trim()) {
+    if (textarea && !isVendorApplication && (context.vendor || context.category) && !textarea.value.trim()) {
       const intro = context.vendor ? `I would like an introduction to ${context.vendor}.` : "I would like help finding a vendor.";
       const categoryLine = context.category ? ` Category: ${context.category}.` : "";
       textarea.value = `${intro}${categoryLine} Please route this through FluidRWA.`;
@@ -301,15 +301,17 @@ leadConversionForms.forEach((form) => {
       }
       if (result.mode === "filtered" || params.get("source") === "qa-test") return;
       const eventName = isVendorForm
-        ? "vendor_application_submitted"
+        ? "vendor_application_submit"
         : isGeneralInquiry
-          ? "contact_form_submitted"
+          ? "contact_form_submit"
           : payload.vendorName || payload.source.includes("vendor-contact")
-            ? "vendor_intro_requested"
-            : "project_requirement_submitted";
+            ? "vendor_intro_submit"
+            : "project_form_submit";
       trackFluidRwaEvent(eventName, {
         form_type: isVendorForm ? "vendor" : "project",
+        form_variant: "legacy_full_page",
         request_source: payload.source,
+        interaction_source: payload.source,
         vendor_name: payload.vendorName || undefined,
         vendor_category: payload.vendorCategory || undefined,
         country: payload.country || undefined,
@@ -494,7 +496,7 @@ const enhanceVendorContactButtons = () => {
         trackFluidRwaEvent("vendor_contact_clicked", {
           vendor_name: vendorName,
           vendor_category: category,
-          source: "vendor-card-contact",
+          interaction_source: "vendor-card-contact",
         });
         openVendorContactModal({ vendorName, vendorCategory: category, source: "vendor-card-contact" });
       });

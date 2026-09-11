@@ -128,10 +128,17 @@ export function FormScripts() {
 
       const getAnalyticsEventName = () => {
         const sourceValue = sourceField?.value || "";
-        if (getIsVendorForm()) return "vendor_application_submitted";
-        if (sourceValue === "contact-general") return "contact_form_submitted";
-        if (sourceValue.includes("vendor-contact") || vendor) return "vendor_intro_requested";
-        return "project_requirement_submitted";
+        if (getIsVendorForm()) return "vendor_application_submit";
+        if (sourceValue === "contact-general") return "contact_form_submit";
+        if (sourceValue.includes("vendor-contact") || vendor) return "vendor_intro_submit";
+        return "project_form_submit";
+      };
+
+      const getAnalyticsStartEventName = () => {
+        const sourceValue = sourceField?.value || "";
+        if (getIsVendorForm()) return "vendor_application_start";
+        if (sourceValue.includes("vendor-contact") || vendor) return "vendor_intro_start";
+        return "project_form_start";
       };
 
       const handleSubmit = async (event: SubmitEvent) => {
@@ -181,7 +188,7 @@ export function FormScripts() {
             },
             body: JSON.stringify(payload)
           });
-          const result = (await response.json()) as { ok?: boolean; message?: string; mode?: string };
+          const result = (await response.json()) as { ok?: boolean; message?: string; mode?: string; requestId?: string | null };
           if (!response.ok || !result.ok) throw new Error(result.message || "Your request could not be saved.");
           status.className = "form-status is-success";
           status.textContent = `Thank you. ${successTitle}.`;
@@ -192,17 +199,22 @@ export function FormScripts() {
           if (result.mode === "filtered" || params.get("source") === "qa-test") return;
           window.fluidRwaTrackEvent?.(getAnalyticsEventName(), {
             form_type: isVendorSubmission ? "vendor" : "project",
+            form_variant: "full_page",
             request_source: payload.source,
+            interaction_source: payload.source,
             vendor_name: payload.vendorName || undefined,
             vendor_category: payload.vendorCategory || undefined,
             country: payload.country || undefined,
             has_company: Boolean(payload.companyName),
-            has_phone: Boolean(payload.phone)
+            has_phone: Boolean(payload.phone),
+            submission_id: result.requestId || undefined
           });
           window.fluidRwaReportLeadConversion?.();
         } catch (error) {
-          window.fluidRwaTrackEvent?.("intake_error", {
+          window.fluidRwaTrackEvent?.("form_submit_error", {
             form_type: isVendorSubmission ? "vendor" : "project",
+            form_variant: "full_page",
+            interaction_source: sourceValue,
             request_source: sourceValue
           });
           button.disabled = false;
@@ -217,8 +229,10 @@ export function FormScripts() {
         if (params.get("source") === "qa-test") return;
         if (started) return;
         started = true;
-        window.fluidRwaTrackEvent?.("intake_start", {
+        window.fluidRwaTrackEvent?.(getAnalyticsStartEventName(), {
           form_type: isVendorForm ? "vendor" : "project",
+          form_variant: "full_page",
+          interaction_source: sourceField?.value || "submit-requirement",
           request_source: sourceField?.value || "submit-requirement"
         });
       };

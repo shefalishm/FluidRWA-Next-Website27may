@@ -2,12 +2,12 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
-import { FluidRwaSignupPopup } from "@/components/FluidRwaSignupPopup";
 import { FormScripts } from "@/components/FormScripts";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { MotionShell } from "@/components/MotionShell";
 import { PayPalMembershipCheckout } from "@/components/PayPalMembershipCheckout";
+import { QuickIntakePopup } from "@/components/QuickIntakePopup";
 import { RouteReady } from "@/components/RouteReady";
 import { siteUrl } from "@/lib/routes";
 import "./globals.css";
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
         <Header />
         <MotionShell>{children}</MotionShell>
-        <FluidRwaSignupPopup />
+        <QuickIntakePopup />
         <Footer />
         <FormScripts />
         <PayPalMembershipCheckout />

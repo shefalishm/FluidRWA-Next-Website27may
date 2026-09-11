@@ -20,7 +20,8 @@ const excludedBuyerSources = new Set([
   "contact-vendor",
   "submit-project-listing",
   "vendor-membership",
-  "vendor-waitlist"
+  "vendor-waitlist",
+  "quick-vendor-popup"
 ]);
 
 function isBuyerSource(value: unknown) {
@@ -67,6 +68,8 @@ function sourceLabel(source: string) {
     "company-profile": "Vendor profile",
     "contact-project": "Contact page",
     "organic-category-page": "Vendor category",
+    "quick-project-popup": "Quick project enquiry",
+    "quick-vendor-popup": "Quick vendor enquiry",
     "submit-requirement": "Direct project brief",
     "tokenization-checklist": "Tokenization checklist",
     "vendor-card": "Vendor card",

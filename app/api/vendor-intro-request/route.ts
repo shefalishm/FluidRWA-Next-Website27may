@@ -23,7 +23,7 @@ type VendorIntroPayload = {
   rawPayload?: Record<string, unknown>;
 };
 
-const requiredFields: Array<keyof VendorIntroPayload> = ["contactEmail", "firstName", "lastName", "companyName", "projectDescription"];
+const requiredFields: Array<keyof VendorIntroPayload> = ["contactEmail", "firstName", "companyName", "projectDescription"];
 const minimumSubmissionMs = 1200;
 const excludedRawPayloadKeys = new Set([
   "paypalsubscriptionid",
@@ -161,7 +161,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           ok: false,
-          message: "Please complete your name, email, company and project requirements before submitting."
+          message: "Please complete your first name, email, company and a short description before submitting."
         },
         { status: 400 }
       );

@@ -1363,6 +1363,14 @@ tr:last-child td { border-bottom: 0; }
   font-size: 12px;
 }
 
+.form-privacy-note {
+  margin: -2px 0 0 !important;
+  color: rgba(18, 33, 58, .56) !important;
+  font-size: 12px;
+  line-height: 1.5 !important;
+  text-align: center;
+}
+
 .form-status {
   display: none;
   padding: 13px 15px;
