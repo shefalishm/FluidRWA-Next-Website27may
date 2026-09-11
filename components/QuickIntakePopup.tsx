@@ -158,6 +158,7 @@ export function QuickIntakePopup() {
         type="button"
         aria-haspopup="dialog"
         aria-expanded={open}
+        title="Quick enquiry"
         onClick={() => {
           renderedAt.current = Date.now();
           setOpen(true);

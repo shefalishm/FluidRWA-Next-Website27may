@@ -175,7 +175,7 @@ export function legacyMainHtml(file: string) {
     "blog/top-tokenization-companies-2026/index.html": "Tokenization platform"
   };
   const buyerCategory = buyerCategories[file];
-  if (buyerCategory) {
+  if (buyerCategory && !file.startsWith("vendors/")) {
     const briefHref = `/submit-requirement?category=${encodeURIComponent(buyerCategory)}&amp;source=buyer-guide`;
     const nextSteps = `<aside class="buyer-next-step" aria-label="Plan your next step"><div class="buyer-next-step-copy"><p class="buyer-next-step-kicker">Buyer support</p><h2>Find the right providers for your project</h2><p>Already defining your requirements? Share your project brief. Still exploring tokenization? Start with the free readiness assessment.</p></div><div class="buyer-next-step-actions"><a class="buyer-next-step-primary" href="${briefHref}">Submit project requirements</a><a class="buyer-next-step-secondary" href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></div></aside>`;
     renderedHtml = renderedHtml.replace(/<\/section>/i, `</section>${nextSteps}`);
