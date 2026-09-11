@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
+import { DirectoryShortlist } from "@/components/DirectoryShortlist";
 import { FormScripts } from "@/components/FormScripts";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
         <Header />
         <MotionShell>{children}</MotionShell>
+        <DirectoryShortlist />
         <QuickIntakePopup />
         <Footer />
         <FormScripts />

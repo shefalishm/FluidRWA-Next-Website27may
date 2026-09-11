@@ -18,6 +18,7 @@ export function FormScripts() {
     const vendor = params.get("vendor");
     const category = params.get("category");
     const source = params.get("source");
+    const shortlist = params.get("shortlist");
     const forms = Array.from(document.querySelectorAll<HTMLFormElement>(".fluid-intake-form"));
     if (forms.length === 0) return;
 
@@ -103,6 +104,9 @@ export function FormScripts() {
           const categoryLine = category ? ` Category: ${category}.` : "";
           descriptionField.value = `${intro}${categoryLine} Please route this through FluidRWA.`;
         }
+      }
+      if (!isVendorForm && shortlist && descriptionField) {
+        descriptionField.value = `Please help me compare this shortlist: ${shortlist}.`;
       }
 
       const getFormMessages = () => {
