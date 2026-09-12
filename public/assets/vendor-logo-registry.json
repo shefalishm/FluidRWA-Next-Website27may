@@ -1,0 +1,4178 @@
+{
+  "hyperliquid": {
+    "name": "Hyperliquid",
+    "logo": "/assets/vendor-logos/hyperliquid.png",
+    "domain": "hyperliquid.xyz",
+    "source": "exact-name"
+  },
+  "dydx": {
+    "name": "dYdX",
+    "logo": "/assets/company-logos/dydx.ico",
+    "domain": "dydx.exchange",
+    "source": "existing"
+  },
+  "dydx-margin": {
+    "name": "dYdX",
+    "logo": "/assets/company-logos/dydx.ico",
+    "domain": "dydx.exchange",
+    "source": "existing"
+  },
+  "aster": {
+    "name": "Aster",
+    "logo": "/assets/vendor-logos/aster.png",
+    "domain": "asterdex.com",
+    "source": "reviewed"
+  },
+  "gmx": {
+    "name": "GMX",
+    "logo": "/assets/vendor-logos/gmx.png",
+    "domain": "gmx.net",
+    "source": "exact-name"
+  },
+  "gmx-margin": {
+    "name": "GMX",
+    "logo": "/assets/vendor-logos/gmx.png",
+    "domain": "gmx.net",
+    "source": "exact-name"
+  },
+  "vertex-protocol": {
+    "name": "Vertex Protocol",
+    "logo": "/assets/vendor-logos/vertex-protocol.png",
+    "domain": "vertexprotocol.com",
+    "source": "reviewed"
+  },
+  "vertexprotocol": {
+    "name": "Vertex Protocol",
+    "logo": "/assets/vendor-logos/vertex-protocol.png",
+    "domain": "vertexprotocol.com",
+    "source": "reviewed"
+  },
+  "aevo": {
+    "name": "Aevo",
+    "logo": "/assets/vendor-logos/aevo.png",
+    "domain": "aevo.xyz",
+    "source": "reviewed"
+  },
+  "jupiter-perps": {
+    "name": "Jupiter Perps",
+    "logo": "/assets/vendor-logos/jupiter-perps.png",
+    "domain": "jup.ag",
+    "source": "reviewed"
+  },
+  "jupiterperps": {
+    "name": "Jupiter Perps",
+    "logo": "/assets/vendor-logos/jupiter-perps.png",
+    "domain": "jup.ag",
+    "source": "reviewed"
+  },
+  "drift-protocol": {
+    "name": "Drift Protocol",
+    "logo": "/assets/vendor-logos/drift-protocol.png",
+    "domain": "drift.trade",
+    "source": "reviewed"
+  },
+  "driftprotocol": {
+    "name": "Drift Protocol",
+    "logo": "/assets/vendor-logos/drift-protocol.png",
+    "domain": "drift.trade",
+    "source": "reviewed"
+  },
+  "kwenta": {
+    "name": "Kwenta",
+    "logo": "/assets/vendor-logos/kwenta.png",
+    "domain": "kwenta.io",
+    "source": "exact-name"
+  },
+  "mux-protocol": {
+    "name": "MUX Protocol",
+    "logo": "/assets/vendor-logos/mux-protocol.png",
+    "domain": "mux.network",
+    "source": "reviewed"
+  },
+  "muxprotocol": {
+    "name": "MUX Protocol",
+    "logo": "/assets/vendor-logos/mux-protocol.png",
+    "domain": "mux.network",
+    "source": "reviewed"
+  },
+  "mattereum": {
+    "name": "Mattereum",
+    "logo": "/assets/vendor-logos/mattereum.png",
+    "domain": "mattereum.com",
+    "source": "exact-name"
+  },
+  "mattereum-physical": {
+    "name": "Mattereum",
+    "logo": "/assets/vendor-logos/mattereum.png",
+    "domain": "mattereum.com",
+    "source": "exact-name"
+  },
+  "inspectify": {
+    "name": "Inspectify",
+    "logo": "/assets/vendor-logos/inspectify.png",
+    "domain": "inspectify.com",
+    "source": "exact-name"
+  },
+  "siteaware": {
+    "name": "SiteAware",
+    "logo": "/assets/vendor-logos/siteaware.png",
+    "domain": "siteaware.com",
+    "source": "exact-name"
+  },
+  "openspace": {
+    "name": "OpenSpace",
+    "logo": "/assets/vendor-logos/openspace.png",
+    "domain": "openspace.ai",
+    "source": "exact-name"
+  },
+  "dronedeploy": {
+    "name": "DroneDeploy",
+    "logo": "/assets/vendor-logos/dronedeploy.png",
+    "domain": "dronedeploy.com",
+    "source": "exact-name"
+  },
+  "iotex-w3bstream": {
+    "name": "IoTeX W3bstream",
+    "logo": "/assets/vendor-logos/iotex-w3bstream.png",
+    "domain": "iotex.io",
+    "source": "reviewed"
+  },
+  "iotexw3bstream": {
+    "name": "IoTeX W3bstream",
+    "logo": "/assets/vendor-logos/iotex-w3bstream.png",
+    "domain": "iotex.io",
+    "source": "reviewed"
+  },
+  "t-v-s-d": {
+    "name": "TÜV SÜD",
+    "logo": "/assets/vendor-logos/t-v-s-d.png",
+    "domain": "tuvsud.com",
+    "source": "exact-name"
+  },
+  "tvsd": {
+    "name": "TÜV SÜD",
+    "logo": "/assets/vendor-logos/t-v-s-d.png",
+    "domain": "tuvsud.com",
+    "source": "exact-name"
+  },
+  "tuv-sud": {
+    "name": "TÜV SÜD",
+    "logo": "/assets/vendor-logos/t-v-s-d.png",
+    "domain": "tuvsud.com",
+    "source": "exact-name"
+  },
+  "dekra": {
+    "name": "DEKRA",
+    "logo": "/assets/vendor-logos/dekra.png",
+    "domain": "dekra.com",
+    "source": "exact-name"
+  },
+  "zoniqx": {
+    "name": "Zoniqx",
+    "logo": "/assets/company-logos/zoniqx.png",
+    "domain": "zoniqx.com",
+    "source": "existing"
+  },
+  "securitize": {
+    "name": "Securitize",
+    "logo": "/assets/vendor-logos/securitize.png",
+    "domain": "securitize.io",
+    "source": "profile"
+  },
+  "tokeny": {
+    "name": "Tokeny",
+    "logo": "/assets/vendor-logos/tokeny.png",
+    "domain": "tokeny.com",
+    "source": "profile"
+  },
+  "ondo-finance": {
+    "name": "Ondo Finance",
+    "logo": "/assets/vendor-logos/ondo-finance.png",
+    "domain": "ondo.finance",
+    "source": "exact-name"
+  },
+  "ondofinance": {
+    "name": "Ondo Finance",
+    "logo": "/assets/vendor-logos/ondo-finance.png",
+    "domain": "ondo.finance",
+    "source": "exact-name"
+  },
+  "centrifuge": {
+    "name": "Centrifuge",
+    "logo": "/assets/vendor-logos/centrifuge.png",
+    "domain": "centrifuge.io",
+    "source": "exact-name"
+  },
+  "polymath-polymesh": {
+    "name": "Polymath / Polymesh",
+    "logo": "/assets/vendor-logos/polymath-polymesh.png",
+    "domain": "polymesh.network",
+    "source": "reviewed"
+  },
+  "polymathpolymesh": {
+    "name": "Polymath / Polymesh",
+    "logo": "/assets/vendor-logos/polymath-polymesh.png",
+    "domain": "polymesh.network",
+    "source": "reviewed"
+  },
+  "realt": {
+    "name": "RealT",
+    "logo": "/assets/vendor-logos/realt.png",
+    "domain": "realt.co",
+    "source": "reviewed"
+  },
+  "digishares": {
+    "name": "DigiShares",
+    "logo": "/assets/vendor-logos/digishares.png",
+    "domain": "digishares.io",
+    "source": "exact-name"
+  },
+  "brickken": {
+    "name": "Brickken",
+    "logo": "/assets/vendor-logos/brickken.png",
+    "domain": "brickken.com",
+    "source": "exact-name"
+  },
+  "maple-finance": {
+    "name": "Maple Finance",
+    "logo": "/assets/vendor-logos/maple-finance.png",
+    "domain": "maple.finance",
+    "source": "reviewed"
+  },
+  "maplefinance": {
+    "name": "Maple Finance",
+    "logo": "/assets/vendor-logos/maple-finance.png",
+    "domain": "maple.finance",
+    "source": "reviewed"
+  },
+  "backed-finance": {
+    "name": "Backed Finance",
+    "logo": "/assets/company-logos/backed-finance.png",
+    "domain": "backed.fi",
+    "source": "existing"
+  },
+  "backedfinance": {
+    "name": "Backed Finance",
+    "logo": "/assets/company-logos/backed-finance.png",
+    "domain": "backed.fi",
+    "source": "existing"
+  },
+  "superstate": {
+    "name": "Superstate",
+    "logo": "/assets/vendor-logos/superstate.png",
+    "domain": "superstate.no",
+    "source": "exact-name"
+  },
+  "openeden": {
+    "name": "OpenEden",
+    "logo": "/assets/vendor-logos/openeden.png",
+    "domain": "openeden.com",
+    "source": "reviewed"
+  },
+  "investax": {
+    "name": "InvestaX",
+    "logo": "/assets/vendor-logos/investax.png",
+    "domain": "investax.io",
+    "source": "exact-name"
+  },
+  "vertalo": {
+    "name": "Vertalo",
+    "logo": "/assets/vendor-logos/vertalo.png",
+    "domain": "vertalo.com",
+    "source": "exact-name"
+  },
+  "tzero": {
+    "name": "tZERO",
+    "logo": "/assets/vendor-logos/tzero.png",
+    "domain": "tzero.com",
+    "source": "exact-name"
+  },
+  "republic": {
+    "name": "Republic",
+    "logo": "/assets/vendor-logos/republic.png",
+    "domain": "republic.com",
+    "source": "exact-name"
+  },
+  "swarm-markets": {
+    "name": "Swarm Markets",
+    "logo": "/assets/vendor-logos/swarm-markets.png",
+    "domain": "swarm.markets",
+    "source": "reviewed"
+  },
+  "swarmmarkets": {
+    "name": "Swarm Markets",
+    "logo": "/assets/vendor-logos/swarm-markets.png",
+    "domain": "swarm.markets",
+    "source": "reviewed"
+  },
+  "clearpool": {
+    "name": "Clearpool",
+    "logo": "/assets/vendor-logos/clearpool.png",
+    "domain": "clearpool.finance",
+    "source": "exact-name"
+  },
+  "lofty": {
+    "name": "Lofty",
+    "logo": "/assets/vendor-logos/lofty.png",
+    "domain": "lofty.ai",
+    "source": "exact-name"
+  },
+  "propy": {
+    "name": "Propy",
+    "logo": "/assets/vendor-logos/propy.png",
+    "domain": "propy.com",
+    "source": "exact-name"
+  },
+  "blocksquare": {
+    "name": "Blocksquare",
+    "logo": "/assets/vendor-logos/blocksquare.png",
+    "domain": "blocksquare.io",
+    "source": "exact-name"
+  },
+  "chintai": {
+    "name": "Chintai",
+    "logo": "/assets/vendor-logos/chintai.png",
+    "domain": "chintai.net",
+    "source": "exact-name"
+  },
+  "stobox": {
+    "name": "Stobox",
+    "logo": "/assets/vendor-logos/stobox.png",
+    "domain": "stobox.io",
+    "source": "exact-name"
+  },
+  "plume-network": {
+    "name": "Plume Network",
+    "logo": "/assets/vendor-logos/plume-network.png",
+    "domain": "plume.org",
+    "source": "reviewed"
+  },
+  "plumenetwork": {
+    "name": "Plume Network",
+    "logo": "/assets/vendor-logos/plume-network.png",
+    "domain": "plume.org",
+    "source": "reviewed"
+  },
+  "mantra-chain": {
+    "name": "Mantra Chain",
+    "logo": "/assets/vendor-logos/mantra-chain.png",
+    "domain": "mantra.finance",
+    "source": "reviewed"
+  },
+  "mantrachain": {
+    "name": "Mantra Chain",
+    "logo": "/assets/vendor-logos/mantra-chain.png",
+    "domain": "mantra.finance",
+    "source": "reviewed"
+  },
+  "addx": {
+    "name": "ADDX",
+    "logo": "/assets/company-logos/addx.png",
+    "domain": "addx.co",
+    "source": "existing"
+  },
+  "archax": {
+    "name": "Archax",
+    "logo": "/assets/company-logos/archax.svg",
+    "domain": "archax.com",
+    "source": "existing"
+  },
+  "obligate": {
+    "name": "Obligate",
+    "logo": "/assets/vendor-logos/obligate.png",
+    "domain": "obligate.com",
+    "source": "exact-name"
+  },
+  "figure-markets": {
+    "name": "Figure Markets",
+    "logo": "/assets/vendor-logos/figure-markets.png",
+    "domain": "figuremarkets.com",
+    "source": "reviewed"
+  },
+  "figuremarkets": {
+    "name": "Figure Markets",
+    "logo": "/assets/vendor-logos/figure-markets.png",
+    "domain": "figuremarkets.com",
+    "source": "reviewed"
+  },
+  "aktionariat": {
+    "name": "Aktionariat",
+    "logo": "/assets/vendor-logos/aktionariat.png",
+    "domain": "aktionariat.com",
+    "source": "exact-name"
+  },
+  "stegx": {
+    "name": "StegX",
+    "logo": "/assets/vendor-logos/stegx.png",
+    "domain": "stegx.finance",
+    "source": "reviewed"
+  },
+  "ix-swap": {
+    "name": "IX Swap",
+    "logo": "/assets/vendor-logos/ix-swap.png",
+    "domain": "ixswap.io",
+    "source": "exact-name"
+  },
+  "ixswap": {
+    "name": "IX Swap",
+    "logo": "/assets/vendor-logos/ix-swap.png",
+    "domain": "ixswap.io",
+    "source": "exact-name"
+  },
+  "upvest": {
+    "name": "Upvest",
+    "logo": "/assets/vendor-logos/upvest.png",
+    "domain": "upvest.cz",
+    "source": "exact-name"
+  },
+  "tokenfi": {
+    "name": "TokenFi",
+    "logo": "/assets/vendor-logos/tokenfi.png",
+    "domain": "tokenfi.com",
+    "source": "exact-name"
+  },
+  "redswan-cre": {
+    "name": "RedSwan CRE",
+    "logo": "/assets/vendor-logos/redswan-cre.png",
+    "domain": "redswan.io",
+    "source": "exact-name"
+  },
+  "redswancre": {
+    "name": "RedSwan CRE",
+    "logo": "/assets/vendor-logos/redswan-cre.png",
+    "domain": "redswan.io",
+    "source": "exact-name"
+  },
+  "matrixdock": {
+    "name": "Matrixdock",
+    "logo": "/assets/vendor-logos/matrixdock.png",
+    "domain": "matrixdock.com",
+    "source": "reviewed"
+  },
+  "oasis-pro-markets": {
+    "name": "Oasis Pro Markets",
+    "logo": "/assets/vendor-logos/oasis-pro-markets.png",
+    "domain": "oasispromarkets.com",
+    "source": "exact-name"
+  },
+  "oasispromarkets": {
+    "name": "Oasis Pro Markets",
+    "logo": "/assets/vendor-logos/oasis-pro-markets.png",
+    "domain": "oasispromarkets.com",
+    "source": "exact-name"
+  },
+  "hashnote": {
+    "name": "Hashnote",
+    "logo": "/assets/vendor-logos/hashnote.png",
+    "domain": "hashnote.com",
+    "source": "reviewed"
+  },
+  "goldfinch": {
+    "name": "Goldfinch",
+    "logo": "/assets/vendor-logos/goldfinch.png",
+    "domain": "goldfinch.finance",
+    "source": "exact-name"
+  },
+  "credix": {
+    "name": "Credix",
+    "logo": "/assets/vendor-logos/credix.png",
+    "domain": "credix-web.co.jp",
+    "source": "exact-name"
+  },
+  "midas": {
+    "name": "Midas",
+    "logo": "/assets/vendor-logos/midas.png",
+    "domain": "midas.com",
+    "source": "exact-name"
+  },
+  "parcl": {
+    "name": "Parcl",
+    "logo": "/assets/vendor-logos/parcl.png",
+    "domain": "parcl.co",
+    "source": "exact-name"
+  },
+  "liquefy": {
+    "name": "Liquefy",
+    "logo": "/assets/vendor-logos/liquefy.png",
+    "domain": "liquefy.com",
+    "source": "exact-name"
+  },
+  "taurus": {
+    "name": "Taurus",
+    "logo": "/assets/vendor-logos/taurus.png",
+    "domain": "taurushq.com",
+    "source": "reviewed"
+  },
+  "libertum": {
+    "name": "Libertum",
+    "logo": "/assets/vendor-logos/libertum.png",
+    "domain": "libertum.io",
+    "source": "reviewed"
+  },
+  "stride": {
+    "name": "STRIDE",
+    "logo": "/assets/vendor-logos/stride.png",
+    "domain": "stride.sc",
+    "source": "reviewed"
+  },
+  "circle-usdc": {
+    "name": "Circle (USDC)",
+    "logo": "/assets/company-logos/circle-usdc.avif",
+    "domain": "circle.com",
+    "source": "existing"
+  },
+  "circleusdc": {
+    "name": "Circle (USDC)",
+    "logo": "/assets/company-logos/circle-usdc.avif",
+    "domain": "circle.com",
+    "source": "existing"
+  },
+  "moonpay": {
+    "name": "MoonPay",
+    "logo": "/assets/vendor-logos/moonpay.png",
+    "domain": "moonpay.com",
+    "source": "exact-name"
+  },
+  "ramp-network": {
+    "name": "Ramp Network",
+    "logo": "/assets/vendor-logos/ramp-network.png",
+    "domain": "ramp.network",
+    "source": "reviewed"
+  },
+  "rampnetwork": {
+    "name": "Ramp Network",
+    "logo": "/assets/vendor-logos/ramp-network.png",
+    "domain": "ramp.network",
+    "source": "reviewed"
+  },
+  "transak": {
+    "name": "Transak",
+    "logo": "/assets/vendor-logos/transak.png",
+    "domain": "transak.com",
+    "source": "exact-name"
+  },
+  "stripe-crypto": {
+    "name": "Stripe Crypto",
+    "logo": "/assets/vendor-logos/stripe-crypto.png",
+    "domain": "stripe.com",
+    "source": "reviewed"
+  },
+  "stripecrypto": {
+    "name": "Stripe Crypto",
+    "logo": "/assets/vendor-logos/stripe-crypto.png",
+    "domain": "stripe.com",
+    "source": "reviewed"
+  },
+  "paypal-crypto": {
+    "name": "PayPal Crypto",
+    "logo": "/assets/vendor-logos/paypal-crypto.png",
+    "domain": "paypal.com",
+    "source": "reviewed"
+  },
+  "paypalcrypto": {
+    "name": "PayPal Crypto",
+    "logo": "/assets/vendor-logos/paypal-crypto.png",
+    "domain": "paypal.com",
+    "source": "reviewed"
+  },
+  "ripple-payments": {
+    "name": "Ripple Payments",
+    "logo": "/assets/vendor-logos/ripple-payments.png",
+    "domain": "ripple.com",
+    "source": "reviewed"
+  },
+  "ripplepayments": {
+    "name": "Ripple Payments",
+    "logo": "/assets/vendor-logos/ripple-payments.png",
+    "domain": "ripple.com",
+    "source": "reviewed"
+  },
+  "stellar-sdf": {
+    "name": "Stellar (SDF)",
+    "logo": "/assets/vendor-logos/stellar-sdf.png",
+    "domain": "stellar.org",
+    "source": "reviewed"
+  },
+  "stellarsdf": {
+    "name": "Stellar (SDF)",
+    "logo": "/assets/vendor-logos/stellar-sdf.png",
+    "domain": "stellar.org",
+    "source": "reviewed"
+  },
+  "paxos": {
+    "name": "Paxos",
+    "logo": "/assets/vendor-logos/paxos.png",
+    "domain": "paxos.com",
+    "source": "exact-name"
+  },
+  "tether": {
+    "name": "Tether",
+    "logo": "/assets/vendor-logos/tether.png",
+    "domain": "tether.to",
+    "source": "exact-name"
+  },
+  "alchemy-pay": {
+    "name": "Alchemy Pay",
+    "logo": "/assets/company-logos/alchemy-pay.ico",
+    "domain": "alchemypay.org",
+    "source": "existing"
+  },
+  "alchemypay": {
+    "name": "Alchemy Pay",
+    "logo": "/assets/company-logos/alchemy-pay.ico",
+    "domain": "alchemypay.org",
+    "source": "existing"
+  },
+  "bitpay": {
+    "name": "BitPay",
+    "logo": "/assets/vendor-logos/bitpay.png",
+    "domain": "bitpay.com",
+    "source": "exact-name"
+  },
+  "banxa": {
+    "name": "Banxa",
+    "logo": "/assets/company-logos/banxa.png",
+    "domain": "banxa.com",
+    "source": "existing"
+  },
+  "mercuryo": {
+    "name": "Mercuryo",
+    "logo": "/assets/vendor-logos/mercuryo.png",
+    "domain": "mercuryo.io",
+    "source": "exact-name"
+  },
+  "zero-hash": {
+    "name": "Zero Hash",
+    "logo": "/assets/vendor-logos/zero-hash.png",
+    "domain": "zerohash.com",
+    "source": "exact-name"
+  },
+  "zerohash": {
+    "name": "Zero Hash",
+    "logo": "/assets/vendor-logos/zero-hash.png",
+    "domain": "zerohash.com",
+    "source": "exact-name"
+  },
+  "bvnk": {
+    "name": "BVNK",
+    "logo": "/assets/vendor-logos/bvnk.png",
+    "domain": "bvnk.com",
+    "source": "exact-name"
+  },
+  "bridge-stripe": {
+    "name": "Bridge (Stripe)",
+    "logo": "/assets/vendor-logos/bridge-stripe.png",
+    "domain": "bridge.xyz",
+    "source": "reviewed"
+  },
+  "bridgestripe": {
+    "name": "Bridge (Stripe)",
+    "logo": "/assets/vendor-logos/bridge-stripe.png",
+    "domain": "bridge.xyz",
+    "source": "reviewed"
+  },
+  "sardine": {
+    "name": "Sardine",
+    "logo": "/assets/vendor-logos/sardine.png",
+    "domain": "sardine.ai",
+    "source": "exact-name"
+  },
+  "celo": {
+    "name": "Celo",
+    "logo": "/assets/vendor-logos/celo.png",
+    "domain": "celo.org",
+    "source": "exact-name"
+  },
+  "request-network": {
+    "name": "Request Network",
+    "logo": "/assets/vendor-logos/request-network.png",
+    "domain": "request.finance",
+    "source": "exact-name"
+  },
+  "requestnetwork": {
+    "name": "Request Network",
+    "logo": "/assets/vendor-logos/request-network.png",
+    "domain": "request.finance",
+    "source": "exact-name"
+  },
+  "superfluid": {
+    "name": "Superfluid",
+    "logo": "/assets/vendor-logos/superfluid.png",
+    "domain": "superfluid.finance",
+    "source": "exact-name"
+  },
+  "checkout-com-crypto": {
+    "name": "Checkout.com Crypto",
+    "logo": "/assets/vendor-logos/checkout-com-crypto.png",
+    "domain": "checkout.com",
+    "source": "reviewed"
+  },
+  "checkoutcomcrypto": {
+    "name": "Checkout.com Crypto",
+    "logo": "/assets/vendor-logos/checkout-com-crypto.png",
+    "domain": "checkout.com",
+    "source": "reviewed"
+  },
+  "yellow-card": {
+    "name": "Yellow Card",
+    "logo": "/assets/vendor-logos/yellow-card.png",
+    "domain": "yellowcardband.com",
+    "source": "exact-name"
+  },
+  "yellowcard": {
+    "name": "Yellow Card",
+    "logo": "/assets/vendor-logos/yellow-card.png",
+    "domain": "yellowcardband.com",
+    "source": "exact-name"
+  },
+  "rain": {
+    "name": "Rain",
+    "logo": "/assets/vendor-logos/rain.png",
+    "domain": "rain.com",
+    "source": "reviewed"
+  },
+  "bitso": {
+    "name": "Bitso",
+    "logo": "/assets/vendor-logos/bitso.png",
+    "domain": "bitso.com",
+    "source": "exact-name"
+  },
+  "mt-pelerin": {
+    "name": "Mt Pelerin",
+    "logo": "/assets/vendor-logos/mt-pelerin.png",
+    "domain": "mtpelerin.com",
+    "source": "exact-name"
+  },
+  "mtpelerin": {
+    "name": "Mt Pelerin",
+    "logo": "/assets/vendor-logos/mt-pelerin.png",
+    "domain": "mtpelerin.com",
+    "source": "exact-name"
+  },
+  "mesh": {
+    "name": "Mesh",
+    "logo": "/assets/vendor-logos/mesh.png",
+    "domain": "meshpayments.com",
+    "source": "exact-name"
+  },
+  "kado": {
+    "name": "Kado",
+    "logo": "/assets/vendor-logos/kado.png",
+    "domain": "kado.money",
+    "source": "reviewed"
+  },
+  "layerswap": {
+    "name": "LayerSwap",
+    "logo": "/assets/vendor-logos/layerswap.png",
+    "domain": "layerswap.io",
+    "source": "exact-name"
+  },
+  "chainalysis": {
+    "name": "Chainalysis",
+    "logo": "/assets/company-logos/chainalysis.png",
+    "domain": "chainalysis.com",
+    "source": "existing"
+  },
+  "elliptic": {
+    "name": "Elliptic",
+    "logo": "/assets/company-logos/elliptic.png",
+    "domain": "elliptic.co",
+    "source": "existing"
+  },
+  "sumsub": {
+    "name": "Sumsub",
+    "logo": "/assets/vendor-logos/sumsub.png",
+    "domain": "sumsub.com",
+    "source": "exact-name"
+  },
+  "jumio": {
+    "name": "Jumio",
+    "logo": "/assets/vendor-logos/jumio.png",
+    "domain": "jumio.com",
+    "source": "exact-name"
+  },
+  "onfido": {
+    "name": "Onfido",
+    "logo": "/assets/vendor-logos/onfido.png",
+    "domain": "onfido.com",
+    "source": "exact-name"
+  },
+  "au10tix": {
+    "name": "AU10TIX",
+    "logo": "/assets/company-logos/au10tix.png",
+    "domain": "au10tix.com",
+    "source": "existing"
+  },
+  "blockpass": {
+    "name": "Blockpass",
+    "logo": "/assets/company-logos/blockpass.png",
+    "domain": "blockpass.org",
+    "source": "existing"
+  },
+  "trm-labs": {
+    "name": "TRM Labs",
+    "logo": "/assets/company-logos/trm-labs.png",
+    "domain": "trmlabs.com",
+    "source": "existing"
+  },
+  "trmlabs": {
+    "name": "TRM Labs",
+    "logo": "/assets/company-logos/trm-labs.png",
+    "domain": "trmlabs.com",
+    "source": "existing"
+  },
+  "notabene": {
+    "name": "Notabene",
+    "logo": "/assets/vendor-logos/notabene.png",
+    "domain": "notabene.id",
+    "source": "exact-name"
+  },
+  "civic": {
+    "name": "Civic",
+    "logo": "/assets/company-logos/civic.png",
+    "domain": "civic.com",
+    "source": "existing"
+  },
+  "persona": {
+    "name": "Persona",
+    "logo": "/assets/vendor-logos/persona.png",
+    "domain": "withpersona.com",
+    "source": "reviewed"
+  },
+  "merkle-science": {
+    "name": "Merkle Science",
+    "logo": "/assets/vendor-logos/merkle-science.png",
+    "domain": "merklescience.com",
+    "source": "exact-name"
+  },
+  "merklescience": {
+    "name": "Merkle Science",
+    "logo": "/assets/vendor-logos/merkle-science.png",
+    "domain": "merklescience.com",
+    "source": "exact-name"
+  },
+  "solidus-labs": {
+    "name": "Solidus Labs",
+    "logo": "/assets/vendor-logos/solidus-labs.png",
+    "domain": "soliduslabs.com",
+    "source": "exact-name"
+  },
+  "soliduslabs": {
+    "name": "Solidus Labs",
+    "logo": "/assets/vendor-logos/solidus-labs.png",
+    "domain": "soliduslabs.com",
+    "source": "exact-name"
+  },
+  "complyadvantage": {
+    "name": "ComplyAdvantage",
+    "logo": "/assets/vendor-logos/complyadvantage.png",
+    "domain": "complyadvantage.com",
+    "source": "exact-name"
+  },
+  "comply-advantage": {
+    "name": "ComplyAdvantage",
+    "logo": "/assets/vendor-logos/complyadvantage.png",
+    "domain": "complyadvantage.com",
+    "source": "exact-name"
+  },
+  "veriff": {
+    "name": "Veriff",
+    "logo": "/assets/vendor-logos/veriff.png",
+    "domain": "veriff.com",
+    "source": "exact-name"
+  },
+  "trulioo": {
+    "name": "Trulioo",
+    "logo": "/assets/vendor-logos/trulioo.png",
+    "domain": "trulioo.com",
+    "source": "exact-name"
+  },
+  "socure": {
+    "name": "Socure",
+    "logo": "/assets/vendor-logos/socure.png",
+    "domain": "socure.com",
+    "source": "exact-name"
+  },
+  "alloy": {
+    "name": "Alloy",
+    "logo": "/assets/company-logos/alloy.png",
+    "domain": "alloy.com",
+    "source": "existing"
+  },
+  "incode": {
+    "name": "Incode",
+    "logo": "/assets/vendor-logos/incode.png",
+    "domain": "incode.com",
+    "source": "exact-name"
+  },
+  "worldcoin-world-id": {
+    "name": "Worldcoin / World ID",
+    "logo": "/assets/vendor-logos/worldcoin-world-id.png",
+    "domain": "world.org",
+    "source": "reviewed"
+  },
+  "worldcoinworldid": {
+    "name": "Worldcoin / World ID",
+    "logo": "/assets/vendor-logos/worldcoin-world-id.png",
+    "domain": "world.org",
+    "source": "reviewed"
+  },
+  "polygon-id": {
+    "name": "Polygon ID",
+    "logo": "/assets/vendor-logos/polygon-id.png",
+    "domain": "privado.id",
+    "source": "reviewed"
+  },
+  "polygonid": {
+    "name": "Polygon ID",
+    "logo": "/assets/vendor-logos/polygon-id.png",
+    "domain": "privado.id",
+    "source": "reviewed"
+  },
+  "spruce-id": {
+    "name": "Spruce ID",
+    "logo": "/assets/company-logos/spruceid.png",
+    "domain": "spruceid.com",
+    "source": "existing"
+  },
+  "spruceid": {
+    "name": "Spruce ID",
+    "logo": "/assets/company-logos/spruceid.png",
+    "domain": "spruceid.com",
+    "source": "existing"
+  },
+  "quadrata": {
+    "name": "Quadrata",
+    "logo": "/assets/vendor-logos/quadrata.png",
+    "domain": "quadrata.com",
+    "source": "exact-name"
+  },
+  "synaps": {
+    "name": "Synaps",
+    "logo": "/assets/vendor-logos/synaps.png",
+    "domain": "synaps.io",
+    "source": "reviewed"
+  },
+  "parallel-markets": {
+    "name": "Parallel Markets",
+    "logo": "/assets/vendor-logos/parallel-markets.png",
+    "domain": "parallelmarkets.com",
+    "source": "exact-name"
+  },
+  "parallelmarkets": {
+    "name": "Parallel Markets",
+    "logo": "/assets/vendor-logos/parallel-markets.png",
+    "domain": "parallelmarkets.com",
+    "source": "exact-name"
+  },
+  "scorechain": {
+    "name": "Scorechain",
+    "logo": "/assets/vendor-logos/scorechain.png",
+    "domain": "scorechain.com",
+    "source": "exact-name"
+  },
+  "regula": {
+    "name": "Regula",
+    "logo": "/assets/vendor-logos/regula.png",
+    "domain": "regulaforensics.com",
+    "source": "reviewed"
+  },
+  "sift": {
+    "name": "Sift",
+    "logo": "/assets/vendor-logos/sift.png",
+    "domain": "sift.com",
+    "source": "reviewed"
+  },
+  "ondato": {
+    "name": "Ondato",
+    "logo": "/assets/vendor-logos/ondato.png",
+    "domain": "ondato.com",
+    "source": "exact-name"
+  },
+  "dock-io": {
+    "name": "Dock.io",
+    "logo": "/assets/vendor-logos/dock-io.png",
+    "domain": "dock.io",
+    "source": "reviewed"
+  },
+  "dockio": {
+    "name": "Dock.io",
+    "logo": "/assets/vendor-logos/dock-io.png",
+    "domain": "dock.io",
+    "source": "reviewed"
+  },
+  "fireblocks": {
+    "name": "Fireblocks",
+    "logo": "/assets/vendor-logos/fireblocks.png",
+    "domain": "fireblocks.com",
+    "source": "exact-name"
+  },
+  "coinbase-custody": {
+    "name": "Coinbase Custody",
+    "logo": "/assets/vendor-logos/coinbase-custody.png",
+    "domain": "coinbase.com",
+    "source": "reviewed"
+  },
+  "coinbasecustody": {
+    "name": "Coinbase Custody",
+    "logo": "/assets/vendor-logos/coinbase-custody.png",
+    "domain": "coinbase.com",
+    "source": "reviewed"
+  },
+  "bitgo": {
+    "name": "BitGo",
+    "logo": "/assets/company-logos/bitgo.png",
+    "domain": "bitgo.com",
+    "source": "existing"
+  },
+  "anchorage-digital": {
+    "name": "Anchorage Digital",
+    "logo": "/assets/company-logos/anchorage-digital.svg",
+    "domain": "anchorage.com",
+    "source": "existing"
+  },
+  "anchoragedigital": {
+    "name": "Anchorage Digital",
+    "logo": "/assets/company-logos/anchorage-digital.svg",
+    "domain": "anchorage.com",
+    "source": "existing"
+  },
+  "fidelity-digital-assets": {
+    "name": "Fidelity Digital Assets",
+    "logo": "/assets/vendor-logos/fidelity-digital-assets.png",
+    "domain": "fidelitydigitalassets.com",
+    "source": "exact-name"
+  },
+  "fidelitydigitalassets": {
+    "name": "Fidelity Digital Assets",
+    "logo": "/assets/vendor-logos/fidelity-digital-assets.png",
+    "domain": "fidelitydigitalassets.com",
+    "source": "exact-name"
+  },
+  "bny-digital-assets": {
+    "name": "BNY Digital Assets",
+    "logo": "/assets/vendor-logos/bny-digital-assets.png",
+    "domain": "bny.com",
+    "source": "reviewed"
+  },
+  "bnydigitalassets": {
+    "name": "BNY Digital Assets",
+    "logo": "/assets/vendor-logos/bny-digital-assets.png",
+    "domain": "bny.com",
+    "source": "reviewed"
+  },
+  "copper-co": {
+    "name": "Copper.co",
+    "logo": "/assets/vendor-logos/copper-co.png",
+    "domain": "copper.co",
+    "source": "exact-name"
+  },
+  "copperco": {
+    "name": "Copper.co",
+    "logo": "/assets/vendor-logos/copper-co.png",
+    "domain": "copper.co",
+    "source": "exact-name"
+  },
+  "zodia-custody": {
+    "name": "Zodia Custody",
+    "logo": "/assets/vendor-logos/zodia-custody.png",
+    "domain": "zodia.io",
+    "source": "exact-name"
+  },
+  "zodiacustody": {
+    "name": "Zodia Custody",
+    "logo": "/assets/vendor-logos/zodia-custody.png",
+    "domain": "zodia.io",
+    "source": "exact-name"
+  },
+  "sygnum-bank": {
+    "name": "Sygnum Bank",
+    "logo": "/assets/vendor-logos/sygnum-bank.png",
+    "domain": "sygnum.com",
+    "source": "exact-name"
+  },
+  "sygnumbank": {
+    "name": "Sygnum Bank",
+    "logo": "/assets/vendor-logos/sygnum-bank.png",
+    "domain": "sygnum.com",
+    "source": "exact-name"
+  },
+  "komainu": {
+    "name": "Komainu",
+    "logo": "/assets/vendor-logos/komainu.png",
+    "domain": "komainu.com",
+    "source": "exact-name"
+  },
+  "hex-trust": {
+    "name": "Hex Trust",
+    "logo": "/assets/vendor-logos/hex-trust.png",
+    "domain": "hextrust.com",
+    "source": "exact-name"
+  },
+  "hextrust": {
+    "name": "Hex Trust",
+    "logo": "/assets/vendor-logos/hex-trust.png",
+    "domain": "hextrust.com",
+    "source": "exact-name"
+  },
+  "cobo": {
+    "name": "Cobo",
+    "logo": "/assets/vendor-logos/cobo.png",
+    "domain": "cobo.com",
+    "source": "reviewed"
+  },
+  "ledger-enterprise": {
+    "name": "Ledger Enterprise",
+    "logo": "/assets/vendor-logos/ledger-enterprise.png",
+    "domain": "ledger.com",
+    "source": "reviewed"
+  },
+  "ledgerenterprise": {
+    "name": "Ledger Enterprise",
+    "logo": "/assets/vendor-logos/ledger-enterprise.png",
+    "domain": "ledger.com",
+    "source": "reviewed"
+  },
+  "ripple-custody": {
+    "name": "Ripple Custody",
+    "logo": "/assets/vendor-logos/ripple-custody.png",
+    "domain": "ripple.com",
+    "source": "reviewed"
+  },
+  "ripplecustody": {
+    "name": "Ripple Custody",
+    "logo": "/assets/vendor-logos/ripple-custody.png",
+    "domain": "ripple.com",
+    "source": "reviewed"
+  },
+  "finoa": {
+    "name": "Finoa",
+    "logo": "/assets/vendor-logos/finoa.png",
+    "domain": "finoa.io",
+    "source": "exact-name"
+  },
+  "fordefi": {
+    "name": "Fordefi",
+    "logo": "/assets/vendor-logos/fordefi.png",
+    "domain": "fordefi.com",
+    "source": "exact-name"
+  },
+  "safe-gnosis": {
+    "name": "Safe (Gnosis)",
+    "logo": "/assets/vendor-logos/safe-gnosis.png",
+    "domain": "safe.global",
+    "source": "reviewed"
+  },
+  "safegnosis": {
+    "name": "Safe (Gnosis)",
+    "logo": "/assets/vendor-logos/safe-gnosis.png",
+    "domain": "safe.global",
+    "source": "reviewed"
+  },
+  "dfns": {
+    "name": "Dfns",
+    "logo": "/assets/vendor-logos/dfns.png",
+    "domain": "dfns.com",
+    "source": "exact-name"
+  },
+  "coincover": {
+    "name": "Coincover",
+    "logo": "/assets/vendor-logos/coincover.png",
+    "domain": "coincover.com",
+    "source": "exact-name"
+  },
+  "casa": {
+    "name": "Casa",
+    "logo": "/assets/vendor-logos/casa.png",
+    "domain": "keys.casa",
+    "source": "reviewed"
+  },
+  "unchained": {
+    "name": "Unchained",
+    "logo": "/assets/vendor-logos/unchained.png",
+    "domain": "unchained.com",
+    "source": "exact-name"
+  },
+  "trezor": {
+    "name": "Trezor",
+    "logo": "/assets/vendor-logos/trezor.png",
+    "domain": "trezor.io",
+    "source": "exact-name"
+  },
+  "ledger": {
+    "name": "Ledger",
+    "logo": "/assets/vendor-logos/ledger.png",
+    "domain": "ledger.com",
+    "source": "exact-name"
+  },
+  "blockdaemon": {
+    "name": "Blockdaemon",
+    "logo": "/assets/vendor-logos/blockdaemon.png",
+    "domain": "blockdaemon.com",
+    "source": "profile"
+  },
+  "figment": {
+    "name": "Figment",
+    "logo": "/assets/vendor-logos/figment.png",
+    "domain": "figment.io",
+    "source": "profile"
+  },
+  "gemini-custody": {
+    "name": "Gemini Custody",
+    "logo": "/assets/vendor-logos/gemini-custody.png",
+    "domain": "gemini.com",
+    "source": "reviewed"
+  },
+  "geminicustody": {
+    "name": "Gemini Custody",
+    "logo": "/assets/vendor-logos/gemini-custody.png",
+    "domain": "gemini.com",
+    "source": "reviewed"
+  },
+  "bakkt": {
+    "name": "Bakkt",
+    "logo": "/assets/company-logos/bakkt.png",
+    "domain": "bakkt.com",
+    "source": "existing"
+  },
+  "liminal": {
+    "name": "Liminal",
+    "logo": "/assets/vendor-logos/liminal.png",
+    "domain": "liminal.co",
+    "source": "exact-name"
+  },
+  "safeheron": {
+    "name": "Safeheron",
+    "logo": "/assets/vendor-logos/safeheron.png",
+    "domain": "safeheron.com",
+    "source": "exact-name"
+  },
+  "minddeft-technologies": {
+    "name": "Minddeft Technologies",
+    "logo": "/assets/company-logos/minddeft-technologies.webp",
+    "domain": "minddeft.com",
+    "source": "existing"
+  },
+  "minddefttechnologies": {
+    "name": "Minddeft Technologies",
+    "logo": "/assets/company-logos/minddeft-technologies.webp",
+    "domain": "minddeft.com",
+    "source": "existing"
+  },
+  "consensys": {
+    "name": "ConsenSys",
+    "logo": "/assets/vendor-logos/consensys.png",
+    "domain": "consensys.world",
+    "source": "exact-name"
+  },
+  "openzeppelin": {
+    "name": "OpenZeppelin",
+    "logo": "/assets/company-logos/openzeppelin.png",
+    "domain": "openzeppelin.com",
+    "source": "existing"
+  },
+  "trail-of-bits": {
+    "name": "Trail of Bits",
+    "logo": "/assets/company-logos/trail-of-bits.png",
+    "domain": "trailofbits.com",
+    "source": "existing"
+  },
+  "trailofbits": {
+    "name": "Trail of Bits",
+    "logo": "/assets/company-logos/trail-of-bits.png",
+    "domain": "trailofbits.com",
+    "source": "existing"
+  },
+  "certik": {
+    "name": "CertiK",
+    "logo": "/assets/company-logos/certik.png",
+    "domain": "certik.com",
+    "source": "existing"
+  },
+  "halborn": {
+    "name": "Halborn",
+    "logo": "/assets/vendor-logos/halborn.png",
+    "domain": "halborn.com",
+    "source": "exact-name"
+  },
+  "quantstamp": {
+    "name": "Quantstamp",
+    "logo": "/assets/vendor-logos/quantstamp.png",
+    "domain": "quantstamp.com",
+    "source": "exact-name"
+  },
+  "chainlink-labs": {
+    "name": "Chainlink Labs",
+    "logo": "/assets/vendor-logos/chainlink-labs.png",
+    "domain": "chainlinklabs.com",
+    "source": "exact-name"
+  },
+  "chainlinklabs": {
+    "name": "Chainlink Labs",
+    "logo": "/assets/vendor-logos/chainlink-labs.png",
+    "domain": "chainlinklabs.com",
+    "source": "exact-name"
+  },
+  "alchemy": {
+    "name": "Alchemy",
+    "logo": "/assets/company-logos/alchemy.svg",
+    "domain": "alchemy.com",
+    "source": "existing"
+  },
+  "quicknode": {
+    "name": "QuickNode",
+    "logo": "/assets/vendor-logos/quicknode.png",
+    "domain": "quicknode.com",
+    "source": "profile"
+  },
+  "tenderly": {
+    "name": "Tenderly",
+    "logo": "/assets/vendor-logos/tenderly.png",
+    "domain": "tenderly.co",
+    "source": "exact-name"
+  },
+  "thirdweb": {
+    "name": "Thirdweb",
+    "logo": "/assets/vendor-logos/thirdweb.png",
+    "domain": "thirdweb.com",
+    "source": "exact-name"
+  },
+  "moralis": {
+    "name": "Moralis",
+    "logo": "/assets/vendor-logos/moralis.png",
+    "domain": "moralis.hr",
+    "source": "exact-name"
+  },
+  "the-graph": {
+    "name": "The Graph",
+    "logo": "/assets/vendor-logos/the-graph.png",
+    "domain": "thegraph.com",
+    "source": "exact-name"
+  },
+  "thegraph": {
+    "name": "The Graph",
+    "logo": "/assets/vendor-logos/the-graph.png",
+    "domain": "thegraph.com",
+    "source": "exact-name"
+  },
+  "immunefi": {
+    "name": "Immunefi",
+    "logo": "/assets/vendor-logos/immunefi.png",
+    "domain": "immunefi.com",
+    "source": "exact-name"
+  },
+  "code4rena": {
+    "name": "Code4rena",
+    "logo": "/assets/vendor-logos/code4rena.png",
+    "domain": "code4rena.com",
+    "source": "exact-name"
+  },
+  "sherlock": {
+    "name": "Sherlock",
+    "logo": "/assets/vendor-logos/sherlock.png",
+    "domain": "sherlock.xyz",
+    "source": "reviewed"
+  },
+  "pyth-network": {
+    "name": "Pyth Network",
+    "logo": "/assets/vendor-logos/pyth-network.png",
+    "domain": "pyth.network",
+    "source": "exact-name"
+  },
+  "pythnetwork": {
+    "name": "Pyth Network",
+    "logo": "/assets/vendor-logos/pyth-network.png",
+    "domain": "pyth.network",
+    "source": "exact-name"
+  },
+  "layerzero": {
+    "name": "LayerZero",
+    "logo": "/assets/vendor-logos/layerzero.png",
+    "domain": "layerzero.network",
+    "source": "reviewed"
+  },
+  "wormhole": {
+    "name": "Wormhole",
+    "logo": "/assets/vendor-logos/wormhole.png",
+    "domain": "wormhole.app",
+    "source": "exact-name"
+  },
+  "polygon-labs": {
+    "name": "Polygon Labs",
+    "logo": "/assets/vendor-logos/polygon-labs.png",
+    "domain": "polygon.technology",
+    "source": "reviewed"
+  },
+  "polygonlabs": {
+    "name": "Polygon Labs",
+    "logo": "/assets/vendor-logos/polygon-labs.png",
+    "domain": "polygon.technology",
+    "source": "reviewed"
+  },
+  "solana-labs": {
+    "name": "Solana Labs",
+    "logo": "/assets/vendor-logos/solana-labs.png",
+    "domain": "solanalabs.com",
+    "source": "exact-name"
+  },
+  "solanalabs": {
+    "name": "Solana Labs",
+    "logo": "/assets/vendor-logos/solana-labs.png",
+    "domain": "solanalabs.com",
+    "source": "exact-name"
+  },
+  "hedera": {
+    "name": "Hedera",
+    "logo": "/assets/vendor-logos/hedera.png",
+    "domain": "hedera.com",
+    "source": "exact-name"
+  },
+  "avalanche-ava-labs": {
+    "name": "Avalanche (Ava Labs)",
+    "logo": "/assets/company-logos/avalanche-ava-labs.jpg",
+    "domain": "avax.network",
+    "source": "existing"
+  },
+  "avalancheavalabs": {
+    "name": "Avalanche (Ava Labs)",
+    "logo": "/assets/company-logos/avalanche-ava-labs.jpg",
+    "domain": "avax.network",
+    "source": "existing"
+  },
+  "gelato-network": {
+    "name": "Gelato Network",
+    "logo": "/assets/vendor-logos/gelato-network.png",
+    "domain": "gelato.network",
+    "source": "reviewed"
+  },
+  "gelatonetwork": {
+    "name": "Gelato Network",
+    "logo": "/assets/vendor-logos/gelato-network.png",
+    "domain": "gelato.network",
+    "source": "reviewed"
+  },
+  "biconomy": {
+    "name": "Biconomy",
+    "logo": "/assets/vendor-logos/biconomy.png",
+    "domain": "biconomy.com",
+    "source": "exact-name"
+  },
+  "ankr": {
+    "name": "Ankr",
+    "logo": "/assets/company-logos/ankr.png",
+    "domain": "ankr.com",
+    "source": "existing"
+  },
+  "nethermind": {
+    "name": "Nethermind",
+    "logo": "/assets/vendor-logos/nethermind.png",
+    "domain": "nethermind.io",
+    "source": "exact-name"
+  },
+  "axelar": {
+    "name": "Axelar",
+    "logo": "/assets/vendor-logos/axelar.png",
+    "domain": "axelar.network",
+    "source": "reviewed"
+  },
+  "eigenlayer": {
+    "name": "EigenLayer",
+    "logo": "/assets/vendor-logos/eigenlayer.png",
+    "domain": "eigenlayer.xyz",
+    "source": "exact-name"
+  },
+  "starknet-starkware": {
+    "name": "Starknet (StarkWare)",
+    "logo": "/assets/vendor-logos/starknet-starkware.png",
+    "domain": "starknet.io",
+    "source": "reviewed"
+  },
+  "starknetstarkware": {
+    "name": "Starknet (StarkWare)",
+    "logo": "/assets/vendor-logos/starknet-starkware.png",
+    "domain": "starknet.io",
+    "source": "reviewed"
+  },
+  "sailo-technologies": {
+    "name": "Sailo Technologies",
+    "logo": "/assets/vendor-logos/sailo-technologies.png",
+    "domain": "sailo.tech",
+    "source": "reviewed"
+  },
+  "sailotechnologies": {
+    "name": "Sailo Technologies",
+    "logo": "/assets/vendor-logos/sailo-technologies.png",
+    "domain": "sailo.tech",
+    "source": "reviewed"
+  },
+  "securitize-markets": {
+    "name": "Securitize Markets",
+    "logo": "/assets/vendor-logos/securitize-markets.png",
+    "domain": "securitize.io",
+    "source": "profile"
+  },
+  "securitizemarkets": {
+    "name": "Securitize Markets",
+    "logo": "/assets/vendor-logos/securitize-markets.png",
+    "domain": "securitize.io",
+    "source": "profile"
+  },
+  "inx": {
+    "name": "INX",
+    "logo": "/assets/vendor-logos/inx.png",
+    "domain": "inx.co",
+    "source": "reviewed"
+  },
+  "sdx-six": {
+    "name": "SDX (SIX)",
+    "logo": "/assets/vendor-logos/sdx-six.png",
+    "domain": "sdx.com",
+    "source": "reviewed"
+  },
+  "sdxsix": {
+    "name": "SDX (SIX)",
+    "logo": "/assets/vendor-logos/sdx-six.png",
+    "domain": "sdx.com",
+    "source": "reviewed"
+  },
+  "coinbase-prime": {
+    "name": "Coinbase Prime",
+    "logo": "/assets/vendor-logos/coinbase-prime.png",
+    "domain": "coinbase.com",
+    "source": "reviewed"
+  },
+  "coinbaseprime": {
+    "name": "Coinbase Prime",
+    "logo": "/assets/vendor-logos/coinbase-prime.png",
+    "domain": "coinbase.com",
+    "source": "reviewed"
+  },
+  "kraken-institutional": {
+    "name": "Kraken Institutional",
+    "logo": "/assets/vendor-logos/kraken-institutional.png",
+    "domain": "kraken.com",
+    "source": "reviewed"
+  },
+  "krakeninstitutional": {
+    "name": "Kraken Institutional",
+    "logo": "/assets/vendor-logos/kraken-institutional.png",
+    "domain": "kraken.com",
+    "source": "reviewed"
+  },
+  "bitstamp": {
+    "name": "Bitstamp",
+    "logo": "/assets/vendor-logos/bitstamp.png",
+    "domain": "bitstamp.net",
+    "source": "exact-name"
+  },
+  "gemini": {
+    "name": "Gemini",
+    "logo": "/assets/vendor-logos/gemini.png",
+    "domain": "gemini.com",
+    "source": "exact-name"
+  },
+  "galaxy-digital": {
+    "name": "Galaxy Digital",
+    "logo": "/assets/vendor-logos/galaxy-digital.png",
+    "domain": "galaxydigital.com",
+    "source": "exact-name"
+  },
+  "galaxydigital": {
+    "name": "Galaxy Digital",
+    "logo": "/assets/vendor-logos/galaxy-digital.png",
+    "domain": "galaxydigital.com",
+    "source": "exact-name"
+  },
+  "wintermute": {
+    "name": "Wintermute",
+    "logo": "/assets/vendor-logos/wintermute.png",
+    "domain": "wintermute.com",
+    "source": "exact-name"
+  },
+  "gsr-markets": {
+    "name": "GSR Markets",
+    "logo": "/assets/vendor-logos/gsr-markets.png",
+    "domain": "gsr.io",
+    "source": "reviewed"
+  },
+  "gsrmarkets": {
+    "name": "GSR Markets",
+    "logo": "/assets/vendor-logos/gsr-markets.png",
+    "domain": "gsr.io",
+    "source": "reviewed"
+  },
+  "b2c2": {
+    "name": "B2C2",
+    "logo": "/assets/vendor-logos/b2c2.png",
+    "domain": "b2c2.com",
+    "source": "reviewed"
+  },
+  "keyrock": {
+    "name": "Keyrock",
+    "logo": "/assets/vendor-logos/keyrock.png",
+    "domain": "keyrock.eu",
+    "source": "exact-name"
+  },
+  "flowdesk": {
+    "name": "Flowdesk",
+    "logo": "/assets/vendor-logos/flowdesk.png",
+    "domain": "flowdesk.co",
+    "source": "exact-name"
+  },
+  "falconx": {
+    "name": "FalconX",
+    "logo": "/assets/vendor-logos/falconx.png",
+    "domain": "falconx.az",
+    "source": "exact-name"
+  },
+  "talos": {
+    "name": "Talos",
+    "logo": "/assets/vendor-logos/talos.png",
+    "domain": "talos-hr.co.il",
+    "source": "exact-name"
+  },
+  "tradeweb": {
+    "name": "Tradeweb",
+    "logo": "/assets/vendor-logos/tradeweb.png",
+    "domain": "tradeweb.com",
+    "source": "exact-name"
+  },
+  "broadridge-dlt": {
+    "name": "Broadridge DLT",
+    "logo": "/assets/vendor-logos/broadridge-dlt.png",
+    "domain": "broadridge.com",
+    "source": "reviewed"
+  },
+  "broadridgedlt": {
+    "name": "Broadridge DLT",
+    "logo": "/assets/vendor-logos/broadridge-dlt.png",
+    "domain": "broadridge.com",
+    "source": "reviewed"
+  },
+  "franklin-onchain": {
+    "name": "Franklin OnChain",
+    "logo": "",
+    "domain": "franklintempleton.com",
+    "source": "monogram"
+  },
+  "franklinonchain": {
+    "name": "Franklin OnChain",
+    "logo": "",
+    "domain": "franklintempleton.com",
+    "source": "monogram"
+  },
+  "apex-group": {
+    "name": "Apex Group",
+    "logo": "/assets/vendor-logos/apex-group.png",
+    "domain": "apexgroup.com",
+    "source": "exact-name"
+  },
+  "apexgroup": {
+    "name": "Apex Group",
+    "logo": "/assets/vendor-logos/apex-group.png",
+    "domain": "apexgroup.com",
+    "source": "exact-name"
+  },
+  "amber-group": {
+    "name": "Amber Group",
+    "logo": "/assets/vendor-logos/amber-group.png",
+    "domain": "ambergroup.io",
+    "source": "exact-name"
+  },
+  "ambergroup": {
+    "name": "Amber Group",
+    "logo": "/assets/vendor-logos/amber-group.png",
+    "domain": "ambergroup.io",
+    "source": "exact-name"
+  },
+  "crypto-com": {
+    "name": "Crypto.com",
+    "logo": "/assets/vendor-logos/crypto-com.png",
+    "domain": "crypto.com",
+    "source": "exact-name"
+  },
+  "cryptocom": {
+    "name": "Crypto.com",
+    "logo": "/assets/vendor-logos/crypto-com.png",
+    "domain": "crypto.com",
+    "source": "exact-name"
+  },
+  "okx-institutional": {
+    "name": "OKX Institutional",
+    "logo": "/assets/vendor-logos/okx-institutional.png",
+    "domain": "okx.com",
+    "source": "reviewed"
+  },
+  "okxinstitutional": {
+    "name": "OKX Institutional",
+    "logo": "/assets/vendor-logos/okx-institutional.png",
+    "domain": "okx.com",
+    "source": "reviewed"
+  },
+  "wisdomtree-prime": {
+    "name": "WisdomTree Prime",
+    "logo": "/assets/vendor-logos/wisdomtree-prime.png",
+    "domain": "wisdomtreeprime.com",
+    "source": "exact-name"
+  },
+  "wisdomtreeprime": {
+    "name": "WisdomTree Prime",
+    "logo": "/assets/vendor-logos/wisdomtree-prime.png",
+    "domain": "wisdomtreeprime.com",
+    "source": "exact-name"
+  },
+  "cumberland-drw": {
+    "name": "Cumberland (DRW)",
+    "logo": "/assets/vendor-logos/cumberland-drw.png",
+    "domain": "cumberland.io",
+    "source": "reviewed"
+  },
+  "cumberlanddrw": {
+    "name": "Cumberland (DRW)",
+    "logo": "/assets/vendor-logos/cumberland-drw.png",
+    "domain": "cumberland.io",
+    "source": "reviewed"
+  },
+  "dla-piper": {
+    "name": "DLA Piper",
+    "logo": "/assets/vendor-logos/dla-piper.png",
+    "domain": "dlapiper.com",
+    "source": "exact-name"
+  },
+  "dlapiper": {
+    "name": "DLA Piper",
+    "logo": "/assets/vendor-logos/dla-piper.png",
+    "domain": "dlapiper.com",
+    "source": "exact-name"
+  },
+  "latham-watkins": {
+    "name": "Latham & Watkins",
+    "logo": "/assets/vendor-logos/latham-watkins.png",
+    "domain": "lwcareers.com",
+    "source": "exact-name"
+  },
+  "lathamwatkins": {
+    "name": "Latham & Watkins",
+    "logo": "/assets/vendor-logos/latham-watkins.png",
+    "domain": "lwcareers.com",
+    "source": "exact-name"
+  },
+  "latham-and-watkins": {
+    "name": "Latham & Watkins",
+    "logo": "/assets/vendor-logos/latham-watkins.png",
+    "domain": "lwcareers.com",
+    "source": "exact-name"
+  },
+  "linklaters": {
+    "name": "Linklaters",
+    "logo": "/assets/vendor-logos/linklaters.png",
+    "domain": "linklaters.com",
+    "source": "exact-name"
+  },
+  "clifford-chance": {
+    "name": "Clifford Chance",
+    "logo": "/assets/vendor-logos/clifford-chance.png",
+    "domain": "cliffordchance.com",
+    "source": "exact-name"
+  },
+  "cliffordchance": {
+    "name": "Clifford Chance",
+    "logo": "/assets/vendor-logos/clifford-chance.png",
+    "domain": "cliffordchance.com",
+    "source": "exact-name"
+  },
+  "baker-mckenzie": {
+    "name": "Baker McKenzie",
+    "logo": "/assets/company-logos/baker-mckenzie.png",
+    "domain": "bakermckenzie.com",
+    "source": "existing"
+  },
+  "bakermckenzie": {
+    "name": "Baker McKenzie",
+    "logo": "/assets/company-logos/baker-mckenzie.png",
+    "domain": "bakermckenzie.com",
+    "source": "existing"
+  },
+  "cooley": {
+    "name": "Cooley",
+    "logo": "/assets/vendor-logos/cooley.png",
+    "domain": "cooley.com",
+    "source": "exact-name"
+  },
+  "fenwick-west": {
+    "name": "Fenwick & West",
+    "logo": "/assets/vendor-logos/fenwick-west.png",
+    "domain": "betweentheparties.com",
+    "source": "exact-name"
+  },
+  "fenwickwest": {
+    "name": "Fenwick & West",
+    "logo": "/assets/vendor-logos/fenwick-west.png",
+    "domain": "betweentheparties.com",
+    "source": "exact-name"
+  },
+  "fenwick-and-west": {
+    "name": "Fenwick & West",
+    "logo": "/assets/vendor-logos/fenwick-west.png",
+    "domain": "betweentheparties.com",
+    "source": "exact-name"
+  },
+  "davis-polk": {
+    "name": "Davis Polk",
+    "logo": "/assets/vendor-logos/davis-polk.png",
+    "domain": "davispolk.com",
+    "source": "exact-name"
+  },
+  "davispolk": {
+    "name": "Davis Polk",
+    "logo": "/assets/vendor-logos/davis-polk.png",
+    "domain": "davispolk.com",
+    "source": "exact-name"
+  },
+  "sullivan-cromwell": {
+    "name": "Sullivan & Cromwell",
+    "logo": "/assets/vendor-logos/sullivan-cromwell.png",
+    "domain": "sullcrom.com",
+    "source": "exact-name"
+  },
+  "sullivancromwell": {
+    "name": "Sullivan & Cromwell",
+    "logo": "/assets/vendor-logos/sullivan-cromwell.png",
+    "domain": "sullcrom.com",
+    "source": "exact-name"
+  },
+  "sullivan-and-cromwell": {
+    "name": "Sullivan & Cromwell",
+    "logo": "/assets/vendor-logos/sullivan-cromwell.png",
+    "domain": "sullcrom.com",
+    "source": "exact-name"
+  },
+  "white-case": {
+    "name": "White & Case",
+    "logo": "/assets/vendor-logos/white-case.png",
+    "domain": "whitecase.com",
+    "source": "exact-name"
+  },
+  "whitecase": {
+    "name": "White & Case",
+    "logo": "/assets/vendor-logos/white-case.png",
+    "domain": "whitecase.com",
+    "source": "exact-name"
+  },
+  "white-and-case": {
+    "name": "White & Case",
+    "logo": "/assets/vendor-logos/white-case.png",
+    "domain": "whitecase.com",
+    "source": "exact-name"
+  },
+  "perkins-coie": {
+    "name": "Perkins Coie",
+    "logo": "/assets/vendor-logos/perkins-coie.png",
+    "domain": "perkinscoie.com",
+    "source": "exact-name"
+  },
+  "perkinscoie": {
+    "name": "Perkins Coie",
+    "logo": "/assets/vendor-logos/perkins-coie.png",
+    "domain": "perkinscoie.com",
+    "source": "exact-name"
+  },
+  "hogan-lovells": {
+    "name": "Hogan Lovells",
+    "logo": "/assets/vendor-logos/hogan-lovells.png",
+    "domain": "hoganlovells.com",
+    "source": "exact-name"
+  },
+  "hoganlovells": {
+    "name": "Hogan Lovells",
+    "logo": "/assets/vendor-logos/hogan-lovells.png",
+    "domain": "hoganlovells.com",
+    "source": "exact-name"
+  },
+  "mme": {
+    "name": "MME",
+    "logo": "/assets/vendor-logos/mme.png",
+    "domain": "mmemed.com",
+    "source": "exact-name"
+  },
+  "dentons": {
+    "name": "Dentons",
+    "logo": "/assets/vendor-logos/dentons.png",
+    "domain": "dentons.com",
+    "source": "exact-name"
+  },
+  "norton-rose-fulbright": {
+    "name": "Norton Rose Fulbright",
+    "logo": "/assets/vendor-logos/norton-rose-fulbright.png",
+    "domain": "nortonrosefulbright.com",
+    "source": "exact-name"
+  },
+  "nortonrosefulbright": {
+    "name": "Norton Rose Fulbright",
+    "logo": "/assets/vendor-logos/norton-rose-fulbright.png",
+    "domain": "nortonrosefulbright.com",
+    "source": "exact-name"
+  },
+  "allen-overy": {
+    "name": "Allen & Overy",
+    "logo": "/assets/company-logos/allen-and-overy.svg",
+    "domain": "allenovery.com",
+    "source": "existing"
+  },
+  "allenovery": {
+    "name": "Allen & Overy",
+    "logo": "/assets/company-logos/allen-and-overy.svg",
+    "domain": "allenovery.com",
+    "source": "existing"
+  },
+  "allen-and-overy": {
+    "name": "Allen & Overy",
+    "logo": "/assets/company-logos/allen-and-overy.svg",
+    "domain": "allenovery.com",
+    "source": "existing"
+  },
+  "freshfields": {
+    "name": "Freshfields",
+    "logo": "/assets/vendor-logos/freshfields.png",
+    "domain": "freshfields.us",
+    "source": "exact-name"
+  },
+  "sidley-austin": {
+    "name": "Sidley Austin",
+    "logo": "/assets/vendor-logos/sidley-austin.png",
+    "domain": "sidley.com",
+    "source": "exact-name"
+  },
+  "sidleyaustin": {
+    "name": "Sidley Austin",
+    "logo": "/assets/vendor-logos/sidley-austin.png",
+    "domain": "sidley.com",
+    "source": "exact-name"
+  },
+  "greenberg-traurig": {
+    "name": "Greenberg Traurig",
+    "logo": "/assets/vendor-logos/greenberg-traurig.png",
+    "domain": "gtlaw.com",
+    "source": "exact-name"
+  },
+  "greenbergtraurig": {
+    "name": "Greenberg Traurig",
+    "logo": "/assets/vendor-logos/greenberg-traurig.png",
+    "domain": "gtlaw.com",
+    "source": "exact-name"
+  },
+  "goodwin-procter": {
+    "name": "Goodwin Procter",
+    "logo": "/assets/vendor-logos/goodwin-procter.png",
+    "domain": "goodwinlaw.com",
+    "source": "reviewed"
+  },
+  "goodwinprocter": {
+    "name": "Goodwin Procter",
+    "logo": "/assets/vendor-logos/goodwin-procter.png",
+    "domain": "goodwinlaw.com",
+    "source": "reviewed"
+  },
+  "ogier": {
+    "name": "Ogier",
+    "logo": "/assets/vendor-logos/ogier.png",
+    "domain": "ogier.com",
+    "source": "exact-name"
+  },
+  "k-l-gates": {
+    "name": "K&L Gates",
+    "logo": "/assets/vendor-logos/k-l-gates.png",
+    "domain": "klgates.com",
+    "source": "reviewed"
+  },
+  "klgates": {
+    "name": "K&L Gates",
+    "logo": "/assets/vendor-logos/k-l-gates.png",
+    "domain": "klgates.com",
+    "source": "reviewed"
+  },
+  "kandl-gates": {
+    "name": "K&L Gates",
+    "logo": "/assets/vendor-logos/k-l-gates.png",
+    "domain": "klgates.com",
+    "source": "reviewed"
+  },
+  "kirkland-ellis": {
+    "name": "Kirkland & Ellis",
+    "logo": "/assets/vendor-logos/kirkland-ellis.png",
+    "domain": "kirkland.com",
+    "source": "exact-name"
+  },
+  "kirklandellis": {
+    "name": "Kirkland & Ellis",
+    "logo": "/assets/vendor-logos/kirkland-ellis.png",
+    "domain": "kirkland.com",
+    "source": "exact-name"
+  },
+  "kirkland-and-ellis": {
+    "name": "Kirkland & Ellis",
+    "logo": "/assets/vendor-logos/kirkland-ellis.png",
+    "domain": "kirkland.com",
+    "source": "exact-name"
+  },
+  "dechert": {
+    "name": "Dechert",
+    "logo": "/assets/vendor-logos/dechert.png",
+    "domain": "dechert.com",
+    "source": "exact-name"
+  },
+  "ashurst": {
+    "name": "Ashurst",
+    "logo": "/assets/company-logos/ashurst.ico",
+    "domain": "ashurst.com",
+    "source": "existing"
+  },
+  "reed-smith": {
+    "name": "Reed Smith",
+    "logo": "/assets/vendor-logos/reed-smith.png",
+    "domain": "reedsmith.com",
+    "source": "exact-name"
+  },
+  "reedsmith": {
+    "name": "Reed Smith",
+    "logo": "/assets/vendor-logos/reed-smith.png",
+    "domain": "reedsmith.com",
+    "source": "exact-name"
+  },
+  "osborne-clarke": {
+    "name": "Osborne Clarke",
+    "logo": "/assets/vendor-logos/osborne-clarke.png",
+    "domain": "osborneclarke.com",
+    "source": "exact-name"
+  },
+  "osborneclarke": {
+    "name": "Osborne Clarke",
+    "logo": "/assets/vendor-logos/osborne-clarke.png",
+    "domain": "osborneclarke.com",
+    "source": "exact-name"
+  },
+  "herbert-smith-freehills": {
+    "name": "Herbert Smith Freehills",
+    "logo": "/assets/vendor-logos/herbert-smith-freehills.png",
+    "domain": "herbertsmithfreehills.com",
+    "source": "exact-name"
+  },
+  "herbertsmithfreehills": {
+    "name": "Herbert Smith Freehills",
+    "logo": "/assets/vendor-logos/herbert-smith-freehills.png",
+    "domain": "herbertsmithfreehills.com",
+    "source": "exact-name"
+  },
+  "bird-bird": {
+    "name": "Bird & Bird",
+    "logo": "/assets/vendor-logos/bird-bird.png",
+    "domain": "twobirds.com",
+    "source": "exact-name"
+  },
+  "birdbird": {
+    "name": "Bird & Bird",
+    "logo": "/assets/vendor-logos/bird-bird.png",
+    "domain": "twobirds.com",
+    "source": "exact-name"
+  },
+  "bird-and-bird": {
+    "name": "Bird & Bird",
+    "logo": "/assets/vendor-logos/bird-bird.png",
+    "domain": "twobirds.com",
+    "source": "exact-name"
+  },
+  "mayer-brown": {
+    "name": "Mayer Brown",
+    "logo": "/assets/vendor-logos/mayer-brown.png",
+    "domain": "mayerbrown.com",
+    "source": "exact-name"
+  },
+  "mayerbrown": {
+    "name": "Mayer Brown",
+    "logo": "/assets/vendor-logos/mayer-brown.png",
+    "domain": "mayerbrown.com",
+    "source": "exact-name"
+  },
+  "brands-essential": {
+    "name": "Brands Essential",
+    "logo": "/assets/company-logos/brands-essential.jpg",
+    "domain": "brands-essential.com",
+    "source": "existing"
+  },
+  "brandsessential": {
+    "name": "Brands Essential",
+    "logo": "/assets/company-logos/brands-essential.jpg",
+    "domain": "brands-essential.com",
+    "source": "existing"
+  },
+  "coinbound": {
+    "name": "Coinbound",
+    "logo": "/assets/company-logos/coinbound.png",
+    "domain": "coinbound.io",
+    "source": "existing"
+  },
+  "ninjapromo": {
+    "name": "NinjaPromo",
+    "logo": "/assets/vendor-logos/ninjapromo.png",
+    "domain": "ninjapromo.io",
+    "source": "exact-name"
+  },
+  "lunar-strategy": {
+    "name": "Lunar Strategy",
+    "logo": "/assets/company-logos/lunar-strategy.svg",
+    "domain": "lunarstrategy.com",
+    "source": "existing"
+  },
+  "lunarstrategy": {
+    "name": "Lunar Strategy",
+    "logo": "/assets/company-logos/lunar-strategy.svg",
+    "domain": "lunarstrategy.com",
+    "source": "existing"
+  },
+  "eak-digital": {
+    "name": "EAK Digital",
+    "logo": "/assets/vendor-logos/eak-digital.png",
+    "domain": "eakdigital.com",
+    "source": "exact-name"
+  },
+  "eakdigital": {
+    "name": "EAK Digital",
+    "logo": "/assets/vendor-logos/eak-digital.png",
+    "domain": "eakdigital.com",
+    "source": "exact-name"
+  },
+  "marketacross": {
+    "name": "MarketAcross",
+    "logo": "/assets/vendor-logos/marketacross.png",
+    "domain": "marketacross.com",
+    "source": "reviewed"
+  },
+  "blockwiz": {
+    "name": "Blockwiz",
+    "logo": "",
+    "domain": "blockwiz.com",
+    "source": "monogram"
+  },
+  "crowdcreate": {
+    "name": "CrowdCreate",
+    "logo": "/assets/vendor-logos/crowdcreate.png",
+    "domain": "crowdcreate.us",
+    "source": "exact-name"
+  },
+  "serotonin": {
+    "name": "Serotonin",
+    "logo": "/assets/vendor-logos/serotonin.png",
+    "domain": "serotonin.co",
+    "source": "exact-name"
+  },
+  "wachsman": {
+    "name": "Wachsman",
+    "logo": "/assets/vendor-logos/wachsman.png",
+    "domain": "wachsman.com",
+    "source": "exact-name"
+  },
+  "chainwire": {
+    "name": "Chainwire",
+    "logo": "/assets/vendor-logos/chainwire.png",
+    "domain": "chainwire.org",
+    "source": "exact-name"
+  },
+  "coinzilla": {
+    "name": "Coinzilla",
+    "logo": "/assets/vendor-logos/coinzilla.png",
+    "domain": "coinzilla.com",
+    "source": "reviewed"
+  },
+  "brave-ads": {
+    "name": "Brave Ads",
+    "logo": "/assets/vendor-logos/brave-ads.png",
+    "domain": "brave.com",
+    "source": "reviewed"
+  },
+  "braveads": {
+    "name": "Brave Ads",
+    "logo": "/assets/vendor-logos/brave-ads.png",
+    "domain": "brave.com",
+    "source": "reviewed"
+  },
+  "galxe": {
+    "name": "Galxe",
+    "logo": "/assets/vendor-logos/galxe.png",
+    "domain": "galxe.com",
+    "source": "exact-name"
+  },
+  "zealy": {
+    "name": "Zealy",
+    "logo": "/assets/vendor-logos/zealy.png",
+    "domain": "zealy.io",
+    "source": "exact-name"
+  },
+  "layer3": {
+    "name": "Layer3",
+    "logo": "/assets/vendor-logos/layer3.png",
+    "domain": "layer3.xyz",
+    "source": "exact-name"
+  },
+  "dune-analytics": {
+    "name": "Dune Analytics",
+    "logo": "/assets/vendor-logos/dune-analytics.png",
+    "domain": "dune.com",
+    "source": "reviewed"
+  },
+  "duneanalytics": {
+    "name": "Dune Analytics",
+    "logo": "/assets/vendor-logos/dune-analytics.png",
+    "domain": "dune.com",
+    "source": "reviewed"
+  },
+  "nansen": {
+    "name": "Nansen",
+    "logo": "/assets/vendor-logos/nansen.png",
+    "domain": "nansen.ai",
+    "source": "exact-name"
+  },
+  "dappradar": {
+    "name": "DappRadar",
+    "logo": "/assets/vendor-logos/dappradar.png",
+    "domain": "dappradar.com",
+    "source": "exact-name"
+  },
+  "defillama": {
+    "name": "DefiLlama",
+    "logo": "/assets/vendor-logos/defillama.png",
+    "domain": "defillama.com",
+    "source": "exact-name"
+  },
+  "messari": {
+    "name": "Messari",
+    "logo": "/assets/vendor-logos/messari.png",
+    "domain": "messari.io",
+    "source": "reviewed"
+  },
+  "the-block-research": {
+    "name": "The Block Research",
+    "logo": "/assets/vendor-logos/the-block-research.png",
+    "domain": "theblock.co",
+    "source": "reviewed"
+  },
+  "theblockresearch": {
+    "name": "The Block Research",
+    "logo": "/assets/vendor-logos/the-block-research.png",
+    "domain": "theblock.co",
+    "source": "reviewed"
+  },
+  "luna-pr": {
+    "name": "Luna PR",
+    "logo": "/assets/vendor-logos/luna-pr.png",
+    "domain": "lunapr.io",
+    "source": "exact-name"
+  },
+  "lunapr": {
+    "name": "Luna PR",
+    "logo": "/assets/vendor-logos/luna-pr.png",
+    "domain": "lunapr.io",
+    "source": "exact-name"
+  },
+  "tokenminds": {
+    "name": "TokenMinds",
+    "logo": "/assets/vendor-logos/tokenminds.png",
+    "domain": "tokenminds.co",
+    "source": "exact-name"
+  },
+  "bitmedia": {
+    "name": "Bitmedia",
+    "logo": "/assets/vendor-logos/bitmedia.png",
+    "domain": "bit-media.com",
+    "source": "exact-name"
+  },
+  "guerrillabuzz": {
+    "name": "GuerrillaBuzz",
+    "logo": "/assets/vendor-logos/guerrillabuzz.png",
+    "domain": "guerrillabuzz.com",
+    "source": "exact-name"
+  },
+  "coinpresso": {
+    "name": "Coinpresso",
+    "logo": "/assets/vendor-logos/coinpresso.png",
+    "domain": "coinpresso.io",
+    "source": "exact-name"
+  },
+  "amazix": {
+    "name": "AmaZix",
+    "logo": "",
+    "domain": "amazix.com",
+    "source": "monogram"
+  },
+  "collab-land": {
+    "name": "Collab.Land",
+    "logo": "/assets/vendor-logos/collab-land.png",
+    "domain": "collab.land",
+    "source": "exact-name"
+  },
+  "collabland": {
+    "name": "Collab.Land",
+    "logo": "/assets/vendor-logos/collab-land.png",
+    "domain": "collab.land",
+    "source": "exact-name"
+  },
+  "icoda": {
+    "name": "ICODA",
+    "logo": "/assets/vendor-logos/icoda.png",
+    "domain": "icoda.io",
+    "source": "exact-name"
+  },
+  "akash-network": {
+    "name": "Akash Network",
+    "logo": "/assets/company-logos/akash-network.ico",
+    "domain": "akash.network",
+    "source": "existing"
+  },
+  "akashnetwork": {
+    "name": "Akash Network",
+    "logo": "/assets/company-logos/akash-network.ico",
+    "domain": "akash.network",
+    "source": "existing"
+  },
+  "anthropic-claude": {
+    "name": "Anthropic (Claude)",
+    "logo": "/assets/company-logos/anthropic-claude.png",
+    "domain": "anthropic.com",
+    "source": "existing"
+  },
+  "anthropicclaude": {
+    "name": "Anthropic (Claude)",
+    "logo": "/assets/company-logos/anthropic-claude.png",
+    "domain": "anthropic.com",
+    "source": "existing"
+  },
+  "arkham-intelligence": {
+    "name": "Arkham Intelligence",
+    "logo": "/assets/vendor-logos/arkham-intelligence.png",
+    "domain": "arkhamintelligence.com",
+    "source": "profile"
+  },
+  "arkhamintelligence": {
+    "name": "Arkham Intelligence",
+    "logo": "/assets/vendor-logos/arkham-intelligence.png",
+    "domain": "arkhamintelligence.com",
+    "source": "profile"
+  },
+  "autonolas-olas": {
+    "name": "Autonolas (Olas)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "autonolasolas": {
+    "name": "Autonolas (Olas)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "bittensor-tao": {
+    "name": "Bittensor (TAO)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "bittensortao": {
+    "name": "Bittensor (TAO)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "chaos-labs": {
+    "name": "Chaos Labs",
+    "logo": "/assets/vendor-logos/chaos-labs.png",
+    "domain": "chaoslabs.xyz",
+    "source": "exact-name"
+  },
+  "chaoslabs": {
+    "name": "Chaos Labs",
+    "logo": "/assets/vendor-logos/chaos-labs.png",
+    "domain": "chaoslabs.xyz",
+    "source": "exact-name"
+  },
+  "chainanalysis": {
+    "name": "Chainanalysis",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "fetch-ai": {
+    "name": "Fetch.ai",
+    "logo": "/assets/vendor-logos/fetch-ai.png",
+    "domain": "fetch.ai",
+    "source": "profile"
+  },
+  "fetchai": {
+    "name": "Fetch.ai",
+    "logo": "/assets/vendor-logos/fetch-ai.png",
+    "domain": "fetch.ai",
+    "source": "profile"
+  },
+  "forta-network": {
+    "name": "Forta Network",
+    "logo": "",
+    "domain": "wwwforta.org",
+    "source": "monogram"
+  },
+  "fortanetwork": {
+    "name": "Forta Network",
+    "logo": "",
+    "domain": "wwwforta.org",
+    "source": "monogram"
+  },
+  "giza": {
+    "name": "Giza",
+    "logo": "/assets/vendor-logos/giza.png",
+    "domain": "gizatech.xyz",
+    "source": "profile"
+  },
+  "helicone": {
+    "name": "Helicone",
+    "logo": "/assets/vendor-logos/helicone.png",
+    "domain": "helicone.ai",
+    "source": "exact-name"
+  },
+  "io-net": {
+    "name": "io.net",
+    "logo": "/assets/vendor-logos/io-net.png",
+    "domain": "io.net",
+    "source": "profile"
+  },
+  "ionet": {
+    "name": "io.net",
+    "logo": "/assets/vendor-logos/io-net.png",
+    "domain": "io.net",
+    "source": "profile"
+  },
+  "kaito-ai": {
+    "name": "Kaito AI",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "kaitoai": {
+    "name": "Kaito AI",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "lit-protocol": {
+    "name": "Lit Protocol",
+    "logo": "/assets/vendor-logos/lit-protocol.png",
+    "domain": "litprotocol.com",
+    "source": "exact-name"
+  },
+  "litprotocol": {
+    "name": "Lit Protocol",
+    "logo": "/assets/vendor-logos/lit-protocol.png",
+    "domain": "litprotocol.com",
+    "source": "exact-name"
+  },
+  "morpheus": {
+    "name": "Morpheus",
+    "logo": "/assets/vendor-logos/morpheus.png",
+    "domain": "morpheus-beddengoed.nl",
+    "source": "exact-name"
+  },
+  "near-ai": {
+    "name": "NEAR AI",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "nearai": {
+    "name": "NEAR AI",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ocean-protocol": {
+    "name": "Ocean Protocol",
+    "logo": "/assets/vendor-logos/ocean-protocol.png",
+    "domain": "oceanprotocol.com",
+    "source": "profile"
+  },
+  "oceanprotocol": {
+    "name": "Ocean Protocol",
+    "logo": "/assets/vendor-logos/ocean-protocol.png",
+    "domain": "oceanprotocol.com",
+    "source": "profile"
+  },
+  "openai": {
+    "name": "OpenAI",
+    "logo": "/assets/vendor-logos/openai.png",
+    "domain": "openai.com",
+    "source": "profile"
+  },
+  "pond": {
+    "name": "Pond",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "render-network": {
+    "name": "Render Network",
+    "logo": "/assets/vendor-logos/render-network.png",
+    "domain": "rendernetwork.com",
+    "source": "profile"
+  },
+  "rendernetwork": {
+    "name": "Render Network",
+    "logo": "/assets/vendor-logos/render-network.png",
+    "domain": "rendernetwork.com",
+    "source": "profile"
+  },
+  "ritual": {
+    "name": "Ritual",
+    "logo": "/assets/vendor-logos/ritual.png",
+    "domain": "ritual.net",
+    "source": "profile"
+  },
+  "sentient": {
+    "name": "Sentient",
+    "logo": "/assets/vendor-logos/sentient.png",
+    "domain": "sentientacademy.com",
+    "source": "exact-name"
+  },
+  "simulations-plus": {
+    "name": "Simulations Plus",
+    "logo": "/assets/vendor-logos/simulations-plus.png",
+    "domain": "simulations-plus.com",
+    "source": "exact-name"
+  },
+  "simulationsplus": {
+    "name": "Simulations Plus",
+    "logo": "/assets/vendor-logos/simulations-plus.png",
+    "domain": "simulations-plus.com",
+    "source": "exact-name"
+  },
+  "spectral-finance": {
+    "name": "Spectral Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "spectralfinance": {
+    "name": "Spectral Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "story-protocol": {
+    "name": "Story Protocol",
+    "logo": "/assets/vendor-logos/story-protocol.png",
+    "domain": "story.foundation",
+    "source": "profile"
+  },
+  "storyprotocol": {
+    "name": "Story Protocol",
+    "logo": "/assets/vendor-logos/story-protocol.png",
+    "domain": "story.foundation",
+    "source": "profile"
+  },
+  "virtuals-protocol": {
+    "name": "Virtuals Protocol",
+    "logo": "/assets/vendor-logos/virtuals-protocol.png",
+    "domain": "virtuals.io",
+    "source": "profile"
+  },
+  "virtualsprotocol": {
+    "name": "Virtuals Protocol",
+    "logo": "/assets/vendor-logos/virtuals-protocol.png",
+    "domain": "virtuals.io",
+    "source": "profile"
+  },
+  "wayfinder": {
+    "name": "Wayfinder",
+    "logo": "/assets/vendor-logos/wayfinder.png",
+    "domain": "wayfindercarry.com",
+    "source": "exact-name"
+  },
+  "regen-network": {
+    "name": "Regen Network",
+    "logo": "/assets/vendor-logos/regen-network.png",
+    "domain": "regen.network",
+    "source": "exact-name"
+  },
+  "regennetwork": {
+    "name": "Regen Network",
+    "logo": "/assets/vendor-logos/regen-network.png",
+    "domain": "regen.network",
+    "source": "exact-name"
+  },
+  "toucan-protocol": {
+    "name": "Toucan Protocol",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "toucanprotocol": {
+    "name": "Toucan Protocol",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "open-forest-protocol": {
+    "name": "Open Forest Protocol",
+    "logo": "/assets/vendor-logos/open-forest-protocol.png",
+    "domain": "openforestprotocol.org",
+    "source": "exact-name"
+  },
+  "openforestprotocol": {
+    "name": "Open Forest Protocol",
+    "logo": "/assets/vendor-logos/open-forest-protocol.png",
+    "domain": "openforestprotocol.org",
+    "source": "exact-name"
+  },
+  "dclimate": {
+    "name": "dClimate",
+    "logo": "/assets/vendor-logos/dclimate.png",
+    "domain": "dclimate.net",
+    "source": "exact-name"
+  },
+  "carbonmark": {
+    "name": "Carbonmark",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "klimadao": {
+    "name": "KlimaDAO",
+    "logo": "/assets/vendor-logos/klimadao.png",
+    "domain": "klimadao.finance",
+    "source": "exact-name"
+  },
+  "verra": {
+    "name": "Verra",
+    "logo": "",
+    "domain": "verra.org",
+    "source": "monogram"
+  },
+  "gold-standard": {
+    "name": "Gold Standard",
+    "logo": "/assets/vendor-logos/gold-standard.png",
+    "domain": "goldstandard.org",
+    "source": "exact-name"
+  },
+  "goldstandard": {
+    "name": "Gold Standard",
+    "logo": "/assets/vendor-logos/gold-standard.png",
+    "domain": "goldstandard.org",
+    "source": "exact-name"
+  },
+  "crystal-blockchain": {
+    "name": "Crystal Blockchain",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "crystalblockchain": {
+    "name": "Crystal Blockchain",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sygna-by-coolbitx": {
+    "name": "Sygna (by CoolBitX)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sygnabycoolbitx": {
+    "name": "Sygna (by CoolBitX)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "verifyvasp": {
+    "name": "VerifyVASP",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "cointracker": {
+    "name": "CoinTracker",
+    "logo": "/assets/vendor-logos/cointracker.png",
+    "domain": "cointracker.io",
+    "source": "exact-name"
+  },
+  "koinly": {
+    "name": "Koinly",
+    "logo": "/assets/vendor-logos/koinly.png",
+    "domain": "koinly.io",
+    "source": "exact-name"
+  },
+  "taxbit": {
+    "name": "TaxBit",
+    "logo": "/assets/vendor-logos/taxbit.png",
+    "domain": "taxbit.com",
+    "source": "exact-name"
+  },
+  "lukka": {
+    "name": "Lukka",
+    "logo": "/assets/vendor-logos/lukka.png",
+    "domain": "lukka.tech",
+    "source": "exact-name"
+  },
+  "bitwave": {
+    "name": "Bitwave",
+    "logo": "/assets/vendor-logos/bitwave.png",
+    "domain": "bitwave.io",
+    "source": "exact-name"
+  },
+  "coinfirm": {
+    "name": "Coinfirm",
+    "logo": "",
+    "domain": "coinfirmlab.com",
+    "source": "monogram"
+  },
+  "chainalysis-vasp-directory": {
+    "name": "Chainalysis VASP Directory",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "chainalysisvaspdirectory": {
+    "name": "Chainalysis VASP Directory",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hummingbird": {
+    "name": "Hummingbird",
+    "logo": "/assets/vendor-logos/hummingbird.png",
+    "domain": "hummingbird.co",
+    "source": "exact-name"
+  },
+  "flagright": {
+    "name": "Flagright",
+    "logo": "/assets/vendor-logos/flagright.png",
+    "domain": "flagright.com",
+    "source": "exact-name"
+  },
+  "elliptic-lens": {
+    "name": "Elliptic Lens",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ellipticlens": {
+    "name": "Elliptic Lens",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "refinitiv-world-check-lseg": {
+    "name": "Refinitiv World-Check (LSEG)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "refinitivworldchecklseg": {
+    "name": "Refinitiv World-Check (LSEG)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "gk8-galaxy-digital": {
+    "name": "GK8 (Galaxy Digital)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "gk8galaxydigital": {
+    "name": "GK8 (Galaxy Digital)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "gnosis-safe-safe": {
+    "name": "Gnosis Safe (Safe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "gnosissafesafe": {
+    "name": "Gnosis Safe (Safe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "luno-dcg": {
+    "name": "Luno (DCG)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "lunodcg": {
+    "name": "Luno (DCG)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "metaco-ripple": {
+    "name": "Metaco (Ripple)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "metacoripple": {
+    "name": "Metaco (Ripple)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "propine": {
+    "name": "Propine",
+    "logo": "/assets/vendor-logos/propine.png",
+    "domain": "propine.com",
+    "source": "exact-name"
+  },
+  "qredo": {
+    "name": "Qredo",
+    "logo": "/assets/vendor-logos/qredo.png",
+    "domain": "qredo.com",
+    "source": "exact-name"
+  },
+  "securosys": {
+    "name": "Securosys",
+    "logo": "/assets/vendor-logos/securosys.png",
+    "domain": "securosys.com",
+    "source": "exact-name"
+  },
+  "tangany": {
+    "name": "Tangany",
+    "logo": "/assets/vendor-logos/tangany.png",
+    "domain": "tangany.com",
+    "source": "exact-name"
+  },
+  "teserakt": {
+    "name": "Teserakt",
+    "logo": "/assets/vendor-logos/teserakt.png",
+    "domain": "teserakt.io",
+    "source": "exact-name"
+  },
+  "threshold-network": {
+    "name": "Threshold Network",
+    "logo": "/assets/vendor-logos/threshold-network.png",
+    "domain": "threshold.network",
+    "source": "exact-name"
+  },
+  "thresholdnetwork": {
+    "name": "Threshold Network",
+    "logo": "/assets/vendor-logos/threshold-network.png",
+    "domain": "threshold.network",
+    "source": "exact-name"
+  },
+  "utxo-solutions": {
+    "name": "UTXO Solutions",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "utxosolutions": {
+    "name": "UTXO Solutions",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "uniswap": {
+    "name": "Uniswap",
+    "logo": "/assets/vendor-logos/uniswap.png",
+    "domain": "uniswap.org",
+    "source": "profile"
+  },
+  "curve-finance": {
+    "name": "Curve Finance",
+    "logo": "/assets/company-logos/curve-finance.png",
+    "domain": "curve.fi",
+    "source": "existing"
+  },
+  "curvefinance": {
+    "name": "Curve Finance",
+    "logo": "/assets/company-logos/curve-finance.png",
+    "domain": "curve.fi",
+    "source": "existing"
+  },
+  "aave": {
+    "name": "Aave",
+    "logo": "/assets/vendor-logos/aave.png",
+    "domain": "aave.com",
+    "source": "exact-name"
+  },
+  "compound": {
+    "name": "Compound",
+    "logo": "/assets/vendor-logos/compound.png",
+    "domain": "compound.finance",
+    "source": "exact-name"
+  },
+  "makerdao-sky": {
+    "name": "MakerDAO (Sky)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "makerdaosky": {
+    "name": "MakerDAO (Sky)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "morpho": {
+    "name": "Morpho",
+    "logo": "/assets/vendor-logos/morpho.png",
+    "domain": "morpho.az",
+    "source": "exact-name"
+  },
+  "chainlink": {
+    "name": "Chainlink",
+    "logo": "/assets/vendor-logos/chainlink.png",
+    "domain": "chain.link",
+    "source": "exact-name"
+  },
+  "api3": {
+    "name": "API3",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "redstone": {
+    "name": "RedStone",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "across-protocol": {
+    "name": "Across Protocol",
+    "logo": "/assets/vendor-logos/across-protocol.png",
+    "domain": "across.to",
+    "source": "exact-name"
+  },
+  "acrossprotocol": {
+    "name": "Across Protocol",
+    "logo": "/assets/vendor-logos/across-protocol.png",
+    "domain": "across.to",
+    "source": "exact-name"
+  },
+  "hyperlane": {
+    "name": "Hyperlane",
+    "logo": "/assets/vendor-logos/hyperlane.png",
+    "domain": "hyperlane.co",
+    "source": "exact-name"
+  },
+  "yearn-finance": {
+    "name": "Yearn Finance",
+    "logo": "/assets/vendor-logos/yearn-finance.png",
+    "domain": "iearn.finance",
+    "source": "exact-name"
+  },
+  "yearnfinance": {
+    "name": "Yearn Finance",
+    "logo": "/assets/vendor-logos/yearn-finance.png",
+    "domain": "iearn.finance",
+    "source": "exact-name"
+  },
+  "pendle": {
+    "name": "Pendle",
+    "logo": "/assets/vendor-logos/pendle.png",
+    "domain": "pendle.finance",
+    "source": "exact-name"
+  },
+  "lido": {
+    "name": "Lido",
+    "logo": "/assets/vendor-logos/lido.png",
+    "domain": "lido.fi",
+    "source": "exact-name"
+  },
+  "convex-finance": {
+    "name": "Convex Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "convexfinance": {
+    "name": "Convex Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ethena": {
+    "name": "Ethena",
+    "logo": "/assets/vendor-logos/ethena.png",
+    "domain": "goethena.com",
+    "source": "exact-name"
+  },
+  "synthetix": {
+    "name": "Synthetix",
+    "logo": "/assets/vendor-logos/synthetix.png",
+    "domain": "synthetix.io",
+    "source": "exact-name"
+  },
+  "ribbon-finance-aevo": {
+    "name": "Ribbon Finance (Aevo)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ribbonfinanceaevo": {
+    "name": "Ribbon Finance (Aevo)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "jupiter": {
+    "name": "Jupiter",
+    "logo": "/assets/vendor-logos/jupiter.png",
+    "domain": "jup.ag",
+    "source": "exact-name"
+  },
+  "1inch": {
+    "name": "1inch",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "balancer": {
+    "name": "Balancer",
+    "logo": "/assets/vendor-logos/balancer.png",
+    "domain": "balancer.fi",
+    "source": "exact-name"
+  },
+  "pancake-swap": {
+    "name": "Pancake Swap",
+    "logo": "/assets/vendor-logos/pancake-swap.png",
+    "domain": "pancakeswap.finance",
+    "source": "exact-name"
+  },
+  "pancakeswap": {
+    "name": "Pancake Swap",
+    "logo": "/assets/vendor-logos/pancake-swap.png",
+    "domain": "pancakeswap.finance",
+    "source": "exact-name"
+  },
+  "beans-app": {
+    "name": "Beans App",
+    "logo": "/assets/company-logos/beans-app.svg",
+    "domain": "beansapp.com",
+    "source": "existing"
+  },
+  "beansapp": {
+    "name": "Beans App",
+    "logo": "/assets/company-logos/beans-app.svg",
+    "domain": "beansapp.com",
+    "source": "existing"
+  },
+  "bitnob": {
+    "name": "Bitnob",
+    "logo": "/assets/vendor-logos/bitnob.png",
+    "domain": "bitnob.com",
+    "source": "exact-name"
+  },
+  "bridge-by-stripe": {
+    "name": "Bridge (by Stripe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "bridgebystripe": {
+    "name": "Bridge (by Stripe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "coinbase-on-ramp": {
+    "name": "Coinbase On-Ramp",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "coinbaseonramp": {
+    "name": "Coinbase On-Ramp",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "conduit": {
+    "name": "Conduit",
+    "logo": "/assets/vendor-logos/conduit.png",
+    "domain": "conduit.xyz",
+    "source": "profile"
+  },
+  "kotani-pay": {
+    "name": "Kotani Pay",
+    "logo": "/assets/vendor-logos/kotani-pay.png",
+    "domain": "kotanipay.com",
+    "source": "exact-name"
+  },
+  "kotanipay": {
+    "name": "Kotani Pay",
+    "logo": "/assets/vendor-logos/kotani-pay.png",
+    "domain": "kotanipay.com",
+    "source": "exact-name"
+  },
+  "latamex": {
+    "name": "Latamex",
+    "logo": "/assets/vendor-logos/latamex.png",
+    "domain": "latamex.com",
+    "source": "exact-name"
+  },
+  "mesh-formerly-front-finance": {
+    "name": "Mesh (formerly Front Finance)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "meshformerlyfrontfinance": {
+    "name": "Mesh (formerly Front Finance)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "meso": {
+    "name": "Meso",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "onramper": {
+    "name": "Onramper",
+    "logo": "/assets/vendor-logos/onramper.png",
+    "domain": "onramper.com",
+    "source": "exact-name"
+  },
+  "paypal-pyusd": {
+    "name": "PayPal (PYUSD)",
+    "logo": "/assets/company-logos/paypal-pyusd.png",
+    "domain": "paypal.com",
+    "source": "existing"
+  },
+  "paypalpyusd": {
+    "name": "PayPal (PYUSD)",
+    "logo": "/assets/company-logos/paypal-pyusd.png",
+    "domain": "paypal.com",
+    "source": "existing"
+  },
+  "solana-pay": {
+    "name": "Solana Pay",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "solanapay": {
+    "name": "Solana Pay",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sphere": {
+    "name": "Sphere",
+    "logo": "/assets/vendor-logos/sphere.png",
+    "domain": "usesphere.com",
+    "source": "exact-name"
+  },
+  "tether-usdt": {
+    "name": "Tether (USDT)",
+    "logo": "/assets/vendor-logos/tether-usdt.png",
+    "domain": "tether.to",
+    "source": "profile"
+  },
+  "tetherusdt": {
+    "name": "Tether (USDT)",
+    "logo": "/assets/vendor-logos/tether-usdt.png",
+    "domain": "tether.to",
+    "source": "profile"
+  },
+  "unlimit-formerly-payneteasy": {
+    "name": "Unlimit (formerly Payneteasy)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "unlimitformerlypayneteasy": {
+    "name": "Unlimit (formerly Payneteasy)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "wyre-legacy-api": {
+    "name": "Wyre (Legacy/API)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "wyrelegacyapi": {
+    "name": "Wyre (Legacy/API)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "carta": {
+    "name": "Carta",
+    "logo": "/assets/vendor-logos/carta.png",
+    "domain": "carta.com",
+    "source": "exact-name"
+  },
+  "ss-c": {
+    "name": "SS&C",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ssc": {
+    "name": "SS&C",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "alter-domus": {
+    "name": "Alter Domus",
+    "logo": "/assets/vendor-logos/alter-domus.png",
+    "domain": "alterdomus.com",
+    "source": "exact-name"
+  },
+  "alterdomus": {
+    "name": "Alter Domus",
+    "logo": "/assets/vendor-logos/alter-domus.png",
+    "domain": "alterdomus.com",
+    "source": "exact-name"
+  },
+  "nav-fund-administration-group": {
+    "name": "NAV Fund Administration Group",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "navfundadministrationgroup": {
+    "name": "NAV Fund Administration Group",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sequence": {
+    "name": "Sequence",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "immutable": {
+    "name": "Immutable",
+    "logo": "/assets/vendor-logos/immutable.png",
+    "domain": "immutable.com",
+    "source": "exact-name"
+  },
+  "stardust": {
+    "name": "Stardust",
+    "logo": "/assets/vendor-logos/stardust.png",
+    "domain": "stardust.gg",
+    "source": "exact-name"
+  },
+  "forte": {
+    "name": "Forte",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "chainsafe-gaming": {
+    "name": "ChainSafe Gaming",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "chainsafegaming": {
+    "name": "ChainSafe Gaming",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "venly": {
+    "name": "Venly",
+    "logo": "/assets/vendor-logos/venly.png",
+    "domain": "venly.io",
+    "source": "exact-name"
+  },
+  "altura": {
+    "name": "Altura",
+    "logo": "/assets/vendor-logos/altura.png",
+    "domain": "alturacu.com",
+    "source": "exact-name"
+  },
+  "enjin": {
+    "name": "Enjin",
+    "logo": "/assets/vendor-logos/enjin.png",
+    "domain": "enjin.io",
+    "source": "exact-name"
+  },
+  "fractal": {
+    "name": "Fractal",
+    "logo": "",
+    "domain": "fractal.is",
+    "source": "monogram"
+  },
+  "xsolla": {
+    "name": "Xsolla",
+    "logo": "/assets/vendor-logos/xsolla.png",
+    "domain": "xsolla.com",
+    "source": "exact-name"
+  },
+  "beamable": {
+    "name": "Beamable",
+    "logo": "/assets/vendor-logos/beamable.png",
+    "domain": "beamable.com",
+    "source": "exact-name"
+  },
+  "unity-gaming-services": {
+    "name": "Unity Gaming Services",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "unitygamingservices": {
+    "name": "Unity Gaming Services",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "playfab": {
+    "name": "PlayFab",
+    "logo": "/assets/vendor-logos/playfab.png",
+    "domain": "playfab.com",
+    "source": "exact-name"
+  },
+  "growthchain": {
+    "name": "GrowthChain",
+    "logo": "/assets/vendor-logos/growthchain.png",
+    "domain": "growthchain.io",
+    "source": "exact-name"
+  },
+  "yap-global": {
+    "name": "YAP Global",
+    "logo": "/assets/vendor-logos/yap-global.png",
+    "domain": "yapglobal.com",
+    "source": "exact-name"
+  },
+  "yapglobal": {
+    "name": "YAP Global",
+    "logo": "/assets/vendor-logos/yap-global.png",
+    "domain": "yapglobal.com",
+    "source": "exact-name"
+  },
+  "blockworks": {
+    "name": "Blockworks",
+    "logo": "/assets/vendor-logos/blockworks.png",
+    "domain": "blockworks.co",
+    "source": "exact-name"
+  },
+  "the-block": {
+    "name": "The Block",
+    "logo": "/assets/vendor-logos/the-block.png",
+    "domain": "theblock.co",
+    "source": "exact-name"
+  },
+  "theblock": {
+    "name": "The Block",
+    "logo": "/assets/vendor-logos/the-block.png",
+    "domain": "theblock.co",
+    "source": "exact-name"
+  },
+  "bankless": {
+    "name": "Bankless",
+    "logo": "",
+    "domain": "bankless.cz",
+    "source": "monogram"
+  },
+  "coingecko": {
+    "name": "CoinGecko",
+    "logo": "/assets/vendor-logos/coingecko.png",
+    "domain": "coingecko.com",
+    "source": "exact-name"
+  },
+  "coinmarketcap": {
+    "name": "CoinMarketCap",
+    "logo": "/assets/vendor-logos/coinmarketcap.png",
+    "domain": "coinmarketcap.com",
+    "source": "exact-name"
+  },
+  "delphi-digital": {
+    "name": "Delphi Digital",
+    "logo": "/assets/vendor-logos/delphi-digital.png",
+    "domain": "delphidigital.io",
+    "source": "exact-name"
+  },
+  "delphidigital": {
+    "name": "Delphi Digital",
+    "logo": "/assets/vendor-logos/delphi-digital.png",
+    "domain": "delphidigital.io",
+    "source": "exact-name"
+  },
+  "decrypt": {
+    "name": "Decrypt",
+    "logo": "/assets/vendor-logos/decrypt.png",
+    "domain": "decrypt.co",
+    "source": "exact-name"
+  },
+  "permissionless-blockworks": {
+    "name": "Permissionless (Blockworks)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "permissionlessblockworks": {
+    "name": "Permissionless (Blockworks)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "token2049": {
+    "name": "Token2049",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "consensus-coindesk": {
+    "name": "Consensus (CoinDesk)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "consensuscoindesk": {
+    "name": "Consensus (CoinDesk)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "validation-cloud": {
+    "name": "Validation Cloud",
+    "logo": "/assets/vendor-logos/validation-cloud.png",
+    "domain": "validationcloud.io",
+    "source": "profile"
+  },
+  "validationcloud": {
+    "name": "Validation Cloud",
+    "logo": "/assets/vendor-logos/validation-cloud.png",
+    "domain": "validationcloud.io",
+    "source": "profile"
+  },
+  "kiln": {
+    "name": "Kiln",
+    "logo": "/assets/vendor-logos/kiln.png",
+    "domain": "kilnllc.com",
+    "source": "exact-name"
+  },
+  "chorus-one": {
+    "name": "Chorus One",
+    "logo": "/assets/vendor-logos/chorus-one.png",
+    "domain": "chorus.one",
+    "source": "exact-name"
+  },
+  "chorusone": {
+    "name": "Chorus One",
+    "logo": "/assets/vendor-logos/chorus-one.png",
+    "domain": "chorus.one",
+    "source": "exact-name"
+  },
+  "p2p-org": {
+    "name": "P2P.org",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "p2porg": {
+    "name": "P2P.org",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "everstake": {
+    "name": "Everstake",
+    "logo": "/assets/vendor-logos/everstake.png",
+    "domain": "everstake.one",
+    "source": "exact-name"
+  },
+  "nexus-mutual": {
+    "name": "Nexus Mutual",
+    "logo": "/assets/vendor-logos/nexus-mutual.png",
+    "domain": "nexusmutual.io",
+    "source": "exact-name"
+  },
+  "nexusmutual": {
+    "name": "Nexus Mutual",
+    "logo": "/assets/vendor-logos/nexus-mutual.png",
+    "domain": "nexusmutual.io",
+    "source": "exact-name"
+  },
+  "etherisc": {
+    "name": "Etherisc",
+    "logo": "/assets/vendor-logos/etherisc.png",
+    "domain": "etherisc.com",
+    "source": "exact-name"
+  },
+  "nayms": {
+    "name": "Nayms",
+    "logo": "/assets/vendor-logos/nayms.png",
+    "domain": "nayms.com",
+    "source": "exact-name"
+  },
+  "ensuro": {
+    "name": "Ensuro",
+    "logo": "/assets/vendor-logos/ensuro.png",
+    "domain": "ensuro.co",
+    "source": "exact-name"
+  },
+  "opencover": {
+    "name": "OpenCover",
+    "logo": "/assets/vendor-logos/opencover.png",
+    "domain": "opencover.com",
+    "source": "exact-name"
+  },
+  "howden": {
+    "name": "Howden",
+    "logo": "/assets/vendor-logos/howden.png",
+    "domain": "howdengroup.com",
+    "source": "exact-name"
+  },
+  "marsh": {
+    "name": "Marsh",
+    "logo": "/assets/vendor-logos/marsh.png",
+    "domain": "marsh.com",
+    "source": "exact-name"
+  },
+  "chainstack": {
+    "name": "Chainstack",
+    "logo": "/assets/company-logos/chainstack.png",
+    "domain": "chainstack.com",
+    "source": "existing"
+  },
+  "infura": {
+    "name": "Infura",
+    "logo": "/assets/vendor-logos/infura.png",
+    "domain": "infura.io",
+    "source": "exact-name"
+  },
+  "lava-network": {
+    "name": "Lava Network",
+    "logo": "/assets/vendor-logos/lava-network.png",
+    "domain": "lavanet.xyz",
+    "source": "exact-name"
+  },
+  "lavanetwork": {
+    "name": "Lava Network",
+    "logo": "/assets/vendor-logos/lava-network.png",
+    "domain": "lavanet.xyz",
+    "source": "exact-name"
+  },
+  "chronicle": {
+    "name": "Chronicle",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "switchboard": {
+    "name": "Switchboard",
+    "logo": "/assets/vendor-logos/switchboard.png",
+    "domain": "switchboardta.org",
+    "source": "exact-name"
+  },
+  "uma": {
+    "name": "UMA",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "dia": {
+    "name": "DIA",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "nowpayments": {
+    "name": "NOWPayments",
+    "logo": "/assets/company-logos/nowpayments.png",
+    "domain": "nowpayments.io",
+    "source": "existing"
+  },
+  "first-digital-fdusd": {
+    "name": "First Digital (FDUSD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "firstdigitalfdusd": {
+    "name": "First Digital (FDUSD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "agora-ausd": {
+    "name": "Agora (AUSD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "agoraausd": {
+    "name": "Agora (AUSD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "makerdao-sky-dai-usds": {
+    "name": "MakerDAO / Sky (DAI/USDS)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "makerdaoskydaiusds": {
+    "name": "MakerDAO / Sky (DAI/USDS)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ethena-usde": {
+    "name": "Ethena (USDe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ethenausde": {
+    "name": "Ethena (USDe)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "frax-finance": {
+    "name": "Frax Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "fraxfinance": {
+    "name": "Frax Finance",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "liquity-lusd-bold": {
+    "name": "Liquity (LUSD/BOLD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "liquitylusdbold": {
+    "name": "Liquity (LUSD/BOLD)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "usual-usd0": {
+    "name": "Usual (USD0)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "usualusd0": {
+    "name": "Usual (USD0)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "monerium": {
+    "name": "Monerium",
+    "logo": "/assets/vendor-logos/monerium.png",
+    "domain": "monerium.com",
+    "source": "exact-name"
+  },
+  "stasis-eurs": {
+    "name": "Stasis (EURS)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "stasiseurs": {
+    "name": "Stasis (EURS)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "mountain-protocol-usdm": {
+    "name": "Mountain Protocol (USDM)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "mountainprotocolusdm": {
+    "name": "Mountain Protocol (USDM)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ondo-finance-usdy": {
+    "name": "Ondo Finance (USDY)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "ondofinanceusdy": {
+    "name": "Ondo Finance (USDY)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "spark-protocol-sky-maker": {
+    "name": "Spark Protocol (Sky/Maker)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sparkprotocolskymaker": {
+    "name": "Spark Protocol (Sky/Maker)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "coinbase-cbusd-base": {
+    "name": "Coinbase (cbUSD / Base)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "coinbasecbusdbase": {
+    "name": "Coinbase (cbUSD / Base)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "visa-crypto": {
+    "name": "Visa Crypto",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "visacrypto": {
+    "name": "Visa Crypto",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "mastercard-crypto": {
+    "name": "Mastercard Crypto",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "mastercardcrypto": {
+    "name": "Mastercard Crypto",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "perena-numeraire": {
+    "name": "Perena (Numeraire)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "perenanumeraire": {
+    "name": "Perena (Numeraire)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "m-0-m-zero": {
+    "name": "M^0 (M Zero)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "m0mzero": {
+    "name": "M^0 (M Zero)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "caldera": {
+    "name": "Caldera",
+    "logo": "/assets/vendor-logos/caldera.png",
+    "domain": "caldera.xyz",
+    "source": "profile"
+  },
+  "gelato": {
+    "name": "Gelato",
+    "logo": "/assets/vendor-logos/gelato.png",
+    "domain": "gelato.network",
+    "source": "profile"
+  },
+  "altlayer": {
+    "name": "AltLayer",
+    "logo": "/assets/vendor-logos/altlayer.png",
+    "domain": "altlayer.io",
+    "source": "exact-name"
+  },
+  "zeeve": {
+    "name": "Zeeve",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "consensys-diligence": {
+    "name": "Consensys Diligence",
+    "logo": "/assets/vendor-logos/consensys-diligence.png",
+    "domain": "consensys.io",
+    "source": "profile"
+  },
+  "consensysdiligence": {
+    "name": "Consensys Diligence",
+    "logo": "/assets/vendor-logos/consensys-diligence.png",
+    "domain": "consensys.io",
+    "source": "profile"
+  },
+  "spearbit": {
+    "name": "Spearbit",
+    "logo": "/assets/vendor-logos/spearbit.png",
+    "domain": "spearbit.com",
+    "source": "exact-name"
+  },
+  "cyfrin": {
+    "name": "Cyfrin",
+    "logo": "/assets/vendor-logos/cyfrin.png",
+    "domain": "cyfrin.io",
+    "source": "exact-name"
+  },
+  "chainalysis-incident-response": {
+    "name": "Chainalysis (Incident Response)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "chainalysisincidentresponse": {
+    "name": "Chainalysis (Incident Response)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hexagate": {
+    "name": "Hexagate",
+    "logo": "/assets/vendor-logos/hexagate.png",
+    "domain": "hexagate.com",
+    "source": "exact-name"
+  },
+  "hypernative": {
+    "name": "Hypernative",
+    "logo": "/assets/vendor-logos/hypernative.png",
+    "domain": "hypernative.io",
+    "source": "exact-name"
+  },
+  "openzeppelin-defender": {
+    "name": "OpenZeppelin Defender",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "openzeppelindefender": {
+    "name": "OpenZeppelin Defender",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "certora": {
+    "name": "Certora",
+    "logo": "/assets/vendor-logos/certora.png",
+    "domain": "certora.com",
+    "source": "exact-name"
+  },
+  "runtime-verification": {
+    "name": "Runtime Verification",
+    "logo": "/assets/vendor-logos/runtime-verification.png",
+    "domain": "runtimeverification.com",
+    "source": "exact-name"
+  },
+  "runtimeverification": {
+    "name": "Runtime Verification",
+    "logo": "/assets/vendor-logos/runtime-verification.png",
+    "domain": "runtimeverification.com",
+    "source": "exact-name"
+  },
+  "zellic": {
+    "name": "Zellic",
+    "logo": "/assets/vendor-logos/zellic.png",
+    "domain": "zellic.io",
+    "source": "exact-name"
+  },
+  "ackee-blockchain": {
+    "name": "Ackee Blockchain",
+    "logo": "/assets/company-logos/ackee-blockchain.png",
+    "domain": "ackeeblockchain.com",
+    "source": "existing"
+  },
+  "ackeeblockchain": {
+    "name": "Ackee Blockchain",
+    "logo": "/assets/company-logos/ackee-blockchain.png",
+    "domain": "ackeeblockchain.com",
+    "source": "existing"
+  },
+  "code4rena-c4": {
+    "name": "Code4rena (C4)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "code4renac4": {
+    "name": "Code4rena (C4)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hats-finance": {
+    "name": "Hats Finance",
+    "logo": "/assets/vendor-logos/hats-finance.png",
+    "domain": "hats.finance",
+    "source": "exact-name"
+  },
+  "hatsfinance": {
+    "name": "Hats Finance",
+    "logo": "/assets/vendor-logos/hats-finance.png",
+    "domain": "hats.finance",
+    "source": "exact-name"
+  },
+  "cure53": {
+    "name": "Cure53",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "sigma-prime": {
+    "name": "Sigma Prime",
+    "logo": "/assets/vendor-logos/sigma-prime.png",
+    "domain": "sigmaprime.io",
+    "source": "exact-name"
+  },
+  "sigmaprime": {
+    "name": "Sigma Prime",
+    "logo": "/assets/vendor-logos/sigma-prime.png",
+    "domain": "sigmaprime.io",
+    "source": "exact-name"
+  },
+  "decurity": {
+    "name": "Decurity",
+    "logo": "/assets/vendor-logos/decurity.png",
+    "domain": "decurity.io",
+    "source": "exact-name"
+  },
+  "gauntlet": {
+    "name": "Gauntlet",
+    "logo": "/assets/vendor-logos/gauntlet.png",
+    "domain": "gauntlet.network",
+    "source": "exact-name"
+  },
+  "bailsec": {
+    "name": "Bailsec",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "dedaub": {
+    "name": "Dedaub",
+    "logo": "/assets/vendor-logos/dedaub.png",
+    "domain": "dedaub.com",
+    "source": "exact-name"
+  },
+  "blocknative": {
+    "name": "Blocknative",
+    "logo": "/assets/company-logos/blocknative.png",
+    "domain": "blocknative.com",
+    "source": "existing"
+  },
+  "cookbook-dev": {
+    "name": "Cookbook.dev",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "cookbookdev": {
+    "name": "Cookbook.dev",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "foundry-paradigm": {
+    "name": "Foundry (Paradigm)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "foundryparadigm": {
+    "name": "Foundry (Paradigm)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hardhat-nomic-foundation": {
+    "name": "Hardhat (Nomic Foundation)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hardhatnomicfoundation": {
+    "name": "Hardhat (Nomic Foundation)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "hexens": {
+    "name": "Hexens",
+    "logo": "/assets/vendor-logos/hexens.png",
+    "domain": "hexens.io",
+    "source": "exact-name"
+  },
+  "manifold-finance": {
+    "name": "Manifold Finance",
+    "logo": "",
+    "domain": "manifoldfinance.com",
+    "source": "monogram"
+  },
+  "manifoldfinance": {
+    "name": "Manifold Finance",
+    "logo": "",
+    "domain": "manifoldfinance.com",
+    "source": "monogram"
+  },
+  "opyn": {
+    "name": "Opyn",
+    "logo": "/assets/vendor-logos/opyn.png",
+    "domain": "opyn.co",
+    "source": "exact-name"
+  },
+  "remix-ide": {
+    "name": "Remix IDE",
+    "logo": "/assets/vendor-logos/remix-ide.png",
+    "domain": "remix.live",
+    "source": "exact-name"
+  },
+  "remixide": {
+    "name": "Remix IDE",
+    "logo": "/assets/vendor-logos/remix-ide.png",
+    "domain": "remix.live",
+    "source": "exact-name"
+  },
+  "uma-protocol": {
+    "name": "UMA Protocol",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "umaprotocol": {
+    "name": "UMA Protocol",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "yul-assembly-specialists": {
+    "name": "Yul+/Assembly Specialists",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "yulassemblyspecialists": {
+    "name": "Yul+/Assembly Specialists",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "zetachain": {
+    "name": "Zetachain",
+    "logo": "/assets/vendor-logos/zetachain.png",
+    "domain": "zetachain.com",
+    "source": "exact-name"
+  },
+  "zodiac-gnosis-guild": {
+    "name": "Zodiac (Gnosis Guild)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "zodiacgnosisguild": {
+    "name": "Zodiac (Gnosis Guild)",
+    "logo": "",
+    "domain": "",
+    "source": "monogram"
+  },
+  "persistent-systems": {
+    "name": "Persistent Systems",
+    "logo": "/assets/vendor-logos/persistent-systems.png",
+    "domain": "persistent.com",
+    "source": "exact-name"
+  },
+  "persistentsystems": {
+    "name": "Persistent Systems",
+    "logo": "/assets/vendor-logos/persistent-systems.png",
+    "domain": "persistent.com",
+    "source": "exact-name"
+  },
+  "ment-tech": {
+    "name": "Ment Tech",
+    "logo": "/assets/vendor-logos/ment-tech.png",
+    "domain": "ment.tech",
+    "source": "exact-name"
+  },
+  "menttech": {
+    "name": "Ment Tech",
+    "logo": "/assets/vendor-logos/ment-tech.png",
+    "domain": "ment.tech",
+    "source": "exact-name"
+  },
+  "mintworks": {
+    "name": "MintWorks",
+    "logo": "/assets/vendor-logos/mintworks.png",
+    "domain": "mintworks.org",
+    "source": "exact-name"
+  },
+  "cargox": {
+    "name": "CargoX",
+    "logo": "/assets/vendor-logos/cargox.png",
+    "domain": "cargox.io",
+    "source": "exact-name"
+  },
+  "essdocs": {
+    "name": "essDOCS",
+    "logo": "/assets/vendor-logos/essdocs.png",
+    "domain": "essdocs.com",
+    "source": "exact-name"
+  },
+  "bolero": {
+    "name": "Bolero",
+    "logo": "/assets/vendor-logos/bolero.png",
+    "domain": "bolero.be",
+    "source": "exact-name"
+  },
+  "komgo": {
+    "name": "Komgo",
+    "logo": "/assets/vendor-logos/komgo.png",
+    "domain": "komgo.io",
+    "source": "exact-name"
+  },
+  "tradewaltz": {
+    "name": "TradeWaltz",
+    "logo": "",
+    "domain": "tradewaltz.com",
+    "source": "monogram"
+  },
+  "traydstream": {
+    "name": "Traydstream",
+    "logo": "/assets/vendor-logos/traydstream.png",
+    "domain": "traydstream.com",
+    "source": "exact-name"
+  },
+  "enigio": {
+    "name": "Enigio",
+    "logo": "/assets/vendor-logos/enigio.png",
+    "domain": "enigio.com",
+    "source": "exact-name"
+  },
+  "minehub": {
+    "name": "MineHub",
+    "logo": "/assets/vendor-logos/minehub.png",
+    "domain": "minehub.com",
+    "source": "exact-name"
+  }
+}

@@ -540,6 +540,102 @@ const enhanceVendorContactButtons = () => {
 
 enhanceVendorContactButtons();
 
+let vendorLogoRegistryPromise;
+
+const normalizeVendorLogoKey = (value = "") => value
+  .toLowerCase()
+  .replace(/&amp;/g, "and")
+  .replace(/[^a-z0-9]+/g, "")
+  .trim();
+
+const getVendorInitials = (value = "") => value
+  .replace(/\([^)]*\)/g, " ")
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((part) => part[0])
+  .join("")
+  .toUpperCase() || "FR";
+
+const loadVendorLogoRegistry = () => {
+  vendorLogoRegistryPromise ||= fetch("/assets/vendor-logo-registry.json?v=web3-logos-1")
+    .then((response) => response.ok ? response.json() : {})
+    .catch(() => ({}));
+  return vendorLogoRegistryPromise;
+};
+
+const createVendorLogoMark = (vendorName, logoPath) => {
+  const mark = document.createElement("span");
+  mark.className = "vendor-brand-mark";
+  mark.setAttribute("aria-hidden", "true");
+
+  const fallback = document.createElement("span");
+  fallback.className = "vendor-brand-fallback";
+  fallback.textContent = getVendorInitials(vendorName);
+  mark.appendChild(fallback);
+
+  if (logoPath) {
+    const image = document.createElement("img");
+    image.src = logoPath;
+    image.alt = "";
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.addEventListener("error", () => image.remove());
+    mark.appendChild(image);
+  }
+
+  return mark;
+};
+
+const enhanceVendorLogos = async () => {
+  const cards = Array.from(document.querySelectorAll(".vendor-card, .bc-company-card, .bc-provider-card"));
+  if (!cards.length) return;
+  const registry = await loadVendorLogoRegistry();
+
+  cards.forEach((card) => {
+    if (card.dataset.vendorLogoReady === "true") return;
+    const vendorName = getVendorName(card);
+    const record = registry[card.id] || registry[normalizeVendorLogoKey(vendorName)] || {};
+    const existingMark = card.querySelector(":scope > .bc-company-top .bc-company-mark, :scope > .bc-provider-top .bc-logo-mark");
+
+    if (existingMark) {
+      existingMark.classList.add("vendor-brand-mark");
+      const originalText = existingMark.textContent.trim() || getVendorInitials(vendorName);
+      existingMark.replaceChildren();
+      const fallback = document.createElement("span");
+      fallback.className = "vendor-brand-fallback";
+      fallback.textContent = originalText;
+      existingMark.appendChild(fallback);
+      if (record.logo) {
+        const image = document.createElement("img");
+        image.src = record.logo;
+        image.alt = "";
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("error", () => image.remove());
+        existingMark.appendChild(image);
+      }
+    } else if (card.classList.contains("vendor-card")) {
+      const heading = card.querySelector(":scope > h3");
+      if (!heading) return;
+      const identity = document.createElement("div");
+      identity.className = "vendor-card-identity";
+      const copy = document.createElement("div");
+      identity.append(createVendorLogoMark(vendorName, record.logo), copy);
+      heading.insertAdjacentElement("beforebegin", identity);
+      copy.appendChild(heading);
+      const badge = identity.nextElementSibling?.matches(".bc-vetted-badge, .vendor-vetted-badge")
+        ? identity.nextElementSibling
+        : null;
+      if (badge) copy.appendChild(badge);
+    }
+
+    card.dataset.vendorLogoReady = "true";
+  });
+};
+
+enhanceVendorLogos();
+
 const initVendorMembershipPage = () => {
   const page = document.querySelector(".membership-page");
   if (!page) return;
@@ -1627,5 +1723,7 @@ initFluidRwaClickAttribution();
 window.addEventListener("fluidrwa:route-ready", () => {
   window.setTimeout(initLegacyVendorDirectoryWidgets, 0);
   window.setTimeout(initLegacyVendorDirectoryWidgets, 120);
+  window.setTimeout(enhanceVendorLogos, 0);
+  window.setTimeout(enhanceVendorLogos, 160);
   window.setTimeout(initFluidRwaClickAttribution, 0);
 });
