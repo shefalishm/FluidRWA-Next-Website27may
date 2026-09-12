@@ -92,7 +92,12 @@ export function DirectoryShortlist() {
         });
       };
       button.addEventListener("click", handleClick);
-      const actions = card.querySelector(".bc-company-actions") || card;
+      let actions = card.querySelector(".bc-company-actions, .vendor-card-actions");
+      if (!actions) {
+        actions = document.createElement("div");
+        actions.className = "vendor-card-actions";
+        card.appendChild(actions);
+      }
       actions.appendChild(button);
       cleanups.push(() => {
         button.removeEventListener("click", handleClick);

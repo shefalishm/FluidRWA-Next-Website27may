@@ -5176,7 +5176,10 @@ tr:last-child td { border-bottom: 0; }
 .bc-company-card > .bc-desc,
 .bc-company-card > p[itemprop="description"] { order: 3; }
 .bc-company-card > .bc-tags,
-.bc-company-card > .bc-company-tags { order: 4; }
+.bc-company-card > .bc-company-tags {
+  order: 4;
+  margin-bottom: 18px;
+}
 .bc-company-card > .bc-details,
 .bc-company-card > .bc-provider-details { order: 5; margin-top: auto; }
 .bc-company-card > .bc-company-meta { order: 6; }
@@ -5225,7 +5228,28 @@ tr:last-child td { border-bottom: 0; }
 
 .bc-company-card > .vendor-card-actions {
   display: grid;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(38, 100, 169, .14);
+}
+
+.bc-provider-card > .bc-provider-tags {
+  margin-bottom: 18px;
+}
+
+.bc-provider-card > .vendor-card-actions {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(38, 100, 169, .14);
+}
+
+.bc-provider-card > .vendor-card-actions > * {
+  width: 100%;
+  max-width: 100%;
 }
 
 .bc-provider-card--premium {

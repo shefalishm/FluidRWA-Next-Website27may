@@ -481,8 +481,27 @@ const enhanceVendorContactButtons = () => {
     if (card.querySelector("[data-vendor-contact-trigger]")) return;
     const vendorName = getVendorName(card);
     const category = getVendorCategoryLabel(card);
-    const actionWrap = document.createElement("div");
-    actionWrap.className = "vendor-card-actions";
+    let actionWrap = card.querySelector(":scope > .bc-company-actions, :scope > .vendor-card-actions");
+
+    if (actionWrap) {
+      actionWrap.classList.add("vendor-card-actions");
+    } else {
+      actionWrap = document.createElement("div");
+      actionWrap.className = "vendor-card-actions";
+      const directActions = Array.from(card.children).filter((element) =>
+        element.matches(".bc-profile-link, .bc-provider-link, .bc-visit")
+      );
+      const cardTags = card.querySelector(":scope > .bc-company-tags, :scope > .bc-tags, :scope > .vendor-tags");
+
+      if (directActions.length) {
+        directActions[0].insertAdjacentElement("beforebegin", actionWrap);
+        directActions.forEach((element) => actionWrap.appendChild(element));
+      } else if (cardTags) {
+        cardTags.insertAdjacentElement("afterend", actionWrap);
+      } else {
+        card.appendChild(actionWrap);
+      }
+    }
 
     if (!card.querySelector("[data-vendor-contact-trigger]")) {
       const button = document.createElement("button");
@@ -503,17 +522,6 @@ const enhanceVendorContactButtons = () => {
       actionWrap.appendChild(button);
     }
 
-    const profileLink = card.querySelector(".bc-profile-link, .bc-provider-link, .bc-visit, .vendor-card-top a");
-    if (profileLink?.parentElement === card) {
-      profileLink.insertAdjacentElement("afterend", actionWrap);
-    } else {
-      const cardTags = card.querySelector(".bc-company-tags, .bc-tags, .vendor-tags");
-      if (cardTags) {
-        cardTags.insertAdjacentElement("afterend", actionWrap);
-      } else {
-        card.appendChild(actionWrap);
-      }
-    }
   });
 
   document.querySelectorAll('a[href*="/submit-requirement?vendor="]').forEach((link) => {
@@ -1239,7 +1247,7 @@ if (vendorSearch) {
     }
 
     if (profileResultsList) {
-      profileResultsList.replaceChildren(...combinedMatches.slice(0, 24).map((item) => {
+      profileResultsList.replaceChildren(...combinedMatches.map((item) => {
         const link = document.createElement("a");
         link.href = item.href;
         [["strong", item.name], ["span", item.category], ["small", item.description]].forEach(([tag, value]) => {
@@ -1256,17 +1264,15 @@ if (vendorSearch) {
     categorySections.forEach((section) => {
       const hasVisibleCards = Boolean(section.querySelector(".vendor-card:not(.is-hidden)"));
       const matchesActiveCategory = activeFilter === "all" || section.dataset.categorySection === activeFilter;
-      section.classList.toggle("is-hidden", !hasVisibleCards || !matchesActiveCategory);
+      section.classList.toggle("is-hidden", hasSearchQuery && !hasFilters || !hasVisibleCards || !matchesActiveCategory);
     });
 
     if (countNode) countNode.textContent = visibleCount.toLocaleString();
     if (statusNode) {
-      const profileMatchCount = matchingProfileLinks.length;
-      const categoryMatchCount = categoryMatches.length;
-      const totalMatches = visibleCount + combinedMatches.length;
+      const resultCount = hasFilters ? visibleCount : combinedMatches.length;
       statusNode.textContent = normalizedQuery
-        ? totalMatches ? `${visibleCount.toLocaleString()} directory matches${hasFilters ? " within your filters" : ` and ${combinedMatches.length} related links`}.` : "No matching vendors. Try a broader search or reset filters."
-        : `${visibleCount.toLocaleString()} on-page vendors searchable, plus ${categorySearchIndex.length.toLocaleString()} vendor links indexed across category pages.`;
+        ? resultCount ? `${resultCount.toLocaleString()} matching vendors.` : "No matching vendors. Try a broader search or reset filters."
+        : "";
     }
   };
 

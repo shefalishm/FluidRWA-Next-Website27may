@@ -106,7 +106,10 @@
 .light-home main .bc-company-card > .bc-desc,
 .light-home main .bc-company-card > p[itemprop="description"] { order: 3; }
 .light-home main .bc-company-card > .bc-tags,
-.light-home main .bc-company-card > .bc-company-tags { order: 4; }
+.light-home main .bc-company-card > .bc-company-tags {
+  order: 4;
+  margin-bottom: 18px;
+}
 .light-home main .bc-company-card > .bc-details,
 .light-home main .bc-company-card > .bc-provider-details {
   order: 5;
@@ -158,12 +161,33 @@
 
 .light-home main .bc-company-card > .vendor-card-actions {
   display: grid;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(38, 100, 169, .14);
 }
 
 .light-home main .bc-company-card > .vendor-card-actions .vendor-contact-trigger {
   min-height: 46px;
   border-radius: 8px;
+}
+
+.light-home main .bc-provider-card > .bc-provider-tags {
+  margin-bottom: 18px;
+}
+
+.light-home main .bc-provider-card > .vendor-card-actions {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(38, 100, 169, .14);
+}
+
+.light-home main .bc-provider-card > .vendor-card-actions > * {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Buyer CTA injected into legacy category and guide pages. */
