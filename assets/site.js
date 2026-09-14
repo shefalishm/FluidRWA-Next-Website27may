@@ -510,7 +510,7 @@ const enhanceVendorContactButtons = () => {
       button.dataset.vendorContactTrigger = "true";
       button.dataset.vendorName = vendorName;
       button.dataset.vendorCategory = category;
-      button.textContent = `Contact ${vendorName}`;
+      button.textContent = "Request intro";
       button.addEventListener("click", () => {
         trackFluidRwaEvent("vendor_contact_clicked", {
           vendor_name: vendorName,
@@ -530,7 +530,7 @@ const enhanceVendorContactButtons = () => {
     const url = new URL(link.getAttribute("href"), window.location.origin);
     const vendorName = url.searchParams.get("vendor") || link.textContent?.replace(/^Contact|^Request Intro/i, "").trim() || "this company";
     const category = url.searchParams.get("category") || document.querySelector("h1")?.textContent?.trim() || "Vendor Directory";
-    link.textContent = `Contact ${vendorName}`;
+    link.textContent = "Request intro";
     link.addEventListener("click", (event) => {
       event.preventDefault();
       openVendorContactModal({ vendorName, vendorCategory: category, source: url.searchParams.get("source") || "vendor-contact-link" });

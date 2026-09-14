@@ -21,28 +21,6 @@ const nextConfig = {
       }
     ]
   },
-  async headers() {
-    return [
-      {
-        source: "/vendor-membership",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex, nofollow, noarchive, nosnippet"
-          }
-        ]
-      },
-      {
-        source: "/vendor-membership/:path*",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex, nofollow, noarchive, nosnippet"
-          }
-        ]
-      }
-    ];
-  },
   async redirects() {
     return [
       { source: "/index.html", destination: "/", permanent: true },
@@ -51,6 +29,7 @@ const nextConfig = {
       { source: "/vendor-ecosystem", destination: "/web3vendorecosystem", permanent: true },
       { source: "/solutions.html", destination: "/solutions", permanent: true },
       { source: "/team.html", destination: "/about", permanent: true },
+      { source: "/about.html", destination: "/about", permanent: true },
       { source: "/contact.html", destination: "/contact", permanent: true },
       { source: "/submit-project.html", destination: "/submit-requirement", permanent: true },
       { source: "/submit-project", destination: "/submit-requirement", permanent: true },
@@ -59,10 +38,16 @@ const nextConfig = {
       { source: "/team", destination: "/about", permanent: true },
       { source: "/tools/tokenization-readiness-assessment", destination: "/tokenization-readiness-assessment-tool", permanent: true },
       { source: "/apply-as-vendor.html", destination: "/apply-as-vendor", permanent: true },
+      { source: "/vendor-membership.html", destination: "/vendor-membership", permanent: true },
       { source: "/specialist-directory", destination: "/apply-as-freelancer", permanent: true },
       { source: "/arcade.html", destination: "/arcade", permanent: true },
       { source: "/privacy.html", destination: "/privacy", permanent: true },
       { source: "/terms.html", destination: "/terms", permanent: true },
+      { source: "/refund-cancellation.html", destination: "/refund-cancellation", permanent: true },
+      { source: "/shipping-delivery.html", destination: "/shipping-delivery", permanent: true },
+      { source: "/vendors/defi-infrastructure-vendors", destination: "/vendors/defi-infrastructure-providers", permanent: true },
+      { source: "/vendors/custody-wallets", destination: "/vendors/crypto-custody-providers", permanent: true },
+      { source: "/vendors/blockchain-analytics-transaction-monitoring", destination: "/vendors/compliance-infrastructure-providers", permanent: true },
       { source: "/vendors/legal-regulatory", destination: "/vendors/legal-regulatory-vendors", permanent: true },
       { source: "/vendors/kyc-aml", destination: "/vendors/kyc-aml-providers", permanent: true },
       { source: "/vendors/smart-contract-development", destination: "/vendors/smart-contract-development-companies", permanent: true },

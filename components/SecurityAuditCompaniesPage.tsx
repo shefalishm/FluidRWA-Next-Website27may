@@ -357,6 +357,11 @@ export function SecurityAuditCompaniesPage() {
           </article>
         </div>
       </section>
+      <aside className="directory-disclosure" aria-label="Directory disclosure">
+        <strong>How listings and counts work</strong>
+        <p>FluidRWA organizes companies for discovery and comparison. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems; a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Commercial participation may affect the scope of profile or campaign visibility, but it cannot purchase Vetted status, ranking or endorsement. Buyers should complete their own diligence.</p>
+      </aside>
+      <p className="page-last-updated">Last updated: September 14, 2026</p>
     </main>
   );
 }

@@ -46,13 +46,7 @@ function readLegacy(file: string) {
 
 function shouldShowWeb3VettedBadges(file: string) {
   if (file === "vendor-ecosystem.html") return true;
-  if (!file.startsWith("vendors/")) return false;
-  const category = file.split("/")[1] || "";
-  if (category.startsWith("ai-")) return false;
-  return ![
-    "decentralized-ai-compute-gpu-infrastructure",
-    "verifiable-ai-smart-contract-infrastructure"
-  ].includes(category);
+  return file.startsWith("vendors/");
 }
 
 function addVettedBadgeToVendorCard(cardHtml: string) {
@@ -64,9 +58,18 @@ function addVettedBadgeToVendorCard(cardHtml: string) {
 
 function addWeb3VettedBadges(file: string, html: string) {
   if (!shouldShowWeb3VettedBadges(file)) return html;
-  return html
+  const badgedCards = html
     .replace(/<article class="bc-company-card[\s\S]*?<\/article>/g, addVettedBadgeToVendorCard)
     .replace(/<article class="vendor-card[\s\S]*?<\/article>/g, addVettedBadgeToVendorCard);
+
+  if (!file.includes("ai-") || !badgedCards.includes('class="ai-vendor-table"')) {
+    return badgedCards;
+  }
+
+  return badgedCards.replace(/<tr id="[^"]+">[\s\S]*?<\/tr>/g, (row) => {
+    if (row.includes('class="bc-vetted-badge"')) return row;
+    return row.replace(/(<a class="ai-category-name"[\s\S]*?<\/a>)/, '$1 <span class="bc-vetted-badge">Vetted</span>');
+  });
 }
 
 function decodeHtmlEntities(value: string) {
@@ -86,11 +89,15 @@ function matchTag(html: string, pattern: RegExp) {
 export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   const html = readLegacy(file);
   if (!html) return {};
-  const title = matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA";
-  const description =
+  const title = normalizeEditorialText(matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA");
+  let description = normalizeEditorialText(
     matchTag(html, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     matchTag(html, /<meta\s+property=["']og:description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
-    "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors.";
+    "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors."
+  );
+  if (file === "vendors/tokenization-platforms/index.html") {
+    description = "Compare 11 issuer-side RWA tokenization platforms by compliance, custody, investor onboarding, transfer controls and lifecycle servicing.";
+  }
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
   const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const canonical = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
@@ -141,7 +148,26 @@ export function legacyJsonLd(file: string) {
   }).filter(Boolean);
   const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
   const withFallback = fallback ? [...parsed, fallback] : parsed;
-  return ensureSecurityVendorSchema(file, withFallback);
+  const normalized = JSON.parse(normalizeEditorialText(JSON.stringify(withFallback)));
+  if (file === "vendor-ecosystem.html") {
+    const graph = normalized.flatMap((item: { "@graph"?: unknown[] }) => item?.["@graph"] || []);
+    const vendorList = graph.find((item: { "@id"?: string }) => item?.["@id"]?.endsWith("#vendors"));
+    if (vendorList) vendorList.numberOfItems = 1000;
+  }
+  if (file === "vendors/tokenization-platforms/index.html") {
+    const graph = normalized.flatMap((item: { "@graph"?: unknown[] }) => item?.["@graph"] || []);
+    const providerList = graph.find((item: { "@id"?: string }) => item?.["@id"]?.endsWith("#providers"));
+    const items = providerList?.itemListElement;
+    if (Array.isArray(items)) {
+      const zoniqxIndex = items.findIndex((item: { item?: { name?: string } }) => item?.item?.name === "Zoniqx");
+      if (zoniqxIndex >= 0 && items.length >= 9) {
+        const [zoniqx] = items.splice(zoniqxIndex, 1);
+        items.splice(8, 0, zoniqx);
+        items.forEach((item: { position?: number }, index: number) => { item.position = index + 1; });
+      }
+    }
+  }
+  return ensureSecurityVendorSchema(file, normalized);
 }
 
 export function legacyMainHtml(file: string) {
@@ -164,6 +190,9 @@ export function legacyMainHtml(file: string) {
   const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
   const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
+  renderedHtml = normalizeEditorialText(renderedHtml);
+  renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
+  if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToNinth(renderedHtml);
   renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
     (_match, links: string) => `<div class="buyer-guide-actions">${links.replace(/ · /g, "")}</div>`);
   const buyerCategories: Record<string, string> = {
@@ -188,7 +217,45 @@ export function legacyMainHtml(file: string) {
       renderedHtml += `<script id="vendor-search-index-data" type="application/json">${safeJson}</script>`;
     }
   }
+  if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
+    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems; a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Commercial participation may affect the scope of profile or campaign visibility, but it cannot purchase Vetted status, ranking or endorsement. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 14, 2026</p>`;
+  }
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
+}
+
+function normalizeEditorialText(value: string) {
+  return value
+    .replace(/Explore crawlable vendor profile pages/gi, "Explore vendor profile pages")
+    .replace(/Allen &amp; Overy/g, "A&amp;O Shearman")
+    .replace(/Allen & Overy/g, "A&O Shearman")
+    .replace(/\bOnfido\b(?! \(an Entrust company\))/g, "Onfido (an Entrust company)")
+    .replace(/\bHashnote\b(?! \(acquired by Circle\))/g, "Hashnote (acquired by Circle)")
+    .replace(/>Contact ([^<]+)</g, ">Request intro<")
+    .replace(/\/vendors\/defi-infrastructure-vendors/g, "/vendors/defi-infrastructure-providers")
+    .replace(/\/vendors\/custody-wallets/g, "/vendors/crypto-custody-providers")
+    .replace(/\/vendors\/blockchain-analytics-transaction-monitoring/g, "/vendors/compliance-infrastructure-providers")
+    .replace(/https:\/\/www\.fluidrwa\.com\/vendor-ecosystem\.html/g, "https://www.fluidrwa.com/web3vendorecosystem")
+    .replace(/https:\/\/www\.fluidrwa\.com\/team\.html/g, "https://www.fluidrwa.com/about");
+}
+
+function normalizeVendorCategoryCounts(html: string) {
+  return html.replace(/<section class="vendor-category-block[\s\S]*?<\/section>/g, (section) => {
+    const count = (section.match(/<article class="vendor-card/g) || []).length;
+    if (!count) return section;
+    return section.replace(/<p class="eyebrow light-eyebrow">\s*\d+\s+vendors?\s*<\/p>/i, `<p class="eyebrow light-eyebrow">${count} ${count === 1 ? "vendor" : "vendors"}</p>`);
+  });
+}
+
+function moveZoniqxToNinth(html: string) {
+  const gridPattern = /(<div class="bc-company-grid"[^>]*>)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>)/;
+  return html.replace(gridPattern, (_match, open: string, content: string, close: string) => {
+    const cards = content.match(/<article class="bc-company-card[\s\S]*?<\/article>/g) || [];
+    const zoniqxIndex = cards.findIndex((card) => card.includes('id="zoniqx"'));
+    if (zoniqxIndex < 0 || cards.length < 9) return `${open}${content}${close}`;
+    const [zoniqx] = cards.splice(zoniqxIndex, 1);
+    cards.splice(8, 0, zoniqx);
+    return `${open}${cards.map((card, index) => card.replace(/<p class="bc-company-index">\d{2} \/ /, `<p class="bc-company-index">${String(index + 1).padStart(2, "0")} / `)).join("")}${close}`;
+  });
 }
 
 const sureStackSecurityCard = `<article class="bc-company-card reveal vendor-card--vetted" id="surestack" itemscope itemtype="https://schema.org/Organization" data-search="surestack surestack technology group vetted risk management security partner ai powered web3 risk intelligence threat monitoring digital asset security tokenization security vulnerability detection atlas intelligence crypto risk security infrastructure risk management global"><div class="bc-company-top bc-company-top--vetted"><div class="bc-company-mark bc-company-mark--logo" aria-hidden="true"><img src="/assets/company-logos/surestack.png" alt="" loading="lazy" decoding="async"></div><div><p class="bc-company-index">01 / Vetted Risk Management &amp; Security Partner</p><h3 itemprop="name">SureStack</h3><span class="bc-vetted-badge">Vetted</span></div></div><p class="bc-best-fit"><strong>Best for:</strong> Digital asset issuers, tokenization teams, funds and Web3 operators that need AI-powered risk intelligence, threat monitoring and proactive security visibility before launch or while scaling.</p><p itemprop="description">SureStack Technology Group is an AI-powered Web3 risk intelligence platform focused on detecting vulnerabilities, monitoring risk signals and helping teams protect digital asset operations before threats hit the chain.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>SureStack strengthens the security and risk-management layer for teams building tokenized asset workflows, protocol infrastructure and digital asset operations. The company positions Atlas Intelligence around proactive threat reporting, vulnerability detection and operational risk protection. FluidRWA lists SureStack as a vetted risk management and security partner based on the submitted partnership and vendor information; buyers should still verify scope, coverage, response workflows and commercial terms during diligence.</p></details><dl class="bc-company-meta"><div><dt>HQ</dt><dd>Newark, Delaware, United States</dd></div><div><dt>Founded</dt><dd>Not disclosed</dd></div><div><dt>Services</dt><dd>Web3 Risk Intelligence, Threat Monitoring, Digital Asset Security, Tokenization Risk Management</dd></div><div><dt>Coverage</dt><dd>Global</dd></div></dl><div class="bc-company-tags"><span>Vetted Partner</span><span>Risk Intelligence</span><span>Threat Monitoring</span><span>Digital Asset Security</span><span>Tokenization Security</span><span>Atlas Intelligence</span></div><div class="bc-company-actions"><a class="btn btn-primary light-primary" href="https://surestack.tech/" target="_blank" rel="noopener noreferrer">Visit Website</a><a class="btn btn-soft" href="/submit-requirement?vendor=SureStack&amp;category=Security%20Audit%20Companies&amp;source=vendor-card">Request Intro</a></div></article>`;
@@ -227,7 +294,7 @@ function ensureSecurityVendorPlacement(file: string, html: string) {
 
   if (file === "vendor-ecosystem.html") {
     return nextHtml
-      .replace(/(<a href="#all" data-filter="all" class="is-active"><span>All vendors<\/span><strong>)(?:256|257)(<\/strong><\/a>)/, "$11,000+$2")
+      .replace(/(<a href="#all" data-filter="all" class="is-active"><span>All vendors<\/span><strong>)(?:256|257|276)(<\/strong><\/a>)/, "$11,000+$2")
       .replace(/<p class="vendor-result-count" aria-live="polite">[\s\S]*?<\/p>/, "")
       .replace(
         /(<\/section>\s*<section class="vendor-category-block" id="exchanges")/,
@@ -320,6 +387,8 @@ function rewriteLinks(html: string) {
     .replaceAll('href="/team.html"', 'href="/about"')
     .replaceAll('href="contact.html"', 'href="/contact"')
     .replaceAll('href="/contact.html"', 'href="/contact"')
+    .replaceAll('href="about.html"', 'href="/about"')
+    .replaceAll('href="/about.html"', 'href="/about"')
     .replaceAll('href="submit-project.html"', 'href="/submit-requirement"')
     .replaceAll('href="/submit-project.html"', 'href="/submit-requirement"')
     .replaceAll('href="/submit-project"', 'href="/submit-requirement"')
@@ -332,6 +401,14 @@ function rewriteLinks(html: string) {
     .replaceAll('href="/privacy.html"', 'href="/privacy"')
     .replaceAll('href="terms.html"', 'href="/terms"')
     .replaceAll('href="/terms.html"', 'href="/terms"')
+    .replaceAll('href="refund-cancellation.html"', 'href="/refund-cancellation"')
+    .replaceAll('href="/refund-cancellation.html"', 'href="/refund-cancellation"')
+    .replaceAll('href="shipping-delivery.html"', 'href="/shipping-delivery"')
+    .replaceAll('href="/shipping-delivery.html"', 'href="/shipping-delivery"')
+    .replaceAll('href="vendor-membership.html"', 'href="/vendor-membership"')
+    .replaceAll('href="/vendor-membership.html"', 'href="/vendor-membership"')
+    .replaceAll('href="vendor-membership.html#pricing"', 'href="/vendor-membership"')
+    .replaceAll('href="/vendor-membership.html#pricing"', 'href="/vendor-membership"')
     .replace(/href=["'](?:\.\.\/)*vendors\/([^"']+)\/index\.html(["'])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
     .replace(/href=["']vendors\/([^"']+)\/index\.html(["'])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
     .replace(/href=["']\/vendors\/([^"'#\/]+)\/?(["'#])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)

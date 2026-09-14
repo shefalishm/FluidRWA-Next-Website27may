@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export type VendorVerificationTier = "premium-vetted" | "vetted" | "free";
+export type VendorVerificationTier = "vetted-plus" | "vetted";
 
 export interface OpenRegistryVendor {
   slug: string;
@@ -24,7 +24,7 @@ export const registryDataset = {
   updatedAt: "2026-06-28T00:00:00.000Z",
   license: "Free public reference dataset. Attribution requested.",
   description:
-    "An open, crawlable reference registry of Web3, RWA, tokenization, compliance, custody, payments, security, AI, growth and blockchain infrastructure vendors."
+    "An open reference registry of Web3, RWA, tokenization, compliance, custody, payments, security, AI, growth and blockchain infrastructure vendors."
 };
 
 type CompanyProfile = {
@@ -121,7 +121,7 @@ const ecosystemCategoryMap: Record<string, string> = {
   "Identity Solutions": "Identity Solutions"
 };
 
-const premiumVetted = new Set(["brands-essential"]);
+const vettedPlusVendors = new Set<string>();
 const vettedVendors = new Set([
   "minddeft-technologies",
   "zoniqx",
@@ -216,9 +216,8 @@ function inferChains(text: string, categories: string[]): string[] {
 }
 
 function toVerificationTier(slug: string): VendorVerificationTier {
-  if (premiumVetted.has(slug)) return "premium-vetted";
-  if (vettedVendors.has(slug)) return "vetted";
-  return "free";
+  if (vettedPlusVendors.has(slug)) return "vetted-plus";
+  return "vetted";
 }
 
 function isCapitalLiquidityCategory(categories: string[]): boolean {
@@ -336,9 +335,8 @@ export function getRegistryVendors(): OpenRegistryVendor[] {
   }
 
   const tierRank: Record<VendorVerificationTier, number> = {
-    "premium-vetted": 0,
-    vetted: 1,
-    free: 2
+    "vetted-plus": 0,
+    vetted: 1
   };
 
   registryCache = [...vendors.values()].sort((a, b) => {

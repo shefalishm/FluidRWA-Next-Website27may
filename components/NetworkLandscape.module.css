@@ -1,0 +1,563 @@
+.shell {
+  position: relative;
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background: linear-gradient(
+    120deg,
+    #eaf5f9bb 0%,
+    #f4f9f2b8 48%,
+    #f0eaf7aa 100%
+  );
+  box-shadow:
+    0 18px 65px #335b6820,
+    inset 0 1px 0 #fff;
+  backdrop-filter: blur(22px);
+  overflow: hidden;
+  isolation: isolate;
+}
+.canvasHead {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+  font-size: 12px;
+  color: #446569;
+}
+.canvasHead > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.canvasHead strong {
+  font-weight: 500;
+}
+.canvasHead button {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffffb0;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 7px 9px;
+  font-size: 10px;
+  backdrop-filter: blur(12px);
+}
+.liveMark {
+  width: 6px;
+  height: 6px;
+  background: #639584;
+  border-radius: 50%;
+}
+.sample {
+  margin-left: auto;
+  font-size: 8px;
+  border: 1px solid #cedcd77d;
+  padding: 5px 7px;
+  border-radius: 3px;
+  color: #739184;
+}
+.stage {
+  height: clamp(530px, 68vh, 820px);
+  min-height: 530px;
+  position: relative;
+}
+.stage :global(.react-flow__attribution) {
+  background: #ffffff75;
+  font-size: 8px;
+}
+.stage :global(.react-flow__handle) {
+  width: 2px;
+  height: 2px;
+  opacity: 0;
+  pointer-events: none;
+}
+.stage :global(.react-flow__node) {
+  transition: opacity 0.25s;
+  outline: none;
+}
+.stage :global(.react-flow__edge-path) {
+  transition:
+    opacity 0.25s,
+    stroke 0.25s;
+}
+.node {
+  transition:
+    opacity 0.3s,
+    filter 0.3s;
+  --node-color: #538d8a;
+}
+.node button {
+  font-family: Arial, sans-serif !important;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  letter-spacing: 0;
+  border: 0;
+}
+.node strong {
+  font-weight: 500;
+  line-height: 1.35;
+}
+.node small {
+  font-size: 9px;
+  color: #657d80;
+  display: block;
+  line-height: 1.4;
+}
+.hub {
+  width: 250px;
+  min-height: 62px;
+}
+.hub button {
+  display: grid;
+  grid-template-columns: 25px 1fr 18px;
+  gap: 3px 8px;
+  background: transparent !important;
+  padding: 0 !important;
+  color: #2f5057;
+}
+.hub strong {
+  font-size: 17px !important;
+  font-weight: 600;
+}
+.hub small {
+  grid-column: 2/4;
+  font-size: 10px;
+}
+.hubIndex {
+  font-size: 10px;
+  color: var(--node-color);
+  border-top: 2px solid var(--node-color);
+  padding-top: 6px;
+  align-self: start;
+  margin-top: 4px;
+}
+.hub svg {
+  color: var(--node-color);
+}
+.company {
+  width: 144px;
+  height: 64px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #ffffffed, #ffffff79);
+  border: 1px solid #ffffff;
+  box-shadow:
+    0 5px 16px #42667914,
+    inset 0 1px 0 #fff;
+  backdrop-filter: blur(16px);
+}
+.company button {
+  padding: 10px 8px !important;
+  height: 100%;
+  gap: 8px;
+  background: none !important;
+  border-radius: 7px;
+  color: #2b454d;
+}
+.company strong {
+  font-size: 11px !important;
+  display: block;
+}
+.company small {
+  font-size: 8px;
+  max-width: 86px;
+}
+.nodeLogo {
+  height: 32px;
+  width: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #ffffffbc;
+  border: 1px solid #ffffffed;
+  color: var(--node-color);
+  padding: 5px;
+}
+.nodeLogo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.detail {
+  width: 170px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.detail button {
+  background: #ffffff80 !important;
+  border: 1px solid #ffffffa0 !important;
+  border-radius: 5px;
+  padding: 9px !important;
+  gap: 9px;
+  box-shadow: 0 3px 14px #4b647009;
+  color: #496974;
+}
+.detail strong {
+  font-size: 12px !important;
+  display: block;
+}
+.detail .nodeLogo {
+  background: #f4f7f8b8;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+.detail .nodeLogo svg {
+  width: 16px;
+}
+.dim {
+  opacity: 0.17;
+  filter: saturate(0.3);
+}
+.lit.company {
+  border-color: #8db8b1;
+  box-shadow:
+    0 0 0 3px #adcfc936,
+    0 10px 22px #42787820;
+  background: #ffffffee;
+}
+.lit.detail button {
+  border-color: #92b6c0 !important;
+  background: #ffffffde !important;
+}
+.canvasTools {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #ffffffb0;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 15px #3b686b13;
+  border-radius: 6px;
+  padding: 4px;
+  backdrop-filter: blur(18px);
+  z-index: 5;
+}
+.canvasTools button {
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
+  background: transparent !important;
+  color: #60807b;
+}
+.canvasTools button:hover {
+  background: #dcece8 !important;
+  border-radius: 4px;
+}
+.canvasTools span {
+  font-size: 9px;
+  color: #68847e;
+  min-width: 32px;
+  text-align: center;
+}
+.canvasTools i {
+  height: 15px;
+  width: 1px;
+  background: #d5e3e1;
+  margin: 0 4px;
+}
+.legend {
+  position: absolute;
+  left: 18px;
+  bottom: 65px;
+  width: 285px;
+  background: #fffffff0;
+  border: 1px solid #fff;
+  box-shadow: 0 10px 35px #35545d20;
+  backdrop-filter: blur(24px);
+  padding: 20px;
+  border-radius: 6px;
+  z-index: 10;
+}
+.legend h3 {
+  font-size: 13px !important;
+  margin: 0 0 12px !important;
+}
+.legend p {
+  font-size: 11px !important;
+  line-height: 1.7;
+  color: #6b8283;
+  margin: 10px 0 !important;
+}
+.legend i {
+  width: 18px;
+  height: 0;
+  display: inline-block;
+  border-top: 2px dashed #7eaba7;
+  margin-right: 6px;
+}
+.legend p:nth-of-type(2) i {
+  border-color: #5a8da7;
+}
+.edgeEvidence {
+  position: absolute;
+  top: 58px;
+  right: 18px;
+  z-index: 8;
+  width: min(330px, calc(100% - 36px));
+  padding: 16px;
+  border: 1px solid #d8e4e1;
+  border-radius: 6px;
+  background: #fffffff2;
+  box-shadow: 0 12px 35px #35545d20;
+  backdrop-filter: blur(20px);
+  color: #2f5054;
+}
+.edgeEvidence > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #6f8582;
+  font-size: 8px;
+}
+.edgeEvidence button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+}
+.edgeEvidence strong {
+  font-size: 13px;
+}
+.edgeEvidence p {
+  margin: 7px 0 13px !important;
+  color: #5f7574;
+  font-size: 10px !important;
+  line-height: 1.6;
+}
+.pendingEvidence {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #806d3d;
+  font-size: 9px;
+}
+.insightBar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 22px;
+  background: #ffffff8c;
+  border-top: 1px solid #ffffffdd;
+  backdrop-filter: blur(20px);
+  color: #41696b;
+}
+.insightIcon {
+  height: 38px;
+  width: 38px;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: #ffffff91;
+  flex-shrink: 0;
+}
+.insightBar strong {
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+}
+.insightBar p {
+  font-size: 10px !important;
+  color: #7f9796;
+  margin: 5px 0 0 !important;
+  line-height: 1.5;
+}
+.truth {
+  margin-left: auto;
+  font-size: 9px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #687f77;
+  white-space: nowrap;
+}
+.insightMetric {
+  display: flex;
+  flex-direction: column;
+  padding-left: 18px;
+  border-left: 1px solid #dbe7e5;
+  min-width: 65px;
+}
+.insightMetric b {
+  font-size: 17px;
+  font-weight: 500;
+}
+.insightMetric span {
+  font-size: 9px;
+  color: #7f9796;
+  margin-top: 3px;
+}
+.insightBar > small {
+  margin-left: auto;
+  font-size: 8px;
+  color: #92a39b;
+  line-height: 1.7;
+}
+.empty {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 35%;
+  text-align: center;
+  padding: 25px;
+  background: #ffffffdf;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+.empty svg {
+  margin: auto;
+}
+.empty h3 {
+  font-size: 18px !important;
+}
+.empty button {
+  padding: 10px;
+  border: 1px solid #c9dcd2 !important;
+  background: white !important;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+@media (max-width: 800px) {
+  .stage {
+    height: 65vh;
+    min-height: 500px;
+  }
+  .canvasHead {
+    top: 12px;
+    left: 14px;
+    right: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .sample {
+    display: none;
+  }
+  .canvasHead button {
+    font-size: 9px;
+  }
+  .insightBar {
+    gap: 10px;
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+  .insightBar > div:nth-child(2) {
+    flex: 1;
+    min-width: 180px;
+  }
+  .insightBar strong {
+    font-size: 11px;
+  }
+  .truth {
+    width: 100%;
+    margin-left: 47px;
+    font-size: 8px;
+  }
+  .insightMetric {
+    min-width: 50px;
+    padding-left: 12px;
+  }
+  .insightBar > small {
+    display: none;
+  }
+  .canvasTools {
+    bottom: 12px;
+    left: 12px;
+  }
+  .canvasTools button {
+    height: 34px;
+    width: 32px;
+  }
+  .empty {
+    left: 10%;
+    right: 10%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .node,
+  .stage :global(.react-flow__edge-path) {
+    transition: none;
+  }
+}
+.shell {
+  background: linear-gradient(
+    115deg,
+    #dbeef8d9 0%,
+    #edf7f1ce 47%,
+    #ede6f5d9 100%
+  );
+}
+.company {
+  box-shadow:
+    0 7px 20px #365f7920,
+    inset 0 1px 0 white;
+}
+.company strong {
+  font-size: 14px !important;
+}
+.company small {
+  font-size: 9px;
+  color: #71888b;
+}
+.company .nodeLogo {
+  width: 34px;
+  height: 34px;
+}
+.hub strong {
+  font-size: 20px !important;
+}
+.hub small {
+  font-size: 11px;
+}
+.detail strong {
+  font-size: 13px !important;
+}
+.detail small {
+  font-size: 10px;
+}
+.stage {
+  height: clamp(500px, 65vh, 780px);
+  min-height: 500px;
+}
+.node strong {
+  color: #2c4853;
+}
+.canvasHead {
+  top: 12px;
+}
+.jump {
+  pointer-events: auto;
+  margin-left: auto;
+  max-width: 155px;
+  font-size: 10px !important;
+  background: #ffffffd0;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 7px;
+  color: #507473;
+}
+.company button {
+  line-height: 1.25;
+}
+.company small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

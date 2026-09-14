@@ -67,9 +67,8 @@ export function RegistryExplorer({ vendors, categories, specificCategories, chai
           <span>Tier</span>
           <select value={tier} onChange={(event) => setTier(event.target.value)}>
             <option value="">All tiers</option>
-            <option value="premium-vetted">Premium vetted</option>
+            <option value="vetted-plus">Vetted Plus</option>
             <option value="vetted">Vetted</option>
-            <option value="free">Tracked listing</option>
           </select>
         </label>
       </div>
@@ -88,7 +87,7 @@ export function RegistryExplorer({ vendors, categories, specificCategories, chai
                 <p className="registry-card-kicker">{vendor.specificCategories[0] || vendor.categories[0]}</p>
                 <h2>{vendor.name}</h2>
               </div>
-              <span>{vendor.verificationTier === "free" ? "tracked" : vendor.verificationTier.replace("-", " ")}</span>
+              <span>{vendor.verificationTier === "vetted-plus" ? "Vetted Plus" : "Vetted"}</span>
             </div>
             <p>{vendor.description}</p>
             <div className="registry-tags">
