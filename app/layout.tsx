@@ -66,11 +66,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       url: `${siteUrl}/contact`
     }
   };
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: "FluidRWA",
+    url: siteUrl,
+    description: "B2B discovery and matchmaking marketplace for Web3, tokenization and digital asset vendors.",
+    publisher: { "@id": `${siteUrl}/#organization` }
+  };
 
   return (
     <html lang="en">
       <body className="light-home" data-fluidrwa-build={buildRevision}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
         <Header />
         <MotionShell>{children}</MotionShell>
         <DirectoryShortlist />

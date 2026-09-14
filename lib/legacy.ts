@@ -6,6 +6,28 @@ import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFa
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  "blog/top-tokenization-companies-2026/index.html": {
+    title: "Top RWA Tokenization Companies & Platforms (2026)",
+    description: "Compare leading RWA tokenization companies, institutional platforms and blockchain developers by features, security, compliance and asset support."
+  },
+  "vendors/tokenization-platforms/index.html": {
+    title: "Best RWA Tokenization Platforms | Directory",
+    description: "Compare 11 vetted RWA tokenization platforms by issuance, compliance, custody integrations, transfer controls and asset lifecycle support."
+  },
+  "vendors/custody-solutions/index.html": {
+    title: "Institutional Crypto Custody Providers Directory",
+    description: "Compare institutional crypto custody and digital asset security providers for tokenized assets, funds and Web3 enterprises."
+  },
+  "vendors/blockchain-development/index.html": {
+    title: "Top Blockchain Development Companies for RWA",
+    description: "Find vetted blockchain development companies specializing in smart contract deployment, multi-chain token standards and enterprise Web3."
+  },
+  "vendors/fiat-on-off-ramps/index.html": {
+    title: "Fiat On/Off Ramp Providers & API Integration",
+    description: "Compare institutional fiat on/off ramp providers, payment gateways and API integrations for Web3 platforms, tokenization portals and fintechs."
+  }
+};
 const preferredVendorLinks: Record<string, string> = {
   "tokenization-platforms": "tokenization-platforms",
   "legal-regulatory": "legal-regulatory-vendors",
@@ -89,15 +111,13 @@ function matchTag(html: string, pattern: RegExp) {
 export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   const html = readLegacy(file);
   if (!html) return {};
-  const title = normalizeEditorialText(matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA");
-  let description = normalizeEditorialText(
+  const override = seoOverrides[file];
+  const title = override?.title || normalizeEditorialText(matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA");
+  const description = override?.description || normalizeEditorialText(
     matchTag(html, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     matchTag(html, /<meta\s+property=["']og:description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors."
   );
-  if (file === "vendors/tokenization-platforms/index.html") {
-    description = "Compare 11 issuer-side RWA tokenization platforms by compliance, custody, investor onboarding, transfer controls and lifecycle servicing.";
-  }
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
   const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const canonical = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
@@ -149,6 +169,20 @@ export function legacyJsonLd(file: string) {
   const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
   const withFallback = fallback ? [...parsed, fallback] : parsed;
   const normalized = JSON.parse(normalizeEditorialText(JSON.stringify(withFallback)));
+  const override = seoOverrides[file];
+  if (override) {
+    for (const block of normalized) {
+      const entries = block?.["@graph"] || [block];
+      for (const entry of entries) {
+        if (entry?.["@type"] === "Article") entry.headline = override.title;
+        if (entry?.["@type"] === "CollectionPage") entry.name = override.title;
+        if (entry?.["@type"] === "Article" || entry?.["@type"] === "CollectionPage") {
+          entry.description = override.description;
+          entry.dateModified = "2026-09-14";
+        }
+      }
+    }
+  }
   if (file === "vendor-ecosystem.html") {
     const graph = normalized.flatMap((item: { "@graph"?: unknown[] }) => item?.["@graph"] || []);
     const vendorList = graph.find((item: { "@id"?: string }) => item?.["@id"]?.endsWith("#vendors"));
@@ -217,6 +251,7 @@ export function legacyMainHtml(file: string) {
       renderedHtml += `<script id="vendor-search-index-data" type="application/json">${safeJson}</script>`;
     }
   }
+  renderedHtml += relatedVendorDirectories(file);
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
     renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems; a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Commercial participation may affect the scope of profile or campaign visibility, but it cannot purchase Vetted status, ranking or endorsement. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 14, 2026</p>`;
   }
@@ -256,6 +291,51 @@ function moveZoniqxToNinth(html: string) {
     cards.splice(8, 0, zoniqx);
     return `${open}${cards.map((card, index) => card.replace(/<p class="bc-company-index">\d{2} \/ /, `<p class="bc-company-index">${String(index + 1).padStart(2, "0")} / `)).join("")}${close}`;
   });
+}
+
+function relatedVendorDirectories(file: string) {
+  if (!file.startsWith("vendors/")) return "";
+
+  const slug = file.toLowerCase();
+  let links = [
+    ["/vendors/tokenization-platforms", "RWA tokenization platforms"],
+    ["/vendors/crypto-custody-providers", "Institutional crypto custodians"],
+    ["/vendors/legal-regulatory-vendors", "Digital asset legal and regulatory vendors"]
+  ];
+
+  if (/custody|wallet/.test(slug)) {
+    links = [
+      ["/vendors/tokenization-platforms", "Enterprise-grade tokenization platforms"],
+      ["/vendors/security-audit-companies", "Blockchain security audit companies"],
+      ["/vendors/compliance-infrastructure-providers", "Compliance infrastructure providers"]
+    ];
+  } else if (/fiat|stablecoin|payment/.test(slug)) {
+    links = [
+      ["/vendors/stablecoin-infrastructure-providers", "Stablecoin infrastructure providers"],
+      ["/vendors/fiat-on-off-ramp-providers", "Fiat on and off-ramp providers"],
+      ["/vendors/crypto-custody-providers", "Institutional crypto custodians"]
+    ];
+  } else if (/security|audit|compliance|kyc|identity/.test(slug)) {
+    links = [
+      ["/vendors/security-audit-companies", "Blockchain security audit companies"],
+      ["/vendors/kyc-aml-providers", "KYC and AML providers"],
+      ["/vendors/compliance-infrastructure-providers", "Compliance infrastructure providers"]
+    ];
+  } else if (/blockchain-development|smart-contract|node-|raas|appchain|defi/.test(slug)) {
+    links = [
+      ["/vendors/blockchain-development-companies", "Blockchain development companies"],
+      ["/vendors/smart-contract-development-companies", "Smart contract development companies"],
+      ["/vendors/node-as-a-service-rpc-providers", "Node and RPC infrastructure providers"]
+    ];
+  } else if (/ai-/.test(slug)) {
+    links = [
+      ["/ai-vendors", "AI vendor ecosystem"],
+      ["/vendors/ai-infrastructure-providers", "AI infrastructure providers"],
+      ["/vendors/compliance-infrastructure-providers", "Compliance infrastructure providers"]
+    ];
+  }
+
+  return `<nav class="related-vendor-directories" aria-label="Related vendor directories"><p class="eyebrow">Continue comparing</p><h2>Related vendor directories</h2><div>${links.map(([href, label]) => `<a href="${href}">${label}<span aria-hidden="true">→</span></a>`).join("")}</div></nav>`;
 }
 
 const sureStackSecurityCard = `<article class="bc-company-card reveal vendor-card--vetted" id="surestack" itemscope itemtype="https://schema.org/Organization" data-search="surestack surestack technology group vetted risk management security partner ai powered web3 risk intelligence threat monitoring digital asset security tokenization security vulnerability detection atlas intelligence crypto risk security infrastructure risk management global"><div class="bc-company-top bc-company-top--vetted"><div class="bc-company-mark bc-company-mark--logo" aria-hidden="true"><img src="/assets/company-logos/surestack.png" alt="" loading="lazy" decoding="async"></div><div><p class="bc-company-index">01 / Vetted Risk Management &amp; Security Partner</p><h3 itemprop="name">SureStack</h3><span class="bc-vetted-badge">Vetted</span></div></div><p class="bc-best-fit"><strong>Best for:</strong> Digital asset issuers, tokenization teams, funds and Web3 operators that need AI-powered risk intelligence, threat monitoring and proactive security visibility before launch or while scaling.</p><p itemprop="description">SureStack Technology Group is an AI-powered Web3 risk intelligence platform focused on detecting vulnerabilities, monitoring risk signals and helping teams protect digital asset operations before threats hit the chain.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>SureStack strengthens the security and risk-management layer for teams building tokenized asset workflows, protocol infrastructure and digital asset operations. The company positions Atlas Intelligence around proactive threat reporting, vulnerability detection and operational risk protection. FluidRWA lists SureStack as a vetted risk management and security partner based on the submitted partnership and vendor information; buyers should still verify scope, coverage, response workflows and commercial terms during diligence.</p></details><dl class="bc-company-meta"><div><dt>HQ</dt><dd>Newark, Delaware, United States</dd></div><div><dt>Founded</dt><dd>Not disclosed</dd></div><div><dt>Services</dt><dd>Web3 Risk Intelligence, Threat Monitoring, Digital Asset Security, Tokenization Risk Management</dd></div><div><dt>Coverage</dt><dd>Global</dd></div></dl><div class="bc-company-tags"><span>Vetted Partner</span><span>Risk Intelligence</span><span>Threat Monitoring</span><span>Digital Asset Security</span><span>Tokenization Security</span><span>Atlas Intelligence</span></div><div class="bc-company-actions"><a class="btn btn-primary light-primary" href="https://surestack.tech/" target="_blank" rel="noopener noreferrer">Visit Website</a><a class="btn btn-soft" href="/submit-requirement?vendor=SureStack&amp;category=Security%20Audit%20Companies&amp;source=vendor-card">Request Intro</a></div></article>`;

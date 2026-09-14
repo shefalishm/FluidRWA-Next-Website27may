@@ -55,7 +55,7 @@ const categories = [
     dateModified: "2026-09-10",
     description: "Compare providers that inspect, capture, attest and structure physical asset condition, provenance, construction progress and device data for RWA and real estate workflows.",
     snapshot: ["8", "Site data", "Proofs", "RWA data"],
-    heroImage: "/assets/physical-asset-inspection.jpg",
+    heroImage: "/assets/physical-asset-inspection.webp",
     hideWebsiteLinks: true,
     checklist: [
       ["Condition and technical evidence", "For real estate, infrastructure and other physical assets that need inspection findings, defects, CapEx assumptions or condition history."],
