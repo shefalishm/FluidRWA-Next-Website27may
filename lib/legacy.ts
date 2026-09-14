@@ -8,8 +8,8 @@ const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
 const seoOverrides: Record<string, { title: string; description: string }> = {
   "blog/top-tokenization-companies-2026/index.html": {
-    title: "Top RWA Tokenization Companies & Platforms (2026)",
-    description: "Compare leading RWA tokenization companies, institutional platforms and blockchain developers by features, security, compliance and asset support."
+    title: "Top 10 RWA Tokenization Platforms & Companies for 2026",
+    description: "Compare 10 leading RWA tokenization platforms by issuer fit, compliance model, lifecycle support, custody needs and institutional use case."
   },
   "vendors/tokenization-platforms/index.html": {
     title: "Best RWA Tokenization Platforms | Directory",
