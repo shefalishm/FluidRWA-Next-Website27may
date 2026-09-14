@@ -1945,14 +1945,18 @@
 
 /* Team page: calm, centered hierarchy with deliberate spacing. */
 .next-page-shell .team-hero {
-  padding: clamp(52px, 6vw, 78px) 0 clamp(50px, 6vw, 72px) !important;
+  padding: clamp(42px, 5vw, 54px) 0 clamp(40px, 4vw, 48px) !important;
   border-bottom: 1px solid rgba(38, 100, 169, 0.14);
   background: #f7fbff !important;
 }
 
 .next-page-shell .team-hero .light-container {
-  width: min(900px, calc(100% - 40px)) !important;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+  align-items: end;
+  gap: clamp(40px, 6vw, 76px);
+  width: min(1120px, calc(100% - 40px)) !important;
+  text-align: left;
 }
 
 .next-page-shell .team-hero .eyebrow {
@@ -1965,10 +1969,10 @@
 }
 
 .next-page-shell .team-hero h1 {
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 620px;
+  margin: 0;
   font-family: var(--fluid-display, Arial, sans-serif);
-  font-size: clamp(38px, 5vw, 60px);
+  font-size: clamp(38px, 3.8vw, 52px) !important;
   font-weight: 750;
   letter-spacing: 0;
   line-height: 1.08;
@@ -1976,8 +1980,8 @@
 }
 
 .next-page-shell .team-hero p:not(.eyebrow) {
-  max-width: 700px;
-  margin: 20px auto 0;
+  max-width: 590px;
+  margin: 0 0 4px;
   font-size: 18px;
   line-height: 1.65;
 }
@@ -2035,7 +2039,7 @@
   }
 
   .next-page-shell .team-hero h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .next-page-shell .team-hero p:not(.eyebrow) {
@@ -2044,6 +2048,13 @@
 
   .next-page-shell .team-grid {
     padding: 42px 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .next-page-shell .team-hero .light-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -13962,4 +13973,48 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .footer-meta-row { align-items: flex-start; flex-direction: column; }
   .page-last-updated { text-align: left; }
   .related-vendor-directories > div { grid-template-columns: 1fr; }
+}
+
+/* Final team hero placement: clear the fixed navigation and keep a two-line editorial title. */
+.next-page-shell .team-hero {
+  padding: 124px 0 46px !important;
+  border-bottom: 1px solid rgba(38, 100, 169, 0.14);
+  background: #f7fbff !important;
+}
+
+.next-page-shell .team-hero .light-container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr) !important;
+  align-items: end !important;
+  gap: 64px !important;
+  width: min(1120px, calc(100% - 40px)) !important;
+  text-align: left !important;
+}
+
+.next-page-shell .team-hero h1 {
+  max-width: 620px !important;
+  margin: 0 !important;
+  font-size: clamp(38px, 3.8vw, 52px) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.08 !important;
+}
+
+.next-page-shell .team-hero p:not(.eyebrow) {
+  max-width: 500px !important;
+  margin: 0 0 4px !important;
+}
+
+@media (max-width: 820px) {
+  .next-page-shell .team-hero {
+    padding: 108px 0 42px !important;
+  }
+
+  .next-page-shell .team-hero .light-container {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .next-page-shell .team-hero h1 {
+    font-size: 36px !important;
+  }
 }
