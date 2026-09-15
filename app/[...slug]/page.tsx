@@ -11,6 +11,8 @@ type RouteParams = {
   params: Promise<{ slug?: string[] }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allRoutePaths().map((route) => ({ slug: route.split("/") }));
 }

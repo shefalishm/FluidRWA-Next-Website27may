@@ -5,9 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname),
-  outputFileTracingIncludes: {
-    "/*": ["./vendors/**/*", "./data/company-profiles.json"]
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
