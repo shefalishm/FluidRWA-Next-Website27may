@@ -122,7 +122,7 @@ const manualCompanyProfiles = [
       "Tokenization Security",
       "Risk Management"
     ],
-    additionalType: "Vetted Risk Management & Security Partner",
+    additionalType: "Vetted Risk Management & Security Provider",
     logoPath: "/assets/company-logos/surestack.png",
     logoSource: "/assets/company-logos/surestack.png"
   }
