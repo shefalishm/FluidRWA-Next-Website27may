@@ -14399,8 +14399,12 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
 .uc-detail-hero h1 { max-width: 830px; font-size: 52px !important; }
 .uc-hero-meta { display: flex; flex-wrap: wrap; gap: 12px 30px; max-width: 900px; color: #68778a; font-size: 12px; line-height: 1.65; }
 .uc-hero-meta a { color: #2166a7; font-weight: 650; }
-.uc-image-band { background: #edf4f8; padding: 24px 0; }
-.uc-image-band img { display: block; width: 100%; height: 280px; object-fit: cover; object-position: center; border-radius: 0; }
+.uc-hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.uc-hero-copy { min-width: 0; }
+.uc-hero-grid h1 { font-size: 44px !important; }
+.uc-hero-image { aspect-ratio: 3 / 2; overflow: hidden; }
+.uc-hero-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.uc-detail-hero { border-bottom: 1px solid var(--uc-border); }
 .uc-reading-layout { display: grid; grid-template-columns: 190px minmax(0, 780px); gap: 70px; padding-top: 64px; padding-bottom: 72px; align-items: start; }
 .uc-toc { position: sticky; top: 120px; border-left: 2px solid #f0d56d; padding-left: 20px; }
 .uc-toc nav { display: grid; gap: 2px; }
@@ -14476,8 +14480,9 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .uc-item-copy { padding: 22px; }
   .uc-detail-hero { padding: 102px 0 36px; }
   .uc-hero-meta { gap: 12px; }
-  .uc-image-band { padding: 16px 0; }
-  .uc-image-band img { height: 210px; }
+  .uc-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .uc-hero-grid h1 { font-size: 36px !important; }
+  .uc-hero-image { width: min(100%, 520px); }
   .uc-reading-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 32px; padding-bottom: 48px; }
   .uc-toc { position: static; padding: 0 0 22px; border-left: 0; border-bottom: 1px solid var(--uc-border); }
   .uc-toc nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 20px; }

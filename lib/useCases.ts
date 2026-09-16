@@ -23,6 +23,33 @@ export type UseCase = {
 
 const baseUseCases: UseCase[] = [
   {
+    slug: "cross-border-b2b-invoice-payments", title: "Cross-border B2B invoice payments", industry: "Business Payments",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=76", imageAlt: "Business finance dashboard and payment records", visualLabel: "Invoice settlement", visualKicker: "Payments",
+    summary: "Connect supplier invoices, payment approvals, currency conversion and settlement evidence without losing the accounting trail.",
+    problem: "Finance teams often match international payments manually because bank references, invoice IDs and received amounts do not line up.",
+    example: "An illustrative pilot pays a small group of overseas suppliers in one corridor, matching each approved invoice to the amount actually received and recorded in the ledger.",
+    stack: ["Invoice and ERP integration", "Beneficiary verification", "Payment routing and FX", "Settlement reconciliation"],
+    vendorCategories: [{ label: "Stablecoin Infrastructure", href: "/vendors/stablecoin-infrastructure-providers" }, { label: "Fiat On and Off Ramps", href: "/vendors/fiat-on-off-ramp-providers" }, { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }]
+  },
+  {
+    slug: "digital-identity-account-recovery", title: "Digital identity and account recovery", industry: "Identity and Security",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76", imageAlt: "Identity and financial records being reviewed", visualLabel: "Recovery", visualKicker: "Identity",
+    summary: "Design recovery for lost devices, compromised credentials and changed wallet access while preserving identity checks and user rights.",
+    problem: "A secure onboarding flow is incomplete if support staff can bypass its controls during recovery or if legitimate users cannot regain access.",
+    example: "An illustrative workflow allows an approved account holder to replace a lost authenticator through independently reviewed evidence, a waiting period and controlled credential revocation.",
+    stack: ["Identity verification", "Credential status and revocation", "Recovery approval workflow", "Audit trails and access controls"],
+    vendorCategories: [{ label: "Identity Solutions", href: "/vendors/identity-solution-providers" }, { label: "KYC AML Providers", href: "/vendors/kyc-aml-providers" }, { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }]
+  },
+  {
+    slug: "ai-assisted-compliance-case-management", title: "AI-assisted compliance case management", industry: "Compliance Operations",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=76", imageAlt: "Analysts reviewing documents and operational evidence", visualLabel: "Case review", visualKicker: "AI",
+    summary: "Help analysts assemble evidence, prioritize alerts and draft case notes while keeping final decisions and accountability with qualified reviewers.",
+    problem: "Investigators spend time collecting scattered evidence, and automated summaries can hide missing facts or reproduce unsupported allegations.",
+    example: "An illustrative pilot drafts evidence-linked notes for one alert queue, with analysts reviewing every statement before closing or escalating a case.",
+    stack: ["Case management integration", "Permission-aware evidence retrieval", "AI evaluation and monitoring", "Human approval and audit logs"],
+    vendorCategories: [{ label: "AI Infrastructure", href: "/vendors/ai-infrastructure-providers" }, { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }, { label: "KYC AML Providers", href: "/vendors/kyc-aml-providers" }]
+  },
+  {
     slug: "healthcare-credentials-consent",
     title: "Healthcare Credentials and Patient Consent",
     industry: "Healthcare and Life Sciences",
