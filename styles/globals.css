@@ -2058,6 +2058,243 @@
   }
 }
 
+/* Institutional research system: FluidRWA navy and blue with a restrained
+   yellow decision accent. Scoped to editorial articles only. */
+.next-page-shell:has(.post-layout) {
+  background: #f6f9fc;
+}
+
+.next-page-shell:has(.post-layout) .post-hero {
+  padding-top: 132px !important;
+  padding-bottom: 46px !important;
+  border-bottom: 1px solid rgba(38, 100, 169, 0.14) !important;
+  background: linear-gradient(110deg, #fffdf2 0%, #f7fbfe 42%, #eef7fc 100%) !important;
+}
+
+.next-page-shell:has(.post-layout) .post-hero .light-container {
+  max-width: 900px !important;
+}
+
+.next-page-shell:has(.post-layout) .post-hero h1 {
+  max-width: 820px !important;
+  margin-top: 12px !important;
+  color: #10223d !important;
+  font-size: clamp(34px, 4vw, 54px) !important;
+  font-weight: 730 !important;
+  line-height: 1.04 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-hero p:not(.post-meta) {
+  max-width: 760px !important;
+  color: #52647a !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-hero .post-meta {
+  color: #1769aa !important;
+  font-size: 11px !important;
+  letter-spacing: .08em !important;
+}
+
+.next-page-shell:has(.post-layout) .post-hero .reviewed-line {
+  margin-top: 14px !important;
+  color: #65758a !important;
+  font-size: 12px !important;
+}
+
+.next-page-shell:has(.post-layout) .post-layout {
+  grid-template-columns: minmax(0, 1fr) 280px !important;
+  gap: 52px !important;
+  padding-top: 54px !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main {
+  max-width: 840px !important;
+}
+
+.next-page-shell:has(.post-layout) .answer-box {
+  margin-bottom: 26px !important;
+  border: 1px solid rgba(38, 100, 169, 0.14) !important;
+  border-left: 4px solid #f1cf48 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  padding: 24px 26px !important;
+}
+
+.next-page-shell:has(.post-layout) .answer-box strong {
+  margin-bottom: 10px !important;
+  color: #10223d !important;
+  font-size: 14px !important;
+}
+
+.next-page-shell:has(.post-layout) .answer-box p,
+.next-page-shell:has(.post-layout) .answer-box {
+  color: #40536b !important;
+  line-height: 1.7 !important;
+}
+
+.next-page-shell:has(.post-layout) .editorial-trust-strip {
+  margin: 0 0 34px !important;
+  padding: 15px 2px !important;
+  border-color: rgba(38, 100, 169, 0.14) !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main > img {
+  margin-bottom: 34px !important;
+  border: 1px solid rgba(38, 100, 169, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main h2 {
+  margin-top: 46px !important;
+  color: #10223d !important;
+  font-size: clamp(25px, 2.5vw, 34px) !important;
+  font-weight: 720 !important;
+  line-height: 1.14 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main h3 {
+  margin-top: 28px !important;
+  color: #193656 !important;
+  font-size: 18px !important;
+  font-weight: 720 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main .vendor-profile-name {
+  margin-top: 36px !important;
+  margin-bottom: 12px !important;
+  color: #10223d !important;
+  font-size: clamp(24px, 2.2vw, 30px) !important;
+  font-weight: 760 !important;
+  line-height: 1.15 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main p,
+.next-page-shell:has(.post-layout) .post-main li {
+  color: #475a71 !important;
+  line-height: 1.78 !important;
+}
+
+.next-page-shell:has(.post-layout) .research-block {
+  border: 1px solid rgba(38, 100, 169, 0.14) !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  padding: 28px !important;
+}
+
+.next-page-shell:has(.post-layout) .research-table {
+  border-radius: 6px !important;
+}
+
+.next-page-shell:has(.post-layout) .research-table th {
+  background: #edf5fa !important;
+  color: #193656 !important;
+}
+
+.next-page-shell:has(.post-layout) .toc {
+  top: 112px !important;
+  border: 1px solid rgba(38, 100, 169, 0.14) !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  padding: 22px !important;
+}
+
+.next-page-shell:has(.post-layout) .toc strong {
+  color: #10223d !important;
+  font-size: 13px !important;
+}
+
+.next-page-shell:has(.post-layout) .toc a {
+  margin: 9px 0 !important;
+  color: #35658f !important;
+  font-size: 13px !important;
+  font-weight: 680 !important;
+}
+
+.next-page-shell:has(.post-layout) .faq-list {
+  margin-top: 46px !important;
+  border-top: 1px solid rgba(38, 100, 169, 0.16) !important;
+}
+
+.next-page-shell:has(.post-layout) .faq-list details {
+  margin: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(38, 100, 169, 0.16) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 20px 2px !important;
+}
+
+.next-page-shell:has(.post-layout) .faq-list summary {
+  color: #193656 !important;
+  font-weight: 720 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-cta {
+  margin-top: 52px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  background: #10223d !important;
+  box-shadow: 0 18px 42px rgba(16, 34, 61, 0.14) !important;
+  padding: 30px !important;
+}
+
+.next-page-shell:has(.post-layout) .post-cta a {
+  border-radius: 5px !important;
+  background: #f4d85f !important;
+  color: #10223d !important;
+}
+
+.next-page-shell:has(.post-layout) .post-cta a.post-cta-secondary {
+  border-color: rgba(255, 255, 255, 0.34) !important;
+  background: transparent !important;
+  color: #fff !important;
+}
+
+@media (max-width: 980px) {
+  .next-page-shell:has(.post-layout) .post-layout {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .next-page-shell:has(.post-layout) .toc {
+    position: static !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .next-page-shell:has(.post-layout) .post-hero {
+    padding-top: 108px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .next-page-shell:has(.post-layout) .post-hero h1 {
+    font-size: 34px !important;
+    line-height: 1.06 !important;
+  }
+
+  .next-page-shell:has(.post-layout) .post-layout {
+    padding-top: 34px !important;
+  }
+
+  .next-page-shell:has(.post-layout) .answer-box,
+  .next-page-shell:has(.post-layout) .research-block,
+  .next-page-shell:has(.post-layout) .post-cta,
+  .next-page-shell:has(.post-layout) .toc {
+    padding: 20px !important;
+  }
+
+  .next-page-shell:has(.post-layout) .post-main > img {
+    border-radius: 7px !important;
+  }
+
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13909,6 +14146,58 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   text-align: right;
 }
 
+.next-page-shell .editorial-trust-strip {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(240px, 1.35fr) auto;
+  gap: 22px;
+  align-items: center;
+  margin: -6px 0 30px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(38, 100, 169, 0.16);
+  border-bottom: 1px solid rgba(38, 100, 169, 0.16);
+  background: transparent;
+  color: #52647a;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.next-page-shell .editorial-trust-strip > span {
+  display: grid;
+  gap: 2px;
+}
+
+.next-page-shell .editorial-trust-strip .editorial-source-links {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0 5px;
+  align-items: baseline;
+}
+
+.next-page-shell .editorial-trust-strip strong {
+  color: #10223d;
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.next-page-shell .editorial-trust-strip a {
+  color: #0f67b1;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.next-page-shell .editorial-trust-strip .editorial-directory-link {
+  justify-self: end;
+  padding: 6px 0;
+  line-height: 1.3;
+}
+
+.next-page-shell .reviewed-line a {
+  color: inherit;
+  text-decoration-color: rgba(38, 100, 169, 0.35);
+  text-underline-offset: 3px;
+}
+
 .footer-directory {
   display: grid;
   grid-template-columns: 1.25fr repeat(3, minmax(150px, 1fr));
@@ -13973,6 +14262,17 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .footer-meta-row { align-items: flex-start; flex-direction: column; }
   .page-last-updated { text-align: left; }
   .related-vendor-directories > div { grid-template-columns: 1fr; }
+  .next-page-shell .editorial-trust-strip {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: -4px;
+  }
+  .next-page-shell .editorial-trust-strip .editorial-directory-link {
+    justify-self: stretch;
+    border-top: 1px solid rgba(38, 100, 169, 0.16);
+    border-left: 0;
+    padding: 11px 0 0;
+  }
 }
 
 /* Final team hero placement: clear the fixed navigation and keep a two-line editorial title. */
@@ -14017,4 +14317,39 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .next-page-shell .team-hero h1 {
     font-size: 36px !important;
   }
+}
+
+/* Final profile hierarchy: provider names must remain prominent after the
+   legacy article styles are scoped into the Next.js page. */
+.next-page-shell:has(.post-layout) .post-main h3.vendor-profile-name {
+  margin-top: 36px !important;
+  margin-bottom: 12px !important;
+  color: #10223d !important;
+  font-size: clamp(24px, 2.2vw, 30px) !important;
+  font-weight: 760 !important;
+  line-height: 1.15 !important;
+}
+
+@media (max-width: 680px) {
+  .next-page-shell:has(.post-layout) .post-main h3.vendor-profile-name {
+    font-size: 24px !important;
+  }
+}
+
+/* Keep the dark editorial CTA compact and legible after article heading rules. */
+.next-page-shell:has(.post-layout) .post-main .post-cta h2 {
+  margin: 0 0 8px !important;
+  color: #fff !important;
+  font-size: clamp(25px, 2.4vw, 32px) !important;
+  line-height: 1.15 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main .post-cta p {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.76) !important;
+  line-height: 1.6 !important;
+}
+
+.next-page-shell:has(.post-layout) .post-main .post-cta-actions {
+  margin-top: 20px !important;
 }

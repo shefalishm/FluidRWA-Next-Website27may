@@ -6,27 +6,124 @@ import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFa
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
-const seoOverrides: Record<string, { title: string; description: string }> = {
+type SeoOverride = {
+  title: string;
+  description: string;
+  heading?: string;
+};
+
+const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
-    title: "Top 10 RWA Tokenization Platforms & Companies for 2026",
-    description: "Compare 10 leading RWA tokenization platforms by issuer fit, compliance model, lifecycle support, custody needs and institutional use case."
+    title: "10 RWA Tokenization Platforms Compared (2026)",
+    description: "Compare 10 RWA tokenization platforms by issuer fit, compliance, custody, lifecycle support and institutional use case. Reviewed September 2026.",
+    heading: "Choose the right RWA tokenization platform"
+  },
+  "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": {
+    title: "MoonPay vs Transak vs Banxa (2026): Fees, API & Fit",
+    description: "Compare MoonPay, Transak and Banxa by country coverage, payment methods, KYC, on/off-ramp APIs, checkout options and buyer fit.",
+    heading: "MoonPay, Transak or Banxa?"
+  },
+  "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
+    title: "Akash vs io.net vs Aethir (2026): GPU Compute Compared",
+    description: "Compare Akash, io.net and Aethir for AI training, inference, GPU supply, containers, pricing considerations and enterprise workloads.",
+    heading: "Akash, io.net or Aethir?"
+  },
+  "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": {
+    title: "Chainalysis vs TRM Labs vs Elliptic (2026)",
+    description: "Compare Chainalysis, TRM Labs and Elliptic for wallet screening, KYT, investigations, sanctions controls and compliance operations.",
+    heading: "Chainalysis, TRM Labs or Elliptic?"
+  },
+  "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
+    title: "Alchemy vs QuickNode vs Infura (2026): RPC Compared",
+    description: "Compare Alchemy, QuickNode and Infura by chain coverage, RPC and archive access, APIs, webhooks, reliability and developer fit.",
+    heading: "Alchemy, QuickNode or Infura?"
+  },
+  "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": {
+    title: "Anchorage vs BitGo vs Fireblocks (2026): Custody Compared",
+    description: "Compare regulated custody, MPC wallet controls, staking, settlement, recovery and operating responsibility for institutional buyers.",
+    heading: "Anchorage, BitGo or Fireblocks?"
+  },
+  "blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms/index.html": {
+    title: "Alchemy vs Moralis vs thirdweb (2026): Which Fits?",
+    description: "Compare Alchemy, Moralis and thirdweb for blockchain APIs, data, wallets, contracts, payments, portability and production fit.",
+    heading: "Alchemy, Moralis or thirdweb?"
+  },
+  "blog/best-blockchain-development-companies-web3-rwa/index.html": {
+    title: "10 Best Blockchain Development Companies (2026)",
+    description: "Compare 10 blockchain development companies for Web3, RWA, DeFi and enterprise projects by specialty, delivery model and buyer fit.",
+    heading: "10 blockchain development firms, compared"
+  },
+  "blog/crypto-custody-providers-comparison-2026/index.html": {
+    title: "9 Crypto Custody Providers Compared (2026)",
+    description: "Compare 9 crypto custody providers by qualified custody, MPC controls, wallet operations, DeFi access and tokenized asset support.",
+    heading: "9 institutional custody providers, compared"
+  },
+  "blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways/index.html": {
+    title: "NOWPayments vs Coinbase Commerce vs BitPay (2026)",
+    description: "Compare three crypto payment gateways by supported assets, invoices, integrations, settlement options, merchant controls and buyer fit.",
+    heading: "NOWPayments, Coinbase Commerce or BitPay?"
+  },
+  "blog/asset-tokenization-platform-comparison/index.html": {
+    title: "Asset Tokenization Platforms Compared: 2026 Buyer Guide",
+    description: "Compare asset tokenization platforms by asset type, compliance, investor workflows, custody, distribution, reporting and lifecycle fit.",
+    heading: "Compare asset tokenization platforms"
   },
   "vendors/tokenization-platforms/index.html": {
-    title: "Best RWA Tokenization Platforms | Directory",
-    description: "Compare 11 vetted RWA tokenization platforms by issuance, compliance, custody integrations, transfer controls and asset lifecycle support."
+    title: "11 RWA Tokenization Platforms Compared (2026)",
+    description: "Compare 11 RWA tokenization platforms by issuance, compliance, custody, transfer controls and lifecycle support. Built for issuer shortlisting."
   },
   "vendors/custody-solutions/index.html": {
-    title: "Institutional Crypto Custody Providers Directory",
-    description: "Compare institutional crypto custody and digital asset security providers for tokenized assets, funds and Web3 enterprises."
+    title: "28 Institutional Crypto Custody Providers (2026)",
+    description: "Compare 28 custody and wallet providers by regulatory model, MPC controls, cold storage, staking, DeFi access and institutional fit."
   },
   "vendors/blockchain-development/index.html": {
-    title: "Top Blockchain Development Companies for RWA",
-    description: "Find vetted blockchain development companies specializing in smart contract deployment, multi-chain token standards and enterprise Web3."
+    title: "30 Blockchain Development Companies Compared (2026)",
+    description: "Compare 30 blockchain development companies by Web3 and RWA specialty, delivery model, security approach and project fit."
   },
   "vendors/fiat-on-off-ramps/index.html": {
-    title: "Fiat On/Off Ramp Providers & API Integration",
-    description: "Compare institutional fiat on/off ramp providers, payment gateways and API integrations for Web3 platforms, tokenization portals and fintechs."
+    title: "29 Fiat On/Off-Ramp Providers Compared (2026)",
+    description: "Compare 29 fiat ramp providers by country coverage, payment methods, KYC, APIs, settlement, stablecoin support and product fit."
+  },
+  "vendors/payments-stablecoins/index.html": {
+    title: "30 Stablecoin Infrastructure Providers Compared (2026)",
+    description: "Compare 30 stablecoin providers by issuance, payments, settlement, treasury, compliance, integrations and enterprise use case."
   }
+};
+
+const articleDirectoryLinks: Record<string, { href: string; label: string }> = {
+  "blog/top-tokenization-companies-2026/index.html": { href: "/vendors/tokenization-platforms", label: "Compare all tokenization platforms" },
+  "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": { href: "/vendors/fiat-on-off-ramp-providers", label: "Compare 29 fiat ramp providers" },
+  "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": { href: "/vendors/crypto-custody-providers", label: "Compare 28 custody providers" },
+  "blog/crypto-custody-providers-comparison-2026/index.html": { href: "/vendors/crypto-custody-providers", label: "Compare 28 custody providers" },
+  "blog/best-blockchain-development-companies-web3-rwa/index.html": { href: "/vendors/blockchain-development-companies", label: "Compare 30 development companies" },
+  "blog/asset-tokenization-platform-comparison/index.html": { href: "/vendors/tokenization-platforms", label: "Compare tokenization platforms" },
+  "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": { href: "/vendors/compliance-infrastructure-providers", label: "Compare compliance providers" },
+  "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": { href: "/vendors/node-as-a-service-rpc-providers", label: "Compare RPC providers" },
+  "blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms/index.html": { href: "/vendors/blockchain-development-companies", label: "Compare development companies" },
+  "blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways/index.html": { href: "/vendors/stablecoin-infrastructure-providers", label: "Compare payment infrastructure" }
+};
+
+const articleSources: Record<string, Array<{ href: string; label: string }>> = {
+  "blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms/index.html": [
+    { href: "https://www.alchemy.com/docs", label: "Alchemy" },
+    { href: "https://docs.moralis.com/", label: "Moralis" },
+    { href: "https://portal.thirdweb.com/", label: "thirdweb" }
+  ],
+  "blog/crypto-custody-providers-comparison-2026/index.html": [
+    { href: "https://www.anchorage.com/", label: "Anchorage Digital" },
+    { href: "https://www.bitgo.com/", label: "BitGo" },
+    { href: "https://www.fireblocks.com/", label: "Fireblocks" }
+  ],
+  "blog/asset-tokenization-platform-comparison/index.html": [
+    { href: "https://own.securitize.io/", label: "Securitize" },
+    { href: "https://docs.tokeny.com/docs/t-rex-platform", label: "Tokeny" },
+    { href: "https://developers.polymesh.network/compliance/", label: "Polymesh" }
+  ],
+  "blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways/index.html": [
+    { href: "https://documenter.getpostman.com/view/7907941/2s93JusNJt", label: "NOWPayments" },
+    { href: "https://docs.cdp.coinbase.com/commerce-onchain/docs/welcome", label: "Coinbase Commerce" },
+    { href: "https://developer.bitpay.com/docs", label: "BitPay" }
+  ]
 };
 const preferredVendorLinks: Record<string, string> = {
   "tokenization-platforms": "tokenization-platforms",
@@ -178,7 +275,33 @@ export function legacyJsonLd(file: string) {
         if (entry?.["@type"] === "CollectionPage") entry.name = override.title;
         if (entry?.["@type"] === "Article" || entry?.["@type"] === "CollectionPage") {
           entry.description = override.description;
-          entry.dateModified = "2026-09-14";
+          entry.dateModified = "2026-09-16";
+        }
+      }
+    }
+  }
+  if (file.startsWith("blog/")) {
+    for (const block of normalized) {
+      const entries = block?.["@graph"] || [block];
+      for (const entry of entries) {
+        if (entry?.["@type"] !== "Article") continue;
+        entry.author = {
+          "@type": "Person",
+          name: "Shefali Sharma",
+          jobTitle: "Co-Founder and CMO, FluidRWA",
+          url: `${siteUrl}/about`,
+          image: `${siteUrl}/assets/shefali-sharma.webp`,
+          sameAs: "https://www.linkedin.com/in/shefali-sharma-86403a67/"
+        };
+        entry.reviewedBy = {
+          "@type": "Organization",
+          name: "FluidRWA Research Team",
+          url: `${siteUrl}/about`
+        };
+        const sources = articleSources[file];
+        if (sources?.length) {
+          const existing = Array.isArray(entry.citation) ? entry.citation : [];
+          entry.citation = [...new Set([...existing, ...sources.map((source) => source.href)])];
         }
       }
     }
@@ -204,6 +327,72 @@ export function legacyJsonLd(file: string) {
   return ensureSecurityVendorSchema(file, normalized);
 }
 
+function enhanceBlogDecisionPage(file: string, html: string) {
+  if (!file.startsWith("blog/") || file === "blog/tokenization/index.html") return html;
+
+  const override = seoOverrides[file];
+  let enhanced = override?.heading
+    ? html.replace(/<h1(\b[^>]*)>[\s\S]*?<\/h1>/i, `<h1$1>${override.heading}</h1>`)
+    : html;
+
+  enhanced = enhanced.replace(
+    /<p class="reviewed-line">Reviewed and updated by FluidRWA\s*·\s*([^<]+)<\/p>/i,
+    '<p class="reviewed-line">Reviewed by <a href="/about">FluidRWA Research Team</a> · $1</p>'
+  );
+  if (override) {
+    enhanced = enhanced.replace(
+      /(<p class="reviewed-line">Reviewed by <a href="\/about">FluidRWA Research Team<\/a>\s*·\s*)[^<]+(<\/p>)/i,
+      "$1September 16, 2026$2"
+    );
+  }
+
+  const repeatedEvidenceLine = "Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.";
+  const repeatedEvidenceCount = enhanced.split(repeatedEvidenceLine).length - 1;
+  if (repeatedEvidenceCount >= 3) {
+    enhanced = enhanced
+      .replaceAll(` ${repeatedEvidenceLine}`, "")
+      .replace(/<p><strong>What to verify:<\/strong> Request a current architecture diagram,[\s\S]*?depends on another supplier\.<\/p>/g, "");
+
+    const genericStart = enhanced.indexOf('<h2 id="architecture-before-procurement">');
+    const faqStart = enhanced.indexOf('<section class="faq-list"', genericStart);
+    if (genericStart >= 0 && faqStart > genericStart) {
+      const removedSection = enhanced.slice(genericStart, faqStart);
+      const removedIds = [...removedSection.matchAll(/<h2 id="([^"]+)"/g)].map((match) => match[1]);
+      const conciseChecklist = `<section class="procurement-checklist" aria-labelledby="validate-shortlist"><h2 id="validate-shortlist">How to validate the shortlist</h2><ol><li>Test the hardest production workflow with realistic volume, failure and recovery scenarios.</li><li>Confirm which features are generally available, partner-delivered or dependent on a separate contract.</li><li>Price implementation, usage, support, overages and exit work, not only the subscription.</li><li>Verify security scope, data handling, incident response, service levels and named delivery staff.</li><li>Require usable exports for configuration, records and logs before signing.</li></ol><p>Use these checks as procurement prompts, then validate regulatory and contractual conclusions with qualified advisers.</p></section>`;
+      enhanced = `${enhanced.slice(0, genericStart)}${conciseChecklist}${enhanced.slice(faqStart)}`;
+      for (const id of removedIds) {
+        enhanced = enhanced.replace(new RegExp(`<a href="#${id}">[\\s\\S]*?<\\/a>`, "g"), "");
+      }
+      enhanced = enhanced.replace(
+        /(<a href="#best-fit-by-buyer-scenario">[\s\S]*?<\/a>)/,
+        '$1<a href="#validate-shortlist">How to validate the shortlist</a>'
+      );
+    }
+  }
+
+  enhanced = enhanced.replace(
+    /(<h2 id="vendor-profiles"[^>]*>[\s\S]*?)(?=<h2\b)/i,
+    (profileSection) => profileSection.replace(/<h3(?![^>]*class=)([^>]*)>/g, '<h3 class="vendor-profile-name"$1>')
+  );
+
+  if (enhanced.includes('class="editorial-trust-strip"')) return enhanced;
+
+  const directory = articleDirectoryLinks[file];
+  const directoryLink = directory
+    ? `<a class="editorial-directory-link" href="${directory.href}">${directory.label}</a>`
+    : '<a class="editorial-directory-link" href="/web3vendorecosystem">Explore the vendor directory</a>';
+  const sources = articleSources[file];
+  const sourceSummary = sources?.length
+    ? sources.map((source) => `<a href="${source.href}" target="_blank" rel="noopener noreferrer">${source.label}</a>`).join(" · ")
+    : "Public vendor materials and buyer-fit analysis";
+  const trustStrip = `<div class="editorial-trust-strip" aria-label="Editorial review details"><span><strong>Reviewed by</strong><a href="/about">FluidRWA Research Team</a></span><span><strong>${sources?.length ? "Sources reviewed" : "Research standard"}</strong><span class="editorial-source-links">${sourceSummary}</span></span>${directoryLink}</div>`;
+
+  return enhanced.replace(
+    /(<article class="post-main">)\s*(<img\b[^>]*>)\s*(<div class="answer-box">[\s\S]*?<\/div>)/i,
+    `$1$3${trustStrip}$2`
+  );
+}
+
 export function legacyMainHtml(file: string) {
   const html = readLegacy(file);
   if (!html) return null;
@@ -225,6 +414,7 @@ export function legacyMainHtml(file: string) {
   const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
+  renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
   if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToNinth(renderedHtml);
   renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
@@ -253,7 +443,7 @@ export function legacyMainHtml(file: string) {
   }
   renderedHtml += relatedVendorDirectories(file);
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
-    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 14, 2026</p>`;
+    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 16, 2026</p>`;
   }
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }

@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
-      lastModified: "2026-05-27",
+      lastModified: route.startsWith("vendors/") ? "2026-09-16" : "2026-05-27",
       changeFrequency: "weekly" as const,
       priority: route.startsWith("vendors/") ? 0.8 : 0.75
     })),
