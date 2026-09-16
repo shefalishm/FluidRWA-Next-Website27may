@@ -1,3 +1,5 @@
+import { useCaseGuides } from "./useCaseGuides";
+
 export type UseCase = {
   slug: string;
   title: string;
@@ -19,7 +21,7 @@ export type UseCase = {
   faqs?: { q: string; a: string }[];
 };
 
-export const useCases: UseCase[] = [
+const baseUseCases: UseCase[] = [
   {
     slug: "healthcare-credentials-consent",
     title: "Healthcare Credentials and Patient Consent",
@@ -429,6 +431,8 @@ export const useCases: UseCase[] = [
     ]
   }
 ];
+
+export const useCases = baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }));
 
 export function getUseCase(slug: string) {
   return useCases.find((useCase) => useCase.slug === slug);
