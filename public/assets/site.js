@@ -1706,10 +1706,10 @@ const initFluidRwaClickAttribution = () => {
       form.dataset?.source ||
       "";
 
-    let formType = "site_form_submit";
-    if (form.matches(".fluid-intake-form") || action.includes("vendor-intro-request")) formType = "project_or_vendor_intake_submit";
-    else if (action.includes("tokenization-assessment") || window.location.pathname.includes("tokenization-readiness-assessment-tool")) formType = "assessment_form_submit";
-    else if (/newsletter|launch|email/i.test(source) || form.querySelector?.('input[type="email"]')) formType = "email_capture_submit";
+    let formType = "site_form_submit_attempt";
+    if (form.matches(".fluid-intake-form") || action.includes("vendor-intro-request")) formType = "project_or_vendor_intake_submit_attempt";
+    else if (action.includes("tokenization-assessment") || window.location.pathname.includes("tokenization-readiness-assessment-tool")) formType = "assessment_form_submit_attempt";
+    else if (/newsletter|launch|email/i.test(source) || form.querySelector?.('input[type="email"]')) formType = "email_capture_submit_attempt";
 
     trackFluidRwaEvent(formType, {
       form_action: action,

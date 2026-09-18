@@ -108,6 +108,7 @@ export function QuickIntakePopup() {
       website: value("website"),
       projectDescription: value("projectDescription"),
       rawPayload: {
+        ...Object.fromEntries([...data.entries()].filter(([key]) => key.startsWith("ATTRIBUTION_"))),
         INTAKE_MODE: mode,
         FORM_RENDERED_AT: String(renderedAt.current),
         FORM_ELAPSED_MS: String(Date.now() - renderedAt.current)

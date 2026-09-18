@@ -119,6 +119,7 @@ export function HomeVendorReadiness() {
           companyName: value("company"),
           projectDescription: brief.trim(),
           rawPayload: {
+            ...Object.fromEntries([...data.entries()].filter(([key]) => key.startsWith("ATTRIBUTION_"))),
             PROJECT_STAGE: stage,
             PROJECT_TIMELINE: timeline,
             READINESS_SCORE: readiness.score,
