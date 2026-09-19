@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fluidrwa-backup",
+  "main": "cloudflare-backup-worker.ts",
+  "compatibility_date": "2026-09-17",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "fluidrwa.com/*", "zone_name": "fluidrwa.com" },
+    { "pattern": "www.fluidrwa.com/*", "zone_name": "fluidrwa.com" }
+  ],
+  "triggers": {
+    "crons": ["0 3 * * *"]
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "fluidrwa-backup" }]
+}

@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "@/lib/contentFs";
 import path from "node:path";
 import type { MetadataRoute } from "next";
 import { chainEcosystemUpdatedAt, getChainEcosystems } from "@/lib/chainEcosystem";

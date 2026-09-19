@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "./contentFs";
 import path from "node:path";
 
 export type VendorVerificationTier = "vetted-plus" | "vetted";

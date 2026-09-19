@@ -14,3 +14,7 @@ tmp-*/
 outputs/
 drafts/
 tsconfig.tsbuildinfo
+.open-next/
+.wrangler/
+.dev.vars*
+lib/runtime-content.json

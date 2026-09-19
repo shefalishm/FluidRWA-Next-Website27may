@@ -456,6 +456,64 @@ const baseUseCases: UseCase[] = [
       { q: "Which tokenized assets need proof of reserve?", a: "Stablecoins, wrapped assets, tokenized commodities, treasury-backed tokens, tokenized funds and collateral assets can all benefit from reserve or asset verification." },
       { q: "What vendors are needed?", a: "Most projects need oracle or proof-of-reserve providers, custodians, tokenization platforms, compliance infrastructure, auditors or attestation providers and reporting dashboards." }
     ]
+  },
+  {
+    slug: "cross-chain-swap-routing",
+    title: "Cross-Chain Swap Routing for Multichain Apps",
+    industry: "Interoperability and DeFi",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Network infrastructure representing multichain transaction routing",
+    visualLabel: "Route Check",
+    visualKicker: "Interoperability",
+    summary: "Wallets, fintech apps and exchanges can route swaps across chains while controlling quotes, approvals, execution states and recovery paths.",
+    seoDescription: "Explore cross-chain swap routing for multichain apps, including quote validation, transaction approvals, execution monitoring, recovery controls and vendor requirements.",
+    problem: "A cross-chain swap is not one atomic action. Quotes can expire, approvals can be overbroad, liquidity can change and a route may complete on one chain while remaining unresolved on another.",
+    stack: ["Cross-chain routing API", "Quote and slippage controls", "Wallet transaction orchestration", "Execution status and recovery", "Compliance and asset policy", "Reconciliation and support tooling"],
+    vendorCategories: [
+      { label: "DeFi Infrastructure", href: "/vendors/defi-infrastructure-providers" },
+      { label: "Blockchain Development", href: "/vendors/blockchain-development-companies" },
+      { label: "Blockchain APIs", href: "/vendors/node-as-a-service-rpc-providers" },
+      { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for multichain wallets, embedded swap experiences, treasury rebalancing, chain abstraction, marketplace settlement and applications that need one interface across multiple liquidity sources.",
+    sources: [
+      { label: "ERC-7683: Cross Chain Intents", href: "https://eips.ethereum.org/EIPS/eip-7683" },
+      { label: "Ethereum Foundation Open Intents Framework update", href: "https://blog.ethereum.org/2025/08/29/protocol-update-003" }
+    ],
+    faqs: [
+      { q: "Is a cross-chain swap atomic?", a: "Not necessarily. Buyers should map each approval, origin-chain action, solver or bridge step, destination delivery and refund path rather than treating the route as one guaranteed transaction." },
+      { q: "What matters more than chain count?", a: "Reliable routes for the assets and transaction sizes you actually support, transparent fees, status visibility, recovery procedures and clear responsibility when execution fails matter more than a long network list." },
+      { q: "Should an app use one router or several?", a: "A primary router may simplify operations, while a controlled fallback can improve resilience. Multiple routers also add policy, testing and reconciliation complexity, so the choice should follow measured route quality." }
+    ]
+  },
+  {
+    slug: "institutional-digital-asset-treasury",
+    title: "Institutional Digital Asset Treasury Operations",
+    industry: "Treasury and Digital Assets",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Treasury operations dashboard with financial controls and reporting",
+    visualLabel: "Policy Control",
+    visualKicker: "Treasury",
+    summary: "Institutions can manage digital assets through policy-controlled custody, approvals, settlement, liquidity and reconciliation without weakening treasury governance.",
+    seoDescription: "Explore institutional digital asset treasury operations, including custody, key management, approval policies, liquidity, reconciliation and vendor-selection requirements.",
+    problem: "Digital assets introduce continuous markets, irreversible transfers, multiple custody models and fragmented records. Existing treasury controls must be translated into wallet permissions, transaction policies and evidence that finance teams can reconcile.",
+    stack: ["Institutional custody or wallet infrastructure", "Role-based transaction policy", "Liquidity and settlement connectivity", "Blockchain monitoring and screening", "Treasury ledger integration", "Incident and recovery procedures"],
+    vendorCategories: [
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" },
+      { label: "Stablecoin Infrastructure", href: "/vendors/stablecoin-infrastructure-providers" },
+      { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for corporate stablecoin balances, exchange and custodian accounts, tokenized cash products, collateral operations, market-making treasury and settlement wallets.",
+    sources: [
+      { label: "NIST key management guidance", href: "https://csrc.nist.gov/Projects/Key-Management/Key-Management-Guidelines" },
+      { label: "NIST SP 800-130 cryptographic key management framework", href: "https://csrc.nist.gov/pubs/sp/800/130/final" }
+    ],
+    faqs: [
+      { q: "Is digital asset treasury the same as investing in tokenized treasuries?", a: "No. This use case concerns the operating controls for assets held or moved by an institution. A tokenized treasury product is an investment instrument and introduces separate product, legal and valuation questions." },
+      { q: "Does institutional custody remove treasury risk?", a: "No. Custody can reduce some key-management risks, but the institution still needs account governance, transaction approvals, counterparty limits, reconciliation and incident procedures." },
+      { q: "Which model is better: custody or self-managed wallets?", a: "The answer depends on regulation, asset coverage, operating expertise, transaction frequency and recovery requirements. Many institutions use more than one model with explicit limits and transfer controls between them." }
+    ]
   }
 ];
 

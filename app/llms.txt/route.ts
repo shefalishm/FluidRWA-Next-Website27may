@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "@/lib/contentFs";
 import path from "node:path";
 
 export const dynamic = "force-static";
