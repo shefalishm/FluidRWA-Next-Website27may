@@ -24,8 +24,17 @@ export function GoogleAnalytics() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const botPattern = /bot|crawler|spider|headless|lighthouse|pagespeed|pingdom|uptime|monitoring|preview/i;
+    if (params.get("internal") === "1") window.localStorage.setItem("fluidrwa:analytics-internal", "1");
+    const internalVisit = params.get("internal") === "1" || window.localStorage.getItem("fluidrwa:analytics-internal") === "1";
+    const analyticsDisabled = params.get("analytics") === "off" || window.localStorage.getItem("fluidrwa:analytics-disabled") === "1";
+    if (params.get("analytics") === "off") window.localStorage.setItem("fluidrwa:analytics-disabled", "1");
     setEnabled(["www.fluidrwa.com", "fluidrwa.com"].includes(window.location.hostname)
-      && params.get("source") !== "qa-test" && params.get("analytics") !== "off");
+      && params.get("source") !== "qa-test"
+      && !internalVisit
+      && !analyticsDisabled
+      && !navigator.webdriver
+      && !botPattern.test(navigator.userAgent));
   }, []);
 
   if (!enabled) return null;
@@ -48,7 +57,12 @@ export function GoogleAnalytics() {
             return url.origin + url.pathname + (safe.size ? '?' + safe.toString() : '');
           }
           gtag('js', new Date());
-          gtag('config', '${measurementId}', { page_path: window.location.pathname, page_location: analyticsLocation() });
+          gtag('config', '${measurementId}', {
+            page_path: window.location.pathname,
+            page_location: analyticsLocation(),
+            site_host: window.location.hostname,
+            deployment_platform: 'cloudflare'
+          });
           gtag('config', '${googleAdsId}');
 
           window.fluidRwaTrackEvent = function(eventName, params) {

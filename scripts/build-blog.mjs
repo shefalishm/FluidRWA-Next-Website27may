@@ -375,7 +375,7 @@ function categoryPage(posts, category, slug, title, description) {
 function updateSitemap(posts) {
   const sitemapPath = path.join(root, "sitemap.xml");
   let sitemap = fs.readFileSync(sitemapPath, "utf8");
-  sitemap = sitemap.replace(/\s*<url><loc>https:\/\/www\.fluidrwa\.com\/blog(?:\.html|\/[^<]*)<\/loc>[\s\S]*?<\/url>/g, "");
+  sitemap = sitemap.replace(/\s*<url><loc>https:\/\/www\.fluidrwa\.com\/blog(?:\.html|\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g, "");
   sitemap = sitemap.replace(/\s*<url><loc>https:\/\/www\.fluidrwa\.com\/reports-research<\/loc>[\s\S]*?<\/url>/g, "");
   const entries = [`  <url><loc>${site}/blog</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>`, `  <url><loc>${site}/reports-research</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>`, `  <url><loc>${blogUrl("tokenization")}</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>`, ...posts.map((p) => `  <url><loc>${blogUrl(p.slug)}</loc><lastmod>${esc(p.reviewedDate || reviewedDate)}</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>`)].join("\n");
   sitemap = sitemap.replace(/\s*<\/urlset>/, `\n${entries}\n</urlset>`);

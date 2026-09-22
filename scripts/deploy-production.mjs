@@ -13,7 +13,7 @@ if (branch !== "main") {
 const changes = run("git", ["status", "--porcelain"]);
 if (changes) {
   console.error("Production deployment stopped: local work has not been committed.");
-  console.error("Commit and push the approved website state first so Vercel and GitHub cannot diverge.");
+  console.error("Commit and push the approved website state first so Cloudflare and GitHub cannot diverge.");
   process.exit(1);
 }
 
@@ -24,7 +24,8 @@ if (local !== remote) {
   process.exit(1);
 }
 
-execFileSync("npx", ["vercel", "--prod", "--yes"], { stdio: "inherit" });
+execFileSync("npx", ["-y", "node@22", "node_modules/@opennextjs/cloudflare/dist/cli/index.js", "build"], { stdio: "inherit" });
+execFileSync("npx", ["wrangler", "deploy"], { stdio: "inherit" });
 execFileSync("node", ["scripts/verify-production.mjs"], {
   stdio: "inherit",
   env: { ...process.env, EXPECTED_COMMIT_SHA: local }

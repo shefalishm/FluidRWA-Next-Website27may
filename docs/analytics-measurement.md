@@ -18,4 +18,14 @@ Keep source and medium lowercase and campaign names stable. Google Ads auto-tagg
 
 Recommended GA4 reports: hostname + device; date/hour + source/medium; landing page + campaign; successful leads by landing page/campaign; form starts vs successful leads. Register form_type, form_variant, vendor_category and interaction_source as event-scoped custom dimensions. Do not register submission_id (high cardinality). Use the property timezone consistently when comparing hosting logs.
 
+## Traffic quality controls
+
+- Analytics only loads on `fluidrwa.com` and `www.fluidrwa.com`; Cloudflare preview and local hostnames are excluded.
+- Automated browsers and common monitoring user agents are excluded before GA loads.
+- QA links using `?source=qa-test` are excluded.
+- Team members should open any production page once with `?internal=1`. That browser is then excluded from future measurement via local storage.
+- `?analytics=off` permanently disables analytics for that browser until the `fluidrwa:analytics-disabled` local-storage key is removed.
+- Register `site_host` and `deployment_platform` as event-scoped custom dimensions in GA4. Use hostname, city, device, engagement and conversion rate together when investigating data-centre traffic; city alone is not a reliable bot rule.
+- Keep Cloudflare Bot Fight Mode enabled and review Security > Events before blocking a network. Search crawlers and legitimate enterprise networks can also originate from data centres.
+
 Test with node scripts/check-measurement.mjs. Before publishing, verify consent behaviour, one page view per navigation, campaign fields in a saved test lead, generate_lead only after success, and no tracking requests on backup/local hosts. No hostname filter can conclusively identify bot traffic; do not block countries based solely on GA4 geolocation.

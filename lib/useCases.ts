@@ -514,6 +514,64 @@ const baseUseCases: UseCase[] = [
       { q: "Does institutional custody remove treasury risk?", a: "No. Custody can reduce some key-management risks, but the institution still needs account governance, transaction approvals, counterparty limits, reconciliation and incident procedures." },
       { q: "Which model is better: custody or self-managed wallets?", a: "The answer depends on regulation, asset coverage, operating expertise, transaction frequency and recovery requirements. Many institutions use more than one model with explicit limits and transfer controls between them." }
     ]
+  },
+  {
+    slug: "fiat-stablecoin-funding-redemption",
+    title: "Fiat-to-Stablecoin Funding and Redemption",
+    industry: "Tokenized Investment Platforms",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Investment platform payment and settlement workflow",
+    visualLabel: "Funding Rail",
+    visualKicker: "Settlement",
+    summary: "Tokenized investment platforms can connect fiat funding, stablecoin settlement and redemption while preserving investor controls and accounting evidence.",
+    seoDescription: "Explore fiat-to-stablecoin funding and redemption for tokenized investment platforms, including ramps, KYC hand-offs, settlement, reconciliation and vendor requirements.",
+    problem: "Investor funding frequently crosses bank accounts, fiat ramps, stablecoin wallets, subscription systems and fund records. A blockchain transfer can succeed while the subscription, conversion or beneficiary delivery remains unresolved.",
+    stack: ["Fiat collection or on-ramp", "Investor KYC and wallet association", "Stablecoin liquidity and settlement", "Subscription and redemption records", "Wallet and transaction screening", "Accounting reconciliation"],
+    vendorCategories: [
+      { label: "Fiat On and Off Ramps", href: "/vendors/fiat-on-off-ramp-providers" },
+      { label: "Stablecoin Infrastructure", href: "/vendors/stablecoin-infrastructure-providers" },
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "KYC and AML Providers", href: "/vendors/kyc-aml-providers" }
+    ],
+    example: "Useful for tokenized funds, private-market portals, treasury products and digital securities platforms that accept fiat or stablecoins for subscriptions and return value through redemptions.",
+    sources: [
+      { label: "BIS CPMI cross-border payments programme", href: "https://www.bis.org/committees/cpmi/cross-border-payments/overview" },
+      { label: "FATF virtual assets guidance", href: "https://www.fatf-gafi.org/en/topics/virtual-assets.html" }
+    ],
+    faqs: [
+      { q: "Does a stablecoin transfer complete an investment subscription?", a: "Not necessarily. The platform still needs confirmed investor approval, settled funding, allocation, authoritative ownership records and reconciliation." },
+      { q: "Can the same provider handle funding and redemption?", a: "Some providers support both directions, but country, currency, asset and payment-method availability may differ. Test each required corridor separately." },
+      { q: "Which vendors are usually required?", a: "The workflow may involve a tokenization platform, fiat ramp or payment provider, stablecoin infrastructure, custody or wallet provider, KYC and blockchain monitoring." }
+    ]
+  },
+  {
+    slug: "investor-wallet-onboarding-custody",
+    title: "Investor Wallet Onboarding and Custody Orchestration",
+    industry: "Digital Securities and Funds",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Secure wallet infrastructure and investor onboarding network",
+    visualLabel: "Wallet Policy",
+    visualKicker: "Custody",
+    summary: "Issuers can connect investor identity, embedded wallets, custody, transfer eligibility and recovery without treating a wallet address as the investor record.",
+    seoDescription: "Explore investor wallet onboarding and custody orchestration for tokenized assets, including embedded wallets, MPC, allowlisting, recovery and transfer controls.",
+    problem: "Tokenized investment products must connect a verified investor to a wallet and keep that association current through transfers, device loss, credential compromise, organizational changes and provider migration.",
+    stack: ["Investor identity and eligibility", "Embedded or institutional wallet API", "Custody and signing model", "Transfer allowlists and policy", "Recovery and account changes", "Registry and transaction reconciliation"],
+    vendorCategories: [
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Identity Solutions", href: "/vendors/identity-solution-providers" },
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for tokenized funds, digital securities, private-market platforms and issuer portals serving individuals, institutions and intermediaries through different wallet models.",
+    sources: [
+      { label: "NIST key management guidance", href: "https://csrc.nist.gov/Projects/Key-Management/Key-Management-Guidelines" },
+      { label: "W3C Verifiable Credentials Data Model 2.0", href: "https://www.w3.org/TR/vc-data-model-2.0/" }
+    ],
+    faqs: [
+      { q: "Does MPC mean the investor has self-custody?", a: "No. MPC describes signing technology. Custody depends on the full key, credential, policy, recovery, contractual and operational model." },
+      { q: "Can a wallet address prove investor identity?", a: "No. The platform needs a controlled process that links a current approved identity and eligibility status to the address." },
+      { q: "What is the hardest workflow to test?", a: "Recovery and provider exit are often the hardest. Test compromised credentials, lost devices, staff changes, disputed recovery and migration before launch." }
+    ]
   }
 ];
 

@@ -10,18 +10,19 @@ type SeoOverride = {
   title: string;
   description: string;
   heading?: string;
+  canonicalPath?: string;
 };
 
 const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
-    title: "10 RWA Tokenization Platforms Compared (2026)",
-    description: "Compare 10 RWA tokenization platforms by issuer fit, compliance, custody, lifecycle support and institutional use case. Reviewed September 2026.",
-    heading: "Choose the right RWA tokenization platform"
+    title: "Top 10 RWA Tokenization Platforms: 2026 Buyer Guide",
+    description: "Compare 10 RWA tokenization platforms for funds, credit, real estate and digital securities by compliance, custody and lifecycle support.",
+    heading: "Top 10 RWA tokenization platforms for 2026"
   },
   "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": {
-    title: "MoonPay vs Transak vs Banxa (2026): Fees, API & Fit",
-    description: "Compare MoonPay, Transak and Banxa by country coverage, payment methods, KYC, on/off-ramp APIs, checkout options and buyer fit.",
-    heading: "MoonPay, Transak or Banxa?"
+    title: "MoonPay vs Transak vs Banxa: On/Off-Ramp APIs",
+    description: "Compare MoonPay, Transak and Banxa APIs, widgets, webhooks, KYC ownership, payment coverage and integration workflows for Web3 products.",
+    heading: "MoonPay, Transak or Banxa for API integration?"
   },
   "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
     title: "Akash vs io.net vs Aethir (2026): GPU Compute Compared",
@@ -29,14 +30,29 @@ const seoOverrides: Record<string, SeoOverride> = {
     heading: "Akash, io.net or Aethir?"
   },
   "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": {
-    title: "Chainalysis vs TRM Labs vs Elliptic (2026)",
-    description: "Compare Chainalysis, TRM Labs and Elliptic for wallet screening, KYT, investigations, sanctions controls and compliance operations.",
-    heading: "Chainalysis, TRM Labs or Elliptic?"
+    title: "Chainalysis vs TRM vs Elliptic vs Cognyte (2026)",
+    description: "Compare Chainalysis, TRM Labs, Elliptic and Cognyte for wallet screening, KYT, investigations, sanctions controls and intelligence workflows.",
+    heading: "Chainalysis, TRM Labs, Elliptic or Cognyte?"
   },
   "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
     title: "Alchemy vs QuickNode vs Infura (2026): RPC Compared",
     description: "Compare Alchemy, QuickNode and Infura by chain coverage, RPC and archive access, APIs, webhooks, reliability and developer fit.",
     heading: "Alchemy, QuickNode or Infura?"
+  },
+  "blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers/index.html": {
+    title: "Chainstack vs Alchemy vs QuickNode: Managed RPC",
+    description: "Compare managed RPC, dedicated nodes, archive access, request accounting and operational control across Chainstack, Alchemy and QuickNode.",
+    heading: "Which managed RPC model fits your workload?"
+  },
+  "blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax/index.html": {
+    title: "TaxBit vs Ledgible vs Lukka: Crypto Accounting",
+    description: "Compare TaxBit, Ledgible and Lukka for crypto accounting, tax reporting, reconciliation, valuation, audit evidence and enterprise finance workflows.",
+    heading: "TaxBit, Ledgible or Lukka for enterprise finance?"
+  },
+  "blog/rwa-tokenization-platform-comparison-2026/index.html": {
+    title: "RWA Tokenization Platform Comparison (2026)",
+    description: "Compare RWA tokenization platforms by issuance, compliance, custody, investor onboarding and lifecycle support in our consolidated buyer guide.",
+    canonicalPath: "/blog/top-tokenization-companies-2026"
   },
   "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": {
     title: "Anchorage vs BitGo vs Fireblocks (2026): Custody Compared",
@@ -73,8 +89,8 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare 11 RWA tokenization platforms by issuance, compliance, custody, transfer controls and lifecycle support. Built for issuer shortlisting."
   },
   "vendors/custody-solutions/index.html": {
-    title: "28 Institutional Crypto Custody Providers (2026)",
-    description: "Compare 28 custody and wallet providers by regulatory model, MPC controls, cold storage, staking, DeFi access and institutional fit."
+    title: "28 Institutional Crypto Custody Providers Compared",
+    description: "Compare 28 institutional crypto custodians by regulatory status, MPC or cold-storage controls, insurance, asset support and operating model."
   },
   "vendors/blockchain-development/index.html": {
     title: "30 Blockchain Development Companies Compared (2026)",
@@ -158,7 +174,7 @@ const preferredVendorLinks: Record<string, string> = {
 };
 
 function readLegacy(file: string) {
-  const fullPath = path.join(root, file);
+  const fullPath = path.join(/* turbopackIgnore: true */ root, file);
   if (!fullPath.startsWith(root) || !fs.existsSync(fullPath)) return null;
   return fs.readFileSync(fullPath, "utf8");
 }
@@ -217,7 +233,8 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   );
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
   const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
-  const canonical = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
+  const resolvedCanonicalPath = override?.canonicalPath || canonicalPath;
+  const canonical = `${siteUrl}${resolvedCanonicalPath === "/" ? "" : resolvedCanonicalPath}`;
   const robotsValue = matchTag(html, /<meta\s+name=["']robots["']\s+content=["']([\s\S]*?)["']\s*\/?>/i)?.toLowerCase() || "";
   const shouldIndex = !robotsValue.includes("noindex");
   const shouldFollow = !robotsValue.includes("nofollow");
@@ -275,7 +292,7 @@ export function legacyJsonLd(file: string) {
         if (entry?.["@type"] === "CollectionPage") entry.name = override.title;
         if (entry?.["@type"] === "Article" || entry?.["@type"] === "CollectionPage") {
           entry.description = override.description;
-          entry.dateModified = "2026-09-16";
+          entry.dateModified = "2026-09-22";
         }
       }
     }
@@ -286,12 +303,9 @@ export function legacyJsonLd(file: string) {
       for (const entry of entries) {
         if (entry?.["@type"] !== "Article") continue;
         entry.author = {
-          "@type": "Person",
-          name: "Shefali Sharma",
-          jobTitle: "Co-Founder and CMO, FluidRWA",
-          url: `${siteUrl}/about`,
-          image: `${siteUrl}/assets/shefali-sharma.webp`,
-          sameAs: "https://www.linkedin.com/in/shefali-sharma-86403a67/"
+          "@type": "Organization",
+          name: "FluidRWA Research Team",
+          url: `${siteUrl}/about`
         };
         entry.reviewedBy = {
           "@type": "Organization",
@@ -342,7 +356,7 @@ function enhanceBlogDecisionPage(file: string, html: string) {
   if (override) {
     enhanced = enhanced.replace(
       /(<p class="reviewed-line">Reviewed by <a href="\/about">FluidRWA Research Team<\/a>\s*·\s*)[^<]+(<\/p>)/i,
-      "$1September 16, 2026$2"
+      "$1September 22, 2026$2"
     );
   }
 
@@ -417,6 +431,10 @@ export function legacyMainHtml(file: string) {
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
   if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToNinth(renderedHtml);
+  if (file === "vendors/custody-solutions/index.html") {
+    const custodyAnswer = `<aside class="directory-answer" aria-label="How to compare institutional crypto custody providers"><strong>Short answer</strong><p>Institutional buyers should compare custody providers by legal and regulatory status, key-control model, insurance scope, asset and chain coverage, transaction policy controls, reporting and recovery. A qualified custodian, an MPC wallet platform and a bank custody service solve different problems, so the shortlist must match who holds assets, who can approve movement and which evidence auditors require.</p><p><a href="/blog/crypto-custody-insurance-coverage-due-diligence">Understand custody insurance exclusions</a> and <a href="/blog/wallet-apis-asset-tokenization-platforms">compare wallet API control models</a> before issuing an RFP.</p></aside>`;
+    renderedHtml = renderedHtml.replace(/(<section class="bc-section" id="custody-directory">)/, `${custodyAnswer}$1`);
+  }
   renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
     (_match, links: string) => `<div class="buyer-guide-actions">${links.replace(/ · /g, "")}</div>`);
   const buyerCategories: Record<string, string> = {
@@ -443,7 +461,7 @@ export function legacyMainHtml(file: string) {
   }
   renderedHtml += relatedVendorDirectories(file);
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
-    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 16, 2026</p>`;
+    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 22, 2026</p>`;
   }
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }

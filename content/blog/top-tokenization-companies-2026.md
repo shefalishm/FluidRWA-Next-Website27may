@@ -49,7 +49,9 @@ That is why a serious comparison should separate tokenization companies into fun
 
 This guide is designed for issuers, funds, family offices, banks, broker-dealers, private market platforms and fintech teams that are evaluating tokenization vendors. It is not a universal ranking that claims one company is best for everyone. Tokenization has become a stack, not a single product.
 
-If you are still deciding whether your asset is ready, start with the FluidRWA [Tokenization Readiness Assessment](/tokenization-readiness-assessment-tool). If you already know the asset class and need vendors, compare [enterprise-grade tokenization platforms](/vendors/tokenization-platforms/), [institutional crypto custodians](/vendors/crypto-custody-providers/), [KYC and AML providers](/vendors/kyc-aml-providers/) and [compliance infrastructure providers](/vendors/compliance-infrastructure-providers/).
+If you are still deciding whether your asset is ready, start with the FluidRWA [Tokenization Readiness Assessment](/tokenization-readiness-assessment-tool). If you already know the asset class and need vendors, compare [enterprise-grade tokenization platforms](/vendors/tokenization-platforms/), [institutional crypto custodians](/vendors/crypto-custody-providers/), [fiat on/off-ramp providers](/vendors/fiat-on-off-ramp-providers/), [KYC and AML providers](/vendors/kyc-aml-providers/) and [compliance infrastructure providers](/vendors/compliance-infrastructure-providers/).
+
+For architecture diligence, use the dedicated guides to [wallet APIs for asset tokenization](/blog/wallet-apis-asset-tokenization-platforms/), [custody insurance coverage and exclusions](/blog/crypto-custody-insurance-coverage-due-diligence/) and the [25-question stablecoin provider RFP](/blog/stablecoin-payment-provider-rfp-questions/). These address control boundaries that a platform shortlist alone cannot resolve.
 
 ## Top 10 RWA Tokenization Platforms: Buyer Shortlist
 

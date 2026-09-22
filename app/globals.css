@@ -1,1 +1,43 @@
 @import "../styles/globals.css";
+.directory-answer {
+  width: min(1180px, calc(100% - 40px));
+  margin: 28px auto 8px;
+  padding: 24px 28px;
+  border-left: 4px solid #2574be;
+  background: #f5f9fd;
+  color: #102849;
+}
+
+.directory-answer > strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #1767ad;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.directory-answer p {
+  max-width: 920px;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.directory-answer p + p {
+  margin-top: 10px;
+}
+
+.directory-answer a {
+  color: #1767ad;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .directory-answer {
+    width: calc(100% - 28px);
+    margin-top: 20px;
+    padding: 20px;
+  }
+}

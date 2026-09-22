@@ -1,9 +1,9 @@
 ---
 title: "TaxBit vs Ledgible vs Lukka: Enterprise Crypto Accounting and Tax Comparison (2026)"
 description: "Compare TaxBit, Ledgible and Lukka for enterprise digital asset accounting, tax information reporting, data normalization, reconciliation, audit support and finance operations."
-date: "2026-09-09"
-reviewedDate: "2026-09-09"
-reviewedLabel: "September 9, 2026"
+date: "2026-09-22"
+reviewedDate: "2026-09-22"
+reviewedLabel: "September 22, 2026"
 category: "Crypto Accounting and Tax Infrastructure"
 slug: "taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax"
 image: "/assets/blog-images/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax.svg"
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 9, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 22, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
 socialImage: "/assets/social/blog-taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax.png"
 socialTitle: "TaxBit vs Ledgible vs Lukka"
 ---
@@ -43,14 +43,14 @@ The useful question is not “which brand is biggest?” It is “which operatin
 
 ## Decision criteria
 
-1. **Source-system and asset coverage.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-2. **Transaction normalization and cost basis.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-3. **Accounting policy and subledger controls.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-4. **Tax information reporting scope.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-5. **Valuation and pricing methodology.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-6. **ERP, general-ledger and data integrations.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-7. **Audit trail, evidence and exception handling.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-8. **Entity, jurisdiction and volume scalability.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
+1. **Source-system and asset coverage.** List every exchange, custodian, wallet, protocol and token used in the close. Ask the vendor to mark native, partner-delivered and unsupported sources separately.
+2. **Transaction normalization and cost basis.** Test transfers, staking, bridges, DeFi activity, derivatives and corrections. Confirm how uncertain classifications enter a review queue instead of silently becoming final records.
+3. **Accounting policy and subledger controls.** Map the product to the buyer's chart of accounts, approval rights, period locks and journal workflow. Determine who can change a policy and how that change is evidenced.
+4. **Tax information reporting scope.** Confirm supported forms, entities and jurisdictions, then test withholding, corrections, missing identity data and filing-calendar operations with realistic records.
+5. **Valuation and pricing methodology.** Review pricing sources, hierarchy, stale-price rules and treatment of thinly traded assets. Require reproducible valuations for the period under audit.
+6. **ERP, general-ledger and data integrations.** Validate field mappings, identifiers, idempotency and retry behavior for the actual ERP or data warehouse. A connector logo is not proof of a controlled close.
+7. **Audit trail, evidence and exception handling.** Require source-to-journal lineage, reviewer history, versioned adjustments and an exportable audit package. Measure unresolved exceptions at the end of the proof of concept.
+8. **Entity, jurisdiction and volume scalability.** Model legal entities, currencies, accounting standards, intercompany activity and peak reporting periods. Price the expected growth case, not only today's transaction count.
 
 ## Side-by-side comparison
 
