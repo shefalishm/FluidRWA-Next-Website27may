@@ -24,7 +24,10 @@ if (local !== remote) {
   process.exit(1);
 }
 
-execFileSync("npx", ["-y", "node@22", "node_modules/@opennextjs/cloudflare/dist/cli/index.js", "build"], { stdio: "inherit" });
+execFileSync("npx", ["-y", "node@22", "node_modules/@opennextjs/cloudflare/dist/cli/index.js", "build"], {
+  stdio: "inherit",
+  env: { ...process.env, NEXT_PUBLIC_BUILD_REVISION: local }
+});
 execFileSync("npx", ["wrangler", "deploy"], { stdio: "inherit" });
 execFileSync("node", ["scripts/verify-production.mjs"], {
   stdio: "inherit",

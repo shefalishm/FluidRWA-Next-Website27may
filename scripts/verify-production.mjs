@@ -20,9 +20,31 @@ const routes = [
 
 const failures = [];
 
+async function fetchWithRetry(url, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, { redirect: "follow", signal: AbortSignal.timeout(30000) });
+      if (response.status < 500 || attempt === attempts) return response;
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts) throw error;
+    }
+    await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
+  }
+  throw lastError;
+}
+
 for (const route of routes) {
-  const response = await fetch(`${origin}${route}`, { redirect: "follow" });
-  const html = await response.text();
+  let response;
+  let html;
+  try {
+    response = await fetchWithRetry(`${origin}${route}`);
+    html = await response.text();
+  } catch (error) {
+    failures.push(`${route} could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
+    continue;
+  }
   const headerHtml = html.match(/<header\b[\s\S]*?<\/header>/i)?.[0] || "";
   if (!response.ok) failures.push(`${route} returned ${response.status}`);
   for (const label of ["Web3 Vendors", "AI Vendors", "Become a Vetted Listing", "Submit Requirements"]) {
