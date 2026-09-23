@@ -2,8 +2,8 @@
 title: "Notabene vs Sygna vs VerifyVASP: Travel Rule Compliance Provider Comparison"
 description: "Compare Notabene, Sygna and VerifyVASP for Travel Rule compliance, VASP messaging, counterparty due diligence and crypto regulatory workflows."
 date: "2026-08-10"
-reviewedDate: "2026-08-10"
-reviewedLabel: "August 10, 2026"
+reviewedDate: "2026-09-23"
+reviewedLabel: "September 23, 2026"
 category: "Compliance"
 slug: "notabene-vs-sygna-vs-verifyvasp-travel-rule"
 image: "/assets/blog-images/notabene-vs-sygna-vs-verifyvasp-travel-rule.svg"
@@ -122,6 +122,20 @@ VerifyVASP is less ideal when the buyer needs a complete compliance operating sy
 | Lightweight transfer-information exchange | Sygna or VerifyVASP |
 | Enterprise policy and operations dashboard | Notabene |
 
+## Detailed Procurement Matrix
+
+Use current vendor responses for the final score. Network reach, protocols, jurisdiction logic and product packaging can change more quickly than a static comparison page.
+
+| Requirement | What to verify with Notabene | What to verify with Sygna | What to verify with VerifyVASP |
+|---|---|---|---|
+| Counterparty discovery | Directory reach, counterparty due diligence, routing and unsupported-VASP workflow | Reachable counterparties, discovery process and interoperability | Membership, verification process, discovery and non-member workflow |
+| Jurisdiction policy | Rules content, buyer configuration, thresholds and update governance | Covered rule sets, regional handling and buyer responsibility | Supported jurisdictions, thresholds and operational responsibility |
+| Messaging standards | Supported protocols, message translation and evidence preservation | Protocol implementation and interoperability | Network protocol, message model and interoperability |
+| Self-hosted wallets | Ownership evidence, risk policy, exception and audit workflow | Available workflow, data captured and counterparty treatment | Available workflow, verification and escalation model |
+| API and events | Authentication, idempotency, status states, webhooks and sandbox | API lifecycle, status model, error handling and test environment | API, message states, retries, errors and certification process |
+| Data protection | Hosting regions, encryption, retention, deletion and cross-border transfers | Data locations, encryption, retention and processor model | Network data model, retention, access and participant obligations |
+| Operations | Queue ownership, manual review, support coverage and service levels | Exceptions, support model and operating timetable | Network exceptions, support model and escalation path |
+
 ## What Buyers Should Confirm
 
 - Which jurisdictions are supported?
@@ -135,6 +149,33 @@ VerifyVASP is less ideal when the buyer needs a complete compliance operating sy
 - Which KYC, AML and transaction monitoring tools integrate?
 - How difficult is implementation?
 
+## API and Operations Test
+
+Run the same scenarios for every finalist:
+
+1. Send a qualifying transfer to a known connected VASP.
+2. Send to a regulated counterparty that is not directly reachable.
+3. Submit incomplete or conflicting originator and beneficiary information.
+4. Change the applicable jurisdiction or threshold for the same transfer.
+5. Delay, duplicate and reorder API or webhook events.
+6. Test a transfer involving a self-hosted wallet under the buyer's policy.
+7. Place a transfer into manual review and record every approval and message.
+8. Export the complete evidence package for an internal review or examination.
+
+The result should distinguish message sent, counterparty reached, data accepted, compliance review completed and transfer released. A single generic "success" state is not enough for a regulated operation.
+
+## Implementation Ownership
+
+Travel Rule software does not decide the institution's risk appetite. Assign owners for rule interpretation, counterparty approval, data correction, transaction release, suspicious-activity escalation, privacy requests and production configuration.
+
+Document which system remains authoritative for customer identity and transaction status. The Travel Rule provider should exchange required information without becoming an uncontrolled duplicate customer database. Retention and deletion must align with legal requirements across the jurisdictions involved.
+
+## Commercial Questions
+
+Compare setup, integration, transaction or message volume, connected entities, modules, support, testing environments and overages. Ask whether charges apply to failed or unmatched messages and what happens when a counterparty requires a different protocol.
+
+Contract for data export, configuration history and transition assistance. Network effects matter, but they should not make the organization unable to change providers or maintain evidence after termination.
+
 ## Final View
 
 Travel Rule compliance should not be treated as a checkbox. It is a live operating workflow that depends on counterparties, data quality, jurisdictional rules and network participation.
@@ -142,6 +183,8 @@ Travel Rule compliance should not be treated as a checkbox. It is a live operati
 Notabene is usually the stronger fit for enterprise orchestration. Sygna and VerifyVASP are strong candidates when VASP messaging and transfer information exchange are the core need.
 
 For tokenization and RWA teams, the first step is to confirm whether the product actually triggers Travel Rule workflows. If it does, the provider should be evaluated alongside KYC, AML, wallet screening, custody and transfer-control infrastructure.
+
+Compare the wider [compliance infrastructure directory](/vendors/compliance-infrastructure-providers/), [KYC and AML providers](/vendors/kyc-aml-providers/) and [blockchain analytics providers](/vendors/blockchain-analytics-companies/). Teams evaluating a broader financial-crime stack can also review [Fenergo vs ComplyAdvantage vs Napier AI](/blog/fenergo-vs-complyadvantage-vs-napier-ai-financial-crime-compliance/).
 
 ## Primary Sources
 
@@ -151,4 +194,3 @@ For tokenization and RWA teams, the first step is to confirm whether the product
 - [Sygna Bridge](https://www.sygna.io/sygna-bridge/)
 - [VerifyVASP](https://www.verifyvasp.com/)
 - [VerifyVASP documentation](https://docs.verifyvasp.com/)
-

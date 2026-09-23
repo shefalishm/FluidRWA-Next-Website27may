@@ -2,8 +2,8 @@
 title: "Apex Group vs IQ-EQ vs JTC: Digital Asset Fund Administration Compared (2026)"
 description: "Compare Apex Group, IQ-EQ and JTC for digital asset fund administration, investor services, accounting, governance, compliance and reporting."
 date: "2026-09-19"
-reviewedDate: "2026-09-19"
-reviewedLabel: "September 19, 2026"
+reviewedDate: "2026-09-23"
+reviewedLabel: "September 23, 2026"
 category: "Fund Administration"
 slug: "apex-group-vs-iq-eq-vs-jtc-digital-asset-fund-administration"
 image: "/assets/blog-images/apex-group-vs-iq-eq-vs-jtc-digital-asset-fund-administration.svg"
@@ -43,6 +43,9 @@ The right decision starts with the fund's legal structure, domicile, assets and 
 |---|---|---|---|
 | Primary orientation | Global financial services with dedicated digital-asset fund services | Investor services across alternative assets, including digital assets | Fund, corporate and fiduciary services with digital-asset specialization |
 | Strong starting point | Manager seeking a broad service platform and digital-asset operations | Alternative manager combining administration, compliance and reporting | Fund, token issuer, protocol or Web3 structure needing governance and administration |
+| Questions for NAV | Digital-asset pricing, wallet and venue feeds, staking and protocol positions | Valuation sources, accounting policies, exception controls and reporting workflow | Domicile-specific NAV service, complex-asset capability and oversight model |
+| Questions for investor services | Onboarding entity, registry ownership, transfer support and portal | Investor onboarding, AML ownership, capital activity and data exchange | Register, governance, investor communications and entity administration scope |
+| Questions for digital assets | Custodian and exchange integrations, wallet classification and data completeness | Assigned team's operating experience and digital-asset accounting treatment | Token issuer, protocol, custody and blockchain partner responsibilities |
 | Evidence to request | Domicile coverage, digital-asset workflow, systems, controls and service team | Exact service entity, accounting model, compliance scope and reporting workflow | Entity and domicile map, governance roles, accounting capabilities and operating partners |
 | Main diligence risk | Assuming every global service is delivered by one team or entity | Treating broad investor-services coverage as identical in every location | Combining corporate, fiduciary and fund services without a precise responsibility map |
 
@@ -78,6 +81,43 @@ Digital assets add operational questions. The administrator needs complete trans
 
 Tokenization introduces another record. The legal register, administrator books and token ledger must reconcile through subscriptions, redemptions and transfers. A tokenization platform can automate workflows, but it does not silently become the fund administrator or transfer agent.
 
+## Service Scope Matrix
+
+Use this matrix in the RFP. Require the proposed contracting entity to mark each item as delivered directly, delivered by an affiliate, subcontracted, integrated or excluded.
+
+| Workstream | Evidence to request |
+|---|---|
+| Fund accounting and NAV | Sample NAV pack, pricing hierarchy, cutoff policy, approval workflow and exception log |
+| Digital-asset bookkeeping | Wallet and venue ingestion, transaction classification, fee and reward treatment, unsupported-asset process |
+| Investor onboarding | KYC ownership, document workflow, beneficial ownership, eligibility and escalation responsibilities |
+| Registry and transfer agency | Authoritative investor record, capital activity, transfer restrictions, corrections and communication duties |
+| Financial statements | Accounting framework, digital-asset policy support, audit coordination and reporting timetable |
+| Regulatory and tax reporting | Jurisdictions, filings, data owners, review responsibilities and exclusions |
+| Governance and entity services | Board, officer, company-secretarial, substance and fiduciary responsibilities |
+| Technology and data | Portal, APIs, file interfaces, identifiers, history, access model and export formats |
+
+Do not accept a group-level capability statement when the proposal depends on a different country, affiliate or subcontractor. The service schedule should name the entity, team, system and operating location for every material responsibility.
+
+## Digital-Asset Accounting Questions
+
+Ask each provider to classify the same representative data set. Include custody transfers, exchange trades, gas fees, staking rewards, validator penalties, forks, airdrops, token migrations, wrapped assets and one smart-contract position.
+
+The objective is not to force identical accounting conclusions. It is to see whether the provider has a governed policy, can explain source data and preserves the evidence used in the NAV. Require a clear process for unidentified transactions, missing cost basis, stale prices and assets that the accounting platform cannot classify automatically.
+
+## Implementation and Parallel-Close Test
+
+| Test | Pass condition |
+|---|---|
+| Opening position migration | Cash, investor capital, asset quantities and historical cost reconcile to signed opening balances |
+| Wallet and custodian ingestion | Every source is complete, time-aligned and linked to a stable account identifier |
+| Pricing exception | A missing or disputed price follows the approved hierarchy and receives documented review |
+| Investor capital event | Subscription or redemption connects payment, investor record, units and ledger posting |
+| Digital-asset exception | Unknown transfer, reward or fee is held for review without silently distorting NAV |
+| Reporting close | Draft NAV, investor statements and reporting pack arrive within the proposed timetable |
+| Complete export | Books, investors, transactions, documents, approvals and history can be reconstructed outside the portal |
+
+Run at least two parallel closes. The first identifies data and policy gaps; the second tests whether the provider actually corrected them. Measure unresolved exceptions and manual dependencies, not only whether a final number was produced.
+
 ## How to run a selection process
 
 Give each provider the same fund structure, domicile, asset inventory, expected activity, investor profile and reporting calendar. Ask for a responsibility matrix, data-flow diagram, sample reports, implementation plan and named service team.
@@ -89,6 +129,8 @@ Review commercial terms beyond the base fee: onboarding, entities, investors, tr
 ## Avoiding cannibalisation
 
 This article targets the distinct query cluster around **digital asset fund administration** and compares three administrators. It does not repeat the existing tokenization-platform rankings or transfer-agent explanation. Those resources answer different questions about issuance technology and legal recordkeeping.
+
+For transfer-agent procurement questions, use the separate [tokenized asset transfer agent RFP](/blog/tokenized-asset-transfer-agent-rfp/). For a workflow view, see [digital fund administration and transfer agency](/use-cases/digital-fund-administration-transfer-agent/).
 
 ## Buyer checklist
 

@@ -572,6 +572,64 @@ const baseUseCases: UseCase[] = [
       { q: "Can a wallet address prove investor identity?", a: "No. The platform needs a controlled process that links a current approved identity and eligibility status to the address." },
       { q: "What is the hardest workflow to test?", a: "Recovery and provider exit are often the hardest. Test compromised credentials, lost devices, staff changes, disputed recovery and migration before launch." }
     ]
+  },
+  {
+    slug: "tokenized-securities-transfer-controls",
+    title: "Tokenized Securities Transfer Controls",
+    industry: "Digital Securities",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Investment documents and controlled securities transfer workflow",
+    visualLabel: "Transfer Policy",
+    visualKicker: "Securities",
+    summary: "Issuers can enforce investor eligibility, jurisdiction rules, lockups and approval requirements while keeping the legal ownership record aligned with token movement.",
+    seoDescription: "Explore transfer controls for tokenized securities, including investor eligibility, allowlists, lockups, jurisdiction rules, secondary transfers and record reconciliation.",
+    problem: "A technically valid token transfer may still violate securities restrictions, product terms or the current investor record. Controls must evaluate the transaction before settlement and preserve a defensible exception process.",
+    stack: ["Investor identity and eligibility record", "Transfer rules and jurisdiction policy", "Token contract or policy engine", "Transfer-agent and registry workflow", "Wallet and sanctions screening", "Exception and correction procedures"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" },
+      { label: "KYC and AML Providers", href: "/vendors/kyc-aml-providers" },
+      { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for private funds, digital securities, employee or shareholder programs and other restricted instruments where ownership changes require current eligibility and an authoritative register.",
+    sources: [
+      { label: "SEC transfer-agent overview", href: "https://www.sec.gov/about/divisions-offices/division-trading-markets/transfer-agents" },
+      { label: "SEC FAQs on crypto assets and distributed ledger technology", href: "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-relating-crypto-asset-activities-distributed-ledger-technology" }
+    ],
+    faqs: [
+      { q: "Can the token contract enforce every securities restriction?", a: "Not necessarily. Some restrictions depend on current identity, jurisdiction, ownership concentration, product documents or offchain decisions. Define which system supplies each fact." },
+      { q: "What if a prohibited transfer appears onchain?", a: "The operating model needs a legally reviewed response covering record status, investigation, correction authority, investor communication and any permitted administrative action." },
+      { q: "Is an allowlist enough?", a: "No. The list must remain linked to current investor eligibility, product permissions and wallet ownership, with controlled changes and complete history." }
+    ]
+  },
+  {
+    slug: "digital-asset-key-recovery-business-continuity",
+    title: "Digital-Asset Key Recovery and Business Continuity",
+    industry: "Institutional Operations",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Secure institutional access and business continuity operations",
+    visualLabel: "Recovery Plan",
+    visualKicker: "Resilience",
+    summary: "Institutions can recover from lost credentials, unavailable signers, provider outages and compromised access without creating an uncontrolled bypass around custody policy.",
+    seoDescription: "Explore digital-asset key recovery and business continuity, including MPC, signer replacement, provider outages, disaster recovery and emergency governance.",
+    problem: "Wallet security often focuses on normal signing while recovery relies on undocumented people, devices or vendor access. A crisis then forces teams to choose between asset availability and the controls meant to protect it.",
+    stack: ["Custody or wallet key architecture", "Credential and signer lifecycle", "Protected recovery material", "Emergency authorization policy", "Provider and infrastructure continuity", "Incident evidence and reconciliation"],
+    vendorCategories: [
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Security Audit Companies", href: "/vendors/security-audit-companies" },
+      { label: "Identity Solutions", href: "/vendors/identity-solution-providers" },
+      { label: "Compliance Infrastructure", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for treasury wallets, custodial accounts, protocol foundations, token issuers and fund operations that must survive signer departure, device loss, regional outages or provider failure.",
+    sources: [
+      { label: "NIST key-management guidance", href: "https://csrc.nist.gov/Projects/Key-Management/Key-Management-Guidelines" },
+      { label: "NIST contingency-planning guidance", href: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final" }
+    ],
+    faqs: [
+      { q: "Does MPC solve key recovery?", a: "MPC changes key generation and signing, but credentials, policy changes, unavailable parties, backups and provider dependencies still require tested recovery procedures." },
+      { q: "Should one executive hold emergency authority?", a: "Concentrated emergency authority creates misuse and continuity risk. Apply separation of duties, independent verification, narrow scope and complete post-event review." },
+      { q: "How often should recovery be tested?", a: "Test on a risk-based schedule and after material personnel, provider, policy or architecture changes. A tabletop discussion alone does not prove that assets can be recovered safely." }
+    ]
   }
 ];
 
