@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run verify:source && node scripts/package-runtime-content.mjs && next build",
+    "build": "npm run verify:source && node scripts/package-runtime-content.mjs && next build --webpack",
     "generate:content": "npm run build:blog-assets && node scripts/build-blog.mjs && node scripts/generate-industry-pages.mjs && node scripts/generate-company-pages.mjs && node scripts/build-family-offices-page.mjs && node scripts/build-broker-dealers-page.mjs && node scripts/build-ai-vendor-categories.mjs && node scripts/enhance-organic-pages.mjs",
     "build:blog-assets": "node scripts/assign-blog-images.mjs && node scripts/generate-social-images.mjs",
     "verify:source": "node scripts/verify-source-of-truth.mjs",
