@@ -1,9 +1,9 @@
 ---
-title: "Anchorage Digital vs BitGo vs Fireblocks: Institutional Crypto Custody Comparison (2026)"
-description: "Compare Anchorage Digital, BitGo and Fireblocks for institutional digital asset custody, wallet governance, policy controls, staking, settlement, recovery and operating responsibility."
+title: "Anchorage vs BitGo vs Fireblocks: Institutional Custody Compared"
+description: "Compare Anchorage Digital, BitGo and Fireblocks for regulated custody, MPC wallet infrastructure, approvals, settlement, reporting, recovery and APIs."
 date: "2026-09-09"
-reviewedDate: "2026-09-09"
-reviewedLabel: "September 9, 2026"
+reviewedDate: "2026-09-24"
+reviewedLabel: "September 24, 2026"
 category: "Institutional Digital Asset Custody"
 slug: "anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody"
 image: "/assets/blog-images/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody.svg"
@@ -30,7 +30,7 @@ faq6a: "Treat them as unavailable unless delivery timing and acceptance criteria
 faq7q: "What is the most important exit question?"
 faq7a: "Ask whether configuration, records, logs and identifiers can be exported in usable formats without losing operational continuity."
 faq8q: "How current is this comparison?"
-faq8a: "It was reviewed on September 9, 2026 using publicly available primary vendor materials. Verify current availability directly before procurement."
+faq8a: "It was reviewed on September 24, 2026 using publicly available primary vendor materials. Verify the contracted entity, product and current availability directly before procurement."
 socialImage: "/assets/social/blog-anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody.png"
 socialTitle: "Anchorage Digital vs BitGo vs Fireblocks"
 ---
@@ -43,14 +43,22 @@ The useful question is not “which brand is biggest?” It is “which operatin
 
 ## Decision criteria
 
-1. **Legal custody and regulated entity.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-2. **Key ownership and signing architecture.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-3. **Asset segregation and insolvency treatment.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-4. **Transaction policy and approval governance.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-5. **Recovery and business continuity.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-6. **Asset, chain, staking and token support.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-7. **Trading, settlement and counterparty boundaries.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
-8. **Audit, insurance, service levels and exit.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
+1. **Legal custody and regulated entity.** Identify the entity holding assets, its regulator, the client agreement and any sub-custodian or technology provider.
+2. **Key ownership and signing architecture.** Map where signing material exists, who controls each component and whether the buyer is purchasing custody or operating technology.
+3. **Asset segregation and insolvency treatment.** Obtain legal and operational evidence for account structure, books and records, wallet allocation and treatment if the provider fails.
+4. **Transaction policy and approval governance.** Test proposer, approver and administrator roles, value and counterparty limits, policy changes and emergency overrides.
+5. **Recovery and business continuity.** Run a recovery ceremony for unavailable signers, compromised credentials, regional outage and provider failure.
+6. **Asset, chain, staking and token support.** Verify exact production support, including token contract, network, staking model, forks and asset-event handling.
+7. **Trading, settlement and counterparty boundaries.** Separate safekeeping from execution, credit, off-venue settlement and collateral so exposures and finality remain visible.
+8. **Audit, insurance, service levels and exit.** Collect current reports and cover evidence, define incident and withdrawal service levels, and test complete data and asset migration.
+
+## Short answer
+
+- **Anchorage Digital** is the natural starting point when a US institution wants regulated custody combined with platform APIs, staking, governance and documented account workflows.
+- **BitGo** is the natural starting point when qualified custody, cold-storage operations, wallet technology and integrated trading or settlement services need to be compared together.
+- **Fireblocks** is the natural starting point when the buyer wants to operate MPC-based wallet infrastructure, policy automation and network connectivity directly or through a custody-service design.
+
+The first decision is whether the buyer needs a regulated custodian, custody technology or both. Comparing features before making that distinction creates false equivalence.
 
 ## Side-by-side comparison
 
@@ -65,6 +73,18 @@ The useful question is not “which brand is biggest?” It is “which operatin
 
 The table is a starting point. “Supported” can mean generally available, available through a partner, limited to selected chains or entities, or dependent on a separate contract. Turn every important cell into a written acceptance criterion.
 
+## Evidence buyers should demand
+
+| Evidence | Why it matters |
+|---|---|
+| Contracting-entity and regulator map | Brand-level claims do not establish which entity serves the mandate |
+| Wallet and ledger segregation diagram | Legal language must align with actual books, accounts and address operations |
+| Signing and approval architecture | Shows where compromise, collusion or unavailable personnel can stop or redirect assets |
+| Production asset and network list | Marketing-level coverage may not apply to a specific entity, token contract or service |
+| Statements and machine-readable exports | Custody records must reconcile to internal books and survive provider exit |
+| Recovery drill and continuity evidence | A design is not recoverable merely because it uses MPC, multisig or cold storage |
+| Insurance schedule and exclusions | Headline limits rarely equal available recovery for a particular incident |
+
 ## Vendor profiles
 
 ### Anchorage Digital
@@ -75,7 +95,7 @@ Anchorage Digital presents institutional digital asset services centered on regu
 
 **Potential limitation:** Confirm the contracting entity, qualified-custodian status for the intended assets and jurisdiction, legal segregation, supported assets, governance workflow, staking treatment, counterparty exposure, recovery process and service-level commitments.
 
-**What to verify:** Request a current architecture diagram, supported-configuration matrix, security material, implementation plan, service levels, incident process, data handling terms, subcontractor list and complete commercial proposal. Ask the vendor to identify any statement in the proposed design that depends on another supplier.
+**What to verify:** Demonstrate account creation, permission assignment, a prohibited withdrawal, an approved withdrawal, statements, API records and recovery. Confirm which Anchorage entity and product supplies each step.
 
 ### BitGo
 
@@ -85,7 +105,7 @@ BitGo presents institutional custody through regulated entities, with cold-stora
 
 **Potential limitation:** Review which entity holds assets, jurisdictional coverage, wallet design, withdrawal governance, insurance terms, sub-custodian exposure, service boundaries, supported assets, transaction timing and recovery evidence.
 
-**What to verify:** Request a current architecture diagram, supported-configuration matrix, security material, implementation plan, service levels, incident process, data handling terms, subcontractor list and complete commercial proposal. Ask the vendor to identify any statement in the proposed design that depends on another supplier.
+**What to verify:** Demonstrate the proposed cold or warm wallet flow, policy approval, asset movement, trading or settlement boundary, reconciliation and recovery. Obtain the current insurance schedule rather than relying on a headline figure.
 
 ### Fireblocks
 
@@ -95,7 +115,7 @@ Fireblocks presents a direct-custody platform in which customers remain owners a
 
 **Potential limitation:** Separate software and direct-custody responsibilities from any regulated custody relationship. Test policy administration, device compromise, quorum changes, break-glass recovery, privileged access, network dependencies and the export or migration path.
 
-**What to verify:** Request a current architecture diagram, supported-configuration matrix, security material, implementation plan, service levels, incident process, data handling terms, subcontractor list and complete commercial proposal. Ask the vendor to identify any statement in the proposed design that depends on another supplier.
+**What to verify:** Demonstrate vault and user administration, policy changes, MPC recovery, blocked and approved transactions, webhook failure, audit export and migration. State separately which regulated custodian, if any, holds assets.
 
 ## What buyers should understand before shortlisting
 
@@ -270,8 +290,12 @@ Anchorage Digital is a natural starting point for institutions seeking regulated
 
 ## Research basis
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+This comparison was reviewed on September 24, 2026 using publicly available vendor materials and technical documentation. Public materials do not replace a current proposal, contract, audit report, legal opinion or production proof of concept.
 
-- A
-- B
-- F
+- [Anchorage Digital custody](https://www.anchorage.com/platform/custody)
+- [Anchorage Digital developer documentation](https://developers.anchorage.com/reference/getting-started-5)
+- [Anchorage Digital statements and reporting](https://developers.anchorage.com/docs/statements)
+- [BitGo custody](https://www.bitgo.com/products/custody/)
+- [BitGo developer documentation](https://developers.bitgo.com/)
+- [Fireblocks platform](https://www.fireblocks.com/platforms/)
+- [Fireblocks security whitepaper](https://www.fireblocks.com/wp-content/uploads/2026/02/Fireblocks_Security_Whitepaper_Feb2026.pdf)

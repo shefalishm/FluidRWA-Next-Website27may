@@ -23,6 +23,64 @@ export type UseCase = {
 
 const baseUseCases: UseCase[] = [
   {
+    slug: "crypto-exchange-custody-wallet-governance-settlement",
+    title: "Crypto Exchange Custody, Wallet Governance and Settlement",
+    industry: "Exchanges and Digital Asset Markets",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Secure infrastructure representing exchange wallet and settlement operations",
+    visualLabel: "Settlement Control",
+    visualKicker: "Exchange Operations",
+    summary: "Exchanges can separate customer custody, wallet policy, liquidity movement and settlement while preserving approval evidence and a reconciled asset record.",
+    seoDescription: "Explore crypto exchange custody, wallet governance and settlement, including hot and cold wallets, approvals, reconciliation, liquidity and vendor requirements.",
+    problem: "An exchange must keep customer entitlements aligned with wallets, omnibus accounts and trading records while moving assets quickly enough for deposits, withdrawals and settlement. Unclear ownership between custody, treasury and operations creates concentrated risk.",
+    stack: ["Regulated custody or wallet infrastructure", "Hot, warm and cold wallet policy", "Transaction screening and approval", "Exchange ledger and reconciliation", "Liquidity and settlement connectivity", "Incident recovery and customer communication"],
+    vendorCategories: [
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "KYC and AML Providers", href: "/vendors/kyc-aml-providers" },
+      { label: "Blockchain Analytics and Compliance", href: "/vendors/compliance-infrastructure-providers" },
+      { label: "Node and RPC Providers", href: "/vendors/node-as-a-service-rpc-providers" }
+    ],
+    example: "Useful for centralized exchanges, broker platforms, OTC desks and digital asset marketplaces that operate customer wallets, treasury reserves and external settlement relationships.",
+    sources: [
+      { label: "NIST key-management guidance", href: "https://csrc.nist.gov/Projects/Key-Management/Key-Management-Guidelines" },
+      { label: "FATF virtual assets guidance", href: "https://www.fatf-gafi.org/en/topics/virtual-assets.html" }
+    ],
+    faqs: [
+      { q: "Should an exchange keep every asset in cold storage?", a: "Not necessarily. The wallet allocation should follow measured withdrawal demand, settlement needs and risk limits, with narrow hot-wallet exposure and controlled replenishment." },
+      { q: "Does using a custodian remove exchange responsibility?", a: "No. The exchange still owns customer records, permissions, reconciliation, counterparty choices, incident procedures and applicable safeguarding obligations." },
+      { q: "What is the most important control to test?", a: "Test a high-value withdrawal from request through screening, approval, signing, confirmation and ledger reconciliation, then repeat with a prohibited destination and an unavailable approver." }
+    ]
+  },
+  {
+    slug: "digital-asset-tax-reporting-cost-basis-operations",
+    title: "Digital Asset Tax Reporting and Cost-Basis Operations",
+    industry: "Tax, Accounting and Digital Assets",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76",
+    imageAlt: "Tax analysts reconciling digital asset transaction records",
+    visualLabel: "Cost Basis",
+    visualKicker: "Tax Operations",
+    summary: "Institutions can normalize wallet, exchange and custody activity into reviewed tax lots, gains, income events and reportable customer records.",
+    seoDescription: "Explore digital asset tax reporting and cost-basis operations, including transaction normalization, tax lots, transfers, reconciliation and vendor requirements.",
+    problem: "Blockchain transactions do not arrive as tax-ready records. Transfers can appear as disposals, fees change quantities, assets move between providers and missing historical cost basis can distort gains and customer reporting.",
+    stack: ["Custody and exchange data ingestion", "Transaction normalization and classification", "Wallet and account ownership mapping", "Tax-lot and cost-basis engine", "Exception review and evidence", "Forms, statements and accounting export"],
+    vendorCategories: [
+      { label: "Tax, Legal and Regulatory Vendors", href: "/vendors/legal-regulatory-vendors" },
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" },
+      { label: "Blockchain Analytics and Compliance", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Useful for exchanges, custodians, wealth platforms, funds and enterprises that need defensible tax lots, customer reporting, financial statements or regulator-ready transaction evidence.",
+    sources: [
+      { label: "IRS digital assets guidance", href: "https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets" },
+      { label: "OECD Crypto-Asset Reporting Framework", href: "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm" }
+    ],
+    faqs: [
+      { q: "Is onchain transaction history enough for tax reporting?", a: "No. Tax operations also need account ownership, acquisition cost, transfer matching, classification, fiat values, fees and jurisdiction-specific treatment." },
+      { q: "What causes the most cost-basis errors?", a: "Missing acquisition history, unmatched transfers, inconsistent asset identifiers, unclassified rewards and corporate actions, and precision differences across source systems are common causes." },
+      { q: "Should the vendor decide tax treatment?", a: "The vendor can calculate under configured methods, but qualified tax and legal owners should approve classifications, elections, reportability and exception policy." }
+    ]
+  },
+  {
     slug: "cross-border-b2b-invoice-payments", title: "Cross-border B2B invoice payments", industry: "Business Payments",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=76", imageAlt: "Business finance dashboard and payment records", visualLabel: "Invoice settlement", visualKicker: "Payments",
     summary: "Connect supplier invoices, payment approvals, currency conversion and settlement evidence without losing the accounting trail.",

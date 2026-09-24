@@ -55,9 +55,9 @@ const seoOverrides: Record<string, SeoOverride> = {
     canonicalPath: "/blog/top-tokenization-companies-2026"
   },
   "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": {
-    title: "Anchorage vs BitGo vs Fireblocks (2026): Custody Compared",
-    description: "Compare regulated custody, MPC wallet controls, staking, settlement, recovery and operating responsibility for institutional buyers.",
-    heading: "Anchorage, BitGo or Fireblocks?"
+    title: "Anchorage vs BitGo vs Fireblocks: Institutional Custody Compared",
+    description: "Compare Anchorage Digital, BitGo and Fireblocks for regulated custody, MPC wallet infrastructure, approvals, settlement, reporting, recovery and APIs.",
+    heading: "Anchorage vs BitGo vs Fireblocks"
   },
   "blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms/index.html": {
     title: "Alchemy vs Moralis vs thirdweb (2026): Which Fits?",
