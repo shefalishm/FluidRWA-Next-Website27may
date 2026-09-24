@@ -6578,7 +6578,11 @@ body:has(.tra-page) .light-footer {
     display: none !important;
     flex-direction: column !important;
     align-items: stretch !important;
+    justify-content: flex-start !important;
     flex-wrap: nowrap !important;
+    max-height: calc(100dvh - 104px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
     padding: 14px !important;
     border: 1px solid rgba(18, 33, 58, 0.08) !important;
     border-radius: 20px !important;

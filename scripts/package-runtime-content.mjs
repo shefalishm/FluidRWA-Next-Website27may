@@ -13,6 +13,6 @@ function collect(relative) {
   }
 }
 for (const name of fs.readdirSync(root).filter(name => name.endsWith('.html'))) collect(name);
-for (const name of ['vendors', 'blog', 'fluidrwa', 'industries', 'content/blog', 'data/company-profiles.json', 'llms.txt']) collect(name);
+for (const name of ['vendors', 'blog', 'fluidrwa', 'industries', 'ai-vendors', 'content/blog', 'data/company-profiles.json', 'llms.txt']) collect(name);
 fs.writeFileSync(path.join(root, 'lib/runtime-content.json'), JSON.stringify(files));
 console.log(`Packaged ${Object.keys(files).length} content files`);

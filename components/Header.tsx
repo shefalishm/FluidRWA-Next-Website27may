@@ -24,11 +24,18 @@ export function Header() {
   }, []);
   return (
     <header ref={headerRef} className="site-header light-header" data-site-header onPointerLeave={(event) => { if (event.pointerType === "mouse") setOpenMenu(null); }} onClick={(event) => {
+      const submenuLink = (event.target as HTMLElement).closest<HTMLAnchorElement>('.nav-mega a[href]');
+      if (submenuLink) {
+        event.preventDefault();
+        window.location.assign(submenuLink.href);
+        return;
+      }
       const trigger = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[aria-haspopup]');
-      if (!trigger) { if ((event.target as HTMLElement).closest('.nav-mega a')) setOpenMenu(null); return; }
+      if (!trigger) return;
+      if (!window.matchMedia("(max-width: 1120px)").matches) return;
       event.preventDefault();
       const name = trigger.parentElement?.getAttribute('data-menu') || null;
-      setOpenMenu(current => window.matchMedia("(max-width: 1120px)").matches && current === name ? null : name);
+      setOpenMenu(current => current === name ? null : name);
     }}>
       <nav className="nav" aria-label="Main navigation">
         <a className="brand light-brand" href="/" aria-label="FluidRWA home">
