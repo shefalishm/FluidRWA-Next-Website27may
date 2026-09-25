@@ -19,9 +19,229 @@ export type UseCase = {
   buyerQuestions?: string[];
   sources?: { label: string; href: string }[];
   faqs?: { q: string; a: string }[];
+  caseStudy?: {
+    company: string;
+    status: string;
+    verifiedThrough: string;
+    background: string[];
+    operatingModel: { title: string; detail: string }[];
+    milestones: { date: string; title: string; detail: string }[];
+    outcomes: { value: string; label: string; context: string }[];
+    updates: string[];
+    successFactors: string[];
+    limitations: string[];
+    sourceRecords: string[];
+  };
 };
 
 const baseUseCases: UseCase[] = [
+  {
+    slug: "blackrock-buidl-tokenized-treasury-fund-case-study",
+    title: "BlackRock BUIDL Tokenized Treasury Fund",
+    industry: "Verified Institutional Case Study",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Institutional asset-management team reviewing treasury and fund operations",
+    visualLabel: "Live Fund",
+    visualKicker: "BlackRock BUIDL",
+    summary: "How BlackRock combined a traditional short-term treasury portfolio with public-blockchain fund shares, regulated servicing and institutional collateral utility.",
+    seoDescription: "Research BlackRock BUIDL as a verified tokenized-fund use case, including its structure, operating model, adoption, collateral integrations, risks and updates.",
+    problem: "Institutional investors want onchain access to familiar yield-bearing assets, but a fund still needs eligibility controls, transfer agency, custody choices, income distribution, authoritative ownership records and redemption operations.",
+    stack: ["Private institutional fund structure", "Public-blockchain share representation", "Regulated placement and transfer agency", "Qualified-investor onboarding", "Custody and wallet allowlisting", "Collateral and redemption integrations"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" }
+    ],
+    example: "A live institutional product launched in March 2024 and subsequently expanded across networks and into collateral workflows. It is a fund security, not a stablecoin, and access remains controlled.",
+    caseStudy: {
+      company: "BlackRock",
+      status: "Live institutional fund with expanding utility",
+      verifiedThrough: "September 25, 2026",
+      background: [
+        "BlackRock launched the USD Institutional Digital Liquidity Fund, known as BUIDL, in March 2024. The original share class was issued on Ethereum through Securitize's regulated distribution and transfer-agent infrastructure.",
+        "The fund seeks to maintain a value of one U.S. dollar per token and invests its assets in cash, U.S. Treasury bills and repurchase agreements. Income accrues daily and is distributed monthly as additional tokens.",
+        "The token is the digital representation of a private fund share. Investor eligibility, wallet approval, transfer restrictions, custody and redemption procedures remain part of the operating model."
+      ],
+      operatingModel: [
+        { title: "Product and portfolio", detail: "BlackRock manages the fund and the short-term treasury portfolio. The investment product remains legally and operationally distinct from the blockchain network carrying its shares." },
+        { title: "Distribution and investor record", detail: "Securitize supports placement, onboarding and transfer-agent functions. Approved wallets and investors operate within product eligibility and transfer rules." },
+        { title: "Token and custody", detail: "Fund interests are represented by tokens on supported public networks. Qualified investors may use supported custody arrangements and transfer only through permitted workflows." },
+        { title: "Cash and utility", detail: "Subscription, redemption and income distribution connect the token record to traditional cash and fund operations. Later integrations allow eligible institutions to use BUIDL in collateral and treasury workflows." }
+      ],
+      milestones: [
+        { date: "March 2024", title: "Fund launch", detail: "BUIDL launched as BlackRock's first tokenized fund, initially on Ethereum, with Securitize providing the tokenization and regulated servicing infrastructure." },
+        { date: "January 2025", title: "Material early scale", detail: "Securitize reported approximately $642.2 million in BUIDL assets under management as of January 27, 2025." },
+        { date: "April 2026", title: "Institutional collateral framework", detail: "BlackRock, OKX and Standard Chartered announced a framework allowing eligible clients to use BUIDL as yield-bearing collateral while assets remained in regulated off-exchange custody." },
+        { date: "July-August 2026", title: "Broader network and collateral utility", detail: "Securitize reported additional network availability and described BUIDL's extension into institutional trading and collateral-management workflows." }
+      ],
+      outcomes: [
+        { value: "$642.2M", label: "AUM reported in January 2025", context: "A dated Securitize figure, included for evidence of early product adoption rather than as a current balance." },
+        { value: "24/7/365", label: "Permitted transfers", context: "Transfers are available between pre-approved participants and remain subject to the fund's operating requirements." },
+        { value: "1", label: "Integrated product record", context: "The structure connects the token, approved investor record and fund servicing process rather than treating a wallet balance as a standalone claim." }
+      ],
+      updates: [
+        "BlackRock's 2026 chairman's letter described its tokenized treasury fund as the largest tokenized fund in the world.",
+        "In May 2026, Moody's assigned BUIDL an Aaa-mf money-market-fund assessment, according to Securitize's July 2026 disclosure; the assessment is an opinion and not a guarantee.",
+        "By mid-2026, product development had shifted from proving issuance toward adding practical treasury, network and collateral utility."
+      ],
+      successFactors: [
+        "A recognizable underlying asset strategy rather than a token-first proposition.",
+        "Regulated investor onboarding, placement and transfer-agent responsibilities.",
+        "Multiple custody and network integrations without removing product restrictions.",
+        "Utility beyond holding, including controlled transfers, redemptions and collateral use."
+      ],
+      limitations: [
+        "BUIDL is available only to eligible investors and is not a retail cash substitute.",
+        "A blockchain token does not remove manager, custodian, administrator, transfer-agent or counterparty dependencies.",
+        "Reported AUM and integrations can change; dated figures should not be read as current balances or investment recommendations."
+      ],
+      sourceRecords: [
+        "BlackRock USD Institutional Digital Liquidity Fund — SEC Form D, filed March 18, 2024.",
+        "Securitize — BlackRock-led strategic funding and BUIDL operating description, May 1, 2024.",
+        "Securitize — Wormhole deployment and BUIDL AUM disclosure, January 28, 2025.",
+        "BlackRock — 2026 Chairman's Letter.",
+        "Securitize — OKX, BlackRock and Standard Chartered collateral framework, April 28, 2026.",
+        "Securitize — Second Quarter 2026 Results, August 12, 2026."
+      ]
+    }
+  },
+  {
+    slug: "jpmorgan-kinexys-intraday-repo-collateral-case-study",
+    title: "J.P. Morgan Kinexys Intraday Repo and Collateral",
+    industry: "Verified Institutional Case Study",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Institutional banking district representing repo and collateral markets",
+    visualLabel: "Live Financing",
+    visualKicker: "Kinexys",
+    summary: "How J.P. Morgan uses programmed cash and tokenized collateral entitlements to support intraday repo, delivery-versus-payment and collateral mobility.",
+    seoDescription: "Research J.P. Morgan Kinexys as a verified intraday repo and tokenized-collateral use case, including workflow, results, controls and 2026 updates.",
+    problem: "Traditional intraday financing and collateral movement can involve sequential settlement, operating cutoffs, duplicated records and idle liquidity while participants wait for cash and collateral legs to complete.",
+    stack: ["Permissioned blockchain platform", "Blockchain deposit accounts", "Tokenized collateral entitlements", "Smart-contract trade lifecycle", "Delivery-versus-payment settlement", "Custody and operational reconciliation"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Broker-Dealers and Market Infrastructure", href: "/vendors/broker-dealers" }
+    ],
+    example: "A live bank-led financing workflow supported by Kinexys Digital Assets. Related 2026 interoperability work is identified separately as a trial rather than presented as production volume.",
+    caseStudy: {
+      company: "JPMorgan Chase",
+      status: "Live institutional financing network",
+      verifiedThrough: "September 25, 2026",
+      background: [
+        "J.P. Morgan introduced its blockchain-based intraday repo application in 2020. The service brings cash and collateral entitlements into a shared programmed workflow so the parties can settle and mature repo trades within the day.",
+        "The business now sits within Kinexys Digital Assets and Digital Financing. It targets institutional liquidity and collateral operations rather than public, anonymous lending.",
+        "J.P. Morgan also developed the Tokenized Collateral Network to move ownership rights or security interests in traditional assets for collateral obligations."
+      ],
+      operatingModel: [
+        { title: "Pre-trade preparation", detail: "The borrower segregates eligible collateral and the lender funds a blockchain deposit account. The application verifies collateral before the trade is proposed." },
+        { title: "Trade agreement", detail: "The parties negotiate and cryptographically approve terms, including settlement time, maturity and interest treatment." },
+        { title: "Atomic-style settlement", detail: "Cash and the collateral entitlement transfer near-simultaneously through delivery versus payment, with a shared record of transaction status." },
+        { title: "Maturity and release", detail: "Cash plus interest is coordinated at maturity and the collateral entitlement returns to the borrower, with the workflow feeding existing records and reporting." }
+      ],
+      milestones: [
+        { date: "November 2020", title: "Intraday repo launch", detail: "The first Kinexys Digital Assets application began supporting intraday repo transactions using tokenized cash and collateral." },
+        { date: "October 2023", title: "Tokenized Collateral Network launch", detail: "A live transaction used tokenized money-market-fund shares as collateral for an over-the-counter derivatives obligation." },
+        { date: "2024-2025", title: "Scaled network activity", detail: "J.P. Morgan reported growing transaction volumes across Kinexys. Network-wide statistics cover multiple Kinexys products and should not be read as repo-only volume." },
+        { date: "May 2026", title: "Project Acacia interoperability trial", detail: "J.P. Morgan, Commonwealth Bank of Australia, ASX and HQLA⁽ˣ⁾ completed a controlled repo settlement trial using tokenized securities and two forms of digital money." }
+      ],
+      outcomes: [
+        { value: "56%", label: "Provider-reported borrowing-rate decrease", context: "J.P. Morgan reported this result for one anonymized global financial institution compared with its traditional intraday credit funding solution." },
+        { value: "Minutes", label: "Repo settlement window", context: "Digital Financing is designed to settle repo transactions in minutes with near-simultaneous cash and collateral movement." },
+        { value: "$4T+", label: "Kinexys transaction volume by May 2026", context: "This is a Kinexys-wide company-reported figure, not a Digital Financing-only or repo-only result." }
+      ],
+      updates: [
+        "J.P. Morgan's May 2026 Project Acacia announcement said Kinexys had processed more than $4 trillion since inception and averaged $7 billion daily across the broader network.",
+        "Project Acacia demonstrated interoperability among Kinexys, CBA's Gravital platform, HQLA⁽ˣ⁾ and ASX in a controlled environment; it should not be described as a generally available Australian repo market.",
+        "The latest product direction expands from intraday repo toward broader tokenized collateral, fund and cross-network settlement services."
+      ],
+      successFactors: [
+        "A high-value institutional problem with measurable funding and settlement costs.",
+        "Known counterparties and legally established repo and collateral relationships.",
+        "Cash and collateral represented in one coordinated transaction lifecycle.",
+        "Integration with custody and existing operational systems rather than a standalone ledger demo."
+      ],
+      limitations: [
+        "Most publicly reported efficiency results come from J.P. Morgan's own product materials and should be independently tested by buyers.",
+        "Kinexys-wide transaction volume includes multiple products and cannot be attributed entirely to repo or tokenized collateral.",
+        "Permissioned network results do not automatically transfer to public-chain or anonymous-counterparty designs."
+      ],
+      sourceRecords: [
+        "J.P. Morgan — Digital Financing product and case-study materials.",
+        "J.P. Morgan — Blockchain asset tokenization with Kinexys and Tokenized Collateral Network overview.",
+        "J.P. Morgan — The Evolution of Digital Assets, Securities Services.",
+        "J.P. Morgan — Project Acacia trial announcement, May 18, 2026.",
+        "J.P. Morgan — Kinexys platform statistics and product descriptions, reviewed September 2026."
+      ]
+    }
+  },
+  {
+    slug: "siemens-digital-bond-central-bank-money-case-study",
+    title: "Siemens Digital Bond and Central-Bank-Money Settlement",
+    industry: "Verified Corporate Case Study",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Corporate treasury team reviewing a digital bond transaction",
+    visualLabel: "Settled in Minutes",
+    visualKicker: "Siemens Bond",
+    summary: "How Siemens progressed from a €60 million public-blockchain bond to a €300 million issuance settled automatically in central bank money within minutes.",
+    seoDescription: "Research Siemens' verified digital-bond use case, from its 2023 public-blockchain issuance to automated central-bank-money settlement in 2024.",
+    problem: "Digital securities can shorten issuance and settlement workflows, but only if the legal register, investor access, security leg and payment leg remain synchronized with clear finality.",
+    stack: ["German electronic-securities framework", "Digital bond register", "Permissioned DLT settlement network", "Central-bank-money trigger solution", "Institutional investor and banking roles", "Treasury reconciliation"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Legal and Regulatory Vendors", href: "/vendors/legal-regulatory-vendors" },
+      { label: "Blockchain Development Companies", href: "/vendors/blockchain-development-companies" }
+    ],
+    example: "Two completed Siemens bond issuances under Germany's Electronic Securities Act, showing a progression from digital issuance with conventional payment to automated DLT settlement in central bank money.",
+    caseStudy: {
+      company: "Siemens AG",
+      status: "Two completed digital bond issuances",
+      verifiedThrough: "September 25, 2026",
+      background: [
+        "Germany's Electronic Securities Act created a legal route for issuing securities without a paper global certificate. Siemens used this framework for its first blockchain-based digital bond in February 2023.",
+        "The first bond had a €60 million volume and one-year maturity. It used a public blockchain and was sold directly to investors, while the payment leg still moved through conventional bank accounts.",
+        "In September 2024, Siemens issued a second one-year digital bond of €300 million. This transaction used SWIAT's permissioned blockchain and the Bundesbank Trigger Solution to settle in central bank money."
+      ],
+      operatingModel: [
+        { title: "Legal issuance", detail: "The instrument was issued under the German electronic-securities framework, preserving a legally recognized registry and defined issuer obligations." },
+        { title: "Digital register", detail: "DekaBank acted as bond registrar for the 2024 issuance while the security was recorded through the SWIAT network." },
+        { title: "Institutional distribution", detail: "BayernLB, DekaBank, DZ BANK, Helaba and LBBW invested in the €300 million bond." },
+        { title: "Payment settlement", detail: "Deutsche Bank coordinated the central-bank-money leg using the Bundesbank Trigger Solution, synchronizing payment with the digital security transaction." }
+      ],
+      milestones: [
+        { date: "February 2023", title: "First digital bond", detail: "Siemens completed a €60 million, one-year bond on a public blockchain. Conventional bank payment contributed to a two-day completion period." },
+        { date: "September 2024", title: "Second, larger issuance", detail: "Siemens completed a €300 million, one-year bond using a permissioned blockchain and central-bank-money settlement." },
+        { date: "September 2024", title: "Automated settlement", detail: "Siemens reported that the second transaction was processed automatically within minutes and that settlement risk was almost fully eliminated for the participating parties." },
+        { date: "June 2025", title: "Eurosystem assessment", detail: "The ECB cited the Siemens issuance among the high-profile transactions completed during its exploratory work on DLT settlement in wholesale central bank money." }
+      ],
+      outcomes: [
+        { value: "€300M", label: "Second digital-bond volume", context: "Five times the size of Siemens' first €60 million blockchain bond." },
+        { value: "Minutes", label: "Reported 2024 settlement time", context: "Compared with two days for the 2023 transaction, according to Siemens." },
+        { value: "CeBM", label: "Central-bank-money settlement", context: "The Bundesbank Trigger Solution connected the payment leg to the DLT-based security transaction." }
+      ],
+      updates: [
+        "The ECB's 2025 review treated the Siemens transaction as evidence of demand for central-bank-money settlement of DLT-based securities.",
+        "The 2024 bond matured after one year; the reviewed public materials establish successful issuance and settlement but do not provide a public, transaction-level operating-cost comparison.",
+        "No later Siemens digital-bond issuance was identified in the Siemens and ECB records reviewed through September 25, 2026."
+      ],
+      successFactors: [
+        "A clear legal route under Germany's Electronic Securities Act.",
+        "A bounded institutional transaction with named registrar, investors and settlement bank.",
+        "Integration of the cash leg rather than measuring only the token transfer.",
+        "A second issuance that applied lessons from the first and materially increased scale."
+      ],
+      limitations: [
+        "The transaction involved a controlled participant set and does not prove secondary-market liquidity or universal interoperability.",
+        "Siemens' statement that settlement risk was almost fully eliminated is an issuer assessment, not an independent quantified risk study.",
+        "Minutes-level settlement depended on participating infrastructure and central-bank connectivity that may not be available to every issuer."
+      ],
+      sourceRecords: [
+        "Siemens — First digital bond on blockchain, February 14, 2023.",
+        "Siemens — Another digital bond successfully issued on blockchain, September 4, 2024.",
+        "European Central Bank — Exploratory work on new technologies for wholesale central bank money settlement, June 2025.",
+        "European Central Bank — Annex II, comprehensive overview of trials and experiments, June 2025."
+      ]
+    }
+  },
   {
     slug: "crypto-exchange-custody-wallet-governance-settlement",
     title: "Crypto Exchange Custody, Wallet Governance and Settlement",

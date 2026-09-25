@@ -44,11 +44,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/jobs`, lastModified: "2026-07-07", changeFrequency: "daily", priority: 0.84 },
     { url: `${siteUrl}/tokenization-readiness-assessment-tool`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.96 },
     { url: `${siteUrl}/family-office-service-stack-builder`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.94 },
-    { url: `${siteUrl}/use-cases`, lastModified: "2026-09-24", changeFrequency: "weekly", priority: 0.92 },
+    { url: `${siteUrl}/use-cases`, lastModified: "2026-09-25", changeFrequency: "weekly", priority: 0.92 },
     ...useCases.map((useCase) => ({
       url: `${siteUrl}/use-cases/${useCase.slug}`,
-      lastModified: ["crypto-exchange-custody-wallet-governance-settlement", "digital-asset-tax-reporting-cost-basis-operations"].includes(useCase.slug)
-        ? "2026-09-24"
+      lastModified: [
+        "blackrock-buidl-tokenized-treasury-fund-case-study",
+        "jpmorgan-kinexys-intraday-repo-collateral-case-study",
+        "siemens-digital-bond-central-bank-money-case-study"
+      ].includes(useCase.slug)
+        ? "2026-09-25"
+        : ["crypto-exchange-custody-wallet-governance-settlement", "digital-asset-tax-reporting-cost-basis-operations"].includes(useCase.slug)
+          ? "2026-09-24"
         : ["fiat-stablecoin-funding-redemption", "investor-wallet-onboarding-custody"].includes(useCase.slug)
           ? "2026-09-22"
           : "2026-09-16",

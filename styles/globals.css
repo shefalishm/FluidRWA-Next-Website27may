@@ -14450,6 +14450,20 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
 .uc-faq p { margin: 18px 0 0; }
 .uc-sources a { display: inline-flex; align-items: baseline; gap: 10px; color: #2166a7; font-size: 14px; overflow-wrap: anywhere; }
 .uc-page .uc-sources p { font-size: 13px; }
+.uc-case-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--uc-border); border-bottom: 1px solid var(--uc-border); margin-top: 30px; }
+.uc-case-facts > div { padding: 20px 22px 20px 0; }
+.uc-case-facts > div + div { border-left: 1px solid var(--uc-border); padding-left: 22px; }
+.uc-case-facts span { display: block; margin-bottom: 7px; color: #68778a; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.uc-case-facts strong { display: block; color: #13243d; font-size: 15px; line-height: 1.45; }
+.uc-page .uc-case-date { margin: 4px 0 2px; color: #2166a7; font-size: 11px; font-weight: 750; text-transform: uppercase; }
+.uc-outcome-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--uc-border); border-bottom: 1px solid var(--uc-border); margin: 28px 0 22px; }
+.uc-outcome-grid > div { padding: 26px 22px 24px 0; }
+.uc-outcome-grid > div + div { border-left: 1px solid var(--uc-border); padding-left: 22px; }
+.uc-outcome-grid strong { display: block; color: #2166a7; font-size: 32px; line-height: 1.1; }
+.uc-page .uc-outcome-grid h3 { margin: 12px 0 8px !important; font-size: 16px !important; }
+.uc-outcome-grid p { margin: 0; font-size: 13px !important; line-height: 1.65 !important; }
+.uc-page .uc-evidence-note { color: #68778a; font-size: 13px; }
+.uc-source-record li { font-size: 14px; }
 .uc-page .uc-updated { color: #68778a; margin: 28px 0 0; }
 .uc-library-date { padding-top: 4px; padding-bottom: 32px; }
 .uc-hub-cta { padding: 54px 0; background: #edf5fa; border-top: 1px solid var(--uc-border); border-bottom: 1px solid var(--uc-border); }
@@ -14498,6 +14512,9 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .uc-page .uc-workflow h3 { margin-top: 3px !important; font-size: 19px !important; }
   .uc-article .uc-capabilities { grid-template-columns: 1fr; gap: 0; }
   .uc-reference, .uc-not-fit { padding: 20px; }
+  .uc-case-facts, .uc-outcome-grid { grid-template-columns: 1fr; }
+  .uc-case-facts > div, .uc-outcome-grid > div { padding: 18px 0; }
+  .uc-case-facts > div + div, .uc-outcome-grid > div + div { border-left: 0; border-top: 1px solid var(--uc-border); padding-left: 0; }
   .uc-hub-cta { padding: 36px 0; }
   .uc-related { padding: 40px 0 48px; }
 }
