@@ -243,6 +243,209 @@ const baseUseCases: UseCase[] = [
     }
   },
   {
+    slug: "visa-usdc-stablecoin-settlement-case-study",
+    title: "Visa USDC Settlement for Issuers and Acquirers",
+    industry: "Verified Institutional Case Study",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Payment operations team reviewing an institutional settlement workflow",
+    visualLabel: "Live Settlement",
+    visualKicker: "Visa USDC",
+    summary: "How Visa introduced USDC as a settlement option for issuer and acquirer obligations while preserving the consumer card experience and existing network controls.",
+    seoDescription: "Research Visa USDC settlement as a verified institutional use case, including the operating model, bank participants, treasury benefits, controls, results and updates.",
+    problem: "Card issuers and acquirers operate across banking cutoffs, weekends and prefunding requirements. A stablecoin settlement option can extend availability, but it still needs approved participants, reserve and liquidity management, blockchain operations, reconciliation and network-level controls.",
+    stack: ["VisaNet settlement obligations", "USDC settlement asset", "Supported blockchain network", "Issuer and acquirer treasury operations", "Banking and stablecoin liquidity", "Reconciliation and compliance controls"],
+    vendorCategories: [
+      { label: "Stablecoin Infrastructure Providers", href: "/vendors/stablecoin-infrastructure-providers" },
+      { label: "Fiat On and Off Ramp Providers", href: "/vendors/fiat-on-off-ramp-providers" },
+      { label: "Compliance Infrastructure Providers", href: "/vendors/compliance-infrastructure-providers" }
+    ],
+    example: "Visa began experimenting with USDC settlement in 2021, expanded the capability internationally and launched U.S. settlement with initial banking participants in December 2025. The change affects the institutional settlement leg, not what cardholders or merchants see at checkout.",
+    caseStudy: {
+      company: "Visa",
+      status: "Live stablecoin settlement with expanding institutional access",
+      verifiedThrough: "September 26, 2026",
+      background: [
+        "Visa's card network normally settles obligations between participating financial institutions through conventional banking rails. That model is reliable, but settlement calendars and banking hours can constrain liquidity timing for digital-asset businesses operating continuously.",
+        "Visa first experimented with USDC settlement in 2021 and later enabled selected partners to fulfil settlement obligations using the fully reserved dollar stablecoin on supported blockchain networks.",
+        "In December 2025, Visa announced U.S. USDC settlement with Cross River Bank and Lead Bank as initial participants. Consumers continued paying with cards and merchants continued receiving ordinary card-network settlement; the change was in the institutional treasury layer."
+      ],
+      operatingModel: [
+        { title: "Calculate the network obligation", detail: "VisaNet continues to calculate what an issuer or acquirer owes through the network's existing transaction and settlement processes." },
+        { title: "Fund approved USDC liquidity", detail: "The participating institution maintains or sources sufficient USDC and manages bank, stablecoin and blockchain liquidity for the applicable settlement window." },
+        { title: "Transfer on a supported network", detail: "USDC is transferred over an approved blockchain to satisfy the institutional settlement obligation. The blockchain transfer does not replace Visa's participant approval, compliance or reconciliation requirements." },
+        { title: "Reconcile treasury and network records", detail: "The participant reconciles the onchain transfer, Visa settlement data, stablecoin balances and internal treasury ledger, including failed or delayed transfers." }
+      ],
+      milestones: [
+        { date: "2021", title: "Initial USDC settlement experiment", detail: "Visa began testing how a card-network participant could settle obligations in USDC rather than relying solely on fiat settlement rails." },
+        { date: "2023-2025", title: "International expansion", detail: "Visa expanded stablecoin settlement pilots across multiple regions and added support for additional approved networks and stablecoins." },
+        { date: "December 2025", title: "U.S. launch", detail: "Cross River Bank and Lead Bank began settling selected Visa obligations in USDC over Solana, with broader availability planned through 2026." },
+        { date: "September 2026", title: "Higher reported scale", detail: "Visa reported that stablecoin settlement volume had surpassed a $20 billion annualized run rate, showing continued movement from pilot activity toward repeat institutional operations." }
+      ],
+      outcomes: [
+        { value: "7 days", label: "Settlement availability", context: "Visa describes USDC settlement as supporting weekend and holiday activity beyond the conventional five-business-day window." },
+        { value: "$3.5B+", label: "Annualized run rate reported in November 2025", context: "A dated Visa metric from before the U.S. launch; later Visa materials reported further growth." },
+        { value: "2 banks", label: "Initial U.S. participants named", context: "Cross River Bank and Lead Bank were identified as the first U.S. banking participants in the December 2025 announcement." }
+      ],
+      updates: [
+        "Visa planned broader U.S. availability through 2026 while continuing active stablecoin settlement programs in other regions.",
+        "By September 2026, Visa stated that stablecoin settlement volume had passed a $20 billion annualized run rate.",
+        "The operating model remains a choice within established card-network settlement, not a replacement for card acceptance, issuer controls or merchant acquiring."
+      ],
+      successFactors: [
+        "The stablecoin is applied to a defined institutional settlement obligation rather than offered as a general-purpose token experiment.",
+        "The consumer and merchant experience remains unchanged while treasury operations gain an additional settlement rail.",
+        "Participation is limited to approved institutions, networks and settlement configurations.",
+        "The workflow connects onchain transfers to existing Visa settlement data and operational accountability."
+      ],
+      limitations: [
+        "Reported volume is network-level and does not disclose every participant, corridor or unit-economics assumption.",
+        "Seven-day capability does not remove stablecoin liquidity, banking, blockchain, operational or regulatory dependencies.",
+        "Availability depends on Visa approval, jurisdiction, supported networks and the participant's treasury readiness."
+      ],
+      sourceRecords: [
+        "Visa — U.S. USDC settlement launch and initial bank participants, December 16, 2025.",
+        "Visa — Annual Report chairman and CEO message describing stablecoin settlement activity and network strategy.",
+        "Visa — Credit Coop: financing infrastructure for stablecoin-linked card issuers, updated September 8, 2026."
+      ]
+    }
+  },
+  {
+    slug: "dtcc-tokenized-collateral-appchain-case-study",
+    title: "DTCC Tokenized Collateral and Collateral AppChain",
+    industry: "Verified Institutional Case Study",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Market infrastructure team monitoring collateral data and settlement controls",
+    visualLabel: "Collateral Infrastructure",
+    visualKicker: "DTCC AppChain",
+    summary: "How DTCC used a live industry experiment to test multi-asset tokenized collateral, automated rules and cross-network mobility before moving toward production infrastructure.",
+    seoDescription: "Research DTCC's Great Collateral Experiment and Collateral AppChain, including the operating model, results, production path, controls and limitations.",
+    problem: "Collateral is fragmented across custodians, venues, jurisdictions and settlement systems. Institutions may know that sufficient assets exist but still be unable to mobilize them quickly enough to meet an obligation without manual instructions, buffers and intraday funding.",
+    stack: ["Tokenized collateral representations", "Collateral AppChain", "Eligibility and policy rules", "Cross-network interoperability", "Custody and authoritative records", "Settlement and audit evidence"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
+      { label: "Oracles and Proof of Reserve", href: "/vendors/oracles-data-proof-of-reserve" }
+    ],
+    example: "DTCC announced its digital collateral platform in April 2025, publicly demonstrated multi-asset workflows in the Great Collateral Experiment and described the Collateral AppChain in 2026 as the production infrastructure intended to carry those lessons forward.",
+    caseStudy: {
+      company: "DTCC",
+      status: "Publicly demonstrated workflow moving toward production infrastructure",
+      verifiedThrough: "September 26, 2026",
+      background: [
+        "Collateral protects financial markets, but eligible assets often remain locked inside separate books, custodians and market infrastructures. Moving them can take hours and require duplicated records and operational coordination.",
+        "DTCC announced a digital collateral management platform in April 2025 and convened institutions for the Great Collateral Experiment. The demonstration tested whether tokenized securities, stablecoins, tokenized money-market funds, crypto assets and other instruments could operate inside a shared control framework.",
+        "The experiment did not prove that every legal or operational barrier had disappeared. Its significance was the demonstration of rule-driven collateral movement and interoperability without requiring firms to abandon existing infrastructure."
+      ],
+      operatingModel: [
+        { title: "Represent eligible assets", detail: "Assets or entitlements are represented digitally while custody, legal ownership and authoritative records remain mapped to the existing market structure." },
+        { title: "Apply collateral rules", detail: "Eligibility, concentration, ownership and movement rules are evaluated before an asset can be mobilized for a particular obligation." },
+        { title: "Move across a shared application layer", detail: "The Collateral AppChain is designed as a multi-asset deployment layer that can coordinate activity across different networks instead of requiring one universal blockchain." },
+        { title: "Reconcile and preserve controls", detail: "Participants need consistent transaction state, audit evidence and reconciliation between the digital collateral record, custody system and existing books." }
+      ],
+      milestones: [
+        { date: "April 2, 2025", title: "Platform announced", detail: "DTCC announced a digital collateral management platform and an industry demonstration focused on tokenized real-time collateral." },
+        { date: "April 23, 2025", title: "Great Collateral Experiment", detail: "The live demonstration moved assets onchain, enforced rules automatically and tested interoperability across asset and participant types." },
+        { date: "April 2026", title: "One-year results published", detail: "DTCC reported that demonstrated settlement compressed from hours into seconds and that the experiment changed the market discussion around practical collateral mobility." },
+        { date: "May-June 2026", title: "Production path articulated", detail: "DTCC described the Collateral AppChain as production-oriented infrastructure for multi-asset and multichain collateral workflows and published the business case for continued development." }
+      ],
+      outcomes: [
+        { value: "Seconds", label: "Demonstrated settlement time", context: "DTCC contrasted the experiment's rule-driven onchain settlement with processes that can otherwise take hours." },
+        { value: "Multi-asset", label: "Collateral scope", context: "The model covered tokenized securities, stablecoins, tokenized money-market funds, crypto assets and other tokenized instruments." },
+        { value: "Multichain", label: "Architecture objective", context: "The production design assumes several networks and treats interoperability as a core requirement rather than a later feature." }
+      ],
+      updates: [
+        "DTCC described the Collateral AppChain as the route from experiment to production infrastructure in May 2026.",
+        "The design emphasizes integration with existing market structures rather than requiring institutions to replace all custody and settlement systems.",
+        "Production adoption still depends on legal treatment, participant onboarding, interoperability standards and regulator engagement."
+      ],
+      successFactors: [
+        "The experiment included several asset types and market roles instead of testing a single isolated token.",
+        "Rules and controls were demonstrated alongside asset movement.",
+        "The architecture accepts a multichain future and attempts to reduce collateral silos through an application layer.",
+        "DTCC connected experimentation to a stated production-infrastructure roadmap."
+      ],
+      limitations: [
+        "A successful industry demonstration is not the same as market-wide production adoption or guaranteed capital savings.",
+        "Tokenized collateral still depends on authoritative ownership, valuation, custody, enforceability and default procedures.",
+        "Published materials do not provide every participant's implementation cost, legal conclusion or realized balance-sheet benefit."
+      ],
+      sourceRecords: [
+        "DTCC — New platform for tokenized real-time collateral management, April 2, 2025.",
+        "DTCC — One Year Later: How the Great Collateral Experiment Changed the Conversation, April 29, 2026.",
+        "DTCC — The Collateral AppChain: From Experiment to Production Infrastructure, May 15, 2026.",
+        "DTCC — Building the Business Case for Tokenized Collateral, June 8, 2026."
+      ]
+    }
+  },
+  {
+    slug: "euroclear-digital-securities-eurosystem-collateral-case-study",
+    title: "Euroclear Digital Securities and Eurosystem Collateral",
+    industry: "Verified Institutional Case Study",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Capital-markets team reviewing a digital securities issuance and settlement process",
+    visualLabel: "Digital Market Infrastructure",
+    visualKicker: "Euroclear D-FMI",
+    summary: "How Euroclear connects DLT-native issuance to regulated market infrastructure, conventional secondary-market access and the Eurosystem's 2026 collateral framework.",
+    seoDescription: "Research Euroclear D-FMI and DLT securities as Eurosystem collateral, including issuance, settlement, eligibility, operating controls and limitations.",
+    problem: "A digitally issued bond needs more than a token contract. Issuers and investors need legally recognized issuance, distribution, settlement, safekeeping, secondary-market access and, where relevant, eligibility within existing collateral frameworks.",
+    stack: ["Euroclear D-FMI and Digital Securities Issuance", "Digital Native Notes", "CSDR-compliant settlement", "Euroclear Bank secondary-market connection", "TARGET2-Securities compatibility", "Eurosystem collateral eligibility rules"],
+    vendorCategories: [
+      { label: "Tokenization Platforms", href: "/vendors/tokenization-platforms" },
+      { label: "Legal and Regulatory Vendors", href: "/vendors/legal-regulatory-vendors" },
+      { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" }
+    ],
+    example: "Euroclear's D-FMI supports issuance and primary settlement of digital native notes on DLT while connecting secondary activity to Euroclear Bank. From March 30, 2026, qualifying DLT-issued marketable assets at eligible CSDs could enter the Eurosystem collateral framework under existing requirements.",
+    caseStudy: {
+      company: "Euroclear",
+      status: "Live digital issuance infrastructure within an expanded collateral framework",
+      verifiedThrough: "September 26, 2026",
+      background: [
+        "Euroclear developed its Digital Financial Market Infrastructure to support fully dematerialized international securities issued using distributed ledger technology. Its first service, Digital Securities Issuance, supports issuance, distribution and primary settlement of Digital Native Notes.",
+        "The model does not isolate the digital bond from the existing market. D-FMI connects to Euroclear Bank's traditional settlement platform so secondary-market investors can retain access to established trading and liquidity-management facilities.",
+        "The ECB announced that, from March 30, 2026, marketable assets issued through DLT-based services at qualifying CSDs could be eligible as Eurosystem collateral if they satisfy the same eligibility and settlement requirements applied to other marketable assets."
+      ],
+      operatingModel: [
+        { title: "Structure an eligible security", detail: "The issuer, agents and legal advisers structure a debt security that satisfies applicable securities law, documentation and investor requirements." },
+        { title: "Issue and distribute on D-FMI", detail: "The Digital Securities Issuance service records the digital native note, distributes it to the investor structure and supports primary-market settlement." },
+        { title: "Connect secondary operations", detail: "Euroclear links the digital issuance environment with its traditional settlement infrastructure for secondary trading and liquidity operations." },
+        { title: "Mobilize qualifying collateral", detail: "Where the security satisfies Eurosystem criteria and is available through an eligible CSD settlement arrangement reachable via T2S, a counterparty can mobilize it under existing collateral-management practices." }
+      ],
+      milestones: [
+        { date: "October 2023", title: "First Digital Native Note", detail: "Euroclear launched D-FMI with a World Bank digital bond, establishing a production issuance and settlement model for international debt securities." },
+        { date: "2024-2025", title: "Additional issuer adoption", detail: "Euroclear reported further digital native note activity, including sovereign, supranational, financial-institution and emerging-market issuance structures." },
+        { date: "January 27, 2026", title: "ECB eligibility decision", detail: "The ECB announced that qualifying DLT-based marketable assets issued through CSD services would enter the Eurosystem collateral framework." },
+        { date: "March 30, 2026", title: "Collateral eligibility became operational", detail: "The Eurosystem began accepting qualifying DLT-issued marketable assets under the existing eligibility, settlement and collateral-management framework." }
+      ],
+      outcomes: [
+        { value: "Same day", label: "Digital issuance workflow", context: "Euroclear states that pricing, new-security distribution and related settlement can occur on the same day within the D-FMI model." },
+        { value: "€100M", label: "French-law DNN example", context: "Caisse des Dépôts issued a €100 million digital native note on D-FMI during the ECB wholesale-settlement trials." },
+        { value: "March 30", label: "2026 eligibility start", context: "This is the date qualifying CSD-issued DLT assets became eligible for Eurosystem credit operations, subject to ordinary collateral criteria." }
+      ],
+      updates: [
+        "The Eurosystem treats qualifying CSD-issued DLT assets under the existing collateral framework rather than creating automatic eligibility for every tokenized security.",
+        "Assets must remain compatible with eligible securities settlement systems and reachable through TARGET2-Securities when mobilized.",
+        "The ECB is separately exploring how assets issued and settled entirely on DLT networks could become eligible in later stages."
+      ],
+      successFactors: [
+        "Digital issuance is connected to recognized CSD and secondary-market infrastructure.",
+        "The service preserves legal, settlement and investor-access responsibilities instead of treating token creation as the complete product.",
+        "Public-sector settlement trials and private infrastructure development progressed together.",
+        "Collateral eligibility gives qualifying digital securities a practical role in institutional liquidity operations."
+      ],
+      limitations: [
+        "Eurosystem eligibility is conditional; a DLT label does not make a security eligible by itself.",
+        "The initial framework still relies on CSD-operated eligible settlement systems and T2S-compatible representation when collateral is mobilized.",
+        "Issuer cost, secondary liquidity and investor demand remain security-specific and are not guaranteed by the infrastructure."
+      ],
+      sourceRecords: [
+        "Euroclear — Digital Financial Market Infrastructure and Digital Securities Issuance service description.",
+        "Euroclear — Digital assets eligible as Eurosystem collateral, April 14, 2026.",
+        "European Central Bank — Acceptance of DLT-based assets as eligible Eurosystem collateral, January 27, 2026.",
+        "European Central Bank — Financial Integration and Structure in the Euro Area, May 2026."
+      ]
+    }
+  },
+  {
     slug: "crypto-exchange-custody-wallet-governance-settlement",
     title: "Crypto Exchange Custody, Wallet Governance and Settlement",
     industry: "Exchanges and Digital Asset Markets",

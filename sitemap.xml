@@ -32,6 +32,11 @@
   <url><loc>https://www.fluidrwa.com/blog</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.fluidrwa.com/reports-research</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/tokenization</loc><lastmod>2026-06-06</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/centrifuge-vs-maple-vs-goldfinch-onchain-private-credit</loc><lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/falconx-vs-b2c2-vs-gsr-institutional-crypto-liquidity-otc</loc><lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/hqlax-vs-baton-systems-vs-fnality-institutional-settlement-collateral</loc><lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/ondo-vs-superstate-vs-franklin-templeton-tokenized-treasury-funds</loc><lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/rain-vs-immersve-vs-reap-stablecoin-card-issuing</loc><lastmod>2026-09-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/northern-trust-alternatives-digital-asset-custody-apis-reporting</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/stablecoin-as-a-service-buyer-guide-issuance-reserves-compliance</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/fenergo-vs-complyadvantage-vs-napier-ai-financial-crime-compliance</loc><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -39,7 +44,7 @@
   <url><loc>https://www.fluidrwa.com/blog/tokenized-asset-transfer-agent-rfp</loc><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/crypto-custody-insurance-coverage-due-diligence</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/stablecoin-payment-provider-rfp-questions</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/wallet-apis-asset-tokenization-platforms</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/apex-group-vs-iq-eq-vs-jtc-digital-asset-fund-administration</loc><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/au10tix-vs-idnow-vs-idenfy-identity-verification-kyc</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -101,7 +106,7 @@
   <url><loc>https://www.fluidrwa.com/blog/rossum-vs-nanonets-vs-google-document-ai</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/best-blockchain-development-companies-web3-rwa</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/blockaid-vs-blowfish-vs-hypernative-web3-security</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/blockaid-vs-blowfish-vs-hypernative-web3-security</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/complyadvantage-vs-unit21-vs-sardine-aml-fraud</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/safe-vs-squads-vs-fordefi-treasury-wallets</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/taurus-vs-metaco-vs-fireblocks-institutional-custody</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -146,10 +151,10 @@
   <url><loc>https://www.fluidrwa.com/blog/safe-vs-fordefi-vs-utila-wallet-infrastructure</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/the-graph-vs-goldsky-vs-subsquid-indexing-providers</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/chainlink-vs-pyth-vs-redstone-oracle-providers</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/layerzero-vs-wormhole-vs-axelar-interoperability</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/circle-vs-bridge-vs-bvnk-stablecoin-infrastructure</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/fireblocks-vs-bitgo-vs-copper-custody-providers</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/openzeppelin-vs-consensys-diligence-vs-minddeft-smart-contract-development</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>

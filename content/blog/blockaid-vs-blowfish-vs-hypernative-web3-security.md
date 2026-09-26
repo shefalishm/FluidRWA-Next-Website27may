@@ -2,8 +2,8 @@
 title: "Blockaid vs Blowfish vs Hypernative: Transaction Security Compared"
 description: "Compare Blockaid, Blowfish and Hypernative for wallet screening, transaction simulation, policy enforcement, protocol monitoring and incident response."
 date: "2026-08-21"
-reviewedDate: "2026-09-24"
-reviewedLabel: "September 24, 2026"
+reviewedDate: "2026-09-26"
+reviewedLabel: "September 26, 2026"
 category: "Security"
 slug: "blockaid-vs-blowfish-vs-hypernative-web3-security"
 image: "/assets/blog-images/blockaid-vs-blowfish-vs-hypernative-web3-security.svg"
@@ -43,6 +43,19 @@ Blockaid, Blowfish and Hypernative overlap around transaction risk, but they are
 - **Hypernative** combines pre-transaction simulation and policy enforcement with continuous production monitoring and automated response for protocols, treasuries and operational teams.
 
 None replaces secure engineering, an independent audit or a tested incident plan.
+
+## Is Blowfish a Blockchain Scam-Monitoring Platform?
+
+Blowfish is best understood as a pre-signing transaction-security layer for wallets. It simulates a proposed transaction and helps the wallet explain risky approvals, transfers or interactions before the user signs. That is narrower than continuous protocol monitoring and different from proving that smart-contract code is correct.
+
+| Buyer need | Natural starting point |
+|---|---|
+| Explain a transaction before the user signs | Blowfish |
+| Screen dApps, tokens, entities and transactions across an application | Blockaid |
+| Monitor protocol or treasury risk and trigger governed responses | Hypernative |
+| Prove smart-contract correctness before deployment | None of these; commission an independent audit and testing program |
+
+For a serious evaluation, build one labeled corpus containing confirmed malicious transactions, difficult legitimate interactions and ordinary user activity. Run the same corpus through each shortlisted product and compare misses, false positives, response time and the clarity of the warning shown to a real user.
 
 ## Comparison Table
 

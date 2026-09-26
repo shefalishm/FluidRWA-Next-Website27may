@@ -2,8 +2,8 @@
 title: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Crypto Analytics Compared"
 description: "Compare Chainalysis, TRM Labs, Elliptic and Cognyte for wallet screening, transaction monitoring, investigations, sanctions and crypto forensics."
 date: "2026-08-03"
-reviewedDate: "2026-09-22"
-reviewedLabel: "September 22, 2026"
+reviewedDate: "2026-09-26"
+reviewedLabel: "September 26, 2026"
 category: "Compliance"
 slug: "chainalysis-vs-trm-vs-elliptic-blockchain-analytics"
 image: "/assets/blog-images/chainalysis-vs-trm-vs-elliptic-blockchain-analytics.svg"
@@ -54,6 +54,19 @@ TRM Labs is often a strong fit for teams that want configurable risk rules, real
 Elliptic is often a strong fit for financial institutions, crypto businesses and compliance teams that need wallet screening, transaction monitoring, risk scoring, automatic rescreening and investigation-ready context.
 
 Cognyte is a distinct candidate for law-enforcement, public-safety and intelligence teams that want blockchain tracing connected to broader investigative analytics and suspect-identification workflows. A fintech looking for an embedded KYT API should not assume that this is the same procurement category.
+
+## Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Direct Decision
+
+The shortlist should follow the decision the system must support. Chainalysis, TRM Labs and Elliptic are natural starting points for private-sector wallet screening, transaction monitoring and crypto investigations. Cognyte is a more distinct candidate when a public-sector or intelligence team needs blockchain evidence connected to broader investigative data.
+
+| Required decision | Natural starting point | What must be proven |
+|---|---|---|
+| Should a deposit or withdrawal proceed? | Chainalysis, TRM Labs or Elliptic | Chain coverage, decision latency, alert quality, API behavior and retained evidence |
+| Can an analyst investigate an alert efficiently? | Chainalysis, TRM Labs or Elliptic | Trace depth, attribution confidence, case workflow, collaboration and exports |
+| Is sanctions or exposure risk rescreened over time? | Elliptic, Chainalysis or TRM Labs | Rescreening cadence, policy versions, historical impact and case reopening |
+| Can law enforcement connect crypto activity to a wider investigation? | Cognyte, alongside specialist blockchain analytics where required | Data fusion, access controls, evidentiary handling and analyst workflow |
+
+For private-sector compliance teams, Cognyte is usually an adjacent investigative-intelligence candidate rather than a direct substitute for an embedded KYT control. Treat any four-way shortlist as two related procurement questions until a vendor proves that it serves the exact operating workflow.
 
 ## What Each Provider Is Best For
 
