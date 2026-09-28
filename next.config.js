@@ -5,6 +5,10 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname),
+  generateBuildId: async () =>
+    process.env.NEXT_PUBLIC_BUILD_REVISION ||
+    process.env.VERCEL_GIT_COMMIT_SHA ||
+    `local-${Date.now()}`,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
