@@ -125,6 +125,49 @@ const manualCompanyProfiles = [
     additionalType: "Vetted Risk Management & Security Provider",
     logoPath: "/assets/company-logos/surestack.png",
     logoSource: "/assets/company-logos/surestack.png"
+  },
+  {
+    position: 1,
+    categoryDir: "node-as-a-service-rpc",
+    categoryRoute: "node-as-a-service-rpc-providers",
+    categoryTitle: "Node-as-a-Service and RPC Providers",
+    anchor: "nownodes",
+    name: "NOWNodes",
+    slug: "nownodes",
+    url: "https://nownodes.io/",
+    description:
+      "NOWNodes provides shared and dedicated blockchain node infrastructure, RPC APIs, WebSockets and block explorers across more than 120 networks through one account.",
+    fullDescription:
+      "NOWNodes is a blockchain infrastructure provider for teams that need access to a broad mix of major and emerging networks through one account. Its product range includes shared RPC access, dedicated single-tenant nodes, archive-node access, WebSockets and block explorers. NOWNodes publishes support for more than 120 blockchain networks and a 99.95% shared-service uptime SLA. Dedicated nodes are configured for one customer and one network, with no predefined request-per-second limit or monthly API-call quota; available throughput depends on the allocated hardware. Buyers should confirm current network availability, regional deployment options, method support, service levels and commercial terms directly with NOWNodes.",
+    address: { "@type": "PostalAddress", addressCountry: "Global" },
+    knowsAbout: [
+      "Blockchain RPC APIs",
+      "Shared Nodes",
+      "Dedicated Nodes",
+      "Archive Nodes",
+      "WebSockets",
+      "Block Explorers",
+      "Multi-chain Infrastructure"
+    ],
+    additionalType: "Multi-chain RPC and Dedicated Node Infrastructure",
+    logoPath: "/assets/company-logos/nownodes.svg",
+    logoSource: "https://nownodes.io/assets/media-kit/primary-logo.svg",
+    benefits: [
+      ["Broad network coverage", "Access more than 120 supported blockchain networks through one account and API-key workflow."],
+      ["Shared and dedicated deployment", "Choose shared RPC access or isolated, single-tenant nodes for production workloads."],
+      ["Dedicated capacity without preset RPS caps", "Dedicated-node throughput is governed by allocated hardware rather than a predefined request-per-second ceiling."],
+      ["Multiple access methods", "Use RPC APIs, WebSockets, archive access and block explorers where supported by the selected network and plan."],
+      ["Regional deployment options", "Confirm available regions and configure dedicated infrastructure closer to users or operational requirements."],
+      ["Published service targets", "NOWNodes publishes a 99.95% shared-service uptime SLA and separate dedicated-node service information."]
+    ],
+    productLinks: [
+      ["Main website", "https://nownodes.io/"],
+      ["Supported networks", "https://nownodes.io/nodes"],
+      ["Dedicated nodes", "https://nownodes.io/dedicated-nodes"],
+      ["Pricing", "https://nownodes.io/pricing"],
+      ["Documentation", "https://docs.nownodes.io/"],
+      ["Service status", "https://status.nownodes.io/"]
+    ]
   }
 ];
 
@@ -666,7 +709,7 @@ function patchCategoryCards(companies) {
       fs.writeFileSync(htmlPath, html);
     }
     if (body.includes(`/fluidrwa/${company.slug}`)) continue;
-    const articleRe = new RegExp(`(<article[^>]+id=["']${company.anchor || company.slug}["'][\\s\\S]*?)(<a class=["'](?:bc-visit|bc-provider-link)["'][^>]+>)`, "i");
+    const articleRe = new RegExp(`(<article[^>]+id=["']${company.anchor || company.slug}["'](?:(?!<\\/article>)[\\s\\S])*?)(<a class=["'](?:bc-visit|bc-provider-link)["'][^>]+>)`, "i");
     body = body.replace(articleRe, `$1<a class="bc-profile-link" href="/fluidrwa/${company.slug}">View Company Profile</a>$2`);
     html = `${head}${body}`;
     fs.writeFileSync(htmlPath, html);

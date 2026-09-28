@@ -3545,6 +3545,12 @@
     "domain": "chainstack.com",
     "source": "existing"
   },
+  "nownodes": {
+    "name": "NOWNodes",
+    "logo": "/assets/company-logos/nownodes.svg",
+    "domain": "nownodes.io",
+    "source": "official-media-kit"
+  },
   "infura": {
     "name": "Infura",
     "logo": "/assets/vendor-logos/infura.png",

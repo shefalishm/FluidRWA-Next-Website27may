@@ -1197,5 +1197,16 @@
     "logoSource": "/assets/company-logos/nowpayments.png",
     "logoPath": "/assets/company-logos/nowpayments.png",
     "researchedAt": "2026-08-31"
+  },
+  "nownodes": {
+    "name": "NOWNodes",
+    "slug": "nownodes",
+    "sourceUrl": "https://nownodes.io/",
+    "officialTitle": "NOWNodes",
+    "siteName": "NOWNodes",
+    "officialDescription": "NOWNodes provides shared and dedicated blockchain node infrastructure, RPC APIs, WebSockets and block explorers across more than 120 networks through one account.",
+    "logoSource": "https://nownodes.io/assets/media-kit/primary-logo.svg",
+    "logoPath": "/assets/company-logos/nownodes.svg",
+    "researchedAt": "2026-09-28"
   }
 }
