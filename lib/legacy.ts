@@ -15,8 +15,8 @@ type SeoOverride = {
 
 const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
-    title: "Top 10 RWA Tokenization Platforms: 2026 Buyer Guide",
-    description: "Compare 10 RWA tokenization platforms for funds, credit, real estate and digital securities by compliance, custody and lifecycle support.",
+    title: "Top 10 RWA Tokenization Platforms for 2026",
+    description: "Compare 10 RWA tokenization platforms by issuer fit, compliance, lifecycle support, custody needs and institutional use case.",
     heading: "Top 10 RWA tokenization platforms for 2026"
   },
   "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": {
@@ -30,14 +30,14 @@ const seoOverrides: Record<string, SeoOverride> = {
     heading: "Akash, io.net or Aethir?"
   },
   "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": {
-    title: "Chainalysis vs TRM vs Elliptic vs Cognyte (2026)",
-    description: "Compare Chainalysis, TRM Labs, Elliptic and Cognyte for wallet screening, KYT, investigations, sanctions controls and intelligence workflows.",
-    heading: "Chainalysis, TRM Labs, Elliptic or Cognyte?"
+    title: "Chainalysis vs TRM vs Elliptic vs Cognyte",
+    description: "Compare four crypto analytics platforms for wallet screening, transaction monitoring, sanctions, investigations and forensics.",
+    heading: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte"
   },
   "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
-    title: "Alchemy vs QuickNode vs Infura (2026): RPC Compared",
-    description: "Compare Alchemy, QuickNode and Infura by chain coverage, RPC and archive access, APIs, webhooks, reliability and developer fit.",
-    heading: "Alchemy, QuickNode or Infura?"
+    title: "Alchemy vs QuickNode vs Infura: RPC Compared",
+    description: "Compare Alchemy, QuickNode and Infura for RPC performance, chain coverage, webhooks, archive data, APIs and production support.",
+    heading: "Alchemy vs QuickNode vs Infura"
   },
   "blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers/index.html": {
     title: "Chainstack vs Alchemy vs QuickNode: Managed RPC",
@@ -46,8 +46,8 @@ const seoOverrides: Record<string, SeoOverride> = {
   },
   "blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax/index.html": {
     title: "TaxBit vs Ledgible vs Lukka: Crypto Accounting",
-    description: "Compare TaxBit, Ledgible and Lukka for crypto accounting, tax reporting, reconciliation, valuation, audit evidence and enterprise finance workflows.",
-    heading: "TaxBit, Ledgible or Lukka for enterprise finance?"
+    description: "Compare TaxBit, Ledgible and Lukka for crypto accounting, tax reporting, reconciliation, audit evidence and enterprise finance workflows.",
+    heading: "TaxBit vs Ledgible vs Lukka"
   },
   "blog/rwa-tokenization-platform-comparison-2026/index.html": {
     title: "RWA Tokenization Platform Comparison (2026)",
@@ -55,8 +55,8 @@ const seoOverrides: Record<string, SeoOverride> = {
     canonicalPath: "/blog/top-tokenization-companies-2026"
   },
   "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": {
-    title: "Anchorage vs BitGo vs Fireblocks: Institutional Custody Compared",
-    description: "Compare Anchorage Digital, BitGo and Fireblocks for regulated custody, MPC wallet infrastructure, approvals, settlement, reporting, recovery and APIs.",
+    title: "Anchorage vs BitGo vs Fireblocks: Custody",
+    description: "Compare Anchorage, BitGo and Fireblocks for regulated custody, MPC wallets, policy controls, settlement, recovery, reporting and APIs.",
     heading: "Anchorage vs BitGo vs Fireblocks"
   },
   "blog/alchemy-vs-moralis-vs-thirdweb-web3-development-platforms/index.html": {
@@ -353,13 +353,6 @@ function enhanceBlogDecisionPage(file: string, html: string) {
     /<p class="reviewed-line">Reviewed and updated by FluidRWA\s*·\s*([^<]+)<\/p>/i,
     '<p class="reviewed-line">Reviewed by <a href="/about">FluidRWA Research Team</a> · $1</p>'
   );
-  if (override) {
-    enhanced = enhanced.replace(
-      /(<p class="reviewed-line">Reviewed by <a href="\/about">FluidRWA Research Team<\/a>\s*·\s*)[^<]+(<\/p>)/i,
-      "$1September 22, 2026$2"
-    );
-  }
-
   const repeatedEvidenceLine = "Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.";
   const repeatedEvidenceCount = enhanced.split(repeatedEvidenceLine).length - 1;
   if (repeatedEvidenceCount >= 3) {
@@ -437,20 +430,6 @@ export function legacyMainHtml(file: string) {
   }
   renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
     (_match, links: string) => `<div class="buyer-guide-actions">${links.replace(/ · /g, "")}</div>`);
-  const buyerCategories: Record<string, string> = {
-    "vendors/custody-solutions/index.html": "Custody and wallets",
-    "vendors/tokenization-platforms/index.html": "Tokenization platform",
-    "vendors/blockchain-development/index.html": "Blockchain development",
-    "vendors/smart-contract-development/index.html": "Smart contract development",
-    "vendors/fiat-on-off-ramps/index.html": "Payments and stablecoins",
-    "blog/top-tokenization-companies-2026/index.html": "Tokenization platform"
-  };
-  const buyerCategory = buyerCategories[file];
-  if (buyerCategory && !file.startsWith("vendors/")) {
-    const briefHref = `/submit-requirement?category=${encodeURIComponent(buyerCategory)}&amp;source=buyer-guide`;
-    const nextSteps = `<aside class="buyer-next-step" aria-label="Plan your next step"><div class="buyer-next-step-copy"><p class="buyer-next-step-kicker">Buyer support</p><h2>Find the right providers for your project</h2><p>Already defining your requirements? Share your project brief. Still exploring tokenization? Start with the free readiness assessment.</p></div><div class="buyer-next-step-actions"><a class="buyer-next-step-primary" href="${briefHref}">Submit project requirements</a><a class="buyer-next-step-secondary" href="/tokenization-readiness-assessment-tool">Check tokenization readiness</a></div></aside>`;
-    renderedHtml = renderedHtml.replace(/<\/section>/i, `</section>${nextSteps}`);
-  }
   if (file === "vendor-ecosystem.html") {
     const index = html.match(/<script id="vendor-search-index-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
     if (index) {
