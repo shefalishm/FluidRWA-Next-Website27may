@@ -57,7 +57,7 @@ Published network counts and packaging change. Confirm the required network, reg
 
 ## NOWNodes
 
-NOWNodes publishes access to more than 120 blockchain networks from one account, with shared and dedicated products. Its service catalog includes RPC endpoints, archive nodes, WebSockets and block-explorer APIs. Dedicated nodes are positioned as isolated infrastructure for one network, while dedicated clusters and regional choices address higher-throughput or resilience requirements.
+[NOWNodes](https://nownodes.io/) publishes access to more than 120 blockchain networks from one account, with shared and dedicated products. Its service catalog includes RPC endpoints, archive nodes, WebSockets and block-explorer APIs. Dedicated nodes are positioned as isolated infrastructure for one network, while dedicated clusters and regional choices address higher-throughput or resilience requirements.
 
 **Strong fit:** Applications that need a broad long-tail chain catalog, a straightforward managed endpoint model and the option to move important workloads to dedicated infrastructure.
 
