@@ -150,7 +150,7 @@ const manualCompanyProfiles = [
       "Multi-chain Infrastructure"
     ],
     additionalType: "Multi-chain RPC and Dedicated Node Infrastructure",
-    logoPath: "/assets/company-logos/nownodes.svg",
+    logoPath: "/assets/company-logos/nownodes.webp",
     logoSource: "https://nownodes.io/assets/media-kit/primary-logo.svg",
     benefits: [
       ["Broad network coverage", "Access more than 120 supported blockchain networks through one account and API-key workflow."],
