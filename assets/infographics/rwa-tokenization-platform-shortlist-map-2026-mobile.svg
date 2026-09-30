@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1600" viewBox="0 0 900 1600" role="img" aria-labelledby="title desc">
+  <title id="title">RWA tokenization platform shortlist map for 2026</title>
+  <desc id="desc">Ten tokenization platforms grouped by regulated securities, permissioned infrastructure, issuer workflows, and bank or fund infrastructure, with five buyer diligence checks.</desc>
+  <rect width="900" height="1600" fill="#f7fbfd"/>
+  <rect width="900" height="258" fill="#10233f"/>
+  <rect x="48" y="42" width="250" height="34" rx="6" fill="#ffe36e"/>
+  <text x="173" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#10233f" letter-spacing="1.4">FLUIDRWA RESEARCH</text>
+  <text x="48" y="126" font-family="Arial, sans-serif" font-size="45" font-weight="800" fill="#ffffff">RWA Tokenization</text>
+  <text x="48" y="180" font-family="Arial, sans-serif" font-size="45" font-weight="800" fill="#ffffff">Platform Shortlist Map</text>
+  <text x="48" y="222" font-family="Arial, sans-serif" font-size="22" fill="#cfe8f6">Ten buyer starting points for 2026. Not ranked.</text>
+
+  <text x="48" y="308" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2670b7" letter-spacing="1.1">START WITH THE OPERATING MODEL</text>
+
+  <g transform="translate(48 340)">
+    <rect width="804" height="214" rx="8" fill="#ffffff" stroke="#bdd9ec" stroke-width="2"/>
+    <rect width="12" height="214" rx="6" fill="#2670b7"/>
+    <circle cx="58" cy="54" r="22" fill="#e9f4fb"/>
+    <text x="58" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#2670b7">01</text>
+    <text x="96" y="48" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#10233f">Regulated securities and market access</text>
+    <text x="96" y="88" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#10233f">Securitize  /  ADDX  /  InvestaX</text>
+    <rect x="96" y="120" width="650" height="54" rx="6" fill="#eef7fc"/>
+    <text x="118" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#36516d">Best starting point: regulated roles and market access</text>
+  </g>
+
+  <g transform="translate(48 578)">
+    <rect width="804" height="214" rx="8" fill="#ffffff" stroke="#d9cc76" stroke-width="2"/>
+    <rect width="12" height="214" rx="6" fill="#ffe36e"/>
+    <circle cx="58" cy="54" r="22" fill="#fff8ce"/>
+    <text x="58" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#8f7711">02</text>
+    <text x="96" y="48" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#10233f">Permissioned token infrastructure</text>
+    <text x="96" y="88" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#10233f">Tokeny  /  Polymath  /  Zoniqx</text>
+    <rect x="96" y="120" width="650" height="54" rx="6" fill="#fff9d8"/>
+    <text x="118" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#5f541f">Best starting point: transfer and identity rules</text>
+  </g>
+
+  <g transform="translate(48 816)">
+    <rect width="804" height="214" rx="8" fill="#ffffff" stroke="#99d9cf" stroke-width="2"/>
+    <rect width="12" height="214" rx="6" fill="#35b6a3"/>
+    <circle cx="58" cy="54" r="22" fill="#e4f8f4"/>
+    <text x="58" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#168270">03</text>
+    <text x="96" y="48" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#10233f">Issuer and real asset workflows</text>
+    <text x="96" y="88" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#10233f">Brickken  /  DigiShares</text>
+    <rect x="96" y="120" width="650" height="54" rx="6" fill="#e8f8f5"/>
+    <text x="118" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#28685f">Best starting point: asset servicing workflows</text>
+  </g>
+
+  <g transform="translate(48 1054)">
+    <rect width="804" height="214" rx="8" fill="#ffffff" stroke="#b8c4d2" stroke-width="2"/>
+    <rect width="12" height="214" rx="6" fill="#60748c"/>
+    <circle cx="58" cy="54" r="22" fill="#edf1f5"/>
+    <text x="58" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#4a5f77">04</text>
+    <text x="96" y="48" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#10233f">Bank and fund infrastructure</text>
+    <text x="96" y="88" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#10233f">Taurus  /  Libre</text>
+    <rect x="96" y="120" width="650" height="54" rx="6" fill="#f0f3f6"/>
+    <text x="118" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#4c6075">Best starting point: institutional operating fit</text>
+  </g>
+
+  <rect x="48" y="1304" width="804" height="218" rx="8" fill="#10233f"/>
+  <text x="78" y="1346" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#75cce8" letter-spacing="1.1">CONFIRM BEFORE SHORTLISTING</text>
+  <text x="78" y="1390" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Asset + investor fit  /  Regulated roles</text>
+  <text x="78" y="1427" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Transfer controls  /  Custody model</text>
+  <text x="78" y="1464" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Lifecycle servicing + distribution</text>
+  <text x="78" y="1500" font-family="Arial, sans-serif" font-size="16" fill="#cfe0ed">Verify current capabilities, contracts and regulatory scope.</text>
+  <text x="48" y="1570" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#53667d">FluidRWA Research Team  |  September 2026  |  fluidrwa.com</text>
+</svg>
