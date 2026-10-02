@@ -9,11 +9,12 @@ import { useCases } from "@/lib/useCases";
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoot = path.join(process.cwd(), "content/blog");
   const blogRoutes = fs.existsSync(blogRoot)
-    ? fs.readdirSync(blogRoot).filter((file) => file.endsWith(".md")).map((file) => {
+    ? fs.readdirSync(blogRoot).filter((file) => file.endsWith(".md")).flatMap((file) => {
         const raw = fs.readFileSync(path.join(blogRoot, file), "utf8");
+        if (/^redirectTo:\s*/m.test(raw)) return [];
         const slug = raw.match(/slug:\s*"([^"]+)"/)?.[1] || file.replace(/\.md$/, "");
         const reviewedDate = raw.match(/reviewedDate:\s*"([^"]+)"/)?.[1] || "2026-06-06";
-        return { url: `${siteUrl}/blog/${slug}`, lastModified: reviewedDate, changeFrequency: "monthly" as const, priority: 0.72 };
+        return [{ url: `${siteUrl}/blog/${slug}`, lastModified: reviewedDate, changeFrequency: "monthly" as const, priority: 0.72 }];
       })
     : [];
 

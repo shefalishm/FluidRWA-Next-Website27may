@@ -66,6 +66,7 @@ const nextConfig = {
       { source: "/vendors/:slug/index.html", destination: "/vendors/:slug", permanent: true },
       { source: "/blog/:slug/index.html", destination: "/blog/:slug", permanent: true }
       ,
+      { source: "/blog/rwa-tokenization-platform-comparison-2026", destination: "/blog/top-tokenization-companies-2026", permanent: true },
       // Preserve backlinks published with earlier draft slugs.
       { source: "/blog/stablecoin-payment-provider-rfp-25-questions-enterprise-buyers", destination: "/blog/stablecoin-payment-provider-rfp-questions", permanent: true },
       { source: "/blog/wallet-apis-asset-tokenization-mpc-custody-transfer-controls", destination: "/blog/wallet-apis-asset-tokenization-platforms", permanent: true },

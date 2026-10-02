@@ -411,7 +411,7 @@ function updateLlms(posts) {
   fs.writeFileSync(llmsPath, text);
 }
 
-const posts = readPosts();
+const posts = readPosts().filter((post) => !post.redirectTo);
 fs.rmSync(blogDir, { recursive: true, force: true });
 fs.mkdirSync(blogDir, { recursive: true });
 for (const post of posts) {

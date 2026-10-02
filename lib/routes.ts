@@ -175,10 +175,11 @@ export function allRoutePaths() {
   const blogPaths = fs.existsSync(blogDir)
     ? fs.readdirSync(blogDir)
         .filter((file) => file.endsWith(".md"))
-        .map((file) => {
+        .flatMap((file) => {
           const raw = fs.readFileSync(path.join(blogDir, file), "utf8");
+          if (/^redirectTo:\s*/m.test(raw)) return [];
           const slug = raw.match(/slug:\s*"([^"]+)"/)?.[1] || file.replace(/\.md$/, "");
-          return `blog/${slug}`;
+          return [`blog/${slug}`];
         })
     : [];
   const companyRoot = path.join(process.cwd(), "fluidrwa");
