@@ -386,7 +386,7 @@ async function supabaseSelect(table: string, query: string) {
   try {
     response = await fetch(`${config.url}/rest/v1/${table}?${query}`, {
       headers: restHeaders(config.key),
-      next: { revalidate: 900 }
+      cache: "no-store"
     });
   } catch (error) {
     console.warn(`Supabase select unavailable for ${table}:`, error);

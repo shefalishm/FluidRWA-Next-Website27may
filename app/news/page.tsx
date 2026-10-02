@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { formatSignalDate, getNewsItems } from "@/lib/marketSignals";
 import { siteUrl } from "@/lib/routes";
 
-export const revalidate = 900;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "RWA, Web3 and AI Infrastructure News | FluidRWA",
