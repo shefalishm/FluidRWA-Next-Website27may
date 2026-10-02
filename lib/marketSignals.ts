@@ -89,6 +89,12 @@ export const newsSources: RssSource[] = [
     url: "https://www.chainalysis.com/blog/feed/",
     sourceUrl: "https://www.chainalysis.com/blog/",
     defaultCategory: "KYC, AML & Compliance"
+  },
+  {
+    name: "Coinpedia",
+    url: "https://coinpedia.org/feed/",
+    sourceUrl: "https://coinpedia.org/",
+    defaultCategory: "Blockchain Ecosystems"
   }
 ];
 
