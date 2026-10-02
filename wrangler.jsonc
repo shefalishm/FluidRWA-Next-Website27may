@@ -10,7 +10,7 @@
     { "pattern": "www.fluidrwa.com/*", "zone_name": "fluidrwa.com" }
   ],
   "triggers": {
-    "crons": ["0 3 * * *"]
+    "crons": ["*/30 * * * *"]
   },
   "assets": {
     "directory": ".open-next/assets",
