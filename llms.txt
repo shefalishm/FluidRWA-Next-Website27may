@@ -188,7 +188,7 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 - Fireblocks vs BitGo vs Copper: Custody Provider Comparison: https://www.fluidrwa.com/blog/fireblocks-vs-bitgo-vs-copper-custody-providers
 - OpenZeppelin vs Consensys Diligence vs Minddeft: Smart Contract Vendor Comparison: https://www.fluidrwa.com/blog/openzeppelin-vs-consensys-diligence-vs-minddeft-smart-contract-development
 - Securitize vs Tokeny vs Taurus: Tokenization Platform Comparison: https://www.fluidrwa.com/blog/securitize-vs-tokeny-vs-taurus-tokenization-platforms
-- Sumsub vs Persona vs Chainalysis: KYC and AML Provider Comparison: https://www.fluidrwa.com/blog/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers
+- Sumsub vs Persona vs Socure vs Chainalysis: KYC and AML Comparison: https://www.fluidrwa.com/blog/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers
 - Blockchain Development Cost and Engagement Models: https://www.fluidrwa.com/blog/blockchain-development-cost-engagement-models
 - Full-Stack Blockchain Development Services Explained: https://www.fluidrwa.com/blog/full-stack-blockchain-development-services
 - How to Choose a Blockchain Development Company for Tokenization Projects: https://www.fluidrwa.com/blog/how-to-choose-a-blockchain-development-agency

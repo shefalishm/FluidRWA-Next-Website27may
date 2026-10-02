@@ -233,13 +233,13 @@ const blogResearch = {
   },
   "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers": {
     label: "KYC and AML provider comparison snapshot",
-    intro: "A tokenization project usually needs identity verification, business verification, sanctions screening, wallet screening and case-management evidence. Sumsub, Persona and Chainalysis can all sit in the compliance stack, but they solve different jobs.",
-    headers: ["Decision factor", "Sumsub", "Persona", "Chainalysis"],
+    intro: "A tokenization project usually needs identity verification, business verification, sanctions screening, wallet screening and case-management evidence. Sumsub, Persona, Socure and Chainalysis can all sit in the compliance stack, but they solve different jobs.",
+    headers: ["Decision factor", "Sumsub", "Persona", "Socure", "Chainalysis"],
     rows: [
-      ["Natural buyer", "Global fintech, crypto and marketplace teams needing KYC, KYB and risk workflows", "Teams needing configurable identity, KYB and onboarding orchestration", "Crypto, exchange, wallet, law-enforcement and compliance teams needing blockchain analytics"],
-      ["Strongest workflow", "Identity verification, KYB, fraud prevention, transaction monitoring and crypto compliance modules", "Custom onboarding journeys, identity decisioning, KYB workflows and risk signals", "Wallet screening, transaction monitoring, sanctions exposure and blockchain investigations"],
-      ["Best fit", "Tokenization teams wanting a broad compliance operating layer", "Platforms with multiple investor and issuer onboarding paths", "Projects with external wallets, crypto settlement or onchain transfer risk"],
-      ["Main check before buying", "Coverage depth, review operations, data retention and wallet-risk needs", "Country coverage, workflow complexity and whether specialist wallet analytics are needed", "Whether separate KYC/KYB tooling is still required for identity verification"]
+      ["Natural buyer", "Global fintech, crypto and marketplace teams needing KYC, KYB and risk workflows", "Teams needing configurable identity, KYB and onboarding orchestration", "Teams prioritizing identity fraud, KYC and business onboarding", "Crypto, exchange, wallet, law-enforcement and compliance teams needing blockchain analytics"],
+      ["Strongest workflow", "Identity verification, KYB, fraud prevention, transaction monitoring and crypto compliance modules", "Custom onboarding journeys, identity decisioning, KYB workflows and risk signals", "AI-native identity verification, synthetic fraud detection and KYB/UBO workflows", "Wallet screening, transaction monitoring, sanctions exposure and blockchain investigations"],
+      ["Best fit", "Tokenization teams wanting a broad compliance operating layer", "Platforms with multiple investor and issuer onboarding paths", "Platforms that need identity assurance and fraud controls across consumer and business onboarding", "Projects with external wallets, crypto settlement or onchain transfer risk"],
+      ["Main check before buying", "Coverage depth, review operations, data retention and wallet-risk needs", "Country coverage, workflow complexity and whether specialist wallet analytics are needed", "Country coverage, explainability, KYB sources and required onchain integrations", "Whether separate KYC/KYB tooling is still required for identity verification"]
     ],
     links: [
       ["Compare KYC and AML providers", directory("kyc-aml-providers")],
@@ -249,6 +249,7 @@ const blogResearch = {
     sources: [
       ["Sumsub", "https://sumsub.com/"],
       ["Persona", "https://withpersona.com/"],
+      ["Socure", "https://www.socure.com/"],
       ["Chainalysis", "https://www.chainalysis.com/"],
       ["FATF virtual-assets guidance", "https://www.fatf-gafi.org/en/topics/virtual-assets.html"]
     ]
