@@ -7516,15 +7516,6 @@ body {
   line-height: 1.6;
 }
 
-.signal-hero .signal-source-note {
-  max-width: 680px;
-  margin-top: 12px;
-  color: rgba(18, 33, 58, .56);
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.55;
-}
-
 .signal-actions {
   display: flex;
   flex-wrap: wrap;

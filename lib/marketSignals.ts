@@ -62,7 +62,8 @@ type GreenhouseJob = {
   departments?: Array<{ name?: string }>;
 };
 
-const NEWS_LIMIT = 48;
+const NEWS_LIMIT = 27;
+const NEWS_ITEMS_PER_SOURCE = 6;
 const JOB_LIMIT = 60;
 
 export const newsSources: RssSource[] = [
@@ -201,7 +202,15 @@ function preserveFluidRwaAnnouncements(items: NewsItem[], limit: number) {
   );
   const announcementUrls = new Set(announcements.map((item) => item.canonicalUrl));
   const feedItems = sortedItems.filter((item) => !announcementUrls.has(item.canonicalUrl));
-  return [...announcements, ...feedItems].slice(0, limit);
+  const sourceCounts = new Map<string, number>();
+  const balancedFeedItems = feedItems.filter((item) => {
+    const count = sourceCounts.get(item.sourceName) || 0;
+    if (count >= NEWS_ITEMS_PER_SOURCE) return false;
+    sourceCounts.set(item.sourceName, count + 1);
+    return true;
+  });
+
+  return [...announcements, ...balancedFeedItems].slice(0, limit);
 }
 
 function supabaseConfig() {
@@ -418,9 +427,10 @@ async function supabaseUpsert(table: string, rows: Array<Record<string, unknown>
 }
 
 export async function getNewsItems(limit = NEWS_LIMIT) {
+  const storageLimit = Math.min(Math.max(limit * 2, 60), 120);
   const rows = await supabaseSelect(
     "news_items",
-    `select=*&status=eq.published&order=published_at.desc&limit=${encodeURIComponent(String(limit))}`
+    `select=*&status=eq.published&order=published_at.desc&limit=${encodeURIComponent(String(storageLimit))}`
   );
 
   const storedItems = rows?.map(fromDbNews).filter((item) => item.title && item.canonicalUrl) || [];
@@ -552,9 +562,12 @@ export async function ingestMarketSignals() {
 }
 
 export function formatSignalDate(value: string) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "Date unavailable";
+
   return new Intl.DateTimeFormat("en", {
     month: "short",
     day: "numeric",
     year: "numeric"
-  }).format(new Date(value));
+  }).format(date);
 }

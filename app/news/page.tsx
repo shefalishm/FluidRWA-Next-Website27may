@@ -65,10 +65,6 @@ export default async function NewsPage() {
               Curated headlines from trusted publishers, organized for teams tracking tokenization, custody, compliance,
               stablecoins, blockchain ecosystems, DeFi and AI infrastructure.
             </p>
-            <p className="signal-source-note">
-              External headlines and excerpts are attributed to their publishers and open on the original source. The
-              feed now includes selected coverage from Coinpedia.
-            </p>
             <div className="signal-actions">
               <Link className="btn btn-primary" href="/web3vendorecosystem">
                 Explore Vendors
