@@ -125,10 +125,23 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
 export async function POST(request: Request) {
   try {
     const payload = await parseRequest(request);
-    const sourceValue = clean(payload.source) || clean(payload.requestSource) || "submit-requirement";
+    const isVendorReviewPage = (() => {
+      try {
+        return new URL(clean(payload.pageUrl)).pathname === "/vendor-membership";
+      } catch {
+        return false;
+      }
+    })();
+    const sourceValue = isVendorReviewPage
+      ? "vendor-review-application"
+      : clean(payload.source) || clean(payload.requestSource) || "submit-requirement";
+    const selectedCategory = clean(payload.rawPayload?.REQUIREMENT_CATEGORY);
+    const contextualCategory = clean(payload.rawPayload?.VENDOR_CATEGORY) || clean(payload.vendorCategory);
     const normalized: VendorIntroPayload = {
       vendorName: clean(payload.vendorName),
-      vendorCategory: clean(payload.rawPayload?.REQUIREMENT_CATEGORY) || clean(payload.vendorCategory),
+      vendorCategory: selectedCategory === "Other / multiple categories" && contextualCategory
+        ? contextualCategory
+        : selectedCategory || contextualCategory,
       source: sourceValue,
       pageUrl: clean(payload.pageUrl),
       leadSource: clean(payload.leadSource),

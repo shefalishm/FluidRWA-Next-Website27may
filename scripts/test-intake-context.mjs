@@ -26,6 +26,17 @@ assert.equal(saved.vendor_category, 'Custody and wallets');
 assert.match(notified.projectDescription, /PROJECT TIMELINE: 3-6 months/);
 assert.match(notified.projectDescription, /PROJECT STAGE: Planning/);
 assert.equal(saved.project_description, base.projectDescription);
+await submit({ ...base, vendorCategory: 'Node-as-a-Service and RPC Providers', rawPayload: { REQUIREMENT_CATEGORY: 'Other / multiple categories' } });
+assert.equal(saved.vendor_category, 'Node-as-a-Service and RPC Providers');
+assert.equal(saved.raw_payload.REQUIREMENT_CATEGORY, 'Other / multiple categories');
+assert.equal(notified.vendorCategory, 'Node-as-a-Service and RPC Providers');
+await submit({ ...base, vendorCategory: 'Other / multiple categories', rawPayload: { REQUIREMENT_CATEGORY: 'Other / multiple categories', VENDOR_CATEGORY: 'Node-as-a-Service and RPC Providers' } });
+assert.equal(saved.vendor_category, 'Node-as-a-Service and RPC Providers');
+await submit({ ...base, rawPayload: { REQUIREMENT_CATEGORY: 'Other / multiple categories' } });
+assert.equal(saved.vendor_category, 'Other / multiple categories');
+await submit({ ...base, pageUrl: 'https://www.fluidrwa.com/vendor-membership', source: 'company-profile', vendorCategory: 'Node-as-a-Service / RPC' });
+assert.equal(saved.request_source, 'vendor-review-application');
+assert.equal(notified.source, 'vendor-review-application');
 await submit({ ...base, source: 'vendor-review-application', vendorCategory: 'Other', rawPayload: { CLIENT_PROOF: 'Sandbox evidence', VISIBILITY_GOAL: 'Directory', PROOF_LINK: 'https://example.com' } });
 assert.equal(saved.request_source, 'vendor-review-application');
 assert.equal(saved.vendor_category, 'Other');
@@ -38,8 +49,10 @@ assert.equal((await submit({ ...base, rawPayload: { WEBSITE_URL: 'spam' } })).bo
 assert.equal(writes, before);
 for (const file of ['assets/site.js', 'public/assets/site.js', 'components/FormScripts.tsx']) {
   const text = fs.readFileSync(file, 'utf8');
-  assert.match(text, /vendorCategory: formValue\(formData, "REQUIREMENT_CATEGORY"\)/);
+  assert.match(text, /selectedCategory === "Other \/ multiple categories" && contextualCategory/);
   assert.match(text, /params.get\("source"\) === "qa-test"/);
 }
+assert.match(fs.readFileSync('assets/site.js', 'utf8'), /!isVendorApplication && sourceField && context\.source/);
 assert.equal(fs.readFileSync('assets/site.js', 'utf8'), fs.readFileSync('public/assets/site.js', 'utf8'));
+assert.match(fs.readFileSync('assets/site.js', 'utf8'), /document\.querySelector\("h1"\).*\|\|\s*section\?\.querySelector/s);
 console.log('PASS: category precedence, buyer context, vendor evidence, validation, filtering and synchronized form handlers. No network requests made.');

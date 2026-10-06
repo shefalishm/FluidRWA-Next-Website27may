@@ -133,14 +133,14 @@ const hydrateIntakeContext = () => {
     const categoryField = form.querySelector('input[name="VENDOR_CATEGORY"]');
     const sourceField = form.querySelector('input[name="REQUEST_SOURCE"]');
     const pageField = form.querySelector('input[name="PAGE_URL"]');
+    const isVendorApplication = form.dataset.reviewApplication === "true";
 
-    if (vendorField && context.vendor) vendorField.value = context.vendor;
-    if (categoryField && context.category) categoryField.value = context.category;
-    if (sourceField && context.source) sourceField.value = context.source;
+    if (!isVendorApplication && vendorField && context.vendor) vendorField.value = context.vendor;
+    if (!isVendorApplication && categoryField && context.category) categoryField.value = context.category;
+    if (!isVendorApplication && sourceField && context.source) sourceField.value = context.source;
     if (pageField) pageField.value = window.location.href;
-    if (heading && context.vendor) heading.textContent = `Request an introduction to ${context.vendor}`;
-    if (leadSource && context.source) leadSource.value = `FluidRWA ${context.source}`;
-    const isVendorApplication = form.dataset.formType === "vendor";
+    if (!isVendorApplication && heading && context.vendor) heading.textContent = `Request an introduction to ${context.vendor}`;
+    if (!isVendorApplication && leadSource && context.source) leadSource.value = `FluidRWA ${context.source}`;
     if (textarea && !isVendorApplication && (context.vendor || context.category) && !textarea.value.trim()) {
       const intro = context.vendor ? `I would like an introduction to ${context.vendor}.` : "I would like help finding a vendor.";
       const categoryLine = context.category ? ` Category: ${context.category}.` : "";
@@ -261,9 +261,13 @@ leadConversionForms.forEach((form) => {
     formData.set("FORM_RENDERED_AT", String(formRenderedAt));
     formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
     const companyName = formValue(formData, "COMPANYNAME");
+    const selectedCategory = formValue(formData, "REQUIREMENT_CATEGORY");
+    const contextualCategory = formValue(formData, "VENDOR_CATEGORY") || params.get("category") || "";
     const payload = {
       vendorName: formValue(formData, "VENDOR_NAME") || params.get("vendor") || (isVendorForm ? companyName : ""),
-      vendorCategory: formValue(formData, "REQUIREMENT_CATEGORY") || formValue(formData, "VENDOR_CATEGORY") || params.get("category") || "",
+      vendorCategory: selectedCategory === "Other / multiple categories" && contextualCategory
+        ? contextualCategory
+        : selectedCategory || contextualCategory,
       source: formValue(formData, "REQUEST_SOURCE") || params.get("source") || (isVendorForm ? "vendor-waitlist" : "submit-requirement"),
       pageUrl: window.location.href,
       leadSource: formValue(formData, "LEAD_SOURCE"),
@@ -343,8 +347,8 @@ const getVendorCategoryLabel = (card) => {
   if (explicit) return explicit.replace(/[-_]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
   const section = card.closest("section");
   return (
-    section?.querySelector(".bc-directory-head h2, .solutions-section-head h2, .vendor-category-head h2")?.textContent?.trim() ||
     document.querySelector("h1")?.textContent?.trim() ||
+    section?.querySelector(".bc-directory-head h2, .solutions-section-head h2, .vendor-category-head h2")?.textContent?.trim() ||
     "Vendor Directory"
   );
 };

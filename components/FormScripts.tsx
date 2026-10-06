@@ -94,7 +94,9 @@ export function FormScripts() {
         ];
         requirementCategory.value = mappings.find(([pattern]) => pattern.test(category))?.[1] || "Other / multiple categories";
       }
-      if (sourceField) sourceField.value = isVendorForm ? (sourceField.value || "vendor-review") : sourceField.value === "contact-general" ? "contact-general" : source || sourceField.value || "submit-requirement";
+      if (sourceField) sourceField.value = form.dataset.reviewApplication === "true"
+        ? "vendor-review-application"
+        : isVendorForm ? (sourceField.value || "vendor-review") : sourceField.value === "contact-general" ? "contact-general" : source || sourceField.value || "submit-requirement";
       if (pageField) pageField.value = window.location.href;
       if (!isVendorForm && (vendor || category)) {
         if (formHeading && vendor) formHeading.textContent = `Request an introduction to ${vendor}`;
@@ -165,9 +167,13 @@ export function FormScripts() {
         formData.set("FORM_RENDERED_AT", String(formRenderedAt));
         formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
         const companyName = formValue(formData, "COMPANYNAME");
+        const selectedCategory = formValue(formData, "REQUIREMENT_CATEGORY");
+        const contextualCategory = formValue(formData, "VENDOR_CATEGORY") || category || "";
         const payload = {
           vendorName: formValue(formData, "VENDOR_NAME") || vendor || (isVendorSubmission ? companyName : ""),
-          vendorCategory: formValue(formData, "REQUIREMENT_CATEGORY") || formValue(formData, "VENDOR_CATEGORY") || category || "",
+          vendorCategory: selectedCategory === "Other / multiple categories" && contextualCategory
+            ? contextualCategory
+            : selectedCategory || contextualCategory,
           source: formValue(formData, "REQUEST_SOURCE") || source || (isVendorSubmission ? "vendor-waitlist" : "submit-requirement"),
           pageUrl: window.location.href,
           leadSource: formValue(formData, "LEAD_SOURCE"),
