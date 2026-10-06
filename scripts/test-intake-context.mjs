@@ -45,8 +45,15 @@ assert.match(notified.projectDescription, /VISIBILITY GOAL: Directory/);
 const before = writes;
 assert.equal((await submit({})).status, 400);
 assert.equal(writes, before);
+const fast = await submit({ ...base, rawPayload: { FORM_ELAPSED_MS: '600' } });
+assert.equal(fast.status, 429);
+assert.equal(fast.body.ok, false);
+assert.equal(fast.body.code, 'submission_too_fast');
+assert.equal(writes, before);
 assert.equal((await submit({ ...base, rawPayload: { WEBSITE_URL: 'spam' } })).body.mode, 'filtered');
 assert.equal(writes, before);
+assert.equal((await submit({ ...base, rawPayload: { FORM_ELAPSED_MS: '1800' } })).body.mode, 'supabase');
+assert.equal(writes, before + 1);
 for (const file of ['assets/site.js', 'public/assets/site.js', 'components/FormScripts.tsx']) {
   const text = fs.readFileSync(file, 'utf8');
   assert.match(text, /selectedCategory === "Other \/ multiple categories" && contextualCategory/);

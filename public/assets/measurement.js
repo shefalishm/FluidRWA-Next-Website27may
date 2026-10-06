@@ -16,7 +16,7 @@
     try { sessionStorage.setItem(key, JSON.stringify(campaign)); } catch (_) {}
   }
   // Never send form contents, contact details or arbitrary query strings to GA.
-  var allowed = new Set(['form_type', 'form_variant', 'request_source', 'interaction_source', 'vendor_name', 'vendor_category', 'country', 'has_company', 'has_phone', 'submission_id', 'outbound', 'origin_path', 'click_type', 'link_text', 'form_source', 'form_action', 'intake_type', 'search_results_count', 'directory_path', 'shortlist_count', 'project_stage', 'project_timeline', 'readiness_score', 'recommended_category', 'assessment_type', 'asset_type', 'investor_type', 'cross_border', 'secondary_trading', 'readiness_classification', 'complexity_rating', 'budget_range', 'mode', 'cta']);
+  var allowed = new Set(['form_type', 'form_variant', 'request_source', 'interaction_source', 'vendor_name', 'vendor_category', 'country', 'has_company', 'has_phone', 'submission_id', 'outbound', 'origin_path', 'click_type', 'link_text', 'form_source', 'form_action', 'intake_type', 'search_results_count', 'directory_path', 'shortlist_count', 'project_stage', 'project_timeline', 'readiness_score', 'recommended_category', 'assessment_type', 'asset_type', 'investor_type', 'cross_border', 'secondary_trading', 'readiness_classification', 'complexity_rating', 'budget_range', 'mode', 'cta', 'field_name', 'error_reason', 'completed_fields', 'total_fields']);
   window.fluidRwaSanitizeAnalytics = function (input) {
     var output = {};
     Object.keys(input).forEach(function (name) {

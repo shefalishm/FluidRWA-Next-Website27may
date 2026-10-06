@@ -64,6 +64,18 @@ export function FormScripts() {
 
     const formValue = (formData: FormData, name: string) => String(formData.get(name) || "").trim();
     const cleanups: Array<() => void> = [];
+    const pendingEvents: Array<[string, Record<string, unknown>]> = [];
+    const trackEvent = (name: string, details: Record<string, unknown>) => {
+      if (params.get("source") === "qa-test") return;
+      if (window.fluidRwaTrackEvent) window.fluidRwaTrackEvent(name, details);
+      else pendingEvents.push([name, details]);
+    };
+    const flushEvents = () => {
+      if (!window.fluidRwaTrackEvent) return;
+      pendingEvents.splice(0).forEach(([name, details]) => window.fluidRwaTrackEvent?.(name, details));
+    };
+    window.addEventListener("fluidrwa:analytics-ready", flushEvents);
+    cleanups.push(() => window.removeEventListener("fluidrwa:analytics-ready", flushEvents));
 
     forms.forEach((form) => {
       const formRenderedAt = Date.now();
@@ -74,6 +86,14 @@ export function FormScripts() {
       const getIsVendorForm = () =>
         pathname === "/apply-as-vendor" || form.dataset.formType === "vendor" || form.getAttribute("target") === "fluidVendorSubmit";
       const isVendorForm = getIsVendorForm();
+      const isReviewApplication = form.dataset.reviewApplication === "true";
+      let submitted = false;
+      const analyticsDetails = () => ({
+        form_type: getIsVendorForm() ? "vendor" : "project",
+        form_variant: "full_page",
+        interaction_source: sourceField?.value || "submit-requirement",
+        request_source: sourceField?.value || "submit-requirement"
+      });
       const formHeading = form.querySelector<HTMLHeadingElement>("h2");
       const descriptionField = form.querySelector<HTMLTextAreaElement>('textarea[name="CONTACT_CF1"]');
       const leadSource = form.querySelector<HTMLInputElement>('input[name="LEAD_SOURCE"]');
@@ -81,6 +101,16 @@ export function FormScripts() {
       const categoryField = form.querySelector<HTMLInputElement>('input[name="VENDOR_CATEGORY"]');
       const sourceField = form.querySelector<HTMLInputElement>('input[name="REQUEST_SOURCE"]');
       const pageField = form.querySelector<HTMLInputElement>('input[name="PAGE_URL"]');
+      const normalizeWebsite = (event: Event) => {
+        const input = event.target;
+        if (!(input instanceof HTMLInputElement) || input.type !== "url" || input.name !== "WEBSITE") return;
+        const value = input.value.trim();
+        if (/^(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[/:?#].*)?$/i.test(value) && !/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
+          input.value = `https://${value}`;
+        }
+      };
+      form.addEventListener("change", normalizeWebsite);
+      cleanups.push(() => form.removeEventListener("change", normalizeWebsite));
       if (vendorField && vendor) vendorField.value = vendor;
       if (categoryField && category) categoryField.value = category;
       const requirementCategory = form.querySelector<HTMLSelectElement>('[name="REQUIREMENT_CATEGORY"]');
@@ -157,6 +187,7 @@ export function FormScripts() {
         if (button.disabled) return;
         const isVendorSubmission = getIsVendorForm();
         const sourceValue = sourceField?.value || "";
+        trackEvent("form_submit_attempt", analyticsDetails());
         const { defaultButtonText, loadingText, successTitle, successCopy } = getFormMessages();
         button.disabled = true;
         button.textContent = "Submitting...";
@@ -198,8 +229,12 @@ export function FormScripts() {
             },
             body: JSON.stringify(payload)
           });
-          const result = (await response.json()) as { ok?: boolean; message?: string; mode?: string; requestId?: string | null };
-          if (!response.ok || !result.ok) throw new Error(result.message || "Your request could not be saved.");
+          const result = (await response.json()) as { ok?: boolean; message?: string; code?: string; mode?: string; requestId?: string | null };
+          if (!response.ok || !result.ok) {
+            trackEvent("form_submit_error", { ...analyticsDetails(), error_reason: result.code || `http_${response.status}` });
+            throw new Error(result.message || "Your request could not be saved.");
+          }
+          submitted = result.mode !== "filtered";
           status.className = "form-status is-success";
           status.textContent = `Thank you. ${successTitle}.`;
           button.disabled = true;
@@ -207,7 +242,7 @@ export function FormScripts() {
           showConfirmation(successTitle, successCopy);
           // Filtered spam receives a neutral response but is not a conversion.
           if (result.mode === "filtered" || params.get("source") === "qa-test") return;
-          window.fluidRwaTrackEvent?.(getAnalyticsEventName(), {
+          trackEvent(getAnalyticsEventName(), {
             form_type: isVendorSubmission ? "vendor" : "project",
             form_variant: "full_page",
             request_source: payload.source,
@@ -221,11 +256,12 @@ export function FormScripts() {
           });
           window.fluidRwaReportLeadConversion?.();
         } catch (error) {
-          window.fluidRwaTrackEvent?.("form_submit_error", {
+          if (error instanceof TypeError || error instanceof SyntaxError) trackEvent("form_submit_error", {
             form_type: isVendorSubmission ? "vendor" : "project",
             form_variant: "full_page",
             interaction_source: sourceValue,
-            request_source: sourceValue
+            request_source: sourceValue,
+            error_reason: error instanceof SyntaxError ? "invalid_response" : "network"
           });
           button.disabled = false;
           button.textContent = defaultButtonText;
@@ -235,19 +271,51 @@ export function FormScripts() {
       };
 
       let started = false;
-      const handleStart = () => {
-        if (params.get("source") === "qa-test") return;
+      const handleStart = (event: Event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement || target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement)
+          || target.name === "WEBSITE_URL" || target.type === "hidden") return;
         if (started) return;
         started = true;
-        window.fluidRwaTrackEvent?.(getAnalyticsStartEventName(), {
-          form_type: isVendorForm ? "vendor" : "project",
-          form_variant: "full_page",
-          interaction_source: sourceField?.value || "submit-requirement",
-          request_source: sourceField?.value || "submit-requirement"
-        });
+        trackEvent(getAnalyticsStartEventName(), analyticsDetails());
       };
-      form.addEventListener("focusin", handleStart);
-      cleanups.push(() => form.removeEventListener("focusin", handleStart));
+      form.addEventListener("input", handleStart);
+      form.addEventListener("change", handleStart);
+      cleanups.push(() => {
+        form.removeEventListener("input", handleStart);
+        form.removeEventListener("change", handleStart);
+      });
+      const invalidFields = new Set<string>();
+      const handleInvalid = (event: Event) => {
+        const input = event.target;
+        if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement || input instanceof HTMLTextAreaElement)) return;
+        const reason = input.validity.valueMissing ? "required" : input.validity.typeMismatch ? "format" : "invalid";
+        const key = `${input.name}:${reason}`;
+        if (invalidFields.has(key)) return;
+        invalidFields.add(key);
+        trackEvent("form_validation_error", { ...analyticsDetails(), field_name: input.name, error_reason: reason });
+      };
+      form.addEventListener("invalid", handleInvalid, true);
+      cleanups.push(() => form.removeEventListener("invalid", handleInvalid, true));
+      if (isReviewApplication) {
+        const requiredInputs = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>("input[required], select[required], textarea[required]"));
+        const completedCount = () => requiredInputs.filter((input) => input instanceof HTMLInputElement && input.type === "checkbox" ? input.checked : Boolean(input.value.trim())).length;
+        const onExit = () => {
+          if (started && !submitted) trackEvent("vendor_application_exit", { ...analyticsDetails(), completed_fields: completedCount(), total_fields: requiredInputs.length });
+        };
+        window.addEventListener("pagehide", onExit);
+        cleanups.push(() => window.removeEventListener("pagehide", onExit));
+        const firstField = requiredInputs[0];
+        if (firstField) {
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.5)) return;
+            trackEvent("vendor_application_view", analyticsDetails());
+            observer.disconnect();
+          }, { threshold: 0.5 });
+          observer.observe(firstField);
+          cleanups.push(() => observer.disconnect());
+        }
+      }
       form.addEventListener("submit", handleSubmit, { capture: true });
       cleanups.push(() => form.removeEventListener("submit", handleSubmit, { capture: true }));
     });

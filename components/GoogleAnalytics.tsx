@@ -99,6 +99,7 @@ export function GoogleAnalytics() {
             });
             return false;
           };
+          window.dispatchEvent(new Event('fluidrwa:analytics-ready'));
         `}
       </Script>
       </>}

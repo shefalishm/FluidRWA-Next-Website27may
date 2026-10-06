@@ -51,17 +51,17 @@ function sanitizeRawPayload(payload: Record<string, unknown>) {
   );
 }
 
-function isLikelyAutomatedSubmission(payload: VendorIntroPayload) {
+function submissionFilterReason(payload: VendorIntroPayload) {
   const rawPayload = payload.rawPayload || {};
   const honeypot = clean(rawPayload.WEBSITE_URL || rawPayload.website_url || rawPayload.websiteUrl);
-  if (honeypot) return true;
+  if (honeypot) return "honeypot";
 
   const elapsedValue = Number(rawPayload.FORM_ELAPSED_MS || rawPayload.formElapsedMs || 0);
   if (Number.isFinite(elapsedValue) && elapsedValue > 0 && elapsedValue < minimumSubmissionMs) {
-    return true;
+    return "too_fast";
   }
 
-  return false;
+  return null;
 }
 
 async function parseRequest(request: Request): Promise<VendorIntroPayload> {
@@ -161,7 +161,16 @@ export async function POST(request: Request) {
       normalized.vendorName = normalized.companyName;
     }
 
-    if (isLikelyAutomatedSubmission(normalized)) {
+    const filterReason = submissionFilterReason(normalized);
+    if (filterReason === "too_fast") {
+      // Autofill can be fast; keep the applicant's form retryable instead of reporting a saved lead.
+      return NextResponse.json({
+        ok: false,
+        code: "submission_too_fast",
+        message: "Please wait a moment and submit again. Your details are still in the form."
+      }, { status: 429, headers: { "Retry-After": "2" } });
+    }
+    if (filterReason === "honeypot") {
       return NextResponse.json({
         ok: true,
         mode: "filtered",

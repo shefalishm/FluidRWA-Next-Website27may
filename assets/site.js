@@ -234,6 +234,15 @@ leadConversionForms.forEach((form) => {
 
   const formValue = (formData, name) => String(formData.get(name) || "").trim();
 
+  form.addEventListener("change", (event) => {
+    const input = event.target;
+    if (!(input instanceof HTMLInputElement) || input.type !== "url" || input.name !== "WEBSITE") return;
+    const value = input.value.trim();
+    if (/^(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[/:?#].*)?$/i.test(value) && !/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
+      input.value = `https://${value}`;
+    }
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();
