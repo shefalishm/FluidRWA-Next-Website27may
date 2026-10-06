@@ -349,6 +349,10 @@ function enhanceBlogDecisionPage(file: string, html: string) {
     ? html.replace(/<h1(\b[^>]*)>[\s\S]*?<\/h1>/i, `<h1$1>${override.heading}</h1>`)
     : html;
 
+  enhanced = enhanced.replace(/(<aside class="comparison-consideration"[\s\S]*?)(<\/div>)/g,
+    (match, content: string, closing: string) => content.includes("mailto:contact@fluidrwa.com") ? match
+      : `${content}<p style="overflow-wrap:anywhere">Prefer email? <a style="display:inline;width:auto;min-height:0;padding:0;background:none;color:#2664a9!important;text-decoration:underline" href="mailto:contact@fluidrwa.com?subject=Company%20comparison%20enquiry">contact@fluidrwa.com</a></p>${closing}`);
+
   enhanced = enhanced.replace(
     /<p class="reviewed-line">Reviewed and updated by FluidRWA\s*·\s*([^<]+)<\/p>/i,
     '<p class="reviewed-line">Reviewed by <a href="/about">FluidRWA Research Team</a> · $1</p>'
@@ -422,6 +426,10 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
+  if (["contact.html", "submit-project.html", "apply-as-vendor.html"].includes(file)) {
+    renderedHtml = renderedHtml.replace(/(<form\b[^>]*class="[^"]*fluid-intake-form[^"]*"[^>]*>)/,
+      '$1<p style="grid-column:1/-1;overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>');
+  }
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
   if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToNinth(renderedHtml);
   if (file === "vendors/custody-solutions/index.html") {

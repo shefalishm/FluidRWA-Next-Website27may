@@ -195,6 +195,7 @@ export function QuickIntakePopup() {
               <>
                 <p className="quick-intake-eyebrow">Start with the essentials</p>
                 <h2 id="quick-intake-title">How can FluidRWA help?</h2>
+                <p className="quick-intake-privacy">Prefer email? <a href={`mailto:contact@fluidrwa.com?subject=${encodeURIComponent(mode === "vendor" ? "Vendor listing enquiry" : "Project enquiry")}`} style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
                 <div className="quick-intake-tabs" role="tablist" aria-label="Enquiry type">
                   <button type="button" role="tab" aria-selected={mode === "project"} onClick={() => selectMode("project")}>
                     <MessageSquareText aria-hidden="true" size={17} /> Project

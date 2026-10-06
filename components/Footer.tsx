@@ -17,6 +17,7 @@ export function Footer() {
             <Image className="footer-logo-lite" src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" width={190} height={60} />
           </Link>
           <p>Vendor discovery and market intelligence for Web3, RWA, AI and digital-asset teams.</p>
+          <p>Email us: <a href="mailto:contact@fluidrwa.com" style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
         </div>
         <nav aria-label="Vendor directories"><strong>Directories</strong><Link href="/web3vendorecosystem">All vendors</Link><Link href="/ai-vendors">AI vendors</Link><Link href="/vendors/tokenization-platforms">Tokenization platforms</Link><Link href="/blockchain-projects">Blockchain projects</Link></nav>
         <nav aria-label="Buyer resources"><strong>Buyer resources</strong><Link href="/submit-requirement">Submit a project brief</Link><Link href="/tools/vendor-comparison">Compare vendors</Link><Link href="/tools">Tools</Link><Link href="/reports-research">Reports and research</Link></nav>

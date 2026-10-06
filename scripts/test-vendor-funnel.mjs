@@ -29,7 +29,8 @@ try {
     await page.goto(`${baseUrl}/vendor-membership?source=company-profile`, { waitUntil: 'networkidle' });
     await page.getByLabel('Company name', { exact: false }).waitFor();
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Overflow at ${viewport.width}px`);
-    assert.equal(await page.getByRole('link', { name: 'Email our team', exact: true }).getAttribute('href'), 'mailto:contact@fluidrwa.com?subject=Vendor%20listing%20application');
+    assert.equal(await page.locator('.vform-help a').getAttribute('href'), 'mailto:contact@fluidrwa.com?subject=Vendor%20listing%20application');
+    assert.equal(await page.locator('.vform-help a').innerText(), 'contact@fluidrwa.com');
     await page.screenshot({ path: `${artifactDir}/vendor-${viewport.width}-viewport.png` });
     await page.screenshot({ path: `${artifactDir}/vendor-${viewport.width}.png`, fullPage: true });
     await page.locator('#vc').scrollIntoViewIfNeeded();
