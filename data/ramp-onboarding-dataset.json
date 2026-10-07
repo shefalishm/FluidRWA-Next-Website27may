@@ -1,0 +1,169 @@
+{
+  "title": "Ramp onboarding: documented capabilities",
+  "checked": "2026-10-07",
+  "method": "Existing article cohort, not a ranked or exhaustive market sample. Official public documentation only; no authenticated APIs or production transactions tested.",
+  "rows": [
+    {
+      "provider": "MoonPay",
+      "dimension": "Integration model",
+      "observation": "Widget API documentation covers buy/sell quotes and transaction lookups.",
+      "scope": "Widget API overview; not a review of every MoonPay product.",
+      "unknown": "Not verified: eligibility for a specific partner, corridor or payment method.",
+      "source": "https://dev.moonpay.com/api-reference/widget/overview",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "MoonPay",
+      "dimension": "KYC hand-offs",
+      "observation": "Not verified: the complete KYC collection and reliance arrangement for the selected widget configuration.",
+      "scope": "Reviewed Widget API overview; insufficient evidence for a complete KYC responsibility map.",
+      "unknown": "Request the collection, decision, retention and escalation responsibilities in writing.",
+      "source": "https://dev.moonpay.com/api-reference/widget/overview",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "MoonPay",
+      "dimension": "Configuration discovery",
+      "observation": "The overview lists country, currency and payment-method discovery endpoints.",
+      "scope": "Endpoint discovery; not a live supported-country audit.",
+      "unknown": "Not verified: the exact asset/network/method combination for the intended customer.",
+      "source": "https://dev.moonpay.com/api-reference/widget/overview",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "MoonPay",
+      "dimension": "Order tracking",
+      "observation": "Widget webhooks document signed delivery, possible duplicates and out-of-order events.",
+      "scope": "Widget webhook lifecycle only.",
+      "unknown": "Not verified: contracted support response and event retention.",
+      "source": "https://dev.moonpay.com/api-reference/widget/webhooks/overview",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "MoonPay",
+      "dimension": "Wallet / network controls",
+      "observation": "The buy-transaction response documents wallet address and currency network metadata.",
+      "scope": "Response fields, not a tested destination-address validation control.",
+      "unknown": "Not verified: wallet ownership checks and wrong-network recovery.",
+      "source": "https://dev.moonpay.com/api-reference/widget/getbuytransaction",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "MoonPay",
+      "dimension": "Reconciliation",
+      "observation": "The buy response documents status, amounts, fees and a crypto transaction identifier.",
+      "scope": "API schema example; not an accounting export or completed transaction test.",
+      "unknown": "Not verified: statement exports, settlement cut-offs and dispute adjustments.",
+      "source": "https://dev.moonpay.com/api-reference/widget/getbuytransaction",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "Integration model",
+      "observation": "Whitelabel API limitations distinguish bank-transfer flows from semi-widget card/Apple Pay flows.",
+      "scope": "The API page lists OffRamp as unsupported in its limitations table.",
+      "unknown": "Not verified: which features are enabled for a particular partner.",
+      "source": "https://docs.transak.com/integration/api",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "KYC hand-offs",
+      "observation": "The API page distinguishes Lite KYC from a hosted Standard KYC document/liveness step.",
+      "scope": "Whitelabel journey; not a universal native onboarding claim.",
+      "unknown": "Not verified: reliance acceptance, data retention and escalation for the buyer.",
+      "source": "https://docs.transak.com/integration/api",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "Configuration discovery",
+      "observation": "Public lookups and quotes support configuration discovery.",
+      "scope": "API documentation, not a live corridor coverage test.",
+      "unknown": "Not verified: availability for the customer's exact geography and method.",
+      "source": "https://docs.transak.com/integration/api",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "Order tracking",
+      "observation": "Documentation provides order and KYC webhooks; production registration follows KYB approval.",
+      "scope": "Partner webhook integration.",
+      "unknown": "Not verified: recovery guarantees, event retention and contracted support.",
+      "source": "https://docs.transak.com/features/webhooks",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "Wallet / network controls",
+      "observation": "Create Order documents a destination wallet and additional custodial-wallet information.",
+      "scope": "Whitelabel Create Order flow; not an ownership-check test.",
+      "unknown": "Not verified: incorrect network/address handling and recovery.",
+      "source": "https://docs.transak.com/integration/api",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Transak",
+      "dimension": "Reconciliation",
+      "observation": "The API journey includes order-ID polling for final status.",
+      "scope": "Status polling, not evidence of a complete accounting feed.",
+      "unknown": "Not verified: settlement exports and refund/fee-adjustment reconciliation.",
+      "source": "https://docs.transak.com/integration/api",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "Integration model",
+      "observation": "Native integration uses API/SDK components; access requires an agreement.",
+      "scope": "Documentation labelled Beta (v0); Native is not self-serve access.",
+      "unknown": "Not verified: partner access, version commitments and enabled payment methods.",
+      "source": "https://docs.banxa.com/products/native-api/docs/how-it-works/integration-overview",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "KYC hand-offs",
+      "observation": "Identity/KYC documentation separates identity verification from transaction eligibility.",
+      "scope": "Native identity and eligibility flow.",
+      "unknown": "Not verified: the buyer's approved KYC model and ongoing responsibilities.",
+      "source": "https://docs.banxa.com/products/native-api/docs/how-it-works/identity-kyc",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "Configuration discovery",
+      "observation": "Configuration endpoints list methods, fiat, countries and cryptocurrencies.",
+      "scope": "Native configuration endpoints; not a production coverage test.",
+      "unknown": "Not verified: exact customer, direction, amount and asset/network availability.",
+      "source": "https://docs.banxa.com/products/native-api/openapi/configuration",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "Order tracking",
+      "observation": "Native webhooks describe ramp-status and identity-KYC notifications.",
+      "scope": "Signed webhook documentation, not a tested delivery guarantee.",
+      "unknown": "Not verified: contracted replay, retention and escalation arrangements.",
+      "source": "https://docs.banxa.com/products/native-api/docs/transaction-lifecycle/webhooks",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "Wallet / network controls",
+      "observation": "Configuration documentation supplies cryptocurrency choices for transaction setup.",
+      "scope": "Configuration scope only; destination-wallet controls were not established.",
+      "unknown": "Not verified: wallet ownership, network enforcement and wrong-address recovery.",
+      "source": "https://docs.banxa.com/products/native-api/openapi/configuration",
+      "checked": "2026-10-07"
+    },
+    {
+      "provider": "Banxa",
+      "dimension": "Reconciliation",
+      "observation": "Ramp webhooks include amounts and fees; transaction hash is conditional on FULFILLED.",
+      "scope": "Webhook payload scope; not proof of bank settlement or ledger completeness.",
+      "unknown": "Not verified: settlement statements, corrections and refund matching.",
+      "source": "https://docs.banxa.com/products/native-api/docs/transaction-lifecycle/webhooks",
+      "checked": "2026-10-07"
+    }
+  ]
+}

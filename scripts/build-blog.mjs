@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getBlogResearch } from "./blog-research.mjs";
+import { renderRampDataset } from "./ramp-onboarding-dataset.mjs";
 
 const root = process.cwd();
 const contentDir = path.join(root, "content/blog");
@@ -309,6 +310,7 @@ function cleanDescription(post) {
 }
 
 function researchBlock(post) {
+  if (post.rampDataset === "true") return renderRampDataset() + comparisonConsiderationBlock(post);
   const research = getBlogResearch(post.slug);
   if (!research) return "";
   const table = `<div class="research-table-wrap"><table class="research-table"><thead><tr>${research.headers.map((item) => `<th>${esc(item)}</th>`).join("")}</tr></thead><tbody>${research.rows.map((row) => `<tr>${row.map((item) => `<td>${esc(item)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
@@ -323,7 +325,7 @@ function infographicBlock(post) {
     ? `<source media="(max-width: 620px)" srcset="${esc(post.infographicMobileImage)}"${post.infographicMobileWidth && post.infographicMobileHeight ? ` width="${esc(post.infographicMobileWidth)}" height="${esc(post.infographicMobileHeight)}"` : ""}>`
     : "";
   const caption = post.infographicCaption || "FluidRWA editorial comparison graphic.";
-  return `<figure class="article-infographic" itemscope itemtype="https://schema.org/ImageObject"><picture>${mobileSource}<img class="article-infographic-image" src="${esc(post.infographicImage)}" alt="${esc(post.infographicAlt)}" title="${esc(post.infographicName || post.title)}" width="${esc(post.infographicWidth || "1600")}" height="${esc(post.infographicHeight || "1050")}" loading="lazy" decoding="async" itemprop="contentUrl"></picture><figcaption><span itemprop="caption">${esc(caption)}</span><a class="article-infographic-download" href="${esc(post.infographicImage)}" download>Download infographic (PNG)</a></figcaption><meta itemprop="name" content="${esc(post.infographicName || post.title)}"><meta itemprop="creator" content="FluidRWA"></figure>`;
+  return `<figure class="article-infographic" itemscope itemtype="https://schema.org/ImageObject"><picture>${mobileSource}<img class="article-infographic-image" src="${esc(post.infographicImage)}" alt="${esc(post.infographicAlt)}" title="${esc(post.infographicName || post.title)}" width="${esc(post.infographicWidth || "1600")}" height="${esc(post.infographicHeight || "1050")}" loading="lazy" decoding="async" itemprop="contentUrl"></picture><figcaption><span itemprop="caption">${esc(caption)}</span><a class="article-infographic-download" href="${esc(post.infographicImage)}" download>Download infographic (PNG)</a>${post.infographicMobileImage ? `<a href="${esc(post.infographicMobileImage)}" download>Download mobile PNG</a>` : ""}${post.datasetCsv ? `<a href="${esc(post.datasetCsv)}" download>Download sourced CSV</a>` : ""}</figcaption><meta itemprop="name" content="${esc(post.infographicName || post.title)}"><meta itemprop="creator" content="FluidRWA"></figure>`;
 }
 
 function comparisonConsiderationBlock(post) {
@@ -362,14 +364,15 @@ function postPage(post, posts) {
     .filter((p) => p.slug !== post.slug && !relatedExclusions.includes(p.slug))
     .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
     .slice(0, 4);
-  const research = getBlogResearch(post.slug);
-  const citations = research?.sources?.map(([, href]) => href) || [];
+  const research = post.rampDataset === "true" ? null : getBlogResearch(post.slug);
+  const citations = post.reviewedBy ? [...new Set([...post.html.matchAll(/href="(https:\/\/[^"]+)"/g)].map(match => match[1]))] : research?.sources?.map(([, href]) => href) || [];
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Article", headline: post.title, description, image: infographicUrl ? [imageUrl, infographicUrl] : imageUrl, datePublished: post.date, dateModified: postReviewedDate, author: { "@type": "Organization", name: "FluidRWA", url: site }, publisher: { "@type": "Organization", name: "FluidRWA", logo: { "@type": "ImageObject", url: `${site}/assets/fluidrwa-small-logo.png` } }, mainEntityOfPage: url, citation: citations, speakable: { "@type": "SpeakableSpecification", cssSelector: [".answer-box", ".research-block"] }, about: [{ "@type": "Thing", name: post.category }, { "@type": "Thing", name: "Web3 vendor discovery" }, { "@type": "Thing", name: "Digital asset infrastructure" }] },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site }, { "@type": "ListItem", position: 2, name: "Insights", item: `${site}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] },
       { "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+      ...(post.reviewedBy && !infographicUrl ? [{ "@type": "ImageObject", name: post.title, contentUrl: `${site}${post.image}`, caption: post.imageAlt, creator: { "@type": "Organization", name: "FluidRWA" } }] : []),
       ...(infographicUrl ? [{ "@type": "ImageObject", name: post.infographicName || post.title, contentUrl: infographicUrl, caption: post.infographicCaption || post.infographicAlt, creditText: "FluidRWA Research", creator: { "@type": "Organization", name: "FluidRWA", url: site }, copyrightNotice: "FluidRWA", acquireLicensePage: `${site}/contact`, keywords: post.infographicKeywords ? post.infographicKeywords.split(",").map(value => value.trim()).filter(Boolean) : ["RWA tokenization platforms", "asset tokenization comparison", "tokenization vendor shortlist"] }] : [])
     ]
   };
@@ -377,7 +380,7 @@ function postPage(post, posts) {
   const html = post.html.replace(/<h2>(.*?)<\/h2>/g, (_, h) => `<h2 id="${slugify(h.replace(/<[^>]+>/g, ""))}">${h}</h2>`);
   const consideration = comparisonConsiderationBlock(post);
   const firstTableEnd = "</table></div>";
-  const placeAfterTable = post.considerationAfterTable === "true" && consideration && html.includes(firstTableEnd);
+  const placeAfterTable = post.rampDataset !== "true" && post.considerationAfterTable === "true" && consideration && html.includes(firstTableEnd);
   const articleBody = placeAfterTable
     ? html.replace(firstTableEnd, `${firstTableEnd}${consideration}`)
     : html;
@@ -387,7 +390,7 @@ function postPage(post, posts) {
   const topCta = post.topCtaLabel
     ? `<aside class="post-intent-cta" aria-label="Get a vendor shortlist"><p>${esc(post.topCtaText || "Turn this comparison into a shortlist matched to your requirements.")}</p><a href="${esc(post.topCtaUrl || `/submit-requirement?source=blog-shortlist&topic=${post.slug}`)}">${esc(post.topCtaLabel)}</a></aside>`
     : "";
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(seoTitle)} | FluidRWA</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="author" content="FluidRWA"><meta property="article:modified_time" content="${postReviewedDate}"><link rel="canonical" href="${url}"><link rel="icon" href="/assets/favicon.png" type="image/png"><link rel="preload" as="image" href="/assets/fluidrwa-small-logo.png" fetchpriority="high"><link rel="stylesheet" href="/assets/styles-yellow-blue.css?v=forms-1"><meta property="og:type" content="article"><meta property="og:site_name" content="FluidRWA"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${esc(imageUrl)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(imageUrl)}">${blogStyles()}<script type="application/ld+json">${JSON.stringify(schema)}</script></head><body class="light-home blog-page">${header("blog")}<main><section class="post-hero"><div class="light-container"><p class="post-meta">${esc(post.category)}</p><h1>${esc(post.title)}</h1><p>${esc(description)}</p><p class="reviewed-line">Reviewed and updated by FluidRWA · ${postReviewedLabel}</p></div></section><div class="light-container post-layout"><article class="post-main"><img src="${esc(post.image)}?v=visual-6" alt="${esc(post.imageAlt || post.title)}" width="960" height="540" loading="eager" decoding="async"><div class="answer-box"><strong>Short answer</strong><p>${esc(post.answer)}</p></div>${topCta}${infographicBlock(post)}${post.considerationAfterTable === "true" ? "" : consideration}${researchBlock(post)}${articleBody}<section class="faq-list" aria-labelledby="faq-title"><h2 id="faq-title">FAQ</h2>${faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section><section class="post-cta"><h2>${esc(post.ctaTitle || "Find the right vendor faster.")}</h2><p>${esc(post.ctaText || "Use FluidRWA to move from broad research to a focused vendor path.")}</p><div class="post-cta-actions"><a href="${esc(post.ctaUrl || "/submit-requirement")}">${esc(post.ctaLabel || "Submit Project")}</a>${secondaryCta}</div></section></article><aside class="toc"><strong>In this article</strong>${research ? `<a href="#research-${esc(post.slug)}">${esc(research.label)}</a>` : ""}${toc}<strong style="margin-top:24px">Related insights</strong>${related.map((p) => `<a href="${blogPath(p.slug)}">${esc(p.title)}</a>`).join("")}</aside></div></main>${footer()}<script src="/assets/site.js?v=forms-1" defer></script></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(seoTitle)} | FluidRWA</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="author" content="FluidRWA"><meta property="article:modified_time" content="${postReviewedDate}"><link rel="canonical" href="${url}"><link rel="icon" href="/assets/favicon.png" type="image/png"><link rel="preload" as="image" href="/assets/fluidrwa-small-logo.png" fetchpriority="high"><link rel="stylesheet" href="/assets/styles-yellow-blue.css?v=forms-1"><meta property="og:type" content="article"><meta property="og:site_name" content="FluidRWA"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${esc(imageUrl)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(imageUrl)}">${blogStyles()}<script type="application/ld+json">${JSON.stringify(schema)}</script></head><body class="light-home blog-page">${header("blog")}<main><section class="post-hero"><div class="light-container"><p class="post-meta">${esc(post.category)}</p><h1>${esc(post.title)}</h1><p>${esc(description)}</p><p class="reviewed-line">${post.reviewedBy ? `Reviewed by ${esc(post.reviewedBy)}` : "Reviewed and updated by FluidRWA"} · ${postReviewedLabel}</p></div></section><div class="light-container post-layout"><article class="post-main"><img src="${esc(post.image)}?v=visual-6" alt="${esc(post.imageAlt || post.title)}" width="960" height="540" loading="eager" decoding="async"><div class="answer-box"><strong>Short answer</strong><p>${esc(post.answer)}</p></div>${topCta}${infographicBlock(post)}${post.considerationAfterTable === "true" ? "" : consideration}${researchBlock(post)}${articleBody}<section class="faq-list" aria-labelledby="faq-title"><h2 id="faq-title">FAQ</h2>${faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section><section class="post-cta"><h2>${esc(post.ctaTitle || "Find the right vendor faster.")}</h2><p>${esc(post.ctaText || "Use FluidRWA to move from broad research to a focused vendor path.")}</p><div class="post-cta-actions"><a href="${esc(post.ctaUrl || "/submit-requirement")}">${esc(post.ctaLabel || "Submit Project")}</a>${secondaryCta}</div></section></article><aside class="toc"><strong>In this article</strong>${research ? `<a href="#research-${esc(post.slug)}">${esc(research.label)}</a>` : ""}${toc}<strong style="margin-top:24px">Related insights</strong>${related.map((p) => `<a href="${blogPath(p.slug)}">${esc(p.title)}</a>`).join("")}</aside></div></main>${footer()}<script src="/assets/site.js?v=forms-1" defer></script></body></html>`;
 }
 
 function indexPage(posts) {
@@ -426,7 +429,7 @@ function updateLlms(posts) {
 }
 
 const posts = readPosts().filter((post) => !post.redirectTo);
-const selectedSlugs = process.argv.includes("--only") ? new Set(process.argv.slice(process.argv.indexOf("--only") + 1)) : null;
+const selectedSlugs = process.argv.includes("--only") ? new Set(process.argv.slice(process.argv.indexOf("--only") + 1).filter(arg => !arg.startsWith("--"))) : null;
 if (selectedSlugs && (!selectedSlugs.size || [...selectedSlugs].some(slug => !posts.some(post => post.slug === slug)))) throw new Error("Select existing article slugs after --only.");
 if (!selectedSlugs) fs.rmSync(blogDir, { recursive: true, force: true });
 fs.mkdirSync(blogDir, { recursive: true });
@@ -444,12 +447,14 @@ fs.writeFileSync(path.join(blogDir, "tokenization", "index.html"), categoryPage(
 updateSitemap(posts);
 updateLlms(posts);
 } else {
+  if (process.argv.includes("--refresh-index")) fs.writeFileSync(path.join(root, "blog.html"), indexPage(posts));
   const sitemapPath = path.join(root, "sitemap.xml");
   let sitemap = fs.readFileSync(sitemapPath, "utf8");
   for (const post of posts.filter(post => selectedSlugs.has(post.slug))) {
     const url = blogUrl(post.slug);
     const entry = sitemap.split("<url>").find(part => part.startsWith(`<loc>${url}</loc>`));
     if (entry) sitemap = sitemap.replace(entry, entry.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${esc(post.reviewedDate || reviewedDate)}</lastmod>`));
+    else sitemap = sitemap.replace("</urlset>", `<url><loc>${url}</loc><lastmod>${esc(post.reviewedDate || post.date)}</lastmod></url>\n</urlset>`);
   }
   fs.writeFileSync(sitemapPath, sitemap);
 }
