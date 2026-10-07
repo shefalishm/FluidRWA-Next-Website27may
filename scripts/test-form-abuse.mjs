@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import ts from 'typescript';
+
+const compile = path => ts.transpileModule(fs.readFileSync(path, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+const helpers = {};
+vm.runInNewContext(compile('lib/formAbuse.ts'), { exports: helpers, URL, Date });
+const request = (headers = {}, method = 'POST', path = '/api/vendor-intro-request') => new Request(`https://www.fluidrwa.com${path}`, { method, headers });
+assert.equal(helpers.formRequestRejection(request({ origin: 'https://www.fluidrwa.com' })), null);
+assert.equal(helpers.formRequestRejection(request({ origin: 'https://fluidrwa.com' })), null);
+assert.equal(helpers.formRequestRejection(request()), null);
+assert.equal(helpers.formRequestRejection(request({ origin: 'https://attacker.invalid' })), 'cross_site');
+assert.equal(helpers.formRequestRejection(request({ 'sec-fetch-site': 'cross-site' })), 'cross_site');
+assert.equal(helpers.formRequestRejection(request({ 'content-length': '70000' })), 'request_too_large');
+assert.equal(helpers.blockedIncidentSource(request({ 'cf-connecting-ip': '92.255.57.7' }), Date.parse('2026-10-07')), true);
+assert.equal(helpers.blockedIncidentSource(request({ 'cf-connecting-ip': '92.255.57.7' }), Date.parse('2026-10-22')), false);
+assert.equal(helpers.formPayloadRejection({ contactEmail: 'testing@example.com' }), 'non_deliverable_email');
+assert.equal(helpers.formPayloadRejection({ firstName: 'pHqghUme' }), 'scanner_payload');
+assert.equal(helpers.formPayloadRejection({ companyName: "' UNION SELECT 123" }), 'scanner_payload');
+assert.equal(helpers.formPayloadRejection({ contactEmail: 'real@gmail.com', companyName: "O'Reilly Blockchain Ltd", projectDescription: 'We audit SQL injection, pg_sleep(15) and smart contracts.' }), null);
+assert.equal(helpers.formPayloadRejection({ companyName: 'x'.repeat(301) }), 'field_too_long');
+
+let forwards = 0, limits = 0, permitted = true;
+const module = {};
+vm.runInNewContext(compile('cloudflare-backup-worker.ts'), { exports: module, URL, Request, Response, Headers, console, require(name) {
+  if (name === './lib/formAbuse') return helpers;
+  if (name === './.open-next/worker.js') return { default: { fetch: async () => { forwards++; return new Response('normal page'); } } };
+  throw new Error(`Unexpected import: ${name}`);
+} });
+const env = { FORM_RATE_LIMITER: { limit: async ({ key }) => { assert.equal(key, 'fluidrwa-form:192.0.2.10'); limits++; return { success: permitted }; } } };
+const fetchWorker = req => module.default.fetch(req, env, {});
+assert.equal((await fetchWorker(request({ 'cf-connecting-ip': '92.255.57.7' }, 'GET', '/'))).status, 403);
+assert.equal(forwards, 0);
+assert.equal((await fetchWorker(request({ 'cf-connecting-ip': '192.0.2.10' }, 'GET', '/blog'))).status, 200);
+assert.equal(limits, 0);
+assert.equal((await fetchWorker(request({ 'cf-connecting-ip': '192.0.2.10' }))).status, 200);
+permitted = false;
+const limited = await fetchWorker(request({ 'cf-connecting-ip': '192.0.2.10' }));
+assert.equal(limited.status, 429);
+assert.equal(limited.headers.get('retry-after'), '60');
+assert.equal(forwards, 2);
+assert.equal((await fetchWorker(request({ 'cf-connecting-ip': '192.0.2.10' }, 'POST', '/api/market-signals/ingest'))).status, 200);
+assert.equal(limits, 2);
+console.log('PASS: origin checks, targeted containment, legitimate identity/free-text acceptance, scanner rejection and form-only edge rate limiting. No network requests.');

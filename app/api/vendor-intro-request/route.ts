@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { notifyFormSubmission } from "@/lib/emailNotifications";
+import { formPayloadRejection, formRequestRejection } from "@/lib/formAbuse";
 
 export const runtime = "nodejs";
 
@@ -124,7 +125,11 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
 
 export async function POST(request: Request) {
   try {
+    const requestRejection = formRequestRejection(request);
+    if (requestRejection) return NextResponse.json({ ok: false, code: requestRejection, message: "Please reload the form and try again, or email contact@fluidrwa.com." }, { status: requestRejection === "request_too_large" ? 413 : 403 });
     const payload = await parseRequest(request);
+    const payloadRejection = formPayloadRejection(payload as Record<string, unknown>);
+    if (payloadRejection) return NextResponse.json({ ok: false, code: payloadRejection, message: payloadRejection === "non_deliverable_email" ? "Please enter an email address where we can reply." : "Please check your details and try again, or email contact@fluidrwa.com." }, { status: 400 });
     const isVendorReviewPage = (() => {
       try {
         return new URL(clean(payload.pageUrl)).pathname === "/vendor-membership";

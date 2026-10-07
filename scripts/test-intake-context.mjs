@@ -13,11 +13,16 @@ vm.runInNewContext(compiled, {
   require(name) {
     if (name === 'next/server') return { NextResponse: { json: (body, options) => ({ body, status: options?.status || 200 }) } };
     if (name === '@/lib/emailNotifications') return { notifyFormSubmission: async payload => { notified = payload; return { ok: true, skipped: false }; } };
+    if (name === '@/lib/formAbuse') {
+      const module = { exports: {} };
+      vm.runInNewContext(ts.transpileModule(fs.readFileSync('lib/formAbuse.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText, { exports: module.exports, URL, Date });
+      return module.exports;
+    }
     throw new Error(`Unexpected import ${name}`);
   },
   fetch: async (_url, options) => { saved = JSON.parse(options.body); writes++; return { ok: true, json: async () => [{ ...saved, id: 'test-id' }] }; }
 });
-const base = { contactEmail: 'qa@example.com', firstName: 'Test', lastName: 'Only', companyName: 'Test', projectDescription: 'A test requirement' };
+const base = { contactEmail: 'qa@fluidrwa.com', firstName: 'Test', lastName: 'Only', companyName: 'Test', projectDescription: 'A test requirement' };
 async function submit(payload) {
   return exports.POST(new Request('https://site.invalid/api/vendor-intro-request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }));
 }
@@ -44,6 +49,9 @@ assert.match(notified.projectDescription, /CLIENT PROOF: Sandbox evidence/);
 assert.match(notified.projectDescription, /VISIBILITY GOAL: Directory/);
 const before = writes;
 assert.equal((await submit({})).status, 400);
+assert.equal(writes, before);
+assert.equal((await submit({ ...base, contactEmail: 'testing@example.com' })).status, 400);
+assert.equal((await submit({ ...base, firstName: "Probe' OR 1=(SELECT 1 FROM PG_SLEEP(15))--" })).status, 400);
 assert.equal(writes, before);
 const fast = await submit({ ...base, rawPayload: { FORM_ELAPSED_MS: '600' } });
 assert.equal(fast.status, 429);

@@ -5,6 +5,7 @@
   "compatibility_date": "2026-09-17",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "workers_dev": true,
+  "ratelimits": [{ "name": "FORM_RATE_LIMITER", "namespace_id": "2026100701", "simple": { "limit": 30, "period": 60 } }],
   "routes": [
     { "pattern": "fluidrwa.com/*", "zone_name": "fluidrwa.com" },
     { "pattern": "www.fluidrwa.com/*", "zone_name": "fluidrwa.com" }
