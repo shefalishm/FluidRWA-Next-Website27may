@@ -331,9 +331,9 @@ export function legacyJsonLd(file: string) {
     const items = providerList?.itemListElement;
     if (Array.isArray(items)) {
       const zoniqxIndex = items.findIndex((item: { item?: { name?: string } }) => item?.item?.name === "Zoniqx");
-      if (zoniqxIndex >= 0 && items.length >= 9) {
+      if (zoniqxIndex >= 0 && items.length >= 10) {
         const [zoniqx] = items.splice(zoniqxIndex, 1);
-        items.splice(8, 0, zoniqx);
+        items.splice(9, 0, zoniqx);
         items.forEach((item: { position?: number }, index: number) => { item.position = index + 1; });
       }
     }
@@ -431,7 +431,7 @@ export function legacyMainHtml(file: string) {
       '$1<p style="grid-column:1/-1;overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>');
   }
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
-  if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToNinth(renderedHtml);
+  if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToTenth(renderedHtml);
   if (file === "vendors/custody-solutions/index.html") {
     const custodyAnswer = `<aside class="directory-answer" aria-label="How to compare institutional crypto custody providers"><strong>Short answer</strong><p>Institutional buyers should compare custody providers by legal and regulatory status, key-control model, insurance scope, asset and chain coverage, transaction policy controls, reporting and recovery. A qualified custodian, an MPC wallet platform and a bank custody service solve different problems, so the shortlist must match who holds assets, who can approve movement and which evidence auditors require.</p><p><a href="/blog/crypto-custody-insurance-coverage-due-diligence">Understand custody insurance exclusions</a> and <a href="/blog/wallet-apis-asset-tokenization-platforms">compare wallet API control models</a> before issuing an RFP.</p></aside>`;
     renderedHtml = renderedHtml.replace(/(<section class="bc-section" id="custody-directory">)/, `${custodyAnswer}$1`);
@@ -476,14 +476,14 @@ function normalizeVendorCategoryCounts(html: string) {
   });
 }
 
-function moveZoniqxToNinth(html: string) {
+function moveZoniqxToTenth(html: string) {
   const gridPattern = /(<div class="bc-company-grid"[^>]*>)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>)/;
   return html.replace(gridPattern, (_match, open: string, content: string, close: string) => {
     const cards = content.match(/<article class="bc-company-card[\s\S]*?<\/article>/g) || [];
     const zoniqxIndex = cards.findIndex((card) => card.includes('id="zoniqx"'));
-    if (zoniqxIndex < 0 || cards.length < 9) return `${open}${content}${close}`;
+    if (zoniqxIndex < 0 || cards.length < 10) return `${open}${content}${close}`;
     const [zoniqx] = cards.splice(zoniqxIndex, 1);
-    cards.splice(8, 0, zoniqx);
+    cards.splice(9, 0, zoniqx);
     return `${open}${cards.map((card, index) => card.replace(/<p class="bc-company-index">\d{2} \/ /, `<p class="bc-company-index">${String(index + 1).padStart(2, "0")} / `)).join("")}${close}`;
   });
 }

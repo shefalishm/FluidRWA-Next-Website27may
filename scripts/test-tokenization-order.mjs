@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import ts from 'typescript';
+
+const module = {};
+const compiled = ts.transpileModule(fs.readFileSync('lib/legacy.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+vm.runInNewContext(compiled, { exports: module, process, console, require(name) {
+  if (name === './contentFs') return { default: fs };
+  if (name === 'node:path') return { default: path };
+  if (name === './routes') return { siteUrl: 'https://www.fluidrwa.com' };
+  if (name === './vendorFallbacks') return { legacyVendorFallbackHtml: () => '', legacyVendorFallbackJsonLd: () => [] };
+  throw new Error(`Unexpected import: ${name}`);
+} });
+const file = 'vendors/tokenization-platforms/index.html';
+const cards = html => [...html.matchAll(/<article class="bc-company-card[^>]*\bid="([^"]+)"/g)].map(match => match[1]);
+const source = cards(fs.readFileSync(file, 'utf8'));
+const rendered = module.legacyMainHtml(file);
+const order = cards(rendered);
+assert.equal(order[9], 'zoniqx');
+assert.equal(order.length, source.length);
+assert.deepEqual(order.filter(id => id !== 'zoniqx'), source.filter(id => id !== 'zoniqx'));
+assert.equal(new Set(order).size, order.length);
+assert.match(rendered, /<p class="bc-company-index">10 \/ Full-Stack Tokenization Infrastructure/);
+const graph = module.legacyJsonLd(file).flatMap(block => block['@graph'] || []);
+const list = graph.find(block => block['@id']?.endsWith('#providers')).itemListElement;
+assert.equal(list[9].item.name, 'Zoniqx');
+assert.equal(list[9].position, 10);
+assert.deepEqual(Array.from(list, item => item.position), Array.from({ length: order.length }, (_, i) => i + 1));
+console.log(`PASS: Zoniqx is #10 in rendered cards and schema; all ${order.length} vendors retained, others' relative order preserved.`);
