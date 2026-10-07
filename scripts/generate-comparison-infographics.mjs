@@ -1,12 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import octoberBatch from "./comparison-image-batch-october-7.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...octoberBatch,
   {
     slug: "openpayd-vs-fiat-republic-vs-banking-circle-fiat-rails",
     title: "Institutional Fiat Rails",
@@ -157,7 +159,7 @@ function desktopSvg(item) {
 
 function mobileSvg(item) {
   const width = 900;
-  const cardHeight = 260;
+  const cardHeight = 510;
   const top = 255;
   const gap = 18;
   const height = top + item.vendors.length * (cardHeight + gap) + 130;
@@ -165,10 +167,10 @@ function mobileSvg(item) {
   const cards = item.vendors.map((vendor, vendorIndex) => {
     const y = top + vendorIndex * (cardHeight + gap);
     const detail = item.rows.map((row, rowIndex) => {
-      const dy = y + 92 + rowIndex * 54;
-      return `<text x="74" y="${dy}" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="850">${esc(labels[rowIndex])}</text>${text(row[vendorIndex + 1], 235, dy, 570, { size: 18, weight: 650, maxLines: 2, lineHeight: 22 })}`;
+      const dy = y + 110 + rowIndex * 136;
+      return `<text x="74" y="${dy}" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="850">${esc(labels[rowIndex])}</text>${text(row[vendorIndex + 1], 74, dy + 42, 750, { size: 34, weight: 650, maxLines: 3, lineHeight: 36 })}`;
     }).join("");
-    return `<rect x="50" y="${y}" width="800" height="${cardHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="50" y="${y}" width="800" height="62" rx="8" fill="${vendorIndex % 2 ? "#eaf6fd" : "#fff5bd"}"/><text x="74" y="${y + 41}" fill="#12213a" font-family="Inter,Arial,sans-serif" font-size="27" font-weight="900">${esc(vendor)}</text>${detail}`;
+    return `<rect x="50" y="${y}" width="800" height="${cardHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="50" y="${y}" width="800" height="72" rx="8" fill="${vendorIndex % 2 ? "#eaf6fd" : "#fff5bd"}"/><text x="74" y="${y + 49}" fill="#12213a" font-family="Inter,Arial,sans-serif" font-size="36" font-weight="900">${esc(vendor)}</text>${detail}`;
   }).join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} mobile vendor comparison table"><rect width="${width}" height="${height}" fill="#f6fbfe"/><rect width="${width}" height="14" fill="#ffdf45"/><text x="50" y="70" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="850" letter-spacing="2">FLUIDRWA RESEARCH</text>${text(item.title, 50, 128, 800, { size: 38, weight: 900, maxLines: 2, lineHeight: 44 })}${cards}<text x="50" y="${height - 72}" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="16">Editorial starting points, not a universal ranking.</text><text x="50" y="${height - 38}" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800">FluidRWA.com</text></svg>`;
 }

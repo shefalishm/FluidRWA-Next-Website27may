@@ -320,7 +320,7 @@ function researchBlock(post) {
 function infographicBlock(post) {
   if (!post.infographicImage || !post.infographicAlt) return "";
   const mobileSource = post.infographicMobileImage
-    ? `<source media="(max-width: 620px)" srcset="${esc(post.infographicMobileImage)}">`
+    ? `<source media="(max-width: 620px)" srcset="${esc(post.infographicMobileImage)}"${post.infographicMobileWidth && post.infographicMobileHeight ? ` width="${esc(post.infographicMobileWidth)}" height="${esc(post.infographicMobileHeight)}"` : ""}>`
     : "";
   const caption = post.infographicCaption || "FluidRWA editorial comparison graphic.";
   return `<figure class="article-infographic" itemscope itemtype="https://schema.org/ImageObject"><picture>${mobileSource}<img class="article-infographic-image" src="${esc(post.infographicImage)}" alt="${esc(post.infographicAlt)}" title="${esc(post.infographicName || post.title)}" width="${esc(post.infographicWidth || "1600")}" height="${esc(post.infographicHeight || "1050")}" loading="lazy" decoding="async" itemprop="contentUrl"></picture><figcaption><span itemprop="caption">${esc(caption)}</span><a class="article-infographic-download" href="${esc(post.infographicImage)}" download>Download infographic (PNG)</a></figcaption><meta itemprop="name" content="${esc(post.infographicName || post.title)}"><meta itemprop="creator" content="FluidRWA"></figure>`;
@@ -370,7 +370,7 @@ function postPage(post, posts) {
       { "@type": "Article", headline: post.title, description, image: infographicUrl ? [imageUrl, infographicUrl] : imageUrl, datePublished: post.date, dateModified: postReviewedDate, author: { "@type": "Organization", name: "FluidRWA", url: site }, publisher: { "@type": "Organization", name: "FluidRWA", logo: { "@type": "ImageObject", url: `${site}/assets/fluidrwa-small-logo.png` } }, mainEntityOfPage: url, citation: citations, speakable: { "@type": "SpeakableSpecification", cssSelector: [".answer-box", ".research-block"] }, about: [{ "@type": "Thing", name: post.category }, { "@type": "Thing", name: "Web3 vendor discovery" }, { "@type": "Thing", name: "Digital asset infrastructure" }] },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site }, { "@type": "ListItem", position: 2, name: "Insights", item: `${site}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] },
       { "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
-      ...(infographicUrl ? [{ "@type": "ImageObject", name: post.infographicName || post.title, contentUrl: infographicUrl, caption: post.infographicCaption || post.infographicAlt, creditText: "FluidRWA Research", creator: { "@type": "Organization", name: "FluidRWA", url: site }, copyrightNotice: "FluidRWA", acquireLicensePage: `${site}/contact`, keywords: ["RWA tokenization platforms", "asset tokenization comparison", "tokenization vendor shortlist"] }] : [])
+      ...(infographicUrl ? [{ "@type": "ImageObject", name: post.infographicName || post.title, contentUrl: infographicUrl, caption: post.infographicCaption || post.infographicAlt, creditText: "FluidRWA Research", creator: { "@type": "Organization", name: "FluidRWA", url: site }, copyrightNotice: "FluidRWA", acquireLicensePage: `${site}/contact`, keywords: post.infographicKeywords ? post.infographicKeywords.split(",").map(value => value.trim()).filter(Boolean) : ["RWA tokenization platforms", "asset tokenization comparison", "tokenization vendor shortlist"] }] : [])
     ]
   };
   const toc = headings.map((h) => `<a href="#${slugify(h)}">${esc(h)}</a>`).join("");
@@ -426,17 +426,31 @@ function updateLlms(posts) {
 }
 
 const posts = readPosts().filter((post) => !post.redirectTo);
-fs.rmSync(blogDir, { recursive: true, force: true });
+const selectedSlugs = process.argv.includes("--only") ? new Set(process.argv.slice(process.argv.indexOf("--only") + 1)) : null;
+if (selectedSlugs && (!selectedSlugs.size || [...selectedSlugs].some(slug => !posts.some(post => post.slug === slug)))) throw new Error("Select existing article slugs after --only.");
+if (!selectedSlugs) fs.rmSync(blogDir, { recursive: true, force: true });
 fs.mkdirSync(blogDir, { recursive: true });
 for (const post of posts) {
+  if (selectedSlugs && !selectedSlugs.has(post.slug)) continue;
   const dir = path.join(blogDir, post.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), postPage(post, posts));
 }
+if (!selectedSlugs) {
 fs.writeFileSync(path.join(root, "blog.html"), indexPage(posts));
 fs.writeFileSync(path.join(root, "reports-research.html"), reportsPage());
 fs.mkdirSync(path.join(blogDir, "tokenization"), { recursive: true });
 fs.writeFileSync(path.join(blogDir, "tokenization", "index.html"), categoryPage(posts, "Tokenization", "tokenization", "Tokenization Blogs and Asset Tokenization Guides", "Answer-first guides for asset tokenization, RWA infrastructure, tokenization platforms, compliance, costs, risks, investors and implementation."));
 updateSitemap(posts);
 updateLlms(posts);
-console.log(`Built ${posts.length} blog posts.`);
+} else {
+  const sitemapPath = path.join(root, "sitemap.xml");
+  let sitemap = fs.readFileSync(sitemapPath, "utf8");
+  for (const post of posts.filter(post => selectedSlugs.has(post.slug))) {
+    const url = blogUrl(post.slug);
+    const entry = sitemap.split("<url>").find(part => part.startsWith(`<loc>${url}</loc>`));
+    if (entry) sitemap = sitemap.replace(entry, entry.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${esc(post.reviewedDate || reviewedDate)}</lastmod>`));
+  }
+  fs.writeFileSync(sitemapPath, sitemap);
+}
+console.log(`Built ${selectedSlugs ? selectedSlugs.size : posts.length} blog posts.`);
