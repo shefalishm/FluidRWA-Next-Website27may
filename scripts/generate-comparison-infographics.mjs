@@ -2,12 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 import octoberBatch from "./comparison-image-batch-october-7.mjs";
+import october8Batch from "./comparison-image-batch-october-8.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...october8Batch,
   ...octoberBatch,
   {
     slug: "openpayd-vs-fiat-republic-vs-banking-circle-fiat-rails",
