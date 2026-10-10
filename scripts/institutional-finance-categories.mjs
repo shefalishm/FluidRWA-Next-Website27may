@@ -5,7 +5,8 @@ export default [
     eyebrow: "Execution and trading operations",
     description: "Compare institutional crypto trading software for order management, execution, liquidity connectivity and post-trade workflows. Shortlist by operating model.",
     dateModified: "2026-10-10",
-    snapshot: ["3", "Execution", "Post-trade", "Buyer diligence"],
+    hideWebsiteLinks: true,
+    snapshot: ["5", "Execution", "Post-trade", "Buyer diligence"],
     scope: "Institutional digital asset trading platforms connect order management, execution and operational workflows. This directory covers software and trading infrastructure, not a ranking of exchanges, liquidity providers or DeFi derivatives protocols. A software integration does not establish counterparty approval, custody, credit access or regulatory eligibility.",
     checklist: [
       ["Execution and venue access", "Map order types, routing, RFQ and venue connections to the exact asset and trading strategy. Request the current supported-venue list and test rejects, duplicate orders, disconnects and recovery. Confirm who contracts with each counterparty."],
@@ -15,7 +16,9 @@ export default [
     vendors: [
       ["Talos", "TA", "Order and execution management", "Institutions evaluating multi-venue order management and execution workflows.", "Talos documents a trading platform with liquidity aggregation, order routing, execution algorithms, RFQ and post-trade tools. Confirm the applicable modules, venue contracts and customer eligibility; software connectivity does not make Talos the custodian or liquidity counterparty.", ["OEMS", "Routing", "RFQ", "Post-trade"], "https://www.talos.com/our-solutions/trading"],
       ["Wyden", "WY", "Trading orchestration", "Banks and brokers connecting digital asset trading with custody and core banking operations.", "Wyden describes an institutional trading and operating layer spanning front-, middle- and back-office workflows, with exchange, OTC, custody and banking integrations. Confirm the chosen agency or principal model, supported connections and division of operational responsibility.", ["Trading orchestration", "Banking integration", "Custody connectivity", "Reporting"], "https://www.wyden.io/"],
-      ["Finery Markets", "FM", "ECN and white-label infrastructure", "Teams evaluating electronic OTC trading and branded client-trading workflows.", "Finery Markets documents ECN and white-label trading infrastructure with order books, RFQ, quote streams and reporting. Confirm counterparty onboarding, credit, settlement terms and which features belong to the contracted product; the software does not remove counterparty risk.", ["ECN", "RFQ", "White-label", "OTC workflows"], "https://www.finerymarkets.com/white-label.html"]
+      ["Finery Markets", "FM", "ECN and white-label infrastructure", "Teams evaluating electronic OTC trading and branded client-trading workflows.", "Finery Markets documents ECN and white-label trading infrastructure with order books, RFQ, quote streams and reporting. Confirm counterparty onboarding, credit, settlement terms and which features belong to the contracted product; the software does not remove counterparty risk.", ["ECN", "RFQ", "White-label", "OTC workflows"], "https://www.finerymarkets.com/white-label.html"],
+      ["TS Imagine", "TS", "Multi-asset order and execution management", "Institutional teams evaluating digital asset execution alongside other asset classes.", "TS Imagine documents TradeSmart order management, execution and venue connectivity across multiple asset classes, including crypto. Confirm the digital asset venues, instruments, controls and modules available for your specific deployment; multi-asset coverage does not establish access to every crypto market.", ["Order management", "Execution", "Venue connectivity", "Multi-asset"], "https://tsimagine.com/execute/"],
+      ["Trading Technologies", "TT", "Professional multi-asset trading technology", "Institutional trading teams evaluating crypto connectivity within a broader execution and operations stack.", "Trading Technologies describes a multi-asset platform that includes cryptocurrencies, with trading, order-management, API and post-trade tools. Confirm the exact crypto instruments and connected venues, regional eligibility and contracted modules; software access is separate from exchange membership, clearing and custody arrangements.", ["Trading", "Order management", "APIs", "Post-trade"], "https://tradingtechnologies.com/trading/"]
     ],
     resources: [
       ["Talos vs Wyden vs Finery Markets: trading workflows compared", "/blog/talos-vs-wyden-vs-finery-markets-institutional-trading"],
@@ -25,7 +28,7 @@ export default [
     faqs: [
       ["Is a trading platform the same as an exchange or custodian?", "No. Trading software may connect to venues, counterparties and custodians without providing those services itself. Confirm the contracting entities and responsibilities for execution, funding, credit and asset custody separately."],
       ["How should an institution compare these platforms?", "Start with the operating model, asset coverage and hardest workflow. Test venue connectivity, order controls, failure recovery, funding and post-trade exports. Validate eligibility and commercial scope directly with each provider."],
-      ["Does this directory rank execution performance?", "No. The initial cohort comes from FluidRWA's existing institutional trading comparison. Descriptions summarize company documentation, not independent testing, performance scores or an exhaustive market ranking."]
+      ["Does this directory rank execution performance?", "No. The selection combines the existing institutional trading comparison cohort with additional providers whose official documentation describes crypto trading technology. Descriptions summarize company documentation, not independent testing, performance scores or an exhaustive market ranking."]
     ]
   },
   {
@@ -34,6 +37,7 @@ export default [
     eyebrow: "Digital asset finance operations",
     description: "Compare crypto accounting, reconciliation and tax-reporting software. Evaluate digital asset data, close workflows, controls and reporting responsibilities.",
     dateModified: "2026-10-10",
+    hideWebsiteLinks: true,
     snapshot: ["6", "Finance ops", "Reporting", "Buyer diligence"],
     scope: "Crypto accounting and tax software helps finance teams turn digital asset activity into financial records and reporting. Reconciliation, accounting policy, cost basis and information reporting are different buyer tasks; not every provider performs all of them. This directory separates documented focus from questions buyers must resolve with their finance and tax advisers.",
     checklist: [

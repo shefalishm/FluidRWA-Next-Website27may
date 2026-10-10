@@ -32,3 +32,11 @@ Added links to the Web3 vendor menu, main ecosystem category navigation and thre
 ## Checks
 
 Local browser checks passed at 1440px, 390px and 360px: correct content/canonical, no horizontal overflow, three/six provider cards, matching schema counts, primary-source links, opening enquiry modals, internal resource links, email CTA, dated review and sitemap/ecosystem/article discovery. Source-preservation regression passed for 23 comparisons. Live release checks follow deployment; local success alone is not publication.
+
+## Published release
+
+Follow-up: expanded trading to five providers with TS Imagine (https://tsimagine.com/execute/) and Trading Technologies (https://tradingtechnologies.com/trading/), checked against official product pages on 10 October 2026. Their descriptions are limited to documented crypto/multi-asset trading technology, with venue and contracting caveats. Removed external product-source buttons from both categories at the user's request, retaining research URLs in the data and this checklist. Accounting/tax remains six providers. Updated ecosystem count and regression assertions.
+
+Published commit `a3f97cac49a0420bd14960ea11fa72b2dd8a47b9` to Cloudflare version `e1201acb-70f5-4882-b0cd-e0c942ccbef7`. Production verification passed all 15 critical routes. Both live categories passed browser checks at 1440px, 390px and 360px, including enquiry modals, internal links, canonical metadata, visible update dates and discovery links. The production sitemap includes both categories. Both pages are pre-rendered.
+
+IndexNow accepted six selected canonical URLs with HTTP 200: the two categories, ecosystem and three updated comparison articles. Acceptance is a notification, not a guarantee of indexing.

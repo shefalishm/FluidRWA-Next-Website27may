@@ -33,7 +33,7 @@ try {
       assert.equal(result.h1, category.title);
       assert.equal(result.canonical, `https://www.fluidrwa.com/vendors/${category.slug}`);
       assert.equal(result.count, category.vendors.length);
-      assert.equal(result.sources.length, category.vendors.length);
+      assert.equal(result.sources.length, category.hideWebsiteLinks ? 0 : category.vendors.length);
       assert.equal(result.intros.length, category.vendors.length);
       await page.locator('.bc-company-card [data-vendor-contact-trigger]').first().click();
       await page.getByRole('dialog').waitFor();
