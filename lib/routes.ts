@@ -55,6 +55,8 @@ export const vendorSlugs = [
   "compliance-infrastructure-providers",
   "defi-infrastructure-providers",
   "defi-trading-margin-infrastructure",
+  "institutional-digital-asset-trading-platforms",
+  "crypto-accounting-tax-software",
   "stablecoin-infrastructure-providers",
   "security-audit-companies",
   "growth-marketing-companies",

@@ -50,6 +50,8 @@ The useful question is not “which brand is biggest?” It is “which operatin
 
 ## Decision criteria
 
+Explore the [institutional digital asset trading platform directory](/vendors/institutional-digital-asset-trading-platforms) for category scope, provider sources and procurement questions. It covers execution software and operating workflows, not a ranking of exchanges or DeFi venues.
+
 1. **Execution model.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
 2. **Liquidity connectivity.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.
 3. **Agency and principal workflows.** Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.

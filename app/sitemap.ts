@@ -70,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
-      lastModified: route.startsWith("vendors/") ? "2026-09-22" : "2026-05-27",
+      lastModified: ["vendors/institutional-digital-asset-trading-platforms", "vendors/crypto-accounting-tax-software"].includes(route) ? "2026-10-10" : route.startsWith("vendors/") ? "2026-09-22" : "2026-05-27",
       changeFrequency: "weekly" as const,
       priority: route.startsWith("vendors/") ? 0.8 : 0.75
     })),

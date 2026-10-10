@@ -154,6 +154,8 @@ For RWA and tokenization teams, crypto accounting should be selected before laun
 
 ## Continue Your Research
 
+- [Crypto accounting and tax software directory](/vendors/crypto-accounting-tax-software): compare documented roles, current product sources and finance-team diligence questions.
+
 - [Compare compliance infrastructure](/vendors/compliance-infrastructure/)
 - [Compare custody solutions](/vendors/custody-solutions/)
 - [Compare fund administration and transfer agents](/vendors/fund-administration-transfer-agents/)

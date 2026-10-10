@@ -61,6 +61,7 @@ export function Header() {
                 <a href="/vendors/blockchain-development-companies">Blockchain development</a>
                 <a href="/vendors/tokenization-platforms">Tokenization platforms</a>
                 <a href="/vendors/defi-trading-margin-infrastructure">DeFi trading and margin</a>
+                <a href="/vendors/institutional-digital-asset-trading-platforms">Institutional trading</a>
                 <a href="/vendors/crypto-custody-providers">Custody and wallets</a>
                 <a href="/vendors/kyc-aml-providers">KYC and AML providers</a>
                 <a href="/vendors/stablecoin-infrastructure-providers">Payments and stablecoins</a>
@@ -74,6 +75,7 @@ export function Header() {
                 <a href="/vendors/node-as-a-service-rpc-providers">RPC and node providers</a>
                 <a href="/vendors/rollup-as-a-service-appchains">RaaS and appchains</a>
                 <a href="/vendors/fund-administration-transfer-agents">Fund administration</a>
+                <a href="/vendors/crypto-accounting-tax-software">Crypto accounting and tax</a>
                 <a href="/vendors/growth-marketing-companies">Growth marketing</a>
               </div>
             </div>

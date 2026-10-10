@@ -54,6 +54,8 @@ The useful question is not “which brand is biggest?” It is “which operatin
 
 ## Decision criteria
 
+Explore the [crypto accounting and tax software directory](/vendors/crypto-accounting-tax-software) to distinguish information reporting, accounting, reconciliation and financial data workflows across the wider comparison cohorts.
+
 1. **Source-system and asset coverage.** List every exchange, custodian, wallet, protocol and token used in the close. Ask the vendor to mark native, partner-delivered and unsupported sources separately.
 2. **Transaction normalization and cost basis.** Test transfers, staking, bridges, DeFi activity, derivatives and corrections. Confirm how uncertain classifications enter a review queue instead of silently becoming final records.
 3. **Accounting policy and subledger controls.** Map the product to the buyer's chart of accounts, approval rights, period locks and journal workflow. Determine who can change a policy and how that change is evidenced.

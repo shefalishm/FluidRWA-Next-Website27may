@@ -1,9 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import financeCategories from "./institutional-finance-categories.mjs";
 
 const root = path.resolve(new URL("..", import.meta.url).pathname);
 
 const categories = [
+  ...financeCategories,
   {
     slug: "fund-administration-transfer-agents",
     title: "Fund Administration and Transfer Agents",
@@ -217,14 +219,15 @@ function page(category) {
         name: category.title,
         numberOfItems: category.vendors.length,
         itemListElement: itemList
-      }
+      },
+      ...(category.faqs ? [{ "@type": "FAQPage", mainEntity: category.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }] : [])
     ]
   };
 
   const checklist = category.checklist.map((item, index) => `<article class="bc-area-card reveal"><span>${String(index + 1).padStart(2, "0")}</span><h3>${esc(item[0])}</h3><p>${esc(item[1])}</p></article>`).join("");
   const cards = category.vendors.map((vendor, index) => {
     const id = vendor[0].toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    const website = vendor[6] && !category.hideWebsiteLinks ? `<a class="bc-visit" href="${esc(vendor[6])}" target="_blank" rel="noopener noreferrer">Visit Official Website</a>` : "";
+    const website = vendor[6] && !category.hideWebsiteLinks ? `<a class="bc-visit" href="${esc(vendor[6])}" target="_blank" rel="noopener noreferrer">${category.scope ? "Official product source" : "Visit Official Website"}</a>` : "";
     return `<article class="bc-company-card reveal" id="${id}"><div class="bc-company-top"><div class="bc-company-mark">${esc(vendor[1])}</div><div><p class="bc-company-index">${String(index + 1).padStart(2, "0")} / ${esc(vendor[2])}</p><h3>${esc(vendor[0])}</h3></div></div><p class="bc-best"><span>Best for</span>${esc(vendor[3])}</p><p class="bc-desc">${esc(vendor[4])}</p><div class="bc-tags">${vendor[5].map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>${website}</article>`;
   }).join("\n      ");
 
@@ -256,9 +259,11 @@ function page(category) {
   <main id="main">
     <section class="bc-hero"><div class="light-container bc-hero-inner"><div class="bc-hero-copy"><p class="eyebrow light-eyebrow">${esc(category.eyebrow)}</p><h1>${esc(category.title)}</h1><p>${esc(category.description)}</p><div class="hero-actions"><a class="btn btn-primary light-primary" href="#vendor-directory">Explore Providers</a><a class="btn btn-soft" href="../../submit-requirement">Submit Requirements</a></div></div>${snapshot}</div></section>
     <section class="bc-section"><div class="light-container"><div class="solutions-section-head"><p class="eyebrow light-eyebrow">Buyer checklist</p><h2>When to shortlist this category</h2><p>Use this page as a starting point for category discovery. Vendor fit is based on public product positioning, public documentation and category relevance, not a FluidRWA endorsement.</p></div><div class="bc-area-grid">${checklist}</div></div></section>
-    <section class="bc-section" id="vendor-directory"><div class="light-container"><div class="bc-directory-head"><div><p class="eyebrow light-eyebrow">Directory</p><h2>Compare ${esc(category.title.toLowerCase())}</h2><p>Verified category fit based on public positioning and buyer relevance for RWA, Web3, AI and digital asset teams.</p></div></div><div class="bc-company-grid" id="bcGrid">
+    ${category.scope ? `<section class="bc-section"><div class="light-container"><h2>What this category covers</h2><p>${esc(category.scope)}</p><p>Selection follows the existing FluidRWA comparison cohorts. Provider order is not a quality ranking. Company documentation is company evidence, not independent validation. Unspecified features, pricing and eligibility are not verified.</p></div></section>` : ""}
+    <section class="bc-section" id="vendor-directory"><div class="light-container"><div class="bc-directory-head"><div><p class="eyebrow light-eyebrow">Directory</p><h2>Compare ${esc(category.title.toLowerCase())}</h2><p>${category.scope ? "Documented provider roles and buyer-fit prompts. Verify eligibility, product scope and commercial terms directly with each provider." : "Verified category fit based on public positioning and buyer relevance for RWA, Web3, AI and digital asset teams."}</p></div></div><div class="bc-company-grid" id="bcGrid">
       ${cards}
     </div></div></section>
+    ${category.resources ? `<section class="bc-section"><div class="light-container"><h2>Related comparisons and categories</h2><ul>${category.resources.map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join("")}</ul><h2>Buyer questions</h2>${category.faqs.map(([question, answer]) => `<details><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join("")}<h2>Should your company be considered?</h2><p><a href="/vendor-membership">Apply for a listing</a> or email <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a>.</p><p>Reviewed by FluidRWA Research Team. Last updated: <time datetime="${esc(category.dateModified)}">10 October 2026</time>. Product sources checked on this date; buyers should recheck contractual scope before procurement.</p></div></section>` : ""}
   </main>
   <footer class="light-footer"><div class="light-container footer-grid-lite footer-simple"><a class="footer-brand-link" href="../../index.html" aria-label="FluidRWA home"><img class="footer-logo-lite" src="../../assets/fluidrwa-small-logo.png" alt="FluidRWA"></a><nav class="footer-legal-links" aria-label="Footer navigation"><a href="../../contact.html">Contact Us</a><a href="../../privacy.html">Privacy Policy</a><a href="../../terms.html">Terms & Conditions</a></nav></div><div class="light-container footer-bottom-lite">© <span data-year></span> FluidRWA.</div></footer>
   <script src="../../assets/site.js?v=forms-1" defer></script>
