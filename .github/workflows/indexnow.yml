@@ -1,10 +1,12 @@
 name: Submit IndexNow
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      paths:
+        description: Published canonical URL paths, separated by whitespace
+        required: true
+        type: string
 
 jobs:
   submit:
@@ -14,7 +16,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Wait for Vercel deployment
-        run: sleep 90
-      - name: Submit sitemap URLs to IndexNow
-        run: npm run indexnow
+      - name: Submit selected published URLs to IndexNow
+        env:
+          INDEXNOW_PATHS: ${{ inputs.paths }}
+        run: |
+          node --input-type=module -e '
+            import { execFileSync } from "node:child_process";
+            const paths = process.env.INDEXNOW_PATHS.trim().split(/\s+/);
+            if (paths.some(path => path.startsWith("--"))) throw new Error("Enter URL paths, not options");
+            execFileSync("node", ["scripts/submit-indexnow.mjs", ...paths], { stdio: "inherit" });
+          '
