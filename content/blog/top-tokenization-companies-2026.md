@@ -169,7 +169,9 @@ Institutions do not want trapped assets. They need infrastructure that can work 
 
 That is why providers such as Chainlink, Canton Network, Ripple, R3, Hedera and Provenance matter even when they are not traditional tokenization platforms. They support connectivity, settlement, messaging, data or blockchain infrastructure that can make tokenized assets more usable.
 
-## Top 25 Tokenization Companies in 2026
+## Wider Tokenization Ecosystem: Platforms and Supporting Providers
+
+The ten-platform shortlist above compares issuer-facing starting points. The companies below also include product issuers, networks, custody and connectivity providers. They serve different roles and are not an expanded platform ranking.
 
 ### 1. Securitize
 

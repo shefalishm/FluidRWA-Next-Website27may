@@ -1,6 +1,6 @@
 ---
 title: "How Does Tokenization Compare to Equity Crowdfunding?"
-description: "Alternative fundraising method comparison. A practical answer for teams evaluating asset tokenization, RWA infrastructure and tokenization providers."
+description: "Compare tokenization and equity crowdfunding by ownership, investor access and transferability. Understand why token technology does not replace offering rules."
 date: "2026-05-26"
 category: "Tokenization"
 slug: "how-does-tokenization-compare-to-equity-crowdfunding"

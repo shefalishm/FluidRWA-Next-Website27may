@@ -3,12 +3,14 @@ import path from "node:path";
 import sharp from "sharp";
 import octoberBatch from "./comparison-image-batch-october-7.mjs";
 import october8Batch from "./comparison-image-batch-october-8.mjs";
+import october10Batch from "./comparison-image-batch-october-10.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...october10Batch,
   ...october8Batch,
   ...octoberBatch,
   {
@@ -134,6 +136,7 @@ function text(value, x, y, width, options = {}) {
 }
 
 function desktopSvg(item) {
+  if (item.providerRows) return providerTableSvg(item);
   const width = 1600;
   const height = 1050;
   const left = 80;
@@ -157,6 +160,19 @@ function desktopSvg(item) {
   }).join("");
   const separators = Array.from({ length: item.vendors.length + 1 }, (_, index) => left + labelWidth + index * columnWidth).map((x) => `<line x1="${x}" y1="${top}" x2="${x}" y2="${top + headerHeight + item.rows.length * rowHeight}" stroke="#d6e4ef"/>`).join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} vendor comparison table"><rect width="1600" height="1050" fill="#f6fbfe"/><rect x="0" y="0" width="1600" height="16" fill="#ffdf45"/><text x="80" y="80" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="850" letter-spacing="3">FLUIDRWA RESEARCH</text>${text(item.title, 80, 145, 1260, { size: 48, weight: 900, maxLines: 2, lineHeight: 56 })}<text x="1520" y="84" text-anchor="end" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="20">2026 comparison matrix</text><rect x="${left}" y="${top}" width="${tableWidth}" height="${headerHeight + item.rows.length * rowHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="${left}" y="${top}" width="${labelWidth}" height="${headerHeight}" fill="#ffdf45"/>${text("Decision factor", left + 22, top + 48, labelWidth - 44, { size: 22, weight: 900, maxLines: 2 })}${vendorHeaders}${rows}${separators}<text x="80" y="985" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="18">Editorial starting points, not a universal ranking. Verify current product scope directly with each provider.</text><text x="80" y="1018" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="800">FluidRWA.com</text></svg>`;
+}
+
+function providerTableSvg(item) {
+  const height = 400 + item.vendors.length * 126;
+  const widths = [350, 510, 580];
+  const positions = [80, 430, 940];
+  const heading = ['Provider', ...item.rows.map(row => row[0])];
+  const header = heading.map((label, index) => `<rect x="${positions[index]}" y="230" width="${widths[index]}" height="90" fill="#ffdf45"/>${text(label, positions[index]+20, 282, widths[index]-40, {size:26,weight:850})}`).join('');
+  const rows = item.vendors.map((vendor, index) => {
+    const y = 320 + index * 126;
+    return [vendor, ...item.rows.map(row => row[index+1])].map((cell, column) => `<rect x="${positions[column]}" y="${y}" width="${widths[column]}" height="126" fill="${index%2?'#eaf6fd':'#ffffff'}" stroke="#d6e4ef"/>${text(cell,positions[column]+20,y+44,widths[column]-40,{size:column?25:27,weight:column?650:850,maxLines:3})}`).join('');
+  }).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="${height}"><rect width="1600" height="${height}" fill="#f6fbfe"/><rect width="1600" height="16" fill="#ffdf45"/>${text('FLUIDRWA RESEARCH',80,80,1400,{size:24,weight:850,color:'#2664a9'})}${text(item.title,80,150,1400,{size:44,weight:900})}${header}${rows}${text('Public company documentation. Not a ranking or assurance of eligibility.',80,height-35,1440,{size:20,color:'#61758b'})}</svg>`;
 }
 
 function mobileSvg(item) {

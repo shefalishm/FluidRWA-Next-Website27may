@@ -1,6 +1,6 @@
 ---
 title: "What Companies Are Actually Using Tokenization Today?"
-description: "Real-world examples and case studies. A practical answer for teams evaluating asset tokenization, RWA infrastructure and tokenization providers."
+description: "Explore company examples of asset tokenization and the roles of issuers, platforms and infrastructure providers. Distinguish products from enabling technology."
 date: "2026-05-26"
 category: "Tokenization"
 slug: "what-companies-are-actually-using-tokenization-today"

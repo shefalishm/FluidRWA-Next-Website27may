@@ -1,6 +1,13 @@
 const host = "www.fluidrwa.com";
 const key = "96878f288d7f0d8cd413725f872f913f";
 const sitemapUrl = `https://${host}/sitemap.xml`;
+const args = process.argv.slice(2);
+const submitAll = args.includes("--all");
+const dryRun = args.includes("--dry-run");
+const requested = args.filter(arg => !arg.startsWith("--"));
+if (!submitAll && !requested.length) {
+  throw new Error("Specify changed canonical URL paths, or use --all for an intentional full submission. Add --dry-run to inspect without submitting.");
+}
 
 const sitemapResponse = await fetch(sitemapUrl);
 if (!sitemapResponse.ok) {
@@ -8,10 +15,21 @@ if (!sitemapResponse.ok) {
 }
 
 const sitemap = await sitemapResponse.text();
-const urlList = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const canonicalUrls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
+const urlList = submitAll ? [...canonicalUrls] : [...new Set(requested.map(value => {
+  const url = new URL(value, `https://${host}`);
+  if (url.hostname !== host || url.protocol !== "https:" || url.search || url.hash || !canonicalUrls.has(url.href)) {
+    throw new Error(`Not a sitemap canonical URL: ${value}`);
+  }
+  return url.href;
+}))];
 
 if (!urlList.length) {
   throw new Error(`No URLs found in ${sitemapUrl}`);
+}
+if (dryRun) {
+  console.log(JSON.stringify({ submitAll, urls: urlList }, null, 2));
+  process.exit(0);
 }
 
 const response = await fetch("https://api.indexnow.org/indexnow", {

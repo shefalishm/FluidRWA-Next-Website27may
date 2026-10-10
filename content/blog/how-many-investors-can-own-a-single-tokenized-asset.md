@@ -1,6 +1,6 @@
 ---
 title: "How Many Investors Can Own a Single Tokenized Asset?"
-description: "Fractional ownership mechanics. A practical answer for teams evaluating asset tokenization, RWA infrastructure and tokenization providers."
+description: "Understand how fractional ownership, investor eligibility and offering restrictions affect the number of investors who can hold a tokenized asset."
 date: "2026-05-26"
 category: "Tokenization"
 slug: "how-many-investors-can-own-a-single-tokenized-asset"

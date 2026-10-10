@@ -369,9 +369,12 @@ function enhanceBlogDecisionPage(file: string, html: string) {
     if (genericStart >= 0 && faqStart > genericStart) {
       const removedSection = enhanced.slice(genericStart, faqStart);
       const removedIds = [...removedSection.matchAll(/<h2 id="([^"]+)"/g)].map((match) => match[1]);
+      const sourcesStart = removedSection.search(/<h2 id="(?:primary-sources|sources-and-useful-references)[^"]*">/);
+      const preservedSources = sourcesStart >= 0 ? removedSection.slice(sourcesStart) : "";
       const conciseChecklist = `<section class="procurement-checklist" aria-labelledby="validate-shortlist"><h2 id="validate-shortlist">How to validate the shortlist</h2><ol><li>Test the hardest production workflow with realistic volume, failure and recovery scenarios.</li><li>Confirm which features are generally available, partner-delivered or dependent on a separate contract.</li><li>Price implementation, usage, support, overages and exit work, not only the subscription.</li><li>Verify security scope, data handling, incident response, service levels and named delivery staff.</li><li>Require usable exports for configuration, records and logs before signing.</li></ol><p>Use these checks as procurement prompts, then validate regulatory and contractual conclusions with qualified advisers.</p></section>`;
-      enhanced = `${enhanced.slice(0, genericStart)}${conciseChecklist}${enhanced.slice(faqStart)}`;
+      enhanced = `${enhanced.slice(0, genericStart)}${conciseChecklist}${preservedSources}${enhanced.slice(faqStart)}`;
       for (const id of removedIds) {
+        if (preservedSources.includes(`id="${id}"`)) continue;
         enhanced = enhanced.replace(new RegExp(`<a href="#${id}">[\\s\\S]*?<\\/a>`, "g"), "");
       }
       enhanced = enhanced.replace(
