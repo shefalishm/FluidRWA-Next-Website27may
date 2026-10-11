@@ -1,12 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
-import batch from './comparison-image-batch-october-8.mjs';
+import defaultBatch from './comparison-image-batch-october-8.mjs';
+const isOctober10 = process.argv.includes('--october-10');
+const batch = isOctober10 ? (await import('./comparison-image-batch-october-10-new.mjs')).default : defaultBatch;
 
 const require = createRequire('/Users/shefalisharma/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json');
 const { chromium } = require('playwright');
 const base = process.env.PREVIEW_URL || 'http://localhost:3042';
-const output = path.resolve('docs/content-qa-2026-10-09');
+const output = path.resolve(isOctober10 ? 'docs/content-qa-2026-10-10-new' : 'docs/content-qa-2026-10-09');
 fs.mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ headless: true, channel: 'chrome' });
 const results = [];
@@ -15,7 +17,7 @@ try {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     for (const { slug } of batch) {
       const response = await page.goto(`${base}/blog/${slug}`, { waitUntil: 'networkidle' });
-      const result = await page.evaluate(() => {
+      const result = await page.evaluate((dateLabel) => {
         const article = document.querySelector('article');
         const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')].map(el => JSON.parse(el.textContent));
         const images = [...document.querySelectorAll('article img')];
@@ -29,11 +31,11 @@ try {
           internalLinks: [...(article?.querySelectorAll('a') || [])].map(a => a.getAttribute('href')).filter(href => href?.startsWith('/')),
           consideration: table?.parentElement.nextElementSibling?.textContent?.includes('Should your company be considered?'),
           reviewed: document.body.textContent.includes('Reviewed by FluidRWA Research Team'),
-          dated: document.body.textContent.includes('October 9, 2026'),
+          dated: document.body.textContent.includes(dateLabel),
           email: !!article?.querySelector('a[href^="mailto:contact@fluidrwa.com"]'),
           schemas
         };
-      });
+      }, isOctober10 ? 'October 10, 2026' : 'October 9, 2026');
       if (response.status() !== 200 || !result.title?.includes(' vs ') || result.overflow || result.brokenImages.length || !result.consideration || !result.reviewed || !result.dated || !result.email) throw new Error(`${width} ${slug}: ${JSON.stringify(result)}`);
       if (result.canonical !== `https://www.fluidrwa.com/blog/${slug}`) throw new Error(`Wrong canonical: ${slug}`);
       for (const url of result.downloads) {
