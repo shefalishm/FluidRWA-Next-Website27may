@@ -14463,7 +14463,7 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
 .uc-page .uc-outcome-grid h3 { margin: 12px 0 8px !important; font-size: 16px !important; }
 .uc-outcome-grid p { margin: 0; font-size: 13px !important; line-height: 1.65 !important; }
 .uc-page .uc-evidence-note { color: #68778a; font-size: 13px; }
-.uc-source-record li { font-size: 14px; }
+.uc-source-record li { font-size: 14px; overflow-wrap: anywhere; }
 .uc-page .uc-updated { color: #68778a; margin: 28px 0 0; }
 .uc-library-date { padding-top: 4px; padding-bottom: 32px; }
 .uc-hub-cta { padding: 54px 0; background: #edf5fa; border-top: 1px solid var(--uc-border); border-bottom: 1px solid var(--uc-border); }

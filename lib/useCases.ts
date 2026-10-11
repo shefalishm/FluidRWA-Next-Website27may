@@ -1,4 +1,5 @@
 import { useCaseGuides } from "./useCaseGuides";
+import { octoberCaseStudies } from "./useCaseStudiesOctober11";
 
 export type UseCase = {
   slug: string;
@@ -10,6 +11,7 @@ export type UseCase = {
   visualKicker: string;
   summary: string;
   seoDescription?: string;
+  updatedAt?: string;
   problem: string;
   stack: string[];
   vendorCategories: { label: string; href: string }[];
@@ -1114,7 +1116,7 @@ const baseUseCases: UseCase[] = [
   }
 ];
 
-export const useCases = baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }));
+export const useCases = [...octoberCaseStudies, ...baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }))];
 
 export function getUseCase(slug: string) {
   return useCases.find((useCase) => useCase.slug === slug);

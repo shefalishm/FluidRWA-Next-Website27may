@@ -12,21 +12,24 @@ export function generateStaticParams() { return useCases.map(({ slug }) => ({ sl
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const item = getUseCase((await params).slug);
   if (!item) return {};
+  const modifiedDate = item.updatedAt || reviewedDate;
   const title = `${item.guide.title} | FluidRWA`;
   const description = item.seoDescription || `Explore ${item.guide.title.toLowerCase()}: operating workflows, implementation steps, risks, controls and vendor-selection questions.`;
-  return { title, description, alternates: { canonical: `${siteUrl}/use-cases/${item.slug}` }, openGraph: { title, description, type: "article", modifiedTime: reviewedDate, url: `${siteUrl}/use-cases/${item.slug}`, images: [{ url: item.image, alt: item.imageAlt }] } };
+  return { title, description, alternates: { canonical: `${siteUrl}/use-cases/${item.slug}` }, openGraph: { title, description, type: "article", modifiedTime: modifiedDate, url: `${siteUrl}/use-cases/${item.slug}`, images: [{ url: item.image, alt: item.imageAlt }] } };
 }
 
 export default async function UseCaseDetailPage({ params }: PageProps) {
   const item = getUseCase((await params).slug);
   if (!item) notFound();
+  const modifiedDate = item.updatedAt || reviewedDate;
+  const modifiedLabel = new Date(`${modifiedDate}T12:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
   const guide = item.guide;
   // Shared categories matter more than array order when recommending a next read.
   const related = useCases.filter((candidate) => candidate.slug !== item.slug).map((candidate) => ({ candidate, score: candidate.vendorCategories.filter((category) => item.vendorCategories.some((other) => other.href === category.href)).length * 2 + Number(candidate.guide.group === guide.group) })).sort((a, b) => b.score - a.score).slice(0, 3).map(({ candidate }) => candidate);
   const sources = [guide.reference, ...(item.sources || []).filter((source) => source.href !== guide.reference.href)];
   const caseStudy = item.caseStudy;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: guide.title, description: guide.answer, image: item.image, url: `${siteUrl}/use-cases/${item.slug}`, dateModified: reviewedDate, author: { "@type": "Organization", name: "FluidRWA Research Team", url: `${siteUrl}/about` }, reviewedBy: { "@type": "Organization", name: "FluidRWA Research Team", url: `${siteUrl}/about` }, publisher: { "@id": `${siteUrl}/#organization` }, articleSection: item.industry, citation: caseStudy ? caseStudy.sourceRecords : sources.map((source) => source.href) },
+    { "@type": "Article", headline: guide.title, description: guide.answer, image: item.image, url: `${siteUrl}/use-cases/${item.slug}`, dateModified: modifiedDate, author: { "@type": "Organization", name: "FluidRWA Research Team", url: `${siteUrl}/about` }, reviewedBy: { "@type": "Organization", name: "FluidRWA Research Team", url: `${siteUrl}/about` }, publisher: { "@id": `${siteUrl}/#organization` }, articleSection: item.industry, citation: caseStudy ? caseStudy.sourceRecords : sources.map((source) => source.href) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Use cases", item: `${siteUrl}/use-cases` }, { "@type": "ListItem", position: 2, name: guide.title, item: `${siteUrl}/use-cases/${item.slug}` }] },
     { "@type": "FAQPage", mainEntity: guide.faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) }
   ] };
@@ -42,7 +45,7 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
         <section id="updates"><p className="uc-kicker">Current position</p><h2>What are the latest confirmed updates?</h2><ul>{caseStudy.updates.map((update) => <li key={update}>{update}</li>)}</ul></section>
         <section id="lessons"><p className="uc-kicker">What buyers can learn</p><h2>Why did this use case progress?</h2><ul>{caseStudy.successFactors.map((factor) => <li key={factor}>{factor}</li>)}</ul><div className="uc-not-fit"><h3>Limits of the evidence</h3><ul>{caseStudy.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div><h3>Questions to take into procurement</h3><ul className="uc-buyer-questions">{guide.questions.map((question) => <li key={question}>{question}</li>)}</ul><h3>Relevant FluidRWA directories</h3><div className="uc-directory-links">{item.vendorCategories.map((category) => <a key={category.href} href={category.href}>{category.label}<ArrowRight size={17} /></a>)}</div></section>
         <section id="questions"><h2>Common questions</h2><div className="uc-faq">{guide.faqs.map((faq) => <details key={faq.q}><summary>{faq.q}<Plus size={18} aria-hidden="true" /></summary><p>{faq.a}</p></details>)}</div></section>
-        <section id="sources" className="uc-sources uc-source-record"><h2>Research record</h2><p>FluidRWA reviewed the following public records. Company names are presented as plain text and are not outbound promotional links.</p><ul>{caseStudy.sourceRecords.map((record) => <li key={record}>{record}</li>)}</ul><p>Independent research summary, not legal, investment or regulatory advice. Public statements may be updated after the research cut-off.</p><p className="uc-updated">Last updated <time dateTime={reviewedDate}>September 26, 2026</time></p></section>
+        <section id="sources" className="uc-sources uc-source-record"><h2>Research record</h2><p>FluidRWA reviewed the following public records. Company names are presented as plain text and are not outbound promotional links.</p><ul>{caseStudy.sourceRecords.map((record) => <li key={record}>{record}</li>)}</ul><p>Independent research summary, not legal, investment or regulatory advice. Public statements may be updated after the research cut-off.</p><p className="uc-updated">Last updated <time dateTime={modifiedDate}>{modifiedLabel}</time></p>{item.updatedAt && <p>Questions about your project? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>}</section>
       </article> : <article className="uc-article">
         <section id="overview"><p className="uc-kicker">The short answer</p><h2>What does this use case involve?</h2><p className="uc-answer">{guide.answer}</p><h3>Where the current process breaks down</h3><p>{item.problem} {item.example}</p></section>
         <section id="workflow"><p className="uc-kicker">From input to outcome</p><h2>How does the workflow operate?</h2><p>The following is an illustrative operating model, not a claim about a specific deployment. Ownership, approvals and exception handling should be agreed before implementation.</p><ol className="uc-workflow">{guide.workflow.map((step, index) => <li key={step.title}><span className="uc-step-number">{String(index + 1).padStart(2, "0")}</span><div><h3>{step.title}</h3><p>{step.detail}</p></div></li>)}</ol></section>
