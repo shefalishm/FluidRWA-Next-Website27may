@@ -1,5 +1,6 @@
 import { useCaseGuides } from "./useCaseGuides";
 import { octoberCaseStudies } from "./useCaseStudiesOctober11";
+import { october12CaseStudies } from "./useCaseStudiesOctober12";
 
 export type UseCase = {
   slug: string;
@@ -1116,7 +1117,7 @@ const baseUseCases: UseCase[] = [
   }
 ];
 
-export const useCases = [...octoberCaseStudies, ...baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }))];
+export const useCases = [...october12CaseStudies, ...octoberCaseStudies, ...baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }))];
 
 export function getUseCase(slug: string) {
   return useCases.find((useCase) => useCase.slug === slug);

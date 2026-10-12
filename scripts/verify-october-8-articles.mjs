@@ -3,12 +3,13 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import defaultBatch from './comparison-image-batch-october-8.mjs';
 const isOctober10 = process.argv.includes('--october-10');
-const batch = isOctober10 ? (await import('./comparison-image-batch-october-10-new.mjs')).default : defaultBatch;
+const isOctober12 = process.argv.includes('--october-12');
+const batch = isOctober12 ? (await import('./comparison-image-batch-october-12.mjs')).default : isOctober10 ? (await import('./comparison-image-batch-october-10-new.mjs')).default : defaultBatch;
 
 const require = createRequire('/Users/shefalisharma/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json');
 const { chromium } = require('playwright');
 const base = process.env.PREVIEW_URL || 'http://localhost:3042';
-const output = path.resolve(isOctober10 ? 'docs/content-qa-2026-10-10-new' : 'docs/content-qa-2026-10-09');
+const output = path.resolve(isOctober12 ? 'docs/content-qa-2026-10-12' : isOctober10 ? 'docs/content-qa-2026-10-10-new' : 'docs/content-qa-2026-10-09');
 fs.mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ headless: true, channel: 'chrome' });
 const results = [];
@@ -35,7 +36,7 @@ try {
           email: !!article?.querySelector('a[href^="mailto:contact@fluidrwa.com"]'),
           schemas
         };
-      }, isOctober10 ? 'October 10, 2026' : 'October 9, 2026');
+      }, isOctober12 ? 'October 12, 2026' : isOctober10 ? 'October 10, 2026' : 'October 9, 2026');
       if (response.status() !== 200 || !result.title?.includes(' vs ') || result.overflow || result.brokenImages.length || !result.consideration || !result.reviewed || !result.dated || !result.email) throw new Error(`${width} ${slug}: ${JSON.stringify(result)}`);
       if (result.canonical !== `https://www.fluidrwa.com/blog/${slug}`) throw new Error(`Wrong canonical: ${slug}`);
       for (const url of result.downloads) {

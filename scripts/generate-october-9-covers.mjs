@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import sharp from 'sharp';
 import defaultBatch from './comparison-image-batch-october-8.mjs';
-const batch = process.argv.includes('--october-10')
+const batch = process.argv.includes('--october-12')
+  ? (await import('./comparison-image-batch-october-12.mjs')).default
+  : process.argv.includes('--october-10')
   ? (await import('./comparison-image-batch-october-10-new.mjs')).default
   : defaultBatch;
-const checkedLabel = process.argv.includes('--october-10') ? 'October 10, 2026' : 'October 9, 2026';
+const checkedLabel = process.argv.includes('--october-12') ? 'October 12, 2026' : process.argv.includes('--october-10') ? 'October 10, 2026' : 'October 9, 2026';
 
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 for (const item of batch) {
@@ -16,4 +18,4 @@ for (const item of batch) {
   const png = await sharp(Buffer.from(svg.replace('Checked October 9, 2026', `Checked ${checkedLabel}`))).png({ palette: true, compressionLevel: 9 }).toBuffer();
   for (const directory of ['assets/social', 'public/assets/social']) fs.writeFileSync(`${directory}/blog-${item.slug}.png`, png);
 }
-console.log('Generated five clean article cover PNGs.');
+console.log(`Generated ${batch.length} article cover PNGs.`);
