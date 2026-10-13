@@ -1,10 +1,28 @@
 import snapshot from "@/data/network-intelligence.json";
 import ramp from "@/data/ramp-onboarding-dataset.json";
+import registryCandidates from "@/data/asset-registry-candidates.json";
 
 export { snapshot, ramp };
-export const explorerViews = ["assets", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
+export const explorerViews = ["assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
+export const assetRegistry = [
+  ...snapshot.assets.map(asset => ({
+    id: asset.id, name: asset.name, issuer: asset.issuer, assetClass: asset.category,
+    structure: asset.id === "usdc" ? "USD-referenced stablecoin" : "Tokenized government money fund",
+    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: snapshot.reviewed,
+    notes: asset.notes, reportedValueUsd: asset.value as number | null,
+    reportedMetric: asset.metric as string | null, reportedAsOf: asset.asOf as string | null,
+    freshnessDays: asset.freshnessDays,
+    contractEvidence: asset.id === "wtgxx" ? asset.source as string | null : null
+  })),
+  ...registryCandidates
+].sort((a,b) => a.name.localeCompare(b.name));
+export type RegistryAsset = typeof assetRegistry[number];
+export function registryValueStatus(asset: RegistryAsset, now: number) {
+  if (asset.reportedValueUsd === null || !asset.reportedAsOf) return "Value not verified";
+  return daysOld(asset.reportedAsOf, now) > asset.freshnessDays ? "Historical value" : "Current disclosure";
+}
 export function daysOld(date: string, now = Date.now()) {
   return Math.max(0, Math.floor((now - Date.parse(`${date}T00:00:00Z`)) / 86400000));
 }

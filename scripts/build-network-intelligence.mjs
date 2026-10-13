@@ -2,6 +2,18 @@ import fs from 'node:fs';
 import sharp from 'sharp';
 const snapshot = JSON.parse(fs.readFileSync('data/network-intelligence.json', 'utf8'));
 const ramp = JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json', 'utf8'));
+const candidates = JSON.parse(fs.readFileSync('data/asset-registry-candidates.json', 'utf8'));
+const registry = [
+  ...snapshot.assets.map(asset => ({
+    id: asset.id, name: asset.name, issuer: asset.issuer, assetClass: asset.category,
+    structure: asset.id === 'usdc' ? 'USD-referenced stablecoin' : 'Tokenized government money fund',
+    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: snapshot.reviewed,
+    notes: asset.notes, reportedValueUsd: asset.value, reportedMetric: asset.metric,
+    reportedAsOf: asset.asOf, freshnessDays: asset.freshnessDays,
+    contractEvidence: asset.id === 'wtgxx' ? asset.source : null
+  })),
+  ...candidates
+].sort((a,b) => a.name.localeCompare(b.name));
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const cell = value => `"${String(value ?? '').replaceAll('"','""')}"`;
 const keys = Object.keys(ramp.rows[0]);
@@ -17,7 +29,8 @@ ${dimensions.map((d,i)=>`<rect x="65" y="${334+i*73}" width="1270" height="68" f
 for (const root of ['assets','public/assets']) {
   fs.mkdirSync(`${root}/datasets`,{recursive:true});fs.mkdirSync(`${root}/infographics`,{recursive:true});
   fs.writeFileSync(`${root}/datasets/network-intelligence.json`,JSON.stringify(snapshot,null,2));
+  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:snapshot.version,reviewed:snapshot.reviewed,scope:'Selected issuer-documented assets; not a complete market census or comparable global market total.',assets:registry},null,2));
   fs.writeFileSync(`${root}/datasets/network-ramp-evidence.csv`,csv);
   await sharp(Buffer.from(svg)).png().toFile(`${root}/infographics/network-ramp-evidence.png`);
 }
-console.log(`Built source-linked snapshot, ${ramp.rows.length}-row CSV and branded PNG`);
+console.log(`Built ${registry.length}-asset registry, source-linked snapshot, ${ramp.rows.length}-row CSV and branded PNG`);

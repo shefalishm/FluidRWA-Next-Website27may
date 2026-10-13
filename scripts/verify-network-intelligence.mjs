@@ -4,13 +4,17 @@ import { createRequire } from 'node:module';
 const require = createRequire('/Users/shefalisharma/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json');
 const { chromium } = require('playwright');
 const snapshot=JSON.parse(fs.readFileSync('data/network-intelligence.json','utf8'));
+const registryCandidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
+assert.equal(registryCandidates.length,9);
+assert.equal(new Set([...snapshot.assets,...registryCandidates].map(asset=>asset.id)).size,12);
+for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
 const base=process.env.PREVIEW_URL || 'http://localhost:3046';
 const output='docs/network-intelligence-qa-2026-10-13'; fs.mkdirSync(output,{recursive:true});
-const routes=['','/assets','/networks','/vendors','/jurisdictions','/research','/methodology','/research/ramp-onboarding'];
+const routes=['','/assets','/registry','/networks','/vendors','/jurisdictions','/research','/methodology','/research/ramp-onboarding'];
 const browser=await chromium.launch({headless:true,channel:'chrome'});const results=[];
 try {
  for(const width of [1440,390,360]){
@@ -40,14 +44,21 @@ try {
     await page.getByRole('button',{name:'FOBXX',exact:true}).last().click();await page.getByRole('dialog').waitFor({state:'visible'});await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog').isVisible(),false);
     await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody tr').count(),1);assert.ok((await page.locator('tbody').textContent()).includes('USDC'));
    }
+   if(route==='/registry'){
+    assert.equal(await page.locator('tbody tr').count(),12);
+    await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody tr').count(),5);
+    await page.getByLabel('Value status').selectOption('Value not verified');assert.equal(await page.locator('tbody tr').count(),4);
+    const [file]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download registry CSV'}).click()]);assert.ok(file.suggestedFilename().endsWith('.csv'));await file.saveAs(`${output}/registry-filter-${width}.csv`);
+    await page.getByLabel('Asset class').selectOption('All asset classes');await page.getByLabel('Value status').selectOption('All value states');
+   }
    if(route==='/research/ramp-onboarding')assert.equal(await page.locator('tbody tr').count(),18);
    await page.screenshot({path:`${output}/${route.replaceAll('/','-')||'overview'}-${width}.png`,fullPage:true});results.push({route,width,...state,body:undefined});console.log(`PASS ${width} /network-explorer${route}`);
   }
   await page.close();
  }
- for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json')assert.deepEqual(await response.json(),snapshot);await r.close();
+ for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,12);else assert.deepEqual(body,snapshot);}await r.close();
  }
- const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/research/ramp-onboarding'));await ctx.close();
+ const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/registry'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}
 console.log('Network Explorer: data, routes, filters, empty states, dialog, CSV, images and sitemap passed.');

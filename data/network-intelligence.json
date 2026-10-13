@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-13.1",
+  "version": "2026-10-13.2",
   "reviewed": "2026-10-13",
   "assets": [
     {"id":"usdc","name":"USDC","issuer":"Circle","category":"Stablecoins","metric":"Reported circulation","value":73000000000,"currency":"USD","asOf":"2026-10-08","source":"https://www.circle.com/usdc","sourceLabel":"Circle USDC disclosure","scope":"Rounded issuer-reported circulation, not independently calculated supply or total stablecoin market value.","notes":"An issuer disclosure is not an independent reserve audit. Eligibility and redemption arrangements must be confirmed separately.","logo":"/assets/company-logos/circle-usdc.avif","freshnessDays":7},
