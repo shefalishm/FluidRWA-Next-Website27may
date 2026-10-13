@@ -72,7 +72,7 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
     <aside className={styles.sidebar} aria-label="Network Explorer navigation">
       <Link className={styles.brand} href="/network-explorer"><img src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" /><span>Network Explorer</span></Link>
       <nav>{nav.map(([id,label,Icon]) => <Link key={id} href={id === "overview" ? "/network-explorer" : `/network-explorer/${id}`} aria-current={view===id ? "page" : undefined}><Icon size={18} aria-hidden="true" />{label}</Link>)}</nav>
-      <div className={styles.sideNote}><strong>Evidence, not endorsements</strong><p>Primary sources. Defined scope. Visible dates.</p><Link href="/submit-requirement">Discuss your project <ArrowUpRight size={15} /></Link></div>
+      <div className={styles.sideNote}><Link href="/submit-requirement">Discuss your project <ArrowUpRight size={15} /></Link></div>
     </aside>
     <div className={styles.workspace}>
       <div className={styles.topbar}><label className={styles.search}><Search size={18} aria-hidden="true" /><span className={styles.sr}>Search this view</span><input value={query} onChange={e=>setQuery(e.target.value)} onBlur={saveView} placeholder="Search assets, providers or regulatory records" />{query && <button aria-label="Clear search" onClick={()=>setQuery("")}><X size={16}/></button>}</label><span className={styles.release}>Research edition · {snapshot.version}</span></div>
