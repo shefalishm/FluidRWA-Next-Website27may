@@ -28,3 +28,5 @@ UI QA covers eight pages at 1440px, 390px and 360px, canonical URLs, overflow, i
 Source/rights scope: selected factual observations and original commentary from linked public primary sources; no RWA.xyz proprietary feed, paid data, copies of offering documents or scraped full regulatory databases. Source institutions do not endorse FluidRWA. No financial or legal advice.
 
 Maintenance limitation: approved dated snapshots, not a real-time financial or legal monitoring guarantee. Source-check automation monitors URL availability only. Material fact updates still require review and a new release. No automatic legal applicability claims.
+
+Production-only QA found a Node/Chrome compact-currency formatting mismatch ($73.00B versus $73B). The formatter now specifies minimumFractionDigits=0 explicitly; date labels use deterministic UTC month names. This avoids hydration errors without suppressing them. A weekly evidence-review heartbeat was created, active, to flag material changes and needed decisions without automatically deploying legal interpretations.

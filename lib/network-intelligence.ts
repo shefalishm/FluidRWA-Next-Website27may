@@ -12,10 +12,13 @@ export function isHistorical(asset: Asset, now = Date.now()) {
   return daysOld(asset.asOf, now) > asset.freshnessDays;
 }
 export function money(value: number) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact", maximumFractionDigits: 2 }).format(value);
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact", minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(value);
 }
 export function dated(value: string | null) {
-  return value ? new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "Not supplied";
+  if (!value) return "Not supplied";
+  const date = new Date(`${value}T00:00:00Z`);
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${date.getUTCDate()} ${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
 }
 export const providers = [...new Set(ramp.rows.map(row => row.provider))];
 export const jurisdictions = [...new Set(snapshot.regulations.map(row => row.jurisdiction))];

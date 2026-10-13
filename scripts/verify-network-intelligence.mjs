@@ -17,7 +17,8 @@ try {
   const page=await browser.newPage({viewport:{width,height:900}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   for(const route of routes){
-   const response=await page.goto(`${base}/network-explorer${route}?analytics=off`,{waitUntil:'networkidle'});
+   const response=await page.goto(`${base}/network-explorer${route}?analytics=off`,{waitUntil:'domcontentloaded',timeout:60000});
+   await page.waitForFunction(()=>document.querySelector('main h1') && [...document.querySelectorAll('main img')].every(i=>i.complete),undefined,{timeout:30000});
    assert.equal(response.status(),200,route);
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
