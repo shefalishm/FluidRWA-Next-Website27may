@@ -20,7 +20,7 @@ export function Footer() {
           <p>Email us: <a href="mailto:contact@fluidrwa.com" style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
         </div>
         <nav aria-label="Vendor directories"><strong>Directories</strong><Link href="/web3vendorecosystem">All vendors</Link><Link href="/ai-vendors">AI vendors</Link><Link href="/vendors/tokenization-platforms">Tokenization platforms</Link><Link href="/blockchain-projects">Blockchain projects</Link></nav>
-        <nav aria-label="Buyer resources"><strong>Buyer resources</strong><Link href="/submit-requirement">Submit a project brief</Link><Link href="/tools/vendor-comparison">Compare vendors</Link><Link href="/tools">Tools</Link><Link href="/reports-research">Reports and research</Link></nav>
+        <nav aria-label="Buyer resources"><strong>Buyer resources</strong><Link href="/submit-requirement">Submit a project brief</Link><Link href="/tools/vendor-comparison">Compare vendors</Link><Link href="/network-explorer">Network Explorer</Link><Link href="/tools">Tools</Link><Link href="/reports-research">Reports and research</Link></nav>
         <nav aria-label="Company and trust"><strong>Company &amp; trust</strong><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/vendor-membership">Become a Vetted Listing</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></nav>
       </div>
       <div className="light-container footer-meta-row">

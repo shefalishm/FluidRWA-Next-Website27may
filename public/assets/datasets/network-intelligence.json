@@ -1,0 +1,176 @@
+{
+  "version": "2026-10-13.1",
+  "reviewed": "2026-10-13",
+  "assets": [
+    {
+      "id": "usdc",
+      "name": "USDC",
+      "issuer": "Circle",
+      "category": "Stablecoins",
+      "metric": "Reported circulation",
+      "value": 73000000000,
+      "currency": "USD",
+      "asOf": "2026-10-08",
+      "source": "https://www.circle.com/usdc",
+      "sourceLabel": "Circle USDC disclosure",
+      "scope": "Rounded issuer-reported circulation, not independently calculated supply or total stablecoin market value.",
+      "notes": "An issuer disclosure is not an independent reserve audit. Eligibility and redemption arrangements must be confirmed separately.",
+      "logo": "/assets/company-logos/circle-usdc.avif",
+      "freshnessDays": 7
+    },
+    {
+      "id": "fobxx",
+      "name": "FOBXX",
+      "issuer": "Franklin Templeton",
+      "category": "Digital funds",
+      "metric": "Reported total net assets",
+      "value": 686640000,
+      "currency": "USD",
+      "asOf": "2026-08-31",
+      "source": "https://www.franklintempleton.com/investments/options/money-market-funds/products/29386/SINGLCLASS/franklin-on-chain-u-s-",
+      "sourceLabel": "Franklin OnChain U.S. Government Money Fund product disclosure",
+      "scope": "Dated fund-level total net assets. Not token circulating market capitalization or a current on-chain balance.",
+      "notes": "Historical publisher snapshot. Not a synchronized comparison with another fund's reporting date. Investment risks and offering documents apply.",
+      "logo": null,
+      "freshnessDays": 35
+    },
+    {
+      "id": "wtgxx",
+      "name": "WTGXX",
+      "issuer": "WisdomTree",
+      "category": "Digital funds",
+      "metric": "Reported net assets",
+      "value": 765000000,
+      "currency": "USD",
+      "asOf": "2026-06-30",
+      "source": "https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/",
+      "sourceLabel": "WisdomTree WTGXX factsheet, page 1",
+      "scope": "Dated fund-level net assets. The factsheet lists eight blockchain deployments; no value is allocated or multiplied across those chains.",
+      "notes": "Historical snapshot. The factsheet says ownership is maintained by the transfer agent; blockchain representations are not a separate security.",
+      "logo": null,
+      "freshnessDays": 35
+    }
+  ],
+  "networks": [
+    {
+      "name": "Arbitrum",
+      "asset": "wtgxx",
+      "contract": "0xfeb26f0943c3885b2cb85a9f933975356c81c33d"
+    },
+    {
+      "name": "Avalanche",
+      "asset": "wtgxx",
+      "contract": "0x870FD36B3bf7f5abeEEa2C8D4abdF1dc4E33109d"
+    },
+    {
+      "name": "Base",
+      "asset": "wtgxx",
+      "contract": "0x5096b85Ed11798fDdCB8b5CB27C399c04689c435"
+    },
+    {
+      "name": "Ethereum",
+      "asset": "wtgxx",
+      "contract": "0x1feCF3d9d4Fee7f2c02917A66028a48C6706c179"
+    },
+    {
+      "name": "Optimism",
+      "asset": "wtgxx",
+      "contract": "0x870FD36B3bf7f5abeEEa2C8D4abdF1dc4E33109d"
+    },
+    {
+      "name": "Plume",
+      "asset": "wtgxx",
+      "contract": "0xCF7a8813bD3bdAF70A9f46d310Ce1EE8D80a4F5a"
+    },
+    {
+      "name": "Solana",
+      "asset": "wtgxx",
+      "contract": "Em46fxxwgY2RRoUbBMSbEjJwY62x3ESMNdhnsGpEKewm"
+    },
+    {
+      "name": "Stellar",
+      "asset": "wtgxx",
+      "contract": "GDMBNMFJ3TRFLASJ6UGETFME3PJPNKPU24C7KFDBEBPQFG2CI6UC3JG6"
+    }
+  ],
+  "regulations": [
+    {
+      "id": "hk-framework",
+      "jurisdiction": "Hong Kong",
+      "regulator": "HKMA",
+      "activity": "Stablecoin issuance",
+      "kind": "Regulatory framework",
+      "title": "Stablecoin issuer regime",
+      "effective": "2025-08-01",
+      "asOf": "2026-07-13",
+      "source": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/",
+      "summary": "HKMA describes a licensing framework for regulated fiat-referenced stablecoin issuance under the Stablecoins Ordinance.",
+      "caveat": "Scope depends on the regulated activity and statutory definitions. This is not permission for exchanges, custody or securities offerings."
+    },
+    {
+      "id": "hk-anchorpoint",
+      "jurisdiction": "Hong Kong",
+      "regulator": "HKMA",
+      "activity": "Stablecoin issuance",
+      "kind": "Register entry",
+      "title": "Anchorpoint Financial Limited",
+      "effective": "2026-04-10",
+      "asOf": "2026-04-23",
+      "source": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+      "summary": "The HKMA register lists Anchorpoint Financial Limited with licence FRS01 and effective date 10 April 2026.",
+      "caveat": "Applies to the named legal entity and licensed activity. Does not establish token launch, volume, group-wide permissions or investment safety."
+    },
+    {
+      "id": "hk-hsbc",
+      "jurisdiction": "Hong Kong",
+      "regulator": "HKMA",
+      "activity": "Stablecoin issuance",
+      "kind": "Register entry",
+      "title": "The Hongkong and Shanghai Banking Corporation Limited",
+      "effective": "2026-04-10",
+      "asOf": "2026-04-23",
+      "source": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+      "summary": "The HKMA register lists this legal entity with licence FRS02 and effective date 10 April 2026.",
+      "caveat": "A named register entry is not an endorsement or blanket approval of all HSBC products or affiliates."
+    },
+    {
+      "id": "eu-mica",
+      "jurisdiction": "European Union",
+      "regulator": "ESMA",
+      "activity": "Crypto-asset services",
+      "kind": "Framework and register",
+      "title": "MiCA framework and interim register",
+      "effective": null,
+      "asOf": "2026-09-09",
+      "source": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "summary": "ESMA provides separate register resources for service providers, token issuers, white papers and non-compliant entities.",
+      "caveat": "White-paper inclusion is not regulatory approval. MiCA is not the framework for every tokenized financial instrument; classification and national implementation require separate review."
+    },
+    {
+      "id": "sg-payments",
+      "jurisdiction": "Singapore",
+      "regulator": "MAS",
+      "activity": "Payment services",
+      "kind": "Regulatory resources",
+      "title": "Payment services regulatory resources",
+      "effective": null,
+      "asOf": null,
+      "source": "https://www.mas.gov.sg/regulation/payments",
+      "summary": "MAS provides payment services regulatory resources and a route to its licensed payment service provider directory.",
+      "caveat": "No company-specific permission or full legal perimeter assessment is inferred from this resources page."
+    },
+    {
+      "id": "sg-dpt",
+      "jurisdiction": "Singapore",
+      "regulator": "MAS",
+      "activity": "Digital payment token services",
+      "kind": "Register resource",
+      "title": "Digital payment token service directory",
+      "effective": null,
+      "asOf": null,
+      "source": "https://eservices.mas.gov.sg/fid/institution?activity=Digital+Payment+Token+Service",
+      "summary": "The Financial Institutions Directory supports filtering by Digital Payment Token Service activity.",
+      "caveat": "Consult the live named-entity record and permitted activities. No directory entries are copied or counted as licensed providers in this release."
+    }
+  ]
+}

@@ -162,6 +162,7 @@ export function Header() {
             <div className="nav-mega nav-mega-tools" aria-label="FluidRWA tools">
               <div>
                 <strong>Project Planning Tools</strong>
+                <a href="/network-explorer">Network Explorer</a>
                 <a href="/tools/vendor-comparison">Vendor Comparison Tool</a>
                 <a href="/tokenization-readiness-assessment-tool">Tokenization Readiness Tool</a>
                 <a href="/family-office-service-stack-builder">Family Office Stack Builder</a>

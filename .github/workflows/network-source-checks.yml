@@ -1,0 +1,24 @@
+name: Network Explorer source review
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 3 * * *'
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check primary source availability
+        run: node scripts/check-network-sources.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: network-source-review
+          path: source-check-results/
+          retention-days: 14
