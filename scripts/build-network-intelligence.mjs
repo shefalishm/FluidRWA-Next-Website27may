@@ -4,6 +4,7 @@ const snapshot = JSON.parse(fs.readFileSync('data/network-intelligence.json', 'u
 const ramp = JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json', 'utf8'));
 const candidates = JSON.parse(fs.readFileSync('data/asset-registry-candidates.json', 'utf8'));
 const ondoTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json', 'utf8'));
+const xstocksTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const relationships = JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json', 'utf8'));
 const registry = [
   ...snapshot.assets.map(asset => ({
@@ -16,10 +17,11 @@ const registry = [
     cohort: 'Research profile', sourcePublished: null
   })),
   ...candidates.map(asset => ({ ...asset, cohort: 'Research profile', sourcePublished: null })),
-  ...ondoTokenList.assets
+  ...ondoTokenList.assets,
+  ...xstocksTokenList.assets
 ].sort((a,b) => a.name.localeCompare(b.name));
 if (new Set(registry.map(asset => asset.id)).size !== registry.length) throw new Error('Duplicate registry asset ID');
-if (ondoTokenList.assets.length !== 100) throw new Error('Ondo sample must contain exactly 100 records');
+if (ondoTokenList.assets.length !== 450 || xstocksTokenList.assets.length !== 150) throw new Error('Issuer lists must contain 450 Ondo and 150 xStocks records');
 const registryUpdated = [...registry.map(asset => asset.sourceReviewed), ...relationships.map(row => row.reviewed)].sort().at(-1);
 for (const row of relationships) if (!registry.some(asset => asset.id === row.assetId)) throw new Error(`Unknown asset relationship: ${row.id}`);
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
@@ -37,7 +39,7 @@ ${dimensions.map((d,i)=>`<rect x="65" y="${334+i*73}" width="1270" height="68" f
 for (const root of ['assets','public/assets']) {
   fs.mkdirSync(`${root}/datasets`,{recursive:true});fs.mkdirSync(`${root}/infographics`,{recursive:true});
   fs.writeFileSync(`${root}/datasets/network-intelligence.json`,JSON.stringify(snapshot,null,2));
-  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'Research profiles plus a 100-record alphabetical sample from Ondo’s dated official Ethereum token list; not a complete market census or comparable global market total.',issuerListSelection:ondoTokenList.selection,assets:registry,relationships},null,2));
+  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'17 research profiles, 450 Ondo issuer-listed Ethereum securities and 150 alphabetically selected xStocks issuer-listed Ethereum securities; not a complete market census, live-trading audit or comparable global market total.',issuerListSelections:[ondoTokenList.selection,xstocksTokenList.selection],assets:registry,relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.csv`,[Object.keys(relationships[0]).map(cell).join(','),...relationships.map(row => Object.keys(relationships[0]).map(key => cell(row[key])).join(','))].join('\r\n'));
   fs.writeFileSync(`${root}/datasets/network-ramp-evidence.csv`,csv);

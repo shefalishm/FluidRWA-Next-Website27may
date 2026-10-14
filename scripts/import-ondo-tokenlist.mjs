@@ -23,18 +23,18 @@ const assets = tokens.sort((a, b) => a.symbol.localeCompare(b.symbol)).filter(to
   if (symbols.has(key)) return false;
   symbols.add(key);
   return true;
-}).slice(0, 100).map(token => ({
+}).map(token => ({
   id: `ondo-${token.symbol.toLowerCase()}`,
   name: `${token.symbol} - ${token.name.replace(/ \(Ondo Tokenized\)$/, '')}`,
   issuer: 'Ondo Finance',
   assetClass: 'Tokenized securities',
   structure: 'Ondo tokenized stock or ETF; Ethereum contract in issuer list',
-  cohort: 'Issuer token list',
+  cohort: 'Ondo issuer list',
   source,
   sourceLabel: 'Ondo official token list',
   sourcePublished: list.timestamp.slice(0, 10),
   sourceReviewed: '2026-10-14',
-  notes: 'Issuer-listed in the September 17 token-list snapshot. Current trading, redemption eligibility, reserves and USD value have not been independently verified. The initial 100 are alphabetically selected by symbol, not ranked.',
+  notes: 'Issuer-listed in the September 17 token-list snapshot. Current trading, redemption eligibility, reserves and USD value have not been independently verified.',
   reportedValueUsd: null,
   reportedMetric: null,
   reportedAsOf: null,
@@ -44,6 +44,6 @@ const assets = tokens.sort((a, b) => a.symbol.localeCompare(b.symbol)).filter(to
   contractAddress: token.address
 }));
 
-if (assets.length !== 100) throw new Error(`Expected 100 unique Ethereum securities; found ${assets.length}`);
-fs.writeFileSync('data/issuer-tokenlist-ondo.json', `${JSON.stringify({ source, sourcePublished: list.timestamp, selection: 'First 100 unique Ethereum Ondo-tokenized securities in symbol order; no ranking or market-coverage claim.', assets }, null, 2)}\n`);
+if (assets.length !== 450) throw new Error(`Expected 450 unique Ethereum securities; found ${assets.length}`);
+fs.writeFileSync('data/issuer-tokenlist-ondo.json', `${JSON.stringify({ source, sourcePublished: list.timestamp, selection: 'All 450 unique Ethereum Ondo-tokenized securities in the pinned issuer snapshot, deduplicated by symbol; no ranking or global market-coverage claim.', assets }, null, 2)}\n`);
 console.log(`Prepared ${assets.length} issuer-listed securities from Ondo revision ${revision}`);

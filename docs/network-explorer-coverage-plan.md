@@ -3,9 +3,11 @@
 ## 14 October 2026 release
 
 - 17 researched issuer/platform product profiles, including three dated USD value observations.
-- 100 distinct Ondo Ethereum tokenized securities from the issuer's token-list snapshot dated 17 September 2026, pinned to a Git revision. This is an alphabetical sample, not the entire issuer catalogue or the global market.
+- 450 distinct Ondo Ethereum tokenized securities from the issuer's complete qualifying token-list cohort dated 17 September 2026, pinned to a Git revision.
+- 150 distinct Backed xStocks Ethereum tokenized securities, alphabetically selected from the issuer's qualifying token-list cohort dated 24 September 2026 and pinned to a Git revision. This is not the whole xStocks catalogue or the global market.
 - 10 named asset-to-service-provider roles from product, launch, or regulatory documents. Each role retains the document date, review date and scope.
-- No market-wide asset value is calculated. Unverified values remain null, not zero.
+- 617 asset identities in all. Cross-chain deployments of one product are deduplicated, but distinct products from different issuers may track the same underlying.
+- No market-wide asset value is calculated. Unverified values remain null, not zero. Issuer-listed contracts are not independently audited for current trading or investor eligibility.
 
 ## Data contract
 

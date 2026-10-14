@@ -6,13 +6,14 @@ const { chromium } = require('playwright');
 const snapshot=JSON.parse(fs.readFileSync('data/network-intelligence.json','utf8'));
 const registryCandidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
 const issuerList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
+const xstocksList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json','utf8'));
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
 assert.equal(registryCandidates.length,14);
-assert.equal(issuerList.assets.length,100);
+assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,150);
 assert.equal(relationships.length,10);
-assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets].map(asset=>asset.id)).size,117);
+assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets].map(asset=>asset.id)).size,617);
 for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
@@ -51,8 +52,9 @@ try {
    if(route==='/registry'){
     assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),17);
-    await page.getByLabel('Cohort').selectOption('Issuer token list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByLabel('Cohort').selectOption('Ondo issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
+    await page.getByLabel('Cohort').selectOption('xStocks issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByLabel('Cohort').selectOption('All cohorts');
     await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody').first().locator('tr').count(),7);
     await page.getByLabel('Value status').selectOption('Value not verified');assert.equal(await page.locator('tbody').first().locator('tr').count(),6);
@@ -65,7 +67,7 @@ try {
   await page.close();
  }
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,117);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,617);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
  }
  const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/registry'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}

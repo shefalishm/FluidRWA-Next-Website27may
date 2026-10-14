@@ -5,7 +5,8 @@ const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'
 const candidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ondoTokenList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
-const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates,...relationships].map(r=>r.source).concat(ondoTokenList.source))];
+const xstocksTokenList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json','utf8'));
+const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates,...relationships].map(r=>r.source).concat(ondoTokenList.source,xstocksTokenList.source))];
 const checks=[];
 for(const url of urls){
  try{

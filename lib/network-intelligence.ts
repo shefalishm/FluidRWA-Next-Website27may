@@ -2,11 +2,12 @@ import snapshot from "@/data/network-intelligence.json";
 import ramp from "@/data/ramp-onboarding-dataset.json";
 import registryCandidates from "@/data/asset-registry-candidates.json";
 import ondoTokenList from "@/data/issuer-tokenlist-ondo.json";
+import xstocksTokenList from "@/data/issuer-tokenlist-xstocks.json";
 import infrastructureRelationships from "@/data/asset-infrastructure-relationships.json";
 
 export { snapshot, ramp };
 export { infrastructureRelationships };
-export const issuerListSelection = ondoTokenList.selection;
+export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection];
 export const explorerViews = ["assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
@@ -22,7 +23,8 @@ export const assetRegistry = [
     cohort: "Research profile", sourcePublished: null as string | null
   })),
   ...registryCandidates.map(asset => ({ ...asset, cohort: "Research profile", sourcePublished: null as string | null })),
-  ...ondoTokenList.assets
+  ...ondoTokenList.assets,
+  ...xstocksTokenList.assets
 ].sort((a,b) => a.name.localeCompare(b.name));
 export const registryUpdated = [...assetRegistry.map(asset => asset.sourceReviewed), ...infrastructureRelationships.map(row => row.reviewed)].sort().at(-1) || snapshot.reviewed;
 export type RegistryAsset = typeof assetRegistry[number];
