@@ -1,8 +1,12 @@
 import snapshot from "@/data/network-intelligence.json";
 import ramp from "@/data/ramp-onboarding-dataset.json";
 import registryCandidates from "@/data/asset-registry-candidates.json";
+import ondoTokenList from "@/data/issuer-tokenlist-ondo.json";
+import infrastructureRelationships from "@/data/asset-infrastructure-relationships.json";
 
 export { snapshot, ramp };
+export { infrastructureRelationships };
+export const issuerListSelection = ondoTokenList.selection;
 export const explorerViews = ["assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
@@ -14,10 +18,13 @@ export const assetRegistry = [
     notes: asset.notes, reportedValueUsd: asset.value as number | null,
     reportedMetric: asset.metric as string | null, reportedAsOf: asset.asOf as string | null,
     freshnessDays: asset.freshnessDays,
-    contractEvidence: asset.id === "wtgxx" ? asset.source as string | null : null
+    contractEvidence: asset.id === "wtgxx" ? asset.source as string | null : null,
+    cohort: "Research profile", sourcePublished: null as string | null
   })),
-  ...registryCandidates
+  ...registryCandidates.map(asset => ({ ...asset, cohort: "Research profile", sourcePublished: null as string | null })),
+  ...ondoTokenList.assets
 ].sort((a,b) => a.name.localeCompare(b.name));
+export const registryUpdated = [...assetRegistry.map(asset => asset.sourceReviewed), ...infrastructureRelationships.map(row => row.reviewed)].sort().at(-1) || snapshot.reviewed;
 export type RegistryAsset = typeof assetRegistry[number];
 export function registryValueStatus(asset: RegistryAsset, now: number) {
   if (asset.reportedValueUsd === null || !asset.reportedAsOf) return "Value not verified";

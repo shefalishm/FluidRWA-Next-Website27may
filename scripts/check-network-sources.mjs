@@ -3,7 +3,9 @@ import { execFileSync } from 'node:child_process';
 const snapshot=JSON.parse(fs.readFileSync('data/network-intelligence.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 const candidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
-const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates].map(r=>r.source))];
+const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
+const ondoTokenList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
+const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates,...relationships].map(r=>r.source).concat(ondoTokenList.source))];
 const checks=[];
 for(const url of urls){
  try{

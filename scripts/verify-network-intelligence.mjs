@@ -5,10 +5,14 @@ const require = createRequire('/Users/shefalisharma/.cache/codex-runtimes/codex-
 const { chromium } = require('playwright');
 const snapshot=JSON.parse(fs.readFileSync('data/network-intelligence.json','utf8'));
 const registryCandidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
+const issuerList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
+const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
-assert.equal(registryCandidates.length,9);
-assert.equal(new Set([...snapshot.assets,...registryCandidates].map(asset=>asset.id)).size,12);
+assert.equal(registryCandidates.length,14);
+assert.equal(issuerList.assets.length,100);
+assert.equal(relationships.length,10);
+assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets].map(asset=>asset.id)).size,117);
 for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
@@ -32,7 +36,7 @@ try {
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
    assert.equal(state.canonical,`https://www.fluidrwa.com/network-explorer${route}`);
-   assert.ok(state.body.includes('13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '14 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
    if(route==='/vendors'){
     await page.getByLabel(/^Provider/).selectOption('Transak'); assert.equal(await page.locator('tbody tr').count(),6);
     await page.getByLabel('Buyer dimension').selectOption('KYC hand-offs');assert.equal(await page.locator('tbody tr').count(),1);
@@ -45,9 +49,13 @@ try {
     await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody tr').count(),1);assert.ok((await page.locator('tbody').textContent()).includes('USDC'));
    }
    if(route==='/registry'){
-    assert.equal(await page.locator('tbody tr').count(),12);
-    await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody tr').count(),5);
-    await page.getByLabel('Value status').selectOption('Value not verified');assert.equal(await page.locator('tbody tr').count(),4);
+    assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),17);
+    await page.getByLabel('Cohort').selectOption('Issuer token list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
+    await page.getByLabel('Cohort').selectOption('All cohorts');
+    await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody').first().locator('tr').count(),7);
+    await page.getByLabel('Value status').selectOption('Value not verified');assert.equal(await page.locator('tbody').first().locator('tr').count(),6);
     const [file]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download registry CSV'}).click()]);assert.ok(file.suggestedFilename().endsWith('.csv'));await file.saveAs(`${output}/registry-filter-${width}.csv`);
     await page.getByLabel('Asset class').selectOption('All asset classes');await page.getByLabel('Value status').selectOption('All value states');
    }
@@ -56,8 +64,8 @@ try {
   }
   await page.close();
  }
- for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,12);else assert.deepEqual(body,snapshot);}await r.close();
+ for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,117);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
  }
  const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/registry'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}
