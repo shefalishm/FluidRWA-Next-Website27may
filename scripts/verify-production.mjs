@@ -12,6 +12,7 @@ const routes = [
   "/blog/top-tokenization-companies-2026",
   "/fluidrwa/nowpayments",
   "/web3-events",
+  "/network-explorer/supply",
   "/privacy",
   "/terms",
   "/refund-cancellation",
@@ -33,6 +34,33 @@ async function fetchWithRetry(url, attempts = 3) {
     await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
   }
   throw lastError;
+}
+
+try {
+  const response = await fetchWithRetry(`${origin}/api/network-explorer/onchain-supply`);
+  if (!response.ok) {
+    failures.push(`Onchain supply API returned ${response.status}`);
+  } else {
+    const payload = await response.json();
+    const expected = new Set(["usdc-ethereum", "usdc-base", "pyusd-ethereum"]);
+    if (!Array.isArray(payload.series) || payload.series.length !== expected.size) {
+      failures.push("Onchain supply API is missing tracked contract series");
+    } else {
+      for (const series of payload.series) {
+        if (!expected.delete(series.id) || !Array.isArray(series.observations) || series.observations.length < 1) {
+          failures.push(`Onchain supply API has invalid observations for ${series.id}`);
+          continue;
+        }
+        const latest = series.observations.at(-1);
+        if (!/^\d+$/.test(latest.raw_supply) || !Number.isInteger(latest.block_number) || !/^\d{4}-\d{2}-\d{2}$/.test(latest.day)) {
+          failures.push(`Onchain supply API has invalid latest observation for ${series.id}`);
+        }
+      }
+      if (expected.size) failures.push(`Onchain supply API is missing: ${[...expected].join(", ")}`);
+    }
+  }
+} catch (error) {
+  failures.push(`Onchain supply API could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
 }
 
 for (const route of routes) {

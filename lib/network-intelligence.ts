@@ -10,7 +10,7 @@ import infrastructureRelationships from "@/data/asset-infrastructure-relationshi
 export { snapshot, ramp };
 export { infrastructureRelationships };
 export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
-export const explorerViews = ["assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
+export const explorerViews = ["supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
 export const assetRegistry = [

@@ -5,10 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDownToLine, ArrowUpRight, BarChart3, Building2, CircleHelp, FileSearch, Globe2, Layers3, Network, Search, X } from "lucide-react";
 import { dated, isHistorical, jurisdictions, money, providers, ramp, registryUpdated, snapshot, type Asset, type ExplorerView } from "@/lib/network-intelligence";
 import { AssetRegistry, RegistryCoverage } from "./AssetRegistry";
+import { OnchainSupplyMonitor } from "./OnchainSupplyMonitor";
 import styles from "./IntelligenceExplorer.module.css";
 
 const nav = [
-  ["overview", "Overview", BarChart3], ["assets", "Asset observations", Layers3], ["registry", "Asset registry", FileSearch], ["networks", "Networks", Network],
+  ["overview", "Overview", BarChart3], ["supply", "Supply monitor", BarChart3], ["assets", "Asset observations", Layers3], ["registry", "Asset registry", FileSearch], ["networks", "Networks", Network],
   ["vendors", "Provider evidence", Building2], ["jurisdictions", "Jurisdictions", Globe2],
   ["research", "Research & downloads", FileSearch], ["methodology", "Methodology", CircleHelp]
 ] as const;
@@ -66,7 +67,13 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
   function saveView() {
     track("explorer_filter", view);
   }
-  const metricSchema = { "@context": "https://schema.org", "@type": "Dataset", name: view === "registry" ? "FluidRWA source-linked asset registry" : "FluidRWA Network Explorer: sourced observations", description: view === "registry" ? "Research profiles and an explicitly sampled official issuer token list, plus named infrastructure roles. Not a complete global market census or synchronized valuation." : "Selected dated issuer observations, official regulatory resources and provider documentation. Not a complete global market dataset.", url: `https://www.fluidrwa.com/network-explorer${view === "overview" ? "" : `/${view}`}`, dateModified: view === "registry" ? registryUpdated : snapshot.reviewed, creator: { "@type": "Organization", name: "FluidRWA" }, isAccessibleForFree: true, distribution: { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `https://www.fluidrwa.com/assets/datasets/${view === "registry" ? "network-asset-registry" : "network-intelligence"}.json` } };
+  const metricSchema = view === "supply" ? {
+    "@context": "https://schema.org", "@type": "Dataset", name: "FluidRWA on-chain contract supply observations",
+    description: "Daily ERC-20 totalSupply observations for a defined issuer-documented contract sample. Not circulating supply or a global market total.",
+    url: "https://www.fluidrwa.com/network-explorer/supply", creator: { "@type": "Organization", name: "FluidRWA" },
+    isAccessibleForFree: true,
+    distribution: { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: "https://www.fluidrwa.com/api/network-explorer/onchain-supply" }
+  } : { "@context": "https://schema.org", "@type": "Dataset", name: view === "registry" ? "FluidRWA source-linked asset registry" : "FluidRWA Network Explorer: sourced observations", description: view === "registry" ? "Issuer-listed products and research profiles with distinct evidence levels and named infrastructure roles. Not a complete global market census or synchronized valuation." : "Selected dated issuer observations, official regulatory resources and provider documentation. Not a complete global market dataset.", url: `https://www.fluidrwa.com/network-explorer${view === "overview" ? "" : `/${view}`}`, dateModified: view === "registry" ? registryUpdated : snapshot.reviewed, creator: { "@type": "Organization", name: "FluidRWA" }, isAccessibleForFree: true, distribution: { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `https://www.fluidrwa.com/assets/datasets/${view === "registry" ? "network-asset-registry" : "network-intelligence"}.json` } };
   return <main className={styles.shell}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(metricSchema) }} />
     <aside className={styles.sidebar} aria-label="Network Explorer navigation">
@@ -75,10 +82,11 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
       <div className={styles.sideNote}><Link href="/submit-requirement">Discuss your project <ArrowUpRight size={15} /></Link></div>
     </aside>
     <div className={styles.workspace}>
-      <div className={styles.topbar}><label className={styles.search}><Search size={18} aria-hidden="true" /><span className={styles.sr}>Search this view</span><input value={query} onChange={e=>setQuery(e.target.value)} onBlur={saveView} placeholder="Search assets, providers or regulatory records" />{query && <button aria-label="Clear search" onClick={()=>setQuery("")}><X size={16}/></button>}</label><span className={styles.release}>{view === "registry" ? `Registry updated · ${dated(registryUpdated)}` : `Research edition · ${snapshot.version}`}</span></div>
+      <div className={styles.topbar}><label className={styles.search}><Search size={18} aria-hidden="true" /><span className={styles.sr}>Search this view</span><input value={query} onChange={e=>setQuery(e.target.value)} onBlur={saveView} placeholder="Search assets, providers or regulatory records" />{query && <button aria-label="Clear search" onClick={()=>setQuery("")}><X size={16}/></button>}</label><span className={styles.release}>{view === "supply" ? "Daily contract observations" : view === "registry" ? `Registry updated · ${dated(registryUpdated)}` : `Research edition · ${snapshot.version}`}</span></div>
       <div className={styles.content}>
         <header className={styles.heading}><div><p className={styles.eyebrow}>FLUIDRWA INTELLIGENCE</p><h1>{view === "overview" ? "Digital asset intelligence" : title}</h1><p>Sourced market observations, infrastructure evidence and regulatory reference points.</p></div><a className={styles.button} href="/submit-requirement" onClick={()=>track("explorer_project_cta",view)}>Find infrastructure <ArrowUpRight size={16}/></a></header>
-        <div className={styles.coverage}>Selected research edition · {providers.length} ramp providers · {jurisdictions.length} jurisdictions. Dated snapshots, not live global totals.</div>
+        <div className={styles.coverage}>{view === "supply" ? "Three issuer-documented contracts · daily UTC snapshots · no inferred historical values." : `Selected research edition · ${providers.length} ramp providers · ${jurisdictions.length} jurisdictions. Dated snapshots, not live global totals.`}</div>
+        {(view === "overview" || view === "supply") && <OnchainSupplyMonitor />}
         {view === "overview" && <RegistryCoverage now={now} />}
         {view === "registry" && <AssetRegistry query={query} now={now} onDownload={rows => download("asset-registry", rows.map(row => ({...row})))} />}
         {(view === "overview" || view === "assets") && <>
@@ -111,8 +119,14 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
           <p>Only three assets have dated USD value observations in this edition. Values are marked current only within seven days for stablecoin circulation or 35 days for fund figures. Historical figures retain their original dates. No comparable figure is recorded where a synchronized value and method were not reviewed. Fund net assets, stablecoin circulation and tokenized-stock prices are not added together.</p>
           <p>Source reachability can be checked automatically, but it does not revalidate a claim. New issuer feeds, contract changes, values and regulatory facts enter a review queue before publication. Missing fields stay unknown; no vendor receives a vetting badge from appearing in this dataset. Download the <a href="/assets/datasets/network-asset-registry.json" download>versioned registry JSON</a> and <a href="/assets/datasets/network-infrastructure-relationships.csv" download>service-role CSV</a> for the source links, dates and gaps.</p>
         </section>}
+        {view === "methodology" && <section className={styles.section}>
+          <h2>On-chain supply series</h2>
+          <p>The supply monitor reads ERC-20 <code>totalSupply()</code> and <code>decimals()</code> at the same recorded block for three issuer-documented deployments: USDC on Ethereum and Base, and PYUSD on Ethereum. Raw integer supply is divided by 10 to the power of token decimals. Observations record the chain, contract, block number, block timestamp and UTC capture time. The first successful reading after 00:00 UTC is stored for each day.</p>
+          <p>Contract total supply is not necessarily circulating supply. It excludes other chains and does not establish redemption, reserve value, price, investors or global market size. The 7-day, 30-day and one-year percentage changes are (latest raw supply minus prior raw supply) divided by prior raw supply, multiplied by 100. We show a change only when a dated baseline exists on the target day or the preceding day. We do not construct earlier values from a later snapshot.</p>
+          <p>Source addresses come from <a href="https://docs-w3s-node-sdk.circle.com/variables/index.ETH.html">Circle's Ethereum SDK documentation</a>, <a href="https://www.circle.com/blog/usdc-now-available-natively-on-base">Circle's Base announcement</a>, and <a href="https://www.paypal.com/sg/cshelp/article/what-is-paypal-usd-pyusd-help1005">PayPal's PYUSD documentation</a>. Chain state is queried through public RPC nodes. A failed or stale reading is not published as zero; the previous dated observation remains visible.</p>
+        </section>}
         <section className={styles.bottomCta}><div><h2>Turn research into a project brief.</h2><p>Tell us the infrastructure and jurisdictions you are considering.</p></div><a className={styles.button} href="/submit-requirement" onClick={()=>track("explorer_project_cta",view)}>Submit requirements <ArrowUpRight size={16}/></a><a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></section>
-        <footer className={styles.updated}>Last updated {dated(view === "registry" || view === "methodology" || view === "overview" ? registryUpdated : snapshot.reviewed)} · Reviewed by FluidRWA Research Team · Information only, not investment or legal advice.</footer>
+        <footer className={styles.updated}>{view === "supply" ? "Contract observations carry their own UTC block time" : `Last updated ${dated(view === "registry" || view === "methodology" || view === "overview" ? registryUpdated : snapshot.reviewed)}`} · Reviewed by FluidRWA Research Team · Information only, not investment or legal advice.</footer>
       </div>
     </div>
     <dialog ref={dialog} className={styles.dialog} onClose={()=>setSelected(null)} onClick={e=>{if(e.target===dialog.current)dialog.current?.close();}}>

@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.78
     })),
     { url: `${siteUrl}/tools`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.9 },
-    ...["", "/assets", "/registry", "/networks", "/vendors", "/jurisdictions", "/research", "/methodology", "/research/ramp-onboarding"].map(view => ({ url: `${siteUrl}/network-explorer${view}`, lastModified: "2026-10-13", changeFrequency: "weekly" as const, priority: 0.85 })),
+    ...["", "/supply", "/assets", "/registry", "/networks", "/vendors", "/jurisdictions", "/research", "/methodology", "/research/ramp-onboarding"].map(view => ({ url: `${siteUrl}/network-explorer${view}`, lastModified: view === "/supply" ? "2026-10-15" : "2026-10-13", changeFrequency: "weekly" as const, priority: 0.85 })),
     { url: `${siteUrl}/tools/vendor-comparison`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.94 },
     { url: `${siteUrl}/news`, lastModified: "2026-09-10", changeFrequency: "hourly", priority: 0.86 },
     { url: `${siteUrl}/web3-events`, lastModified: "2026-09-02", changeFrequency: "weekly", priority: 0.87 },

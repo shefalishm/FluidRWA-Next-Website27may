@@ -13,6 +13,13 @@
   "triggers": {
     "crons": ["*/30 * * * *"]
   },
+  "d1_databases": [
+    {
+      "binding": "NETWORK_DB",
+      "database_name": "fluidrwa-network-intelligence",
+      "database_id": "7a7cee74-a2ab-425b-aaa1-e12eb6628968"
+    }
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",

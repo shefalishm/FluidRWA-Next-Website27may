@@ -20,12 +20,13 @@ for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null)
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
 const base=process.env.PREVIEW_URL || 'http://localhost:3046';
-const output='docs/network-intelligence-qa-2026-10-13'; fs.mkdirSync(output,{recursive:true});
-const routes=['','/assets','/registry','/networks','/vendors','/jurisdictions','/research','/methodology','/research/ramp-onboarding'];
+const output=process.env.NETWORK_QA_OUTPUT || '/private/tmp/fluidrwa-network-qa-2026-10-15'; fs.mkdirSync(output,{recursive:true});
+const routes=['','/supply','/assets','/registry','/networks','/vendors','/jurisdictions','/research','/methodology','/research/ramp-onboarding'];
 const browser=await chromium.launch({headless:true,channel:'chrome'});const results=[];
 try {
  for(const width of [1440,390,360]){
   const page=await browser.newPage({viewport:{width,height:900}});
+  await page.route('**/api/network-explorer/onchain-supply',route=>route.fulfill({json:{metric:'ERC-20 totalSupply in native token units',method:'Measured at a recorded block.',series:[{id:'usdc-ethereum',symbol:'USDC',issuer:'Circle',network:'Ethereum',chainId:1,address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',source:'https://www.circle.com/multi-chain-usdc/ethereum',explorer:'https://etherscan.io',observations:[{asset_id:'usdc-ethereum',day:'2026-10-08',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1000000000',decimals:6,block_number:1,block_timestamp:1,observed_at:'2026-10-08T00:05:00Z'},{asset_id:'usdc-ethereum',day:'2026-10-15',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1100000000',decimals:6,block_number:2,block_timestamp:2,observed_at:'2026-10-15T00:05:00Z'}]}]}}));
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   for(const route of routes){
    const interactive=route!=='/research/ramp-onboarding';
@@ -42,7 +43,15 @@ try {
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
    assert.equal(state.canonical,`https://www.fluidrwa.com/network-explorer${route}`);
-   assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '15 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   if(route!=='/supply')assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '15 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   if(route==='/supply'){
+    await page.getByText('USDC on Ethereum').waitFor();
+    assert.ok((await page.locator('main').textContent()).includes('+10.00%'));
+    await page.getByRole('button',{name:'1Y'}).click();
+    assert.ok((await page.locator('main').textContent()).includes('Not yet available'));
+    const [file]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download CSV'}).click()]);
+    await file.saveAs(`${output}/supply-${width}.csv`);
+   }
    if(route==='/vendors'){
     await page.getByLabel(/^Provider/).selectOption('Transak'); assert.equal(await page.locator('tbody tr').count(),6);
     await page.getByLabel('Buyer dimension').selectOption('KYC hand-offs');assert.equal(await page.locator('tbody tr').count(),1);
@@ -76,6 +85,6 @@ try {
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
   const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1727);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
  }
- const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/registry'));await ctx.close();
+ const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');const sitemap=await map.text();assert.ok(sitemap.includes('/network-explorer/registry'));assert.ok(sitemap.includes('/network-explorer/supply'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}
 console.log('Network Explorer: data, routes, filters, empty states, dialog, CSV, images and sitemap passed.');
