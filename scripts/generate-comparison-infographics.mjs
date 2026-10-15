@@ -6,12 +6,14 @@ import october8Batch from "./comparison-image-batch-october-8.mjs";
 import october10Batch from "./comparison-image-batch-october-10.mjs";
 import october10NewBatch from "./comparison-image-batch-october-10-new.mjs";
 import october12Batch from "./comparison-image-batch-october-12.mjs";
+import october15Batch from "./comparison-image-batch-october-15.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...october15Batch,
   ...october12Batch,
   ...october10NewBatch,
   ...october10Batch,
