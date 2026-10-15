@@ -14,7 +14,7 @@ const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
 assert.equal(registryCandidates.length,14);
 assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,1052);assert.equal(robinhoodList.assets.length,194);assert.equal(wisdomtreeList.assets.length,14);
-assert.equal(relationships.length,10);
+assert.equal(relationships.length,16);
 assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1727);
 for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
@@ -52,6 +52,15 @@ try {
     const [file]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download CSV'}).click()]);
     await file.saveAs(`${output}/supply-${width}.csv`);
    }
+   if(route===''){
+    const map=page.getByRole('region',{name:'Who makes a tokenized asset work?'});
+    assert.ok((await map.textContent()).includes('16'));
+    await map.getByRole('button',{name:'USDC',exact:true}).click();
+    assert.ok((await map.textContent()).includes('Reserve-fund portfolio custodian'));
+    await map.getByRole('button',{name:'PYUSD',exact:true}).click();
+    assert.ok((await map.textContent()).includes('PayPal-account distribution'));
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+   }
    if(route==='/vendors'){
     await page.getByLabel(/^Provider/).selectOption('Transak'); assert.equal(await page.locator('tbody tr').count(),6);
     await page.getByLabel('Buyer dimension').selectOption('KYC hand-offs');assert.equal(await page.locator('tbody tr').count(),1);
@@ -68,7 +77,7 @@ try {
     await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),17);
     await page.getByLabel('Cohort').selectOption('Ondo issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
-    await page.getByLabel('Cohort').selectOption('xStocks issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByLabel('Cohort').selectOption('xStocks issuer list');await page.waitForFunction(()=>document.querySelector('tbody')?.querySelectorAll('tr').length===30);assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByLabel('Cohort').selectOption('Robinhood issuer API');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByLabel('Cohort').selectOption('WisdomTree digital funds');assert.equal(await page.locator('tbody').first().locator('tr').count(),14);
     await page.getByLabel('Cohort').selectOption('All cohorts');
@@ -83,8 +92,14 @@ try {
   await page.close();
  }
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1727);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1727);else if(url.includes('relationships'))assert.equal(body.relationships.length,16);else assert.deepEqual(body,snapshot);}await r.close();
  }
+ const api=await browser.newContext();
+ const coverage=await (await api.request.get(base+'/api/network-explorer/v1/coverage')).json();assert.equal(coverage.identifiedRecords,1727);assert.equal(coverage.documentedRelationships,16);assert.equal(coverage.relationshipAssets,6);
+ const pyusd=await (await api.request.get(base+'/api/network-explorer/v1/relationships?asset_id=pyusd')).json();assert.equal(pyusd.total,3);assert.equal(pyusd.records.length,3);
+ const assets=await (await api.request.get(base+'/api/network-explorer/v1/assets?q=PYUSD&limit=1')).json();assert.ok(assets.total>=1);assert.equal(assets.records.length,1);
+ const pageTwo=await (await api.request.get(base+'/api/network-explorer/v1/relationships?limit=5&offset=5')).json();assert.equal(pageTwo.records.length,5);
+ await api.close();
  const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');const sitemap=await map.text();assert.ok(sitemap.includes('/network-explorer/registry'));assert.ok(sitemap.includes('/network-explorer/supply'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}
 console.log('Network Explorer: data, routes, filters, empty states, dialog, CSV, images and sitemap passed.');

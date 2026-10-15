@@ -63,6 +63,20 @@ try {
   failures.push(`Onchain supply API could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
 }
 
+for (const [route, field, minimum] of [
+  ["/api/network-explorer/v1/coverage", "documentedRelationships", 16],
+  ["/api/network-explorer/v1/assets", "total", 1727],
+  ["/api/network-explorer/v1/relationships", "total", 16]
+]) {
+  try {
+    const response = await fetchWithRetry(`${origin}${route}`);
+    if (!response.ok) failures.push(`${route} returned ${response.status}`);
+    else if ((await response.json())[field] < minimum) failures.push(`${route} has incomplete data`);
+  } catch (error) {
+    failures.push(`${route} could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 for (const route of routes) {
   let response;
   let html;
