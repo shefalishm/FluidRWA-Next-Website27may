@@ -1,0 +1,21 @@
+{
+  "source": "https://www.wisdomtreeprime.com/faq/",
+  "sourceReviewed": "2026-10-15",
+  "selection": "Fourteen WisdomTree Digital Funds named in the issuer's October 2026 roster, excluding WTGXX, which already has a research profile. WisdomTree describes blockchain as a secondary ownership record for these funds; they are not represented as primary-onchain assets.",
+  "assets": [
+    { "symbol": "WTSYX" },
+    { "symbol": "FLTTX" },
+    { "symbol": "WTPIX" },
+    { "symbol": "WTTSX" },
+    { "symbol": "WTSTX" },
+    { "symbol": "WTLGX" },
+    { "symbol": "TIPSX" },
+    { "symbol": "SPXUX" },
+    { "symbol": "TECHX" },
+    { "symbol": "WTSIX" },
+    { "symbol": "EQTYX" },
+    { "symbol": "LNGVX" },
+    { "symbol": "MODRX" },
+    { "symbol": "CRDYX" }
+  ]
+}

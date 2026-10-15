@@ -23,7 +23,7 @@ const assets = tokens.sort((a, b) => a.symbol.localeCompare(b.symbol)).filter(to
   if (symbols.has(key)) return false;
   symbols.add(key);
   return true;
-}).slice(0, 150).map(token => ({
+}).map(token => ({
   id: `backed-${token.symbol.toLowerCase()}`,
   name: `${token.symbol} - ${token.name.replace(/ xStock$/, '')}`,
   issuer: 'Backed Assets (JE) Limited',
@@ -34,7 +34,7 @@ const assets = tokens.sort((a, b) => a.symbol.localeCompare(b.symbol)).filter(to
   sourceLabel: 'Backed official xStocks token list',
   sourcePublished: list.timestamp.slice(0, 10),
   sourceReviewed: '2026-10-14',
-  notes: 'Issuer-listed in the September 24 token-list snapshot. Current trading, redemption eligibility, reserves and USD value have not been independently verified. Alphabetically selected by symbol, not ranked.',
+  notes: 'Issuer-listed in the September 24 token-list snapshot. Current trading, redemption eligibility, reserves and USD value have not been independently verified.',
   reportedValueUsd: null,
   reportedMetric: null,
   reportedAsOf: null,
@@ -44,6 +44,6 @@ const assets = tokens.sort((a, b) => a.symbol.localeCompare(b.symbol)).filter(to
   contractAddress: token.address
 }));
 
-if (assets.length !== 150) throw new Error(`Expected 150 unique Ethereum securities; found ${assets.length}`);
-fs.writeFileSync('data/issuer-tokenlist-xstocks.json', `${JSON.stringify({ source, sourcePublished: list.timestamp, selection: 'First 150 unique Ethereum xStocks entries in symbol order from the pinned issuer snapshot; no ranking or market-coverage claim.', assets }, null, 2)}\n`);
+if (assets.length !== 1052) throw new Error(`Expected 1052 unique Ethereum securities; found ${assets.length}`);
+fs.writeFileSync('data/issuer-tokenlist-xstocks.json', `${JSON.stringify({ source, sourcePublished: list.timestamp, selection: 'All 1052 qualifying Ethereum xStocks entries in the pinned issuer snapshot, deduplicated by symbol; no ranking or global market-coverage claim.', assets }, null, 2)}\n`);
 console.log(`Prepared ${assets.length} issuer-listed securities from xStocks revision ${revision}`);

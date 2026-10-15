@@ -6,7 +6,9 @@ const candidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ondoTokenList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
 const xstocksTokenList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json','utf8'));
-const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates,...relationships].map(r=>r.source).concat(ondoTokenList.source,xstocksTokenList.source))];
+const robinhoodAssets=JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json','utf8'));
+const wisdomtreeFunds=JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json','utf8'));
+const urls=[...new Set([...snapshot.assets,...snapshot.regulations,...ramp.rows,...candidates,...relationships].map(r=>r.source).concat(ondoTokenList.source,xstocksTokenList.source,robinhoodAssets.source,robinhoodAssets.apiDocumentation,wisdomtreeFunds.source))];
 const checks=[];
 for(const url of urls){
  try{

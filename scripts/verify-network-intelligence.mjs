@@ -7,13 +7,15 @@ const snapshot=JSON.parse(fs.readFileSync('data/network-intelligence.json','utf8
 const registryCandidates=JSON.parse(fs.readFileSync('data/asset-registry-candidates.json','utf8'));
 const issuerList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json','utf8'));
 const xstocksList=JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json','utf8'));
+const robinhoodList=JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json','utf8'));
+const wisdomtreeList=JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json','utf8'));
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
 assert.equal(registryCandidates.length,14);
-assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,150);
+assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,1052);assert.equal(robinhoodList.assets.length,194);assert.equal(wisdomtreeList.assets.length,14);
 assert.equal(relationships.length,10);
-assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets].map(asset=>asset.id)).size,617);
+assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1727);
 for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
@@ -30,14 +32,17 @@ try {
    const response=await page.goto(`${base}/network-explorer${route}?analytics=off${interactive?'&q=readiness-probe':''}`,{waitUntil:'domcontentloaded',timeout:60000});
    await page.waitForFunction(()=>document.querySelector('main h1') && [...document.querySelectorAll('main img')].every(i=>i.complete),undefined,{timeout:30000});
    if(interactive){
-    await page.waitForFunction(()=>document.querySelector('main input')?.value==='readiness-probe',undefined,{timeout:60000});
-    await page.getByLabel('Search this view').fill('');
+    const search = page.getByLabel('Search this view');
+    await search.waitFor({state:'visible'});
+    await search.fill('readiness-probe');
+    assert.equal(await search.inputValue(),'readiness-probe');
+    await search.fill('');
    }
    assert.equal(response.status(),200,route);
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
    assert.equal(state.canonical,`https://www.fluidrwa.com/network-explorer${route}`);
-   assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '14 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '15 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
    if(route==='/vendors'){
     await page.getByLabel(/^Provider/).selectOption('Transak'); assert.equal(await page.locator('tbody tr').count(),6);
     await page.getByLabel('Buyer dimension').selectOption('KYC hand-offs');assert.equal(await page.locator('tbody tr').count(),1);
@@ -55,6 +60,8 @@ try {
     await page.getByLabel('Cohort').selectOption('Ondo issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
     await page.getByLabel('Cohort').selectOption('xStocks issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByLabel('Cohort').selectOption('Robinhood issuer API');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByLabel('Cohort').selectOption('WisdomTree digital funds');assert.equal(await page.locator('tbody').first().locator('tr').count(),14);
     await page.getByLabel('Cohort').selectOption('All cohorts');
     await page.getByLabel('Asset class').selectOption('Stablecoins');assert.equal(await page.locator('tbody').first().locator('tr').count(),7);
     await page.getByLabel('Value status').selectOption('Value not verified');assert.equal(await page.locator('tbody').first().locator('tr').count(),6);
@@ -67,7 +74,7 @@ try {
   await page.close();
  }
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,617);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1727);else if(url.includes('relationships'))assert.equal(body.relationships.length,10);else assert.deepEqual(body,snapshot);}await r.close();
  }
  const ctx=await browser.newContext();const map=await ctx.request.get(base+'/sitemap.xml');assert.ok((await map.text()).includes('/network-explorer/registry'));await ctx.close();
 }finally{await browser.close();fs.writeFileSync(`${output}/checks.json`,JSON.stringify(results,null,2));}

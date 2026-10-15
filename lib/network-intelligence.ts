@@ -3,11 +3,13 @@ import ramp from "@/data/ramp-onboarding-dataset.json";
 import registryCandidates from "@/data/asset-registry-candidates.json";
 import ondoTokenList from "@/data/issuer-tokenlist-ondo.json";
 import xstocksTokenList from "@/data/issuer-tokenlist-xstocks.json";
+import robinhoodAssets from "@/data/issuer-api-robinhood.json";
+import wisdomtreeFunds from "@/data/issuer-funds-wisdomtree.json";
 import infrastructureRelationships from "@/data/asset-infrastructure-relationships.json";
 
 export { snapshot, ramp };
 export { infrastructureRelationships };
-export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection];
+export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
 export const explorerViews = ["assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
@@ -24,7 +26,17 @@ export const assetRegistry = [
   })),
   ...registryCandidates.map(asset => ({ ...asset, cohort: "Research profile", sourcePublished: null as string | null })),
   ...ondoTokenList.assets,
-  ...xstocksTokenList.assets
+  ...xstocksTokenList.assets,
+  ...robinhoodAssets.assets,
+  ...wisdomtreeFunds.assets.map(({ symbol }) => ({
+    id: `wisdomtree-${symbol.toLowerCase()}`, name: `${symbol} - WisdomTree Digital Fund`, issuer: "WisdomTree",
+    assetClass: "Blockchain-enabled funds", structure: "Digital fund; blockchain is a secondary ownership record",
+    cohort: "WisdomTree digital funds", source: wisdomtreeFunds.source, sourceLabel: "WisdomTree Prime official fund roster",
+    sourcePublished: null as string | null, sourceReviewed: wisdomtreeFunds.sourceReviewed,
+    notes: "Issuer named this ticker among its digital funds. No contract, current NAV, fund size or investor eligibility is verified in this record.",
+    reportedValueUsd: null as number | null, reportedMetric: null as string | null, reportedAsOf: null as string | null,
+    freshnessDays: 35, contractEvidence: null as string | null
+  }))
 ].sort((a,b) => a.name.localeCompare(b.name));
 export const registryUpdated = [...assetRegistry.map(asset => asset.sourceReviewed), ...infrastructureRelationships.map(row => row.reviewed)].sort().at(-1) || snapshot.reviewed;
 export type RegistryAsset = typeof assetRegistry[number];
