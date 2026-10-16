@@ -34,6 +34,54 @@ export const onchainSupplyContracts = [
     source: "https://www.paypal.com/sg/cshelp/article/what-is-paypal-usd-pyusd-help1005",
     explorer: "https://etherscan.io/token/0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
     decimals: 6
+  },
+  {
+    id: "usdc-arbitrum",
+    symbol: "USDC",
+    issuer: "Circle",
+    network: "Arbitrum",
+    chainId: 42161,
+    address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    rpc: "https://arbitrum-one-rpc.publicnode.com",
+    source: "https://www.circle.com/blog/usdc-on-arbitrum-now-available",
+    explorer: "https://arbiscan.io/token/0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    decimals: 6
+  },
+  {
+    id: "usdt-ethereum",
+    symbol: "USDT",
+    issuer: "Tether",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    source: "https://tether.to/en/supported-protocols/",
+    explorer: "https://etherscan.io/token/0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    decimals: 6
+  },
+  {
+    id: "eurc-base",
+    symbol: "EURC",
+    issuer: "Circle",
+    network: "Base",
+    chainId: 8453,
+    address: "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+    rpc: "https://base-rpc.publicnode.com",
+    source: "https://www.circle.com/blog/eurc-is-coming-to-base",
+    explorer: "https://basescan.org/token/0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+    decimals: 6
+  },
+  {
+    id: "xaut-ethereum",
+    symbol: "XAUt",
+    issuer: "Tether",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    source: "https://tether.to/en/supported-protocols/",
+    explorer: "https://etherscan.io/token/0x68749665FF8D2d112Fa859AA293F07A622782F38",
+    decimals: 6
   }
 ] as const;
 
