@@ -1,3 +1,5 @@
+import { onchainSupplyContracts } from "../lib/onchainSupply.ts";
+
 const origin = process.env.FLUIDRWA_PRODUCTION_URL || "https://www.fluidrwa.com";
 const expectedRevision = process.env.EXPECTED_COMMIT_SHA;
 const routes = [
@@ -42,7 +44,7 @@ try {
     failures.push(`Onchain supply API returned ${response.status}`);
   } else {
     const payload = await response.json();
-    const expected = new Set(["usdc-ethereum", "usdc-base", "pyusd-ethereum"]);
+    const expected = new Set(onchainSupplyContracts.map(contract => contract.id));
     if (!Array.isArray(payload.series) || payload.series.length !== expected.size) {
       failures.push("Onchain supply API is missing tracked contract series");
     } else {
