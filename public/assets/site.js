@@ -1181,23 +1181,81 @@ const vendorSearchScore = (item, query) => {
     categoryHits * 300 + hits * 30 + ((item.text || "").includes(q) ? 10 : 0);
 };
 
+const vendorHqCountryAliases = {
+  usa: "United States",
+  us: "United States",
+  uk: "United Kingdom",
+  uae: "United Arab Emirates",
+  dubai: "United Arab Emirates",
+  bvi: "British Virgin Islands"
+};
+
+const vendorHqCountries = new Set([
+  "Argentina", "Australia", "Bahrain", "Belgium", "Bermuda", "British Virgin Islands",
+  "Canada", "Czech Republic", "Cyprus", "Denmark", "Estonia", "France", "Germany",
+  "Greece", "Hong Kong", "Iceland", "India", "Ireland", "Israel", "Jersey",
+  "Kenya", "Liechtenstein", "Lithuania", "Luxembourg", "Malaysia", "Malta",
+  "Mexico", "Netherlands", "Nigeria", "Norway", "Poland", "Portugal", "Romania",
+  "Serbia", "Seychelles", "Singapore", "Slovenia", "South Korea", "Spain",
+  "Sweden", "Switzerland", "Taiwan", "United Arab Emirates", "United Kingdom", "United States"
+]);
+
+const vendorCountrySlug = (country) => country.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const parseVendorHqCountries = (value) => [...new Set((value || "").split("/").map((part) => {
+  const name = part.replace(/\([^)]*\)/g, "").trim();
+  const canonical = vendorHqCountryAliases[name.toLowerCase()] || name;
+  return vendorHqCountries.has(canonical) ? canonical : "";
+}).filter(Boolean))];
+
+const buildHqCountryOptions = (profiles) => {
+  const countries = [...new Set([...profiles.values()].flatMap((profile) => profile.hqCountries))]
+    .sort((a, b) => a.localeCompare(b));
+  const options = [["all", "All HQ countries"], ...countries.map((country) => [vendorCountrySlug(country), country])];
+  if ([...profiles.values()].some((profile) => !profile.hqCountries.length)) options.push(["unknown", "HQ not confirmed"]);
+  return options;
+};
+
+const matchesHqCountry = (profile, value) =>
+  value === "all" || (value === "unknown" ? !profile.hqCountries.length : profile.hqCountries.some((country) => vendorCountrySlug(country) === value));
+
+const setHqQueryParameter = (value) => {
+  const url = new URL(window.location.href);
+  if (value === "all") url.searchParams.delete("hq");
+  else url.searchParams.set("hq", value);
+  window.history.replaceState(window.history.state, "", url);
+};
+
 const inferVendorProfile = (card) => {
-  const text = normalizeVendorText(`${card.dataset.search || ""} ${card.textContent || ""}`);
-  const tokens = new Set(tokenizeVendorSearch(text));
   const compactMetaLocation = Array.from(card.querySelectorAll(".vendor-meta span, .bc-company-meta span, .bc-provider-meta span"))
     .map((item) => {
       const label = normalizeVendorText(item.querySelector("b, dt, strong")?.textContent || "");
       const value = item.querySelector("em, dd")?.textContent?.trim() || "";
-      return /^(hq|headquarters|location|country)$/.test(label) ? value : "";
+      return /^(hq|headquarters)$/.test(label) ? value : "";
     })
     .find(Boolean);
-  const location =
+  const hqText =
     card.querySelector('[itemprop="addressCountry"]')?.textContent?.trim() ||
     Array.from(card.querySelectorAll("dt"))
       .find((term) => normalizeVendorText(term.textContent) === "hq")
       ?.parentElement?.querySelector("dd")?.textContent?.trim() ||
-    compactMetaLocation ||
-    "Global";
+    compactMetaLocation || "";
+  const hqCountries = parseVendorHqCountries(hqText);
+  if (hqText && !hqCountries.length) {
+    const hqValue = card.querySelector('[itemprop="addressCountry"]') ||
+      Array.from(card.querySelectorAll("dt"))
+        .find((term) => normalizeVendorText(term.textContent) === "hq")
+        ?.parentElement?.querySelector("dd") ||
+      Array.from(card.querySelectorAll(".vendor-meta span, .bc-company-meta span, .bc-provider-meta span"))
+        .find((item) => /^(hq|headquarters)$/.test(normalizeVendorText(item.querySelector("b, dt, strong")?.textContent || "")))
+        ?.querySelector("em, dd");
+    if (hqValue) {
+      hqValue.textContent = "Not confirmed";
+      hqValue.removeAttribute("itemprop");
+    }
+  }
+  const text = normalizeVendorText(`${card.dataset.search || ""} ${card.textContent || ""}`);
+  const tokens = new Set(tokenizeVendorSearch(text));
   const regulatory = /(licensed|regulated|qualified|sec |finra|fca|mica|mas |bank grade|trust company|custodian)/.test(text)
     ? "licensed"
     : /(compliance|kyc|aml|sanctions|policy|audit|legal|regulatory)/.test(text)
@@ -1210,7 +1268,7 @@ const inferVendorProfile = (card) => {
       : "growth";
   const name = card.querySelector("h3")?.textContent || "";
   const category = card.dataset.category || card.closest("[data-category-section]")?.querySelector("h2")?.textContent || "";
-  return { text, tokens, location, regulatory, budget, name, category };
+  return { text, tokens, hqCountries, regulatory, budget, name, category };
 };
 
 const buildFilterSelect = (label, name, options) => {
@@ -1270,9 +1328,7 @@ if (vendorSearch) {
   const controls = vendorSearch.closest(".vendor-controls");
   const filterBar = document.createElement("div");
   filterBar.className = "vendor-procurement-filters vendor-procurement-filters--ecosystem";
-  const locations = [...new Set([...profiles.values()].map((profile) => profile.location).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b));
-  const locationSelect = buildFilterSelect("Headquarters", "location", [["all", "All locations"], ...locations.map((location) => [normalizeVendorText(location), location])]);
+  const locationSelect = buildFilterSelect("HQ country", "location", buildHqCountryOptions(profiles));
   const regulatorySelect = buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
   const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
   const resetButton = document.createElement("button");
@@ -1299,6 +1355,8 @@ if (vendorSearch) {
   profileResults.after(statusNode);
   const profileResultsList = profileResults.querySelector(".vendor-profile-search-list");
   const locationControl = locationSelect.querySelector("select");
+  const initialHq = new URLSearchParams(window.location.search).get("hq");
+  if (initialHq && [...locationControl.options].some((option) => option.value === initialHq)) locationControl.value = initialHq;
   const regulatoryControl = regulatorySelect.querySelector("select");
   const budgetControl = budgetSelect.querySelector("select");
   let activeFilter = "all";
@@ -1311,7 +1369,7 @@ if (vendorSearch) {
       const profile = profiles.get(card);
       const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
       const matchesSearch = matchesVendorSearch(profile, query);
-      const matchesLocation = locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value;
+      const matchesLocation = matchesHqCountry(profile, locationControl.value);
       const matchesRegulatory = regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value;
       const matchesBudget = budgetControl.value === "all" || profile.budget === budgetControl.value;
       const isVisible = matchesCategory && matchesSearch && matchesLocation && matchesRegulatory && matchesBudget;
@@ -1379,7 +1437,7 @@ if (vendorSearch) {
     if (countNode) countNode.textContent = visibleCount.toLocaleString();
     if (statusNode) {
       const resultCount = hasFilters ? visibleCount : combinedMatches.length;
-      statusNode.textContent = normalizedQuery
+      statusNode.textContent = normalizedQuery || hasFilters
         ? resultCount ? `${resultCount.toLocaleString()} matching vendors.` : "No matching vendors. Try a broader search or reset filters."
         : "";
     }
@@ -1390,10 +1448,14 @@ if (vendorSearch) {
   }
 
   vendorSearch.addEventListener("input", updateVendorDirectory);
-  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", updateVendorDirectory));
+  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", () => {
+    if (control === locationControl) setHqQueryParameter(locationControl.value);
+    updateVendorDirectory();
+  }));
   resetButton.addEventListener("click", () => {
     vendorSearch.value = "";
     locationControl.value = "all";
+    setHqQueryParameter("all");
     regulatoryControl.value = "all";
     budgetControl.value = "all";
     activeFilter = "all";
@@ -1442,10 +1504,9 @@ const initLegacyVendorDirectoryWidgets = () => {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
   const providerCards = Array.from(providerDirectory.querySelectorAll(".bc-provider-card, .bc-company-card"));
   const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
-  const directoryHead = directorySection?.querySelector(".bc-directory-head");
+  const directoryHead = directorySection?.querySelector(".bc-directory-head, .solutions-section-head");
+  const existingSearch = directorySection?.querySelector("#bcSearch");
   const profiles = new Map(providerCards.map((card) => [card, inferVendorProfile(card)]));
-  const locations = [...new Set([...profiles.values()].map((profile) => profile.location).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b));
   const panel = document.createElement("section");
   const briefCategory = document.querySelector("h1")?.textContent?.trim() || "";
   panel.className = "vendor-procurement-panel";
@@ -1466,7 +1527,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     </div>`;
   const filters = document.createElement("div");
   filters.className = "vendor-procurement-filters";
-  const locationSelect = buildFilterSelect("Headquarters", "location", [["all", "All locations"], ...locations.map((location) => [normalizeVendorText(location), location])]);
+  const locationSelect = buildFilterSelect("HQ country", "location", buildHqCountryOptions(profiles));
   const regulatorySelect = buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
   const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
   const resetButton = document.createElement("button");
@@ -1475,10 +1536,13 @@ const initLegacyVendorDirectoryWidgets = () => {
   resetButton.textContent = "Reset filters";
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
   panel.querySelector(".vendor-procurement-search").after(filters);
+  if (existingSearch) panel.querySelector(".vendor-procurement-search").remove();
   directoryHead?.after(panel);
 
-  const queryControl = panel.querySelector("[data-provider-query]");
+  const queryControl = existingSearch || panel.querySelector("[data-provider-query]");
   const locationControl = locationSelect.querySelector("select");
+  const initialHq = new URLSearchParams(window.location.search).get("hq");
+  if (initialHq && [...locationControl.options].some((option) => option.value === initialHq)) locationControl.value = initialHq;
   const regulatoryControl = regulatorySelect.querySelector("select");
   const budgetControl = budgetSelect.querySelector("select");
   const status = document.createElement("p");
@@ -1493,7 +1557,7 @@ const initLegacyVendorDirectoryWidgets = () => {
       const profile = profiles.get(card);
       const matchesProcurement =
         matchesVendorSearch(profile, query) &&
-        (locationControl.value === "all" || normalizeVendorText(profile.location) === locationControl.value) &&
+        matchesHqCountry(profile, locationControl.value) &&
         (regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value) &&
         (budgetControl.value === "all" || profile.budget === budgetControl.value);
       card.dataset.procurementHidden = String(!matchesProcurement);
@@ -1504,13 +1568,19 @@ const initLegacyVendorDirectoryWidgets = () => {
     [...providerCards].sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
       .forEach((card) => providerDirectory.appendChild(card));
     status.textContent = `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
+    const count = directorySection?.querySelector("#bcCount");
+    if (count) count.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 
   queryControl.addEventListener("input", applyProviderFilters);
-  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", applyProviderFilters));
+  [locationControl, regulatoryControl, budgetControl].forEach((control) => control.addEventListener("change", () => {
+    if (control === locationControl) setHqQueryParameter(locationControl.value);
+    applyProviderFilters();
+  }));
   resetButton.addEventListener("click", () => {
     queryControl.value = "";
     locationControl.value = "all";
+    setHqQueryParameter("all");
     regulatoryControl.value = "all";
     budgetControl.value = "all";
     applyProviderFilters();
