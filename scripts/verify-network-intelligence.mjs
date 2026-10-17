@@ -26,7 +26,7 @@ const browser=await chromium.launch({headless:true,channel:'chrome'});const resu
 try {
  for(const width of [1440,390,360]){
   const page=await browser.newPage({viewport:{width,height:900}});
-  await page.route('**/api/network-explorer/onchain-supply',route=>route.fulfill({json:{metric:'ERC-20 totalSupply in native token units',method:'Measured at a recorded block.',series:[{id:'usdc-ethereum',symbol:'USDC',issuer:'Circle',network:'Ethereum',chainId:1,address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',source:'https://www.circle.com/multi-chain-usdc/ethereum',explorer:'https://etherscan.io',observations:[{asset_id:'usdc-ethereum',day:'2026-10-08',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1000000000',decimals:6,block_number:1,block_timestamp:1,observed_at:'2026-10-08T00:05:00Z'},{asset_id:'usdc-ethereum',day:'2026-10-15',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1100000000',decimals:6,block_number:2,block_timestamp:2,observed_at:'2026-10-15T00:05:00Z'}]}]}}));
+  await page.route('**/api/network-explorer/onchain-supply',route=>route.fulfill({json:{metric:'ERC-20 totalSupply in native token units',method:'Measured at a recorded block.',series:[{id:'usdc-ethereum',symbol:'USDC',assetClass:'Stablecoin',issuer:'Circle',network:'Ethereum',chainId:1,address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',source:'https://www.circle.com/multi-chain-usdc/ethereum',explorer:'https://etherscan.io',observations:[{asset_id:'usdc-ethereum',day:'2026-10-08',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1000000000',decimals:6,block_number:1,block_timestamp:1,observed_at:'2026-10-08T00:05:00Z'},{asset_id:'usdc-ethereum',day:'2026-10-15',chain_id:1,contract_address:'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',raw_supply:'1100000000',decimals:6,block_number:2,block_timestamp:2,observed_at:'2026-10-15T00:05:00Z'}]},{id:'ustb-ethereum',symbol:'USTB',assetClass:'Tokenized fund',issuer:'Invesco / Superstate',network:'Ethereum',chainId:1,address:'0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e',source:'https://superstate.com/assets/ustb',explorer:'https://etherscan.io',observations:[{asset_id:'ustb-ethereum',day:'2026-10-15',chain_id:1,contract_address:'0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e',raw_supply:'53407631357033',decimals:6,block_number:3,block_timestamp:3,observed_at:'2026-10-15T00:05:00Z'}]}]}}));
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   for(const route of routes){
    const interactive=route!=='/research/ramp-onboarding';
@@ -47,6 +47,11 @@ try {
    if(route==='/supply'){
     await page.getByText('USDC on Ethereum').waitFor();
     assert.ok((await page.locator('main').textContent()).includes('+10.00%'));
+    await page.getByRole('button',{name:/Tokenized fund/}).click();
+    assert.ok((await page.locator('main').textContent()).includes('USTB on Ethereum'));
+    assert.equal(await page.getByText('USDC on Ethereum').count(),0);
+    assert.ok((await page.locator('main').textContent()).includes('53,407,631.36'));
+    await page.getByRole('button',{name:/All assets/}).click();
     await page.getByRole('button',{name:'1Y'}).click();
     assert.ok((await page.locator('main').textContent()).includes('Not yet available'));
     const [file]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download CSV'}).click()]);

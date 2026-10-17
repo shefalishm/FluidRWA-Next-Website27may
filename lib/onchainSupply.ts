@@ -2,6 +2,7 @@ export const onchainSupplyContracts = [
   {
     id: "usdc-ethereum",
     symbol: "USDC",
+    assetClass: "Stablecoin",
     issuer: "Circle",
     network: "Ethereum",
     chainId: 1,
@@ -15,6 +16,7 @@ export const onchainSupplyContracts = [
   {
     id: "usdc-base",
     symbol: "USDC",
+    assetClass: "Stablecoin",
     issuer: "Circle",
     network: "Base",
     chainId: 8453,
@@ -27,6 +29,7 @@ export const onchainSupplyContracts = [
   {
     id: "pyusd-ethereum",
     symbol: "PYUSD",
+    assetClass: "Stablecoin",
     issuer: "Paxos / PayPal",
     network: "Ethereum",
     chainId: 1,
@@ -40,6 +43,7 @@ export const onchainSupplyContracts = [
   {
     id: "usdc-arbitrum",
     symbol: "USDC",
+    assetClass: "Stablecoin",
     issuer: "Circle",
     network: "Arbitrum",
     chainId: 42161,
@@ -52,6 +56,7 @@ export const onchainSupplyContracts = [
   {
     id: "usdt-ethereum",
     symbol: "USDT",
+    assetClass: "Stablecoin",
     issuer: "Tether",
     network: "Ethereum",
     chainId: 1,
@@ -65,6 +70,7 @@ export const onchainSupplyContracts = [
   {
     id: "eurc-base",
     symbol: "EURC",
+    assetClass: "Stablecoin",
     issuer: "Circle",
     network: "Base",
     chainId: 8453,
@@ -77,6 +83,7 @@ export const onchainSupplyContracts = [
   {
     id: "xaut-ethereum",
     symbol: "XAUt",
+    assetClass: "Tokenized gold",
     issuer: "Tether",
     network: "Ethereum",
     chainId: 1,
@@ -85,6 +92,62 @@ export const onchainSupplyContracts = [
     fallbackRpc: "https://eth.drpc.org/",
     source: "https://tether.to/en/supported-protocols/",
     explorer: "https://etherscan.io/token/0x68749665FF8D2d112Fa859AA293F07A622782F38",
+    decimals: 6
+  },
+  {
+    id: "usdy-ethereum",
+    symbol: "USDY",
+    assetClass: "Tokenized note",
+    issuer: "Ondo Finance",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://ondo.finance/usdy",
+    explorer: "https://etherscan.io/token/0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+    decimals: 18
+  },
+  {
+    id: "paxg-ethereum",
+    symbol: "PAXG",
+    assetClass: "Tokenized gold",
+    issuer: "Paxos",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://paxos.com/wp-content/uploads/2019/09/PAX-Gold-Whitepaper.pdf",
+    explorer: "https://etherscan.io/token/0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+    decimals: 18
+  },
+  {
+    id: "ustb-ethereum",
+    symbol: "USTB",
+    assetClass: "Tokenized fund",
+    issuer: "Invesco / Superstate",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://superstate.com/assets/ustb",
+    explorer: "https://etherscan.io/token/0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+    decimals: 6
+  },
+  {
+    id: "uscc-ethereum",
+    symbol: "USCC",
+    assetClass: "Tokenized fund",
+    issuer: "Bitwise / Superstate",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://superstate.com/assets/uscc",
+    explorer: "https://etherscan.io/token/0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
     decimals: 6
   }
 ] as const;
@@ -103,6 +166,14 @@ export type OnchainSupplyObservation = {
 
 export function wholeUnits(rawSupply: string, decimals: number): bigint {
   return BigInt(rawSupply) / BigInt(10) ** BigInt(decimals);
+}
+
+export function displayUnits(rawSupply: string, decimals: number, precision = 2): string {
+  const factor = BigInt(10) ** BigInt(precision);
+  const scale = BigInt(10) ** BigInt(decimals);
+  const rounded = (BigInt(rawSupply) * factor + scale / BigInt(2)) / scale;
+  const units = new Intl.NumberFormat("en-US").format(rounded / factor);
+  return precision ? `${units}.${String(rounded % factor).padStart(precision, "0")}` : units;
 }
 
 export function changePercent(current: string, previous: string): number | null {
