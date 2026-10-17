@@ -9,6 +9,7 @@ type Series = {
   id: string;
   symbol: string;
   assetClass: string;
+  referenceAsset?: string;
   issuer: string;
   network: string;
   chainId: number;
@@ -20,9 +21,9 @@ type Series = {
 type SupplyResponse = { metric: string; method: string; series: Series[] };
 
 function downloadCsv(series: Series[]) {
-  const header = "asset_id,symbol,asset_class,network,chain_id,contract_address,utc_day,raw_supply,decimals,block_number,block_timestamp,observed_at,issuer_source";
+  const header = "asset_id,symbol,asset_class,reference_asset,issuer,network,chain_id,contract_address,utc_day,raw_supply,decimals,block_number,block_timestamp,observed_at,issuer_source";
   const rows = series.flatMap(item => item.observations.map(row => [
-    item.id, item.symbol, item.assetClass, item.network, row.chain_id, row.contract_address, row.day,
+    item.id, item.symbol, item.assetClass, item.referenceAsset ?? "", item.issuer, item.network, row.chain_id, row.contract_address, row.day,
     row.raw_supply, row.decimals, row.block_number, row.block_timestamp, row.observed_at, item.source
   ].map(value => `"${String(value).replaceAll('"', '""')}"`).join(",")));
   const url = URL.createObjectURL(new Blob([[header, ...rows].join("\r\n")], { type: "text/csv;charset=utf-8" }));
@@ -74,7 +75,7 @@ export function OnchainSupplyMonitor() {
       <div><p className={styles.eyebrow}>ORIGINAL ON-CHAIN OBSERVATIONS</p><h2 id="onchain-supply-title">Contract supply monitor</h2><p>Issuer-documented token contracts, measured at recorded blocks. History begins with the first verified capture.</p></div>
       {data?.series.some(item => item.observations.length) && <button type="button" title="Download source observations as CSV" onClick={() => downloadCsv(data.series)}><ArrowDownToLine size={17} /> Download CSV</button>}
     </div>
-    <div className={styles.scope}>Metric: ERC-20 <code>totalSupply()</code> in native token units. Stablecoins, notes, fund shares and gold tokens cannot be added into one value. This does not establish circulating supply, reserves, fund NAV, market value or complete chain coverage.</div>
+    <div className={styles.scope}>Metric: ERC-20 <code>totalSupply()</code> in native token units. Stablecoins, notes, fund shares, gold tokens and tokenized securities cannot be added into one value. A security's reference asset identifies its price exposure, not ownership of underlying shares. This does not establish circulating supply, reserves, fund NAV, market value or complete chain coverage.</div>
     {error && <p className={styles.notice}>The measurement feed is temporarily unavailable. The rest of Network Explorer remains available.</p>}
     {!data && !error && <p className={styles.notice}>Loading dated observations...</p>}
     {data && <>
@@ -91,7 +92,7 @@ export function OnchainSupplyMonitor() {
         const chart = trend(item.observations, period);
         const daily = previousDailyChange(item.observations);
         return <article key={item.id} className={styles.series}>
-          <div className={styles.seriesTitle}><div><h3>{item.symbol} <span>on {item.network}</span></h3><p>{item.assetClass} · {item.issuer} · chain {item.chainId}</p></div><strong>{latest ? displayUnits(latest.raw_supply, latest.decimals, item.assetClass === "Stablecoin" ? 0 : 2) : "Awaiting first capture"}<small>{latest ? "tokens in contract totalSupply" : "No published measurement yet"}</small></strong></div>
+          <div className={styles.seriesTitle}><div><h3>{item.symbol} <span>on {item.network}</span></h3><p>{item.assetClass}{item.referenceAsset ? ` · ${item.referenceAsset} reference` : ""} · {item.issuer} · chain {item.chainId}</p></div><strong>{latest ? displayUnits(latest.raw_supply, latest.decimals, item.assetClass === "Stablecoin" ? 0 : 2) : "Awaiting first capture"}<small>{latest ? "tokens in contract totalSupply" : "No published measurement yet"}</small></strong></div>
           <p className={`${styles.captureStatus} ${latest?.day === today ? styles.captureCurrent : styles.capturePending}`}>{latest?.day === today ? "Captured today" : latest ? `Latest capture ${latest.day}; today's reading pending` : "First reading pending"} · UTC</p>
           {daily && <p className={styles.dailyChange}><strong>{daily.percent === null ? "Change unavailable" : `${daily.percent > 0 ? "+" : ""}${daily.percent.toFixed(2)}%`}</strong> versus the previous daily capture <span>({daily.previous.day} to {daily.latest.day}, UTC)</span></p>}
           {chart ? <svg className={styles.chart} viewBox="0 0 800 210" role="img" aria-label={`${item.symbol} on ${item.network}: contract total supply changed ${chart.change === null ? "an unknown amount" : `${chart.change}%`} between ${chart.first.day} and ${chart.last.day}`}><path d="M24 174H776" stroke="#dce5ed" strokeWidth="1"/><polyline points={chart.points} fill="none" stroke="#276db4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/><circle cx="776" cy={chart.points.split(" ").at(-1)!.split(",")[1]} r="5" fill="#e8be38" /></svg> : <div className={styles.noHistory}>A {period === 365 ? "yearly" : `${period}-day`} chart will appear after enough dated observations. No earlier values have been inferred.</div>}
