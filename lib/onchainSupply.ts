@@ -149,6 +149,73 @@ export const onchainSupplyContracts = [
     source: "https://superstate.com/assets/uscc",
     explorer: "https://etherscan.io/token/0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
     decimals: 6
+  },
+  {
+    id: "vbdc-ethereum",
+    symbol: "VBDC",
+    assetClass: "Tokenized fund",
+    issuer: "Valinor / Superstate",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://superstate.com/assets/vbdc",
+    explorer: "https://etherscan.io/token/0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+    decimals: 6
+  },
+  {
+    id: "ustb-plume",
+    symbol: "USTB",
+    assetClass: "Tokenized fund",
+    issuer: "Invesco / Superstate",
+    network: "Plume",
+    chainId: 98866,
+    address: "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+    rpc: "https://rpc.plume.org",
+    source: "https://superstate.com/assets/ustb",
+    explorer: "https://explorer.plume.org/address/0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+    decimals: 6
+  },
+  {
+    id: "uscc-plume",
+    symbol: "USCC",
+    assetClass: "Tokenized fund",
+    issuer: "Bitwise / Superstate",
+    network: "Plume",
+    chainId: 98866,
+    address: "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+    rpc: "https://rpc.plume.org",
+    source: "https://superstate.com/assets/uscc",
+    explorer: "https://explorer.plume.org/address/0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+    decimals: 6
+  },
+  {
+    id: "usdy-arbitrum",
+    symbol: "USDY",
+    assetClass: "Tokenized note",
+    issuer: "Ondo Finance",
+    network: "Arbitrum",
+    chainId: 42161,
+    address: "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+    rpc: "https://arbitrum-one-rpc.publicnode.com",
+    source: "https://ondo.finance/usdy",
+    explorer: "https://arbiscan.io/token/0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+    decimals: 18
+  },
+  {
+    id: "rlusd-ethereum",
+    symbol: "RLUSD",
+    assetClass: "Stablecoin",
+    issuer: "Ripple",
+    network: "Ethereum",
+    chainId: 1,
+    address: "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
+    source: "https://docs.ripple.com/products/stablecoin/overview/token-addresses",
+    explorer: "https://etherscan.io/token/0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    decimals: 18
   }
 ] as const;
 
