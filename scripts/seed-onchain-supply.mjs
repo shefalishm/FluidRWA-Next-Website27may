@@ -21,18 +21,29 @@ async function rpc(url, method, params) {
 const day = new Date().toISOString().slice(0, 10);
 const rows = [];
 for (const contract of onchainSupplyContracts) {
-  const blockHex = await rpc(contract.rpc, 'eth_blockNumber', []);
-  const [block, supplyHex, decimalsHex] = await Promise.all([
-    rpc(contract.rpc, 'eth_getBlockByNumber', [blockHex, false]),
-    rpc(contract.rpc, 'eth_call', [{ to: contract.address, data: '0x18160ddd' }, blockHex]),
-    rpc(contract.rpc, 'eth_call', [{ to: contract.address, data: '0x313ce567' }, blockHex])
-  ]);
-  const timestamp = Number(BigInt(block.timestamp));
-  const decimals = Number(BigInt(decimalsHex));
-  const supply = BigInt(supplyHex).toString();
-  if (decimals !== contract.decimals || timestamp < Date.now() / 1000 - 7200 || BigInt(supply) <= BigInt(0)) {
-    throw new Error(`Invalid block, decimals or supply for ${contract.id}`);
+  const endpoints = [contract.rpc, contract.fallbackRpc].filter(Boolean);
+  let reading;
+  for (const endpoint of endpoints) {
+    try {
+      const chainId = await rpc(endpoint, 'eth_chainId', []);
+      if (Number(BigInt(chainId)) !== contract.chainId) throw new Error('chain ID mismatch');
+      const blockHex = await rpc(endpoint, 'eth_blockNumber', []);
+      const block = await rpc(endpoint, 'eth_getBlockByNumber', [blockHex, false]);
+      const timestamp = Number(BigInt(block.timestamp));
+      if (Math.abs(Date.now() / 1000 - timestamp) > 7200) throw new Error('stale block');
+      const supplyHex = await rpc(endpoint, 'eth_call', [{ to: contract.address, data: '0x18160ddd' }, blockHex]);
+      const decimalsHex = await rpc(endpoint, 'eth_call', [{ to: contract.address, data: '0x313ce567' }, blockHex]);
+      const decimals = Number(BigInt(decimalsHex));
+      const supply = BigInt(supplyHex).toString();
+      if (decimals !== contract.decimals || BigInt(supply) <= BigInt(0)) throw new Error('decimals or supply mismatch');
+      reading = { blockHex, timestamp, decimals, supply };
+      break;
+    } catch (error) {
+      console.warn(`${contract.id}: ${new URL(endpoint).hostname} failed: ${error.message}`);
+    }
   }
+  if (!reading) throw new Error(`No verified reading for ${contract.id}`);
+  const { blockHex, timestamp, decimals, supply } = reading;
   rows.push(`INSERT OR IGNORE INTO onchain_supply_observations
     (asset_id, day, chain_id, contract_address, raw_supply, decimals, block_number, block_timestamp, observed_at)
     VALUES (${sqlString(contract.id)}, ${sqlString(day)}, ${contract.chainId}, ${sqlString(contract.address)},

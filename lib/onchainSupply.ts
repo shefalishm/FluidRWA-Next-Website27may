@@ -7,6 +7,7 @@ export const onchainSupplyContracts = [
     chainId: 1,
     address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
     rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
     source: "https://docs-w3s-node-sdk.circle.com/variables/index.ETH.html",
     explorer: "https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
     decimals: 6
@@ -31,6 +32,7 @@ export const onchainSupplyContracts = [
     chainId: 1,
     address: "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
     rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
     source: "https://www.paypal.com/sg/cshelp/article/what-is-paypal-usd-pyusd-help1005",
     explorer: "https://etherscan.io/token/0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
     decimals: 6
@@ -55,6 +57,7 @@ export const onchainSupplyContracts = [
     chainId: 1,
     address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
     rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
     source: "https://tether.to/en/supported-protocols/",
     explorer: "https://etherscan.io/token/0xdAC17F958D2ee523a2206206994597C13D831ec7",
     decimals: 6
@@ -79,6 +82,7 @@ export const onchainSupplyContracts = [
     chainId: 1,
     address: "0x68749665FF8D2d112Fa859AA293F07A622782F38",
     rpc: "https://ethereum-rpc.publicnode.com",
+    fallbackRpc: "https://eth.drpc.org/",
     source: "https://tether.to/en/supported-protocols/",
     explorer: "https://etherscan.io/token/0x68749665FF8D2d112Fa859AA293F07A622782F38",
     decimals: 6

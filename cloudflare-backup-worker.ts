@@ -39,30 +39,44 @@ async function captureSupply(env: WorkerEnv) {
     .bind(day).all<{ asset_id: string }>();
   const recorded = new Set(existing.results.map(row => row.asset_id));
   const missing = onchainSupplyContracts.filter(contract => !recorded.has(contract.id));
-  const results = await Promise.allSettled(missing.map(async contract => {
-    const blockHex = await rpc(contract.rpc, "eth_blockNumber", []) as string;
-    if (!/^0x[0-9a-f]+$/i.test(blockHex)) throw new Error(`Invalid block for ${contract.id}`);
-    const [block, supplyHex, decimalsHex] = await Promise.all([
-      rpc(contract.rpc, "eth_getBlockByNumber", [blockHex, false]),
-      rpc(contract.rpc, "eth_call", [{ to: contract.address, data: "0x18160ddd" }, blockHex]),
-      rpc(contract.rpc, "eth_call", [{ to: contract.address, data: "0x313ce567" }, blockHex])
-    ]);
-    const timestamp = Number(BigInt((block as Record<string, string>).timestamp));
-    const decimals = Number(BigInt(decimalsHex as string));
-    if (!Number.isFinite(timestamp) || Math.abs(Date.now() / 1000 - timestamp) > 7200 || decimals !== contract.decimals) {
-      throw new Error(`Stale block or decimals mismatch for ${contract.id}`);
+  for (const contract of missing) {
+    const endpoints: string[] = [contract.rpc];
+    if ("fallbackRpc" in contract) endpoints.push(contract.fallbackRpc);
+    let reading: { blockNumber: number; timestamp: number; rawSupply: string; decimals: number } | null = null;
+    for (const endpoint of endpoints) {
+      try {
+        const chainId = await rpc(endpoint, "eth_chainId", []) as string;
+        if (Number(BigInt(chainId)) !== contract.chainId) throw new Error("chain ID mismatch");
+        const blockHex = await rpc(endpoint, "eth_blockNumber", []) as string;
+        if (!/^0x[0-9a-f]+$/i.test(blockHex)) throw new Error("invalid block number");
+        const block = await rpc(endpoint, "eth_getBlockByNumber", [blockHex, false]) as Record<string, string>;
+        const timestamp = Number(BigInt(block.timestamp));
+        if (!Number.isFinite(timestamp) || Math.abs(Date.now() / 1000 - timestamp) > 7200) throw new Error("stale block");
+        const supplyHex = await rpc(endpoint, "eth_call", [{ to: contract.address, data: "0x18160ddd" }, blockHex]) as string;
+        const decimalsHex = await rpc(endpoint, "eth_call", [{ to: contract.address, data: "0x313ce567" }, blockHex]) as string;
+        const decimals = Number(BigInt(decimalsHex));
+        const rawSupply = BigInt(supplyHex).toString();
+        if (decimals !== contract.decimals || BigInt(rawSupply) <= BigInt(0)) throw new Error("decimals or supply mismatch");
+        reading = { blockNumber: Number(BigInt(blockHex)), timestamp, rawSupply, decimals };
+        break;
+      } catch (error) {
+        console.warn(`Supply read failed for ${contract.id} via ${new URL(endpoint).hostname}:`, error);
+      }
     }
-    const rawSupply = BigInt(supplyHex as string).toString();
-    if (BigInt(rawSupply) <= BigInt(0)) throw new Error(`Invalid supply for ${contract.id}`);
-    await env.NETWORK_DB.prepare(`INSERT OR IGNORE INTO onchain_supply_observations
-      (asset_id, day, chain_id, contract_address, raw_supply, decimals, block_number, block_timestamp, observed_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
-        contract.id, day, contract.chainId, contract.address, rawSupply, decimals,
-        Number(BigInt(blockHex)), timestamp, new Date().toISOString()
-      ).run();
-  }));
-  for (const [index, result] of results.entries()) {
-    if (result.status === "rejected") console.error(`Supply capture failed for ${missing[index].id}:`, result.reason);
+    if (!reading) {
+      console.error(`Supply capture failed for ${contract.id} on all configured RPC endpoints`);
+      continue;
+    }
+    try {
+      await env.NETWORK_DB.prepare(`INSERT OR IGNORE INTO onchain_supply_observations
+        (asset_id, day, chain_id, contract_address, raw_supply, decimals, block_number, block_timestamp, observed_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+          contract.id, day, contract.chainId, contract.address, reading.rawSupply, reading.decimals,
+          reading.blockNumber, reading.timestamp, new Date().toISOString()
+        ).run();
+    } catch (error) {
+      console.error(`Supply database write failed for ${contract.id}:`, error);
+    }
   }
 }
 

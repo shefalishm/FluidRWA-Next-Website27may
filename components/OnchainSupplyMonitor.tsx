@@ -57,6 +57,7 @@ export function OnchainSupplyMonitor() {
   const [data, setData] = useState<SupplyResponse | null>(null);
   const [error, setError] = useState(false);
   const [period, setPeriod] = useState(7);
+  const today = new Date().toISOString().slice(0, 10);
   useEffect(() => {
     const controller = new AbortController();
     fetch("/api/network-explorer/onchain-supply", { signal: controller.signal })
@@ -78,7 +79,7 @@ export function OnchainSupplyMonitor() {
       <div className={styles.summary} aria-label="Measured coverage">
         <div><strong>{data.series.length}</strong><span>documented contracts</span></div>
         <div><strong>{new Set(data.series.map(item => item.network)).size}</strong><span>networks</span></div>
-        <div><strong>{data.series.filter(item => item.observations.length).length}</strong><span>with on-chain readings</span></div>
+        <div><strong>{data.series.filter(item => item.observations.at(-1)?.day === today).length}</strong><span>captured today (UTC)</span></div>
         <div><strong>{data.series.filter(item => previousDailyChange(item.observations)).length}</strong><span>with consecutive-day comparison</span></div>
       </div>
       <div className={styles.periods} role="group" aria-label="Chart period">{[[7, "7D"], [30, "30D"], [365, "1Y"]].map(([days, label]) => <button key={days} type="button" aria-pressed={period === days} onClick={() => setPeriod(Number(days))}>{label}</button>)}</div>
@@ -88,6 +89,7 @@ export function OnchainSupplyMonitor() {
         const daily = previousDailyChange(item.observations);
         return <article key={item.id} className={styles.series}>
           <div className={styles.seriesTitle}><div><h3>{item.symbol} <span>on {item.network}</span></h3><p>{item.issuer} · chain {item.chainId}</p></div><strong>{latest ? new Intl.NumberFormat("en-US").format(wholeUnits(latest.raw_supply, latest.decimals)) : "Awaiting first capture"}<small>{latest ? "tokens in contract totalSupply" : "No published measurement yet"}</small></strong></div>
+          <p className={`${styles.captureStatus} ${latest?.day === today ? styles.captureCurrent : styles.capturePending}`}>{latest?.day === today ? "Captured today" : latest ? `Latest capture ${latest.day}; today's reading pending` : "First reading pending"} · UTC</p>
           {daily && <p className={styles.dailyChange}><strong>{daily.percent === null ? "Change unavailable" : `${daily.percent > 0 ? "+" : ""}${daily.percent.toFixed(2)}%`}</strong> versus the previous daily capture <span>({daily.previous.day} to {daily.latest.day}, UTC)</span></p>}
           {chart ? <svg className={styles.chart} viewBox="0 0 800 210" role="img" aria-label={`${item.symbol} on ${item.network}: contract total supply changed ${chart.change === null ? "an unknown amount" : `${chart.change}%`} between ${chart.first.day} and ${chart.last.day}`}><path d="M24 174H776" stroke="#dce5ed" strokeWidth="1"/><polyline points={chart.points} fill="none" stroke="#276db4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/><circle cx="776" cy={chart.points.split(" ").at(-1)!.split(",")[1]} r="5" fill="#e8be38" /></svg> : <div className={styles.noHistory}>A {period === 365 ? "yearly" : `${period}-day`} chart will appear after enough dated observations. No earlier values have been inferred.</div>}
           {chart && <p className={styles.chartCaption}>Observed range: {chart.first.day} to {chart.last.day}. This may be shorter than the selected {period === 365 ? "one-year" : `${period}-day`} window.</p>}
@@ -95,7 +97,7 @@ export function OnchainSupplyMonitor() {
           <p className={styles.meta}>{latest ? `Observed ${latest.observed_at.slice(0, 16).replace("T", " ")} UTC at block ${latest.block_number.toLocaleString()}.` : "First scheduled reading pending."} <a href={item.source} target="_blank" rel="noopener noreferrer">Issuer contract reference <ArrowUpRight size={13}/></a> <a href={item.explorer} target="_blank" rel="noopener noreferrer">Block explorer <ArrowUpRight size={13}/></a></p>
         </article>;
       })}</div>
-      <div className={styles.method}><h3>Calculation and limits</h3><p>{data.method} A daily observation is the first successful reading after 00:00 UTC. Previous-capture change requires observations on consecutive UTC dates. The 7-day, 30-day and one-year figures require a dated baseline on the target day or the preceding day; otherwise they are withheld. The exact block, timestamp and raw integer are in the CSV. New contracts begin building history from their first capture.</p><a href="/network-explorer/methodology">Read the full methodology <ArrowUpRight size={14}/></a></div>
+      <div className={styles.method}><h3>Calculation and limits</h3><p>{data.method} A daily observation is the first successful reading after 00:00 UTC. If a source is unavailable, the previous dated reading stays visible and scheduled runs retry during the same UTC day. Missed past days are not backfilled or inferred. Previous-capture change requires observations on consecutive UTC dates. The 7-day, 30-day and one-year figures require a dated baseline on the target day or the preceding day; otherwise they are withheld. The exact block, timestamp and raw integer are in the CSV.</p><a href="/network-explorer/methodology">Read the full methodology <ArrowUpRight size={14}/></a></div>
     </>}
   </section>;
 }
