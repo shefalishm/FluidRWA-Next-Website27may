@@ -6,7 +6,9 @@ import styles from "./ConversionAnalyticsDashboard.module.css";
 type AnalyticsData = {
   generatedAt: string;
   days: number;
+  quarantinedRows: number;
   summary: { submissions: number; vendorIntros: number; openBriefs: number; uniqueCategories: number; changePercent: number };
+  vendorApplications: { submissions: number; previousSubmissions: number; changePercent: number };
   daily: Array<{ date: string; count: number }>;
   profiles: Array<{ name: string; category: string; count: number; lastSubmittedAt: string }>;
   categories: Array<{ name: string; count: number; vendorSpecific: number; openBriefs: number }>;
@@ -75,7 +77,7 @@ export function ConversionAnalyticsDashboard() {
         <div className={styles.shell}>
           <p className={styles.eyebrow}>Private buyer intelligence</p>
           <h1>Conversion analytics</h1>
-          <p>See which vendor profiles, categories and discovery paths produce completed buyer submissions.</p>
+          <p>See completed buyer submissions and vendor review applications, counted separately from visits and form clicks.</p>
         </div>
       </section>
 
@@ -112,6 +114,17 @@ export function ConversionAnalyticsDashboard() {
               <article><span>Open project briefs</span><strong>{data.summary.openBriefs}</strong><small>Buyer needs a shortlist</small></article>
               <article><span>Active categories</span><strong>{data.summary.uniqueCategories}</strong><small>Categories producing demand</small></article>
             </div>
+
+            {data.quarantinedRows > 0 ? <p>{data.quarantinedRows} suspected automated submissions were excluded from these totals because one address submitted more than ten times in a day or the source value was malformed. The records remain available for review in Supabase.</p> : null}
+
+            <section className={styles.trend} aria-labelledby="vendor-application-title">
+              <div className={styles.sectionHead}>
+                <div><p className={styles.eyebrow}>Vendor applications</p><h2 id="vendor-application-title">Completed review applications</h2></div>
+                <p>Updated {formatDate(data.generatedAt)}</p>
+              </div>
+              <p><strong>{data.vendorApplications.submissions}</strong> saved in the last {days} days, compared with {data.vendorApplications.previousSubmissions} in the previous {days} days ({data.vendorApplications.changePercent >= 0 ? "+" : ""}{data.vendorApplications.changePercent}%).</p>
+              <p>Only applications saved through the vendor review form are included. Direct emails and clicks are not submissions.</p>
+            </section>
 
             <section className={styles.trend} aria-labelledby="conversion-trend-title">
               <div className={styles.sectionHead}><div><p className={styles.eyebrow}>Completed forms</p><h2 id="conversion-trend-title">Submission trend</h2></div><p>Updated {formatDate(data.generatedAt)}</p></div>

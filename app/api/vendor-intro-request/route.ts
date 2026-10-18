@@ -123,6 +123,35 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
   return { mode: "supabase" as const, data: await response.json() };
 }
 
+async function tooManyRecentSubmissions(email: string) {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceRoleKey) return false;
+  const query = new URLSearchParams({
+    select: "id",
+    contact_email: `eq.${email}`,
+    created_at: `gte.${new Date(Date.now() - 60 * 60 * 1000).toISOString()}`,
+    limit: "1"
+  });
+  try {
+    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+      method: "HEAD",
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`,
+        Prefer: "count=exact"
+      },
+      cache: "no-store"
+    });
+    if (!response.ok) return false;
+    const count = Number(response.headers.get("content-range")?.split("/").pop());
+    return Number.isFinite(count) && count >= 5;
+  } catch {
+    // Do not lose genuine applications if the duplicate check is unavailable.
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const requestRejection = formRequestRejection(request);
@@ -192,6 +221,14 @@ export async function POST(request: Request) {
         },
         { status: 400 }
       );
+    }
+
+    if (await tooManyRecentSubmissions(normalized.contactEmail || "")) {
+      return NextResponse.json({
+        ok: false,
+        code: "submission_rate_limit",
+        message: "We have received several requests from this email address recently. Please try again later or email contact@fluidrwa.com."
+      }, { status: 429, headers: { "Retry-After": "3600" } });
     }
 
     const row = {

@@ -5,10 +5,10 @@ import ts from 'typescript';
 
 const source = fs.readFileSync('app/api/vendor-intro-request/route.ts', 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
-let saved, notified, writes = 0;
+let saved, notified, writes = 0, recentCount = 0;
 const exports = {};
 vm.runInNewContext(compiled, {
-  exports, URL, console,
+  exports, URL, URLSearchParams, console,
   process: { env: { SUPABASE_URL: 'https://database.invalid', SUPABASE_SERVICE_ROLE_KEY: 'test-only' } },
   require(name) {
     if (name === 'next/server') return { NextResponse: { json: (body, options) => ({ body, status: options?.status || 200 }) } };
@@ -20,7 +20,11 @@ vm.runInNewContext(compiled, {
     }
     throw new Error(`Unexpected import ${name}`);
   },
-  fetch: async (_url, options) => { saved = JSON.parse(options.body); writes++; return { ok: true, json: async () => [{ ...saved, id: 'test-id' }] }; }
+  fetch: async (_url, options) => {
+    if (options.method === 'HEAD') return { ok: true, headers: { get: () => `*/${recentCount}` } };
+    saved = JSON.parse(options.body); writes++;
+    return { ok: true, json: async () => [{ ...saved, id: 'test-id' }] };
+  }
 });
 const base = { contactEmail: 'qa@fluidrwa.com', firstName: 'Test', lastName: 'Only', companyName: 'Test', projectDescription: 'A test requirement' };
 async function submit(payload) {
@@ -61,6 +65,11 @@ assert.equal(writes, before);
 assert.equal((await submit({ ...base, rawPayload: { WEBSITE_URL: 'spam' } })).body.mode, 'filtered');
 assert.equal(writes, before);
 assert.equal((await submit({ ...base, rawPayload: { FORM_ELAPSED_MS: '1800' } })).body.mode, 'supabase');
+assert.equal(writes, before + 1);
+recentCount = 5;
+const limited = await submit({ ...base, rawPayload: { FORM_ELAPSED_MS: '1800' } });
+assert.equal(limited.status, 429);
+assert.equal(limited.body.code, 'submission_rate_limit');
 assert.equal(writes, before + 1);
 for (const file of ['assets/site.js', 'public/assets/site.js', 'components/FormScripts.tsx']) {
   const text = fs.readFileSync(file, 'utf8');

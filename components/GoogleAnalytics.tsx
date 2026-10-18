@@ -37,11 +37,39 @@ export function GoogleAnalytics() {
       && !botPattern.test(navigator.userAgent));
   }, []);
 
+  useEffect(() => {
+    if (!enabled) return;
+    const trackIntent = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest("a[href]");
+      if (!link || !window.fluidRwaTrackEvent) return;
+      const href = link.getAttribute("href") || "";
+      if (/^mailto:contact@fluidrwa\.com(?:\?|$)/i.test(href)) {
+        window.fluidRwaTrackEvent("contact_email_click", { origin_path: window.location.pathname, click_type: "email" });
+        return;
+      }
+      try {
+        const destination = new URL(href, window.location.href);
+        if (destination.origin !== window.location.origin) return;
+        if (!["/vendor-membership", "/submit-requirement"].includes(destination.pathname)) return;
+        window.fluidRwaTrackEvent("enquiry_cta_click", {
+          origin_path: window.location.pathname,
+          form_type: destination.pathname === "/vendor-membership" ? "vendor" : "project",
+          link_url: destination.href
+        });
+      } catch {
+        // Ignore links that are not navigable URLs.
+      }
+    };
+    document.addEventListener("click", trackIntent);
+    return () => document.removeEventListener("click", trackIntent);
+  }, [enabled]);
+
   if (!enabled) return null;
 
   return (
     <>
-      <Script src="/assets/measurement.js?v=1" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
+      <Script src="/assets/measurement.js?v=2" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
       {measurementReady && <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
       <Script id="fluidrwa-google-analytics" strategy="afterInteractive">

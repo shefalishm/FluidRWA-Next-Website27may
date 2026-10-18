@@ -29,6 +29,10 @@ export function formPayloadRejection(payload: Record<string, unknown>) {
   const email = typeof payload.contactEmail === 'string' ? payload.contactEmail.trim().toLowerCase() : '';
   const domain = email.split('@')[1] || '';
   if (['example.com', 'example.net', 'example.org'].includes(domain) || /\.(invalid|test|localhost)$/.test(domain)) return 'non_deliverable_email';
+  for (const key of ['source', 'requestSource']) {
+    const value = payload[key];
+    if (typeof value === 'string' && value && !/^[a-z0-9_-]{1,100}$/i.test(value)) return 'invalid_source';
+  }
   const identityKeys = ['firstName', 'lastName', 'companyName', 'title', 'phone', 'country', 'website', 'linkedin', 'source', 'requestSource', 'pageUrl', 'vendorName', 'vendorCategory'];
   // Inspect identity/context fields, not free-text project descriptions about security work.
   const probe = /pHqghUme|\b(?:pg_sleep|sleep|benchmark)\s*\(\s*\d|\bwaitfor\s+delay\b|\bdbms_pipe\s*\.|\bunion\s+(?:all\s+)?select\b|\b(?:select\s+\d+\s*\*\s*\d+)|<\s*(?:script|iframe)\b/i;

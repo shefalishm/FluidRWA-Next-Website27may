@@ -35,11 +35,4 @@
       event.formData.set('ATTRIBUTION_' + name.toUpperCase(), campaign[name]);
     });
   });
-  var started = new WeakSet();
-  document.addEventListener('focusin', function (event) {
-    var form = event.target.closest && event.target.closest('form');
-    if (!form || started.has(form)) return;
-    started.add(form);
-    window.fluidRwaTrackEvent && window.fluidRwaTrackEvent('form_start', {form_type: form.dataset.formType || 'site', origin_path: window.location.pathname});
-  });
 })();

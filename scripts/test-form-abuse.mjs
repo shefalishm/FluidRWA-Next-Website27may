@@ -20,11 +20,14 @@ assert.equal(helpers.formPayloadRejection({ firstName: 'pHqghUme' }), 'scanner_p
 assert.equal(helpers.formPayloadRejection({ companyName: "' UNION SELECT 123" }), 'scanner_payload');
 assert.equal(helpers.formPayloadRejection({ contactEmail: 'real@gmail.com', companyName: "O'Reilly Blockchain Ltd", projectDescription: 'We audit SQL injection, pg_sleep(15) and smart contracts.' }), null);
 assert.equal(helpers.formPayloadRejection({ companyName: 'x'.repeat(301) }), 'field_too_long');
+assert.equal(helpers.formPayloadRejection({ source: "contact-general' OR 1=1" }), 'invalid_source');
+assert.equal(helpers.formPayloadRejection({ source: 'vendor-review-application' }), null);
 
 let forwards = 0, limits = 0, permitted = true;
 const module = {};
 vm.runInNewContext(compile('cloudflare-backup-worker.ts'), { exports: module, URL, Request, Response, Headers, console, require(name) {
   if (name === './lib/formAbuse') return helpers;
+  if (name === './lib/onchainSupply') return { onchainSupplyContracts: [] };
   if (name === './.open-next/worker.js') return { default: { fetch: async () => { forwards++; return new Response('normal page'); } } };
   throw new Error(`Unexpected import: ${name}`);
 } });

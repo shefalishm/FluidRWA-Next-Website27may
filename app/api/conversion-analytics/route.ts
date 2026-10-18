@@ -5,7 +5,9 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type LeadRow = {
+  id?: string;
   created_at?: string;
+  contact_email?: string | null;
   status?: string;
   vendor_name?: string | null;
   vendor_category?: string | null;
@@ -26,10 +28,17 @@ const excludedBuyerSources = new Set([
 
 function isBuyerSource(value: unknown) {
   const source = clean(value).toLowerCase();
+  if (source && !/^[a-z0-9_-]{1,100}$/.test(source)) return false;
   if (excludedBuyerSources.has(source)) return false;
   if (source.includes("vendor-review") || source.includes("membership") || source.includes("apply-as-vendor")) return false;
   if (/(^|[-_ ])(qa|test|smoke)([-_ ]|$)/.test(source)) return false;
   return true;
+}
+
+function isVendorApplication(row: LeadRow) {
+  const source = clean(row.request_source).toLowerCase();
+  if (/(^|[-_ ])(qa|test|smoke)([-_ ]|$)/.test(source)) return false;
+  return source === "vendor-review-application" || pathFromUrl(clean(row.page_url)) === "/vendor-membership";
 }
 
 function clean(value: unknown) {
@@ -125,32 +134,79 @@ export async function GET(request: NextRequest) {
   const today = new Date(`${now.toISOString().slice(0, 10)}T00:00:00.000Z`);
   const currentStart = new Date(today.getTime() - (days - 1) * 86_400_000);
   const previousStart = new Date(currentStart.getTime() - days * 86_400_000);
-  const query = new URLSearchParams({
-    select: "created_at,status,vendor_name,vendor_category,request_source,page_url,lead_source,raw_payload",
-    created_at: `gte.${previousStart.toISOString()}`,
-    order: "created_at.desc",
-    limit: "1000"
-  });
-
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
-    headers: {
-      apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`
-    },
-    cache: "no-store"
-  });
-
-  if (!response.ok) {
-    console.error("conversion analytics query failed", await response.text());
-    return NextResponse.json({ ok: false, message: "Conversion data could not be loaded." }, { status: 502 });
+  const allRows: LeadRow[] = [];
+  const pageSize = 1000;
+  for (let offset = 0; ; offset += pageSize) {
+    const query = new URLSearchParams({
+      select: "id,created_at,contact_email,request_source,page_url",
+      created_at: `gte.${previousStart.toISOString()}`,
+      order: "created_at.desc,id.desc",
+      limit: String(pageSize),
+      offset: String(offset)
+    });
+    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`
+      },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      console.error("conversion analytics query failed", await response.text());
+      return NextResponse.json({ ok: false, message: "Conversion data could not be loaded." }, { status: 502 });
+    }
+    const page = (await response.json()) as LeadRow[];
+    allRows.push(...page);
+    if (page.length < pageSize) break;
   }
 
-  const rows = ((await response.json()) as LeadRow[])
+  const dailyEmailCounts = new Map<string, number>();
+  for (const row of allRows) {
+    const email = clean(row.contact_email).toLowerCase();
+    const date = clean(row.created_at).slice(0, 10);
+    if (!email || !date) continue;
+    const key = `${date}:${email}`;
+    dailyEmailCounts.set(key, (dailyEmailCounts.get(key) || 0) + 1);
+  }
+  const isQuarantined = (row: LeadRow) => {
+    const source = clean(row.request_source);
+    if (source && !/^[a-z0-9_-]{1,100}$/i.test(source)) return true;
+    const email = clean(row.contact_email).toLowerCase();
+    const date = clean(row.created_at).slice(0, 10);
+    return Boolean(email && date && (dailyEmailCounts.get(`${date}:${email}`) || 0) > 10);
+  };
+  const usableRows = allRows.filter((row) => !isQuarantined(row));
+  const quarantinedRows = allRows.length - usableRows.length;
+  const vendorApplications = usableRows.filter(isVendorApplication).filter((row) => clean(row.created_at));
+  const currentVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) >= currentStart);
+  const previousVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) < currentStart);
+  const buyerMetadata = usableRows
+    .filter((row) => !isVendorApplication(row))
     .filter((row) => isBuyerSource(row.request_source))
-    .map(classify)
-    .filter((row) => row.createdAt);
-  const current = rows.filter((row) => new Date(row.createdAt) >= currentStart);
-  const previous = rows.filter((row) => new Date(row.createdAt) < currentStart);
+    .filter((row) => clean(row.created_at));
+  const previousBuyerCount = buyerMetadata.filter((row) => new Date(clean(row.created_at)) < currentStart).length;
+  const currentBuyerIds = buyerMetadata.filter((row) => new Date(clean(row.created_at)) >= currentStart).map((row) => clean(row.id)).filter(Boolean);
+  const currentDetails: LeadRow[] = [];
+  for (let index = 0; index < currentBuyerIds.length; index += 100) {
+    const ids = currentBuyerIds.slice(index, index + 100);
+    const query = new URLSearchParams({
+      select: "created_at,status,vendor_name,vendor_category,request_source,page_url,lead_source,raw_payload",
+      id: `in.(${ids.join(",")})`
+    });
+    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`
+      },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      console.error("conversion analytics detail query failed", await response.text());
+      return NextResponse.json({ ok: false, message: "Conversion data could not be loaded." }, { status: 502 });
+    }
+    currentDetails.push(...((await response.json()) as LeadRow[]));
+  }
+  const current = currentDetails.map(classify).filter((row) => row.createdAt).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   const group = <T extends { name: string }>(items: T[]) =>
     [...new Map(items.map((item) => [item.name, item])).values()];
@@ -191,12 +247,18 @@ export async function GET(request: NextRequest) {
     ok: true,
     generatedAt: now.toISOString(),
     days,
+    quarantinedRows,
     summary: {
       submissions: current.length,
       vendorIntros: current.filter((row) => row.vendorSpecific).length,
       openBriefs: current.filter((row) => !row.vendorSpecific).length,
       uniqueCategories: new Set(current.map((row) => row.category).filter((name) => name !== "Unspecified")).size,
-      changePercent: percentChange(current.length, previous.length)
+      changePercent: percentChange(current.length, previousBuyerCount)
+    },
+    vendorApplications: {
+      submissions: currentVendorApplications.length,
+      previousSubmissions: previousVendorApplications.length,
+      changePercent: percentChange(currentVendorApplications.length, previousVendorApplications.length)
     },
     daily,
     profiles,
