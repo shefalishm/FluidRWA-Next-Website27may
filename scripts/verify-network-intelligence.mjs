@@ -12,11 +12,15 @@ const wisdomtreeList=JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.js
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
-assert.equal(registryCandidates.length,14);
+assert.equal(registryCandidates.length,18);
 assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,1052);assert.equal(robinhoodList.assets.length,194);assert.equal(wisdomtreeList.assets.length,14);
-assert.equal(relationships.length,16);
-assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1727);
-for(const asset of registryCandidates){assert.equal(asset.reportedValueUsd,null);assert.ok(asset.source.startsWith('https://'));}
+assert.equal(relationships.length,28);
+assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1731);
+for(const asset of registryCandidates){assert.ok(asset.source.startsWith('https://'));if(asset.reportedValueUsd!==null){assert.ok(asset.reportedValueUsd>0);assert.match(asset.reportedAsOf,/^\d{4}-\d{2}-\d{2}$/);assert.ok(asset.reportedMetric);}}
+assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').value,72500000000);
+assert.equal(snapshot.assets.find(asset=>asset.id==='wtgxx').value,1227400000);
+assert.equal(registryCandidates.find(asset=>asset.id==='vbdc').reportedAsOf,'2026-10-15');
+assert.equal(registryCandidates.find(asset=>asset.id==='cushy').reportedAsOf,'2026-08-31');
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));
 const base=process.env.PREVIEW_URL || 'http://localhost:3046';
@@ -43,7 +47,7 @@ try {
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
    assert.equal(state.canonical,`https://www.fluidrwa.com/network-explorer${route}`);
-   if(route!=='/supply')assert.ok(state.body.includes(['/registry','/methodology',''].includes(route) ? '15 Oct 2026' : '13 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   if(route!=='/supply')assert.ok(state.body.includes(route==='/research/ramp-onboarding' ? '2026-10-13.1' : '19 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
    if(route==='/supply'){
     await page.getByText('USDC on Ethereum').waitFor();
     assert.ok((await page.locator('main').textContent()).includes('+10.00%'));
@@ -59,7 +63,7 @@ try {
    }
    if(route===''){
     const map=page.getByRole('region',{name:'Who makes a tokenized asset work?'});
-    assert.ok((await map.textContent()).includes('16'));
+    assert.ok((await map.textContent()).includes('28'));
     await map.getByRole('button',{name:'USDC',exact:true}).click();
     assert.ok((await map.textContent()).includes('Reserve-fund portfolio custodian'));
     await map.getByRole('button',{name:'PYUSD',exact:true}).click();
@@ -79,7 +83,7 @@ try {
    }
    if(route==='/registry'){
     assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
-    await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),17);
+    await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),21);
     await page.getByLabel('Cohort').selectOption('Ondo issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
     await page.getByLabel('Cohort').selectOption('xStocks issuer list');await page.waitForFunction(()=>document.querySelector('tbody')?.querySelectorAll('tr').length===30);assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
@@ -97,10 +101,10 @@ try {
   await page.close();
  }
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1727);else if(url.includes('relationships'))assert.equal(body.relationships.length,16);else assert.deepEqual(body,snapshot);}await r.close();
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry'))assert.equal(body.assets.length,1731);else if(url.includes('relationships'))assert.equal(body.relationships.length,28);else assert.deepEqual(body,snapshot);}await r.close();
  }
  const api=await browser.newContext();
- const coverage=await (await api.request.get(base+'/api/network-explorer/v1/coverage')).json();assert.equal(coverage.identifiedRecords,1727);assert.equal(coverage.documentedRelationships,16);assert.equal(coverage.relationshipAssets,6);
+ const coverage=await (await api.request.get(base+'/api/network-explorer/v1/coverage')).json();assert.equal(coverage.identifiedRecords,1731);assert.equal(coverage.documentedRelationships,28);assert.equal(coverage.relationshipAssets,10);assert.equal(coverage.datedValueRecords,5);
  const pyusd=await (await api.request.get(base+'/api/network-explorer/v1/relationships?asset_id=pyusd')).json();assert.equal(pyusd.total,3);assert.equal(pyusd.records.length,3);
  const assets=await (await api.request.get(base+'/api/network-explorer/v1/assets?q=PYUSD&limit=1')).json();assert.ok(assets.total>=1);assert.equal(assets.records.length,1);
  const pageTwo=await (await api.request.get(base+'/api/network-explorer/v1/relationships?limit=5&offset=5')).json();assert.equal(pageTwo.records.length,5);

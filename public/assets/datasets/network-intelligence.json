@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-13.2",
-  "reviewed": "2026-10-13",
+  "version": "2026-10-19.1",
+  "reviewed": "2026-10-19",
   "assets": [
     {
       "id": "usdc",
@@ -8,9 +8,9 @@
       "issuer": "Circle",
       "category": "Stablecoins",
       "metric": "Reported circulation",
-      "value": 73000000000,
+      "value": 72500000000,
       "currency": "USD",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "source": "https://www.circle.com/usdc",
       "sourceLabel": "Circle USDC disclosure",
       "scope": "Rounded issuer-reported circulation, not independently calculated supply or total stablecoin market value.",
@@ -40,13 +40,13 @@
       "issuer": "WisdomTree",
       "category": "Digital funds",
       "metric": "Reported net assets",
-      "value": 765000000,
+      "value": 1227400000,
       "currency": "USD",
-      "asOf": "2026-06-30",
+      "asOf": "2026-09-30",
       "source": "https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/",
       "sourceLabel": "WisdomTree WTGXX factsheet, page 1",
       "scope": "Dated fund-level net assets. The factsheet lists eight blockchain deployments; no value is allocated or multiplied across those chains.",
-      "notes": "Historical snapshot. The factsheet says ownership is maintained by the transfer agent; blockchain representations are not a separate security.",
+      "notes": "The factsheet says ownership is maintained by the transfer agent; blockchain representations are not a separate security.",
       "logo": null,
       "freshnessDays": 35
     }
