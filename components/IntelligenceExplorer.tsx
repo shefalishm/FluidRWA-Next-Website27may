@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDownToLine, ArrowUpRight, BarChart3, Building2, CircleHelp, FileSearch, Globe2, Layers3, Network, Search, X } from "lucide-react";
-import { dated, isHistorical, jurisdictions, money, providers, ramp, registryUpdated, snapshot, type Asset, type ExplorerView } from "@/lib/network-intelligence";
+import { assetRegistry, dated, isHistorical, jurisdictions, money, providers, ramp, registryUpdated, registryValueStatus, snapshot, type Asset, type ExplorerView } from "@/lib/network-intelligence";
 import { AssetRegistry, RegistryCoverage } from "./AssetRegistry";
 import { OnchainSupplyMonitor } from "./OnchainSupplyMonitor";
 import { onchainSupplyContracts } from "@/lib/onchainSupply";
@@ -66,6 +66,7 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
   const regulations = snapshot.regulations.filter(r => (jurisdiction === "All jurisdictions" || r.jurisdiction === jurisdiction) && matches(`${r.title} ${r.jurisdiction} ${r.activity} ${r.regulator}`));
   const networks = snapshot.networks.filter(n => matches(`${n.name} ${n.contract}`));
   const title = nav.find(n => n[0] === view)?.[1] || "Overview";
+  const fundDisclosures = assetRegistry.filter(asset => asset.cohort === "Research profile" && asset.reportedMetric === "Reported fund assets under management");
   function saveView() {
     track("explorer_filter", view);
   }
@@ -91,6 +92,11 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
         {view === "overview" && <OperatingMap />}
         {(view === "overview" || view === "supply") && <OnchainSupplyMonitor />}
         {view === "overview" && <RegistryCoverage now={now} />}
+        {view === "overview" && <section className={styles.section} aria-labelledby="fund-disclosures-title">
+          <div className={styles.sectionHead}><div><h2 id="fund-disclosures-title">Fund disclosures</h2><p>Dated fund-level AUM, including book-entry shares where reported. Not circulating token value or a combined market total.</p></div><button className={styles.iconButton} aria-label="Download fund disclosures CSV" title="Download fund disclosures CSV" onClick={() => download("fund-disclosures", fundDisclosures)}><ArrowDownToLine size={18}/></button></div>
+          <div className={styles.tableWrap}><table><caption className={styles.sr}>Issuer-reported fund AUM with reporting dates and evidence limitations</caption><thead><tr><th>Fund / organization</th><th>Reported AUM</th><th>Reporting date</th><th>Evidence and scope</th></tr></thead><tbody>{fundDisclosures.map(asset => <tr key={asset.id}><td><strong>{asset.name}</strong><small>{asset.issuer}</small></td><td>{money(asset.reportedValueUsd!)}<small>{registryValueStatus(asset,now)}</small></td><td>{dated(asset.reportedAsOf)}</td><td>{sourceLink(asset.source,asset.sourceLabel)}<small>Reviewed {dated(asset.sourceReviewed)}</small><small>{asset.notes}</small></td></tr>)}</tbody></table></div>
+          <p><Link href="/network-explorer/registry">Explore the asset registry <ArrowUpRight size={14}/></Link></p>
+        </section>}
         {view === "registry" && <AssetRegistry query={query} now={now} onDownload={rows => download("asset-registry", rows.map(row => ({...row})))} />}
         {(view === "overview" || view === "assets") && <>
           <section className={styles.metrics} aria-label="Dataset metrics">
@@ -130,6 +136,7 @@ export function IntelligenceExplorer({ view }: { view: ExplorerView }) {
           <p>Contract addresses come from <a href="https://docs-w3s-node-sdk.circle.com/variables/index.ETH.html">Circle's Ethereum SDK documentation</a>, <a href="https://www.circle.com/blog/usdc-now-available-natively-on-base">Circle's Base announcement</a>, <a href="https://www.circle.com/blog/usdc-on-arbitrum-now-available">Circle's Arbitrum announcement</a>, <a href="https://www.circle.com/blog/eurc-is-coming-to-base">Circle's EURC announcement</a>, <a href="https://www.paypal.com/sg/cshelp/article/what-is-paypal-usd-pyusd-help1005">PayPal's PYUSD documentation</a>, <a href="https://tether.to/en/supported-protocols/">Tether's protocol list</a>, <a href="https://ondo.finance/usdy">Ondo's USDY page</a>, <a href="https://paxos.com/wp-content/uploads/2019/09/PAX-Gold-Whitepaper.pdf">Paxos's PAXG whitepaper</a>, <a href="https://docs.ripple.com/products/stablecoin/overview/token-addresses">Ripple's RLUSD address list</a>, Superstate's <a href="https://superstate.com/assets/ustb">USTB</a>, <a href="https://superstate.com/assets/uscc">USCC</a> and <a href="https://superstate.com/assets/vbdc">VBDC</a> product pages, and pinned issuer token lists from <a href="https://github.com/ondoprotocol/ondo-global-markets-token-list/blob/f5a82fca4b2a81aa8fc1ce65b8982f36d6cd40f4/tokenlist.json">Ondo</a> and <a href="https://github.com/backed-fi/cowswap-xstocks-tokenlist/blob/401edae9acf8e14152825864b974635e802ac948/tokenlist.json">Backed</a>. Chain state is queried through public RPC nodes, including <a href="https://www.plume.org/blog/genesis">Plume's documented mainnet endpoint</a>. A failed or stale reading is not published as zero; the previous dated observation remains visible.</p>
         </section>}
         <section className={styles.bottomCta}><div><h2>Turn research into a project brief.</h2><p>Tell us the infrastructure and jurisdictions you are considering.</p></div><a className={styles.button} href="/submit-requirement" onClick={()=>track("explorer_project_cta",view)}>Submit requirements <ArrowUpRight size={16}/></a><a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></section>
+        {view === "methodology" && <section className={styles.section}><h2>20 October 2026 registry update</h2><p>Added dated USTB and USCC fund AUM disclosures and refreshed VBDC to its 18 October reporting date. Added five USTB service roles and two USCC roles from fund documentation. These extend the registry, not the original three-asset bubble sample. CUSHY retains its 31 August financial date. USCC network allocations are excluded because the reviewed network rows did not reconcile with headline AUM. No market total, historical growth rate or audit assurance is inferred.</p></section>}
         <footer className={styles.updated}>{view === "supply" ? "Contract observations carry their own UTC block time" : `Last updated ${dated(view === "registry" || view === "methodology" || view === "overview" ? registryUpdated : snapshot.reviewed)}`} · Reviewed by FluidRWA Research Team · Information only, not investment or legal advice.</footer>
       </div>
     </div>
