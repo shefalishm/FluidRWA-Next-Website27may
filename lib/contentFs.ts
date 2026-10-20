@@ -3,10 +3,11 @@ import content from "./runtime-content.json";
 
 const files: Record<string, string> = content;
 function key(file: string) {
-  const relative = path.relative(process.cwd(), file).split(path.sep).join("/");
-  if (relative in files || Object.keys(files).some(name => name.startsWith(`${relative}/`))) return relative;
-  const normalized = file.split(path.sep).join("/");
-  return Object.keys(files).find(name => normalized.endsWith(`/${name}`)) || relative;
+  const absolute = path.resolve(process.cwd(), file);
+  const relative = path.relative(process.cwd(), absolute).split(path.sep).join("/");
+  // Missing nested index files must never resolve to the root index.html.
+  if (relative === ".." || relative.startsWith("../")) return "__outside_content_root__";
+  return relative;
 }
 
 // A build-time content snapshot avoids runtime disk dependencies on Workers.

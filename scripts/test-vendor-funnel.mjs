@@ -95,7 +95,7 @@ try {
   await context.close();
 
   const storage = { getItem: () => null };
-  const sandbox = { window: { location: { search: '', pathname: '/vendor-membership', origin: 'https://www.fluidrwa.com' } }, URL, URLSearchParams, sessionStorage: storage, document: { addEventListener() {} } };
+  const sandbox = { window: { addEventListener() {}, location: { search: '', pathname: '/vendor-membership', origin: 'https://www.fluidrwa.com' } }, URL, URLSearchParams, sessionStorage: storage, document: { addEventListener() {} } };
   vm.runInNewContext(fs.readFileSync('public/assets/measurement.js', 'utf8'), sandbox);
   const safe = sandbox.window.fluidRwaSanitizeAnalytics({ field_name: 'WEBSITE', error_reason: 'format', completed_fields: 4, contact_email: 'qa@example.com', project_description: 'private details' });
   assert.equal(safe.completed_fields, 4);

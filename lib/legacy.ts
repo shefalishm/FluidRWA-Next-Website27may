@@ -349,6 +349,13 @@ function enhanceBlogDecisionPage(file: string, html: string) {
     ? html.replace(/<h1(\b[^>]*)>[\s\S]*?<\/h1>/i, `<h1$1>${override.heading}</h1>`)
     : html;
 
+  if (file === "blog/top-tokenization-companies-2026/index.html") {
+    const origin = "/blog/top-tokenization-companies-2026";
+    const context = `article=top-tokenization-companies-2026&origin_path=${encodeURIComponent(origin)}`;
+    const paths = `<section class="article-enquiry-paths" aria-label="Next steps for buyers and vendors"><div><h2>Choosing a tokenization platform?</h2><p>Share your asset, jurisdiction and requirements with FluidRWA.</p><a href="/submit-requirement?source=tokenization-article-buyer&category=Tokenization%20platform&${context}">Discuss your requirements</a></div><div><h2>Should your company be considered?</h2><p>Send your product information and evidence for editorial review.</p><a href="/vendor-membership?source=tokenization-article-vendor&${context}">Submit your company</a></div><p class="article-enquiry-email">Prefer email? <a href="mailto:contact@fluidrwa.com?subject=Tokenization%20platform%20enquiry">contact@fluidrwa.com</a></p></section>`;
+    enhanced = enhanced.replace(/(<div class="answer-box">[\s\S]*?<\/div>)/i, `$1${paths}`);
+  }
+
   enhanced = enhanced.replace(/(<aside class="comparison-consideration"[\s\S]*?)(<\/div>)/g,
     (match, content: string, closing: string) => content.includes("mailto:contact@fluidrwa.com") ? match
       : `${content}<p style="overflow-wrap:anywhere">Prefer email? <a style="display:inline;width:auto;min-height:0;padding:0;background:none;color:#2664a9!important;text-decoration:underline" href="mailto:contact@fluidrwa.com?subject=Company%20comparison%20enquiry">contact@fluidrwa.com</a></p>${closing}`);

@@ -41,3 +41,12 @@
     padding: 20px;
   }
 }
+
+.intake-field-error { display:block; color:#a12d2d; font-size:13px; line-height:1.4; margin-top:5px; }
+.fluid-intake-form [aria-invalid="true"] { border-color:#a12d2d; outline-color:#a12d2d; }
+.article-enquiry-paths { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 28px; margin:24px 0 32px; padding:22px 0; border-block:1px solid #dce5ef; }
+.article-enquiry-paths h2 { font-size:19px!important; margin:0 0 8px!important; line-height:1.3; }
+.article-enquiry-paths p { margin:0 0 12px; }
+.article-enquiry-paths a { text-underline-offset:3px; }
+.article-enquiry-email { grid-column:1/-1; margin:0!important; overflow-wrap:anywhere; }
+@media (max-width:640px) { .article-enquiry-paths { grid-template-columns:minmax(0,1fr); } }

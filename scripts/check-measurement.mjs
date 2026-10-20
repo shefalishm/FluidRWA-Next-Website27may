@@ -6,7 +6,7 @@ const source = fs.readFileSync(new URL('../public/assets/measurement.js', import
 const storage = new Map();
 function boot(search) {
   const listeners = {};
-  const window = {location: {search, pathname: '/blog/example', origin: 'https://www.fluidrwa.com'}};
+  const window = {location: {search, pathname: '/blog/example', origin: 'https://www.fluidrwa.com'}, addEventListener: (name, fn) => { listeners[name] = fn; }};
   vm.runInNewContext(source, {window, URL, URLSearchParams, Set, WeakSet,
     sessionStorage: {getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value)},
     document: {addEventListener: (name, fn) => {listeners[name] = fn;}}});

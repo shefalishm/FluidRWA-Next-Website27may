@@ -37,39 +37,11 @@ export function GoogleAnalytics() {
       && !botPattern.test(navigator.userAgent));
   }, []);
 
-  useEffect(() => {
-    if (!enabled) return;
-    const trackIntent = (event: MouseEvent) => {
-      if (!(event.target instanceof Element)) return;
-      const link = event.target.closest("a[href]");
-      if (!link || !window.fluidRwaTrackEvent) return;
-      const href = link.getAttribute("href") || "";
-      if (/^mailto:contact@fluidrwa\.com(?:\?|$)/i.test(href)) {
-        window.fluidRwaTrackEvent("contact_email_click", { origin_path: window.location.pathname, click_type: "email" });
-        return;
-      }
-      try {
-        const destination = new URL(href, window.location.href);
-        if (destination.origin !== window.location.origin) return;
-        if (!["/vendor-membership", "/submit-requirement"].includes(destination.pathname)) return;
-        window.fluidRwaTrackEvent("enquiry_cta_click", {
-          origin_path: window.location.pathname,
-          form_type: destination.pathname === "/vendor-membership" ? "vendor" : "project",
-          link_url: destination.href
-        });
-      } catch {
-        // Ignore links that are not navigable URLs.
-      }
-    };
-    document.addEventListener("click", trackIntent);
-    return () => document.removeEventListener("click", trackIntent);
-  }, [enabled]);
-
   if (!enabled) return null;
 
   return (
     <>
-      <Script src="/assets/measurement.js?v=2" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
+      <Script src="/assets/measurement.js?v=3" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
       {measurementReady && <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
       <Script id="fluidrwa-google-analytics" strategy="afterInteractive">
@@ -95,12 +67,15 @@ export function GoogleAnalytics() {
 
           window.fluidRwaTrackEvent = function(eventName, params) {
             var safeParams = window.fluidRwaSanitizeAnalytics ? window.fluidRwaSanitizeAnalytics(params || {}) : {};
+            var savedLead = ['project_form_submit', 'vendor_application_submit', 'vendor_intro_submit', 'contact_form_submit'].includes(eventName);
+            if (savedLead && window.fluidRwaClaimLeadEvent && !window.fluidRwaClaimLeadEvent(safeParams.submission_id)) return;
             gtag('event', eventName, Object.assign({
               page_path: window.location.pathname,
               page_location: analyticsLocation(),
-              engagement_source: 'fluidrwa_site'
+              engagement_source: 'fluidrwa_site',
+              transport_type: 'beacon'
             }, safeParams));
-            if (['project_form_submit', 'vendor_application_submit', 'vendor_intro_submit', 'contact_form_submit'].includes(eventName)) {
+            if (savedLead) {
               gtag('event', 'generate_lead', Object.assign({page_path: window.location.pathname}, safeParams));
             }
           };

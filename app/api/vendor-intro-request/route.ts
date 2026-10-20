@@ -35,7 +35,9 @@ const excludedRawPayloadKeys = new Set([
   "membershipplan",
   "paymentprovider",
   "paymentstatus",
-  "commercialintent"
+  "commercialintent",
+  "fluidrwanotification",
+  "fluidrwapipeline"
 ]);
 
 function clean(value: unknown) {
@@ -274,11 +276,33 @@ export async function POST(request: Request) {
         .map(([key, value]) => `${key.replace(/_/g, " ")}: ${clean(value)}`)].join("\n\n")
     });
 
+    // An accepted email API request is not proof of inbox delivery.
+    if (requestId) {
+      try {
+        const receipt = await fetch(`${process.env.SUPABASE_URL!.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${encodeURIComponent(requestId)}`, {
+          method: "PATCH",
+          headers: {
+            apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+            Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ raw_payload: { ...normalized.rawPayload, FLUIDRWA_NOTIFICATION: {
+            status: notification.ok ? "accepted" : notification.skipped ? "not_configured" : "failed",
+            messageId: notification.messageId || null,
+            attemptedAt: new Date().toISOString()
+          } } })
+        });
+        if (!receipt.ok) console.error("Notification receipt could not be recorded", requestId, receipt.status);
+      } catch {
+        console.error("Notification receipt storage unavailable", requestId);
+      }
+    }
+
     return NextResponse.json({
       ok: true,
       mode: "supabase",
       requestId,
-      notification,
+      notification: { ok: notification.ok, skipped: notification.skipped },
       message: "Your request has been received by FluidRWA."
     });
   } catch (error) {

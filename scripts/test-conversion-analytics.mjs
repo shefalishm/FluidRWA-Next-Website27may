@@ -29,7 +29,8 @@ vm.runInNewContext(compiled, {
     if (query.has('id')) {
       detailQueries++;
       assert.match(query.get('id'), /buyer-1/);
-      return { ok: true, json: async () => [{ ...buyer, status: 'new', vendor_category: 'Custody', vendor_name: 'Example provider', raw_payload: {} }] };
+      assert.match(query.get('id'), /vendor-1/);
+      return { ok: true, json: async () => [{ ...buyer, status: 'qualified', vendor_category: 'Custody', vendor_name: 'Example provider', raw_payload: { FLUIDRWA_NOTIFICATION: { status: 'accepted' } } }, { ...vendor, status: 'paid', raw_payload: {} }] };
     }
     const offset = Number(query.get('offset') || 0);
     return { ok: true, json: async () => rows.slice(offset, offset + 1000) };
@@ -46,4 +47,13 @@ assert.equal(result.body.vendorApplications.submissions, 1);
 assert.equal(result.body.quarantinedRows, 1001);
 assert.equal(detailQueries, 1);
 assert.equal(result.body.recent[0].originPath, '/submit-requirement');
+assert.equal(result.body.pipeline.qualified, 1);
+assert.equal(result.body.pipeline.paid, 1);
+assert.equal(result.body.pipeline.notificationAccepted, 1);
+assert.equal(result.body.pipeline.notificationUnknown, 1);
+assert.equal(JSON.stringify(result.body).includes('buyer@real.testmail'), false);
+const unauthorized = await exports.PATCH({ headers: new Headers(), nextUrl: new URL('https://www.fluidrwa.com/api/conversion-analytics') });
+assert.equal(unauthorized.status, 401);
+const invalid = await exports.PATCH({ headers: new Headers({ Authorization: 'Bearer test-secret' }), nextUrl: new URL('https://www.fluidrwa.com/api/conversion-analytics'), text: async () => JSON.stringify({ id: 'invalid', status: 'paid' }) });
+assert.equal(invalid.status, 400);
 console.log('PASS: paginated lead counts, suspected-spam quarantine and separate vendor applications. No network requests.');

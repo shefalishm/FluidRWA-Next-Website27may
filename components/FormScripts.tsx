@@ -88,11 +88,15 @@ export function FormScripts() {
       const isVendorForm = getIsVendorForm();
       const isReviewApplication = form.dataset.reviewApplication === "true";
       let submitted = false;
+      const originalNoValidate = form.noValidate;
+      form.noValidate = true;
+      cleanups.push(() => { form.noValidate = originalNoValidate; });
       const analyticsDetails = () => ({
         form_type: getIsVendorForm() ? "vendor" : "project",
         form_variant: "full_page",
         interaction_source: sourceField?.value || "submit-requirement",
-        request_source: sourceField?.value || "submit-requirement"
+        request_source: sourceField?.value || "submit-requirement",
+        origin_path: params.get("origin_path")?.startsWith("/") && !params.get("origin_path")?.startsWith("//") ? params.get("origin_path") : pathname
       });
       const formHeading = form.querySelector<HTMLHeadingElement>("h2");
       const descriptionField = form.querySelector<HTMLTextAreaElement>('textarea[name="CONTACT_CF1"]');
@@ -181,7 +185,9 @@ export function FormScripts() {
         event.preventDefault();
         event.stopImmediatePropagation();
         if (!form.checkValidity()) {
-          form.reportValidity();
+          status.className = "form-status is-error";
+          status.textContent = "Please complete the highlighted fields. Your other details have been kept.";
+          form.querySelector<HTMLElement>(":invalid")?.focus();
           return;
         }
         if (button.disabled) return;
@@ -195,6 +201,9 @@ export function FormScripts() {
         status.textContent = loadingText;
 
         const formData = new FormData(form);
+        if (params.get("article")) formData.set("ATTRIBUTION_ARTICLE", params.get("article")!.slice(0, 160));
+        const originPath = params.get("origin_path");
+        if (originPath?.startsWith("/") && !originPath.startsWith("//")) formData.set("ATTRIBUTION_ORIGIN_PATH", originPath.split(/[?#]/)[0]);
         formData.set("FORM_RENDERED_AT", String(formRenderedAt));
         formData.set("FORM_ELAPSED_MS", String(Date.now() - formRenderedAt));
         const companyName = formValue(formData, "COMPANYNAME");
@@ -286,10 +295,22 @@ export function FormScripts() {
         form.removeEventListener("change", handleStart);
       });
       const invalidFields = new Set<string>();
+      const feedback = new Map<Element, HTMLElement>();
       const handleInvalid = (event: Event) => {
         const input = event.target;
         if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement || input instanceof HTMLTextAreaElement)) return;
+        event.preventDefault();
         const reason = input.validity.valueMissing ? "required" : input.validity.typeMismatch ? "format" : "invalid";
+        input.setAttribute("aria-invalid", "true");
+        if (!feedback.has(input)) {
+          const note = document.createElement("span");
+          note.className = "intake-field-error";
+          note.id = `intake-error-${forms.indexOf(form)}-${input.name}`;
+          input.after(note);
+          input.setAttribute("aria-describedby", [input.getAttribute("aria-describedby"), note.id].filter(Boolean).join(" "));
+          feedback.set(input, note);
+        }
+        feedback.get(input)!.textContent = input.validity.valueMissing ? (input.type === "checkbox" ? "Please confirm before continuing." : "Please complete this field.") : "Please check the format of this value.";
         const key = `${input.name}:${reason}`;
         if (invalidFields.has(key)) return;
         invalidFields.add(key);
@@ -297,11 +318,25 @@ export function FormScripts() {
       };
       form.addEventListener("invalid", handleInvalid, true);
       cleanups.push(() => form.removeEventListener("invalid", handleInvalid, true));
-      if (isReviewApplication) {
+      const clearFeedback = (event: Event) => {
+        const input = event.target;
+        if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement || input instanceof HTMLTextAreaElement) || !input.validity.valid) return;
+        input.removeAttribute("aria-invalid");
+        const note = feedback.get(input);
+        if (note) {
+          input.setAttribute("aria-describedby", (input.getAttribute("aria-describedby") || "").split(/\s+/).filter(id => id && id !== note.id).join(" "));
+          note.remove();
+          feedback.delete(input);
+        }
+      };
+      form.addEventListener("input", clearFeedback);
+      form.addEventListener("change", clearFeedback);
+      cleanups.push(() => { form.removeEventListener("input", clearFeedback); form.removeEventListener("change", clearFeedback); });
+      if (isReviewApplication || !isVendorForm) {
         const requiredInputs = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>("input[required], select[required], textarea[required]"));
         const completedCount = () => requiredInputs.filter((input) => input instanceof HTMLInputElement && input.type === "checkbox" ? input.checked : Boolean(input.value.trim())).length;
         const onExit = () => {
-          if (started && !submitted) trackEvent("vendor_application_exit", { ...analyticsDetails(), completed_fields: completedCount(), total_fields: requiredInputs.length });
+          if (started && !submitted) trackEvent(isVendorForm ? "vendor_application_exit" : "project_form_exit", { ...analyticsDetails(), completed_fields: completedCount(), total_fields: requiredInputs.length });
         };
         window.addEventListener("pagehide", onExit);
         cleanups.push(() => window.removeEventListener("pagehide", onExit));
@@ -309,7 +344,7 @@ export function FormScripts() {
         if (firstField) {
           const observer = new IntersectionObserver((entries) => {
             if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.5)) return;
-            trackEvent("vendor_application_view", analyticsDetails());
+            trackEvent(isVendorForm ? "vendor_application_view" : "project_form_view", analyticsDetails());
             observer.disconnect();
           }, { threshold: 0.5 });
           observer.observe(firstField);

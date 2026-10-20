@@ -15,6 +15,7 @@ type LeadRow = {
   page_url?: string | null;
   lead_source?: string | null;
   raw_payload?: Record<string, unknown> | null;
+  company_name?: string | null;
 };
 
 const excludedBuyerSources = new Set([
@@ -138,7 +139,7 @@ export async function GET(request: NextRequest) {
   const pageSize = 1000;
   for (let offset = 0; ; offset += pageSize) {
     const query = new URLSearchParams({
-      select: "id,created_at,contact_email,request_source,page_url",
+      select: "id,created_at,status,contact_email,request_source,page_url",
       created_at: `gte.${previousStart.toISOString()}`,
       order: "created_at.desc,id.desc",
       limit: String(pageSize),
@@ -175,8 +176,8 @@ export async function GET(request: NextRequest) {
     const date = clean(row.created_at).slice(0, 10);
     return Boolean(email && date && (dailyEmailCounts.get(`${date}:${email}`) || 0) > 10);
   };
-  const usableRows = allRows.filter((row) => !isQuarantined(row));
-  const quarantinedRows = allRows.length - usableRows.length;
+  const quarantinedRows = allRows.filter(isQuarantined).length;
+  const usableRows = allRows.filter((row) => !isQuarantined(row) && !["spam", "qa_test"].includes(clean(row.status)));
   const vendorApplications = usableRows.filter(isVendorApplication).filter((row) => clean(row.created_at));
   const currentVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) >= currentStart);
   const previousVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) < currentStart);
@@ -186,11 +187,12 @@ export async function GET(request: NextRequest) {
     .filter((row) => clean(row.created_at));
   const previousBuyerCount = buyerMetadata.filter((row) => new Date(clean(row.created_at)) < currentStart).length;
   const currentBuyerIds = buyerMetadata.filter((row) => new Date(clean(row.created_at)) >= currentStart).map((row) => clean(row.id)).filter(Boolean);
+  const currentIds = usableRows.filter(row => new Date(clean(row.created_at)) >= currentStart && !/(^|[-_ ])(qa|test|smoke)([-_ ]|$)/i.test(clean(row.request_source))).map(row => clean(row.id)).filter(Boolean);
   const currentDetails: LeadRow[] = [];
-  for (let index = 0; index < currentBuyerIds.length; index += 100) {
-    const ids = currentBuyerIds.slice(index, index + 100);
+  for (let index = 0; index < currentIds.length; index += 100) {
+    const ids = currentIds.slice(index, index + 100);
     const query = new URLSearchParams({
-      select: "created_at,status,vendor_name,vendor_category,request_source,page_url,lead_source,raw_payload",
+      select: "id,created_at,status,company_name,vendor_name,vendor_category,request_source,page_url,lead_source,raw_payload",
       id: `in.(${ids.join(",")})`
     });
     const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
@@ -206,7 +208,22 @@ export async function GET(request: NextRequest) {
     }
     currentDetails.push(...((await response.json()) as LeadRow[]));
   }
-  const current = currentDetails.map(classify).filter((row) => row.createdAt).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  const current = currentDetails.filter(row => currentBuyerIds.includes(clean(row.id))).map(classify).filter((row) => row.createdAt).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  const pipelineRows = currentDetails.filter(row => !["spam", "qa_test"].includes(clean(row.status)));
+  const pipeline = {
+    new: pipelineRows.filter(row => !row.status || row.status === "new").length,
+    qualified: pipelineRows.filter(row => row.status === "qualified").length,
+    proposal_sent: pipelineRows.filter(row => row.status === "proposal_sent").length,
+    paid: pipelineRows.filter(row => row.status === "paid").length,
+    lost: pipelineRows.filter(row => row.status === "lost").length,
+    notificationAccepted: pipelineRows.filter(row => (row.raw_payload?.FLUIDRWA_NOTIFICATION as { status?: string })?.status === "accepted").length,
+    notificationDelivered: pipelineRows.filter(row => ["delivered", "opened", "clicked"].includes((row.raw_payload?.FLUIDRWA_NOTIFICATION as { lastEvent?: string })?.lastEvent || "")).length,
+    notificationAttention: pipelineRows.filter(row => {
+      const receipt = row.raw_payload?.FLUIDRWA_NOTIFICATION as { status?: string; lastEvent?: string } | undefined;
+      return ["failed", "not_configured"].includes(receipt?.status || "") || ["bounced", "failed", "complained"].includes(receipt?.lastEvent || "");
+    }).length,
+    notificationUnknown: pipelineRows.filter(row => !row.raw_payload?.FLUIDRWA_NOTIFICATION).length
+  };
 
   const group = <T extends { name: string }>(items: T[]) =>
     [...new Map(items.map((item) => [item.name, item])).values()];
@@ -248,6 +265,19 @@ export async function GET(request: NextRequest) {
     generatedAt: now.toISOString(),
     days,
     quarantinedRows,
+    pipeline,
+    leads: [...currentDetails].sort((a, b) => clean(b.created_at).localeCompare(clean(a.created_at))).slice(0, 100).map(row => ({
+      id: row.id,
+      createdAt: row.created_at,
+      company: clean(row.company_name) || clean(row.vendor_name) || "Company not recorded",
+      type: isVendorApplication(row) ? "Vendor application" : isBuyerSource(row.request_source) ? "Buyer enquiry" : "General enquiry",
+      status: clean(row.status) || "new",
+      originPath: classify(row).originPath,
+      source: sourceLabel(clean(row.request_source)),
+      notification: (row.raw_payload?.FLUIDRWA_NOTIFICATION as { status?: string })?.status || "unknown",
+      deliveryEvent: (row.raw_payload?.FLUIDRWA_NOTIFICATION as { lastEvent?: string })?.lastEvent || "",
+      canVerifyNotification: Boolean((row.raw_payload?.FLUIDRWA_NOTIFICATION as { messageId?: string })?.messageId)
+    })),
     summary: {
       submissions: current.length,
       vendorIntros: current.filter((row) => row.vendorSpecific).length,
@@ -274,4 +304,71 @@ export async function GET(request: NextRequest) {
       source: row.sourceLabel
     }))
   }, { headers: { "Cache-Control": "private, no-store" } });
+}
+
+export async function PATCH(request: NextRequest) {
+  const headers = { "Cache-Control": "private, no-store" };
+  if (!authorized(request)) return NextResponse.json({ ok: false }, { status: 401, headers });
+  const origin = request.headers.get("origin");
+  if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ ok: false }, { status: 403, headers });
+  let input: { id?: string; status?: string };
+  try {
+    const text = await request.text();
+    if (text.length > 2048) return NextResponse.json({ ok: false }, { status: 413, headers });
+    input = JSON.parse(text);
+  } catch { return NextResponse.json({ ok: false }, { status: 400, headers }); }
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(input?.id || "") || !["new", "qualified", "proposal_sent", "paid", "lost", "spam", "qa_test"].includes(input?.status || "")) {
+    return NextResponse.json({ ok: false, message: "Select a valid lead and stage." }, { status: 400, headers });
+  }
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return NextResponse.json({ ok: false }, { status: 503, headers });
+  try {
+    const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${input.id}&select=id,status`, {
+      method: "PATCH",
+      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify({ status: input.status, updated_at: new Date().toISOString() })
+    });
+    if (!response.ok) return NextResponse.json({ ok: false, message: "The stage could not be saved." }, { status: 502, headers });
+    const rows = await response.json() as Array<{ id: string; status: string }>;
+    if (!rows.length) return NextResponse.json({ ok: false }, { status: 404, headers });
+    return NextResponse.json({ ok: true, lead: rows[0] }, { headers });
+  } catch { return NextResponse.json({ ok: false }, { status: 502, headers }); }
+}
+
+export async function POST(request: NextRequest) {
+  const headers = { "Cache-Control": "private, no-store" };
+  if (!authorized(request)) return NextResponse.json({ ok: false }, { status: 401, headers });
+  const origin = request.headers.get("origin");
+  if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ ok: false }, { status: 403, headers });
+  let id: string;
+  try {
+    const text = await request.text();
+    if (text.length > 2048) return NextResponse.json({ ok: false }, { status: 413, headers });
+    id = JSON.parse(text)?.id;
+    if (!/^[0-9a-f-]{36}$/i.test(id || "")) throw new Error("invalid id");
+  } catch { return NextResponse.json({ ok: false }, { status: 400, headers }); }
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key || !process.env.RESEND_API_KEY) return NextResponse.json({ ok: false, message: "Email verification is not configured." }, { status: 503, headers });
+  const databaseHeaders = { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" };
+  const endpoint = `${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${id}`;
+  try {
+    const read = await fetch(`${endpoint}&select=raw_payload,updated_at`, { headers: databaseHeaders, cache: "no-store" });
+    if (!read.ok) throw new Error("read failed");
+    const [row] = await read.json() as Array<{ raw_payload: Record<string, unknown>; updated_at: string }>;
+    const receipt = row?.raw_payload?.FLUIDRWA_NOTIFICATION as { messageId?: string } | undefined;
+    if (!receipt?.messageId) return NextResponse.json({ ok: false, message: "No email receipt was stored for this submission." }, { status: 409, headers });
+    const provider = await fetch(`https://api.resend.com/emails/${encodeURIComponent(receipt.messageId)}`, { headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` }, cache: "no-store" });
+    if (!provider.ok) return NextResponse.json({ ok: false, message: "The email provider could not verify this receipt." }, { status: 502, headers });
+    const email = await provider.json() as { last_event?: string };
+    const lastEvent = typeof email.last_event === "string" ? email.last_event.slice(0, 40) : "unknown";
+    const update = await fetch(`${endpoint}&updated_at=eq.${encodeURIComponent(row.updated_at)}&select=id`, {
+      method: "PATCH", headers: { ...databaseHeaders, Prefer: "return=representation" },
+      body: JSON.stringify({ raw_payload: { ...row.raw_payload, FLUIDRWA_NOTIFICATION: { ...receipt, lastEvent, checkedAt: new Date().toISOString() } }, updated_at: new Date().toISOString() })
+    });
+    if (!update.ok) throw new Error("receipt write failed");
+    if (!(await update.json()).length) return NextResponse.json({ ok: false, message: "The record changed. Reload and try again." }, { status: 409, headers });
+    return NextResponse.json({ ok: true, lastEvent }, { headers });
+  } catch { return NextResponse.json({ ok: false, message: "The email receipt could not be verified." }, { status: 502, headers }); }
 }

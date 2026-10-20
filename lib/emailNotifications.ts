@@ -2,6 +2,7 @@ type EmailResult = {
   ok: boolean;
   skipped: boolean;
   error?: string;
+  messageId?: string;
 };
 
 export function escapeEmailHtml(value: unknown) {
@@ -59,7 +60,8 @@ export async function sendNotificationEmail({
       return { ok: false, skipped: false, error: await response.text() };
     }
 
-    return { ok: true, skipped: false };
+    const receipt = await response.json() as { id?: string };
+    return { ok: true, skipped: false, messageId: receipt.id };
   } catch (error) {
     return {
       ok: false,

@@ -30,6 +30,41 @@
     }
     return output;
   };
+  var leadIds = new Set();
+  window.fluidRwaClaimLeadEvent = function (id) {
+    if (!id) return true;
+    if (leadIds.has(id)) return false;
+    leadIds.add(id);
+    return true;
+  };
+  var pendingIntents = [];
+  function intent(name, details) {
+    if (window.fluidRwaTrackEvent) window.fluidRwaTrackEvent(name, details);
+    else if (pendingIntents.length < 20) pendingIntents.push([name, details]);
+  }
+  window.addEventListener('fluidrwa:analytics-ready', function () {
+    pendingIntents.splice(0).forEach(function (item) { window.fluidRwaTrackEvent(item[0], item[1]); });
+  });
+  // One capture listener survives client navigation and runs before navigation handlers.
+  document.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (/^mailto:contact@fluidrwa\.com(?:\?|$)/i.test(href)) {
+      intent('contact_email_click', { origin_path: window.location.pathname, click_type: 'email' });
+      return;
+    }
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || !['/vendor-membership', '/apply-as-vendor', '/submit-requirement', '/submit-project'].includes(url.pathname)) return;
+      intent('enquiry_cta_click', {
+        origin_path: window.location.pathname,
+        form_type: /vendor/.test(url.pathname) ? 'vendor' : 'project',
+        interaction_source: url.searchParams.get('source') || 'site-link',
+        link_url: url.origin + url.pathname
+      });
+    } catch (_) {}
+  }, true);
   document.addEventListener('formdata', function (event) {
     Object.keys(campaign).forEach(function (name) {
       event.formData.set('ATTRIBUTION_' + name.toUpperCase(), campaign[name]);

@@ -2,11 +2,14 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import styles from "./ConversionAnalyticsDashboard.module.css";
+import { Check, MailCheck } from "lucide-react";
 
 type AnalyticsData = {
   generatedAt: string;
   days: number;
   quarantinedRows: number;
+  pipeline: Record<string, number>;
+  leads: Array<{ id: string; createdAt: string; company: string; type: string; status: string; originPath: string; source: string; notification: string; deliveryEvent: string; canVerifyNotification: boolean }>;
   summary: { submissions: number; vendorIntros: number; openBriefs: number; uniqueCategories: number; changePercent: number };
   vendorApplications: { submissions: number; previousSubmissions: number; changePercent: number };
   daily: Array<{ date: string; count: number }>;
@@ -28,6 +31,8 @@ export function ConversionAnalyticsDashboard() {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [stages, setStages] = useState<Record<string, string>>({});
+  const [saving, setSaving] = useState<string | null>(null);
 
   const load = async (key: string, selectedDays = days) => {
     if (!key) return;
@@ -42,6 +47,7 @@ export function ConversionAnalyticsDashboard() {
       if (!response.ok || !result.ok) throw new Error(result.message || "Analytics could not be loaded.");
       sessionStorage.setItem("fluidrwaAnalyticsKey", key);
       setData(result);
+      setStages({});
     } catch (error) {
       setData(null);
       setMessage(error instanceof Error ? error.message : "Analytics could not be loaded.");
@@ -71,11 +77,40 @@ export function ConversionAnalyticsDashboard() {
     if (accessKey) void load(accessKey, range);
   };
 
+  const saveStage = async (id: string) => {
+    if (!stages[id]) return;
+    setSaving(id);
+    setMessage("");
+    try {
+      const response = await fetch("/api/conversion-analytics", {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${accessKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status: stages[id] })
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.message || "The stage could not be saved.");
+      await load(accessKey, days);
+    } catch (error) { setMessage(error instanceof Error ? error.message : "The stage could not be saved."); }
+    finally { setSaving(null); }
+  };
+
+  const verifyNotification = async (id: string) => {
+    setSaving(id);
+    setMessage("");
+    try {
+      const response = await fetch("/api/conversion-analytics", { method: "POST", headers: { Authorization: `Bearer ${accessKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ id }) });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.message || "Notification verification failed.");
+      await load(accessKey, days);
+    } catch (error) { setMessage(error instanceof Error ? error.message : "Notification verification failed."); }
+    finally { setSaving(null); }
+  };
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.shell}>
-          <p className={styles.eyebrow}>Private buyer intelligence</p>
+          <p className={styles.eyebrow}>Private lead intelligence</p>
           <h1>Conversion analytics</h1>
           <p>See completed buyer submissions and vendor review applications, counted separately from visits and form clicks.</p>
         </div>
@@ -87,7 +122,7 @@ export function ConversionAnalyticsDashboard() {
             <div>
               <p className={styles.eyebrow}>Restricted access</p>
               <h2>Open the FluidRWA dashboard</h2>
-              <p>The dashboard contains aggregate business performance only. Contact details are never displayed.</p>
+              <p>Restricted business performance and lead-stage review. Contact details are never displayed.</p>
             </div>
             <label>
               Analytics access key
@@ -114,6 +149,27 @@ export function ConversionAnalyticsDashboard() {
               <article><span>Open project briefs</span><strong>{data.summary.openBriefs}</strong><small>Buyer needs a shortlist</small></article>
               <article><span>Active categories</span><strong>{data.summary.uniqueCategories}</strong><small>Categories producing demand</small></article>
             </div>
+
+            <section className={styles.pipeline} aria-labelledby="pipeline-title">
+              <div className={styles.sectionHead}><h2 id="pipeline-title">Enquiries to paid listings</h2><p>Current stages of submissions received in this period</p></div>
+              <dl className={styles.stageTotals}>
+                {[['new', 'Unreviewed'], ['qualified', 'Qualified'], ['proposal_sent', 'Proposal sent'], ['paid', 'Paid'], ['lost', 'Closed / lost']].map(([key, label]) => <div key={key}><dt>{label}</dt><dd>{data.pipeline[key] || 0}</dd></div>)}
+              </dl>
+              <p>Email notifications: {data.pipeline.notificationAccepted || 0} accepted by the email provider; {data.pipeline.notificationDelivered || 0} verified delivered or subsequently opened; {data.pipeline.notificationAttention || 0} need attention; {data.pipeline.notificationUnknown || 0} have no recorded receipt. Acceptance does not confirm inbox delivery.</p>
+              {message ? <p className={styles.error} role="alert">{message}</p> : null}
+              <div className={styles.tableWrap}><table><thead><tr><th>Company / received</th><th>Enquiry</th><th>Origin</th><th>Notification</th><th>Stage</th></tr></thead><tbody>
+                {data.leads.length ? data.leads.map(lead => <tr key={lead.id}>
+                  <td><strong>{lead.company}</strong><small>{formatDate(lead.createdAt)}</small><small>{lead.id}</small></td>
+                  <td>{lead.type}<small>{lead.source}</small></td>
+                  <td><a href={lead.originPath}>{lead.originPath}</a></td>
+                  <td>{lead.deliveryEvent || (lead.notification === 'accepted' ? 'Provider accepted' : lead.notification === 'unknown' ? 'Not recorded' : lead.notification.replaceAll('_', ' '))}{lead.canVerifyNotification ? <div className={styles.stageControl}><button type="button" title={`Check email delivery for ${lead.company}`} aria-label={`Check email delivery for ${lead.company}`} disabled={saving !== null} onClick={() => void verifyNotification(lead.id)}><MailCheck size={18} /></button></div> : null}</td>
+                  <td><div className={styles.stageControl}><select aria-label={`Stage for ${lead.company}`} value={stages[lead.id] || lead.status} onChange={event => setStages(previous => ({ ...previous, [lead.id]: event.target.value }))}>
+                    {!['new', 'qualified', 'proposal_sent', 'paid', 'lost', 'spam', 'qa_test'].includes(lead.status) ? <option value={lead.status}>{lead.status}</option> : null}
+                    <option value="new">Unreviewed</option><option value="qualified">Qualified</option><option value="proposal_sent">Proposal sent</option><option value="paid">Paid - payment received</option><option value="lost">Closed / lost</option><option value="spam">Spam</option><option value="qa_test">QA test</option>
+                  </select><button type="button" title={`Save stage for ${lead.company}`} aria-label={`Save stage for ${lead.company}`} disabled={!stages[lead.id] || saving !== null} onClick={() => void saveStage(lead.id)}><Check size={18} /></button></div></td>
+                </tr>) : <tr><td colSpan={5}>No submissions available for stage review.</td></tr>}
+              </tbody></table></div>
+            </section>
 
             {data.quarantinedRows > 0 ? <p>{data.quarantinedRows} suspected automated submissions were excluded from these totals because one address submitted more than ten times in a day or the source value was malformed. The records remain available for review in Supabase.</p> : null}
 
