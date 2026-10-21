@@ -30,9 +30,10 @@ function Reference({ id }: { id: string }) {
 function Exhibit({ number }: { number: number }) {
   const exhibit = exhibits.find(item => item.number === number)!;
   const file = `${exhibitStem}-${number}`;
+  const mobileHeight = number === 1 ? 1500 : number === 2 ? 1760 : 1140;
   return <figure className={styles.figure}>
     <p className={styles.exhibitLabel}>EXHIBIT {number}</p><h3>{exhibit.title}</h3>
-    <picture><source media="(max-width: 760px)" srcSet={`/assets/infographics/${file}-mobile.png`}/><img src={`/assets/infographics/${file}.png`} width={1400} height={exhibit.height} alt={exhibit.alt} loading="lazy"/></picture>
+    <picture><source media="(max-width: 760px)" width={780} height={mobileHeight} srcSet={`/assets/infographics/${file}-mobile.png`}/><img src={`/assets/infographics/${file}.png`} width={1400} height={exhibit.height} alt={exhibit.alt} loading="lazy"/></picture>
     <figcaption>{exhibit.caption}</figcaption>
     <div className={styles.figureDownloads}><a href={`/assets/infographics/${file}.png`} download><Download size={15}/> Download exhibit</a><a href={`/assets/infographics/${file}-mobile.png`} download>Mobile format</a></div>
   </figure>;
