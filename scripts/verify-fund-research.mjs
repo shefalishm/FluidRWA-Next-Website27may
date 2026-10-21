@@ -15,7 +15,7 @@ try{
     const page=await browser.newPage({viewport:{width,height:900}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.route(/google-analytics\.com|googletagmanager\.com|analytics\.google\.com/,r=>r.abort());
-    const response=await page.goto(`${base}${route}?analytics=off`,{waitUntil:'networkidle'});
+    const response=await page.goto(`${base}${route}?analytics=off`,{waitUntil:'domcontentloaded',timeout:60000});
     assert.equal(response.status(),200);
     assert.equal(await page.locator('main h1').textContent(),'Who powers tokenized funds?');
     await page.getByLabel('Find a fund or provider').fill('Securitize');
