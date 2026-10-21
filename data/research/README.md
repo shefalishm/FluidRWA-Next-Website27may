@@ -1,5 +1,19 @@
 # Frozen research editions
 
+## Editorial standard for published reports
+
+The public report is for a person making a business decision, not for a data auditor. Keep the research records rigorous without making the opening read like an internal verification checklist.
+
+- Start with the subject and why it matters. Follow with an executive summary, an argument supported by examples, and practical implications.
+- Explain terms where they first become useful. Use ordinary descriptions such as "who holds the assets" before specialist role names.
+- Give each exhibit a point to explain and place it beside the relevant discussion. Do not stack unrelated charts ahead of the article.
+- Keep record counts, field definitions, technical qualifications, inaccessible-document notes and version procedures in an accessible appendix. Keep material qualifications beside the claims they limit as well.
+- Use source references in the text. Preserve source dates, unknowns and downloads; moving them out of the main story must not conceal limitations or strengthen a claim.
+- Avoid public-facing internal phrases such as "product-role cells", "source-set coverage", "fixed edition" and instructions to AI systems or prospective citers.
+- Use FluidRWA blue/yellow, a readable editorial column, restrained navigation and large-enough mobile exhibit text. No dashboard counters in a narrative report.
+
+Structural references reviewed on 21 October 2026: BCG's *The Future of Digital Assets* (https://www.bcg.com/publications/2026/the-future-of-digital-assets-in-finance), the Ripple/BCG *Approaching the Tokenization Tipping Point* report (https://media-publications.bcg.com/Tokenized-Assets.pdf), and McKinsey's *From ripples to waves* (https://www.mckinsey.com/industries/financial-services/our-insights/from-ripples-to-waves-the-transformational-power-of-tokenizing-assets). These inform presentation, not the fund dataset or its conclusions. Their wording, forecasts and branding are not reproduced.
+
 ## October 2026 fund infrastructure baseline
 
 Dataset: `tokenized-fund-infrastructure-2026-10-v1.json`.
