@@ -1,0 +1,53 @@
+{
+  "version": "2026-10-v1",
+  "checked": "2026-10-21",
+  "products": 20,
+  "sources": 17,
+  "observations": 80,
+  "namedObservations": 49,
+  "coverage": [
+    {
+      "id": "custody",
+      "label": "Fund custody / depositary",
+      "definition": "Named custody or depositary appointment for the reviewed fund's assets. Investor-wallet support and the custody of an underlying fund are not inherited.",
+      "named": 10,
+      "denominator": 20
+    },
+    {
+      "id": "administration",
+      "label": "Fund administration",
+      "definition": "Explicit fund administrator or accounting/administrative agent. A NAV calculation agent or token administrator alone does not qualify.",
+      "named": 10,
+      "denominator": 20
+    },
+    {
+      "id": "transfer",
+      "label": "Transfer agency",
+      "definition": "Explicit transfer-agent appointment or delegation. A platform or distribution relationship alone does not qualify.",
+      "named": 14,
+      "denominator": 20
+    },
+    {
+      "id": "records",
+      "label": "Token / share-record infrastructure",
+      "definition": "Named tokenization platform, token administrator, vault developer or share-register operator, with the exact function retained. These functions are not equivalent services.",
+      "named": 15,
+      "denominator": 20
+    }
+  ],
+  "structures": [
+    {
+      "label": "Fund product",
+      "count": 13
+    },
+    {
+      "label": "Feeder / access product",
+      "count": 3
+    },
+    {
+      "label": "SICAV sub-fund",
+      "count": 4
+    }
+  ],
+  "allFour": 5
+}
