@@ -8,11 +8,12 @@ const xstocksTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstoc
 const robinhoodAssets = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeFunds = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
 const relationships = JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json', 'utf8'));
+const fundHistory = JSON.parse(fs.readFileSync('data/fund-disclosure-history.json', 'utf8'));
 const registry = [
   ...snapshot.assets.map(asset => ({
     id: asset.id, name: asset.name, issuer: asset.issuer, assetClass: asset.category,
     structure: asset.id === 'usdc' ? 'USD-referenced stablecoin' : 'Tokenized government money fund',
-    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: snapshot.reviewed,
+    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: asset.sourceReviewed || snapshot.reviewed,
     notes: asset.notes, reportedValueUsd: asset.value, reportedMetric: asset.metric,
     reportedAsOf: asset.asOf, freshnessDays: asset.freshnessDays,
     contractEvidence: asset.id === 'wtgxx' ? asset.source : null,
@@ -50,6 +51,10 @@ ${dimensions.map((d,i)=>`<rect x="65" y="${334+i*73}" width="1270" height="68" f
 for (const root of ['assets','public/assets']) {
   fs.mkdirSync(`${root}/datasets`,{recursive:true});fs.mkdirSync(`${root}/infographics`,{recursive:true});
   fs.writeFileSync(`${root}/datasets/network-intelligence.json`,JSON.stringify(snapshot,null,2));
+  fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.json`,JSON.stringify(fundHistory,null,2));
+  const historyRows = fundHistory.observations.map(row => ({...row, metric:fundHistory.metric, currency:fundHistory.currency, scope:fundHistory.scope}));
+  const historyKeys = Object.keys(historyRows[0]);
+  fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.csv`,[historyKeys.map(cell).join(','),...historyRows.map(row => historyKeys.map(key => cell(row[key])).join(','))].join('\r\n'));
   fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${snapshot.assets.length+candidates.length} research profiles; 450 Ondo, 1052 xStocks and 194 Robinhood issuer-listed securities; and 14 WisdomTree blockchain-enabled funds whose blockchain record is secondary. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection],assets:registry,relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.csv`,[Object.keys(relationships[0]).map(cell).join(','),...relationships.map(row => Object.keys(relationships[0]).map(key => cell(row[key])).join(','))].join('\r\n'));

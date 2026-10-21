@@ -1,5 +1,6 @@
 {
-  "version": "2026-10-19.1",
+  "version": "2026-10-21.1",
+  "updated": "2026-10-21",
   "reviewed": "2026-10-19",
   "assets": [
     {
@@ -8,9 +9,10 @@
       "issuer": "Circle",
       "category": "Stablecoins",
       "metric": "Reported circulation",
-      "value": 72500000000,
+      "value": 71900000000,
       "currency": "USD",
-      "asOf": "2026-10-15",
+      "asOf": "2026-10-19",
+      "sourceReviewed": "2026-10-21",
       "source": "https://www.circle.com/usdc",
       "sourceLabel": "Circle USDC disclosure",
       "scope": "Rounded issuer-reported circulation, not independently calculated supply or total stablecoin market value.",

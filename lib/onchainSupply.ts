@@ -49,6 +49,7 @@ export const onchainSupplyContracts = [
     chainId: 42161,
     address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
     rpc: "https://arbitrum-one-rpc.publicnode.com",
+    fallbackRpc: "https://arb1.arbitrum.io/rpc",
     source: "https://www.circle.com/blog/usdc-on-arbitrum-now-available",
     explorer: "https://arbiscan.io/token/0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
     decimals: 6
@@ -199,6 +200,7 @@ export const onchainSupplyContracts = [
     chainId: 42161,
     address: "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
     rpc: "https://arbitrum-one-rpc.publicnode.com",
+    fallbackRpc: "https://arb1.arbitrum.io/rpc",
     source: "https://ondo.finance/usdy",
     explorer: "https://arbiscan.io/token/0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
     decimals: 18

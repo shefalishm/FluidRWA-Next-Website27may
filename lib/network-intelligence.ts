@@ -6,8 +6,9 @@ import xstocksTokenList from "@/data/issuer-tokenlist-xstocks.json";
 import robinhoodAssets from "@/data/issuer-api-robinhood.json";
 import wisdomtreeFunds from "@/data/issuer-funds-wisdomtree.json";
 import infrastructureRelationships from "@/data/asset-infrastructure-relationships.json";
+import fundDisclosureHistory from "@/data/fund-disclosure-history.json";
 
-export { snapshot, ramp };
+export { snapshot, ramp, fundDisclosureHistory };
 export { infrastructureRelationships };
 export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
 export const explorerViews = ["supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
@@ -17,7 +18,7 @@ export const assetRegistry = [
   ...snapshot.assets.map(asset => ({
     id: asset.id, name: asset.name, issuer: asset.issuer, assetClass: asset.category,
     structure: asset.id === "usdc" ? "USD-referenced stablecoin" : "Tokenized government money fund",
-    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: snapshot.reviewed,
+    source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: asset.sourceReviewed || snapshot.reviewed,
     notes: asset.notes, reportedValueUsd: asset.value as number | null,
     reportedMetric: asset.metric as string | null, reportedAsOf: asset.asOf as string | null,
     freshnessDays: asset.freshnessDays,
@@ -40,6 +41,12 @@ export const assetRegistry = [
 ].sort((a,b) => a.name.localeCompare(b.name));
 export const registryUpdated = [...assetRegistry.map(asset => asset.sourceReviewed), ...infrastructureRelationships.map(row => row.reviewed)].sort().at(-1) || snapshot.reviewed;
 export type RegistryAsset = typeof assetRegistry[number];
+export function fundDisclosureChange(asset: RegistryAsset) {
+  const rows = fundDisclosureHistory.observations.filter(row => row.assetId === asset.id).sort((a,b) => b.reportedAsOf.localeCompare(a.reportedAsOf));
+  const [latest, previous] = rows;
+  if (!latest || !previous || previous.value <= 0 || latest.reportedAsOf !== asset.reportedAsOf || latest.value !== asset.reportedValueUsd || asset.reportedMetric !== fundDisclosureHistory.metric || latest.source !== previous.source) return null;
+  return { previousDate: previous.reportedAsOf, currentDate: latest.reportedAsOf, delta: latest.value - previous.value, percent: 100 * (latest.value - previous.value) / previous.value };
+}
 export function registryValueStatus(asset: RegistryAsset, now: number) {
   if (asset.reportedValueUsd === null || !asset.reportedAsOf) return "Value not verified";
   return daysOld(asset.reportedAsOf, now) > asset.freshnessDays ? "Historical value" : "Current disclosure";

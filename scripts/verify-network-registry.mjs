@@ -7,12 +7,13 @@ const xstocksList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.js
 const robinhoodList = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
 const roles = JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json', 'utf8'));
+const fundHistory = JSON.parse(fs.readFileSync('data/fund-disclosure-history.json', 'utf8'));
 const errors = [];
 const today = new Date().toISOString().slice(0, 10);
 const ids = new Set();
 const contracts = new Set();
 const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: null, reportedAsOf: null }));
-const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: snapshot.reviewed })), ...profiles, ...issuerList.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
+const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
 const date = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && value <= today;
 const https = value => typeof value === 'string' && value.startsWith('https://');
 
@@ -47,6 +48,19 @@ for (const row of roles) {
   if (!https(row.source) || !date(row.reviewed) || (row.sourceDate && !date(row.sourceDate))) errors.push(`Invalid role source/date: ${row.id}`);
 }
 
+const observationIds = new Set();
+for (const observation of fundHistory.observations) {
+  const key = `${observation.assetId}:${observation.reportedAsOf}`;
+  if (observationIds.has(key)) errors.push(`Duplicate fund observation: ${key}`);
+  observationIds.add(key);
+  const asset = profiles.find(row => row.id === observation.assetId);
+  if (!asset || asset.source !== observation.source || asset.reportedMetric !== fundHistory.metric || fundHistory.currency !== 'USD' || !(observation.value > 0) || !date(observation.reportedAsOf) || !date(observation.checked) || observation.checked < observation.reportedAsOf) errors.push(`Invalid fund observation: ${key}`);
+}
+for (const id of new Set(fundHistory.observations.map(row => row.assetId))) {
+  const latest = fundHistory.observations.filter(row => row.assetId === id).sort((a,b) => b.reportedAsOf.localeCompare(a.reportedAsOf))[0];
+  const asset = profiles.find(row => row.id === id);
+  if (!asset || asset.reportedAsOf !== latest.reportedAsOf || asset.reportedValueUsd !== latest.value) errors.push(`Fund history/latest profile mismatch: ${id}`);
+}
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;

@@ -20,7 +20,10 @@ async function rpc(url, method, params) {
 
 const day = new Date().toISOString().slice(0, 10);
 const rows = [];
-for (const contract of onchainSupplyContracts) {
+const requestedId = process.argv[2];
+const selectedContracts = requestedId ? onchainSupplyContracts.filter(contract => contract.id === requestedId) : onchainSupplyContracts;
+if (!selectedContracts.length) throw new Error(`Unknown contract ID: ${requestedId}`);
+for (const contract of selectedContracts) {
   const endpoints = [contract.rpc, contract.fallbackRpc].filter(Boolean);
   let reading;
   for (const endpoint of endpoints) {
