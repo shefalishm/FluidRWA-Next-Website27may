@@ -10,12 +10,14 @@ import october15Batch from "./comparison-image-batch-october-15.mjs";
 import october17Batch from "./comparison-image-batch-october-17.mjs";
 import october19Batch from "./comparison-image-batch-october-19.mjs";
 import october21Batch from "./comparison-image-batch-october-21.mjs";
+import october22Batch from "./comparison-image-batch-october-22.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...october22Batch,
   ...october21Batch,
   ...october19Batch,
   ...october17Batch,
@@ -151,6 +153,7 @@ function desktopSvg(item) {
   if (item.providerRows) return providerTableSvg(item);
   const width = 1600;
   const height = 1050;
+  const workflow = item.kind === "workflow";
   const left = 80;
   const top = 280;
   const labelWidth = 190;
@@ -171,7 +174,7 @@ function desktopSvg(item) {
     return `<rect x="${left}" y="${y}" width="${labelWidth}" height="${rowHeight}" fill="#12213a"/>${text(row[0], left + 22, y + 49, labelWidth - 44, { size: 21, weight: 850, color: "#ffffff", maxLines: 3 })}${cells}`;
   }).join("");
   const separators = Array.from({ length: item.vendors.length + 1 }, (_, index) => left + labelWidth + index * columnWidth).map((x) => `<line x1="${x}" y1="${top}" x2="${x}" y2="${top + headerHeight + item.rows.length * rowHeight}" stroke="#d6e4ef"/>`).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} vendor comparison table"><rect width="1600" height="1050" fill="#f6fbfe"/><rect x="0" y="0" width="1600" height="16" fill="#ffdf45"/><text x="80" y="80" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="850" letter-spacing="3">FLUIDRWA RESEARCH</text>${text(item.title, 80, 145, 1260, { size: 48, weight: 900, maxLines: 2, lineHeight: 56 })}<text x="1520" y="84" text-anchor="end" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="20">2026 comparison matrix</text><rect x="${left}" y="${top}" width="${tableWidth}" height="${headerHeight + item.rows.length * rowHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="${left}" y="${top}" width="${labelWidth}" height="${headerHeight}" fill="#ffdf45"/>${text("Decision factor", left + 22, top + 48, labelWidth - 44, { size: 22, weight: 900, maxLines: 2 })}${vendorHeaders}${rows}${separators}<text x="80" y="985" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="18">Editorial starting points, not a universal ranking. Verify current product scope directly with each provider.</text><text x="80" y="1018" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="800">FluidRWA.com</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} ${workflow ? "workflow checklist" : "vendor comparison table"}"><rect width="1600" height="1050" fill="#f6fbfe"/><rect x="0" y="0" width="1600" height="16" fill="#ffdf45"/><text x="80" y="80" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="850" letter-spacing="3">FLUIDRWA RESEARCH</text>${text(item.title, 80, 145, 1260, { size: 48, weight: 900, maxLines: 2, lineHeight: 56 })}<text x="1520" y="84" text-anchor="end" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="20">${workflow ? "Workflow checklist" : "2026 comparison matrix"}</text><rect x="${left}" y="${top}" width="${tableWidth}" height="${headerHeight + item.rows.length * rowHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="${left}" y="${top}" width="${labelWidth}" height="${headerHeight}" fill="#ffdf45"/>${text(workflow ? "Control" : "Decision factor", left + 22, top + 48, labelWidth - 44, { size: 22, weight: 900, maxLines: 2 })}${vendorHeaders}${rows}${separators}<text x="80" y="985" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="18">${workflow ? "Planning checklist, not executable instructions. Confirm the applicable operating model and approvals." : "Editorial starting points, not a universal ranking. Verify current product scope directly with each provider."}</text><text x="80" y="1018" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="800">FluidRWA.com</text></svg>`;
 }
 
 function providerTableSvg(item) {
@@ -189,6 +192,7 @@ function providerTableSvg(item) {
 
 function mobileSvg(item) {
   const width = 900;
+  const workflow = item.kind === "workflow";
   const cardHeight = 510;
   const top = 255;
   const gap = 18;
@@ -202,7 +206,7 @@ function mobileSvg(item) {
     }).join("");
     return `<rect x="50" y="${y}" width="800" height="${cardHeight}" rx="8" fill="#fff" stroke="#cbdce9"/><rect x="50" y="${y}" width="800" height="72" rx="8" fill="${vendorIndex % 2 ? "#eaf6fd" : "#fff5bd"}"/><text x="74" y="${y + 49}" fill="#12213a" font-family="Inter,Arial,sans-serif" font-size="36" font-weight="900">${esc(vendor)}</text>${detail}`;
   }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} mobile vendor comparison table"><rect width="${width}" height="${height}" fill="#f6fbfe"/><rect width="${width}" height="14" fill="#ffdf45"/><text x="50" y="70" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="850" letter-spacing="2">FLUIDRWA RESEARCH</text>${text(item.title, 50, 128, 800, { size: 38, weight: 900, maxLines: 2, lineHeight: 44 })}${cards}<text x="50" y="${height - 72}" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="16">Editorial starting points, not a universal ranking.</text><text x="50" y="${height - 38}" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800">FluidRWA.com</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(item.title)} mobile ${workflow ? "workflow checklist" : "vendor comparison table"}"><rect width="${width}" height="${height}" fill="#f6fbfe"/><rect width="${width}" height="14" fill="#ffdf45"/><text x="50" y="70" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="850" letter-spacing="2">FLUIDRWA RESEARCH</text>${text(item.title, 50, 128, 800, { size: 38, weight: 900, maxLines: 2, lineHeight: 44 })}${cards}<text x="50" y="${height - 72}" fill="#61758b" font-family="Inter,Arial,sans-serif" font-size="16">${workflow ? "Planning checklist; confirm the operating model and approvals." : "Editorial starting points, not a universal ranking."}</text><text x="50" y="${height - 38}" fill="#2664a9" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800">FluidRWA.com</text></svg>`;
 }
 
 const requestedSlugs = new Set(process.argv.slice(2));
