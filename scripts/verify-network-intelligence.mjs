@@ -12,18 +12,18 @@ const wisdomtreeList=JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.js
 const relationships=JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json','utf8'));
 const ramp=JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json','utf8'));
 assert.equal(snapshot.assets.length,3); assert.equal(snapshot.networks.length,8); assert.equal(ramp.rows.length,18);
-assert.equal(registryCandidates.length,18);
+assert.equal(registryCandidates.length,30);
 assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.length,1052);assert.equal(robinhoodList.assets.length,194);assert.equal(wisdomtreeList.assets.length,14);
-assert.equal(relationships.length,35);
-assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1731);
+assert.equal(relationships.length,75);
+assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1743);
 for(const asset of registryCandidates){assert.ok(asset.source.startsWith('https://'));if(asset.reportedValueUsd!==null){assert.ok(asset.reportedValueUsd>0);assert.match(asset.reportedAsOf,/^\d{4}-\d{2}-\d{2}$/);assert.ok(asset.reportedMetric);}}
 assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').value,71900000000);
 assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').sourceReviewed,'2026-10-21');
 assert.equal(snapshot.assets.find(asset=>asset.id==='wtgxx').value,1227400000);
-for (const [id, value] of [['ustb',775483296],['uscc',194662025],['vbdc',9500967]]) {
+for (const [id, value] of [['ustb',769570060],['uscc',188653792],['vbdc',9526939]]) {
  const asset=registryCandidates.find(asset=>asset.id===id);
- assert.equal(asset.reportedAsOf,'2026-10-19');
- assert.equal(asset.sourceReviewed,'2026-10-21');
+ assert.equal(asset.reportedAsOf,'2026-10-20');
+ assert.equal(asset.sourceReviewed,'2026-10-22');
  assert.equal(asset.reportedValueUsd,value);
 }
 assert.equal(registryCandidates.find(asset=>asset.id==='cushy').reportedAsOf,'2026-08-31');
@@ -56,7 +56,7 @@ try {
    const state=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:[...document.querySelectorAll('main img')].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),canonical:document.querySelector('link[rel="canonical"]')?.href,body:document.body.textContent}));
    assert.ok(state.title && !state.title.includes('Finding a'));assert.equal(state.overflow,false,`${width} overflow ${route}`);assert.deepEqual(state.broken,[]);
    assert.equal(state.canonical,`https://www.fluidrwa.com/network-explorer${route}`);
-   if(route!=='/supply')assert.ok(state.body.includes(route==='/research/ramp-onboarding' ? '2026-10-13.1' : ['', '/registry', '/assets', '/methodology'].includes(route) ? '21 Oct 2026' : '19 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
+   if(route!=='/supply')assert.ok(state.body.includes(route==='/research/ramp-onboarding' ? '2026-10-13.1' : ['', '/registry', '/assets', '/methodology'].includes(route) ? '22 Oct 2026' : '19 Oct 2026'));assert.ok(state.body.includes('contact@fluidrwa.com'));assert.deepEqual(errors,[]);
    if(route==='/supply'){
     await page.getByText('USDC on Ethereum').waitFor();
     assert.ok((await page.locator('main').textContent()).includes('+10.00%'));
@@ -72,25 +72,32 @@ try {
    }
    if(route===''){
     const map=page.getByRole('region',{name:'Who makes a tokenized asset work?'});
-    assert.ok((await map.textContent()).includes('35'));
+    assert.ok((await map.textContent()).includes('75'));
     assert.ok((await page.locator('main').textContent()).includes('Fund disclosures'));
     const [fundFile]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Download fund disclosures CSV'}).click()]);
     const fundPath=`${output}/fund-disclosures-${width}.csv`;
     await fundFile.saveAs(fundPath);
     const fundCsv=fs.readFileSync(fundPath,'utf8');
-    assert.ok(fundCsv.includes('775483296'));
-    assert.ok(fundCsv.includes('194662025'));
+    assert.ok(fundCsv.includes('769570060'));
+    assert.ok(fundCsv.includes('188653792'));
     assert.ok(fundCsv.includes('2026-08-31'));
-    for (const percent of ['-1.65%', '-0.92%', '-1.54%']) assert.ok(state.body.includes(`${percent} AUM change from 18 Oct 2026`));
+    for (const percent of ["-0.76%","-3.09%","+0.27%"]) assert.ok(state.body.includes(`${percent} AUM change from 19 Oct 2026`));
     assert.ok(state.body.includes('not investment return'));
     const [historyFile]=await Promise.all([page.waitForEvent('download'),page.getByRole('link',{name:'Download AUM history CSV'}).click()]);
     await historyFile.saveAs(`${output}/fund-history-${width}.csv`);
     const historyCsv=fs.readFileSync(`${output}/fund-history-${width}.csv`,'utf8');
-    assert.equal(historyCsv.split('\r\n').length,7);
+    assert.equal(historyCsv.split('\r\n').length,10);
     assert.ok(historyCsv.includes('788515306') && historyCsv.includes('775483296'));
-    await map.getByRole('button',{name:'USDC',exact:true}).click();
+    const batch=page.getByRole('region',{name:'More funds, and the firms behind them'});
+    assert.equal(await batch.locator('tbody tr').count(),12);
+    await map.getByLabel('Choose an asset').selectOption('m3sixty-mcgxx');
+    assert.ok((await map.textContent()).includes('Argent Institutional Trust Company'));
+    assert.ok(!(await map.textContent()).includes('Huntington'));
+    await map.getByLabel('Choose an asset').selectOption('vaneck-vbill');
+    assert.ok((await map.textContent()).includes('State Street Bank and Trust Company'));
+    await map.getByLabel('Choose an asset').selectOption('usdc');
     assert.ok((await map.textContent()).includes('Reserve-fund portfolio custodian'));
-    await map.getByRole('button',{name:'PYUSD',exact:true}).click();
+    await map.getByLabel('Choose an asset').selectOption('pyusd');
     assert.ok((await map.textContent()).includes('PayPal-account distribution'));
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    }
@@ -107,7 +114,8 @@ try {
    }
    if(route==='/registry'){
     assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
-    await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),21);
+    await page.getByLabel('Cohort').selectOption('Research profile');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
+    await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),33);
     await page.getByLabel('Cohort').selectOption('Ondo issuer list');assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
     await page.getByRole('button',{name:'Show 30 more'}).click();assert.equal(await page.locator('tbody').first().locator('tr').count(),60);
     await page.getByLabel('Cohort').selectOption('xStocks issuer list');await page.waitForFunction(()=>document.querySelector('tbody')?.querySelectorAll('tr').length===30);assert.equal(await page.locator('tbody').first().locator('tr').count(),30);
@@ -125,13 +133,13 @@ try {
   await page.close();
  }
  for(const [url,type]of [['/assets/datasets/network-intelligence.json','json'],['/assets/datasets/network-asset-registry.json','json'],['/assets/datasets/network-infrastructure-relationships.json','json'],['/assets/datasets/network-infrastructure-relationships.csv','csv'],['/assets/datasets/network-ramp-evidence.csv','csv'],['/assets/infographics/network-ramp-evidence.png','png']]){
-  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry')){assert.equal(body.assets.length,1731);assert.deepEqual(body.assets.find(asset=>asset.id==='ustb').reportedValueUsd,775483296);assert.equal(body.assets.find(asset=>asset.id==='fobxx').sourceReviewed,'2026-10-19');}else if(url.includes('relationships'))assert.equal(body.relationships.length,35);else assert.deepEqual(body,snapshot);}await r.close();
+  const r=await browser.newContext();const response=await r.request.get(base+url);assert.ok(response.ok());assert.ok(response.headers()['content-type'].includes(type));if(type==='json'){const body=await response.json();if(url.includes('asset-registry')){assert.equal(body.assets.length,1743);assert.deepEqual(body.assets.find(asset=>asset.id==='ustb').reportedValueUsd,769570060);assert.equal(body.assets.find(asset=>asset.id==='fobxx').sourceReviewed,'2026-10-19');}else if(url.includes('relationships'))assert.equal(body.relationships.length,75);else assert.deepEqual(body,snapshot);}await r.close();
  }
  const api=await browser.newContext();
  const history=await (await api.request.get(base+'/assets/datasets/network-fund-disclosure-history.json')).json();
  assert.deepEqual(history,JSON.parse(fs.readFileSync('data/fund-disclosure-history.json','utf8')));
- assert.equal(history.observations.length,6);
- const coverage=await (await api.request.get(base+'/api/network-explorer/v1/coverage')).json();assert.equal(coverage.identifiedRecords,1731);assert.equal(coverage.documentedRelationships,35);assert.equal(coverage.relationshipAssets,11);assert.equal(coverage.datedValueRecords,7);
+ assert.equal(history.observations.length,9);
+ const coverage=await (await api.request.get(base+'/api/network-explorer/v1/coverage')).json();assert.equal(coverage.identifiedRecords,1743);assert.equal(coverage.documentedRelationships,75);assert.equal(coverage.relationshipAssets,23);assert.equal(coverage.datedValueRecords,7);
  const pyusd=await (await api.request.get(base+'/api/network-explorer/v1/relationships?asset_id=pyusd')).json();assert.equal(pyusd.total,3);assert.equal(pyusd.records.length,3);
  const assets=await (await api.request.get(base+'/api/network-explorer/v1/assets?q=PYUSD&limit=1')).json();assert.ok(assets.total>=1);assert.equal(assets.records.length,1);
  const pageTwo=await (await api.request.get(base+'/api/network-explorer/v1/relationships?limit=5&offset=5')).json();assert.equal(pageTwo.records.length,5);

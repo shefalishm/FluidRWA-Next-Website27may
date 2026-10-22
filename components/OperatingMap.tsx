@@ -28,9 +28,11 @@ export function OperatingMap() {
       <div><strong>{infrastructureRelationships.length}</strong><span>source-linked connections</span></div>
       <div><strong>{new Set(infrastructureRelationships.map(edge => edge.provider)).size}</strong><span>named organizations</span></div>
     </div>
-    <div className={styles.selector} aria-label="Choose an asset">
-      {mappedAssets.map(row => <button key={row.id} type="button" aria-pressed={selectedId === row.id} onClick={() => setSelectedId(row.id)}>{row.name}</button>)}
-    </div>
+    <label className={styles.selector}>Choose an asset
+      <select value={selectedId} onChange={event => setSelectedId(event.target.value)}>
+        {mappedAssets.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}
+      </select>
+    </label>
     <div className={styles.map}>
       <div className={styles.asset}>
         <span>ASSET</span>

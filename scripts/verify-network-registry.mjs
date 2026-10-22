@@ -9,7 +9,8 @@ const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.
 const roles = JSON.parse(fs.readFileSync('data/asset-infrastructure-relationships.json', 'utf8'));
 const fundHistory = JSON.parse(fs.readFileSync('data/fund-disclosure-history.json', 'utf8'));
 const errors = [];
-const today = new Date().toISOString().slice(0, 10);
+// Editorial review dates use the research team's calendar, not the worker's UTC day.
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 const ids = new Set();
 const contracts = new Set();
 const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: null, reportedAsOf: null }));

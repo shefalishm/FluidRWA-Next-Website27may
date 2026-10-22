@@ -66,9 +66,9 @@ try {
 }
 
 for (const [route, field, minimum] of [
-  ["/api/network-explorer/v1/coverage", "documentedRelationships", 16],
-  ["/api/network-explorer/v1/assets", "total", 1731],
-  ["/api/network-explorer/v1/relationships", "total", 28]
+  ["/api/network-explorer/v1/coverage", "documentedRelationships", 75],
+  ["/api/network-explorer/v1/assets", "total", 1743],
+  ["/api/network-explorer/v1/relationships", "total", 75]
 ]) {
   try {
     const response = await fetchWithRetry(`${origin}${route}`);
