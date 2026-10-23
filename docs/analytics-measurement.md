@@ -2,9 +2,13 @@
 
 Production GA4: G-Q5L2HZK162. Only fluidrwa.com and www.fluidrwa.com load tracking. Local, Vercel previews and workers.dev backups are excluded. Add analytics=off to production testing URLs; source=qa-test is also excluded.
 
-Google enhanced measurement owns initial and history-change page views. Do not re-add route-level config calls. Confirm history-change tracking is enabled in the GA4 web stream before release. The zero-engaged-session anomaly needs a separate GA4 configuration/network audit; do not fabricate engagement events or assume this implementation fixes historical data.
+October 23 account check: enhanced measurement is OFF in the production web stream. The site now owns page views explicitly: the GA config uses `send_page_view: false`, and a pathname-aware effect sends one initial view after analytics readiness and one per subsequent path change. Repeated readiness events and same-path renders do not add views. Keep enhanced history/page-view collection disabled while this implementation owns navigation; do not add another page-view listener or config call. Basic GA foreground engagement remains separate; no artificial timer events are used. This corrects future collection, not historical data.
 
 Successful saved intake events additionally send generate_lead. Submission attempts have an _attempt suffix and are not conversions. Filtered spam is excluded by existing success handlers. Mark generate_lead as a key event in GA4; leave attempts unmarked.
+
+From the October 23 revision, `form_submit_attempt` includes invalid client-side attempts (previously it only fired after validation). `form_validation_failed` records an attempt stopped by browser validation; field-level errors remain deduplicated by field/reason for each mounted form. `form_request_sent` identifies requests actually sent to the server. Do not compare the old and new attempt totals without this annotation. No entered field values are sent. Website domains are normalized on submit as well as change, so Enter/autofill paths do not depend on a blur event.
+
+`project_form_view` and `vendor_application_view` mean the first required field became at least 50% visible, not merely that the route loaded. Keep route views and form visibility separate in reports. An elevated route-view count alone is not a count of prospective buyers.
 
 Campaign parameters persist within the browser session and are attached to FormData as ATTRIBUTION_UTM_* fields. Existing rawPayload storage retains these fields. Track source, medium, campaign, id, content, term and source platform. Never put contact details or free-text requirements in UTMs. Referrer alone cannot identify an untagged campaign.
 

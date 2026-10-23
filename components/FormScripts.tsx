@@ -105,16 +105,18 @@ export function FormScripts() {
       const categoryField = form.querySelector<HTMLInputElement>('input[name="VENDOR_CATEGORY"]');
       const sourceField = form.querySelector<HTMLInputElement>('input[name="REQUEST_SOURCE"]');
       const pageField = form.querySelector<HTMLInputElement>('input[name="PAGE_URL"]');
-      const normalizeWebsite = (event: Event) => {
-        const input = event.target;
-        if (!(input instanceof HTMLInputElement) || input.type !== "url" || input.name !== "WEBSITE") return;
+      const normalizeWebsite = (input: HTMLInputElement) => {
+        if (input.type !== "url" || input.name !== "WEBSITE") return;
         const value = input.value.trim();
         if (/^(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[/:?#].*)?$/i.test(value) && !/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
           input.value = `https://${value}`;
         }
       };
-      form.addEventListener("change", normalizeWebsite);
-      cleanups.push(() => form.removeEventListener("change", normalizeWebsite));
+      const handleWebsiteChange = (event: Event) => {
+        if (event.target instanceof HTMLInputElement) normalizeWebsite(event.target);
+      };
+      form.addEventListener("change", handleWebsiteChange);
+      cleanups.push(() => form.removeEventListener("change", handleWebsiteChange));
       if (vendorField && vendor) vendorField.value = vendor;
       if (categoryField && category) categoryField.value = category;
       const requirementCategory = form.querySelector<HTMLSelectElement>('[name="REQUIREMENT_CATEGORY"]');
@@ -184,16 +186,21 @@ export function FormScripts() {
       const handleSubmit = async (event: SubmitEvent) => {
         event.preventDefault();
         event.stopImmediatePropagation();
+        if (button.disabled) return;
+        // Count the user's attempt even when client-side validation prevents a request.
+        trackEvent("form_submit_attempt", analyticsDetails());
+        form.querySelectorAll<HTMLInputElement>('input[name="WEBSITE"]').forEach((input) => {
+          normalizeWebsite(input);
+        });
         if (!form.checkValidity()) {
+          trackEvent("form_validation_failed", analyticsDetails());
           status.className = "form-status is-error";
           status.textContent = "Please complete the highlighted fields. Your other details have been kept.";
           form.querySelector<HTMLElement>(":invalid")?.focus();
           return;
         }
-        if (button.disabled) return;
         const isVendorSubmission = getIsVendorForm();
         const sourceValue = sourceField?.value || "";
-        trackEvent("form_submit_attempt", analyticsDetails());
         const { defaultButtonText, loadingText, successTitle, successCopy } = getFormMessages();
         button.disabled = true;
         button.textContent = "Submitting...";
@@ -231,6 +238,7 @@ export function FormScripts() {
         };
 
         try {
+          trackEvent("form_request_sent", analyticsDetails());
           const response = await fetch("/api/vendor-intro-request", {
             method: "POST",
             headers: {

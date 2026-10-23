@@ -1,7 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const measurementId = "G-Q5L2HZK162";
 const googleAdsId = "AW-299215586";
@@ -19,8 +20,10 @@ declare global {
 }
 
 export function GoogleAnalytics() {
+  const pathname = usePathname();
   const [enabled, setEnabled] = useState(false);
   const [measurementReady, setMeasurementReady] = useState(false);
+  const lastTrackedPath = useRef<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -36,6 +39,18 @@ export function GoogleAnalytics() {
       && !navigator.webdriver
       && !botPattern.test(navigator.userAgent));
   }, []);
+
+  useEffect(() => {
+    if (!enabled || !pathname) return;
+    const reportPage = () => {
+      if (!window.fluidRwaTrackEvent || lastTrackedPath.current === pathname) return;
+      lastTrackedPath.current = pathname;
+      window.fluidRwaTrackEvent("page_view");
+    };
+    reportPage();
+    window.addEventListener("fluidrwa:analytics-ready", reportPage);
+    return () => window.removeEventListener("fluidrwa:analytics-ready", reportPage);
+  }, [enabled, pathname]);
 
   if (!enabled) return null;
 
@@ -58,6 +73,7 @@ export function GoogleAnalytics() {
           }
           gtag('js', new Date());
           gtag('config', '${measurementId}', {
+            send_page_view: false,
             page_path: window.location.pathname,
             page_location: analyticsLocation(),
             site_host: window.location.hostname,

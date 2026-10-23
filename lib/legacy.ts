@@ -16,13 +16,8 @@ type SeoOverride = {
 const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
     title: "Top 10 RWA Tokenization Platforms for 2026",
-    description: "Compare 10 RWA tokenization platforms by issuer fit, compliance, lifecycle support, custody needs and institutional use case.",
+    description: "Compare 10 RWA tokenization platforms for funds, real estate and private markets. Understand operating models, buyer checks and the other providers you need.",
     heading: "Top 10 RWA tokenization platforms for 2026"
-  },
-  "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": {
-    title: "MoonPay vs Transak vs Banxa: On/Off-Ramp APIs",
-    description: "Compare MoonPay, Transak and Banxa APIs, widgets, webhooks, KYC ownership, payment coverage and integration workflows for Web3 products.",
-    heading: "MoonPay, Transak or Banxa for API integration?"
   },
   "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
     title: "Akash vs io.net vs Aethir (2026): GPU Compute Compared",
@@ -34,20 +29,10 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare four crypto analytics platforms for wallet screening, transaction monitoring, sanctions, investigations and forensics.",
     heading: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte"
   },
-  "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
-    title: "Alchemy vs QuickNode vs Infura: RPC Compared",
-    description: "Compare Alchemy, QuickNode and Infura for RPC performance, chain coverage, webhooks, archive data, APIs and production support.",
-    heading: "Alchemy vs QuickNode vs Infura"
-  },
   "blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers/index.html": {
     title: "Chainstack vs Alchemy vs QuickNode: Managed RPC",
     description: "Compare managed RPC, dedicated nodes, archive access, request accounting and operational control across Chainstack, Alchemy and QuickNode.",
     heading: "Which managed RPC model fits your workload?"
-  },
-  "blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax/index.html": {
-    title: "TaxBit vs Ledgible vs Lukka: Crypto Accounting",
-    description: "Compare TaxBit, Ledgible and Lukka for crypto accounting, tax reporting, reconciliation, audit evidence and enterprise finance workflows.",
-    heading: "TaxBit vs Ledgible vs Lukka"
   },
   "blog/rwa-tokenization-platform-comparison-2026/index.html": {
     title: "RWA Tokenization Platform Comparison (2026)",
@@ -101,8 +86,8 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare 29 fiat ramp providers by country coverage, payment methods, KYC, APIs, settlement, stablecoin support and product fit."
   },
   "vendors/payments-stablecoins/index.html": {
-    title: "30 Stablecoin Infrastructure Providers Compared (2026)",
-    description: "Compare 30 stablecoin providers by issuance, payments, settlement, treasury, compliance, integrations and enterprise use case."
+    title: "Stablecoin Providers: Payments, Payouts & Issuance",
+    description: "Compare 30 stablecoin infrastructure providers by buyer task: payments, payouts, issuance, treasury and compliance. Build a requirements-led shortlist."
   }
 };
 
@@ -292,7 +277,7 @@ export function legacyJsonLd(file: string) {
         if (entry?.["@type"] === "CollectionPage") entry.name = override.title;
         if (entry?.["@type"] === "Article" || entry?.["@type"] === "CollectionPage") {
           entry.description = override.description;
-          entry.dateModified = "2026-09-22";
+          if (!entry.dateModified) entry.dateModified = "2026-09-22";
         }
       }
     }

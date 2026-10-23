@@ -171,6 +171,13 @@ export async function POST(request: Request) {
     const sourceValue = isVendorReviewPage
       ? "vendor-review-application"
       : clean(payload.source) || clean(payload.requestSource) || "submit-requirement";
+    const isQaSubmission = /(^|[-_])(qa|test|smoke)([-_]|$)/i.test(clean(payload.source) || clean(payload.requestSource))
+      || (() => {
+        try {
+          const page = new URL(clean(payload.pageUrl));
+          return ["www.fluidrwa.com", "fluidrwa.com"].includes(page.hostname) && page.searchParams.get("source") === "qa-test";
+        } catch { return false; }
+      })();
     const selectedCategory = clean(payload.rawPayload?.REQUIREMENT_CATEGORY);
     const contextualCategory = clean(payload.rawPayload?.VENDOR_CATEGORY) || clean(payload.vendorCategory);
     const normalized: VendorIntroPayload = {
@@ -249,7 +256,7 @@ export async function POST(request: Request) {
       website: normalized.website || null,
       linkedin: normalized.linkedin || null,
       project_description: normalized.projectDescription,
-      status: "new",
+      status: isQaSubmission ? "qa_test" : "new",
       raw_payload: normalized.rawPayload || {}
     };
 

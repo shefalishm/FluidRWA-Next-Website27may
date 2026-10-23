@@ -5,7 +5,11 @@ import ts from 'typescript';
 
 const compile = path => ts.transpileModule(fs.readFileSync(path, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const helpers = {};
-vm.runInNewContext(compile('lib/formAbuse.ts'), { exports: helpers, URL, Date });
+class IncidentDate extends Date {
+  static now() { return Date.parse('2026-10-07T12:00:00Z'); }
+}
+// Keep containment tests deterministic after the temporary block expires.
+vm.runInNewContext(compile('lib/formAbuse.ts'), { exports: helpers, URL, Date: IncidentDate });
 const request = (headers = {}, method = 'POST', path = '/api/vendor-intro-request') => new Request(`https://www.fluidrwa.com${path}`, { method, headers });
 assert.equal(helpers.formRequestRejection(request({ origin: 'https://www.fluidrwa.com' })), null);
 assert.equal(helpers.formRequestRejection(request({ origin: 'https://fluidrwa.com' })), null);

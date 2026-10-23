@@ -1,10 +1,11 @@
 ---
-title: "MoonPay vs Transak vs Banxa: On/Off-Ramp APIs and Integration Compared"
+title: "MoonPay vs Transak vs Banxa: Ramp APIs Compared"
 seoTitle: "MoonPay vs Transak vs Banxa: Ramp API Comparison"
 description: "Compare documented ramp onboarding, KYC hand-offs, wallet controls and order tracking. Download a sourced MoonPay, Transak and Banxa dataset."
 date: "2026-08-03"
-reviewedDate: "2026-10-07"
-reviewedLabel: "October 7, 2026"
+reviewedDate: "2026-10-23"
+reviewedLabel: "October 23, 2026"
+readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 category: "Payments"
 slug: "moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers"
@@ -17,13 +18,13 @@ infographicMobileWidth: "900"
 infographicMobileHeight: "5000"
 infographicName: "MoonPay, Transak and Banxa ramp onboarding documentation"
 infographicAlt: "MoonPay, Transak and Banxa documented integration, KYC, configuration, tracking, wallet and reconciliation capabilities; sources, scope and unknowns appear in the HTML table."
-infographicCaption: "Public documentation snapshot, checked October 7, 2026. No vendor ranking or performance test. Read the sourced table and CSV for limitations and unresolved questions."
+infographicCaption: "Documentation snapshot: full review October 7, 2026; Transak integration observation rechecked October 23. See row-level dates, scope and unknowns in the table and CSV."
 infographicKeywords: "fiat ramp onboarding, MoonPay API, Transak API, Banxa Native API, KYC hand-offs, reconciliation"
 datasetCsv: "/assets/datasets/moonpay-transak-banxa-onboarding-dataset.csv"
 considerationAfterTable: "true"
 image: "/assets/blog-images/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers.svg"
 imageAlt: "MoonPay, Transak and Banxa API integration comparison"
-answer: "Compare the exact onboarding journey, not the provider logo. The dataset records what MoonPay, Transak and Banxa document about six buyer tasks, together with product scope and unresolved questions. It does not rank vendors, test performance or establish production eligibility."
+answer: "Start with how much of the customer journey you want to build. MoonPay documents APIs around its widget. Transak offers a Whitelabel API, but its current limitations exclude off-ramp and require a provider step for standard KYC. Banxa Native combines APIs and payment SDKs and requires account approval. These are different integration models, not a fastest-or-cheapest ranking."
 ctaTitle: "Discuss your ramp requirements"
 ctaText: "Share your geography, asset/network, payment method and operating model."
 ctaLabel: "Submit requirements"
@@ -41,8 +42,41 @@ faq4a: "Not necessarily. Fiat funding and merchant payment acceptance are differ
 faq5q: "Is successful KYC the same as permission to transact?"
 faq5a: "Do not treat them as interchangeable. Banxa's Native identity documentation distinguishes verification from transaction eligibility. Require a configuration-specific explanation of approval gates."
 faq6q: "What is included in the CSV?"
-faq6a: "Eighteen observations across three providers and six buyer tasks, each with documented scope, an unresolved question, an exact primary-source URL and an October 7, 2026 verification date."
+faq6a: "Eighteen observations across three providers and six buyer tasks, each with scope, an unresolved question, an exact primary-source URL and a row-level verification date. The full review is dated October 7; the Transak integration observation was updated October 23, 2026."
 ---
+
+## Which integration should you investigate first?
+
+Your first decision is not which logo to put on the shortlist. It is who builds the checkout, who collects verification information and who fixes a failed order.
+
+| Your starting point | Documentation to explore | Important boundary |
+| --- | --- | --- |
+| You want a widget integration with supporting transaction APIs | [MoonPay Widget API](https://dev.moonpay.com/api-reference/widget/overview) | The reference describes quotes, transaction lookups and configuration discovery; it does not establish your production eligibility |
+| You want to build a custom on-ramp interface backed by provider APIs | [Transak Whitelabel API](https://docs.transak.com/integration/api) | The current limitations table excludes off-ramp and sends standard document/liveness verification to a provider widget |
+| You have a backend and want an API/SDK payment journey | [Banxa Native integration](https://docs.banxa.com/products/native-api/docs/how-it-works/integration-overview) | Access requires a signed agreement; payment methods and implementation paths need separate review |
+
+This is a starting route through each company's documentation, not a recommendation that one provider will approve your customers or outperform another. The three overview pages above were rechecked on October 23, 2026. In the detailed dataset, the Transak integration observation was updated to reflect its current limitations table. Other observations retain their October 7 verification dates.
+
+## What does this mean for your product team?
+
+For a tokenized investment portal, walk through one investor's funding journey: select the asset and network, complete verification, make the fiat payment, receive the crypto and reconcile the order. Then repeat it with an unsuccessful payment and a customer who needs additional verification.
+
+For a wallet app, start with the destination wallet and network controls. Ask which information the customer can change, what the provider validates and what support can recover after a mistake. An API accepting an address does not by itself establish those controls.
+
+For a finance team, request a sample order record and a statement that can be matched to it. A webhook tells your application that something changed; it is not automatically a complete accounting record.
+
+These are FluidRWA's proposed evaluation exercises, not tests we have run against the providers.
+
+## How should buyers evaluate onboarding?
+
+1. Write down the customer country, payment method, fiat currency, asset, network and buy/sell direction.
+2. Ask each provider to confirm that exact configuration, rather than comparing global coverage totals.
+3. Draw the customer journey, including every verification screen and redirect.
+4. Agree who answers the customer when verification or payment fails.
+5. Demonstrate a delayed webhook and recover the order through an independent lookup.
+6. Match the final order to fees, delivery evidence and any refund adjustment.
+
+Need help choosing the right category? Browse [fiat on/off-ramp providers](/vendors/fiat-on-off-ramp-providers), [share your requirements](/submit-requirement?source=blog-shortlist&article=moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers), or email [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
 
 ## How was this cohort selected?
 
@@ -55,19 +89,6 @@ We reviewed official public documentation on October 7, 2026. We did not authent
 An endpoint description is not proof of customer acceptance. A response example is not a settlement statement. A white-label product name does not establish support or legal responsibility.
 
 Wallet ownership checks, recovery arrangements and accounting completeness remain **Verification Required** where inspected documentation does not settle them. These are unresolved questions, not negative feature judgments.
-
-## How should buyers evaluate onboarding?
-
-The following is **FluidRWA procurement guidance**, not a list of vendor capabilities.
-
-1. Define customer location, entity, direction, fiat, payment method, asset and network.
-2. Request an annotated journey showing every redirect, hosted verification step and failure state.
-3. Assign collection, decision, retention, support and escalation ownership at each KYC hand-off.
-4. Demonstrate duplicate and delayed events, plus an order-lookup recovery path.
-5. Match order identifiers to amounts, fees, delivery evidence, refund adjustments and finance statements.
-6. Obtain written production eligibility and contractual responsibilities before launch.
-
-Do not extrapolate the scope of one provider product to all its other products.
 
 ## What should buyers request before signing?
 
@@ -100,4 +121,4 @@ Every row in the evidence table links to its exact primary source. All sources w
 - [Banxa: Configuration](https://docs.banxa.com/products/native-api/openapi/configuration)
 - [Banxa: Native webhooks](https://docs.banxa.com/products/native-api/docs/transaction-lifecycle/webhooks)
 
-**Last updated and documentation checked: October 7, 2026. Reviewed by FluidRWA Research Team.**
+**Editorial update and integration-overview recheck: October 23, 2026. Detailed dataset verification: October 7, 2026. Reviewed by FluidRWA Research Team.**

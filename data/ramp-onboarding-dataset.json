@@ -1,6 +1,7 @@
 {
   "title": "Ramp onboarding: documented capabilities",
   "checked": "2026-10-07",
+  "lastPartialReview": "2026-10-23",
   "method": "Existing article cohort, not a ranked or exhaustive market sample. Official public documentation only; no authenticated APIs or production transactions tested.",
   "rows": [
     {
@@ -60,11 +61,11 @@
     {
       "provider": "Transak",
       "dimension": "Integration model",
-      "observation": "Whitelabel API limitations distinguish bank-transfer flows from semi-widget card/Apple Pay flows.",
+      "observation": "Whitelabel API limitations list cards, Apple Pay, Google Pay and bank transfers as API-supported; Standard KYC requires a provider widget.",
       "scope": "The API page lists OffRamp as unsupported in its limitations table.",
       "unknown": "Not verified: which features are enabled for a particular partner.",
       "source": "https://docs.transak.com/integration/api",
-      "checked": "2026-10-07"
+      "checked": "2026-10-23"
     },
     {
       "provider": "Transak",

@@ -357,10 +357,11 @@ export async function POST(request: NextRequest) {
     const read = await fetch(`${endpoint}&select=raw_payload,updated_at`, { headers: databaseHeaders, cache: "no-store" });
     if (!read.ok) throw new Error("read failed");
     const [row] = await read.json() as Array<{ raw_payload: Record<string, unknown>; updated_at: string }>;
-    const receipt = row?.raw_payload?.FLUIDRWA_NOTIFICATION as { messageId?: string } | undefined;
+    const receipt = row?.raw_payload?.FLUIDRWA_NOTIFICATION as { messageId?: string; lastEvent?: string; verificationSource?: string } | undefined;
     if (!receipt?.messageId) return NextResponse.json({ ok: false, message: "No email receipt was stored for this submission." }, { status: 409, headers });
+    if (receipt.verificationSource === "signed_resend_webhook" && receipt.lastEvent) return NextResponse.json({ ok: true, lastEvent: receipt.lastEvent }, { headers });
     const provider = await fetch(`https://api.resend.com/emails/${encodeURIComponent(receipt.messageId)}`, { headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` }, cache: "no-store" });
-    if (!provider.ok) return NextResponse.json({ ok: false, message: "The email provider could not verify this receipt." }, { status: 502, headers });
+    if (!provider.ok) return NextResponse.json({ ok: false, message: "Delivery history is unavailable with the current email credential. This does not mean delivery failed. Signed delivery updates appear automatically once received." }, { status: 502, headers });
     const email = await provider.json() as { last_event?: string };
     const lastEvent = typeof email.last_event === "string" ? email.last_event.slice(0, 40) : "unknown";
     const update = await fetch(`${endpoint}&updated_at=eq.${encodeURIComponent(row.updated_at)}&select=id`, {
