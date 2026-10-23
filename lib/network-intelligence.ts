@@ -11,7 +11,7 @@ import fundDisclosureHistory from "@/data/fund-disclosure-history.json";
 export { snapshot, ramp, fundDisclosureHistory };
 export { infrastructureRelationships };
 export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
-export const explorerViews = ["supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
+export const explorerViews = ["fund-comparison", "supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
 export const assetRegistry = [

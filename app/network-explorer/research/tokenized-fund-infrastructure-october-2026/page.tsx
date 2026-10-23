@@ -54,7 +54,7 @@ export default function Page() {
       <h1>The firms behind <span>tokenized funds</span></h1>
       <p className={styles.lead}>Putting a fund on a blockchain changes how its shares are held and transferred. It does not remove the work of safeguarding assets, maintaining accounts or recording who owns them.</p>
       <p className={styles.date}>21 October 2026 <span>Reviewed by FluidRWA Research Team</span></p>
-      <div className={styles.headerActions}><a href="#summary">Read the report <ArrowDown size={17}/></a><a href={`/assets/datasets/${stem}.csv`} download><Download size={17}/> Download data</a></div>
+      <div className={styles.headerActions}><a href="#summary">Read the report <ArrowDown size={17}/></a><Link href="/network-explorer/fund-comparison">Compare fund models <ArrowUpRight size={17}/></Link><a href={`/assets/datasets/${stem}.csv`} download><Download size={17}/> Download data</a></div>
     </header>
     <div className={styles.reportLayout}>
       <aside className={styles.rail}><nav aria-label="Report contents"><p>In this report</p><a href="#summary">Executive summary</a><a href="#behind-the-token">Behind the token</a><a href="#ownership">Who records ownership?</a><a href="#fund-structures">Why structure matters</a><a href="#buyer-decisions">Choosing providers</a><a href="#appendix">Data and sources</a></nav></aside>

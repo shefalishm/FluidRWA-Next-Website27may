@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import { changePercent, comparisonForDays, displayUnits, type OnchainSupplyObservation } from "@/lib/onchainSupply";
 import styles from "./OnchainSupplyMonitor.module.css";
+import initialSnapshot from "@/data/onchain-supply-page-snapshot.json";
 
 type Series = {
   id: string;
@@ -56,12 +57,13 @@ function previousDailyChange(rows: OnchainSupplyObservation[]) {
 }
 
 export function OnchainSupplyMonitor() {
-  const [data, setData] = useState<SupplyResponse | null>(null);
+  const [data, setData] = useState<SupplyResponse | null>(initialSnapshot as SupplyResponse);
   const [error, setError] = useState(false);
   const [period, setPeriod] = useState(7);
   const [assetClass, setAssetClass] = useState("All assets");
-  const today = new Date().toISOString().slice(0, 10);
+  const [today, setToday] = useState("");
   useEffect(() => {
+    setToday(new Date().toISOString().slice(0, 10));
     const controller = new AbortController();
     fetch("/api/network-explorer/onchain-supply", { signal: controller.signal })
       .then(response => { if (!response.ok) throw new Error("unavailable"); return response.json(); })
@@ -76,13 +78,14 @@ export function OnchainSupplyMonitor() {
       {data?.series.some(item => item.observations.length) && <button type="button" title="Download source observations as CSV" onClick={() => downloadCsv(data.series)}><ArrowDownToLine size={17} /> Download CSV</button>}
     </div>
     <div className={styles.scope}>Metric: ERC-20 <code>totalSupply()</code> in native token units. Stablecoins, notes, fund shares, gold tokens and tokenized securities cannot be added into one value. A security's reference asset identifies its price exposure, not ownership of underlying shares. This does not establish circulating supply, reserves, fund NAV, market value or complete chain coverage.</div>
-    {error && <p className={styles.notice}>The measurement feed is temporarily unavailable. The rest of Network Explorer remains available.</p>}
+    <p className={styles.notice}>The initial page includes saved observations captured {initialSnapshot.pageSnapshotCapturedAt.slice(0, 10)} UTC. It checks for newer readings when opened; each measurement retains its own date and block.</p>
+    {error && <p className={styles.notice}>The latest measurement feed is temporarily unavailable. Saved dated observations remain visible below; do not treat them as today's readings.</p>}
     {!data && !error && <p className={styles.notice}>Loading dated observations...</p>}
     {data && <>
       <div className={styles.summary} aria-label="Measured coverage">
         <div><strong>{data.series.length}</strong><span>documented contracts</span></div>
         <div><strong>{new Set(data.series.map(item => item.network)).size}</strong><span>networks</span></div>
-        <div><strong>{data.series.filter(item => item.observations.at(-1)?.day === today).length}</strong><span>captured today (UTC)</span></div>
+        <div><strong>{today ? data.series.filter(item => item.observations.at(-1)?.day === today).length : "Checking"}</strong><span>captured today (UTC)</span></div>
         <div><strong>{data.series.filter(item => previousDailyChange(item.observations)).length}</strong><span>with consecutive-day comparison</span></div>
       </div>
       <div className={styles.filters} role="group" aria-label="Filter by asset type">{["All assets", ...new Set(data.series.map(item => item.assetClass))].map(category => <button key={category} type="button" aria-pressed={assetClass === category} onClick={() => setAssetClass(category)}>{category}<span>{category === "All assets" ? data.series.length : data.series.filter(item => item.assetClass === category).length}</span></button>)}</div>
@@ -93,7 +96,7 @@ export function OnchainSupplyMonitor() {
         const daily = previousDailyChange(item.observations);
         return <article key={item.id} className={styles.series}>
           <div className={styles.seriesTitle}><div><h3>{item.symbol} <span>on {item.network}</span></h3><p>{item.assetClass}{item.referenceAsset ? ` · ${item.referenceAsset} reference` : ""} · {item.issuer} · chain {item.chainId}</p></div><strong>{latest ? displayUnits(latest.raw_supply, latest.decimals, item.assetClass === "Stablecoin" ? 0 : 2) : "Awaiting first capture"}<small>{latest ? "tokens in contract totalSupply" : "No published measurement yet"}</small></strong></div>
-          <p className={`${styles.captureStatus} ${latest?.day === today ? styles.captureCurrent : styles.capturePending}`}>{latest?.day === today ? "Captured today" : latest ? `Latest capture ${latest.day}; today's reading pending` : "First reading pending"} · UTC</p>
+          <p className={`${styles.captureStatus} ${today && latest?.day === today ? styles.captureCurrent : styles.capturePending}`}>{!today ? latest ? `Saved capture ${latest.day}` : "First reading pending" : latest?.day === today ? "Captured today" : latest ? `Latest capture ${latest.day}; today's reading pending` : "First reading pending"} · UTC</p>
           {daily && <p className={styles.dailyChange}><strong>{daily.percent === null ? "Change unavailable" : `${daily.percent > 0 ? "+" : ""}${daily.percent.toFixed(2)}%`}</strong> versus the previous daily capture <span>({daily.previous.day} to {daily.latest.day}, UTC)</span></p>}
           {chart ? <svg className={styles.chart} viewBox="0 0 800 210" role="img" aria-label={`${item.symbol} on ${item.network}: contract total supply changed ${chart.change === null ? "an unknown amount" : `${chart.change}%`} between ${chart.first.day} and ${chart.last.day}`}><path d="M24 174H776" stroke="#dce5ed" strokeWidth="1"/><polyline points={chart.points} fill="none" stroke="#276db4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/><circle cx="776" cy={chart.points.split(" ").at(-1)!.split(",")[1]} r="5" fill="#e8be38" /></svg> : <div className={styles.noHistory}>A {period === 365 ? "yearly" : `${period}-day`} chart will appear after enough dated observations. No earlier values have been inferred.</div>}
           {chart && <p className={styles.chartCaption}>Observed range: {chart.first.day} to {chart.last.day}. This may be shorter than the selected {period === 365 ? "one-year" : `${period}-day`} window.</p>}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowDownToLine, ArrowUpRight, Building2, CircleHelp, Link2 } from "lucide-react";
 import { assetRegistry, dated, infrastructureRelationships } from "@/lib/network-intelligence";
+import { providerGroup } from "@/lib/fund-comparison";
 import styles from "./OperatingMap.module.css";
 
 const mappedIds = [...new Set(infrastructureRelationships.map(edge => edge.assetId))];
@@ -26,8 +27,9 @@ export function OperatingMap() {
     <div className={styles.scope} aria-label="Current operating-map scope">
       <div><strong>{mappedAssets.length}</strong><span>assets with documented roles</span></div>
       <div><strong>{infrastructureRelationships.length}</strong><span>source-linked connections</span></div>
-      <div><strong>{new Set(infrastructureRelationships.map(edge => edge.provider)).size}</strong><span>named organizations</span></div>
+      <div><strong>{new Set(infrastructureRelationships.map(edge => providerGroup(edge.provider))).size}</strong><span>provider name groups</span></div>
     </div>
+    <p className={styles.groupNote}>{new Set(infrastructureRelationships.map(edge => edge.provider)).size} source-name labels; BNY and Anchorage variants are grouped for browsing. This is not a count of distinct legal entities. Separate CACEIS and Superstate entities remain separate; other unresolved names have not been merged.</p>
     <label className={styles.selector}>Choose an asset
       <select value={selectedId} onChange={event => setSelectedId(event.target.value)}>
         {mappedAssets.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}

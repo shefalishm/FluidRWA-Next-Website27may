@@ -1,4 +1,5 @@
 import { assetRegistry, infrastructureRelationships, registryUpdated, registryValueStatus } from "@/lib/network-intelligence";
+import { providerGroup } from "@/lib/fund-comparison";
 
 export const networkApiVersion = "1.0";
 
@@ -53,6 +54,7 @@ export function coverage() {
     documentedRelationships: infrastructureRelationships.length,
     relationshipAssets: new Set(infrastructureRelationships.map(edge => edge.assetId)).size,
     relationshipProviders: new Set(infrastructureRelationships.map(edge => edge.provider)).size,
+    providerNameGroups: new Set(infrastructureRelationships.map(edge => providerGroup(edge.provider))).size,
     byCohort: countBy(assetRegistry, asset => asset.cohort),
     byAssetClass: countBy(assetRegistry, asset => asset.assetClass),
     byValueStatus: countBy(assetRegistry, asset => registryValueStatus(asset, now)),
@@ -60,7 +62,9 @@ export function coverage() {
       identifiedRecords: "Distinct issuer-list entries or research profiles. Products from different issuers may track the same underlying.",
       datedValueRecords: "Records with a reviewed issuer-reported USD figure and its original reporting date; not synchronized or additive.",
       sourceListedContractRecords: "Records with an issuer-listed contract link; not an independent contract or trading audit.",
-      documentedRelationships: "Source-linked asset-to-provider role statements. Historical announcements retain their original scope."
+      documentedRelationships: "Source-linked asset-to-provider role statements. Historical announcements retain their original scope.",
+      relationshipProviders: "Legacy field: distinct provider name labels as documented, not verified unique legal entities.",
+      providerNameGroups: "BNY and Anchorage source-name variants grouped for browsing only. Other names remain separate. Not a count of contracting legal entities."
     }
   };
 }
