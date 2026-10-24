@@ -5,6 +5,7 @@ description: "Understand what no-prefunding stablecoin payout offers really mean
 date: "2026-10-24"
 reviewedDate: "2026-10-24"
 reviewedLabel: "October 24, 2026"
+modifiedDate: "2026-10-24"
 reviewedBy: "FluidRWA Research Team"
 category: "Stablecoin Payments"
 slug: "stablecoin-payouts-without-prefunding-buyer-guide"
@@ -26,11 +27,11 @@ faq3q: "What should a pilot measure?"
 faq3a: "Measure usable receipt, time to resolve exceptions, liquidity used by each party, FX and redemption cost, reversals, and the share of payouts reconciled without manual repair."
 ---
 
-## The phrase is about who ties up cash
+## Who has to keep money ready?
 
 Cross-border businesses often keep balances in destination markets so payments can be made promptly. The [Bank for International Settlements](https://www.bis.org/publications/payments-without-borders) explains why that prefunding can reduce delay and failure risk while imposing a cost on idle balances. A stablecoin rail may reduce the sender's need for those balances. It does not create destination liquidity out of nothing.
 
-That distinction matters when a sales proposal promises **payouts without prefunding**. Ask: without prefunding **by whom, in which currency, and until which step**?
+When a proposal says **payouts without prefunding**, ask whose cash is no longer tied up. Is it the sender's fiat, a local partner's balance, or both? Also ask when that money has to be available.
 
 ## Compare the funding models
 
@@ -41,7 +42,7 @@ That distinction matters when a sales proposal promises **payouts without prefun
 | Just-in-time conversion | Fiat or stablecoin at instruction time | Market maker, provider or banking partner | Who bears a conversion failure or shortfall? |
 | Credit-backed payout | Eligible limit rather than full cash collateral | Lender or payout provider | What are the limit, collateral, repayment and default terms? |
 
-These are buyer models, not claims that one named provider offers all four. In its [Visa Direct pilot description](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-direct-taps-stablecoins-to-unlock-faster-funding-for-businesses.html), Visa describes **stablecoin prefunding instead of fiat prefunding**. That is not the same as no prefunding of any kind. [Circle describes](https://www.circle.com/blog/the-internet-of-money-movement-how-cpn-is-rewiring-global-payments) a network intended to reduce the need for local prefunding; it does not remove the need to inspect corridor-specific liquidity and contractual obligations.
+The table describes funding arrangements to check, not four products offered by the same provider. In its [Visa Direct pilot description](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-direct-taps-stablecoins-to-unlock-faster-funding-for-businesses.html), Visa describes **stablecoin prefunding instead of fiat prefunding**. [Circle describes](https://www.circle.com/blog/the-internet-of-money-movement-how-cpn-is-rewiring-global-payments) a network intended to reduce local prefunding. For either proposal, buyers still need to find out who provides liquidity in each corridor and what the contract says happens when payout is delayed.
 
 ## Map the entire recipient journey
 

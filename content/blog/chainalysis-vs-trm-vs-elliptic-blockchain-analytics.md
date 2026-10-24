@@ -5,6 +5,7 @@ description: "Compare four crypto analytics platforms for wallet screening, tran
 date: "2026-08-03"
 reviewedDate: "2026-10-02"
 reviewedLabel: "October 2, 2026"
+modifiedDate: "2026-10-24"
 category: "Compliance"
 slug: "chainalysis-vs-trm-vs-elliptic-blockchain-analytics"
 infographicImage: "/assets/infographics/chainalysis-vs-trm-vs-elliptic-blockchain-analytics-comparison.png"
@@ -46,29 +47,15 @@ socialImage: "/assets/social/blog-chainalysis-vs-trm-vs-elliptic-blockchain-anal
 socialTitle: "Chainalysis vs TRM vs Elliptic vs Cognyte"
 ---
 
-## Blockchain Analytics Is the Evidence Layer of Crypto Compliance
+## Start with the decision your team has to make
 
-Blockchain analytics providers help compliance teams understand wallet risk, transaction exposure and onchain behavior. They are not just dashboards. In a serious Web3, stablecoin or tokenization workflow, they become part of the operating controls that determine whether a deposit is accepted, a withdrawal is blocked, a wallet is escalated or an investigation is opened.
+If your product receives deposits, you may need a wallet risk check before crediting a customer. If an alert fires, an analyst needs a case record they can explain and revisit. A public-sector investigation has a different task: connecting blockchain activity to other evidence. Those jobs call for different demonstrations from vendors.
 
-The mistake buyers make is comparing brand names before defining the workflow. A wallet screening requirement is different from a transaction monitoring requirement. A law-enforcement investigation is different from a stablecoin payout risk check. A tokenized fund onboarding process is different from monitoring a high-volume exchange.
-
-For FluidRWA buyers, the core question is simple: what risk decision needs to happen, at what point in the user journey, and what evidence needs to be retained?
-
-## Short Answer
-
-Chainalysis, TRM Labs, Elliptic and Cognyte all support crypto investigations or risk workflows, but they do not serve the same primary buyer.
-
-Chainalysis is often a strong fit for larger crypto businesses, exchanges, financial institutions and teams that need mature KYT, investigations, regulator familiarity and broad operational tooling.
-
-TRM Labs is often a strong fit for teams that want configurable risk rules, real-time monitoring, threat intelligence, case management and investigative workflows across compliance, fraud and public-sector use cases.
-
-Elliptic is often a strong fit for financial institutions, crypto businesses and compliance teams that need wallet screening, transaction monitoring, risk scoring, automatic rescreening and investigation-ready context.
-
-Cognyte is a distinct candidate for law-enforcement, public-safety and intelligence teams that want blockchain tracing connected to broader investigative analytics and suspect-identification workflows. A fintech looking for an embedded KYT API should not assume that this is the same procurement category.
+Chainalysis, TRM Labs and Elliptic are relevant to private-sector screening and monitoring. Cognyte is more closely associated with intelligence-led investigations. Ask each company to demonstrate the decision your team makes, the data behind it and the record you can export afterward.
 
 ## Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Direct Decision
 
-The shortlist should follow the decision the system must support. Chainalysis, TRM Labs and Elliptic are natural starting points for private-sector wallet screening, transaction monitoring and crypto investigations. Cognyte is a more distinct candidate when a public-sector or intelligence team needs blockchain evidence connected to broader investigative data.
+Use the table to shape a test case before you ask for pricing. It shows where each company may be worth investigating; it does not establish that a product meets your policy or covers every chain you use.
 
 | Required decision | Natural starting point | What must be proven |
 |---|---|---|

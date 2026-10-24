@@ -5,6 +5,7 @@ description: "Compare documented ramp onboarding, KYC hand-offs, wallet controls
 date: "2026-08-03"
 reviewedDate: "2026-10-23"
 reviewedLabel: "October 23, 2026"
+modifiedDate: "2026-10-24"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 category: "Payments"
@@ -45,9 +46,9 @@ faq6q: "What is included in the CSV?"
 faq6a: "Eighteen observations across three providers and six buyer tasks, each with scope, an unresolved question, an exact primary-source URL and a row-level verification date. The full review is dated October 7; the Transak integration observation was updated October 23, 2026."
 ---
 
-## Which integration should you investigate first?
+## Where does your customer go during checkout?
 
-Your first decision is not which logo to put on the shortlist. It is who builds the checkout, who collects verification information and who fixes a failed order.
+Decide how much of checkout your team will build. Then ask where customers complete identity checks and who helps when an order fails. Those answers will shape the integration more than the provider's API count.
 
 | Your starting point | Documentation to explore | Important boundary |
 | --- | --- | --- |
@@ -55,7 +56,7 @@ Your first decision is not which logo to put on the shortlist. It is who builds 
 | You want to build a custom on-ramp interface backed by provider APIs | [Transak Whitelabel API](https://docs.transak.com/integration/api) | The current limitations table excludes off-ramp and sends standard document/liveness verification to a provider widget |
 | You have a backend and want an API/SDK payment journey | [Banxa Native integration](https://docs.banxa.com/products/native-api/docs/how-it-works/integration-overview) | Access requires a signed agreement; payment methods and implementation paths need separate review |
 
-This is a starting route through each company's documentation, not a recommendation that one provider will approve your customers or outperform another. The three overview pages above were rechecked on October 23, 2026. In the detailed dataset, the Transak integration observation was updated to reflect its current limitations table. Other observations retain their October 7 verification dates.
+The documentation above gives you three integration routes to examine. It does not confirm that your customers will be approved. We rechecked the three overview pages on October 23, 2026 and updated the Transak integration row to match its current limitations table. The other dataset rows retain their October 7 review dates.
 
 ## What does this mean for your product team?
 
@@ -65,7 +66,7 @@ For a wallet app, start with the destination wallet and network controls. Ask wh
 
 For a finance team, request a sample order record and a statement that can be matched to it. A webhook tells your application that something changed; it is not automatically a complete accounting record.
 
-These are FluidRWA's proposed evaluation exercises, not tests we have run against the providers.
+These are exercises for your pilot. FluidRWA has not run test transactions with these providers.
 
 ## How should buyers evaluate onboarding?
 
