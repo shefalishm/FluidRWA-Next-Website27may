@@ -7,8 +7,8 @@ export function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const requested = params.has("funds") ? (params.get("funds") || "").split(",") : report.funds.map(fund => fund.id);
   const allowed = new Set(report.funds.map(fund => fund.id));
-  if (!requested.length || requested.length > 20 || new Set(requested).size !== requested.length || requested.some(id => !allowed.has(id))) {
-    return Response.json({ error: "Use one to twenty distinct fund IDs from the research edition." }, { status: 400, headers: { "Cache-Control": "no-store" } });
+  if (!requested.length || requested.length > report.funds.length || new Set(requested).size !== requested.length || requested.some(id => !allowed.has(id))) {
+    return Response.json({ error: `Use one to ${report.funds.length} distinct fund IDs from the research edition.` }, { status: 400, headers: { "Cache-Control": "no-store" } });
   }
   const format = params.get("format") || "json";
   if (!["csv", "json"].includes(format)) return Response.json({ error: "Supported formats: csv, json." }, { status: 400 });

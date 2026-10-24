@@ -4,10 +4,10 @@ import ts from 'typescript';
 import sharp from 'sharp';
 import assert from 'node:assert/strict';
 
-const report = JSON.parse(fs.readFileSync('data/research/tokenized-fund-infrastructure-2026-10-v1.json', 'utf8'));
+const report = JSON.parse(fs.readFileSync('data/research/tokenized-fund-infrastructure-2026-10-v2.json', 'utf8'));
 const api = {};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync('lib/fund-comparison.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true } }).outputText, {
-  exports: api, URLSearchParams, require(name) { if (name === '@/data/research/tokenized-fund-infrastructure-2026-10-v1.json') return report; throw new Error(name); }
+  exports: api, URLSearchParams, require(name) { if (name === '@/data/research/tokenized-fund-infrastructure-2026-10-v2.json') return report; throw new Error(name); }
 });
 const stem = api.comparisonEdition;
 const selected = ['fobxx', 'spiko-ustbl', 'wtgxx'].map(id => report.funds.find(fund => fund.id === id));
@@ -59,7 +59,7 @@ for (const mobile of [false, true]) {
   const footerY = mobile ? 2310 : 1350;
   body += `<line x1="40" x2="${width - 40}" y1="${footerY - 26}" y2="${footerY - 26}" stroke="#d7e1ea"/>`;
   body += lines(40, footerY + 8, 'Unknown does not mean absent. These are selected documented arrangements, not a market ranking or confirmation of current appointments. Spiko USTBL is a SICAV sub-fund; its appointments are shared.', mobile ? 49 : 114, mobile ? 24 : 22, '#536479');
-  body += text(40, height - 58, 'Source: FluidRWA Research / 2026-10-v1', mobile ? 24 : 22, '#2467aa', 700);
+  body += text(40, height - 58, `Source: FluidRWA Research / ${report.version}`, mobile ? 24 : 22, '#2467aa', 700);
   body += text(40, height - 23, 'fluidrwa.com/network-explorer/fund-comparison', mobile ? 23 : 22, '#2467aa');
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${body}</svg>`;
   save(`public/assets/infographics/${stem}${mobile ? '-mobile' : ''}.png`, await sharp(Buffer.from(svg)).png().toBuffer());

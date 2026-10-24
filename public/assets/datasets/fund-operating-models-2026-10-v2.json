@@ -1,0 +1,986 @@
+{
+  "version": "2026-10-v2",
+  "checked": "2026-10-23",
+  "title": "Who Powers Tokenized Funds? Infrastructure and Disclosure Review",
+  "period": "October 2026 expanded edition, as of 23 October; original twenty observations retain their 21 October checks",
+  "unit": "Named fund, sub-fund or feeder product; not issuer, blockchain deployment or dollar of assets",
+  "selection": "Purposive public-documentation sample: the unchanged twenty products of edition 2026-10-v1, plus six separately documented products: SWEEP, VBILL, JAAA, MCGXX, SPXA and JLTXX. Original sources retain their 21 October review dates; added sources were checked 23 October. This twenty-six-product roster is not a random, exhaustive or AUM-ranked market sample. A fund, sub-fund or feeder is counted once, regardless of blockchain deployments.",
+  "unknownMeaning": "Not verified in the listed reviewed sources. This does not mean the provider or role does not exist, nor that other public or investor-only documents omit it.",
+  "sources": [
+    {
+      "id": "buidl-launch",
+      "title": "BUIDL launch announcement",
+      "url": "https://investors.securitize.io/news/news-details/2024/BlackRock-Launches-Its-First-Tokenized-Fund-BUIDL-on-the-Ethereum-Network-03-20-2024/default.aspx",
+      "published": "2024-03-20",
+      "kind": "Company launch announcement",
+      "locator": "Fund service providers",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "franklin-letter",
+      "title": "Franklin Templeton staff letter",
+      "url": "https://www.sec.gov/rules-regulations/no-action-interpretive-exemptive-letters/division-investment-management-staff-no-action-interpretive-letters/franklin-templeton-081226",
+      "published": "2026-08-12",
+      "kind": "SEC staff letter",
+      "locator": "FOBXX transfer agent and integrated records",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "wt-products",
+      "title": "WisdomTree tokenized fund roster",
+      "url": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "WTGXX, WTSYX and FLTTX rows",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "wt-regulatory",
+      "title": "WisdomTree regulatory information",
+      "url": "https://www.wisdomtree.com/onchain/prospectus-and-regulatory-information",
+      "published": null,
+      "kind": "Company regulatory information page",
+      "locator": "Official ownership record; WisdomTree Transfers, Inc.",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "ustb",
+      "title": "USTB fund documentation",
+      "url": "https://superstate.com/assets/ustb",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Service providers",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "uscc",
+      "title": "USCC fund documentation",
+      "url": "https://superstate.com/assets/uscc",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Service providers",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "jtrsy",
+      "title": "Anemoy JTRSY fund page",
+      "url": "https://www.anemoy.io/funds/jtrsy",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Fund structure and Centrifuge portfolio access",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "cushy",
+      "title": "CUSHY fund documentation",
+      "url": "https://superstate.com/assets/cushy",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Service providers and product title",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "vbdc",
+      "title": "VBDC fund documentation",
+      "url": "https://superstate.com/assets/vbdc",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Service providers",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "acred-launch",
+      "title": "Apollo and Securitize ACRED launch",
+      "url": "https://investors.securitize.io/news/news-details/2025/Apollo-and-Securitize-Announce-Partnership-and-Launch-Tokenized-Access-to-Credit-Fund-on-Aptos-Avalanche-Ethereum-Ink-Polygon-and-Solana-Networks-01-30-2025/default.aspx",
+      "published": "2025-01-30",
+      "kind": "Company launch announcement",
+      "locator": "Digital transfer agent and fund administrator",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "hlscope-launch",
+      "title": "Securitize HLSCOPE feeder launch on TRON",
+      "url": "https://investors.securitize.io/news/news-details/2026/Securitize-Launches-Private-Credit-Fund-on-TRON-Blockchain/default.aspx",
+      "published": "2026-06-02",
+      "kind": "Company launch announcement",
+      "locator": "Securitize-managed feeder",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "ousg-product",
+      "title": "Ondo OUSG product page",
+      "url": "https://ondo.finance/ousg",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Limited partnership interests and portfolio",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "ousg-admin",
+      "title": "OUSG trust and transparency",
+      "url": "https://docs.ondo.finance/qualified-access-products/ousg/trust-and-transparency",
+      "published": null,
+      "kind": "Company documentation",
+      "locator": "Reporting and NAV Consulting",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "usyc",
+      "title": "Circle USYC product documentation",
+      "url": "https://www.circle.com/usyc",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "Who issues USYC; token administrator",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "tbill",
+      "title": "OpenEden TBILL FAQ",
+      "url": "https://docs.openeden.com/tbill/faq",
+      "published": null,
+      "kind": "Company documentation",
+      "locator": "Vault service providers and developer",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "spiko-prospectus",
+      "title": "Spiko SICAV prospectus",
+      "url": "https://cdn.spiko.finance/legal_docs/EN/Prospectus_Spiko_SICAV_EN.pdf",
+      "published": "2026-09-01",
+      "kind": "Issuer prospectus",
+      "locator": "Cover; printed pages 8-10 (PDF pages 8-10)",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "umint-launch",
+      "title": "UBS uMINT launch announcement",
+      "url": "https://www.ubs.com/global/en/media/display-page-ndp/en-20241101-first-tokenized-investment-fund.html",
+      "published": "2024-11-01",
+      "kind": "Company launch announcement",
+      "locator": "Fund launch and UBS Tokenize",
+      "checked": "2026-10-21"
+    },
+    {
+      "id": "sweep-launch",
+      "title": "State Street SWEEP launch disclosure",
+      "url": "https://investors.statestreet.com/investor-news-events/press-releases/news-details/2026/State-Street-Investment-Management-and-Galaxy-Digital-Bring-Cash-Management-Onchain/default.aspx",
+      "published": "2026-05-05",
+      "kind": "Issuer and partner launch announcement",
+      "locator": "SWEEP launch; Galaxy infrastructure; separate stablecoin and securities custodians; transfer agent",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "vbill-launch",
+      "title": "Securitize-issued VBILL launch release",
+      "url": "https://www.prnewswire.com/news-releases/vaneck-launches-first-tokenized-fund-vbill-on-securitize-302453863.html",
+      "published": "2025-05-13",
+      "kind": "Company launch announcement distributed by PR Newswire",
+      "locator": "VBILL service-provider paragraphs",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "jaaa-product",
+      "title": "Anemoy JAAA fund page",
+      "url": "https://www.anemoy.io/funds/jaaa",
+      "published": null,
+      "kind": "Company product page",
+      "locator": "JAAA identity and Centrifuge tokenization",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "mcgxx-filing",
+      "title": "MCGXX September 2026 prospectus and SAI",
+      "url": "https://www.sec.gov/Archives/edgar/data/1319067/000199937126020407/mcgxx-485bpos_091126.htm",
+      "published": "2026-09-11",
+      "kind": "SEC-hosted fund filing",
+      "locator": "Custodian, Administrator and Transfer Agents; official record and CERES sub-transfer agency",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "spxa-launch",
+      "title": "Anemoy SPXA launch announcement",
+      "url": "https://www.anemoy.io/news/spxa-licensed-index-fund",
+      "published": "2025-09-25",
+      "kind": "Company launch announcement",
+      "locator": "Fund name; Centrifuge tokenization and Proof-of-Index technology",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "jltxx-prospectus",
+      "title": "JPMorgan JLTXX Token Class prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1659326/000119312526353379/d127628d497.htm",
+      "published": "2026-05-13",
+      "kind": "SEC-hosted fund prospectus",
+      "locator": "Fund name and ticker; Use of Blockchain; Fund Administrator",
+      "checked": "2026-10-23"
+    },
+    {
+      "id": "jltxx-supplement",
+      "title": "JPMorgan JLTXX October prospectus supplement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1659326/000119312526410016/d172947d497k.htm",
+      "published": "2026-10-01",
+      "kind": "SEC-hosted fund prospectus supplement",
+      "locator": "Token Class blockchain availability",
+      "checked": "2026-10-23"
+    }
+  ],
+  "roles": [
+    {
+      "id": "custody",
+      "label": "Fund custody / depositary",
+      "definition": "Named custody or depositary appointment for the reviewed fund's assets. Investor-wallet support and the custody of an underlying fund are not inherited."
+    },
+    {
+      "id": "administration",
+      "label": "Fund administration",
+      "definition": "Explicit fund administrator or accounting/administrative agent. A NAV calculation agent or token administrator alone does not qualify."
+    },
+    {
+      "id": "transfer",
+      "label": "Transfer agency",
+      "definition": "Explicit transfer-agent appointment or delegation. A platform or distribution relationship alone does not qualify."
+    },
+    {
+      "id": "records",
+      "label": "Token / share-record infrastructure",
+      "definition": "Named tokenization platform, token administrator, vault developer or share-register operator, with the exact function retained. These functions are not equivalent services."
+    }
+  ],
+  "funds": [
+    {
+      "id": "buidl",
+      "ticker": "BUIDL",
+      "name": "BlackRock USD Institutional Digital Liquidity Fund",
+      "structure": "Fund product",
+      "family": "BlackRock",
+      "sources": [
+        "buidl-launch"
+      ],
+      "note": "Launch-date appointments; continued appointment in October is not independently confirmed. Investor wallet providers are excluded.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "Bank of New York Mellon",
+          "source": "buidl-launch",
+          "scope": "Fund asset custodian at launch"
+        },
+        {
+          "role": "administration",
+          "provider": "Bank of New York Mellon",
+          "source": "buidl-launch",
+          "scope": "Fund administrator at launch"
+        },
+        {
+          "role": "transfer",
+          "provider": "Securitize",
+          "source": "buidl-launch",
+          "scope": "Transfer agent at launch"
+        },
+        {
+          "role": "records",
+          "provider": "Securitize",
+          "source": "buidl-launch",
+          "scope": "Tokenization platform at launch"
+        }
+      ]
+    },
+    {
+      "id": "fobxx",
+      "ticker": "FOBXX",
+      "name": "Franklin OnChain U.S. Government Money Fund",
+      "structure": "Fund product",
+      "family": "Franklin Templeton",
+      "sources": [
+        "franklin-letter"
+      ],
+      "note": "Letter describes the integrated ownership record. It is not an SEC endorsement of the fund or its technology.",
+      "claims": [
+        {
+          "role": "transfer",
+          "provider": "Franklin Templeton Investor Services, LLC",
+          "source": "franklin-letter",
+          "scope": "Transfer agent (FTIS)"
+        },
+        {
+          "role": "records",
+          "provider": "Franklin Templeton Investor Services, LLC",
+          "source": "franklin-letter",
+          "scope": "Integrated book-entry and blockchain share record"
+        }
+      ]
+    },
+    {
+      "id": "wtgxx",
+      "ticker": "WTGXX",
+      "name": "WisdomTree Treasury Money Market Digital Fund",
+      "structure": "Fund product",
+      "family": "WisdomTree",
+      "sources": [
+        "wt-products",
+        "wt-regulatory"
+      ],
+      "note": "Offchain registry is the official ownership record. Fund-specific custodian/admin not verified; linked prospectus viewer was inaccessible during review.",
+      "claims": [
+        {
+          "role": "transfer",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Transfer agent maintaining official offchain registry"
+        },
+        {
+          "role": "records",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Offchain registry informed by onchain wallet movements"
+        }
+      ]
+    },
+    {
+      "id": "ustb",
+      "ticker": "USTB",
+      "name": "Invesco Short Duration US Government Securities Fund",
+      "structure": "Fund product",
+      "family": "Superstate-hosted",
+      "sources": [
+        "ustb"
+      ],
+      "note": "NAV Fund Services is identified as NAV calculation agent, not assumed to be fund administrator. No AUM used in this report.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "BNY",
+          "source": "ustb",
+          "scope": "Named custodian; source uses BNY brand"
+        },
+        {
+          "role": "transfer",
+          "provider": "Superstate Services LLC",
+          "source": "ustb",
+          "scope": "Transfer agent"
+        }
+      ]
+    },
+    {
+      "id": "uscc",
+      "ticker": "USCC",
+      "name": "Bitwise Crypto Carry Fund",
+      "structure": "Fund product",
+      "family": "Superstate-hosted",
+      "sources": [
+        "uscc"
+      ],
+      "note": "NAV calculation is not counted as fund administration. Network allocations and fund AUM are not aggregated.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "Anchorage Digital",
+          "source": "uscc",
+          "scope": "Named custodian; exact contracting entity not resolved here"
+        },
+        {
+          "role": "transfer",
+          "provider": "Superstate Services LLC",
+          "source": "uscc",
+          "scope": "Transfer agent"
+        }
+      ]
+    },
+    {
+      "id": "jtrsy",
+      "ticker": "JTRSY",
+      "name": "Janus Henderson Anemoy Treasury Fund",
+      "structure": "Fund product",
+      "family": "Anemoy",
+      "sources": [
+        "jtrsy"
+      ],
+      "note": "Generic references to custody and administration do not identify a provider and are not counted.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "Centrifuge",
+          "source": "jtrsy",
+          "scope": "Onchain portfolio infrastructure; not a transfer-agent appointment"
+        }
+      ]
+    },
+    {
+      "id": "cushy",
+      "ticker": "CUSHY",
+      "name": "Coinbase tokenized stablecoin yield fund (CUSHY)",
+      "structure": "Feeder / access product",
+      "family": "Superstate-hosted",
+      "sources": [
+        "cushy"
+      ],
+      "note": "Page title describes a US feeder; exact legal vehicle name not reconciled. Custody entry also refers to other unnamed qualified custodians.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "Coinbase Custody Trust Company, LLC",
+          "source": "cushy",
+          "scope": "Named custodian alongside other qualified custodians; not exclusive"
+        },
+        {
+          "role": "administration",
+          "provider": "Northern Trust Global Fund Services Cayman Limited",
+          "source": "cushy",
+          "scope": "Fund administrator"
+        },
+        {
+          "role": "transfer",
+          "provider": "Superstate Services LLC",
+          "source": "cushy",
+          "scope": "Transfer agent"
+        }
+      ]
+    },
+    {
+      "id": "vbdc",
+      "ticker": "VBDC",
+      "name": "Valinor BDC Exposure Fund",
+      "structure": "Fund product",
+      "family": "Superstate-hosted",
+      "sources": [
+        "vbdc"
+      ],
+      "note": "Source names administration separately from custody and transfer agency.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "Alpaca Securities LLC",
+          "source": "vbdc",
+          "scope": "Custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "NAV Consulting, Inc.",
+          "source": "vbdc",
+          "scope": "Fund administrator"
+        },
+        {
+          "role": "transfer",
+          "provider": "Superstate Services LLC",
+          "source": "vbdc",
+          "scope": "Transfer agent"
+        }
+      ]
+    },
+    {
+      "id": "acred",
+      "ticker": "ACRED",
+      "name": "Apollo Diversified Credit Securitize Fund",
+      "structure": "Feeder / access product",
+      "family": "Securitize feeders",
+      "sources": [
+        "acred-launch"
+      ],
+      "note": "Feeder to Apollo Diversified Credit Fund; underlying fund service providers are not inherited. Appointments are launch evidence.",
+      "claims": [
+        {
+          "role": "administration",
+          "provider": "Securitize",
+          "source": "acred-launch",
+          "scope": "Feeder fund administrator"
+        },
+        {
+          "role": "transfer",
+          "provider": "Securitize",
+          "source": "acred-launch",
+          "scope": "Digital transfer agent for feeder"
+        },
+        {
+          "role": "records",
+          "provider": "Securitize",
+          "source": "acred-launch",
+          "scope": "Feeder tokenization platform"
+        }
+      ]
+    },
+    {
+      "id": "hlscope",
+      "ticker": "HLSCOPE",
+      "name": "Securitize feeder to Hamilton Lane Senior Credit Opportunities Fund",
+      "structure": "Feeder / access product",
+      "family": "Securitize feeders",
+      "sources": [
+        "hlscope-launch"
+      ],
+      "note": "Securitize-managed feeder, not a second count of the underlying Hamilton Lane fund. Platform role does not establish transfer agency.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "Securitize",
+          "source": "hlscope-launch",
+          "scope": "Tokenized feeder issuance platform"
+        }
+      ]
+    },
+    {
+      "id": "ousg",
+      "ticker": "OUSG",
+      "name": "Ondo Short-Term US Treasuries Fund",
+      "structure": "Fund product",
+      "family": "Ondo",
+      "sources": [
+        "ousg-product",
+        "ousg-admin"
+      ],
+      "note": "Limited partnership interests. Underlying fund custodians and transfer agents are not OUSG appointments.",
+      "claims": [
+        {
+          "role": "administration",
+          "provider": "NAV Consulting",
+          "source": "ousg-admin",
+          "scope": "Fund administrator; legal suffix not specified in reviewed documentation"
+        }
+      ]
+    },
+    {
+      "id": "usyc",
+      "ticker": "USYC",
+      "name": "Hashnote International Short Duration Fund Ltd.",
+      "structure": "Fund product",
+      "family": "Circle / Hashnote",
+      "sources": [
+        "usyc"
+      ],
+      "note": "Token administrator is not counted as fund administrator. Source's regulatory descriptions are not independently validated here.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "Circle International Bermuda Limited",
+          "source": "usyc",
+          "scope": "Token administrator for USYC on behalf of fund"
+        }
+      ]
+    },
+    {
+      "id": "tbill",
+      "ticker": "TBILL",
+      "name": "OpenEden TBILL Fund / Vault",
+      "structure": "Fund product",
+      "family": "OpenEden",
+      "sources": [
+        "tbill"
+      ],
+      "note": "Exact fund legal vehicle not verified in FAQ. Vault developer is not assumed to be fund operator or transfer agent.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "BNY",
+          "source": "tbill",
+          "scope": "US Treasury bills custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "Protege Fund Services",
+          "source": "tbill",
+          "scope": "Fund administrator"
+        },
+        {
+          "role": "records",
+          "provider": "River Labs Pte Ltd",
+          "source": "tbill",
+          "scope": "TBILL Vault developer only"
+        }
+      ]
+    },
+    {
+      "id": "spiko-ustbl",
+      "ticker": "USTBL",
+      "name": "Spiko US T-Bills Money Market Fund",
+      "structure": "SICAV sub-fund",
+      "family": "Spiko SICAV",
+      "sources": [
+        "spiko-prospectus"
+      ],
+      "note": "Common umbrella appointments, not four independent service agreements.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "CACEIS Bank",
+          "source": "spiko-prospectus",
+          "scope": "Depositary / custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "CACEIS Fund Administration",
+          "source": "spiko-prospectus",
+          "scope": "Accounting / administrative agent"
+        },
+        {
+          "role": "transfer",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "Delegated transfer-agent duties"
+        },
+        {
+          "role": "records",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "DLT shareholder register"
+        }
+      ]
+    },
+    {
+      "id": "spiko-eutbl",
+      "ticker": "EUTBL",
+      "name": "Spiko EU T-Bills Money Market Fund",
+      "structure": "SICAV sub-fund",
+      "family": "Spiko SICAV",
+      "sources": [
+        "spiko-prospectus"
+      ],
+      "note": "Common umbrella appointments, not four independent service agreements.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "CACEIS Bank",
+          "source": "spiko-prospectus",
+          "scope": "Depositary / custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "CACEIS Fund Administration",
+          "source": "spiko-prospectus",
+          "scope": "Accounting / administrative agent"
+        },
+        {
+          "role": "transfer",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "Delegated transfer-agent duties"
+        },
+        {
+          "role": "records",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "DLT shareholder register"
+        }
+      ]
+    },
+    {
+      "id": "spiko-uktbl",
+      "ticker": "UKTBL",
+      "name": "Spiko UK T-Bills Money Market Fund",
+      "structure": "SICAV sub-fund",
+      "family": "Spiko SICAV",
+      "sources": [
+        "spiko-prospectus"
+      ],
+      "note": "Common umbrella appointments, not four independent service agreements.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "CACEIS Bank",
+          "source": "spiko-prospectus",
+          "scope": "Depositary / custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "CACEIS Fund Administration",
+          "source": "spiko-prospectus",
+          "scope": "Accounting / administrative agent"
+        },
+        {
+          "role": "transfer",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "Delegated transfer-agent duties"
+        },
+        {
+          "role": "records",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "DLT shareholder register"
+        }
+      ]
+    },
+    {
+      "id": "spiko-safo",
+      "ticker": "SAFO",
+      "name": "Spiko Amundi Overnight Swap Fund",
+      "structure": "SICAV sub-fund",
+      "family": "Spiko SICAV",
+      "sources": [
+        "spiko-prospectus"
+      ],
+      "note": "Swap-based sub-fund, not a Treasury bill fund. Common umbrella appointments.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "CACEIS Bank",
+          "source": "spiko-prospectus",
+          "scope": "Depositary / custodian"
+        },
+        {
+          "role": "administration",
+          "provider": "CACEIS Fund Administration",
+          "source": "spiko-prospectus",
+          "scope": "Accounting / administrative agent"
+        },
+        {
+          "role": "transfer",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "Delegated transfer-agent duties"
+        },
+        {
+          "role": "records",
+          "provider": "Spiko Finance",
+          "source": "spiko-prospectus",
+          "scope": "DLT shareholder register"
+        }
+      ]
+    },
+    {
+      "id": "umint",
+      "ticker": "uMINT",
+      "name": "UBS USD Money Market Investment Fund Token",
+      "structure": "Fund product",
+      "family": "UBS",
+      "sources": [
+        "umint-launch"
+      ],
+      "note": "Launch evidence, not confirmation of all October appointments. UBS group assets are not uMINT assets.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "UBS Tokenize",
+          "source": "umint-launch",
+          "scope": "In-house tokenization service associated with fund launch"
+        }
+      ]
+    },
+    {
+      "id": "wtsyx",
+      "ticker": "WTSYX",
+      "name": "WisdomTree Short-Term Treasury Digital Fund",
+      "structure": "Fund product",
+      "family": "WisdomTree",
+      "sources": [
+        "wt-products",
+        "wt-regulatory"
+      ],
+      "note": "Official ownership register is offchain. Shared suite documentation; fund-specific custodian/admin not verified because prospectus viewer was inaccessible.",
+      "claims": [
+        {
+          "role": "transfer",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Transfer agent maintaining official offchain registry"
+        },
+        {
+          "role": "records",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Offchain registry informed by onchain wallet movements"
+        }
+      ]
+    },
+    {
+      "id": "flttx",
+      "ticker": "FLTTX",
+      "name": "WisdomTree Floating Rate Treasury Digital Fund",
+      "structure": "Fund product",
+      "family": "WisdomTree",
+      "sources": [
+        "wt-products",
+        "wt-regulatory"
+      ],
+      "note": "Official ownership register is offchain. Shared suite documentation; fund-specific custodian/admin not verified because prospectus viewer was inaccessible.",
+      "claims": [
+        {
+          "role": "transfer",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Transfer agent maintaining official offchain registry"
+        },
+        {
+          "role": "records",
+          "provider": "WisdomTree Transfers, Inc.",
+          "source": "wt-regulatory",
+          "scope": "Offchain registry informed by onchain wallet movements"
+        }
+      ]
+    },
+    {
+      "id": "sweep",
+      "ticker": "SWEEP",
+      "name": "State Street Galaxy Onchain Liquidity Sweep Fund",
+      "structure": "Fund product",
+      "family": "State Street / Galaxy",
+      "sources": [
+        "sweep-launch"
+      ],
+      "note": "Private liquidity fund; not a U.S. registered money market fund. Launch-date roles distinguish securities custody from stablecoin-investment custody. Fund administration is not identified in this release.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "State Street Bank and Trust Company",
+          "source": "sweep-launch",
+          "scope": "Custodian for securities holdings at launch"
+        },
+        {
+          "role": "custody",
+          "provider": "Anchorage",
+          "source": "sweep-launch",
+          "scope": "Digital custodian for stablecoin investments at launch; exact legal entity not resolved"
+        },
+        {
+          "role": "transfer",
+          "provider": "NAV Consulting",
+          "source": "sweep-launch",
+          "scope": "Named transfer agent at launch; not treated as fund administrator"
+        },
+        {
+          "role": "records",
+          "provider": "Galaxy Digital Infrastructure",
+          "source": "sweep-launch",
+          "scope": "Tokenization technology for issuance and management of SWEEP tokens at launch"
+        }
+      ]
+    },
+    {
+      "id": "vbill",
+      "ticker": "VBILL",
+      "name": "VanEck Treasury Fund, Ltd.",
+      "structure": "Fund product",
+      "family": "VanEck / Securitize",
+      "sources": [
+        "vbill-launch"
+      ],
+      "note": "BVI private fund, not a U.S. registered money market fund. Roles are documented at the May 2025 launch; continuation in October 2026 was not independently confirmed.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "State Street Bank and Trust Company",
+          "source": "vbill-launch",
+          "scope": "Fund-asset custodian named at launch"
+        },
+        {
+          "role": "administration",
+          "provider": "Securitize Fund Services",
+          "source": "vbill-launch",
+          "scope": "Fund administrator named at launch"
+        },
+        {
+          "role": "transfer",
+          "provider": "Securitize",
+          "source": "vbill-launch",
+          "scope": "Transfer agency among integrated services explicitly named for VBILL at launch; contracting entity not specified"
+        },
+        {
+          "role": "records",
+          "provider": "Securitize",
+          "source": "vbill-launch",
+          "scope": "Tokenization platform named at launch"
+        }
+      ]
+    },
+    {
+      "id": "jaaa",
+      "ticker": "JAAA",
+      "name": "Janus Henderson Anemoy AAA CLO Fund",
+      "structure": "Fund product",
+      "family": "Anemoy / Janus Henderson",
+      "sources": [
+        "jaaa-product"
+      ],
+      "note": "The reviewed public fund page identifies tokenization infrastructure but does not name the fund custodian, administrator or transfer agent. Provider names may exist in other documents.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "Centrifuge",
+          "source": "jaaa-product",
+          "scope": "Onchain fund tokenization technology; not a transfer-agent appointment"
+        }
+      ]
+    },
+    {
+      "id": "mcgxx",
+      "ticker": "MCGXX",
+      "name": "M3Sixty Onchain U.S. Government Money Market Fund",
+      "structure": "Fund product",
+      "family": "360 Funds / M3Sixty",
+      "sources": [
+        "mcgxx-filing"
+      ],
+      "note": "September 2026 filing: M3Sixty's book-entry record determines official ownership if it conflicts with CERES's blockchain record. Sub-transfer agency is distinct from the appointed transfer agent.",
+      "claims": [
+        {
+          "role": "custody",
+          "provider": "Argent Institutional Trust Company",
+          "source": "mcgxx-filing",
+          "scope": "Fund custodian in September 2026 filing"
+        },
+        {
+          "role": "administration",
+          "provider": "M3Sixty Administration, LLC",
+          "source": "mcgxx-filing",
+          "scope": "Fund administrator and accounting services"
+        },
+        {
+          "role": "transfer",
+          "provider": "M3Sixty Administration, LLC",
+          "source": "mcgxx-filing",
+          "scope": "Official transfer agent and book-entry record keeper"
+        },
+        {
+          "role": "records",
+          "provider": "CERES Coin TA, LLC",
+          "source": "mcgxx-filing",
+          "scope": "Blockchain shareholder records as sub-transfer agent, reconciled with M3Sixty's official record"
+        }
+      ]
+    },
+    {
+      "id": "spxa",
+      "ticker": "SPXA",
+      "name": "Janus Henderson Anemoy S&P 500 Fund",
+      "structure": "Fund product",
+      "family": "Anemoy / Janus Henderson",
+      "sources": [
+        "spxa-launch"
+      ],
+      "note": "September 2025 launch describes Centrifuge technology. It does not identify the fund custodian, administrator or transfer agent; current provider appointments are not inferred.",
+      "claims": [
+        {
+          "role": "records",
+          "provider": "Centrifuge",
+          "source": "spxa-launch",
+          "scope": "Tokenization and Proof-of-Index technology identified at launch"
+        }
+      ]
+    },
+    {
+      "id": "jltxx",
+      "ticker": "JLTXX",
+      "name": "JPMorgan OnChain Liquidity-Token Money Market Fund, Token Class",
+      "structure": "Fund product",
+      "family": "J.P. Morgan",
+      "sources": [
+        "jltxx-prospectus",
+        "jltxx-supplement"
+      ],
+      "note": "Prospectus describes the transfer-agent-maintained investor register as the official ownership record; it does not name the agent in the reviewed passages. Token balances may not align with that register. The October supplement describes blockchain availability; holdings were not independently measured.",
+      "claims": [
+        {
+          "role": "administration",
+          "provider": "J.P. Morgan Investment Management Inc.",
+          "source": "jltxx-prospectus",
+          "scope": "Named fund administrator (JPMIM) in the prospectus"
+        },
+        {
+          "role": "records",
+          "provider": "Kinexys Digital Assets",
+          "source": "jltxx-prospectus",
+          "scope": "Designed, deployed and maintains the fund's blockchain technology; official ownership remains on transfer-agent register"
+        }
+      ]
+    }
+  ],
+  "comparisonPage": "https://www.fluidrwa.com/network-explorer/fund-comparison",
+  "citationText": "FluidRWA Research Team. Fund operating-model comparison, edition 2026-10-v2, 26-product purposive sample. Original sources checked 21 October 2026; added sources checked 23 October 2026. https://www.fluidrwa.com/network-explorer/fund-comparison"
+}

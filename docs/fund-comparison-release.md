@@ -1,4 +1,4 @@
-# Fund comparison release, 23 October 2026
+# Fund comparison release, 24 October 2026
 
 ## Scope
 
@@ -7,16 +7,24 @@ research path. Contract supply, valuation snapshots and the 1,743-entry
 identification registry remain available in separate views. No registry or
 research observations were removed or assigned new verification dates.
 
-`/network-explorer/fund-comparison` uses the frozen `2026-10-v1` 20-product research
-edition checked 21 October. It is not the broader operating map's 23-product
-cohort. The table, mobile view, selected CSV, complete CSV/JSON and fixed PNGs
-derive from that same edition. The fixed PNGs illustrate FOBXX, Spiko USTBL and
-WTGXX; they do not change with user selections. The selected-fund CSV does.
+`/network-explorer/fund-comparison` now uses `2026-10-v2`: the original 20
+products and sources from 21 October are preserved, and SWEEP, VBILL, JAAA,
+MCGXX, SPXA and JLTXX were added with sources checked 23 October. The separate
+20-fund October report and its v1 downloads remain unchanged. This 26-product
+sample is not the broader operating map's cohort. Table, mobile view, selected
+CSV and complete CSV/JSON derive from v2. The fixed PNGs still illustrate the
+original FOBXX, Spiko USTBL and WTGXX examples; they do not change with user
+selections. The selected-fund CSV does.
 
 The shared source file is `lib/fund-comparison.ts`. The download/API endpoint is
-`/api/network-explorer/v1/fund-comparison`; optional `funds` uses one to twenty
+`/api/network-explorer/v1/fund-comparison`; optional `funds` uses one to 26
 valid distinct IDs and `format` accepts json or csv. CSV has an attachment header.
 No API authentication, billing or new database is introduced.
+
+The expanded edition has 104 fund-role checks and 105 exported rows: SWEEP has
+two separately scoped custody observations. Unknown rows inherit their own
+fund's last reviewed-source date rather than the newer edition date. Primary
+sources, document locations and dates are listed on the comparison page.
 
 ## Counts and names
 
