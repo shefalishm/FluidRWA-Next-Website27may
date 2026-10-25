@@ -69,14 +69,14 @@
   <url><loc>https://www.fluidrwa.com/blog/coingecko-vs-coinmarketcap-vs-coinpaprika-crypto-market-data-apis</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/pinata-vs-filebase-vs-lighthouse-managed-ipfs-storage</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/sablier-vs-streamflow-vs-superfluid-token-vesting-streaming</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/infisical-vs-doppler-vs-hashicorp-vault-secrets-management</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/infisical-vs-doppler-vs-hashicorp-vault-secrets-management</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/langfuse-vs-langsmith-vs-arize-phoenix-ai-observability</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/pinecone-vs-weaviate-vs-qdrant-rag-vector-databases</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/temporal-vs-inngest-vs-trigger-dev-workflow-orchestration</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/unstructured-vs-llamaparse-vs-reducto-document-ingestion</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/white-label-crypto-payment-gateway-buyer-guide</loc><lastmod>2026-10-07</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/hacken-vs-certik-vs-the-network-firm-proof-of-reserves</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/middesk-vs-kyckr-vs-kompany-kyb-apis</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/middesk-vs-kyckr-vs-kompany-kyb-apis</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/openpayd-vs-fiat-republic-vs-banking-circle-fiat-rails</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/ottersec-vs-neodyme-vs-sec3-solana-audits</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/vnx-vs-meld-gold-vs-kinesis-tokenized-gold</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -157,7 +157,7 @@
   <url><loc>https://www.fluidrwa.com/blog/chainlink-automation-vs-gelato-vs-openzeppelin</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/immunefi-vs-cantina-vs-code4rena</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/rossum-vs-nanonets-vs-google-document-ai</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/best-blockchain-development-companies-web3-rwa</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/blockaid-vs-blowfish-vs-hypernative-web3-security</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/complyadvantage-vs-unit21-vs-sardine-aml-fraud</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -178,7 +178,7 @@
   <url><loc>https://www.fluidrwa.com/blog/kyc-aml-providers-comparison-2026</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/smart-contract-development-company-comparison-2026</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/alloy-vs-unit21-vs-sardine-fintech-risk-compliance</loc><lastmod>2026-10-10</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
-  <url><loc>https://www.fluidrwa.com/blog/chainlink-ccip-vs-layerzero-vs-axelar-cross-chain-messaging</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://www.fluidrwa.com/blog/chainlink-ccip-vs-layerzero-vs-axelar-cross-chain-messaging</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/checkoutcom-vs-nuvei-vs-worldpay-crypto-payment-processing</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/mural-vs-bvnk-vs-request-finance-stablecoin-business-payments</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://www.fluidrwa.com/blog/zerohash-vs-paxos-vs-bakkt-embedded-crypto-infrastructure</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>

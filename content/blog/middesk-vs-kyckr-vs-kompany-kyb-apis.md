@@ -3,6 +3,7 @@ title: "Middesk vs Kyckr vs kompany: KYB APIs Compared"
 seoTitle: "Middesk vs Kyckr vs kompany: KYB APIs Compared"
 description: "Compare Middesk, Kyckr and kompany for company verification, UBO discovery, registry evidence and institutional onboarding APIs."
 date: "2026-10-05"
+modifiedDate: "2026-10-25"
 reviewedDate: "2026-10-05"
 reviewedLabel: "October 5, 2026"
 category: "Vendor Comparisons"
@@ -13,7 +14,7 @@ infographicMobileImage: "/assets/infographics/middesk-vs-kyckr-vs-kompany-kyb-ap
 infographicName: "Middesk vs Kyckr vs kompany KYB API comparison matrix"
 infographicAlt: "Middesk, Kyckr and kompany compared for business verification, registry and beneficial ownership workflows"
 infographicCaption: "Registry coverage and UBO evidence vary by jurisdiction. Validate the exact entity types in a pilot."
-answer: "Middesk is an API-led business verification and monitoring option with identity and risk signals. Kyckr centers its KYB offering on live company-register data and ownership discovery. kompany provides API access to official company information and documents across jurisdictions. Choose by the jurisdictions, entity types and evidence standard in your onboarding policy, not by a headline company-count claim."
+answer: "Middesk documents API-led business checks and monitoring. Kyckr focuses on company-register records and ownership discovery. Moody's kompany KYC API offers company information and documents from registers and other authoritative sources. The right choice depends on the exact countries, entity types and evidence your onboarding policy needs."
 ctaTitle: "Test the companies you actually onboard"
 ctaText: "A KYB pilot should include complex ownership chains, stale records, missing registers and ongoing-change alerts."
 ctaLabel: "Explore KYC and AML Providers"
@@ -30,14 +31,16 @@ faq4q: "What should a tokenization issuer test in a KYB pilot?"
 faq4a: "Test an ordinary company, a multi-layer ownership chain, a newly formed entity, an inactive business, an unavailable register and a changed director or shareholder."
 image: "/assets/blog-images/middesk-vs-kyckr-vs-kompany-kyb-apis.svg"
 imageAlt: "Middesk vs Kyckr vs kompany: KYB APIs Compared editorial infrastructure visual"
-socialImage: "/assets/social/blog-middesk-vs-kyckr-vs-kompany-kyb-apis.png"
+socialImage: "/assets/social/blog-middesk-vs-kyckr-vs-kompany-kyb-apis-editorial.jpg"
 ---
 
-Institutional investor onboarding is not just a passport check. A fund, broker, treasury client or corporate token holder may need its legal existence, officers, beneficial owners, sanctions exposure and ongoing changes verified before it can subscribe or transact. This article compares **business-verification APIs** only. It does not rank individual ID checks, wallet screening or a full compliance platform.
+When a company applies to invest in a tokenized fund, someone has to check that the company exists and determine who controls it. A clean API response can help, but it does not settle every ownership question. Registers differ by country, and some do not publish the data an onboarding team needs.
+
+This comparison covers business-verification data and workflows. It does not assess individual identity checks or wallet screening.
 
 ## Short Answer
 
-Choose the KYB provider that can produce defensible evidence for **your** countries and entity structures. Middesk is a useful candidate for API-led business onboarding and ongoing risk signals. Kyckr is focused on live registry-derived company and ownership information. kompany is a candidate for official-source company data and documents integrated into compliance workflows. Test coverage with actual sample entities before accepting a global-coverage claim.
+Start with five companies you really might onboard: a simple local entity, a newly formed company, a cross-border ownership chain, an inactive company and one with incomplete registry data. Ask each provider what it can return for those cases. That will tell you more than a global coverage figure.
 
 ## Comparison at a Glance
 
@@ -54,7 +57,7 @@ Choose the KYB provider that can produce defensible evidence for **your** countr
 
 [Kyckr](https://kyckr.com/business-verification) emphasizes access to official company-register records, business verification and ownership discovery through a portal or API. Its documentation also cautions that shareholder and beneficial-ownership data vary by jurisdiction. A buyer should inspect the underlying source, retrieval time and ownership-calculation logic, not just the final pass/fail result.
 
-[kompany's KYC API](https://knowledge.kompany.com/kycapi/discover) describes access to company information from commercial registers and other authoritative sources. It can supply entity data and documents to an existing CRM or compliance workflow. Confirm whether the required document is live, cached, translated or unavailable for each country.
+[kompany's KYC API](https://www.kompany.com/kycapi/discover) describes access to company information and documents from commercial registers and other authoritative sources. kompany is part of Moody's; that ownership matters if you are evaluating the contracting and support arrangement. Confirm whether the required document is live, cached, translated or unavailable for each country.
 
 ## The Institutional Investor Workflow
 
@@ -62,7 +65,7 @@ Start with a real legal-entity applicant, not a made-up test company. Retrieve r
 
 The KYB API should not silently decide investor eligibility. A tokenization issuer or its regulated partner still needs policies for accreditation or professional-investor status, jurisdiction restrictions, source of funds, record retention and escalation. An unmatched entity is an investigation queue, not necessarily a rejection.
 
-## Procurement Scorecard
+## Questions for a Pilot
 
 1. **Coverage:** Which specific registers, entity types and corporate documents are available for your target countries?
 2. **Ownership:** Does the response show declared UBOs, a calculated chain, shareholder records, or only a summary flag?
@@ -71,15 +74,15 @@ The KYB API should not silently decide investor eligibility. A tokenization issu
 5. **Exceptions:** What happens when a register is offline, data conflicts or ownership is hidden behind another jurisdiction?
 6. **Commercial terms:** How are searches, documents, monitoring and manual reviews billed separately?
 
-## Avoid Cannibalizing the Existing Guides
+## Where This Comparison Ends
 
-Use this piece for **entity and UBO verification**. The [Trulioo vs Veriff vs Ondato article](/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification) covers broader identity and KYC/KYB packaging; the [KYC/AML directory](/vendors/kyc-aml-providers) spans many compliance layers. Readers who need wallet sanctions or on-chain monitoring should move to those layers separately.
+Business verification is only one part of the decision. For individual identity checks, see the [Trulioo, Veriff and Ondato comparison](/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification). For wallet screening and other controls, browse the [KYC and AML directory](/vendors/kyc-aml-providers). An issuer still has to decide which evidence is sufficient under its own policy.
 
 ## Primary Sources and Editorial Note
 
 - [Middesk API documentation](https://docs.middesk.com/home)
 - [Kyckr business verification](https://kyckr.com/business-verification)
 - [Kyckr coverage limitations](https://kyckr.com/faq)
-- [kompany KYC API](https://knowledge.kompany.com/kycapi/discover)
+- [kompany KYC API](https://www.kompany.com/kycapi/discover)
 
-This comparison is independent research based on public materials, not a certification of any vendor. Confirm coverage, data rights, pricing and service levels in a current proposal.
+Product pages checked October 25, 2026. This comparison is based on vendor documentation, not a test of live coverage. Confirm data rights, pricing and service levels in a current proposal.
