@@ -168,6 +168,34 @@ const manualCompanyProfiles = [
       ["Documentation", "https://docs.nownodes.io/"],
       ["Service status", "https://status.nownodes.io/"]
     ]
+  },
+  {
+    categoryDir: "decentralized-ai-compute-gpu-infrastructure",
+    categoryRoute: "decentralized-ai-compute-gpu-infrastructure",
+    categoryTitle: "Decentralized AI Compute and GPU Infrastructure",
+    anchor: "lium",
+    name: "Lium",
+    slug: "lium",
+    url: "https://lium.io/",
+    description: "Lium is a GPU marketplace where providers list machines and renters launch GPU pods with SSH access and per-second billing.",
+    fullDescription: "Lium is a GPU marketplace for providers and renters. GPU owners list machines and set rental prices. Renters choose available GPU capacity, launch a pod and connect over SSH. Billing is per second with no minimum. Lium says providers keep 95% of rental payments; availability, pricing and earnings depend on the selected GPU and current market conditions.",
+    additionalType: "GPU rental marketplace",
+    logoPath: "/assets/company-logos/lium.svg",
+    logoSource: "https://lium.io/favicon.svg",
+    knowsAbout: ["GPU rentals", "Provider marketplace", "GPU pods", "SSH access", "Per-second billing", "Provider economics"],
+    benefits: [
+      ["Provider marketplace", "GPU owners can list machines and set rental prices."],
+      ["On-demand rentals", "Renters can launch machine-backed GPU pods and connect over SSH."],
+      ["Per-second billing", "Lium documents no minimum rental period for pod usage."],
+      ["Provider rental share", "Lium says providers receive 95% of rental payments; other incentives and penalties have separate terms."]
+    ],
+    productLinks: [
+      ["Lium marketplace", "https://lium.io/"],
+      ["Renter billing", "https://docs.lium.io/pod-users/billing"],
+      ["Provider quickstart", "https://docs.lium.io/providers/quickstart"],
+      ["Provider rental fees", "https://docs.lium.io/providers/rewards/rental-fees"],
+      ["Provider economics by GPU model", "https://provider-api.lium.io/public/provider-economics"]
+    ]
   }
 ];
 
@@ -500,7 +528,7 @@ function pageHtml(company, profile, alternatives) {
   const category = company.categoryTitle;
   const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
-  const isWeb3Profile = !company.categoryDir.startsWith("ai-");
+  const isWeb3Profile = !company.categoryDir.startsWith("ai-") && !company.categoryDir.startsWith("decentralized-ai-");
   const coverage = typeof company.address === "object" && company.address?.addressCountry
     ? company.address.addressCountry
     : "Verify with provider";

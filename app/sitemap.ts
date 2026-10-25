@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/news/fluidrwa-surestack-partnership`, lastModified: "2026-07-23", changeFrequency: "monthly", priority: 0.76 },
     { url: `${siteUrl}/news/fluidrwa-minddeft-partnership`, lastModified: "2026-07-09", changeFrequency: "monthly", priority: 0.74 },
     { url: `${siteUrl}/news/nowpayments-featured-on-fluidrwa`, lastModified: "2026-09-10", changeFrequency: "monthly", priority: 0.78 },
+    { url: `${siteUrl}/fluidrwa/lium`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/learn`, lastModified: "2026-07-10", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/apply-as-freelancer`, lastModified: "2026-07-16", changeFrequency: "weekly", priority: 0.88 },
     ...learnArticles.map((article) => ({

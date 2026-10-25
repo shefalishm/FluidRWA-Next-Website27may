@@ -345,7 +345,8 @@ function applyComparisonLinkPolicy(html, post) {
   if (!isComparisonPost(post)) return html;
   const approved = {
     "nownodes-vs-getblock-vs-drpc-multichain-rpc": new Set(["https://nownodes.io/"]),
-    "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers": new Set(["https://www.socure.com/"])
+    "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers": new Set(["https://www.socure.com/"]),
+    "akash-vs-io-net-vs-aethir-decentralized-gpu-compute": new Set(["https://lium.io/"])
   }[post.slug] || new Set();
   return html.replace(/<a\b([^>]*\bhref="(https?:\/\/[^\"]+)"[^>]*)>/gi, (match, attributes, href) => {
     if (approved.has(href)) return match;
