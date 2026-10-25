@@ -45,9 +45,9 @@ export default [
     title: 'KYC and KYB Verification',
     vendors: ['Trulioo', 'Veriff', 'Ondato'],
     rows: [
-      ['Core model', 'Global person and business verification', 'Document and biometric identity workflows', 'Integrated KYC, KYB and AML operations'],
-      ['Evaluate for', 'Multi-market person and business checks', 'Individual digital onboarding journeys', 'Consolidated compliance operations'],
-      ['Test first', 'Local data and registry coverage', 'Capture experience and review paths', 'Module depth and case workflows']
+      ['Core model', 'Person and business verification', 'Identity sessions and Business Verification', 'Business onboarding and AML operations'],
+      ['Evaluate for', 'Multi-market person and business checks', 'Identity and KYB in one contracted scope', 'Consolidated review workflows'],
+      ['Test first', 'Local data and registry coverage', 'KYB module, registry depth and evidence', 'Ownership and case workflows']
     ]
   },
   {
