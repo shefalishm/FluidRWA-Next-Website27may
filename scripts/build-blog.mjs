@@ -441,7 +441,7 @@ const thumbnailAlt = {
   "creative-rights": "Film camera, vinyl record and rights documents in a studio",
 };
 
-function cardPreview(post) {
+function baseCardPreview(post) {
   if (/report/i.test(post.category || "")) {
     return { src: post.image, alt: post.imageAlt || post.title };
   }
@@ -493,7 +493,62 @@ function cardPreview(post) {
   return generic[index];
 }
 
+const specificCardImages = {
+  "what-s-the-difference-between-tokenization-methods": ["tokenization-methods", "Asset documents beside a digital ownership ledger"],
+  "what-s-the-fastest-way-to-get-started-with-tokenization": ["tokenization-get-started", "Team planning an asset tokenization launch"],
+  "what-s-the-minimum-asset-size-worth-tokenizing": ["tokenization-asset-size", "Financial analyst assessing the size of an asset"],
+  "what-support-will-i-get-from-a-tokenization-provider": ["tokenization-provider-support", "Client and provider discussing a tokenization project"],
+  "why-should-i-tokenize-instead-of-going-public": ["tokenization-vs-ipo", "Financial district viewed beside capital market documents"],
+  "how-much-does-it-cost-to-tokenize-an-asset": ["tokenization-costs", "Financial team reviewing asset tokenization costs"],
+  "what-happens-to-dividends-or-income-from-tokenized-assets": ["tokenization-income", "Investor reviewing income from tokenized assets"],
+  "how-to-migrate-tokenization-platform-investor-records": ["tokenization-migration", "Investor records prepared for a platform migration"],
+};
+
+const recentCardPreviews = [];
+const cardImage = (name, alt) => ({ src: `/assets/blog-thumbnails/${name}.webp`, alt });
+
+function cardPreview(post) {
+  const specific = specificCardImages[post.slug];
+  const preferred = specific ? cardImage(...specific) : baseCardPreview(post);
+  if (/report/i.test(post.category || "") || specific || !recentCardPreviews.slice(-8).includes(preferred.src)) {
+    recentCardPreviews.push(preferred.src);
+    return preferred;
+  }
+
+  const topic = `${post.slug} ${post.title} ${post.category}`.toLowerCase();
+  const pools = [
+    [/real.estate|construction|commercial.property/, ["real-estate", "tokenization-markets", "private-credit"]],
+    [/trade.finance|supply.chain|shipping|logistics/, ["trade-finance", "commodities", "tokenization-records"]],
+    [/healthcare|medical|patient/, ["healthcare", "tokenization-records", "blog-middesk-vs-kyckr-vs-kompany-kyb-apis-editorial"]],
+    [/energy|solar|carbon|sustainability/, ["clean-energy", "commodities", "tokenization-markets"]],
+    [/commodit|precious.metal|gold/, ["commodities", "treasury-funds", "tokenization-records"]],
+    [/gaming|gamefi|video.game|film|music|royalt|intellectual.property/, ["gaming", "creative-rights", "tokenization-records"]],
+    [/private.credit|lending|loan|debt|heloc/, ["private-credit", "treasury-funds", "real-estate"]],
+    [/treasury|bond|fund.token|asset.manager|stock|securities/, ["treasury-funds", "tokenization-markets", "blog-ondo-stocks-vs-xstocks-vs-robinhood-stock-tokens-editorial"]],
+    [/ramp|fiat|transak|moonpay|banxa|payment|checkout|merchant|payroll|stablecoin|bank.account/, ["blog-moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers-editorial", "blog-checkoutcom-vs-nuvei-vs-worldpay-crypto-payment-processing-editorial", "blog-rain-vs-immersve-vs-reap-stablecoin-card-issuing-editorial", "blog-retool-vs-appsmith-vs-budibase-fintech-operations-consoles-editorial", "blog-privy-vs-dynamic-vs-web3auth-wallet-onboarding-editorial"]],
+    [/identity|kyc|kyb|onboard|verification/, ["blog-trulioo-vs-veriff-vs-ondato-kyc-kyb-verification-editorial", "blog-sumsub-vs-trulioo-vs-veriff-kyc-identity-verification-editorial", "blog-middesk-vs-kyckr-vs-kompany-kyb-apis-editorial"]],
+    [/compliance|aml|fraud|sanction|regulat|legal|policy/, ["blog-complyadvantage-vs-unit21-vs-sardine-aml-fraud-editorial", "blog-chainalysis-vs-trm-vs-elliptic-blockchain-analytics-editorial", "blog-alloy-vs-unit21-vs-sardine-fintech-risk-compliance-editorial"]],
+    [/custod|wallet|key.management|mpc/, ["blog-anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody-editorial", "blog-fireblocks-vs-fordefi-vs-utila-institutional-wallet-infrastructure-editorial", "blog-privy-vs-dynamic-vs-web3auth-wallet-onboarding-editorial"]],
+    [/audit|security|vulnerab|smart.contract|insurance/, ["blog-blockaid-vs-blowfish-vs-hypernative-web3-security-editorial", "blog-snyk-vs-semgrep-vs-sonarqube-fintech-code-security-editorial", "blog-vanta-vs-drata-vs-secureframe-compliance-automation-editorial", "blog-infisical-vs-doppler-vs-hashicorp-vault-secrets-management-editorial", "blog-fireblocks-vs-fordefi-vs-utila-institutional-wallet-infrastructure-editorial"]],
+    [/accounting|tax|reconciliation|financial.ledger/, ["blog-taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax-editorial", "blog-taxbit-vs-cointracker-vs-koinly-crypto-accounting-editorial", "blog-carta-vs-angellist-vs-juniper-square-fund-administration-editorial"]],
+    [/rpc|node|developer|blockchain|appchain|rollup|oracle|cross.chain|infrastructure|data|analytics/, ["blog-alchemy-vs-quicknode-vs-chainstack-rpc-node-providers-editorial", "blog-alchemy-vs-quicknode-vs-infura-rpc-node-providers-editorial", "blog-caldera-vs-conduit-vs-altlayer-rollup-as-a-service-editorial", "blog-alchemy-vs-moralis-vs-thirdweb-web3-development-platforms-editorial"]],
+  ];
+  const names = pools.find(([pattern]) => pattern.test(topic))?.[1] || [
+    "tokenization-records", "tokenization-markets", "treasury-funds", "real-estate",
+    "private-credit", "blog-top-tokenization-companies-2026-editorial",
+    "blog-asset-tokenization-platform-comparison-editorial",
+  ];
+  const candidates = [...new Set([preferred.src, ...names.map((name) => cardImage(name, post.title).src)])];
+  const recent = recentCardPreviews.slice(-8);
+  const src = candidates.find((candidate) => !recent.includes(candidate)) ||
+    candidates.find((candidate) => candidate !== recentCardPreviews.at(-1)) || preferred.src;
+  const chosen = src === preferred.src ? preferred : { src, alt: `Image illustrating ${post.title}` };
+  recentCardPreviews.push(chosen.src);
+  return chosen;
+}
+
 function indexPage(posts) {
+  recentCardPreviews.length = 0;
   const schema = { "@context": "https://schema.org", "@type": "CollectionPage", name: "RWA Tokenization and Web3 Infrastructure Guides", url: `${site}/blog`, description: "Expert guides and research on RWA tokenization, Web3 infrastructure, compliance, custody, stablecoins and digital asset operations.", hasPart: reports.map((report) => ({ "@type": "CreativeWork", name: report.title, author: { "@type": "Organization", name: report.author }, url: reportUrl(report), description: report.description })), mainEntity: { "@type": "ItemList", numberOfItems: posts.length, itemListElement: posts.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, url: blogUrl(p.slug) })) } };
   const imageUrl = `${site}/assets/social/blog.png`;
   const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category).filter(Boolean))).sort()];
@@ -502,6 +557,7 @@ function indexPage(posts) {
 }
 
 function categoryPage(posts, category, slug, title, description) {
+  recentCardPreviews.length = 0;
   const categoryPosts = posts.filter((p) => p.category === category);
   const url = blogUrl(slug);
   const schema = { "@context": "https://schema.org", "@type": "CollectionPage", name: title, url, description, mainEntity: { "@type": "ItemList", numberOfItems: categoryPosts.length, itemListElement: categoryPosts.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, url: blogUrl(p.slug) })) } };
