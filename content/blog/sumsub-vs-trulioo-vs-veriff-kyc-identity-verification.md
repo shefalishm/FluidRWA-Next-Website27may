@@ -4,6 +4,7 @@ description: "Compare Sumsub, Trulioo and Veriff for global KYC, KYB, identity d
 date: "2026-09-09"
 reviewedDate: "2026-09-09"
 reviewedLabel: "September 9, 2026"
+modifiedDate: "2026-10-25"
 category: "KYC and Identity Verification"
 slug: "sumsub-vs-trulioo-vs-veriff-kyc-identity-verification"
 image: "/assets/blog-images/sumsub-vs-trulioo-vs-veriff-kyc-identity-verification.svg"
@@ -15,7 +16,7 @@ ctaLabel: "Explore Vendor Ecosystem"
 ctaUrl: "/web3vendorecosystem"
 ctaSecondaryLabel: "Submit Requirements"
 ctaSecondaryUrl: "/submit-requirement"
-socialImage: "/assets/social/blog-sumsub-vs-trulioo-vs-veriff-kyc-identity-verification.png"
+socialImage: "/assets/social/blog-sumsub-vs-trulioo-vs-veriff-kyc-identity-verification-editorial.jpg"
 socialTitle: "Sumsub vs Trulioo vs Veriff"
 ---
 
@@ -90,8 +91,4 @@ Sumsub is a natural starting point for teams seeking a full-cycle platform spann
 
 ## Research basis
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
-
-- S
-- T
-- V
+The product descriptions above are based on company materials, not independent tests of accuracy, conversion or fraud detection. Relevant primary sources include [Sumsub's business verification documentation](https://docs.sumsub.com/docs/verify-businesses), [Trulioo's product directory](https://www.trulioo.com/sitemap) and [Veriff's identity-verification overview](https://www.veriff.com/). Availability and results depend on the country, configuration and contract. Buyers should run their own test set.
