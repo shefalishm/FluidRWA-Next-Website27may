@@ -358,7 +358,7 @@ Provenance Blockchain is associated with financial asset workflows, lending, pri
 
 ### 17. Figure
 
-Figure is relevant for lending, private credit and blockchain-enabled financial asset workflows. It is strongest where the use case is connected to credit, loan origination, loan trading or financial asset infrastructure.
+Figure belongs in a lending or private-credit shortlist when the project involves loan origination, trading or related financial-asset infrastructure. Buyers should confirm which part of that workflow Figure would actually provide.
 
 **Best for:** financial institutions, lenders and credit platforms.
 

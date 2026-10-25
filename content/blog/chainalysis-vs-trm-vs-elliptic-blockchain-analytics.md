@@ -5,7 +5,7 @@ description: "Compare four crypto analytics platforms for wallet screening, tran
 date: "2026-08-03"
 reviewedDate: "2026-10-02"
 reviewedLabel: "October 2, 2026"
-modifiedDate: "2026-10-24"
+modifiedDate: "2026-10-25"
 category: "Compliance"
 slug: "chainalysis-vs-trm-vs-elliptic-blockchain-analytics"
 infographicImage: "/assets/infographics/chainalysis-vs-trm-vs-elliptic-blockchain-analytics-comparison.png"
@@ -66,23 +66,21 @@ Use the table to shape a test case before you ask for pricing. It shows where ea
 
 For private-sector compliance teams, Cognyte is usually an adjacent investigative-intelligence candidate rather than a direct substitute for an embedded KYT control. Treat any four-way shortlist as two related procurement questions until a vendor proves that it serves the exact operating workflow.
 
-## What Each Provider Is Best For
+## What to Ask Each Provider to Show
 
 ### Chainalysis
 
-Chainalysis is best known for blockchain intelligence, KYT, investigations and institutional compliance use cases. It is often evaluated by exchanges, payment processors, financial institutions, VASPs, stablecoin teams, investigators and regulators.
+Chainalysis sells blockchain intelligence, KYT and investigation products to compliance teams and investigators. In a demonstration, separate the screening decision from the analyst's later investigation; they are different jobs.
 
 Its KYT product focuses on monitoring incoming and outgoing crypto transactions, risk scoring, alerts, behavioral rules, case management and API integration. Chainalysis also has investigation tooling and data products that can support deeper forensic work.
 
-Chainalysis may be strongest when the buyer needs:
+Ask Chainalysis to demonstrate these requirements if they matter to your team:
 
-- mature KYT and transaction monitoring
-- regulatory and law-enforcement familiarity
+- KYT and transaction monitoring
 - investigator workflows
 - exposure analysis across many networks and tokens
 - API-connected deposit and withdrawal controls
 - case management and escalation evidence
-- a vendor with broad recognition in institutional crypto compliance
 
 The main diligence question is whether Chainalysis' depth, pricing and operating model fit the buyer's actual risk volume. A smaller tokenization platform may not need the same tooling footprint as a global exchange.
 
@@ -90,7 +88,7 @@ The main diligence question is whether Chainalysis' depth, pricing and operating
 
 TRM Labs is often evaluated for transaction monitoring, wallet screening, investigations, fraud detection and threat intelligence. It is relevant where compliance teams want flexible alerting and case management around deposits, withdrawals, wallets, counterparties and behavioral patterns.
 
-TRM may be strongest when the buyer needs:
+Ask TRM to demonstrate these requirements if they matter to your team:
 
 - configurable transaction monitoring rules
 - wallet and counterparty screening
@@ -106,7 +104,7 @@ The main diligence question is how well TRM's risk categories, attribution and w
 
 Elliptic is frequently evaluated for wallet screening, transaction monitoring, risk scoring and investigation workflows. Its materials emphasize real-time monitoring, configurable risk rules, automatic rescreening, wallet context and support for financial institutions, regulators, law enforcement and crypto businesses.
 
-Elliptic may be strongest when the buyer needs:
+Ask Elliptic to demonstrate these requirements if they matter to your team:
 
 - wallet screening before allowing transactions
 - ongoing transaction monitoring
@@ -122,7 +120,7 @@ The main diligence question is whether Elliptic's coverage, risk methodology and
 
 Cognyte positions BLINK around blockchain investigations for law-enforcement and intelligence teams. Its public materials emphasize following transaction trails, identifying suspects, generating investigative leads and combining blockchain activity with complementary analytics.
 
-Cognyte may be strongest when the buyer needs:
+Ask Cognyte to demonstrate these requirements if they matter to your team:
 
 - intelligence-led cryptocurrency investigations
 - suspect and entity identification across crypto services
@@ -137,8 +135,8 @@ The main diligence question is whether the buyer needs an investigative intellig
 | Decision factor | Chainalysis | TRM Labs | Elliptic | Cognyte |
 |---|---|---|---|---|
 | Natural buyer | Exchanges, institutions, VASPs, regulators and mature compliance teams | Crypto businesses, fintechs and teams needing configurable monitoring | Institutions and crypto businesses needing screening and monitoring | Law-enforcement, intelligence and public-safety investigation teams |
-| Strongest workflow | KYT, investigations and broad risk operations | Monitoring, threat intelligence, case management and investigations | Wallet screening, monitoring, rescreening and risk context | Intelligence-led tracing, suspect identification and lead generation |
-| Best fit | Operational crypto compliance plus investigation depth | Configurable private-sector monitoring and threat workflows | Institutional screening and transaction risk operations | Public-sector cryptocurrency investigations connected to wider intelligence |
+| Workflow to test | KYT, investigations and risk operations | Monitoring, threat intelligence, case management and investigations | Wallet screening, monitoring, rescreening and risk context | Intelligence-led tracing, suspect identification and lead generation |
+| Likely buyer task | Operational crypto compliance plus investigations | Private-sector monitoring and threat workflows | Screening and transaction risk operations | Cryptocurrency investigations connected to wider intelligence |
 | Main buying question | Do we need the full mature compliance and investigation suite? | Do we need configurable monitoring and threat intelligence? | Do we need screening and rescreening with institutional workflow fit? | Do we need investigative intelligence rather than an embedded KYT control? |
 | What to test | Alert quality, API flow, chains, case evidence and user-risk model | Rule tuning, analyst workflow, typologies and false positives | Attribution, risk categories, rescreening and reporting | Investigation data, attribution evidence, analyst workflow and legal admissibility needs |
 
