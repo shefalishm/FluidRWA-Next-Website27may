@@ -1,7 +1,7 @@
 ---
 title: "CLARITY Act Timeline: What Passed, What Stalled, and What It Means for RWA"
 seoTitle: "CLARITY Act Timeline and Status (October 2026)"
-description: "A source-linked timeline of the US CLARITY Act, the House-passed bill, Senate proposals and the September 2026 vote, with practical context for tokenized assets."
+description: "The CLARITY Act's verified timeline, current status and potential effects on exchanges, custody, tokenized funds, credit, stablecoins and blockchain infrastructure."
 date: "2026-10-25"
 reviewedDate: "2026-10-25"
 reviewedLabel: "October 25, 2026"
@@ -28,6 +28,8 @@ faq4q: "Is the Senate draft the same as the House-passed bill?"
 faq4a: "No. Senate committees published discussion drafts and later text during negotiations. Those proposals should not be quoted as if they were the House-passed text or enacted law."
 faq5q: "What should a tokenization team do now?"
 faq5a: "Document the legal rights represented by each token, the offering and trading arrangements, custody and customer protections, and the jurisdictions involved. Ask counsel to assess current law. Monitor Congress for any new text and votes rather than planning against a proposal as if it were effective."
+faq6q: "Would CLARITY make tokenized real estate or private credit a digital commodity?"
+faq6a: "Not automatically. The House-passed definition excludes certain securities and claims tied to an issuer's assets, debts, interest or principal. Real-estate and private-credit structures require an instrument-by-instrument legal assessment; the bill is not law."
 ---
 
 ## The status in one minute
@@ -66,6 +68,12 @@ The [258-page House-passed text](https://www.congress.gov/119/bills/hr3633/BILLS
 
 This is an outline of the **proposal**, not a statement that any of these provisions now governs a business. The precise definition, exception and effective-date language matters; do not base an implementation decision on a headline or this table.
 
+### The definition that matters most for RWA
+
+In section 101 of the [House-passed bill](https://www.congress.gov/119/bills/hr3633/BILLS-119hr3633eh.pdf), a digital commodity is linked to a blockchain system and derives, or is reasonably expected to derive, value from that system's use. The definition then has exclusions. Among them are certain securities and instruments representing an interest in an issuer's revenues, profits, obligations, debts or assets; creditor rights; and rights to interest or repayment of principal. The details and exceptions in the statutory wording matter, so this is a reading aid, not a classification opinion.
+
+That is why a network token and a token recording a loan claim should not be put in the same regulatory bucket merely because both move onchain. A tokenized Treasury fund share is not a digital commodity simply because its transfer record uses a blockchain. Conversely, the bill's exclusion language should not be treated as a ready-made legal answer for every structure. The actual instrument and transaction still require review.
+
 ## Why the Senate versions require separate reading
 
 The House bill is one legislative text. Senate Banking and Senate Agriculture worked on related but distinct material. The [November 2025 Agriculture draft](https://www.agriculture.senate.gov/newsroom/rep/press/release/boozman-booker-release-bipartisan-market-structure-discussion-draft) discussed a CFTC spot-market framework, customer protections and coordination with the SEC, while acknowledging unresolved language. Senate Banking then [released revised text in May 2026](https://www.banking.senate.gov/newsroom/majority/chairman-scott-senators-lummis-tillis-release-market-structure-bill-text-ahead-of-banking-committee-markup) for its own process.
@@ -83,6 +91,60 @@ This is FluidRWA's practical reading of the bill's scope, **not a legal classifi
 3. Name each intermediary and who controls assets and customer records at each step.
 4. Record investor location, marketing geography and any transfer restrictions.
 5. Note which assumptions depend on a *proposed* CLARITY provision rather than current law.
+
+### How different industries could be affected
+
+The table below describes **possible effects if legislation resembling the House-passed text were enacted**. It does not describe current obligations. Where Senate text differs or a regulator would still need to write rules, the final outcome is unknown.
+
+| Industry or business model | Relevant House proposal | Practical question now |
+| --- | --- | --- |
+| Crypto exchanges and brokers | Title IV proposes CFTC registration and conduct rules for digital commodity intermediaries; Title III addresses certain SEC-regulated intermediaries. | Which assets and transactions would fall in which regime, and what would a mixed securities/commodity venue need to operate? |
+| Digital-asset custodians and banks | Sections 402 and 405 address qualified digital-asset custodians and supervision for the proposed digital-commodity regime. | Which entity actually holds each customer's assets, under which supervisory framework, and how would segregation work? |
+| Tokenized funds and asset managers | Section 101's definition and exclusions make the rights attached to a token decisive; Title III retains securities-market concepts. | Is the token a fund interest, security or other claim, and which current offering, transfer and custody rules apply? |
+| Private-credit and tokenized-debt issuers | Section 101 expressly discusses creditor, debt, interest and principal rights in the exclusions from “digital commodity.” | What legal claim does the investor own, and who is responsible for servicing and repayment? |
+| Stablecoin issuers and payment firms | The House text treats permitted payment stablecoins separately from digital commodities and addresses specified intermediary transactions in Title III. | Are we issuing a payment instrument, moving funds, or trading/custodying one through an intermediary? Do not confuse this bill with a payment-services license. |
+| DeFi protocols, wallet and node developers | Sections 109, 309 and 409 contain proposals concerning certain non-controlling developers and decentralized-finance activities. | Who can alter the system or control customer assets? A label such as “decentralized” does not settle the legal analysis. |
+| Tokenization platforms and transfer agents | The proposed commodity framework is not a blanket replacement for securities issuance or ownership-record duties. | Is the platform providing software only, recording legal ownership, acting as an intermediary, or combining those roles? |
+
+These references all point to the [House-passed bill text](https://www.congress.gov/119/bills/hr3633/BILLS-119hr3633eh.pdf). The questions are FluidRWA's procurement prompts, not requirements imposed by the bill today.
+
+### Exchanges, broker-dealers and trading venues
+
+The House bill proposes a CFTC framework for digital commodity exchanges, brokers and dealers (Title IV). It also contains provisions for SEC-registered intermediaries dealing in digital commodities and permitted payment stablecoins (Title III). That is not a simple SEC-to-CFTC handover for every token. A venue listing a tokenized security alongside a network token would need to determine the nature of *each* instrument and the activity being performed. Any future dual-registration or alternative-trading-system path would depend on final legislation and implementing rules.
+
+For a buyer evaluating a trading provider today, request an asset-by-asset listing policy, the identity of the licensed operating entity, custody arrangements, surveillance responsibilities and the treatment of assets that cannot be listed on the same venue. Those questions remain useful whatever happens to CLARITY.
+
+### Banks, custodians and investors' assets
+
+Section 405 of the House version proposes conditions for a “qualified digital asset custodian” in the contemplated digital-commodity system, including supervisory routes. Section 402 addresses the use of qualified custodians by futures commission merchants. These provisions should not be advertised as a current certification for a vendor. Nor do they say that any wallet with good key management is a qualified custodian.
+
+For institutions, separate three layers in the diligence pack: custody of underlying fund assets, custody of tokenized securities or commodities, and control of an investor's wallet. They may involve different firms and legal duties. Ask for the exact entity, supervisor, account structure, asset segregation and insolvency treatment for each layer.
+
+### Funds, private credit and real estate
+
+This is where headlines about “regulatory clarity for all RWAs” are most misleading. The House-passed definition's exclusions speak directly to interests in assets or debts, creditor rights and repayment of interest or principal. A tokenized private-credit note, fund share or property interest may therefore raise securities and property-law questions that CLARITY's proposed digital-commodity framework does not resolve. This is an inference from the [definition in section 101](https://www.congress.gov/119/bills/hr3633/BILLS-119hr3633eh.pdf), not a ruling on any named product.
+
+An asset manager should still document the issuer and legal vehicle, the investor's enforceable claim, cash-flow and redemption rights, administrator and transfer-agent responsibilities, and whether the token record is the legal register or a technical mirror. For real estate, also identify the land or entity interest and the jurisdiction of the underlying property. Those decisions are more immediate than speculative changes to digital-commodity registration.
+
+### Stablecoin payments and settlement
+
+The House text expressly distinguishes permitted payment stablecoins from digital commodities and contains provisions for certain transactions through brokers, exchanges or alternative trading systems. It should not be read as a complete rulebook for stablecoin issuance, redemption, reserves or cross-border payments. A payment company must examine its actual fiat and stablecoin flows and the separate laws applying to them. The proposed market-structure bill does not, by itself, confer permission to operate a ramp or payment service.
+
+### DeFi, wallets and infrastructure providers
+
+Section 109 proposes limited treatment for certain non-controlling developers and providers of blockchain services. Importantly, the [same section preserves the possibility of other money-transmission or Bank Secrecy Act treatment based on conduct outside its narrow scope](https://www.congress.gov/119/bills/hr3633/BILLS-119hr3633eh.pdf). Titles III and IV also contain DeFi-related exclusions. None should be paraphrased as “DeFi is exempt.”
+
+For a protocol or wallet provider, the fact pattern matters: who can change smart-contract rules, freeze transfers, hold keys, custody assets or operate a user-facing intermediary? A genuinely non-controlling software publisher and a firm exercising discretionary control are not the same case. Final statutory language and agency implementation would matter if a bill passes.
+
+### International firms with US customers
+
+CLARITY is a US legislative proposal. An overseas issuer, custodian or platform cannot assume it is irrelevant just because its headquarters is elsewhere, nor that every overseas activity would be covered. The relevant questions are where investors are solicited, where transactions occur, which US-facing intermediaries participate and what existing US law already applies. That is a jurisdictional assessment for counsel, not a conclusion supplied by the bill's title.
+
+### What changes now, and what waits?
+
+**Now:** nothing in H.R. 3633 has taken effect merely because the House passed it or a Senate committee published draft text. Keep operating against current applicable law and contracts. Map the rights and responsibilities above so future changes can be assessed quickly.
+
+**If a bill eventually passes:** compare the *enacted* version against the House version, read its effective-date and rulemaking provisions, and update each product classification and vendor contract. For example, the House-passed Title II proposes a 360-day effective-date rule with a later date for some provisions requiring final rules (section 206). That clock has **not** started for this unenacted bill.
 
 The [FluidRWA tokenization regulations guide](/blog/what-regulations-apply-to-asset-tokenization) covers the wider legal questions. For a project-specific vendor brief, send the product map to [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
 
