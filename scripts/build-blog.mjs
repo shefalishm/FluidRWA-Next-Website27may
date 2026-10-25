@@ -504,15 +504,24 @@ const specificCardImages = {
   "how-to-migrate-tokenization-platform-investor-records": ["tokenization-migration", "Investor records prepared for a platform migration"],
 };
 
+const uniqueCardImages = JSON.parse(fs.readFileSync(path.join(root, "data/blog-card-previews.json"), "utf8"));
+
 const recentCardPreviews = [];
 const cardImage = (name, alt) => ({ src: `/assets/blog-thumbnails/${name}.webp`, alt });
 
 function cardPreview(post) {
+  if (uniqueCardImages[post.slug]) {
+    recentCardPreviews.push(uniqueCardImages[post.slug].src);
+    return uniqueCardImages[post.slug];
+  }
+  const finish = (image) => /report/i.test(post.category || "") || image.alt.startsWith("FluidRWA")
+    ? image
+    : { ...image, alt: `FluidRWA ${post.title}: ${image.alt}` };
   const specific = specificCardImages[post.slug];
   const preferred = specific ? cardImage(...specific) : baseCardPreview(post);
   if (/report/i.test(post.category || "") || specific || !recentCardPreviews.slice(-8).includes(preferred.src)) {
     recentCardPreviews.push(preferred.src);
-    return preferred;
+    return finish(preferred);
   }
 
   const topic = `${post.slug} ${post.title} ${post.category}`.toLowerCase();
@@ -544,7 +553,7 @@ function cardPreview(post) {
     candidates.find((candidate) => candidate !== recentCardPreviews.at(-1)) || preferred.src;
   const chosen = src === preferred.src ? preferred : { src, alt: `Image illustrating ${post.title}` };
   recentCardPreviews.push(chosen.src);
-  return chosen;
+  return finish(chosen);
 }
 
 function indexPage(posts) {
