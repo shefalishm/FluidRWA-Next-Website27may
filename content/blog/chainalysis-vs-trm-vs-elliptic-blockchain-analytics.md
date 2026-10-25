@@ -43,7 +43,7 @@ faq7q: "What is most important for stablecoin products?"
 faq7a: "Stablecoin products should check supported chains, stablecoin asset coverage, source and destination risk, sanctions exposure, redemption controls and whether alert workflows can be connected to payment operations."
 faq8q: "Where can I compare more compliance vendors?"
 faq8a: "FluidRWA maintains directories for compliance infrastructure, KYC and AML providers, legal vendors, custody providers and tokenization platforms."
-socialImage: "/assets/social/blog-chainalysis-vs-trm-vs-elliptic-blockchain-analytics.png"
+socialImage: "/assets/social/blog-chainalysis-vs-trm-vs-elliptic-blockchain-analytics-editorial.jpg"
 socialTitle: "Chainalysis vs TRM vs Elliptic vs Cognyte"
 ---
 

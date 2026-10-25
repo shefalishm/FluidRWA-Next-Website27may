@@ -31,7 +31,7 @@ faq7q: "What should an RWA company run on decentralized compute?"
 faq7a: "Lower-risk candidates include public-data research, document classification, model evaluation and non-sensitive batch inference. Regulated personal data, transaction signing and confidential investor records require much stricter architecture and legal review."
 faq8q: "How should teams test Akash, io.net and Aethir?"
 faq8a: "Use the same container or model, dataset, GPU class and test window. Measure time to capacity, throughput, latency, failure recovery, total cost, support response and the engineering effort required to keep the workload reliable."
-socialImage: "/assets/social/blog-akash-vs-io-net-vs-aethir-decentralized-gpu-compute.png"
+socialImage: "/assets/social/blog-akash-vs-io-net-vs-aethir-decentralized-gpu-compute-editorial.jpg"
 ---
 
 ## The Short Answer

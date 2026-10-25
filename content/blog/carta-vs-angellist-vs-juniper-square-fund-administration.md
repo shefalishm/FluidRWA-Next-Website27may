@@ -31,7 +31,7 @@ faq7q: "Does Carta provide fund administration?"
 faq7a: "Carta offers fund management software and services including fund administration, tax, formations, portfolio valuations and management company workflows."
 faq8q: "Where can I compare more fund administration vendors?"
 faq8a: "FluidRWA maintains a fund administration and transfer agent provider directory for private market and tokenized asset teams."
-socialImage: "/assets/social/blog-carta-vs-angellist-vs-juniper-square-fund-administration.png"
+socialImage: "/assets/social/blog-carta-vs-angellist-vs-juniper-square-fund-administration-editorial.jpg"
 ---
 
 ## Tokenization Does Not Remove Fund Operations

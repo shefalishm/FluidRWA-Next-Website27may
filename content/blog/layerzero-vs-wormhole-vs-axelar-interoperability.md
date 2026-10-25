@@ -40,7 +40,7 @@ faq7q: "Can cross-chain providers support compliance controls?"
 faq7a: "They can support technical movement, but compliance depends on wallet screening, transfer restrictions, identity controls, legal structuring and policy logic built around the cross-chain flow."
 faq8q: "Where can I compare more infrastructure vendors?"
 faq8a: "FluidRWA maintains directories for tokenization platforms, smart contract developers, custody, oracles, RPC and security providers."
-socialImage: "/assets/social/blog-layerzero-vs-wormhole-vs-axelar-interoperability.png"
+socialImage: "/assets/social/blog-layerzero-vs-wormhole-vs-axelar-interoperability-editorial.jpg"
 ---
 
 ## Cross-Chain Infrastructure Is Not Just a Bridge

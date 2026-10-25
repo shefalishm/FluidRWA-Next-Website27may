@@ -25,7 +25,7 @@ faq4q: "What creates most card-program risk?"
 faq4a: "Geographic eligibility, fraud losses, chargebacks, sanctions controls, token conversion, funding liquidity, scheme rules, disputes and unclear division of responsibility."
 faq5q: "How current is this comparison?"
 faq5a: "It was reviewed on September 25, 2026 using public provider websites and documentation. Coverage and program terms change and require a current proposal."
-socialImage: "/assets/social/blog-rain-vs-immersve-vs-reap-stablecoin-card-issuing.png"
+socialImage: "/assets/social/blog-rain-vs-immersve-vs-reap-stablecoin-card-issuing-editorial.jpg"
 socialTitle: "Rain vs Immersve vs Reap"
 ---
 

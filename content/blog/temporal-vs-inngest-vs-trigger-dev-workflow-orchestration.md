@@ -30,7 +30,7 @@ faq3q: "Should we replace every queue with a workflow engine?"
 faq3a: "Not necessarily. First identify long-lived state, approval waits, failure recovery and operator needs. A simple isolated job may not need the same orchestration as a multi-system process."
 faq4q: "Which product has the fastest recovery?"
 faq4a: "No recovery benchmark was run for this review. Test the chosen deployment and workload, including failure after an external side effect and recovery after a code change."
-socialImage: "/assets/social/blog-temporal-vs-inngest-vs-trigger-dev-workflow-orchestration.png"
+socialImage: "/assets/social/blog-temporal-vs-inngest-vs-trigger-dev-workflow-orchestration-editorial.jpg"
 ---
 
 ## Why compare workflow models rather than feature counts?

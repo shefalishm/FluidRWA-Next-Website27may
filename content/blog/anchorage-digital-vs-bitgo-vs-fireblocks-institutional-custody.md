@@ -19,7 +19,7 @@ ctaSecondaryUrl: "/submit-requirement"
 topCtaLabel: "Get a Custody Shortlist"
 topCtaText: "Match regulated custody, wallet controls and settlement needs to suitable providers."
 topCtaUrl: "/submit-requirement?source=blog-shortlist&topic=institutional-custody"
-socialImage: "/assets/social/blog-anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody.png"
+socialImage: "/assets/social/blog-anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody-editorial.jpg"
 socialTitle: "Anchorage Digital vs BitGo vs Fireblocks"
 ---
 

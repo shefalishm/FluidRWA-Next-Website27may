@@ -5,12 +5,12 @@ description: "Compare 10 RWA tokenization platforms for funds, real estate and p
 date: "2026-07-11"
 reviewedDate: "2026-09-30"
 reviewedLabel: "September 30, 2026"
-modifiedDate: "2026-10-24"
+modifiedDate: "2026-10-25"
 category: "Tokenization"
 slug: "top-tokenization-companies-2026"
 image: "/assets/blog-images/top-tokenization-companies-2026.svg"
 imageAlt: "Top 10 RWA Tokenization Platforms & Companies for 2026 editorial infrastructure visual"
-answer: "Issuers can start with Securitize, Tokeny, Zoniqx, Brickken, DigiShares, Polymath, ADDX, Taurus, InvestaX and Libre. The useful shortlist depends on the asset you are issuing, where investors live, who keeps the ownership record and how subscriptions, transfers and redemptions will work."
+answer: "Issuers can start with Securitize, Tokeny, Zoniqx, Brickken, DigiShares, Polymath, ADDX, Taurus, InvestaX and KAIO (formerly Libre). The useful shortlist depends on the asset you are issuing, where investors live, who keeps the ownership record and how subscriptions, transfers and redemptions will work."
 ctaTitle: "Need help choosing a tokenization provider?"
 ctaText: "Use FluidRWA to compare tokenization platforms by asset class, compliance model, custody workflow, distribution requirements and launch readiness."
 ctaLabel: "Run Tokenization Assessment"
@@ -36,7 +36,7 @@ faq7q: "Can small issuers use tokenization companies?"
 faq7a: "Yes, but small issuers should be careful about scope and cost. Some enterprise platforms are designed for large asset managers or banks, while others are more accessible for SMEs, real estate sponsors, private companies and early-stage issuers."
 faq8q: "When should I run a tokenization assessment?"
 faq8a: "Run a tokenization assessment before contacting vendors if you are unsure about asset structure, investor eligibility, compliance obligations, custody, blockchain selection, launch budget or required operating partners."
-socialImage: "/assets/social/blog-top-tokenization-companies-2026.png"
+socialImage: "/assets/social/blog-top-tokenization-companies-2026-editorial.jpg"
 infographicImage: "/assets/infographics/rwa-tokenization-platform-shortlist-map-2026.png"
 infographicMobileImage: "/assets/infographics/rwa-tokenization-platform-shortlist-map-2026-mobile.png"
 infographicName: "RWA Tokenization Platform Shortlist Map for 2026"
@@ -58,7 +58,7 @@ This guide compares ten starting points for issuer-side platform selection. It d
 
 Have a defined project? [Share your requirements](/submit-requirement?source=tokenization-article-buyer&article=top-tokenization-companies-2026), or email [contact@fluidrwa.com](mailto:contact@fluidrwa.com). For a company seeking editorial inclusion, use the company-consideration option below the comparison.
 
-**Reader guidance updated October 23, 2026. This editorial update is not a new verification of every provider claim; the provider-review date remains September 30, 2026.**
+**Reader guidance updated October 25, 2026. This editorial update is not a new verification of every provider claim; the provider-review date remains September 30, 2026.**
 
 ## How to read the shortlist
 
@@ -71,7 +71,7 @@ That is why a serious comparison should separate tokenization companies into fun
 - **Private credit and lending infrastructure:** Centrifuge, Maple Finance, Figure and Provenance Blockchain
 - **Custody and wallet infrastructure:** Fireblocks and Taurus
 - **Institutional blockchain and interoperability infrastructure:** Chainlink, Canton Network, Hedera, Ripple and R3
-- **Regulated marketplaces and private market access:** Archax, ADDX and Libre
+- **Regulated marketplaces and private market access:** Archax, ADDX and KAIO (formerly Libre)
 
 The ten companies in the table are issuer-facing starting points. The other names below include product issuers, custodians and networks. Keep those roles separate when asking for proposals.
 
@@ -94,7 +94,11 @@ This shortlist focuses on providers that an issuer, fund, asset manager or regul
 | ADDX | Regulated private-market issuance and investor access | Issuer eligibility, geography, product admission and distribution reach |
 | Taurus | Bank-oriented tokenization, custody and digital asset infrastructure | Modules required, custody model, chain support and integration effort |
 | InvestaX | Digital securities issuance and investment infrastructure | Jurisdiction, regulated functions, asset scope and investor access |
-| Libre | Tokenized fund issuance and distribution infrastructure | Eligible investors, fund-administration dependencies and redemption model |
+| KAIO (formerly Libre) | Tokenized fund access and distribution infrastructure | Eligible investors, fund-administration dependencies and redemption model |
+
+**Brand update, October 25, 2026:** Libre's former domain redirects to KAIO. The downloadable shortlist graphic still uses the former name; the company link below shows its current positioning. This branding check does not reverify every product claim in the comparison.
+
+These are company descriptions, not independent performance tests. Product pages checked for the shortlist on October 25, 2026: [Securitize](https://investors.securitize.io/overview/), [Tokeny](https://docs.tokeny.com/docs/the-erc-3643-token-standard), [Zoniqx](https://www.zoniqx.com/solutions), [Brickken](https://www.brickken.com/), [DigiShares](https://digishares.io/real-estate-tokenization), [Polymath](https://www.polymath.network/capital-platform), [ADDX](https://www.addx.co/en/), [Taurus-CAPITAL](https://www.taurushq.com/capital/), [InvestaX](https://investax.io/tokenization-platform) and [KAIO](https://kaio.xyz/). Confirm contracting entity, licenses, product availability and implementation scope directly before procurement.
 
 For a closer enterprise comparison, read [Securitize vs Tokeny vs Zoniqx](/blog/securitize-vs-tokeny-vs-zoniqx-enterprise-tokenization-software/). Teams considering Zoniqx's DyCIST model should also read the [ERC-7518 explainer](/blog/erc-7518-dycist-standard-explained/) because ERC-7518 remains an Ethereum proposal in Review, not a finalized standard.
 
@@ -402,9 +406,9 @@ Polymath has long been associated with security tokens and regulated asset issua
 
 **Watchouts:** buyers should evaluate current product maturity, ecosystem activity and implementation fit.
 
-### 22. Libre
+### 22. KAIO (formerly Libre)
 
-Libre focuses on tokenized access to alternative investments and private markets. It is relevant for wealth management, alternative investment distribution and institutional fund access.
+KAIO, previously known as Libre, presents tokenized access to institutional funds and alternative investments. Ask which fund, investor type and jurisdiction are supported for the proposed route; the current site notes distribution restrictions.
 
 **Best for:** wealth managers, private banks and alternative investment platforms.
 

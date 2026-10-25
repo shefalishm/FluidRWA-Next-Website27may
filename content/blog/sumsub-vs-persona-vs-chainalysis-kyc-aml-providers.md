@@ -31,7 +31,7 @@ faq7q: "Should KYC data connect to smart contracts?"
 faq7a: "In permissioned tokenization, KYC or eligibility status may feed wallet allowlists or token transfer controls. Buyers should design this carefully so privacy, auditability and eligibility updates are handled correctly."
 faq8q: "Where can I compare more compliance vendors?"
 faq8a: "FluidRWA maintains KYC, AML, compliance infrastructure and legal vendor directories for tokenization and Web3 teams."
-socialImage: "/assets/social/blog-sumsub-vs-persona-vs-chainalysis-kyc-aml-providers.png"
+socialImage: "/assets/social/blog-sumsub-vs-persona-vs-chainalysis-kyc-aml-providers-editorial.jpg"
 ---
 
 ## These Vendors Do Different Compliance Jobs

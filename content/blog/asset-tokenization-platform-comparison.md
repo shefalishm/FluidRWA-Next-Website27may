@@ -31,7 +31,7 @@ faq7q: "Can I tokenize assets without a platform?"
 faq7a: "Technically yes, but most serious issuers need a platform or integrated vendor stack for compliance, custody, investor onboarding, reporting and ongoing operations."
 faq8q: "Where can I compare RWA tokenization platforms?"
 faq8a: "FluidRWA maintains a tokenization platform directory and related vendor categories for custody, KYC, legal, smart contracts and compliance infrastructure."
-socialImage: "/assets/social/blog-asset-tokenization-platform-comparison.png"
+socialImage: "/assets/social/blog-asset-tokenization-platform-comparison-editorial.jpg"
 ---
 
 ## Quick Answer: What to Compare First
