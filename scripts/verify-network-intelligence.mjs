@@ -17,7 +17,7 @@ assert.equal(issuerList.assets.length,450);assert.equal(xstocksList.assets.lengt
 assert.equal(relationships.length,75);
 assert.equal(new Set([...snapshot.assets,...registryCandidates,...issuerList.assets,...xstocksList.assets,...robinhoodList.assets,...wisdomtreeList.assets.map(row=>({id:`wisdomtree-${row.symbol.toLowerCase()}`}))].map(asset=>asset.id)).size,1743);
 for(const asset of registryCandidates){assert.ok(asset.source.startsWith('https://'));if(asset.reportedValueUsd!==null){assert.ok(asset.reportedValueUsd>0);assert.match(asset.reportedAsOf,/^\d{4}-\d{2}-\d{2}$/);assert.ok(asset.reportedMetric);}}
-assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').value,71900000000);
+assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').value,72000000000);
 assert.equal(snapshot.assets.find(asset=>asset.id==='usdc').sourceReviewed,'2026-10-21');
 assert.equal(snapshot.assets.find(asset=>asset.id==='wtgxx').value,1227400000);
 for (const [id, value] of [['ustb',769570060],['uscc',188653792],['vbdc',9526939]]) {
@@ -26,8 +26,8 @@ for (const [id, value] of [['ustb',769570060],['uscc',188653792],['vbdc',9526939
  assert.equal(asset.sourceReviewed,'2026-10-22');
  assert.equal(asset.reportedValueUsd,value);
 }
-assert.equal(registryCandidates.find(asset=>asset.id==='cushy').reportedAsOf,'2026-08-31');
-assert.equal(registryCandidates.find(asset=>asset.id==='cushy').sourceReviewed,'2026-10-19');
+assert.equal(registryCandidates.find(asset=>asset.id==='cushy').reportedAsOf,'2026-09-30');
+assert.equal(registryCandidates.find(asset=>asset.id==='cushy').sourceReviewed,'2026-10-26');
 assert.ok(registryCandidates.find(asset=>asset.id==='uscc').notes.includes('did not reconcile'));
 assert.equal(new Set(ramp.rows.map(r=>`${r.provider}:${r.dimension}`)).size,18);
 for(const r of [...snapshot.assets,...snapshot.regulations,...ramp.rows])assert.ok(r.source.startsWith('https://'));

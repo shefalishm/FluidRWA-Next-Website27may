@@ -145,13 +145,15 @@ Traditional fund administration diligence is necessary but not sufficient for to
 
 ## Which Provider Should You Shortlist?
 
-Choose Carta if equity-connected fund software and administration are central to the operating model.
+Put Carta on the shortlist if equity-connected fund software and administration are central to the operating model.
 
-Choose AngelList if the fund is venture-oriented and you want integrated formation, admin, tax and investor onboarding.
+Put AngelList on the shortlist if the fund is venture-oriented and you need to assess formation, administration, tax and investor onboarding together.
 
-Choose Juniper Square if the fund is larger, private-market-oriented, real-asset-heavy or operationally complex.
+Put Juniper Square on the shortlist if private-market investor servicing and fund operations are central. Confirm the exact service scope for your structure rather than assuming it from a product page.
 
 For tokenized funds, the fund administrator should be evaluated alongside legal counsel, transfer agent, custody provider, KYC vendor, tokenization platform and payments provider.
+
+You can also email [contact@fluidrwa.com](mailto:contact@fluidrwa.com) with your fund structure, jurisdiction and investor workflow to discuss a shortlist.
 
 ## Primary Sources
 
