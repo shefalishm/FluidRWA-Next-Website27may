@@ -5,6 +5,7 @@ import { chainEcosystemUpdatedAt, getChainEcosystems } from "@/lib/chainEcosyste
 import { chainProjectsBasePath, sitemapRoutePaths, siteUrl } from "@/lib/routes";
 import { learnArticles } from "@/lib/learn";
 import { useCases } from "@/lib/useCases";
+import { spanishPages, spanishUrl } from "@/lib/spanishPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoot = path.join(process.cwd(), "content/blog");
@@ -78,7 +79,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: route.startsWith("vendors/") ? 0.8 : 0.75
     })),
-    ...blogRoutes
+    ...blogRoutes,
+    ...spanishPages.map((page) => ({
+      url: `${siteUrl}${spanishUrl(page.path)}`,
+      lastModified: "2026-10-27",
+      changeFrequency: "monthly" as const,
+      priority: page.path === "/" ? 0.85 : 0.72,
+      alternates: {
+        languages: {
+          en: `${siteUrl}${page.path === "/" ? "" : page.path}`,
+          es: `${siteUrl}${spanishUrl(page.path)}`
+        }
+      }
+    }))
   ];
 
   return [...new Map(routes.map((route) => [route.url, route])).values()];

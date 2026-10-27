@@ -6,6 +6,8 @@ import { BrokerDealerTable } from "@/components/BrokerDealerTable";
 import { SecurityAuditCompaniesPage } from "@/components/SecurityAuditCompaniesPage";
 import { fileForRoute, normalizePath, allRoutePaths } from "@/lib/routes";
 import { legacyJsonLd, legacyMainHtml, legacyMetadata } from "@/lib/legacy";
+import { siteUrl } from "@/lib/routes";
+import { spanishByEnglishPath, spanishUrl } from "@/lib/spanishPages";
 
 type RouteParams = {
   params: Promise<{ slug?: string[] }>;
@@ -22,7 +24,19 @@ export async function generateMetadata({ params }: RouteParams) {
   const routePath = normalizePath(slug);
   const file = fileForRoute(routePath);
   if (!file) return {};
-  return legacyMetadata(file, `/${routePath}`);
+  const metadata = legacyMetadata(file, `/${routePath}`);
+  const englishPath = `/${routePath}`;
+  if (spanishByEnglishPath.has(englishPath)) {
+    metadata.alternates = {
+      ...metadata.alternates,
+      languages: {
+        en: `${siteUrl}${englishPath}`,
+        es: `${siteUrl}${spanishUrl(englishPath)}`,
+        "x-default": `${siteUrl}${englishPath}`
+      }
+    };
+  }
+  return metadata;
 }
 
 export default async function AppRoutePage({ params }: RouteParams) {
@@ -43,6 +57,11 @@ export default async function AppRoutePage({ params }: RouteParams) {
         <JsonLd key={index} data={item} />
       ))}
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      {spanishByEnglishPath.has(`/${routePath}`) ? (
+        <div style={{ maxWidth: 1180, margin: "24px auto", padding: "0 24px" }}>
+          <a href={spanishUrl(`/${routePath}`)} lang="es" hrefLang="es">Leer esta guía en español</a>
+        </div>
+      ) : null}
       {routePath === "vendors/venture-capital" ? <VentureCapitalFilters /> : null}
       {routePath === "vendors/family-offices" ? <FamilyOfficeTable /> : null}
       {routePath === "vendors/broker-dealers" ? <BrokerDealerTable /> : null}

@@ -24,6 +24,18 @@ const routes = [
   "/refund-cancellation",
   "/shipping-delivery"
 ];
+const spanishRoutes = [
+  "/es",
+  "/es/web3vendorecosystem",
+  "/es/blog/top-tokenization-companies-2026",
+  "/es/vendors/tokenization-platforms",
+  "/es/vendors/fiat-on-off-ramp-providers",
+  "/es/vendors/crypto-custody-providers",
+  "/es/vendors/blockchain-development-companies",
+  "/es/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics",
+  "/es/blog/chainlink-ccip-vs-layerzero-vs-axelar-cross-chain-messaging",
+  "/es/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers"
+];
 
 const failures = [];
 
@@ -106,10 +118,24 @@ for (const route of routes) {
   }
 }
 
+for (const route of spanishRoutes) {
+  try {
+    const response = await fetchWithRetry(`${origin}${route}`);
+    const html = await response.text();
+    if (!response.ok) failures.push(`${route} returned ${response.status}`);
+    if (!html.includes('<html lang="es">')) failures.push(`${route} is missing Spanish document language`);
+    if (!html.includes(`rel="canonical" href="${origin}${route}"`)) failures.push(`${route} has an incorrect canonical URL`);
+    if (!html.includes('hreflang="en"') || !html.includes('hreflang="es"')) failures.push(`${route} is missing language alternates`);
+    if (expectedRevision && !html.includes(`data-fluidrwa-build="${expectedRevision}"`)) failures.push(`${route} is not running the expected revision ${expectedRevision}`);
+  } catch (error) {
+    failures.push(`${route} could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 if (failures.length) {
   console.error("FluidRWA production verification failed:\n");
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
 
-console.log(`FluidRWA production verification passed for ${routes.length} critical routes.`);
+console.log(`FluidRWA production verification passed for ${routes.length} critical routes and ${spanishRoutes.length} Spanish routes.`);
