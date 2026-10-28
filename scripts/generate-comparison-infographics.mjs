@@ -12,12 +12,14 @@ import october19Batch from "./comparison-image-batch-october-19.mjs";
 import october21Batch from "./comparison-image-batch-october-21.mjs";
 import october22Batch from "./comparison-image-batch-october-22.mjs";
 import october24Batch from "./comparison-image-batch-october-24.mjs";
+import october29Batch from "./comparison-image-batch-october-29.mjs";
 
 const root = process.cwd();
 const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "public/assets/infographics")];
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  ...october29Batch,
   ...october24Batch,
   ...october22Batch,
   ...october21Batch,

@@ -750,5 +750,17 @@
   "what-regulations-apply-to-asset-tokenization": {
     "src": "/assets/blog-thumbnails/card-what-regulations-apply-to-asset-tokenization.webp",
     "alt": "FluidRWA What Regulations Apply to Asset Tokenization?: identity and risk review"
+  },
+  "chainwire-vs-marketacross-vs-wachsman-crypto-pr": {
+    "src": "/assets/blog-thumbnails/crypto-pr-october29.webp",
+    "alt": "FluidRWA crypto PR comparison: studio microphone illustrating media production, not a vendor event"
+  },
+  "galxe-vs-zealy-vs-layer3-web3-campaigns": {
+    "src": "/assets/blog-thumbnails/web3-campaigns-october29.webp",
+    "alt": "FluidRWA Web3 campaign comparison: conference audience, illustrative and not a Galxe, Zealy or Layer3 event"
+  },
+  "regula-vs-incode-vs-jumio-document-verification": {
+    "src": "/assets/blog-thumbnails/document-verification-october29.webp",
+    "alt": "FluidRWA document verification comparison: a person holding passports, an illustrative identity-document photograph"
   }
 }
