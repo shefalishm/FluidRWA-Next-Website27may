@@ -331,7 +331,7 @@ function infographicBlock(post) {
 }
 
 function comparisonConsiderationBlock(post) {
-  if (!post.infographicImage || !/\b(vs\.?|compared|comparison|top\s+\d+)\b/i.test(post.title || "")) return "";
+  if ((!post.infographicImage && post.considerationAfterTable !== "true") || !/\b(vs\.?|compared|comparison|top\s+\d+)\b/i.test(post.title || "")) return "";
   const href = `/vendor-membership?source=comparison-consideration&article=${encodeURIComponent(post.slug)}`;
   const placement = post.considerationAfterTable === "true" ? ' style="margin:14px 0 30px"' : "";
   return `<aside class="comparison-consideration"${placement} aria-label="Submit a company for editorial consideration"><div><strong>Should your company be considered?</strong><p>Submit current product information and supporting evidence for a future editorial review.</p><p style="overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com?subject=Company%20comparison%20enquiry">contact@fluidrwa.com</a></p></div><a href="${href}">Submit company</a></aside>`;

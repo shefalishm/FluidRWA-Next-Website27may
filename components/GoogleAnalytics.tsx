@@ -56,7 +56,7 @@ export function GoogleAnalytics() {
 
   return (
     <>
-      <Script src="/assets/measurement.js?v=3" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
+      <Script src="/assets/measurement.js?v=4" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
       {measurementReady && <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
       <Script id="fluidrwa-google-analytics" strategy="afterInteractive">
@@ -91,6 +91,7 @@ export function GoogleAnalytics() {
               engagement_source: 'fluidrwa_site',
               transport_type: 'beacon'
             }, safeParams));
+            if (eventName === 'page_view') window.dispatchEvent(new Event('fluidrwa:page-view'));
             if (savedLead) {
               gtag('event', 'generate_lead', Object.assign({page_path: window.location.pathname}, safeParams));
             }

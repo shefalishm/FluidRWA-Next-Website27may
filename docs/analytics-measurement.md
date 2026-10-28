@@ -1,6 +1,16 @@
 # Analytics Measurement
 
-Production GA4: G-Q5L2HZK162. Only fluidrwa.com and www.fluidrwa.com load tracking. Local, Vercel previews and workers.dev backups are excluded. Add analytics=off to production testing URLs; source=qa-test is also excluded.
+Production GA4: G-Q5L2HZK162, property 534444955. Reporting dates use UTC. Only fluidrwa.com and www.fluidrwa.com load tracking. Local, Vercel previews and workers.dev backups are excluded. Add analytics=off to production testing URLs; source=qa-test is also excluded.
+
+## October 28 reader measurement
+
+`article_scroll` records 25, 50, 75 and 90 percent reached through the article element, once per page view. It runs on actual visible-page scrolls, not timers; it does not establish that text was read. SPA return visits reset the thresholds. Short pages are excluded. `percent_scrolled` and `article_slug` are the only new allowed parameters. No engagement duration is fabricated or overridden.
+
+`directory_click` records an internal link into `/vendors/` or `/web3vendorecosystem`, with `origin_path` and `directory_path`. Existing `enquiry_cta_click` now also recognises trailing-slash enquiry URLs. Email intent remains `contact_email_click`; it means a mail link was clicked, not that an email arrived. Capture listeners are installed once. Query strings and entered text are not sent.
+
+Funnel: article page_view -> article_scroll/directory_click/enquiry_cta_click -> project_form_view or vendor_application_view -> typed form start -> form_request_sent -> saved submission event -> generate_lead. Email intent is a separate branch. Only generate_lead is a conversion; scrolls, clicks, form views and attempts must remain ordinary events. Existing successful-submission handlers and ID deduplication are retained and tested.
+
+The October 28 private audit traces residual `vendor-card-contact` acquisition labels to non-converting page-view sessions, including dates after the earlier code fix. The active implementation has no internal UTM/campaign-source assignment. Retained historical attribution/internal previews are plausible, not proven. Do not rewrite historical source data or claim these are enquiries. The in-app production test browser was opened with `internal=1` on October 28; other browsers need their own exclusion.
 
 October 23 account check: enhanced measurement is OFF in the production web stream. The site now owns page views explicitly: the GA config uses `send_page_view: false`, and a pathname-aware effect sends one initial view after analytics readiness and one per subsequent path change. Repeated readiness events and same-path renders do not add views. Keep enhanced history/page-view collection disabled while this implementation owns navigation; do not add another page-view listener or config call. Basic GA foreground engagement remains separate; no artificial timer events are used. This corrects future collection, not historical data.
 
@@ -30,6 +40,6 @@ Recommended GA4 reports: hostname + device; date/hour + source/medium; landing p
 - Team members should open any production page once with `?internal=1`. That browser is then excluded from future measurement via local storage.
 - `?analytics=off` permanently disables analytics for that browser until the `fluidrwa:analytics-disabled` local-storage key is removed.
 - Register `site_host` and `deployment_platform` as event-scoped custom dimensions in GA4. Use hostname, city, device, engagement and conversion rate together when investigating data-centre traffic; city alone is not a reliable bot rule.
-- Keep Cloudflare Bot Fight Mode enabled and review Security > Events before blocking a network. Search crawlers and legitimate enterprise networks can also originate from data centres.
+- Review Cloudflare Security > Analytics before blocking a network. On October 28 the dashboard showed Bot Fight Mode OFF, despite the earlier recommendation. It was left unchanged: no country, network or crawler block was added. Search crawlers and legitimate enterprise networks can also originate from data centres. Verify crawler exceptions and the exact impact before changing this setting.
 
 Test with node scripts/check-measurement.mjs. Before publishing, verify consent behaviour, one page view per navigation, campaign fields in a saved test lead, generate_lead only after success, and no tracking requests on backup/local hosts. No hostname filter can conclusively identify bot traffic; do not block countries based solely on GA4 geolocation.

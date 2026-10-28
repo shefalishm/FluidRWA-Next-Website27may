@@ -4,7 +4,10 @@ description: "Compare Carta, AngelList and Juniper Square for fund administratio
 date: "2026-08-09"
 reviewedDate: "2026-08-09"
 reviewedLabel: "August 9, 2026"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-10-28"
+readerFirst: "true"
+reviewedBy: "FluidRWA Research Team"
+considerationAfterTable: "true"
 category: "Fund Administration"
 slug: "carta-vs-angellist-vs-juniper-square-fund-administration"
 image: "/assets/blog-images/carta-vs-angellist-vs-juniper-square-fund-administration.svg"
@@ -35,11 +38,11 @@ faq8a: "FluidRWA maintains a fund administration and transfer agent provider dir
 socialImage: "/assets/social/blog-carta-vs-angellist-vs-juniper-square-fund-administration-editorial.jpg"
 ---
 
-## Tokenization Does Not Remove Fund Operations
+## Start with your fund structure
 
-Tokenized funds still need investor onboarding, subscriptions, capital calls, distributions, tax records, investor statements, reporting, compliance checks and ownership records. A token can make some workflows more programmable, but it does not replace fund administration.
+Before asking for a proposal, write down your fund strategy, domicile, investor count and the work you want to outsource. A venture SPV and a real-estate fund will need different administration arrangements, even if both use tokens.
 
-Carta, AngelList and Juniper Square are all relevant to private market fund operations, but they serve different buyer profiles. A venture SPV, a private credit fund, a real estate GP and a tokenized feeder fund should not evaluate them with the same checklist.
+Use the table to narrow the conversation, then ask the provider to confirm the accounting, tax and investor-service work included in its proposal. Tokenized ownership records do not remove those responsibilities.
 
 ## Quick Comparison
 
@@ -49,13 +52,17 @@ Carta, AngelList and Juniper Square are all relevant to private market fund oper
 | AngelList | Venture funds, rolling funds, syndicates and SPVs needing formation, admin, investor onboarding, compliance and tax support | The strategy is not venture-oriented or requires complex institutional private markets operations | Structure eligibility, pricing, platform-advised vs self-advised options, KYC, USDC availability |
 | Juniper Square | Private markets GPs, real assets, PE, private credit and larger managers needing connected administration and investor services | The buyer wants a small self-serve venture fund launch at minimal setup complexity | Supported fund structures, jurisdiction coverage, fund accounting, investor portal, AML/KYC, treasury |
 
-## Short Answer
+## What to do with this shortlist
 
-Choose Carta if your fund operations connect closely to equity, portfolio, valuations, fund accounting and management company workflows.
+If your fund operations connect closely to equity and portfolio workflows, start with the [Carta section](#carta-fund-management-and-equity-connected-workflows).
 
-Choose AngelList if you are a venture fund, rolling fund or SPV manager that wants an integrated fund formation and administration platform.
+For a venture fund or SPV, read the [AngelList section](#angellist-venture-funds-rolling-funds-and-spvs) and check structure eligibility before assuming the standard package fits.
 
-Choose Juniper Square if you are a private markets GP with larger or more complex fund administration and investor management needs.
+For broader private-market administration and investor services, read the [Juniper Square section](#juniper-square-private-markets-fund-operations).
+
+Need more options? [Browse fund administration and transfer-agent providers](/vendors/fund-administration-transfer-agents/). For help with a defined fund, [share your requirements](/submit-requirement?source=fund-admin-article-buyer&article=carta-vs-angellist-vs-juniper-square-fund-administration) or email [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
+
+*Reading layout and enquiry links updated October 28, 2026. This is not a new review of every provider claim; the provider-review date remains August 9, 2026.*
 
 ## Carta: Fund Management and Equity-Connected Workflows
 

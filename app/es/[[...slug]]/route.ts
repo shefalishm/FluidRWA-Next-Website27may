@@ -38,7 +38,7 @@ const analyticsScript = `<script>(function(){
   if(q.get('analytics')==='off')localStorage.setItem('fluidrwa:analytics-disabled','1');
   var bot=/bot|crawler|spider|headless|lighthouse|pagespeed|pingdom|uptime|monitoring|preview/i.test(navigator.userAgent);
   if(!['www.fluidrwa.com','fluidrwa.com'].includes(location.hostname)||navigator.webdriver||bot||q.get('source')==='qa-test'||localStorage.getItem('fluidrwa:analytics-internal')==='1'||localStorage.getItem('fluidrwa:analytics-disabled')==='1')return;
-  var measurement=document.createElement('script');measurement.src='/assets/measurement.js?v=3';
+  var measurement=document.createElement('script');measurement.src='/assets/measurement.js?v=4';
   measurement.onload=function(){
     var ga=document.createElement('script');ga.async=true;ga.src='https://www.googletagmanager.com/gtag/js?id=G-Q5L2HZK162';document.head.appendChild(ga);
     window.dataLayer=window.dataLayer||[];

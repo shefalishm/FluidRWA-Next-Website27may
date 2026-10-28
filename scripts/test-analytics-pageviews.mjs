@@ -10,7 +10,7 @@ const effects = [], refs = [], listeners = new Map();
 let hook = 0, ref = 0, pathname = '/blog/example';
 const context = {
   exports: {}, URL, URLSearchParams, Date, Event,
-  location: { hostname: 'www.fluidrwa.com', pathname, href: 'https://www.fluidrwa.com/blog/example?email=private@example.com&utm_source=newsletter' },
+  location: { hostname: 'www.fluidrwa.com', pathname, href: 'https://www.fluidrwa.com/blog/example?email=private@example.com&source=vendor-card-contact&utm_source=newsletter' },
   navigator: { userAgent: 'Normal browser', webdriver: false },
   localStorage: { getItem: () => null, setItem() {} },
   addEventListener(name, fn) { if (!listeners.has(name)) listeners.set(name, new Set()); listeners.get(name).add(fn); },
@@ -47,6 +47,7 @@ vm.runInContext(findScript(tree), context);
 const events = () => context.dataLayer.filter(args => args[0] === 'event' && args[1] === 'page_view');
 assert.equal(events().length, 1, 'One initial view after readiness');
 assert.equal(events()[0][2].page_location.includes('private@'), false);
+assert.equal(events()[0][2].page_location.includes('source=vendor-card-contact'), false, 'Internal interaction labels do not become campaign parameters');
 assert.ok(events()[0][2].page_location.includes('utm_source=newsletter'));
 const config = context.dataLayer.find(args => args[0] === 'config' && args[1] === 'G-Q5L2HZK162');
 assert.equal(config[2].send_page_view, false, 'No automatic initial duplicate');
@@ -57,4 +58,13 @@ render(); assert.equal(events().length, 2);
 render(); assert.equal(events().length, 2);
 pathname = '/blog/example'; context.location.pathname = pathname; context.location.href = 'https://www.fluidrwa.com/blog/example';
 render(); assert.equal(events().length, 3, 'Return navigation is a new view');
+const claimed = new Set();
+context.fluidRwaClaimLeadEvent = id => { if (claimed.has(id)) return false; claimed.add(id); return true; };
+context.fluidRwaSanitizeAnalytics = params => params;
+context.fluidRwaTrackEvent('form_submit_attempt', { submission_id: 'test-1' });
+context.fluidRwaTrackEvent('article_scroll', { percent_scrolled: 50 });
+assert.equal(context.dataLayer.filter(args => args[1] === 'generate_lead').length, 0);
+context.fluidRwaTrackEvent('project_form_submit', { submission_id: 'test-1' });
+context.fluidRwaTrackEvent('project_form_submit', { submission_id: 'test-1' });
+assert.equal(context.dataLayer.filter(args => args[1] === 'generate_lead').length, 1, 'Accepted submission deduplicates by saved ID');
 console.log('PASS: one initial view, one per pathname change, return visits, readiness/render deduplication, sanitized location and no automatic config view.');
