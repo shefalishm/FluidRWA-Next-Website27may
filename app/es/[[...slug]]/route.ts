@@ -1,5 +1,7 @@
 import { spanishPages, spanishUrl } from "@/lib/spanishPages";
 import { siteUrl } from "@/lib/routes";
+import fs from "@/lib/contentFs";
+import path from "node:path";
 
 type RouteContext = { params: Promise<{ slug?: string[] }> };
 
@@ -56,6 +58,22 @@ export async function GET(_request: Request, { params }: RouteContext) {
   const page = spanishPages.find((item) => item.path === path);
   if (!page) return new Response("Not found", { status: 404 });
 
+  const fullFile = pathModuleForSpanish(path);
+  if (fs.existsSync(fullFile)) {
+    const fullHtml = fs.readFileSync(fullFile, "utf8");
+    const buildRevision = process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_BUILD_REVISION || "local";
+    const publishedHtml = fullHtml
+      .replace(/<body\b/, `<body data-fluidrwa-build="${escapeHtml(buildRevision)}"`)
+      .replace("</body>", `${analyticsScript}</body>`);
+    return new Response(publishedHtml, {
+      headers: {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "public, max-age=0, s-maxage=3600",
+        "x-fluidrwa-build": buildRevision
+      }
+    });
+  }
+
   const es = `${siteUrl}${spanishUrl(path)}`;
   const en = `${siteUrl}${path === "/" ? "" : path}`;
   const image = `${siteUrl}${page.image || "/assets/social/fluidrwa-preview.jpg"}`;
@@ -74,4 +92,9 @@ export async function GET(_request: Request, { params }: RouteContext) {
 
   const body = `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(page.title)}</title><meta name="description" content="${escapeHtml(page.description)}"><link rel="canonical" href="${es}"><link rel="alternate" hreflang="es" href="${es}"><link rel="alternate" hreflang="en" href="${en}"><link rel="alternate" hreflang="x-default" href="${en}"><meta property="og:type" content="${path.startsWith("/blog/") ? "article" : "website"}"><meta property="og:locale" content="es_ES"><meta property="og:title" content="${escapeHtml(page.title)}"><meta property="og:description" content="${escapeHtml(page.description)}"><meta property="og:url" content="${es}"><meta property="og:image" content="${image}"><link rel="icon" href="/assets/favicon.png"><style>${css}</style><script type="application/ld+json">${jsonLd}</script></head><body data-fluidrwa-build="${escapeHtml(buildRevision)}"><header class="es-header"><div class="es-header-inner"><a class="es-logo" href="/es" aria-label="FluidRWA, inicio en español"><img src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" width="128" height="72"></a><nav class="es-nav" aria-label="Navegación principal"><a href="/es/web3vendorecosystem">Proveedores</a><a href="/es/vendors/tokenization-platforms">Tokenización</a><a href="/es/vendors/crypto-custody-providers">Custodia</a><a href="/es/vendors/fiat-on-off-ramp-providers">Pagos</a><a href="mailto:contact@fluidrwa.com">Contacto</a><a class="es-lang" href="${en}" lang="en" hreflang="en">English</a></nav></div></header><section class="es-hero"><div class="es-wrap"><div class="es-kicker">${escapeHtml(page.eyebrow)}</div><h1>${escapeHtml(page.title.split(" | ")[0])}</h1><p class="es-intro">${escapeHtml(page.intro)}</p><div class="es-meta">Actualizado: 27 de octubre de 2026</div></div></section><main class="es-wrap es-body">${page.body}<aside class="es-callout"><strong>¿Está evaluando proveedores?</strong><p>Cuéntenos qué quiere construir, dónde operará y qué decisión necesita tomar. Escríbanos a <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a>.</p></aside></main><footer class="es-footer"><div class="es-footer-inner"><span>© FluidRWA · Guías para evaluar infraestructura de activos digitales</span><span><a href="/es">Inicio</a> · <a href="${en}" lang="en">Original en inglés</a></span></div></footer>${analyticsScript}</body></html>`;
   return new Response(body, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=0, s-maxage=3600" } });
+}
+
+function pathModuleForSpanish(route: string): string {
+  const stem = route === "/" ? "index" : route.slice(1).replaceAll("/", "__");
+  return path.join(process.cwd(), "content", "es-full", `${stem}.html`);
 }

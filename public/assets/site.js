@@ -1202,6 +1202,32 @@ const vendorHqCountries = new Set([
 
 const vendorCountrySlug = (country) => country.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+const vendorSpanishLabels = {
+  "HQ country": "País de la sede",
+  "All HQ countries": "Todos los países",
+  "HQ not confirmed": "Sede no confirmada",
+  "License / regulatory status": "Licencia o situación regulatoria",
+  "All regulatory profiles": "Todas las situaciones",
+  "Licensed / regulated": "Con licencia o regulado",
+  "Compliance-enabled": "Con funciones de cumplimiento",
+  "Not stated": "No indicado",
+  "Typical engagement": "Tipo de proyecto",
+  "All budget ranges": "Todos los rangos",
+  "Starter / pilot": "Inicio o piloto",
+  "Growth stage": "En crecimiento",
+  "Enterprise": "Empresa",
+  "Reset filters": "Restablecer filtros",
+  "Matching vendors": "Proveedores encontrados",
+  "Direct matches": "Coincidencias directas",
+  "Build your shortlist": "Prepare su selección",
+  "Find providers that fit your project": "Encuentre proveedores para su proyecto",
+  "Search providers": "Buscar proveedores",
+  "Company, service, use case or keyword": "Empresa, servicio, caso de uso o palabra clave",
+  "Submit your requirements": "Enviar requisitos",
+  "Run readiness assessment": "Evaluar preparación",
+};
+const vendorUiText = (text) => document.documentElement.lang === "es" ? (vendorSpanishLabels[text] || text) : text;
+
 const parseVendorHqCountries = (value) => [...new Set((value || "").split("/").map((part) => {
   const name = part.replace(/\([^)]*\)/g, "").trim();
   const canonical = vendorHqCountryAliases[name.toLowerCase()] || name;
@@ -1274,8 +1300,8 @@ const inferVendorProfile = (card) => {
 const buildFilterSelect = (label, name, options) => {
   const wrapper = document.createElement("label");
   wrapper.className = "vendor-filter-field";
-  wrapper.innerHTML = `<span>${label}</span><select data-vendor-${name}>${options
-    .map(([value, text]) => `<option value="${value}">${text}</option>`)
+  wrapper.innerHTML = `<span>${vendorUiText(label)}</span><select data-vendor-${name}>${options
+    .map(([value, text]) => `<option value="${value}">${vendorUiText(text)}</option>`)
     .join("")}</select>`;
   return wrapper;
 };
@@ -1334,7 +1360,7 @@ if (vendorSearch) {
   const resetButton = document.createElement("button");
   resetButton.type = "button";
   resetButton.className = "vendor-filter-reset";
-  resetButton.textContent = "Reset filters";
+  resetButton.textContent = vendorUiText("Reset filters");
   filterBar.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
   controls?.after(filterBar);
   const statusNode = document.createElement("p");
@@ -1347,8 +1373,8 @@ if (vendorSearch) {
   profileResults.hidden = true;
   profileResults.innerHTML = `
     <div>
-      <p class="eyebrow light-eyebrow">Matching vendors</p>
-      <h3>Direct matches</h3>
+      <p class="eyebrow light-eyebrow">${vendorUiText("Matching vendors")}</p>
+      <h3>${vendorUiText("Direct matches")}</h3>
     </div>
     <div class="vendor-profile-search-list"></div>`;
   filterBar.after(profileResults);
@@ -1436,9 +1462,9 @@ if (vendorSearch) {
 
     if (countNode) countNode.textContent = visibleCount.toLocaleString();
     if (statusNode) {
-      const resultCount = hasFilters ? visibleCount : combinedMatches.length;
+      const resultCount = hasFilters ? visibleCount : Math.max(visibleCount, combinedMatches.length);
       statusNode.textContent = normalizedQuery || hasFilters
-        ? resultCount ? `${resultCount.toLocaleString()} matching vendors.` : "No matching vendors. Try a broader search or reset filters."
+        ? resultCount ? (document.documentElement.lang === "es" ? `${resultCount.toLocaleString()} ${resultCount === 1 ? "proveedor encontrado" : "proveedores encontrados"}.` : `${resultCount.toLocaleString()} matching ${resultCount === 1 ? "vendor" : "vendors"}.`) : (document.documentElement.lang === "es" ? "No se encontraron proveedores. Amplíe la búsqueda o restablezca los filtros." : "No matching vendors. Try a broader search or reset filters.")
         : "";
     }
   };
@@ -1513,17 +1539,17 @@ const initLegacyVendorDirectoryWidgets = () => {
   panel.setAttribute("aria-label", "Vendor search and filters");
   panel.innerHTML = `
     <div class="vendor-procurement-intro">
-      <p class="eyebrow light-eyebrow">Build your shortlist</p>
-      <h3>Find providers that fit your project</h3>
-      <p>Search the directory, narrow the shortlist, then share your requirements for a focused vendor path.</p>
+      <p class="eyebrow light-eyebrow">${vendorUiText("Build your shortlist")}</p>
+      <h3>${vendorUiText("Find providers that fit your project")}</h3>
+      <p>${document.documentElement.lang === "es" ? "Busque en el directorio, reduzca su lista y comparta sus requisitos para recibir orientación sobre proveedores." : "Search the directory, narrow the shortlist, then share your requirements for a focused vendor path."}</p>
     </div>
     <div class="vendor-procurement-search">
-      <label class="vendor-filter-field vendor-filter-field--search"><span>Search providers</span><input type="search" data-provider-query placeholder="Company, service, use case or keyword"></label>
+      <label class="vendor-filter-field vendor-filter-field--search"><span>${vendorUiText("Search providers")}</span><input type="search" data-provider-query placeholder="${vendorUiText("Company, service, use case or keyword")}"></label>
     </div>
     <div class="vendor-procurement-actions">
-      <a href="/submit-requirement?category=${encodeURIComponent(briefCategory)}&source=category-shortlist">Submit your requirements</a>
-      <a href="/tokenization-readiness-assessment-tool?source=vendor-directory">Run readiness assessment</a>
-      <small>Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers.</small>
+      <a href="/submit-requirement?category=${encodeURIComponent(briefCategory)}&source=category-shortlist">${vendorUiText("Submit your requirements")}</a>
+      <a href="/tokenization-readiness-assessment-tool?source=vendor-directory">${vendorUiText("Run readiness assessment")}</a>
+      <small>${document.documentElement.lang === "es" ? "Los filtros de presupuesto y regulación son indicativos. Confirme los datos directamente con cada proveedor." : "Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers."}</small>
     </div>`;
   const filters = document.createElement("div");
   filters.className = "vendor-procurement-filters";
@@ -1533,7 +1559,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   const resetButton = document.createElement("button");
   resetButton.type = "button";
   resetButton.className = "vendor-filter-reset";
-  resetButton.textContent = "Reset filters";
+  resetButton.textContent = vendorUiText("Reset filters");
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
   panel.querySelector(".vendor-procurement-search").after(filters);
   if (existingSearch) panel.querySelector(".vendor-procurement-search").remove();
@@ -1567,9 +1593,13 @@ const initLegacyVendorDirectoryWidgets = () => {
     });
     [...providerCards].sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
       .forEach((card) => providerDirectory.appendChild(card));
-    status.textContent = `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
+    status.textContent = document.documentElement.lang === "es"
+      ? `${visibleCount.toLocaleString()} de ${providerCards.length.toLocaleString()} proveedores cumplen los criterios`
+      : `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
     const count = directorySection?.querySelector("#bcCount");
-    if (count) count.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
+    if (count) count.textContent = document.documentElement.lang === "es"
+      ? `Mostrando ${visibleCount} ${visibleCount === 1 ? "proveedor" : "proveedores"}`
+      : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 
   queryControl.addEventListener("input", applyProviderFilters);
@@ -1606,7 +1636,7 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   const getCardServiceData = (card) => {
     const serviceLabels = Array.from(card.querySelectorAll("dt")).filter((term) =>
-      normalizeText(term.textContent).includes("services")
+      /services|servicios/.test(normalizeText(term.textContent))
     );
     const services = serviceLabels
       .map((term) => term.parentElement?.querySelector("dd")?.textContent || "")
