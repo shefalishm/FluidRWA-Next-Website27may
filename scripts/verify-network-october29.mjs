@@ -9,7 +9,7 @@ const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const registry=read('public/assets/datasets/network-asset-registry.json');
 const history=read('data/fund-disclosure-history.json');
 const archive=read('data/network-value-observations.json');
-assert.equal(registry.assets.length,1745); assert.equal(registry.relationships.length,80);
+assert.equal(registry.assets.length,1749); assert.equal(registry.relationships.length,93);
 assert.equal(registry.assets.filter(a=>a.reportedValueUsd!==null).length,21);
 assert.equal(history.observations.length,11);
 assert.equal(archive.observations.length,4);
@@ -19,7 +19,7 @@ for(const [id,value] of [['usdc',71000000000],['wtgxx',761984900],['ustb',691867
   const a=registry.assets.find(a=>a.id===id); assert.equal(a.reportedValueUsd,value);assert.equal(a.sourceReviewed,'2026-10-29');
 }
 assert.equal(registry.assets.find(a=>a.id==='wtgxx').contractEvidence,'https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/');
-for(const id of ['janus-jqqq','anemoy-hyb']) assert.equal(registry.assets.find(a=>a.id===id).reportedValueUsd,null);
+for(const id of ['janus-jqqq','anemoy-hyb','anemoy-spxa','anemoy-acrdx','fundbridge-ultra','fundbridge-incom']) assert.equal(registry.assets.find(a=>a.id===id).reportedValueUsd,null);
 assert.equal(registry.relationships.filter(r=>r.assetId==='janus-jqqq').length,3);
 assert.equal(registry.relationships.filter(r=>r.assetId==='anemoy-hyb').length,2);
 assert.equal(registry.assets.find(a=>a.id==='vbdc').sourceReviewed,'2026-10-22');
@@ -46,6 +46,10 @@ try {
         assert.ok((await map.textContent()).includes('Nasdaq'));
         await map.getByLabel('Choose an asset').selectOption('anemoy-hyb');
         assert.ok((await map.textContent()).includes('New York Life Investment Management'));
+        await map.getByLabel('Choose an asset').selectOption('fundbridge-ultra');
+        assert.ok((await map.textContent()).includes('Standard Chartered Bank'));
+        await map.getByLabel('Choose an asset').selectOption('anemoy-acrdx');
+        assert.ok((await map.textContent()).includes('Chronicle'));
       }
       if(view==='/assets') {
         const table=page.getByRole('table',{name:'Issuer-reported fund AUM with reporting dates and evidence limitations'});
@@ -75,7 +79,7 @@ try {
     const r=await ctx.request.get(`${base}${path}?source=qa-test`);assert.equal(r.status(),200);assert.deepEqual(await r.json(),expected);
   }
   const coverage=await (await ctx.request.get(`${base}/api/network-explorer/v1/coverage?source=qa-test`)).json();
-  assert.equal(coverage.identifiedRecords,1745);assert.equal(coverage.documentedRelationships,80);assert.equal(coverage.datedValueRecords,21);
+  assert.equal(coverage.identifiedRecords,1749);assert.equal(coverage.documentedRelationships,93);assert.equal(coverage.datedValueRecords,21);
   const result=await (await ctx.request.get(`${base}/api/network-explorer/v1/relationships?asset_id=janus-jqqq&source=qa-test`)).json();assert.equal(result.total,3);
   const sitemap=await (await ctx.request.get(`${base}/sitemap.xml?source=qa-test`)).text();
   for(const route of ['','/assets','/registry','/supply','/methodology']) {
