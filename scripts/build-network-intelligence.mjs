@@ -16,20 +16,20 @@ const registry = [
     source: asset.source, sourceLabel: asset.sourceLabel, sourceReviewed: asset.sourceReviewed || snapshot.reviewed,
     notes: asset.notes, reportedValueUsd: asset.value, reportedMetric: asset.metric,
     reportedAsOf: asset.asOf, freshnessDays: asset.freshnessDays,
-    contractEvidence: asset.id === 'wtgxx' ? asset.source : null,
+    contractEvidence: asset.id === 'wtgxx' ? 'https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/' : null,
     cohort: 'Research profile', sourcePublished: null
   })),
   ...candidates.map(asset => ({ ...asset, cohort: 'Research profile', sourcePublished: null })),
   ...ondoTokenList.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
-  ...wisdomtreeFunds.assets.map(({ symbol }) => ({
+  ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
     id: `wisdomtree-${symbol.toLowerCase()}`, name: `${symbol} - WisdomTree Digital Fund`, issuer: 'WisdomTree',
     assetClass: 'Blockchain-enabled funds', structure: 'Digital fund; blockchain is a secondary ownership record',
-    cohort: 'WisdomTree digital funds', source: wisdomtreeFunds.source, sourceLabel: 'WisdomTree Prime official fund roster',
+    cohort: 'WisdomTree digital funds', source: wisdomtreeFunds.source, sourceLabel: wisdomtreeFunds.sourceLabel,
     sourcePublished: null, sourceReviewed: wisdomtreeFunds.sourceReviewed,
-    notes: 'Issuer named this ticker among its digital funds. No contract, current NAV, fund size or investor eligibility is verified in this record.',
-    reportedValueUsd: null, reportedMetric: null, reportedAsOf: null, freshnessDays: 35, contractEvidence: null
+    notes: `${wisdomtreeFunds.valueMethod} No current token contract or investor eligibility is verified.`,
+    reportedValueUsd, reportedMetric: wisdomtreeFunds.reportedMetric, reportedAsOf: wisdomtreeFunds.reportedAsOf, freshnessDays: 35, contractEvidence: null
   }))
 ].sort((a,b) => a.name.localeCompare(b.name));
 if (new Set(registry.map(asset => asset.id)).size !== registry.length) throw new Error('Duplicate registry asset ID');
@@ -52,13 +52,16 @@ for (const root of ['assets','public/assets']) {
   fs.mkdirSync(`${root}/datasets`,{recursive:true});fs.mkdirSync(`${root}/infographics`,{recursive:true});
   fs.writeFileSync(`${root}/datasets/network-intelligence.json`,JSON.stringify(snapshot,null,2));
   fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.json`,JSON.stringify(fundHistory,null,2));
+  fs.copyFileSync('data/network-value-observations.json',`${root}/datasets/network-value-observations.json`);
   const historyRows = fundHistory.observations.map(row => ({...row, metric:fundHistory.metric, currency:fundHistory.currency, scope:fundHistory.scope}));
   const historyKeys = Object.keys(historyRows[0]);
   fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.csv`,[historyKeys.map(cell).join(','),...historyRows.map(row => historyKeys.map(key => cell(row[key])).join(','))].join('\r\n'));
   fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${snapshot.assets.length+candidates.length} research profiles; 450 Ondo, 1052 xStocks and 194 Robinhood issuer-listed securities; and 14 WisdomTree blockchain-enabled funds whose blockchain record is secondary. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection],assets:registry,relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.csv`,[Object.keys(relationships[0]).map(cell).join(','),...relationships.map(row => Object.keys(relationships[0]).map(key => cell(row[key])).join(','))].join('\r\n'));
-  fs.writeFileSync(`${root}/datasets/network-ramp-evidence.csv`,csv);
-  await sharp(Buffer.from(svg)).png().toFile(`${root}/infographics/network-ramp-evidence.png`);
+  if (!process.argv.includes('--registry-only')) {
+    fs.writeFileSync(`${root}/datasets/network-ramp-evidence.csv`,csv);
+    await sharp(Buffer.from(svg)).png().toFile(`${root}/infographics/network-ramp-evidence.png`);
+  }
 }
-console.log(`Built ${registry.length}-asset registry, ${relationships.length} sourced service roles, ${ramp.rows.length}-row ramp CSV and branded PNG`);
+console.log(`Built ${registry.length}-asset registry and ${relationships.length} sourced service roles${process.argv.includes('--registry-only') ? '; ramp exports unchanged' : `, ${ramp.rows.length}-row ramp CSV and branded PNG`}`);

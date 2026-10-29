@@ -114,6 +114,72 @@
           "block_number": 26251601,
           "block_timestamp": 1792713611,
           "observed_at": "2026-10-23T00:00:19.647Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47807024456407368",
+          "decimals": 6,
+          "block_number": 26258923,
+          "block_timestamp": 1792801811,
+          "observed_at": "2026-10-24T00:30:14.498Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47699662821784719",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:14.486Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47662581971826101",
+          "decimals": 6,
+          "block_number": 26273144,
+          "block_timestamp": 1792972895,
+          "observed_at": "2026-10-26T00:01:45.348Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47262455643395758",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:13.874Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47355103220412639",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:14.860Z"
+        },
+        {
+          "asset_id": "usdc-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "raw_supply": "47415869193675679",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:15.040Z"
         }
       ]
     },
@@ -228,6 +294,72 @@
           "block_number": 52963033,
           "block_timestamp": 1792715413,
           "observed_at": "2026-10-23T00:30:13.612Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-24",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4290766383214116",
+          "decimals": 6,
+          "block_number": 53005334,
+          "block_timestamp": 1792800015,
+          "observed_at": "2026-10-24T00:00:16.317Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-25",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4303209722822651",
+          "decimals": 6,
+          "block_number": 53050333,
+          "block_timestamp": 1792890013,
+          "observed_at": "2026-10-25T01:00:14.691Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-26",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4292631791211664",
+          "decimals": 6,
+          "block_number": 53091779,
+          "block_timestamp": 1792972905,
+          "observed_at": "2026-10-26T00:01:46.262Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-27",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4302576933585253",
+          "decimals": 6,
+          "block_number": 53134933,
+          "block_timestamp": 1793059213,
+          "observed_at": "2026-10-27T00:00:14.080Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-28",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4359177496369861",
+          "decimals": 6,
+          "block_number": 53178134,
+          "block_timestamp": 1793145615,
+          "observed_at": "2026-10-28T00:00:15.766Z"
+        },
+        {
+          "asset_id": "usdc-base",
+          "day": "2026-10-29",
+          "chain_id": 8453,
+          "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "raw_supply": "4239494966198988",
+          "decimals": 6,
+          "block_number": 53223134,
+          "block_timestamp": 1793235615,
+          "observed_at": "2026-10-29T01:00:15.361Z"
         }
       ]
     },
@@ -343,6 +475,72 @@
           "block_number": 26251601,
           "block_timestamp": 1792713611,
           "observed_at": "2026-10-23T00:00:21.197Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1926455108619416",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:16.798Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1924010451899717",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:15.833Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1922989605739843",
+          "decimals": 6,
+          "block_number": 26273144,
+          "block_timestamp": 1792972895,
+          "observed_at": "2026-10-26T00:01:48.312Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1936550525002661",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:14.238Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1992337158226782",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:16.720Z"
+        },
+        {
+          "asset_id": "pyusd-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "raw_supply": "1973803950497453",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:17.048Z"
         }
       ]
     },
@@ -447,6 +645,72 @@
           "block_number": 517372591,
           "block_timestamp": 1792713621,
           "observed_at": "2026-10-23T00:00:21.608Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-24",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2579198811610269",
+          "decimals": 6,
+          "block_number": 517683028,
+          "block_timestamp": 1792800016,
+          "observed_at": "2026-10-24T00:00:17.186Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-25",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2677106865040621",
+          "decimals": 6,
+          "block_number": 517988502,
+          "block_timestamp": 1792886415,
+          "observed_at": "2026-10-25T00:00:16.565Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-26",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2651531231347053",
+          "decimals": 6,
+          "block_number": 518282425,
+          "block_timestamp": 1792972908,
+          "observed_at": "2026-10-26T00:01:49.512Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-27",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2584894731982284",
+          "decimals": 6,
+          "block_number": 518587337,
+          "block_timestamp": 1793059213,
+          "observed_at": "2026-10-27T00:00:14.450Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-28",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2456991046070740",
+          "decimals": 6,
+          "block_number": 518889042,
+          "block_timestamp": 1793145616,
+          "observed_at": "2026-10-28T00:00:17.611Z"
+        },
+        {
+          "asset_id": "usdc-arbitrum",
+          "day": "2026-10-29",
+          "chain_id": 42161,
+          "contract_address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "raw_supply": "2432572010136117",
+          "decimals": 6,
+          "block_number": 519201222,
+          "block_timestamp": 1793232017,
+          "observed_at": "2026-10-29T00:00:17.973Z"
         }
       ]
     },
@@ -551,6 +815,72 @@
           "block_number": 26251601,
           "block_timestamp": 1792713611,
           "observed_at": "2026-10-23T00:00:22.793Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:17.697Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:17.052Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:50.728Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:14.607Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:18.489Z"
+        },
+        {
+          "asset_id": "usdt-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "raw_supply": "88301265725970534",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:19.228Z"
         }
       ]
     },
@@ -654,6 +984,72 @@
           "block_number": 52962140,
           "block_timestamp": 1792713627,
           "observed_at": "2026-10-23T00:00:28.316Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-24",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "50775508691893",
+          "decimals": 6,
+          "block_number": 53005335,
+          "block_timestamp": 1792800017,
+          "observed_at": "2026-10-24T00:00:18.069Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-25",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "50541400411893",
+          "decimals": 6,
+          "block_number": 53048535,
+          "block_timestamp": 1792886417,
+          "observed_at": "2026-10-25T00:00:17.789Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-26",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "50477517583175",
+          "decimals": 6,
+          "block_number": 53091782,
+          "block_timestamp": 1792972911,
+          "observed_at": "2026-10-26T00:01:52.012Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-27",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "49296008808736",
+          "decimals": 6,
+          "block_number": 53134933,
+          "block_timestamp": 1793059213,
+          "observed_at": "2026-10-27T00:00:14.779Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-28",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "48932180073558",
+          "decimals": 6,
+          "block_number": 53178135,
+          "block_timestamp": 1793145617,
+          "observed_at": "2026-10-28T00:00:19.274Z"
+        },
+        {
+          "asset_id": "eurc-base",
+          "day": "2026-10-29",
+          "chain_id": 8453,
+          "contract_address": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "raw_supply": "48705918076001",
+          "decimals": 6,
+          "block_number": 53221336,
+          "block_timestamp": 1793232019,
+          "observed_at": "2026-10-29T00:00:20.169Z"
         }
       ]
     },
@@ -758,6 +1154,72 @@
           "block_number": 26251602,
           "block_timestamp": 1792713623,
           "observed_at": "2026-10-23T00:00:29.647Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:18.573Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:18.183Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:52.560Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:14.932Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:20.209Z"
+        },
+        {
+          "asset_id": "xaut-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "raw_supply": "827417630000",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:21.221Z"
         }
       ]
     },
@@ -851,6 +1313,72 @@
           "block_number": 26251602,
           "block_timestamp": 1792713623,
           "observed_at": "2026-10-23T00:00:34.679Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1106264837859468156743982680",
+          "decimals": 18,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:19.044Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1106203148177603439319818293",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:18.624Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1106268931735224763651695097",
+          "decimals": 18,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:53.335Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1106412439119118155793639352",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:15.081Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1108684991005611750758748274",
+          "decimals": 18,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:21.132Z"
+        },
+        {
+          "asset_id": "usdy-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+          "raw_supply": "1112612087785477993167682763",
+          "decimals": 18,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:22.535Z"
         }
       ]
     },
@@ -944,6 +1472,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:14.079Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "440928746811000000000000",
+          "decimals": 18,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:19.512Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "440910999875000000000000",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:18.966Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "440910500110000000000000",
+          "decimals": 18,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:54.658Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "442921180780000000000000",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:15.239Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "442905315536000000000000",
+          "decimals": 18,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:21.957Z"
+        },
+        {
+          "asset_id": "paxg-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "raw_supply": "442905554732000000000000",
+          "decimals": 18,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:23.281Z"
         }
       ]
     },
@@ -1037,6 +1631,72 @@
           "block_number": 26251603,
           "block_timestamp": 1792713635,
           "observed_at": "2026-10-23T00:00:43.122Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "46150025135628",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:20.472Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "46385966610757",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:19.375Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "46533255896450",
+          "decimals": 6,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:56.887Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "46529682677489",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:15.388Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "44347747029782",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:22.766Z"
+        },
+        {
+          "asset_id": "ustb-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x43415eB6ff9DB7E26A15b704e7A3eDCe97d31C4e",
+          "raw_supply": "41907532110350",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:24.048Z"
         }
       ]
     },
@@ -1130,6 +1790,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:14.613Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "7547299741555",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:20.917Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "7547299741555",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:19.720Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "7547299741555",
+          "decimals": 6,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:01:59.402Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "7547299741555",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:15.611Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "7047279106043",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:23.609Z"
+        },
+        {
+          "asset_id": "uscc-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x14d60E7FDC0D71d8611742720E4C50E7a974020c",
+          "raw_supply": "6754089802788",
+          "decimals": 6,
+          "block_number": 26294680,
+          "block_timestamp": 1793232011,
+          "observed_at": "2026-10-29T00:00:24.954Z"
         }
       ]
     },
@@ -1223,6 +1949,72 @@
           "block_number": 26251603,
           "block_timestamp": 1792713635,
           "observed_at": "2026-10-23T00:00:48.217Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26258774,
+          "block_timestamp": 1792800011,
+          "observed_at": "2026-10-24T00:00:21.391Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:20.234Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26273145,
+          "block_timestamp": 1792972907,
+          "observed_at": "2026-10-26T00:02:00.618Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:15.754Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26287496,
+          "block_timestamp": 1793145611,
+          "observed_at": "2026-10-28T00:00:24.467Z"
+        },
+        {
+          "asset_id": "vbdc-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0xA4E0Ac02de99e23C76480dD75e55894fD74cDECF",
+          "raw_supply": "10493683746",
+          "decimals": 6,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:26.648Z"
         }
       ]
     },
@@ -1315,6 +2107,72 @@
           "block_number": 101063789,
           "block_timestamp": 1792713652,
           "observed_at": "2026-10-23T00:00:54.096Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-24",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "408036211532",
+          "decimals": 6,
+          "block_number": 101274399,
+          "block_timestamp": 1792800021,
+          "observed_at": "2026-10-24T00:00:23.048Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-25",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "408036211532",
+          "decimals": 6,
+          "block_number": 101488412,
+          "block_timestamp": 1792886420,
+          "observed_at": "2026-10-25T00:00:20.808Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-26",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "408036211532",
+          "decimals": 6,
+          "block_number": 101701882,
+          "block_timestamp": 1792972921,
+          "observed_at": "2026-10-26T00:02:02.767Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-27",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "407706211532",
+          "decimals": 6,
+          "block_number": 101905133,
+          "block_timestamp": 1793059215,
+          "observed_at": "2026-10-27T00:00:16.412Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-28",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "407706211532",
+          "decimals": 6,
+          "block_number": 102108855,
+          "block_timestamp": 1793145624,
+          "observed_at": "2026-10-28T00:00:25.680Z"
+        },
+        {
+          "asset_id": "ustb-plume",
+          "day": "2026-10-29",
+          "chain_id": 98866,
+          "contract_address": "0xE4fA682f94610cCd170680cc3B045d77D9E528a8",
+          "raw_supply": "407596211532",
+          "decimals": 6,
+          "block_number": 102305303,
+          "block_timestamp": 1793232026,
+          "observed_at": "2026-10-29T00:00:27.572Z"
         }
       ]
     },
@@ -1407,6 +2265,72 @@
           "block_number": 101063802,
           "block_timestamp": 1792713658,
           "observed_at": "2026-10-23T00:01:00.342Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-24",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 101274403,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:24.857Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-25",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 101488413,
+          "block_timestamp": 1792886420,
+          "observed_at": "2026-10-25T00:00:21.182Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-26",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 101701885,
+          "block_timestamp": 1792972922,
+          "observed_at": "2026-10-26T00:02:04.311Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-27",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 101905134,
+          "block_timestamp": 1793059216,
+          "observed_at": "2026-10-27T00:00:17.022Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-28",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 102108859,
+          "block_timestamp": 1793145626,
+          "observed_at": "2026-10-28T00:00:26.736Z"
+        },
+        {
+          "asset_id": "uscc-plume",
+          "day": "2026-10-29",
+          "chain_id": 98866,
+          "contract_address": "0x4c21B7577C8FE8b0B0669165ee7C8f67fa1454Cf",
+          "raw_supply": "1443099039021",
+          "decimals": 6,
+          "block_number": 102305306,
+          "block_timestamp": 1793232027,
+          "observed_at": "2026-10-29T00:00:28.455Z"
         }
       ]
     },
@@ -1500,6 +2424,72 @@
           "block_number": 517379658,
           "block_timestamp": 1792715414,
           "observed_at": "2026-10-23T00:30:15.448Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-24",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 517683057,
+          "block_timestamp": 1792800024,
+          "observed_at": "2026-10-24T00:00:25.214Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-25",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 517988522,
+          "block_timestamp": 1792886421,
+          "observed_at": "2026-10-25T00:00:21.921Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-26",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 518282483,
+          "block_timestamp": 1792972924,
+          "observed_at": "2026-10-26T00:02:06.932Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-27",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 518587348,
+          "block_timestamp": 1793059216,
+          "observed_at": "2026-10-27T00:00:17.242Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-28",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 518889082,
+          "block_timestamp": 1793145626,
+          "observed_at": "2026-10-28T00:00:27.553Z"
+        },
+        {
+          "asset_id": "usdy-arbitrum",
+          "day": "2026-10-29",
+          "chain_id": 42161,
+          "contract_address": "0x35e050d3C0eC2d29D269a8EcEa763a183bDF9A9D",
+          "raw_supply": "2728691301489215484050328",
+          "decimals": 18,
+          "block_number": 519201266,
+          "block_timestamp": 1793232028,
+          "observed_at": "2026-10-29T00:00:29.511Z"
         }
       ]
     },
@@ -1593,6 +2583,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:16.039Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1502108174085467794443316909",
+          "decimals": 18,
+          "block_number": 26258775,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:25.861Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1499108174085467794443316909",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:23.409Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1499245174085467794443316909",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:07.783Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1572325838085467794443316909",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:17.389Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1596829563083869394443316909",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:28.394Z"
+        },
+        {
+          "asset_id": "rlusd-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "raw_supply": "1626057610083869394443316909",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:30.145Z"
         }
       ]
     },
@@ -1687,6 +2743,72 @@
           "block_number": 26251605,
           "block_timestamp": 1792713659,
           "observed_at": "2026-10-23T00:01:12.113Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16512107539483669088080",
+          "decimals": 18,
+          "block_number": 26258775,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:26.337Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16498906116371736399900",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:23.835Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16494541820105107649810",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:08.917Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16499603910236347117956",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:17.538Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16515502519459773563765",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:29.159Z"
+        },
+        {
+          "asset_id": "aaplon-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "raw_supply": "16525952147838160362389",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:30.991Z"
         }
       ]
     },
@@ -1781,6 +2903,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:16.592Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "83041406566141782425828",
+          "decimals": 18,
+          "block_number": 26258923,
+          "block_timestamp": 1792801811,
+          "observed_at": "2026-10-24T00:30:14.904Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "83006528474140288538745",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:24.170Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "82952863366824903671605",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:09.807Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "82841507502253560991237",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:17.689Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "82800026614949808383391",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:30.014Z"
+        },
+        {
+          "asset_id": "nvdaon-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "raw_supply": "82614419077020834455730",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:32.286Z"
         }
       ]
     },
@@ -1875,6 +3063,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:17.186Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "53801760604134749649787",
+          "decimals": 18,
+          "block_number": 26258775,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:26.939Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "53777923717006092688762",
+          "decimals": 18,
+          "block_number": 26265959,
+          "block_timestamp": 1792886411,
+          "observed_at": "2026-10-25T00:00:24.583Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "53765214390664938039204",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:11.708Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "54285178789712217683332",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:17.832Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "54458423754151259285016",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:30.778Z"
+        },
+        {
+          "asset_id": "spyon-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "raw_supply": "54460772974873525546225",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:33.762Z"
         }
       ]
     },
@@ -1969,6 +3223,72 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:18.278Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26258775,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:27.368Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26265960,
+          "block_timestamp": 1792886423,
+          "observed_at": "2026-10-25T00:00:25.305Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:13.337Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:17.973Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:31.542Z"
+        },
+        {
+          "asset_id": "aaplx-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "raw_supply": "74144718747903202410949",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:34.676Z"
         }
       ]
     },
@@ -2063,6 +3383,72 @@
           "block_number": 26251606,
           "block_timestamp": 1792713671,
           "observed_at": "2026-10-23T00:01:14.845Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26258923,
+          "block_timestamp": 1792801811,
+          "observed_at": "2026-10-24T00:30:15.326Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26265960,
+          "block_timestamp": 1792886423,
+          "observed_at": "2026-10-25T00:00:25.991Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26273146,
+          "block_timestamp": 1792972919,
+          "observed_at": "2026-10-26T00:02:14.220Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:18.120Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:32.318Z"
+        },
+        {
+          "asset_id": "nvdax-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "raw_supply": "110180538701145229619549",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:35.417Z"
         }
       ]
     },
@@ -2157,9 +3543,75 @@
           "block_number": 26251751,
           "block_timestamp": 1792715411,
           "observed_at": "2026-10-23T00:30:18.839Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-24",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26258775,
+          "block_timestamp": 1792800023,
+          "observed_at": "2026-10-24T00:00:28.057Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-25",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26265960,
+          "block_timestamp": 1792886423,
+          "observed_at": "2026-10-25T00:00:26.493Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-26",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26273147,
+          "block_timestamp": 1792972931,
+          "observed_at": "2026-10-26T00:02:16.063Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-27",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26280314,
+          "block_timestamp": 1793059211,
+          "observed_at": "2026-10-27T00:00:18.281Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-28",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26287497,
+          "block_timestamp": 1793145623,
+          "observed_at": "2026-10-28T00:00:33.079Z"
+        },
+        {
+          "asset_id": "spyx-ethereum",
+          "day": "2026-10-29",
+          "chain_id": 1,
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "raw_supply": "30151354243335401773820",
+          "decimals": 18,
+          "block_number": 26294681,
+          "block_timestamp": 1793232023,
+          "observed_at": "2026-10-29T00:00:36.094Z"
         }
       ]
     }
   ],
-  "pageSnapshotCapturedAt": "2026-10-23T06:48:43.758Z"
+  "pageSnapshotCapturedAt": "2026-10-29T05:57:30.432Z"
 }

@@ -13,7 +13,7 @@ const errors = [];
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 const ids = new Set();
 const contracts = new Set();
-const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: null, reportedAsOf: null }));
+const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: row.reportedValueUsd, reportedMetric: wisdomtreeList.reportedMetric, reportedAsOf: wisdomtreeList.reportedAsOf }));
 const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
 const date = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && value <= today;
 const https = value => typeof value === 'string' && value.startsWith('https://');

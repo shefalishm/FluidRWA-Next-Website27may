@@ -1,0 +1,41 @@
+{
+  "scope": "Dated issuer disclosures preserved across registry updates. Different metrics and reporting dates are not a market total or a net-flow series.",
+  "observations": [
+    {
+      "assetId": "usdc",
+      "metric": "Reported circulation",
+      "value": 72000000000,
+      "currency": "USD",
+      "reportedAsOf": "2026-10-22",
+      "checked": "2026-10-26",
+      "source": "https://www.circle.com/usdc"
+    },
+    {
+      "assetId": "wtgxx",
+      "metric": "Reported net assets",
+      "value": 1227400000,
+      "currency": "USD",
+      "reportedAsOf": "2026-09-30",
+      "checked": "2026-10-26",
+      "source": "https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/"
+    },
+    {
+      "assetId": "usdc",
+      "metric": "Reported circulation",
+      "value": 71000000000,
+      "currency": "USD",
+      "reportedAsOf": "2026-10-26",
+      "checked": "2026-10-29",
+      "source": "https://www.circle.com/usdc"
+    },
+    {
+      "assetId": "wtgxx",
+      "metric": "Reported assets under management",
+      "value": 761984900,
+      "currency": "USD",
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds"
+    }
+  ]
+}

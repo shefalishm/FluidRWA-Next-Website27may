@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-22",
-  "reviewed": "2026-10-22",
+  "version": "2026-10-29",
+  "reviewed": "2026-10-29",
   "scope": "Named service relationships in reviewed primary material; not a complete market census or endorsement.",
   "relationships": [
     {
@@ -827,6 +827,61 @@
       "sourceDate": null,
       "reviewed": "2026-10-22",
       "scope": "Ondo names its administrator and daily account access. This is company evidence, not FluidRWA verification of NAV."
+    },
+    {
+      "id": "jqqq-janus-manager",
+      "assetId": "janus-jqqq",
+      "provider": "Janus Henderson",
+      "role": "Investment management",
+      "source": "https://centrifuge.io/blog/jqqq-janushenderson-nasdaq",
+      "sourceLabel": "Centrifuge JQQQ launch announcement, 27 October 2026",
+      "sourceDate": "2026-10-27",
+      "reviewed": "2026-10-29",
+      "scope": "Announcement names Janus Henderson as manager; precise contracting entity and mandate require offering documents."
+    },
+    {
+      "id": "jqqq-centrifuge-infrastructure",
+      "assetId": "janus-jqqq",
+      "provider": "Centrifuge",
+      "role": "Onchain fund infrastructure",
+      "source": "https://centrifuge.io/blog/jqqq-janushenderson-nasdaq",
+      "sourceLabel": "Centrifuge JQQQ launch announcement, 27 October 2026",
+      "sourceDate": "2026-10-27",
+      "reviewed": "2026-10-29",
+      "scope": "Named infrastructure provider at launch; no current contract address, custody or transfer-agent appointment inferred."
+    },
+    {
+      "id": "jqqq-nasdaq-index",
+      "assetId": "janus-jqqq",
+      "provider": "Nasdaq",
+      "role": "Index licensing",
+      "source": "https://centrifuge.io/blog/jqqq-janushenderson-nasdaq",
+      "sourceLabel": "Centrifuge JQQQ launch announcement, 27 October 2026",
+      "sourceDate": "2026-10-27",
+      "reviewed": "2026-10-29",
+      "scope": "Nasdaq-100 index licensing is named; the announcement expressly disclaims Nasdaq product issuance or endorsement."
+    },
+    {
+      "id": "hyb-centrifuge-infrastructure",
+      "assetId": "anemoy-hyb",
+      "provider": "Centrifuge",
+      "role": "Onchain fund infrastructure",
+      "source": "https://centrifuge.io/blog/nylim-centrifuge",
+      "sourceLabel": "Centrifuge NYLIM HYB announcement, 30 June 2026",
+      "sourceDate": "2026-06-30",
+      "reviewed": "2026-10-29",
+      "scope": "Announcement identifies Centrifuge tokenization and USDC subscription/redemption workflow; not a custody appointment."
+    },
+    {
+      "id": "hyb-nylim-strategy",
+      "assetId": "anemoy-hyb",
+      "provider": "New York Life Investment Management",
+      "role": "Underlying investment strategy",
+      "source": "https://centrifuge.io/blog/nylim-centrifuge",
+      "sourceLabel": "Centrifuge NYLIM HYB announcement, 30 June 2026",
+      "sourceDate": "2026-06-30",
+      "reviewed": "2026-10-29",
+      "scope": "Announcement attributes the underlying portfolio process and risk management to NYLIM; precise fund manager entity requires legal documents."
     }
   ]
 }

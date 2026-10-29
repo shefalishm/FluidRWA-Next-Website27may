@@ -22,20 +22,20 @@ export const assetRegistry = [
     notes: asset.notes, reportedValueUsd: asset.value as number | null,
     reportedMetric: asset.metric as string | null, reportedAsOf: asset.asOf as string | null,
     freshnessDays: asset.freshnessDays,
-    contractEvidence: asset.id === "wtgxx" ? asset.source as string | null : null,
+    contractEvidence: asset.id === "wtgxx" ? "https://dataspanapi.wisdomtree.com/pdr/documents/WEBSITE_FUND_DETAILS/WDT/US/EN-US/WTGXX_2/" : null,
     cohort: "Research profile", sourcePublished: null as string | null
   })),
   ...registryCandidates.map(asset => ({ ...asset, cohort: "Research profile", sourcePublished: null as string | null })),
   ...ondoTokenList.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
-  ...wisdomtreeFunds.assets.map(({ symbol }) => ({
+  ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
     id: `wisdomtree-${symbol.toLowerCase()}`, name: `${symbol} - WisdomTree Digital Fund`, issuer: "WisdomTree",
     assetClass: "Blockchain-enabled funds", structure: "Digital fund; blockchain is a secondary ownership record",
-    cohort: "WisdomTree digital funds", source: wisdomtreeFunds.source, sourceLabel: "WisdomTree Prime official fund roster",
+    cohort: "WisdomTree digital funds", source: wisdomtreeFunds.source, sourceLabel: wisdomtreeFunds.sourceLabel,
     sourcePublished: null as string | null, sourceReviewed: wisdomtreeFunds.sourceReviewed,
-    notes: "Issuer named this ticker among its digital funds. No contract, current NAV, fund size or investor eligibility is verified in this record.",
-    reportedValueUsd: null as number | null, reportedMetric: null as string | null, reportedAsOf: null as string | null,
+    notes: `${wisdomtreeFunds.valueMethod} No current token contract or investor eligibility is verified.`,
+    reportedValueUsd: reportedValueUsd as number | null, reportedMetric: wisdomtreeFunds.reportedMetric as string | null, reportedAsOf: wisdomtreeFunds.reportedAsOf as string | null,
     freshnessDays: 35, contractEvidence: null as string | null
   }))
 ].sort((a,b) => a.name.localeCompare(b.name));
