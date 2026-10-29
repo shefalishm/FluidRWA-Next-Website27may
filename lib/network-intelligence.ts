@@ -2,6 +2,7 @@ import snapshot from "@/data/network-intelligence.json";
 import ramp from "@/data/ramp-onboarding-dataset.json";
 import registryCandidates from "@/data/asset-registry-candidates.json";
 import ondoTokenList from "@/data/issuer-tokenlist-ondo.json";
+import issuerAdditions from "@/data/issuer-additions-october29.json";
 import xstocksTokenList from "@/data/issuer-tokenlist-xstocks.json";
 import robinhoodAssets from "@/data/issuer-api-robinhood.json";
 import wisdomtreeFunds from "@/data/issuer-funds-wisdomtree.json";
@@ -10,7 +11,7 @@ import fundDisclosureHistory from "@/data/fund-disclosure-history.json";
 
 export { snapshot, ramp, fundDisclosureHistory };
 export { infrastructureRelationships };
-export const issuerListSelections = [ondoTokenList.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
+export const issuerListSelections = [ondoTokenList.selection, issuerAdditions.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection];
 export const explorerViews = ["fund-comparison", "supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
@@ -27,6 +28,7 @@ export const assetRegistry = [
   })),
   ...registryCandidates.map(asset => ({ ...asset, cohort: "Research profile", sourcePublished: null as string | null })),
   ...ondoTokenList.assets,
+  ...issuerAdditions.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
   ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
