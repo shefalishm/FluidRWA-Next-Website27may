@@ -6,6 +6,8 @@ import { chainProjectsBasePath, sitemapRoutePaths, siteUrl } from "@/lib/routes"
 import { learnArticles } from "@/lib/learn";
 import { useCases } from "@/lib/useCases";
 import { spanishPages, spanishUrl } from "@/lib/spanishPages";
+import networkSnapshot from "@/data/network-intelligence.json";
+import supplySnapshot from "@/data/onchain-supply-page-snapshot.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoot = path.join(process.cwd(), "content/blog");
@@ -31,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/tools`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/network-explorer/research/tokenized-fund-infrastructure-october-2026`, lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.85 },
     { url: `${siteUrl}/network-explorer/fund-comparison`, lastModified: "2026-10-24", changeFrequency: "monthly", priority: 0.85 },
-    ...["", "/supply", "/assets", "/registry", "/networks", "/vendors", "/jurisdictions", "/research", "/methodology", "/research/ramp-onboarding"].map(view => ({ url: `${siteUrl}/network-explorer${view}`, lastModified: ["", "/assets", "/registry", "/methodology"].includes(view) ? "2026-10-22" : view === "/supply" ? "2026-10-15" : view === "/research/ramp-onboarding" ? "2026-10-13" : view === "/research" ? "2026-10-21" : "2026-10-19", changeFrequency: "weekly" as const, priority: 0.85 })),
+    ...["", "/supply", "/assets", "/registry", "/networks", "/vendors", "/jurisdictions", "/research", "/methodology", "/research/ramp-onboarding"].map(view => ({ url: `${siteUrl}/network-explorer${view}`, lastModified: ["", "/assets", "/registry", "/methodology"].includes(view) ? networkSnapshot.updated : view === "/supply" ? supplySnapshot.pageSnapshotCapturedAt.slice(0, 10) : view === "/research/ramp-onboarding" ? "2026-10-13" : view === "/research" ? "2026-10-21" : "2026-10-19", changeFrequency: "weekly" as const, priority: 0.85 })),
     { url: `${siteUrl}/tools/vendor-comparison`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.94 },
     { url: `${siteUrl}/news`, lastModified: "2026-09-10", changeFrequency: "hourly", priority: 0.86 },
     { url: `${siteUrl}/web3-events`, lastModified: "2026-09-02", changeFrequency: "weekly", priority: 0.87 },

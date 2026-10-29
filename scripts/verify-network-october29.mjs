@@ -77,5 +77,10 @@ try {
   const coverage=await (await ctx.request.get(`${base}/api/network-explorer/v1/coverage?source=qa-test`)).json();
   assert.equal(coverage.identifiedRecords,1745);assert.equal(coverage.documentedRelationships,80);assert.equal(coverage.datedValueRecords,21);
   const result=await (await ctx.request.get(`${base}/api/network-explorer/v1/relationships?asset_id=janus-jqqq&source=qa-test`)).json();assert.equal(result.total,3);
+  const sitemap=await (await ctx.request.get(`${base}/sitemap.xml?source=qa-test`)).text();
+  for(const route of ['','/assets','/registry','/supply','/methodology']) {
+    const entry=sitemap.split('<url>').find(row=>row.includes(`<loc>https://www.fluidrwa.com/network-explorer${route}</loc>`));
+    assert.ok(entry?.includes('<lastmod>2026-10-29'),`Stale sitemap date: ${route}`);
+  }
   console.log('PASS: registry, role map, AUM unit conversions, older observations, native-unit supply, downloads and public API.');
 }finally{await browser.close();}
