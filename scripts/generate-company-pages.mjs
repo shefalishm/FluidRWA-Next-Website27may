@@ -526,6 +526,12 @@ function pageHtml(company, profile, alternatives) {
       : sentence(profile.officialDescription, company.description);
   const sourceSummary = officialDescription;
   const category = company.categoryTitle;
+  const alternativesSection = `<section class="company-section" id="alternatives">
+        <div class="company-container">
+          <div class="company-section-head"><div><p class="company-kicker">Shortlist context</p><h2>Alternatives to ${esc(company.name)}</h2></div><p class="company-lede">Use these alternatives as a starting point when comparing vendors in the same FluidRWA category.</p></div>
+          <div class="company-alt-grid">${alternatives.slice(0, 6).map((alt) => `<article class="company-alt"><h3>${esc(alt.name)}</h3><p>${esc(alt.description)}</p><p><a href="${esc(alt.href)}">Compare ${esc(alt.name)}</a></p></article>`).join("")}</div>
+        </div>
+      </section>`;
   const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
   const isWeb3Profile = !company.categoryDir.startsWith("ai-") && !company.categoryDir.startsWith("decentralized-ai-");
@@ -698,12 +704,7 @@ function pageHtml(company, profile, alternatives) {
         </div>
       </section>
       <section class="company-evaluation" aria-labelledby="evaluation-title"><div class="company-container company-evaluation-grid"><div><p class="company-kicker">Buyer diligence</p><h2 id="evaluation-title">What to validate before selection</h2></div><div class="company-evaluation-list"><div><strong>01 / Regulatory fit</strong><span>Confirm jurisdictions, licensing boundaries and where your organization retains responsibility.</span></div><div><strong>02 / Technical fit</strong><span>Test required chains, APIs, data flows, security controls and integration ownership.</span></div><div><strong>03 / Commercial fit</strong><span>Validate implementation scope, support model, production pricing and exit terms.</span></div></div></div></section>
-      <section class="company-section" id="alternatives">
-        <div class="company-container">
-          <div class="company-section-head"><div><p class="company-kicker">Shortlist context</p><h2>Alternatives to ${esc(company.name)}</h2></div><p class="company-lede">Use these alternatives as a starting point when comparing vendors in the same FluidRWA category.</p></div>
-          <div class="company-alt-grid">${alternatives.slice(0, 6).map((alt) => `<article class="company-alt"><h3>${esc(alt.name)}</h3><p>${esc(alt.description)}</p><p><a href="${esc(alt.href)}">Compare ${esc(alt.name)}</a></p></article>`).join("")}</div>
-        </div>
-      </section>
+      ${company.slug === "lium" ? "" : alternativesSection}
       ${company.productLinks?.length ? `<section class="company-section"><div class="company-container"><div class="company-section-head"><div><p class="company-kicker">Official product resources</p><h2>Explore ${esc(company.name)} products</h2></div><p class="company-lede">Use these official sources to verify current product coverage, supported assets and integration options.</p></div><div class="company-link-grid">${company.productLinks.map(([label, href]) => `<a class="company-resource" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join("")}</div></div></section>` : ""}
       ${company.externalProfiles?.length ? `<section class="company-section"><div class="company-container"><div class="company-section-head"><div><p class="company-kicker">Evidence context</p><h2>Reviews and recognition</h2></div><p class="company-lede">Independent sources add context, but buyers should verify current pricing, terms, geographic availability and compliance responsibilities directly.</p></div><div class="company-link-grid">${company.externalProfiles.map(([label, href]) => `<a class="company-resource" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join("")}</div>${company.partnershipEmail ? `<p class="company-contact">Partnership contact: <a href="mailto:${esc(company.partnershipEmail)}">${esc(company.partnershipEmail)}</a></p>` : ""}</div></section>` : ""}
       <section class="company-conversion"><div class="company-container company-conversion-inner"><div><p class="company-kicker">Build a defensible shortlist</p><h2>Compare the provider against your actual requirements</h2><p>Share your scope, jurisdiction, timeline and technical constraints so the next step starts with useful context.</p></div><div class="company-actions"><a class="company-btn primary" href="${esc(introHref)}">Request an introduction</a><a class="company-btn soft" href="/submit-requirement">Submit project brief</a></div></div></section>
@@ -714,6 +715,7 @@ function pageHtml(company, profile, alternatives) {
           <div class="company-faq-list">${faqs.map((faq) => `<details class="company-faq"><summary>${esc(faq.q)}</summary><p>${esc(faq.a)}</p></details>`).join("")}</div>
         </div>
       </section>
+      ${company.slug === "lium" ? alternativesSection : ""}
     </article>
   </main>
 </body>
