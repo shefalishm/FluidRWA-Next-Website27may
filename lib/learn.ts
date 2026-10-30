@@ -1,3 +1,4 @@
+import { tutorials } from "./learn-tutorials";
 export type LearnTopic = "Tokenization" | "Stablecoins" | "Smart Contracts" | "AI Infrastructure" | "Vendor Selection";
 
 export type LearnSection = {
@@ -19,6 +20,7 @@ export type LearnComparisonRow = {
 };
 
 export type LearnArticle = {
+  level?: "Beginner" | "Advanced";
   slug: string;
   title: string;
   description: string;
@@ -311,6 +313,7 @@ function guide(
 }
 
 export const learnArticles: LearnArticle[] = [
+  ...tutorials,
   guide("Tokenization", "tokenization-vendor-comparison", "Tokenization Vendor Comparison: Best Fit by Asset, Compliance and Custody", "Compare tokenization vendors by asset class, regulated securities fit, lifecycle management, custody-led infrastructure, distribution, interoperability and real estate workflows.", "11 min read", [
     ["How to read this comparison", ["This is not a ranking and it is not a claim that one vendor is universally best. Tokenization projects differ by asset type, jurisdiction, investor base, custody model, distribution strategy, servicing needs and internal technical maturity.", "Use the comparison as a shortlist tool. A vendor that is strong for regulated securities issuance may not be the best fit for real estate sponsor portals. A custody-led platform may be excellent for institutions that already rely on its wallet and policy stack, but less complete for transfer-agent-style servicing."]],
     ["The buyer framework", ["Evaluate tokenization vendors across six dimensions: asset fit, compliance model, investor onboarding, token lifecycle operations, distribution and secondary-market path, and integrations with custody, payment, reporting and administrator systems.", "The right vendor is the one that matches the operating workflow. For example, a tokenized fund needs subscriptions, eligibility checks, transfer controls, NAV or reporting support and redemption processes. A loyalty token or stablecoin-like instrument may care more about APIs, wallet security, mint/burn controls and chain support."]],

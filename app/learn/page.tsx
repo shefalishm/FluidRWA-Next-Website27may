@@ -121,6 +121,8 @@ export default function LearnPage() {
           <input type="search" placeholder="Search guides on tokenization, stablecoins, smart contracts..." aria-label="Search FluidRWA Learn" />
         </div>
         <div className="learn-topic-row" aria-label="Learn topics">
+          <a href="#beginner-tutorials">Beginner tutorials</a>
+          <a href="#advanced-tutorials">Advanced tutorials</a>
           {topics.map((topic) => (
             <a href={`#${topic.toLowerCase().replaceAll(" ", "-")}`} key={topic}>{topic}</a>
           ))}
@@ -128,6 +130,16 @@ export default function LearnPage() {
       </section>
 
       <section className="learn-library">
+        {(["Beginner", "Advanced"] as const).map((level) => (
+          <div className="learn-topic-section" id={`${level.toLowerCase()}-tutorials`} key={level}>
+            <div className="learn-section-head"><p className="learn-eyebrow">Step-by-step</p><h2>{level} tutorials</h2></div>
+            <div className="learn-list">{learnArticles.filter((article) => article.level === level).map((article) => (
+              <Link className="learn-list-card" href={`/learn/${article.slug}`} key={article.slug}>
+                <span>{article.readTime}</span><h3>{article.title}</h3><p>{article.description}</p>
+              </Link>
+            ))}</div>
+          </div>
+        ))}
         {topics.map((topic) => (
           <div className="learn-topic-section" id={topic.toLowerCase().replaceAll(" ", "-")} key={topic}>
             <div className="learn-section-head">
@@ -135,9 +147,9 @@ export default function LearnPage() {
               <h2>{topic} guides</h2>
             </div>
             <div className="learn-list">
-              {learnArticles.filter((article) => article.topic === topic).map((article) => (
+              {learnArticles.filter((article) => article.topic === topic && !article.level).map((article) => (
                 <Link className="learn-list-card" href={`/learn/${article.slug}`} key={article.slug}>
-                  <span>{article.readTime}</span>
+                  <span>{article.level ? `${article.level} · ` : ""}{article.readTime}</span>
                   <h3>{article.title}</h3>
                   <p>{article.description}</p>
                 </Link>

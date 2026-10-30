@@ -86,6 +86,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
           <p className="learn-eyebrow">FluidRWA Learn</p>
           <h1>{article.title}</h1>
           <div className="learn-article-meta">
+            {article.level ? <span>{article.level} tutorial</span> : null}
             <span>Last updated: {new Date(article.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
             <span>{article.readTime}</span>
           </div>
@@ -155,8 +156,8 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
           <div className="learn-next-step">
             <div>
               <p className="learn-eyebrow">Next step</p>
-              <h2>Turn the concept into a vendor shortlist</h2>
-              <p>Use FluidRWA to compare relevant provider categories and move from research to procurement.</p>
+              <h2>{article.level === "Beginner" ? "Keep learning" : "Turn the concept into a vendor shortlist"}</h2>
+              <p>{article.level === "Beginner" ? "Explore more practical guides at your own pace." : "Use FluidRWA to compare relevant provider categories and move from research to procurement."}</p>
             </div>
             <Link href={article.relatedHref}>{article.relatedLabel}</Link>
           </div>
