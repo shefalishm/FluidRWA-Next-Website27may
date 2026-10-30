@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowDownToLine, ArrowUpRight, Copy, Check } from "lucide-react";
-import { comparisonCitation, comparisonEdition, fundComparisonReport as report, providerFootprint, researchRequest } from "@/lib/fund-comparison";
+import { comparisonCitation, comparisonEdition, fundComparisonReport as report, fundEvidenceStatistics, providerFootprint, researchRequest } from "@/lib/fund-comparison";
 import styles from "./FundComparison.module.css";
 
 function track(item: string) { window.fluidRwaTrackEvent?.("explorer_research_action", { interaction_source: "network_explorer", cta: item }); }
@@ -21,9 +21,20 @@ export function FundComparison() {
   const footprints = providerFootprint(role);
   const named = report.funds.filter(fund => fund.claims.some(claim => claim.role === role)).length;
   const options = report.funds;
+  const statistics = fundEvidenceStatistics();
   const subject = `Fund infrastructure research: ${funds.map(fund => fund.ticker).join(" / ")}`;
   const email = `mailto:contact@fluidrwa.com?${new URLSearchParams({ subject, body: `I am researching ${funds.map(fund => fund.ticker).join(", ")} operating models.\n\nMy project, jurisdiction and provider requirements:\n` })}`;
   return <div className={styles.workbench}>
+    <section className={styles.section} aria-labelledby="fund-evidence-title">
+      <p className={styles.eyebrow}>FLUIDRWA RESEARCH · OCTOBER 2026</p>
+      <h2 id="fund-evidence-title">Who is named in tokenized fund documents?</h2>
+      <p>We reviewed public documents for 26 selected fund products and looked for the firms named in four operating roles. The results show what our sources disclose, not whether an unnamed service exists.</p>
+      <div className={styles.statsTable} role="region" aria-label="Named providers by fund responsibility" tabIndex={0}><table><caption>Named providers in the selected 26-product sample</caption><thead><tr><th scope="col">Responsibility</th><th scope="col">Named</th><th scope="col">Not identified</th><th scope="col">Share named</th></tr></thead><tbody>{statistics.map(item => <tr key={item.role}><th scope="row">{item.label}</th><td>{item.named} / {item.total}</td><td>{item.unresolved} / {item.total}</td><td>{item.percent}%</td></tr>)}</tbody></table></div>
+      <p className={styles.scope}>Purposefully selected sample, not a census or a representative market survey. Four Spiko sub-funds share umbrella appointments. Source checks are dated 21 or 23 October 2026; the edition was published 24 October. A named provider is not proof of a current appointment. <a href="#comparison-method">See the selection and sources</a>.</p>
+      <figure><img src="/assets/infographics/fund-evidence-statistics-2026-10-v2.png" width="1400" height="950" loading="lazy" alt={`FluidRWA's review of ${report.funds.length} selected fund products: ${statistics.map(item => `${item.named} named for ${item.label}`).join('; ')}. Counts reflect reviewed documents, not the whole market.`}/><figcaption>Named firms in reviewed documents. Numbers count products, not independent contracts or market share.</figcaption></figure>
+      <div className={styles.actions}><a href="/assets/infographics/fund-evidence-statistics-2026-10-v2.png" download><ArrowDownToLine size={15}/> Download chart</a><a href="/assets/datasets/fund-evidence-statistics-2026-10-v2.csv" download><ArrowDownToLine size={15}/> Download statistics</a><a href={`/assets/datasets/${comparisonEdition}.csv`} download>Underlying evidence and sources</a></div>
+      <p className={styles.scope}>Suggested citation: {comparisonCitation} Figures calculated from the selected products in this edition. Reuse the FluidRWA chart with attribution and a link to this page.</p>
+    </section>
     <section className={styles.section} aria-labelledby="compare-funds-title">
       <h2 id="compare-funds-title" className={styles.sr}>Fund operating-model comparison</h2>
       <p className={styles.scope}>Choose from {report.funds.length} researched products. The first 20 retain their 21 October source checks; six new products were reviewed on 23 October.</p>

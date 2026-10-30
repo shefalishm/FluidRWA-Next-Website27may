@@ -7,6 +7,14 @@ export const comparisonCitation = `FluidRWA Research Team. Fund operating-model 
 export type Fund = typeof report.funds[number];
 export type FundRole = typeof report.roles[number]["id"];
 
+export function fundEvidenceStatistics() {
+  const total = report.funds.length;
+  return report.roles.map(role => {
+    const named = report.funds.filter(fund => fund.claims.some(claim => claim.role === role.id)).length;
+    return { role: role.id, label: role.label, named, total, unresolved: total - named, percent: Math.round(named * 1000 / total) / 10 };
+  });
+}
+
 // These are display groups, not a reconciliation of contracting legal entities.
 export function providerGroup(name: string) {
   if (["BNY", "BNY Mellon", "Bank of New York Mellon", "The Bank of New York Mellon"].includes(name)) return "BNY (source names grouped)";
