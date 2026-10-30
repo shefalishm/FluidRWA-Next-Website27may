@@ -5,6 +5,7 @@ const ramp = JSON.parse(fs.readFileSync('data/ramp-onboarding-dataset.json', 'ut
 const candidates = JSON.parse(fs.readFileSync('data/asset-registry-candidates.json', 'utf8'));
 const ondoTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json', 'utf8'));
 const issuerAdditions = JSON.parse(fs.readFileSync('data/issuer-additions-october29.json', 'utf8'));
+const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
 const xstocksTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodAssets = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeFunds = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -23,6 +24,7 @@ const registry = [
   ...candidates.map(asset => ({ ...asset, cohort: 'Research profile', sourcePublished: null })),
   ...ondoTokenList.assets,
   ...issuerAdditions.assets,
+  ...october30.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
   ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
@@ -37,6 +39,7 @@ const registry = [
 if (new Set(registry.map(asset => asset.id)).size !== registry.length) throw new Error('Duplicate registry asset ID');
 if (ondoTokenList.assets.length !== 450 || xstocksTokenList.assets.length !== 1052 || robinhoodAssets.assets.length !== 194 || wisdomtreeFunds.assets.length !== 14) throw new Error('Unexpected issuer cohort size');
 const registryUpdated = [...registry.map(asset => asset.sourceReviewed), ...relationships.map(row => row.reviewed)].sort().at(-1);
+const relationshipsUpdated = relationships.map(row => row.reviewed).sort().at(-1);
 for (const row of relationships) if (!registry.some(asset => asset.id === row.assetId)) throw new Error(`Unknown asset relationship: ${row.id}`);
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const cell = value => `"${String(value ?? '').replaceAll('"','""')}"`;
@@ -58,8 +61,8 @@ for (const root of ['assets','public/assets']) {
   const historyRows = fundHistory.observations.map(row => ({...row, metric:fundHistory.metric, currency:fundHistory.currency, scope:fundHistory.scope}));
   const historyKeys = Object.keys(historyRows[0]);
   fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.csv`,[historyKeys.map(cell).join(','),...historyRows.map(row => historyKeys.map(key => cell(row[key])).join(','))].join('\r\n'));
-  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${snapshot.assets.length+candidates.length} research profiles; 475 Ondo issuer-listed tokens, 25 RealT property-linked references, 1052 xStocks and 194 Robinhood issuer-listed securities; and 14 WisdomTree blockchain-enabled funds whose blockchain record is secondary. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,issuerAdditions.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection],assets:registry,relationships},null,2));
-  fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
+  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${registry.length} identification records from research profiles and issuer lists, including securities, property references and funds. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,issuerAdditions.selection,october30.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection],assets:registry,relationships},null,2));
+  fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:relationshipsUpdated,reviewed:relationshipsUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.csv`,[Object.keys(relationships[0]).map(cell).join(','),...relationships.map(row => Object.keys(relationships[0]).map(key => cell(row[key])).join(','))].join('\r\n'));
   if (!process.argv.includes('--registry-only')) {
     fs.writeFileSync(`${root}/datasets/network-ramp-evidence.csv`,csv);

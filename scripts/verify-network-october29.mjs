@@ -9,7 +9,7 @@ const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const registry=read('public/assets/datasets/network-asset-registry.json');
 const history=read('data/fund-disclosure-history.json');
 const archive=read('data/network-value-observations.json');
-assert.equal(registry.assets.length,1799); assert.equal(registry.relationships.length,93);
+assert.equal(registry.assets.length,1846); assert.equal(registry.relationships.length,93);
 assert.equal(registry.assets.filter(row => row.cohort === 'RealT issuer references').length,25);
 assert.equal(registry.assets.filter(row => row.cohort === 'Ondo October 2026 issuer list').length,25);
 assert.ok(registry.assets.filter(row => ['RealT issuer references','Ondo October 2026 issuer list'].includes(row.cohort)).every(row => row.reportedValueUsd === null));
@@ -82,7 +82,7 @@ try {
     const r=await ctx.request.get(`${base}${path}?source=qa-test`);assert.equal(r.status(),200);assert.deepEqual(await r.json(),expected);
   }
   const coverage=await (await ctx.request.get(`${base}/api/network-explorer/v1/coverage?source=qa-test`)).json();
-  assert.equal(coverage.identifiedRecords,1799);assert.equal(coverage.documentedRelationships,93);assert.equal(coverage.datedValueRecords,21);
+  assert.equal(coverage.identifiedRecords,1846);assert.equal(coverage.documentedRelationships,93);assert.equal(coverage.datedValueRecords,21);
   const result=await (await ctx.request.get(`${base}/api/network-explorer/v1/relationships?asset_id=janus-jqqq&source=qa-test`)).json();assert.equal(result.total,3);
   const sitemap=await (await ctx.request.get(`${base}/sitemap.xml?source=qa-test`)).text();
   for(const route of ['','/assets','/registry','/supply','/methodology']) {

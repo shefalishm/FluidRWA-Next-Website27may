@@ -4,6 +4,7 @@ const snapshot = JSON.parse(fs.readFileSync('data/network-intelligence.json', 'u
 const profiles = JSON.parse(fs.readFileSync('data/asset-registry-candidates.json', 'utf8'));
 const issuerList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json', 'utf8'));
 const additions = JSON.parse(fs.readFileSync('data/issuer-additions-october29.json', 'utf8'));
+const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
 const xstocksList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodList = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -15,7 +16,7 @@ const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year:
 const ids = new Set();
 const contracts = new Set();
 const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: row.reportedValueUsd, reportedMetric: wisdomtreeList.reportedMetric, reportedAsOf: wisdomtreeList.reportedAsOf }));
-const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...additions.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
+const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...additions.assets, ...october30.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
 const date = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && value <= today;
 const https = value => typeof value === 'string' && value.startsWith('https://');
 
@@ -43,6 +44,9 @@ for (const row of rows) {
   } else if (row.reportedValueUsd !== null && row.reportedValueUsd !== undefined) {
     if (!(row.reportedValueUsd >= 0) || !date(row.reportedAsOf) || !row.reportedMetric) errors.push(`Value has no valid metric/date: ${row.id}`);
   }
+}
+for (const row of october30.assets) {
+  if (row.reportedValueUsd !== null || row.reportedAsOf !== null || !/^0x[a-fA-F0-9]{40}$/.test(row.contractAddress || '') || !row.notes.includes('not independently verified')) errors.push(`Invalid October 30 issuer reference: ${row.id}`);
 }
 
 if (issuerList.assets.length !== 450 || new Set(issuerList.assets.map(row => row.id)).size !== 450) errors.push('Ondo cohort must contain 450 unique assets');
