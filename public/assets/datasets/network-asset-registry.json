@@ -1,11 +1,12 @@
 {
   "version": "2026-10-30",
   "reviewed": "2026-10-30",
-  "scope": "1846 identification records from research profiles and issuer lists, including securities, property references and funds. These are not a complete market census, live-trading audit or comparable global market total.",
+  "scope": "1855 identification records from research profiles and issuer lists, including securities, property references and funds. These are not a complete market census, live-trading audit or comparable global market total.",
   "issuerListSelections": [
     "All 450 unique Ethereum Ondo-tokenized securities in the pinned issuer snapshot, deduplicated by symbol; no ranking or global market-coverage claim.",
     "25 RealT historical property references with Ethereum contract names checked at a recorded block; 24 additional Ondo-listed securities and one Ondo dollar token. This is identification, not a market census or verification of current trading or valuation.",
     "40 additional xStocks and 7 Ondo portfolio tokens from pinned issuer lists. Identification only; trading, rights, valuations and eligibility are not independently verified.",
+    "Nine dShares named in a Dinari case study; identification only, no independent current trading or contract verification.",
     "All 1052 qualifying Ethereum xStocks entries in the pinned issuer snapshot, deduplicated by symbol; no ranking or global market-coverage claim.",
     "All 194 active Robinhood Stock Tokens with a Robinhood Chain contract returned by the official public assets API on 15 October 2026; no live-trading or global-coverage claim.",
     "Fourteen WisdomTree Digital Funds identified in the issuer table reviewed 29 October 2026, excluding WTGXX, which has its own research profile. The earlier issuer FAQ classification of blockchain as a secondary ownership record is retained; no contract, investor eligibility or trading availability is inferred."
@@ -190,6 +191,24 @@
       "contractEvidence": "https://robinhoodchain.blockscout.com/address/0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
       "chainId": 4663,
       "contractAddress": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9"
+    },
+    {
+      "id": "dinari-aapl",
+      "name": "AAPL - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "ondo-aaplon",
@@ -2006,6 +2025,24 @@
       "contractEvidence": "https://robinhoodchain.blockscout.com/address/0x12f190a9F9d7D37a250758b26824B97CE941bF54",
       "chainId": 4663,
       "contractAddress": "0x12f190a9F9d7D37a250758b26824B97CE941bF54"
+    },
+    {
+      "id": "dinari-amzn",
+      "name": "AMZN - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "ondo-amznon",
@@ -20154,6 +20191,24 @@
       "contractAddress": "0x2816169A49953C548BfEb3948dCF05c4A0E4657D"
     },
     {
+      "id": "dinari-meta",
+      "name": "META - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
+    },
+    {
       "id": "robinhood-meta",
       "name": "META - Meta Platforms",
       "issuer": "Robinhood Assets (Jersey) Limited",
@@ -21170,6 +21225,24 @@
       "contractEvidence": "https://etherscan.io/token/0xd8db149baeee1eb4b6e80f7e303337c76dbae33d",
       "chainId": 1,
       "contractAddress": "0xd8db149baeee1eb4b6e80f7e303337c76dbae33d"
+    },
+    {
+      "id": "dinari-mstr",
+      "name": "MSTR - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "robinhood-mstr",
@@ -22730,6 +22803,24 @@
       "contractEvidence": "https://etherscan.io/token/0xa529581a6542759be4efe1ecfb9354d5796425d6",
       "chainId": 1,
       "contractAddress": "0xa529581a6542759be4efe1ecfb9354d5796425d6"
+    },
+    {
+      "id": "dinari-nvda",
+      "name": "NVDA - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "robinhood-nvda",
@@ -25804,6 +25895,24 @@
       "chainId": 1,
       "contractAddress": "0xce7a2b5e53fa691be4591306ade451619fc09432",
       "contractEvidence": "https://etherscan.io/token/0xce7a2b5e53fa691be4591306ade451619fc09432"
+    },
+    {
+      "id": "dinari-qqq",
+      "name": "QQQ - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "robinhood-qqq",
@@ -29962,6 +30071,24 @@
       "contractAddress": "0x7b14968d19a6c051d6613716ea71f2dade46db9c"
     },
     {
+      "id": "dinari-spcx",
+      "name": "SPCX - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
+    },
+    {
       "id": "robinhood-spcx",
       "name": "SPCX - Space Exploration Technologies Corp. Class A Common Stock",
       "issuer": "Robinhood Assets (Jersey) Limited",
@@ -30155,6 +30282,24 @@
       "reportedMetric": "Reported fund assets under management",
       "reportedAsOf": "2026-10-27",
       "freshnessDays": 35,
+      "contractEvidence": null
+    },
+    {
+      "id": "dinari-spy",
+      "name": "SPY - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
       "contractEvidence": null
     },
     {
@@ -31988,6 +32133,24 @@
       "contractEvidence": "https://etherscan.io/token/0xEbe0D1B1d50bC68458Fcdc45C3c276d57CDC422B",
       "chainId": 1,
       "contractAddress": "0xEbe0D1B1d50bC68458Fcdc45C3c276d57CDC422B"
+    },
+    {
+      "id": "dinari-tsla",
+      "name": "TSLA - Dinari dShare",
+      "issuer": "Dinari",
+      "assetClass": "Tokenized securities",
+      "structure": "Issuer-described dShare reference; product terms require verification",
+      "cohort": "Dinari issuer case study",
+      "source": "https://dinari.com/case-studies/flow-traders",
+      "sourceLabel": "Dinari and Flow Traders case study",
+      "sourcePublished": null,
+      "sourceReviewed": "2026-10-30",
+      "notes": "Dinari names this ticker in its dShares rollout. The product terms, contract address, current availability, investor eligibility and value were not independently verified. The announcement does not establish present trading conditions.",
+      "reportedValueUsd": null,
+      "reportedMetric": null,
+      "reportedAsOf": null,
+      "freshnessDays": 7,
+      "contractEvidence": null
     },
     {
       "id": "robinhood-tsla",

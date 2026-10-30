@@ -5,6 +5,7 @@ const profiles = JSON.parse(fs.readFileSync('data/asset-registry-candidates.json
 const issuerList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json', 'utf8'));
 const additions = JSON.parse(fs.readFileSync('data/issuer-additions-october29.json', 'utf8'));
 const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
+const dinari = JSON.parse(fs.readFileSync('data/issuer-additions-dinari-october30.json', 'utf8'));
 const xstocksList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodList = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -16,7 +17,7 @@ const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year:
 const ids = new Set();
 const contracts = new Set();
 const wisdomtreeRows = wisdomtreeList.assets.map(row => ({ id: `wisdomtree-${row.symbol.toLowerCase()}`, name: row.symbol, issuer: 'WisdomTree', cohort: 'WisdomTree digital funds', source: wisdomtreeList.source, sourceReviewed: wisdomtreeList.sourceReviewed, reportedValueUsd: row.reportedValueUsd, reportedMetric: wisdomtreeList.reportedMetric, reportedAsOf: wisdomtreeList.reportedAsOf }));
-const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...additions.assets, ...october30.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
+const rows = [...snapshot.assets.map(row => ({ ...row, sourceReviewed: row.sourceReviewed || snapshot.reviewed })), ...profiles, ...issuerList.assets, ...additions.assets, ...october30.assets, ...dinari.assets, ...xstocksList.assets, ...robinhoodList.assets, ...wisdomtreeRows];
 const date = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && value <= today;
 const https = value => typeof value === 'string' && value.startsWith('https://');
 
@@ -48,6 +49,7 @@ for (const row of rows) {
 for (const row of october30.assets) {
   if (row.reportedValueUsd !== null || row.reportedAsOf !== null || !/^0x[a-fA-F0-9]{40}$/.test(row.contractAddress || '') || !row.notes.includes('not independently verified')) errors.push(`Invalid October 30 issuer reference: ${row.id}`);
 }
+if (dinari.assets.length !== 9 || dinari.assets.some(row => row.source !== 'https://dinari.com/case-studies/flow-traders' || row.reportedValueUsd !== null || row.contractEvidence !== null)) errors.push('Invalid Dinari case-study cohort');
 
 if (issuerList.assets.length !== 450 || new Set(issuerList.assets.map(row => row.id)).size !== 450) errors.push('Ondo cohort must contain 450 unique assets');
 if (additions.assets.filter(row => row.cohort === 'RealT issuer references').length !== 25 || additions.assets.filter(row => row.cohort === 'Ondo October 2026 issuer list').length !== 25) errors.push('Additional cohorts must each contain 25 assets');
