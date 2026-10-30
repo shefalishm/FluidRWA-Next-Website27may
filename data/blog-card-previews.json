@@ -762,5 +762,17 @@
   "regula-vs-incode-vs-jumio-document-verification": {
     "src": "/assets/blog-thumbnails/document-verification-october29.webp",
     "alt": "FluidRWA document verification comparison: a person holding passports, an illustrative identity-document photograph"
+  },
+  "cloudflare-turnstile-vs-recaptcha-vs-hcaptcha-form-protection": {
+    "src": "/assets/blog-thumbnails/bot-protection-oct30.webp",
+    "alt": "FluidRWA bot protection comparison: illustrative laptop and security key"
+  },
+  "certora-vs-halmos-vs-echidna-smart-contract-testing": {
+    "src": "/assets/blog-thumbnails/contract-verification-oct30.webp",
+    "alt": "FluidRWA smart contract testing comparison: illustrative developer workspace"
+  },
+  "together-ai-vs-fireworks-ai-vs-replicate-model-serving": {
+    "src": "/assets/blog-thumbnails/ai-inference-oct30.webp",
+    "alt": "FluidRWA AI model serving comparison: illustrative server room"
   }
 }
