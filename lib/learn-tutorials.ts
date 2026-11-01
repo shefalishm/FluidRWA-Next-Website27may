@@ -1,6 +1,6 @@
 import type { LearnArticle, LearnTopic } from "./learn";
 
-type Tutorial = { slug: string; title: string; description: string; level: "Beginner" | "Advanced"; topic: LearnTopic; intro: string; needs: string; steps: [string, string][]; check: string; faq: [string, string][]; refs: [string, string][] };
+type Tutorial = { slug: string; title: string; description: string; level: "Beginner" | "Advanced"; topic: LearnTopic; updatedAt?: string; intro: string; needs: string; steps: [string, string][]; check: string; faq: [string, string][]; refs: [string, string][] };
 const metamask = "https://support.metamask.io/start/creating-a-new-wallet";
 const approvals = "https://support.metamask.io/more-web3/learn/how-to-revoke-smart-contract-allowances-token-approvals/";
 const explorer = "https://ethereum.org/developers/docs/data-and-analytics/block-explorers/";
@@ -180,12 +180,46 @@ const definitions: Tutorial[] = [
     check:"A duplicate event cannot create a duplicate payout, and a missing or invalid event is visible to operations.",
     faq:[["Does a webhook prove a payment settled?","Only the provider's documented event meaning and your reconciliation can establish the relevant outcome."],["Are all webhook signature schemes identical?","No. Follow the specific provider's documentation and validate its current implementation."]],
     refs:[["Transak: webhook documentation","https://docs.transak.com/features/webhooks"],["Transak: verify webhook payload","https://docs.transak.com/guides/how-to-decrypt-webhook-payload"],["OWASP: web service security","https://cheatsheetseries.owasp.org/cheatsheets/Web_Service_Security_Cheat_Sheet.html"]]
+  },
+  {
+    slug:"how-to-handle-a-pending-metamask-transaction",title:"How to Handle a Pending MetaMask Transaction",description:"Check an EVM transaction's status and understand MetaMask's speed-up or cancellation options before paying another fee.",level:"Beginner",topic:"Smart Contracts",updatedAt:"2026-11-02",
+    intro:"A transaction showing as pending may be waiting for network inclusion, or the wallet display may be out of date. A confirmed transaction cannot be canceled. Check the actual status before sending anything again.",
+    needs:"The sending wallet, its network, the transaction hash and enough of the network's fee asset if you choose to replace a pending transaction. Never share a recovery phrase or private key.",
+    steps:[
+      ["Check the account and network","Open the account that sent the transaction and verify the network. MetaMask's official help recommends restarting and unlocking the wallet if its display appears stuck."],
+      ["Open the transaction details","In Activity, find the relevant transaction and open its details. On recent extension versions, supported networks may show the transaction detail from the submitted notification. Interface names vary by version."],
+      ["Look up the hash","Open the linked block explorer for that network. Check whether the transaction is pending, confirmed or failed. If a receiving exchange initiated the transaction, contact the sender rather than attempting to replace a transaction you do not control."],
+      ["Decide whether to wait","Network demand and the transaction's fee settings can affect inclusion. A pending transaction is not necessarily lost; a fee increase may cost more and does not guarantee immediate confirmation."],
+      ["Consider speed up","If the wallet offers Speed up for the still-pending transaction, review the replacement and increased fee before approving. Both compete for the same account nonce; only one can be included on that chain."],
+      ["Consider cancellation carefully","If MetaMask offers Cancel while the transaction is still pending, review the replacement fee. Cancellation is an attempt, not a guarantee: the original may confirm first. A confirmed transfer cannot be reversed this way."],
+      ["Confirm the final outcome","Check the explorer and wallet for the outcome of the original and any replacement. Do not resend payment until you know whether the first one executed. A successful chain transaction is not automatically proof that a separate exchange credited the deposit."],
+    ],
+    check:"Record the network, transaction hash and final status. If the situation remains unclear, contact the wallet or receiving service through its verified support channel.",
+    faq:[["Will cancellation always work?","No. A replacement must be accepted and included before the original; the original may confirm first."],["Should I share my recovery phrase with support?","Never. Anyone asking for it can take control of the wallet."]],
+    refs:[["MetaMask: speed up or cancel a pending transaction","https://support.metamask.io/manage-crypto/transactions/how-to-speed-up-or-cancel-a-pending-transaction"],["Ethereum: transactions","https://ethereum.org/developers/docs/transactions/"]]
+  },
+  {
+    slug:"how-to-identify-a-tokenized-fund-contract",title:"How to Identify a Tokenized Fund and Its Contract Address",description:"Trace a tokenized fund from its issuer's documents to a network-specific contract without confusing fund value with token supply.",level:"Advanced",topic:"Tokenization",updatedAt:"2026-11-02",
+    intro:"A ticker is not a reliable identifier on its own. A tokenized fund can have multiple blockchain deployments, and a token address does not by itself establish legal rights or prove the value of underlying assets.",
+    needs:"The product's official name, issuer documents, the intended blockchain and a trusted explorer. This is research guidance, not investment or legal advice.",
+    steps:[
+      ["Identify the product and legal vehicle","Use the issuer's official product page and offering documents to record the full fund or share-class name and relevant vehicle. Distinguish a feeder product from the fund it invests in."],
+      ["Check the official ownership record","Read the fund's documents to understand whether the register is maintained on-chain, off-chain or through a combined arrangement. Do not assume the token ledger is automatically the legal register."],
+      ["Find an issuer-published contract","Use a contract address explicitly identified in current issuer or official product documentation for the exact network. If no authoritative address is available, record it as unverified rather than infer it from a ticker."],
+      ["Match the network and address","Open the appropriate chain explorer and compare the complete address with the official source. Names, tickers and logos can be copied. Confirm whether the document describes a token, wrapper, vault or a different contract."],
+      ["Examine the contract carefully","Where available, review verified source code, implementation or proxy details, token decimals and administrative controls. Explorer verification is evidence about code correspondence, not an audit or guarantee that a product is safe."],
+      ["Separate supply from valuation","A contract's totalSupply is a quantity of tokens, not automatically circulating supply, fund net assets or market capitalization. Cross-chain deployments and wrappers can create double counting. Use each metric only within its documented scope and date."],
+      ["Save an evidence trail","Record the product, legal entity, chain, full address, source URL, source date, date checked and unresolved questions. Recheck the issuer's disclosures before relying on the record for a transaction or investment decision."]
+    ],
+    check:"A second researcher can reproduce the identification from the cited issuer document and distinguish what was not independently verified.",
+    faq:[["Does a verified contract mean the fund is verified?","No. Explorer source verification does not independently establish an asset's legal rights, holdings, valuation or safety."],["Can I add supplies across chains?","Not safely without understanding native issuance, bridges, wrappers and duplicate representations."]],
+    refs:[["Ethereum: block explorers","https://ethereum.org/developers/docs/data-and-analytics/block-explorers/"],["FluidRWA: tokenized fund infrastructure research","https://www.fluidrwa.com/network-explorer/research/tokenized-fund-infrastructure-october-2026"]]
   }
 ];
 
 export const tutorials: LearnArticle[] = definitions.map(item => ({
   slug:item.slug, title:item.title, description:item.description, level:item.level, topic:item.topic,
-  readTime:item.level === "Beginner" ? "4 min read" : "5 min read", updatedAt:"2026-10-31",
+  readTime:item.level === "Beginner" ? "4 min read" : "5 min read", updatedAt:item.updatedAt || "2026-10-31",
   accent:item.topic === "Tokenization" ? "blue" : item.topic === "Stablecoins" ? "green" : "amber",
   relatedHref:item.level === "Beginner" ? "/learn#beginner-tutorials" : item.topic === "Tokenization" ? "/vendors/tokenization-platforms" : item.topic === "Stablecoins" ? "/vendors/stablecoin-infrastructure-providers" : "/vendors/smart-contract-development-companies",
   relatedLabel:item.level === "Beginner" ? "Browse beginner tutorials" : item.topic === "Tokenization" ? "Explore tokenization platforms" : item.topic === "Stablecoins" ? "Explore stablecoin providers" : "Explore smart contract providers",
