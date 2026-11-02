@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">Two-of-three treasury rehearsal</title><desc id="desc">Threshold approval is not execution. Test ETH only. Workflow illustration, not a product screenshot.</desc>
+<rect width="1200" height="480" fill="#f1f5f4"/>
+<text x="48" y="54" fill="#8a5521" font-family="Arial,sans-serif" font-size="18" font-weight="700">ETHEREUM SEPOLIA ONLY</text>
+<text x="48" y="108" fill="#17212e" font-family="Arial,sans-serif" font-size="34" font-weight="700">Two-of-three treasury rehearsal</text>
+<rect x="48" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="72" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">A · Propose + sign</text>
+<rect x="424" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="448" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">B · Review + sign</text>
+<rect x="800" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="824" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">C · Reserve signer</text>
+<path d="M224 245v35m376-35v35m376-35v35" stroke="#8a5521" stroke-width="3"/>
+<rect x="48" y="294" width="352" height="70" rx="6" fill="#8a5521"/><text x="72" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">1 of 2 · queued</text>
+<rect x="424" y="294" width="352" height="70" rx="6" fill="#8a5521"/><text x="448" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">2 of 2 · ready</text>
+<rect x="800" y="294" width="352" height="70" rx="6" fill="#8a5521"/><text x="824" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">Execute → verify</text>
+<text x="48" y="421" fill="#495766" font-family="Arial,sans-serif" font-size="20">Threshold approval is not execution. Test ETH only.</text>
+<text x="48" y="455" fill="#495766" font-family="Arial,sans-serif" font-size="16">FLUIDRWA LEARN · WORKFLOW ILLUSTRATION · NOT A PRODUCT SCREENSHOT</text>
+</svg>

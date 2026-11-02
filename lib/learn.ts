@@ -5,6 +5,9 @@ export type LearnSection = {
   id: string;
   title: string;
   body: string[];
+  code?: { language: string; text: string };
+  table?: { columns: string[]; rows: string[][] };
+  links?: { label: string; href: string }[];
 };
 
 export type LearnFaq = {
@@ -20,6 +23,7 @@ export type LearnComparisonRow = {
 };
 
 export type LearnArticle = {
+  illustration?: { src: string; alt: string; caption: string };
   level?: "Beginner" | "Advanced";
   slug: string;
   title: string;

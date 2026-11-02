@@ -14518,3 +14518,23 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   .uc-hub-cta { padding: 36px 0; }
   .uc-related { padding: 40px 0 48px; }
 }
+.learn-lab-figure { margin: 24px 0 40px; }
+.learn-lab-figure img { display: block; width: 100%; height: auto; }
+.learn-lab-figure figcaption { margin-top: 12px; color: #586374; font-size: 14px; line-height: 1.6; }
+.learn-article { min-width: 0; overflow-wrap: anywhere; }
+.learn-lab-code { max-width: 100%; overflow-x: auto; padding: 20px; border: 1px solid #d2dae3; border-radius: 6px; background: #f5f7f9; color: #17212e; font-size: 14px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.learn-lab-table { width: 100%; overflow-x: auto; margin: 20px 0; }
+.learn-lab-table table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.6; }
+.learn-lab-table th, .learn-lab-table td { text-align: left; vertical-align: top; padding: 14px 12px; border-bottom: 1px solid #d2dae3; min-width: 120px; }
+.learn-lab-table th { background: #edf3f0; color: #17212e; }
+.learn-article section li { margin: 10px 0; line-height: 1.7; }
+.learn-toc { max-height: calc(100vh - 145px); overflow-y: auto; }
+.learn-article h1 { font-size: 48px !important; letter-spacing: 0 !important; }
+.learn-article section h2 { font-size: 28px !important; letter-spacing: 0 !important; }
+@media (max-width: 900px) {
+  .learn-article-layout { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
+  .learn-toc { display: none !important; }
+  .learn-article h1 { font-size: 34px !important; line-height: 1.12 !important; }
+  .learn-article section h2 { font-size: 25px !important; }
+  .learn-article section p { font-size: 17px !important; }
+}

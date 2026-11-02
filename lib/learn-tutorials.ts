@@ -1,4 +1,5 @@
 import type { LearnArticle, LearnTopic } from "./learn";
+import { researchedTutorials } from "./learn-researched-tutorials";
 
 type Tutorial = { slug: string; title: string; description: string; level: "Beginner" | "Advanced"; topic: LearnTopic; updatedAt?: string; intro: string; needs: string; steps: [string, string][]; check: string; faq: [string, string][]; refs: [string, string][] };
 const metamask = "https://support.metamask.io/start/creating-a-new-wallet";
@@ -217,7 +218,7 @@ const definitions: Tutorial[] = [
   }
 ];
 
-export const tutorials: LearnArticle[] = definitions.map(item => ({
+export const tutorials: LearnArticle[] = [...researchedTutorials, ...definitions.map((item): LearnArticle => ({
   slug:item.slug, title:item.title, description:item.description, level:item.level, topic:item.topic,
   readTime:item.level === "Beginner" ? "4 min read" : "5 min read", updatedAt:item.updatedAt || "2026-10-31",
   accent:item.topic === "Tokenization" ? "blue" : item.topic === "Stablecoins" ? "green" : "amber",
@@ -231,4 +232,4 @@ export const tutorials: LearnArticle[] = definitions.map(item => ({
   ],
   faqs:item.faq.map(([question,answer])=>({question,answer})),
   references:item.refs.map(([label,href])=>({label,href}))
-}));
+}))];

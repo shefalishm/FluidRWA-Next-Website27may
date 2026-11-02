@@ -5,8 +5,21 @@ import ts from 'typescript';
 
 const compile = file => ts.transpileModule(fs.readFileSync(file, 'utf8'), {compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const tutorialModule = {exports:{}};
+const researchedModule = {exports:{}};
+vm.runInNewContext(compile('lib/learn-researched-tutorials.ts'), researchedModule);
+tutorialModule.require = name => { if (name === './learn-researched-tutorials') return researchedModule.exports; throw new Error(name); };
 vm.runInNewContext(compile('lib/learn-tutorials.ts'), tutorialModule);
 const tutorials = tutorialModule.exports.tutorials;
+assert.equal(researchedModule.exports.researchedTutorials.length, 3);
+for (const item of researchedModule.exports.researchedTutorials) {
+  assert.ok(item.sections.reduce((n, s) => n + s.body.join(' ').split(/\s+/).length, 0) >= 1000, `${item.slug}: substantive guide`);
+  assert.ok(item.sections.some(s => s.id === 'troubleshooting'));
+  assert.ok(item.sections.some(s => s.id === 'check-your-work'));
+  assert.ok(fs.existsSync(`public${item.illustration.src}`));
+  assert.ok(fs.existsSync(`public${item.illustration.src.replace('.svg', '-mobile.svg')}`));
+  assert.ok(/not a .*screenshot/i.test(item.illustration.caption));
+  assert.equal(new Set(item.sections.map(s => s.id)).size, item.sections.length);
+}
 assert.ok(tutorials.length >= 10);
 for (const level of ['Beginner','Advanced']) assert.ok(tutorials.filter(row => row.level === level).length >= 5);
 for (const item of tutorials) {

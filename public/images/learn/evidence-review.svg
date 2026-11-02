@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">Vendor evidence review</title><desc id="desc">A claim is not verified until its supporting passage is checked. Workflow illustration, not a product screenshot.</desc>
+<rect width="1200" height="480" fill="#f1f5f4"/>
+<text x="48" y="54" fill="#146c57" font-family="Arial,sans-serif" font-size="18" font-weight="700">PUBLIC / FICTIONAL SOURCES</text>
+<text x="48" y="108" fill="#17212e" font-family="Arial,sans-serif" font-size="34" font-weight="700">Vendor evidence review</text>
+<rect x="48" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="72" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">A · Overview</text>
+<rect x="424" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="448" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">B · Technical notes</text>
+<rect x="800" y="154" width="352" height="82" rx="6" fill="white" stroke="#bdccc6"/><text x="824" y="203" fill="#17212e" font-family="Arial,sans-serif" font-size="23">C · Service schedule</text>
+<path d="M224 245v35m376-35v35m376-35v35" stroke="#146c57" stroke-width="3"/>
+<rect x="48" y="294" width="352" height="70" rx="6" fill="#146c57"/><text x="72" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">Extract claims</text>
+<rect x="424" y="294" width="352" height="70" rx="6" fill="#146c57"/><text x="448" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">Open citations</text>
+<rect x="800" y="294" width="352" height="70" rx="6" fill="#146c57"/><text x="824" y="337" fill="white" font-family="Arial,sans-serif" font-size="22">Record findings</text>
+<text x="48" y="421" fill="#495766" font-family="Arial,sans-serif" font-size="20">A claim is not verified until its supporting passage is checked.</text>
+<text x="48" y="455" fill="#495766" font-family="Arial,sans-serif" font-size="16">FLUIDRWA LEARN · WORKFLOW ILLUSTRATION · NOT A PRODUCT SCREENSHOT</text>
+</svg>

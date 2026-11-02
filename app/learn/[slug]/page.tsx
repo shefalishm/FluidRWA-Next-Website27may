@@ -90,20 +90,29 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
             <span>Last updated: {new Date(article.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
             <span>{article.readTime}</span>
           </div>
-          <div className={`learn-article-visual learn-cover-${article.accent}`} aria-hidden="true">
+          {article.illustration ? <figure className="learn-lab-figure">
+            <picture>
+              <source media="(max-width: 600px)" srcSet={article.illustration.src.replace(/\.svg$/, "-mobile.svg")} />
+              <img src={article.illustration.src} alt={article.illustration.alt} width="1200" height="480" />
+            </picture>
+            <figcaption>{article.illustration.caption}</figcaption>
+          </figure> : <div className={`learn-article-visual learn-cover-${article.accent}`} aria-hidden="true">
             <span>{article.topic}</span>
             <div className="learn-cover-art">
               <i />
               <i />
               <i />
             </div>
-          </div>
+          </div>}
           {article.sections.map((section) => (
             <section id={section.id} key={section.id}>
               <h2>{section.title}</h2>
               {section.body.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+              {section.code ? <pre className="learn-lab-code" aria-label={section.code.language}><code>{section.code.text}</code></pre> : null}
+              {section.table ? <div className="learn-lab-table" role="region" aria-label={`${section.title} table`} tabIndex={0}><table><thead><tr>{section.table.columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, i) => <td key={i}>{cell}</td>)}</tr>)}</tbody></table></div> : null}
+              {section.links ? <ul>{section.links.map(link => <li key={link.href}><a href={link.href} download={link.href.startsWith("/learn-assets/") || undefined} rel={link.href.startsWith("https://") ? "nofollow noopener noreferrer" : undefined}>{link.label}</a></li>)}</ul> : null}
             </section>
           ))}
           {article.comparisonRows ? (
@@ -148,7 +157,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
             <ul>
               {article.references.map((reference) => (
                 <li key={reference.href}>
-                  <a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a>
+                  <a href={reference.href} target="_blank" rel="nofollow noopener noreferrer">{reference.label}</a>
                 </li>
               ))}
             </ul>
