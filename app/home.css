@@ -75,6 +75,7 @@
 @media(max-width:520px){.home-hub-hero{min-height:0;height:auto;padding:110px 0 46px}.home-hub-discovery{padding:48px 0}.resource-extra-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 .home-hero-accent{display:block;color:#1768ad;font-weight:800}
+.home-hero-trust{display:block;color:inherit}
 .home-hub-discovery{background:#f8fafb}
 .home-hub-comparisons{background:#fff}
 .home-hub-comparisons-head{display:flex;justify-content:space-between;align-items:end;gap:24px}

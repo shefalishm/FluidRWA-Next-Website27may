@@ -1,4 +1,16 @@
 {
+  "openspace-vs-dronedeploy-vs-siteaware-construction-evidence": {
+    "src": "/assets/blog-thumbnails/card-construction-evidence-november2.webp",
+    "alt": "FluidRWA construction evidence comparison: illustrative engineer, drone and site records"
+  },
+  "cargox-vs-bolero-vs-enigio-electronic-trade-documents": {
+    "src": "/assets/blog-thumbnails/card-trade-documents-november2.webp",
+    "alt": "FluidRWA electronic trade documents comparison: illustrative terminal and digital paperwork"
+  },
+  "regen-vs-toucan-vs-open-forest-carbon-infrastructure": {
+    "src": "/assets/blog-thumbnails/card-carbon-monitoring-november2.webp",
+    "alt": "FluidRWA carbon infrastructure comparison: illustrative tree measurement and monitoring records"
+  },
   "how-to-select-pricing-data-tokenized-fund-nav": {
     "src": "/assets/blog-thumbnails/card-how-to-select-pricing-data-tokenized-fund-nav.webp",
     "alt": "FluidRWA guide to pricing data for tokenized fund NAV: analyst reviewing a fund factsheet"

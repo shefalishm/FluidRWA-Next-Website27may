@@ -56,6 +56,15 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 - Blog index: https://www.fluidrwa.com/blog
 - Tokenization blog category: https://www.fluidrwa.com/blog/tokenization
+- CargoX vs Bolero vs Enigio: Electronic Trade Documents Compared: https://www.fluidrwa.com/blog/cargox-vs-bolero-vs-enigio-electronic-trade-documents
+- Regen Network vs Toucan vs Open Forest Protocol: Carbon Infrastructure Compared: https://www.fluidrwa.com/blog/regen-vs-toucan-vs-open-forest-carbon-infrastructure
+- Certora vs Halmos vs Echidna: Testing Smart Contract Security Properties: https://www.fluidrwa.com/blog/certora-vs-halmos-vs-echidna-smart-contract-testing
+- Cloudflare Turnstile vs reCAPTCHA vs hCaptcha: Protecting Forms Without Losing Leads: https://www.fluidrwa.com/blog/cloudflare-turnstile-vs-recaptcha-vs-hcaptcha-form-protection
+- Together AI vs Fireworks AI vs Replicate: Choosing AI Model Serving: https://www.fluidrwa.com/blog/together-ai-vs-fireworks-ai-vs-replicate-model-serving
+- Chainwire vs MarketAcross vs Wachsman: Crypto PR and Distribution: https://www.fluidrwa.com/blog/chainwire-vs-marketacross-vs-wachsman-crypto-pr
+- Galxe vs Zealy vs Layer3: Web3 Campaign Platforms Compared: https://www.fluidrwa.com/blog/galxe-vs-zealy-vs-layer3-web3-campaigns
+- Regula vs Incode vs Jumio: Document Verification for Investor Onboarding: https://www.fluidrwa.com/blog/regula-vs-incode-vs-jumio-document-verification
+- CLARITY Act Timeline: What Passed, What Stalled, and What It Means for RWA: https://www.fluidrwa.com/blog/clarity-act-timeline-guide
 - Komgo vs Traydstream vs TradeWaltz: Trade-Finance Workflows Compared: https://www.fluidrwa.com/blog/komgo-vs-traydstream-vs-tradewaltz-trade-finance-workflows
 - OpenSpace vs DroneDeploy vs SiteAware: Construction Evidence Compared: https://www.fluidrwa.com/blog/openspace-vs-dronedeploy-vs-siteaware-construction-evidence
 - Stablecoin Payouts Without Prefunding: A Buyer’s Guide to Liquidity and Settlement: https://www.fluidrwa.com/blog/stablecoin-payouts-without-prefunding-buyer-guide
@@ -169,7 +178,7 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 - Hummingbird vs Unit21 vs Flagright: AML Case Management Comparison (2026): https://www.fluidrwa.com/blog/hummingbird-vs-unit21-vs-flagright-aml-case-management
 - Turnkey vs Dfns vs Fordefi: Wallet Infrastructure Comparison (2026): https://www.fluidrwa.com/blog/turnkey-vs-dfns-vs-fordefi-wallet-infrastructure
 - Vanta vs Drata vs Secureframe: Compliance Automation Comparison (2026): https://www.fluidrwa.com/blog/vanta-vs-drata-vs-secureframe-compliance-automation
-- Caldera vs Conduit vs AltLayer: Rollup-as-a-Service Comparison (2026): https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-altlayer-rollup-as-a-service
+- Caldera vs Conduit vs AltLayer: Rollup Stack and DA Choices: https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-altlayer-rollup-as-a-service
 - Circle vs Privy vs thirdweb: Embedded Wallet Infrastructure Comparison (2026): https://www.fluidrwa.com/blog/circle-vs-privy-vs-thirdweb-embedded-wallets
 - Fireblocks Network vs Copper ClearLoop vs BitGo Go Network (2026): https://www.fluidrwa.com/blog/fireblocks-network-vs-copper-clearloop-vs-bitgo-go-network
 - Hypernative vs Hexagate vs Forta: Web3 Runtime Security Comparison (2026): https://www.fluidrwa.com/blog/hypernative-vs-hexagate-vs-forta-runtime-security
@@ -190,7 +199,7 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 - Fireblocks vs Fordefi vs Utila: Institutional Wallet Infrastructure Compared: https://www.fluidrwa.com/blog/fireblocks-vs-fordefi-vs-utila-institutional-wallet-infrastructure
 - Kaleido vs SettleMint vs AvaCloud: Enterprise Blockchain Platforms Compared: https://www.fluidrwa.com/blog/kaleido-vs-settlemint-vs-avacloud-enterprise-blockchain-platforms
 - Persona vs Alloy vs Socure: Identity Verification and Orchestration Compared: https://www.fluidrwa.com/blog/persona-vs-alloy-vs-socure-identity-orchestration
-- Akash vs io.net vs Aethir: Decentralized GPU Compute Compared: https://www.fluidrwa.com/blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute
+- Akash vs io.net vs Aethir vs Lium: GPU Compute Compared: https://www.fluidrwa.com/blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute
 - Fetch.ai vs Olas vs Virtuals: Onchain AI Agent Platforms: https://www.fluidrwa.com/blog/fetch-ai-vs-olas-vs-virtuals-onchain-ai-agent-platforms
 - Halborn vs Spearbit vs Sherlock: Smart Contract Security: https://www.fluidrwa.com/blog/halborn-vs-spearbit-vs-sherlock-smart-contract-security
 - RWA.xyz vs Artemis vs Allium: RWA and Blockchain Data: https://www.fluidrwa.com/blog/rwa-xyz-vs-artemis-vs-allium-rwa-blockchain-data
@@ -214,7 +223,7 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 - Request Finance vs BitPay vs Coinbase Commerce: Crypto Payment Provider Comparison: https://www.fluidrwa.com/blog/request-finance-vs-bitpay-vs-coinbase-commerce-crypto-payments
 - Tenderly vs Gelato vs OpenZeppelin: Smart Contract Operations Tool Comparison: https://www.fluidrwa.com/blog/tenderly-vs-gelato-vs-openzeppelin-smart-contract-operations
 - thirdweb vs Alchemy vs Coinbase Developer Platform: Web3 Developer Platform Comparison: https://www.fluidrwa.com/blog/thirdweb-vs-alchemy-vs-coinbase-developer-platform
-- Caldera vs Conduit vs Gelato: Rollup-as-a-Service and Appchain Comparison: https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-gelato-raas-appchains
+- Caldera vs Conduit vs Gelato: Appchain UX and Operations: https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-gelato-raas-appchains
 - Carta vs AngelList vs Juniper Square: Fund Administration Comparison: https://www.fluidrwa.com/blog/carta-vs-angellist-vs-juniper-square-fund-administration
 - Figment vs Kiln vs Twinstake: Institutional Staking Provider Comparison: https://www.fluidrwa.com/blog/figment-vs-kiln-vs-twinstake-staking-infrastructure
 - Nexus Mutual vs Sherlock vs InsurAce: Crypto Risk Cover Comparison: https://www.fluidrwa.com/blog/nexus-mutual-vs-sherlock-vs-insurace-crypto-risk-cover
