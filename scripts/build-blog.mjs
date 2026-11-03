@@ -420,8 +420,11 @@ function postPage(post, posts) {
   }
   const opening = articleBody.slice(0, introEnd);
   const remaining = articleBody.slice(introEnd);
+  const readerImage = post.readerImage === "true"
+    ? `<img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}" width="1200" height="675" loading="lazy" decoding="async">`
+    : "";
   const content = post.readerFirst === "true"
-    ? `${answerBlock}${topCta}${opening}${infographicBlock(post)}${remaining}${researchBlock(post)}`
+    ? `${answerBlock}${topCta}${opening}${readerImage}${infographicBlock(post)}${remaining}${researchBlock(post)}`
     : `<img src="${esc(post.image)}?v=visual-6" alt="${esc(post.imageAlt || post.title)}" width="960" height="540" loading="eager" decoding="async">${answerBlock}${topCta}${infographicBlock(post)}${post.considerationAfterTable === "true" ? "" : consideration}${researchBlock(post)}${articleBody}`;
   const linkedContent = applyComparisonLinkPolicy(content, post);
   const faqSection = faqs.length

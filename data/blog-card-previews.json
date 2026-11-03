@@ -786,5 +786,17 @@
   "together-ai-vs-fireworks-ai-vs-replicate-model-serving": {
     "src": "/assets/blog-thumbnails/ai-inference-oct30.webp",
     "alt": "FluidRWA AI model serving comparison: illustrative server room"
+  },
+  "zapier-vs-make-vs-n8n-operations-automation": {
+    "src": "/assets/blog-thumbnails/automation-november3-card.webp",
+    "alt": "FluidRWA workflow automation: routing and human approval at an operations desk"
+  },
+  "intercom-vs-zendesk-vs-tidio-ai-customer-support": {
+    "src": "/assets/blog-thumbnails/support-november3-card.webp",
+    "alt": "FluidRWA AI customer support: human reviewers at a conversation queue"
+  },
+  "jasper-vs-copy-ai-vs-writer-marketing-content": {
+    "src": "/assets/blog-thumbnails/writing-november3-card.webp",
+    "alt": "FluidRWA marketing content: an editor checking drafts against sources"
   }
 }

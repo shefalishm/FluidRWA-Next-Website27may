@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: LearnArticlePageProps): Promi
       title: article.title,
       description: article.description,
       url,
-      type: "article"
+      type: "article",
+      ...(article.illustration ? { images: [{ url: article.illustration.src, alt: article.illustration.alt }] } : {})
     }
   };
 }
@@ -48,6 +49,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
         author: { "@type": "Organization", name: "FluidRWA" },
         publisher: { "@type": "Organization", name: "FluidRWA", url: siteUrl },
         mainEntityOfPage: pageUrl,
+        ...(article.illustration ? { image: `${siteUrl}${article.illustration.src}` } : {}),
         articleSection: article.topic,
         about: [article.topic, "Real-world assets", "Web3 infrastructure", "Vendor selection"]
       },
@@ -112,7 +114,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
               ))}
               {section.code ? <pre className="learn-lab-code" aria-label={section.code.language}><code>{section.code.text}</code></pre> : null}
               {section.table ? <div className="learn-lab-table" role="region" aria-label={`${section.title} table`} tabIndex={0}><table><thead><tr>{section.table.columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, i) => <td key={i}>{cell}</td>)}</tr>)}</tbody></table></div> : null}
-              {section.links ? <ul>{section.links.map(link => <li key={link.href}><a href={link.href} download={link.href.startsWith("/learn-assets/") || undefined} rel={link.href.startsWith("https://") ? "nofollow noopener noreferrer" : undefined}>{link.label}</a></li>)}</ul> : null}
+              {section.links ? <ul>{section.links.map(link => <li key={link.href}><a href={link.href} download={link.href.startsWith("/learn-assets/") || link.href.startsWith("/examples/") || undefined} rel={link.href.startsWith("https://") ? "nofollow noopener noreferrer" : undefined}>{link.label}</a></li>)}</ul> : null}
             </section>
           ))}
           {article.comparisonRows ? (

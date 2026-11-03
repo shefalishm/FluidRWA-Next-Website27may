@@ -12,6 +12,12 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 ## Core pages
 
+- Zapier vs Make vs n8n operations automation: https://www.fluidrwa.com/blog/zapier-vs-make-vs-n8n-operations-automation
+- Intercom vs Zendesk vs Tidio AI customer support: https://www.fluidrwa.com/blog/intercom-vs-zendesk-vs-tidio-ai-customer-support
+- Jasper vs Copy.ai vs WRITER marketing workflows: https://www.fluidrwa.com/blog/jasper-vs-copy-ai-vs-writer-marketing-content
+- BMW PartChain historical component-tracking case study: https://www.fluidrwa.com/use-cases/bmw-partchain-component-traceability-case-study
+- Claude API evidence-extraction tutorial: https://www.fluidrwa.com/learn/claude-api-tutorial-vendor-evidence-extraction
+
 - Home: https://www.fluidrwa.com/
 - Vendor ecosystem directory: https://www.fluidrwa.com/web3vendorecosystem
 - Solutions and specialized vendor categories: https://www.fluidrwa.com/solutions

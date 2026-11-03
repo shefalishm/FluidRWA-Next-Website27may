@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/news/fluidrwa-minddeft-partnership`, lastModified: "2026-07-09", changeFrequency: "monthly", priority: 0.74 },
     { url: `${siteUrl}/news/nowpayments-featured-on-fluidrwa`, lastModified: "2026-09-10", changeFrequency: "monthly", priority: 0.78 },
     { url: `${siteUrl}/fluidrwa/lium`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteUrl}/learn`, lastModified: "2026-11-02", changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/learn`, lastModified: "2026-11-03", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/apply-as-freelancer`, lastModified: "2026-07-16", changeFrequency: "weekly", priority: 0.88 },
     ...learnArticles.map((article) => ({
       url: `${siteUrl}/learn/${article.slug}`,
@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/jobs`, lastModified: "2026-07-07", changeFrequency: "daily", priority: 0.84 },
     { url: `${siteUrl}/tokenization-readiness-assessment-tool`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.96 },
     { url: `${siteUrl}/family-office-service-stack-builder`, lastModified: "2026-06-18", changeFrequency: "weekly", priority: 0.94 },
-    { url: `${siteUrl}/use-cases`, lastModified: "2026-10-19", changeFrequency: "weekly", priority: 0.92 },
+    { url: `${siteUrl}/use-cases`, lastModified: "2026-11-03", changeFrequency: "weekly", priority: 0.92 },
     ...useCases.map((useCase) => ({
       url: `${siteUrl}/use-cases/${useCase.slug}`,
       lastModified: useCase.updatedAt || ([
