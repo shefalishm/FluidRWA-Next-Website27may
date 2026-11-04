@@ -36,6 +36,276 @@
       "reportedAsOf": "2026-10-27",
       "checked": "2026-10-29",
       "source": "https://www.wisdomtree.com/onchain/tokenized-funds"
+    },
+    {
+      "assetId": "usdc",
+      "metric": "Reported circulation",
+      "value": 69800000000,
+      "currency": "USD",
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04",
+      "source": "https://www.circle.com/usdc"
+    },
+    {
+      "assetId": "wtgxx",
+      "metric": "Reported assets under management",
+      "value": 668412990,
+      "currency": "USD",
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds"
+    },
+    {
+      "assetId": "wisdomtree-wtsyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1006360,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wtsyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1009500,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-flttx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1889450,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-flttx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1891800,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-wtpix",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1681410,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wtpix",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1649590,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-wttsx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 957840,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wttsx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 964050,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-wtstx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 914910,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wtstx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 922090,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-wtlgx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 752320,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wtlgx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 756100,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-tipsx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 930560,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-tipsx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 932790,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-spxux",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 19018360,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-spxux",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 18562740,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-techx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 6781050,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-techx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 6332760,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-wtsix",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1271290,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-wtsix",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1274430,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-eqtyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1172740,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-eqtyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 1170310,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-lngvx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 578980,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-lngvx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 578160,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-modrx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 528040,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-modrx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 527610,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
+    },
+    {
+      "assetId": "wisdomtree-crdyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 583830,
+      "reportedAsOf": "2026-10-27",
+      "checked": "2026-10-29"
+    },
+    {
+      "assetId": "wisdomtree-crdyx",
+      "metric": "Reported fund assets under management",
+      "currency": "USD",
+      "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
+      "value": 585800,
+      "reportedAsOf": "2026-11-02",
+      "checked": "2026-11-04"
     }
   ]
 }

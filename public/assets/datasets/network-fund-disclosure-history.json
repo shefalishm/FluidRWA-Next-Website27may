@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-11-04",
   "metric": "Reported fund assets under management",
   "currency": "USD",
   "scope": "Selected issuer-reported fund AUM, including book-entry shares. Not circulating token value, investment performance, net flows or a market total. No missing dates are filled.",
@@ -80,6 +80,27 @@
       "value": 190151335,
       "checked": "2026-10-29",
       "source": "https://superstate.com/assets/uscc"
+    },
+    {
+      "assetId": "ustb",
+      "reportedAsOf": "2026-11-02",
+      "value": 635618049,
+      "checked": "2026-11-04",
+      "source": "https://superstate.com/assets/ustb"
+    },
+    {
+      "assetId": "uscc",
+      "reportedAsOf": "2026-11-02",
+      "value": 177579856,
+      "checked": "2026-11-04",
+      "source": "https://superstate.com/assets/uscc"
+    },
+    {
+      "assetId": "vbdc",
+      "reportedAsOf": "2026-11-02",
+      "value": 10030430,
+      "checked": "2026-11-04",
+      "source": "https://superstate.com/assets/vbdc"
     }
   ]
 }

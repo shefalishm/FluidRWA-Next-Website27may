@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-29",
-  "reviewed": "2026-10-29",
+  "version": "2026-11-04",
+  "reviewed": "2026-11-04",
   "scope": "Named service relationships in reviewed primary material; not a complete market census or endorsement.",
   "relationships": [
     {
@@ -1025,6 +1025,17 @@
       "sourceDate": "2026-08-04",
       "reviewed": "2026-10-29",
       "scope": "Participant announcement attributes technology infrastructure to Libeara; no current smart-contract address or chain deployment is inferred."
+    },
+    {
+      "id": "wtgxx-bitgo-shareholder-servicing",
+      "assetId": "wtgxx",
+      "provider": "BitGo Bank & Trust, N.A.",
+      "role": "Shareholder servicing and sub-accounting",
+      "source": "https://bitgo.com/resources/blog/bitgo-to-add-native-mint-and-burn-for-wisdomtrees-tokenized-money-market-fund/",
+      "sourceLabel": "BitGo WTGXX announcement and servicing disclosure",
+      "sourceDate": "2026-10-27",
+      "reviewed": "2026-11-04",
+      "scope": "BitGo discloses shareholder servicing and sub-accounting under an agreement with WisdomTree Digital Management, Inc. This is not a fund custody, distribution or transfer-agent appointment. The announcement describes planned BitGo Mint access; launch, transfer availability, fees and client eligibility are not verified."
     }
   ]
 }

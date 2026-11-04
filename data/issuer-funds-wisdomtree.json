@@ -1,68 +1,68 @@
 {
   "source": "https://www.wisdomtree.com/onchain/tokenized-funds",
-  "sourceReviewed": "2026-10-29",
-  "selection": "Fourteen WisdomTree Digital Funds identified in the issuer table reviewed 29 October 2026, excluding WTGXX, which has its own research profile. The earlier issuer FAQ classification of blockchain as a secondary ownership record is retained; no contract, investor eligibility or trading availability is inferred.",
+  "sourceReviewed": "2026-11-04",
+  "selection": "Fourteen WisdomTree Digital Funds in the issuer AUM table dated 2 November 2026, reviewed 4 November 2026. WTGXX has its own profile. The earlier issuer FAQ classification of blockchain as a secondary ownership record is retained; no contract, investor eligibility or trading availability is inferred.",
   "assets": [
     {
       "symbol": "WTSYX",
-      "reportedValueUsd": 1006360
+      "reportedValueUsd": 1009500
     },
     {
       "symbol": "FLTTX",
-      "reportedValueUsd": 1889450
+      "reportedValueUsd": 1891800
     },
     {
       "symbol": "WTPIX",
-      "reportedValueUsd": 1681410
+      "reportedValueUsd": 1649590
     },
     {
       "symbol": "WTTSX",
-      "reportedValueUsd": 957840
+      "reportedValueUsd": 964050
     },
     {
       "symbol": "WTSTX",
-      "reportedValueUsd": 914910
+      "reportedValueUsd": 922090
     },
     {
       "symbol": "WTLGX",
-      "reportedValueUsd": 752320
+      "reportedValueUsd": 756100
     },
     {
       "symbol": "TIPSX",
-      "reportedValueUsd": 930560
+      "reportedValueUsd": 932790
     },
     {
       "symbol": "SPXUX",
-      "reportedValueUsd": 19018360
+      "reportedValueUsd": 18562740
     },
     {
       "symbol": "TECHX",
-      "reportedValueUsd": 6781050
+      "reportedValueUsd": 6332760
     },
     {
       "symbol": "WTSIX",
-      "reportedValueUsd": 1271290
+      "reportedValueUsd": 1274430
     },
     {
       "symbol": "EQTYX",
-      "reportedValueUsd": 1172740
+      "reportedValueUsd": 1170310
     },
     {
       "symbol": "LNGVX",
-      "reportedValueUsd": 578980
+      "reportedValueUsd": 578160
     },
     {
       "symbol": "MODRX",
-      "reportedValueUsd": 528040
+      "reportedValueUsd": 527610
     },
     {
       "symbol": "CRDYX",
-      "reportedValueUsd": 583830
+      "reportedValueUsd": 585800
     }
   ],
   "rosterSource": "https://www.wisdomtreeprime.com/faq/",
   "sourceLabel": "WisdomTree Onchain fund table",
-  "reportedAsOf": "2026-10-27",
+  "reportedAsOf": "2026-11-02",
   "reportedMetric": "Reported fund assets under management",
   "valueMethod": "AUM shown in USD thousands, multiplied by 1,000. Fund-level values, not circulating token value, network allocations or a market total."
 }
