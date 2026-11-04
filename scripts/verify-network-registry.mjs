@@ -6,6 +6,7 @@ const issuerList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-ondo.json',
 const additions = JSON.parse(fs.readFileSync('data/issuer-additions-october29.json', 'utf8'));
 const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
 const dinari = JSON.parse(fs.readFileSync('data/issuer-additions-dinari-october30.json', 'utf8'));
+const november4 = JSON.parse(fs.readFileSync('data/issuer-additions-november4.json', 'utf8'));
 const xstocksList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodList = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -51,6 +52,40 @@ for (const row of october30.assets) {
 }
 if (dinari.assets.length !== 9 || dinari.assets.some(row => row.source !== 'https://dinari.com/case-studies/flow-traders' || row.reportedValueUsd !== null || row.contractEvidence !== null)) errors.push('Invalid Dinari case-study cohort');
 
+const priorContracts = new Set(rows.map(row => row.contractAddress?.toLowerCase()).filter(Boolean));
+const newKeys = new Set();
+const expectedCohorts = { 'Lofty property listings': 42, 'Robinhood November issuer API': 9 };
+for (const [cohort, count] of Object.entries(expectedCohorts)) {
+  if (november4.assets.filter(row => row.cohort === cohort).length !== count) errors.push(`Invalid November cohort size: ${cohort}`);
+}
+for (const row of november4.assets) {
+  if (ids.has(row.id) || !row.name || !row.issuer || row.sourceReviewed !== '2026-11-04' || !date(row.sourceReviewed) ||
+      [row.reportedValueUsd, row.reportedMetric, row.reportedAsOf, row.sourcePublished].some(value => value !== null)) errors.push(`Invalid November registry reference: ${row.id}`);
+  ids.add(row.id);
+  const keys = [row.source];
+  if (row.cohort === 'Lofty property listings') {
+    keys.push(row.name.toLowerCase());
+    if (!row.source.startsWith('https://www.lofty.ai/property_deal/') || row.network !== 'Algorand' ||
+        !Number.isSafeInteger(row.networkAssetId) || row.networkAssetId <= 0 || row.id !== `lofty-${row.networkAssetId}` ||
+        row.contractEvidence !== `https://allo.info/asset/${row.networkAssetId}/token`) errors.push(`Invalid Lofty provenance: ${row.id}`);
+  } else if (row.cohort === 'Robinhood November issuer API') {
+    keys.splice(0, 1, row.underlyingIsin);
+    const contract = row.contractAddress?.toLowerCase();
+    if (row.source !== robinhoodList.source || row.chainId !== 4663 || !/^0x[a-f0-9]{40}$/.test(contract || '') ||
+        priorContracts.has(contract) || !/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(row.underlyingIsin)) errors.push(`Invalid Robinhood provenance: ${row.id}`);
+    priorContracts.add(contract);
+  } else errors.push(`Unknown November cohort: ${row.id}`);
+  for (const key of keys) {
+    if (newKeys.has(key)) errors.push(`Duplicate November product key: ${row.id}`);
+    newKeys.add(key);
+  }
+}
+const expectedRegistry = [...rows, ...november4.assets].map(row => row.id).sort();
+const registryPath = 'assets/datasets/network-asset-registry.json';
+const download = fs.readFileSync(`public/${registryPath}`, 'utf8');
+if (download !== fs.readFileSync(registryPath, 'utf8') ||
+    JSON.stringify(JSON.parse(download).assets.map(row => row.id).sort()) !== JSON.stringify(expectedRegistry)) errors.push('Registry downloads do not match the source inventory');
+
 if (issuerList.assets.length !== 450 || new Set(issuerList.assets.map(row => row.id)).size !== 450) errors.push('Ondo cohort must contain 450 unique assets');
 if (additions.assets.filter(row => row.cohort === 'RealT issuer references').length !== 25 || additions.assets.filter(row => row.cohort === 'Ondo October 2026 issuer list').length !== 25) errors.push('Additional cohorts must each contain 25 assets');
 if (xstocksList.assets.length !== 1052 || new Set(xstocksList.assets.map(row => row.id)).size !== 1052) errors.push('xStocks cohort must contain 1052 unique assets');
@@ -81,5 +116,5 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(`Network registry valid: ${rows.length} assets, ${issuerList.assets.length} Ondo, ${xstocksList.assets.length} xStocks, ${robinhoodList.assets.length} Robinhood, ${wisdomtreeList.assets.length} WisdomTree, ${roles.length} sourced roles.`);
+  console.log(`Network registry valid: ${expectedRegistry.length} assets, including ${november4.assets.length} November additions; ${roles.length} sourced roles.`);
 }

@@ -1,7 +1,9 @@
 import { onchainSupplyContracts } from "../lib/onchainSupply.ts";
+import { readFileSync } from "node:fs";
 
 const origin = process.env.FLUIDRWA_PRODUCTION_URL || "https://www.fluidrwa.com";
 const expectedRevision = process.env.EXPECTED_COMMIT_SHA;
+const registry = JSON.parse(readFileSync(new URL("../public/assets/datasets/network-asset-registry.json", import.meta.url)));
 const routes = [
   "/",
   "/web3vendorecosystem",
@@ -82,9 +84,10 @@ try {
 }
 
 for (const [route, field, minimum] of [
-  ["/api/network-explorer/v1/coverage", "documentedRelationships", 93],
-  ["/api/network-explorer/v1/assets", "total", 1799],
-  ["/api/network-explorer/v1/relationships", "total", 93]
+  ["/api/network-explorer/v1/coverage", "documentedRelationships", registry.relationships.length],
+  ["/api/network-explorer/v1/coverage", "identifiedRecords", registry.assets.length],
+  ["/api/network-explorer/v1/assets", "total", registry.assets.length],
+  ["/api/network-explorer/v1/relationships", "total", registry.relationships.length]
 ]) {
   try {
     const response = await fetchWithRetry(`${origin}${route}`);

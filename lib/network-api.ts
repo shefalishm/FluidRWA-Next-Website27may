@@ -50,7 +50,8 @@ export function coverage() {
     researchProfiles: assetRegistry.filter(asset => asset.cohort === "Research profile").length,
     issuerListRecords: assetRegistry.filter(asset => asset.cohort !== "Research profile").length,
     datedValueRecords: assetRegistry.filter(asset => asset.reportedValueUsd !== null && asset.reportedAsOf).length,
-    sourceListedContractRecords: assetRegistry.filter(asset => asset.contractEvidence).length,
+    sourceListedContractRecords: assetRegistry.filter(asset => asset.contractEvidence && !("networkAssetId" in asset && asset.networkAssetId)).length,
+    sourceListedChainAssetRecords: assetRegistry.filter(asset => "networkAssetId" in asset && asset.networkAssetId).length,
     documentedRelationships: infrastructureRelationships.length,
     relationshipAssets: new Set(infrastructureRelationships.map(edge => edge.assetId)).size,
     relationshipProviders: new Set(infrastructureRelationships.map(edge => edge.provider)).size,
@@ -62,6 +63,7 @@ export function coverage() {
       identifiedRecords: "Distinct issuer-list entries or research profiles. Products from different issuers may track the same underlying.",
       datedValueRecords: "Records with a reviewed issuer-reported USD figure and its original reporting date; not synchronized or additive.",
       sourceListedContractRecords: "Records with an issuer-listed contract link; not an independent contract or trading audit.",
+      sourceListedChainAssetRecords: "Records with a platform-listed native chain asset identifier, distinct from contract addresses.",
       documentedRelationships: "Source-linked asset-to-provider role statements. Historical announcements retain their original scope.",
       relationshipProviders: "Legacy field: distinct provider name labels as documented, not verified unique legal entities.",
       providerNameGroups: "BNY and Anchorage source-name variants grouped for browsing only. Other names remain separate. Not a count of contracting legal entities."

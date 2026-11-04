@@ -27,8 +27,25 @@ try {
     assert.equal(record.sourceReviewed, checked, id);
   }
   const coverage = await (await get('/api/network-explorer/v1/coverage')).json();
-  assert.equal(coverage.identifiedRecords, 1855);
+  const registry = JSON.parse(read('public/assets/datasets/network-asset-registry.json'));
+  const additions = JSON.parse(read('data/issuer-additions-november4.json')).assets;
+  const prior = JSON.parse(execFileSync('git', ['show', '50de1ea:public/assets/datasets/network-asset-registry.json'], { encoding: 'utf8', maxBuffer: 4_000_000 }));
+  const newIds = new Set(additions.map(row => row.id));
+  assert.deepEqual(registry.assets.filter(row => !newIds.has(row.id)), prior.assets);
+  assert.equal(coverage.identifiedRecords, prior.assets.length + additions.length);
+  assert.equal(coverage.datedValueRecords, prior.assets.filter(row => row.reportedValueUsd !== null && row.reportedAsOf).length);
+  for (const cohort of new Set(additions.map(row => row.cohort))) {
+    const api = await (await get(`/api/network-explorer/v1/assets?limit=100&cohort=${encodeURIComponent(cohort)}`)).json();
+    const expected = additions.filter(row => row.cohort === cohort).sort((a, b) => a.name.localeCompare(b.name));
+    assert.equal(api.total, expected.length);
+    assert.equal(coverage.byCohort[cohort], expected.length);
+    assert.deepEqual(api.records, expected);
+  }
   assert.equal(coverage.documentedRelationships, 94);
+  assert.equal(coverage.sourceListedChainAssetRecords, 42);
+  const sitemap = await (await get('/sitemap.xml')).text();
+  assert.match(sitemap, /network-explorer\/registry<\/loc>\s*<lastmod>2026-11-04/);
+  assert.match(sitemap, /research\/tokenized-fund-infrastructure-october-2026<\/loc>\s*<lastmod>2026-10-21/);
   const { records } = await (await get('/api/network-explorer/v1/relationships?asset_id=wtgxx')).json();
   assert.match(records.find(row => row.id === 'wtgxx-bitgo-shareholder-servicing').scope, /launch.*not verified/);
   for (const filename of fs.readdirSync('public/assets/datasets').filter(name => /^network-(asset-registry|fund-disclosure-history|infrastructure-relationships|intelligence|value-observations)\./.test(name))) {
@@ -64,6 +81,20 @@ try {
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${view} overflow at ${width}px`);
       await page.screenshot({ path: `${screenshots}/${view}-${width}.png`, fullPage: true });
     }
+    assert.deepEqual(errors, []);
+    await page.goto(`${base}/network-explorer/registry`, { waitUntil: 'networkidle' });
+    await page.getByLabel('Cohort').selectOption('Lofty property listings');
+    await page.getByText(`42 of ${registry.assets.length} records`, { exact: true }).waitFor();
+    await page.getByRole('link', { name: 'Algorand asset record' }).first().waitFor();
+    if (width === 1440) {
+      const pending = page.waitForEvent('download');
+      await page.getByRole('button', { name: 'Download registry CSV' }).click();
+      const csv = read(await (await pending).path());
+      assert.equal(csv.split('\r\n').length, 43);
+      assert.match(csv, /"networkAssetId"/);
+    }
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `registry overflow at ${width}px`);
+    await page.screenshot({ path: `${screenshots}/registry-${width}.png`, fullPage: true });
     assert.deepEqual(errors, []);
     await page.close();
   }
