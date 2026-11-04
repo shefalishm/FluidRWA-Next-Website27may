@@ -47,6 +47,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
         dateModified: article.updatedAt,
         datePublished: article.updatedAt,
         author: { "@type": "Organization", name: "FluidRWA" },
+        ...(article.reviewedBy ? { reviewedBy: { "@type": "Organization", name: article.reviewedBy, url: `${siteUrl}/about` } } : {}),
         publisher: { "@type": "Organization", name: "FluidRWA", url: siteUrl },
         mainEntityOfPage: pageUrl,
         ...(article.illustration ? { image: `${siteUrl}${article.illustration.src}` } : {}),
@@ -91,6 +92,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
             {article.level ? <span>{article.level} tutorial</span> : null}
             <span>Last updated: {new Date(article.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
             <span>{article.readTime}</span>
+            {article.reviewedBy ? <span>Reviewed by <Link href="/about">{article.reviewedBy}</Link></span> : null}
           </div>
           {article.illustration ? <figure className="learn-lab-figure">
             <picture>

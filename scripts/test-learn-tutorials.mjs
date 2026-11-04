@@ -7,9 +7,11 @@ const compile = file => ts.transpileModule(fs.readFileSync(file, 'utf8'), {compi
 const tutorialModule = {exports:{}};
 const researchedModule = {exports:{}};
 const november3Module = {exports:{}};
+const november4Module = {exports:{}};
 vm.runInNewContext(compile('lib/learnNovember3.ts'), november3Module);
+vm.runInNewContext(compile('lib/learnNovember4.ts'), november4Module);
 vm.runInNewContext(compile('lib/learn-researched-tutorials.ts'), researchedModule);
-tutorialModule.require = name => { if (name === './learn-researched-tutorials') return researchedModule.exports; if (name === './learnNovember3') return november3Module.exports; throw new Error(name); };
+tutorialModule.require = name => { if (name === './learn-researched-tutorials') return researchedModule.exports; if (name === './learnNovember3') return november3Module.exports; if (name === './learnNovember4') return november4Module.exports; throw new Error(name); };
 vm.runInNewContext(compile('lib/learn-tutorials.ts'), tutorialModule);
 const tutorials = tutorialModule.exports.tutorials;
 assert.equal(researchedModule.exports.researchedTutorials.length, 3);

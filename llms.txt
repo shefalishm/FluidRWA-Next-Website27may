@@ -12,6 +12,12 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 
 ## Core pages
 
+- HubSpot vs Salesforce vs Attio CRM operations: https://www.fluidrwa.com/blog/hubspot-vs-salesforce-vs-attio-crm-operations
+- Clay vs Apollo vs Instantly sales prospecting: https://www.fluidrwa.com/blog/clay-vs-apollo-vs-instantly-sales-prospecting
+- Canva vs Figma vs Midjourney visual production: https://www.fluidrwa.com/blog/canva-vs-figma-vs-midjourney-visual-production
+- Maersk TradeLens shipping platform and shutdown: https://www.fluidrwa.com/use-cases/maersk-tradelens-shutdown-supply-chain-case-study
+- ERC-20 transaction-simulation lab: https://www.fluidrwa.com/learn/transaction-simulation-erc20-transfer-before-signing
+
 - Zapier vs Make vs n8n operations automation: https://www.fluidrwa.com/blog/zapier-vs-make-vs-n8n-operations-automation
 - Intercom vs Zendesk vs Tidio AI customer support: https://www.fluidrwa.com/blog/intercom-vs-zendesk-vs-tidio-ai-customer-support
 - Jasper vs Copy.ai vs WRITER marketing workflows: https://www.fluidrwa.com/blog/jasper-vs-copy-ai-vs-writer-marketing-content

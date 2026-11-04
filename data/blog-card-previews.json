@@ -798,5 +798,17 @@
   "jasper-vs-copy-ai-vs-writer-marketing-content": {
     "src": "/assets/blog-thumbnails/writing-november3-card.webp",
     "alt": "FluidRWA marketing content: an editor checking drafts against sources"
+  },
+  "hubspot-vs-salesforce-vs-attio-crm-operations": {
+    "src": "/assets/blog-thumbnails/crm-november4-card.webp",
+    "alt": "FluidRWA: Illustrative CRM analyst checking relationship pipelines and duplicate contact cards"
+  },
+  "clay-vs-apollo-vs-instantly-sales-prospecting": {
+    "src": "/assets/blog-thumbnails/prospecting-november4-card.webp",
+    "alt": "FluidRWA: Illustrative researcher checking contact provenance and outreach exclusions"
+  },
+  "canva-vs-figma-vs-midjourney-visual-production": {
+    "src": "/assets/blog-thumbnails/design-november4-card.webp",
+    "alt": "FluidRWA: Illustrative design desk with a component grid and printed campaign formats"
   }
 }

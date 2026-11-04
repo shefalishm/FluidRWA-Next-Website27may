@@ -23,6 +23,7 @@ export type LearnComparisonRow = {
 };
 
 export type LearnArticle = {
+  reviewedBy?: string;
   illustration?: { src: string; alt: string; caption: string };
   level?: "Beginner" | "Advanced";
   slug: string;
