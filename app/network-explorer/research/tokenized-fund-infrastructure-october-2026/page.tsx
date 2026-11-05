@@ -46,6 +46,9 @@ export default function Page() {
     ...exhibits.map(exhibit => ({ "@type": "ImageObject", contentUrl: `https://www.fluidrwa.com/assets/infographics/${exhibitStem}-${exhibit.number}.png`, caption: exhibit.caption, description: exhibit.alt, width: 1400, height: exhibit.height, creator: { "@type": "Organization", name: "FluidRWA Research Team" }, creditText: "FluidRWA Research Team", datePublished: report.checked }))
   ] };
 
+  const article = schema["@graph"].find(item => item["@type"] === "Article");
+  if (article && "dateModified" in article) article.dateModified = "2026-11-05";
+
   return <main className={styles.page}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replaceAll("<", "\\u003c") }}/>
     <header className={styles.header}>
@@ -53,7 +56,7 @@ export default function Page() {
       <p className={styles.eyebrow}>ASSET MANAGEMENT · OCTOBER 2026</p>
       <h1>The firms behind <span>tokenized funds</span></h1>
       <p className={styles.lead}>Putting a fund on a blockchain changes how its shares are held and transferred. It does not remove the work of safeguarding assets, maintaining accounts or recording who owns them.</p>
-      <p className={styles.date}>21 October 2026 <span>Reviewed by FluidRWA Research Team</span></p>
+      <p className={styles.date}>Published 21 October 2026 · Updated 5 November 2026 <span>FluidRWA Research Team</span></p>
       <div className={styles.headerActions}><a href="#summary">Read the report <ArrowDown size={17}/></a><Link href="/network-explorer/fund-comparison">Compare fund models <ArrowUpRight size={17}/></Link><a href={`/assets/datasets/${stem}.csv`} download><Download size={17}/> Download data</a></div>
     </header>
     <div className={styles.reportLayout}>
@@ -70,6 +73,11 @@ export default function Page() {
             <li><strong>Look at the specific fund you are buying or building.</strong> A feeder fund may have its own service providers. Several sub-funds may share the same appointments. Neither arrangement is obvious from a list of familiar brands.</li>
           </ul>
           <p className={styles.scope}>The findings describe the 20 products reviewed, not the entire tokenized fund market. Documents were checked on 21 October 2026; their original publication dates remain available in the appendix.</p>
+          <h3 id="october-findings">October findings at a glance</h3>
+          <p><strong>Technology partners were easier to identify than asset custodians in the documents reviewed.</strong> A digital-record or token-infrastructure provider was named for 15 of 20 products (75%), compared with a custodian or depositary for 10 of 20 (50%). The 25-percentage-point difference describes these selected documents, not market-wide disclosure. Inaccessible WisdomTree documents account for part of the unresolved custody coverage.</p>
+          <p><strong>Product counts can overstate the breadth of provider appointments.</strong> Five of 20 products (25%) had a named provider in all four categories, but four of those five were sub-funds of the same Spiko SICAV. Shared appointments are not four independent mandates.</p>
+          <p><strong>A blockchain label does not identify the ownership record.</strong> The reviewed Franklin, Spiko and WisdomTree documents describe materially different record arrangements. For buyers, the useful comparison is who maintains the register and how transfers reach it, not simply which network carries the token.</p>
+          <p className={styles.scope}>These are partial-month research findings as of 21 October, not a 31 October census. Counts include historical launch announcements and do not confirm continuing appointments. Later October financial observations appear separately below.</p>
         </section>
         <section id="behind-the-token" className={styles.section}>
           <p className={styles.sectionNumber}>01 / BEHIND THE TOKEN</p>
@@ -118,18 +126,27 @@ export default function Page() {
     <section id="appendix" className={styles.appendix}>
       <p className={styles.sectionNumber}>APPENDIX</p><h2>Data, sources and methodology</h2>
       <p>The fund-by-fund review and original documents are available below.</p>
+      <details id="october-financial-observations" className={styles.appendixDisclosure}><summary>October financial observations: dates, not monthly flows</summary><div className={styles.methods}>
+        <h3>Different measures answer different questions</h3>
+        <p>The archive retains USDC reported circulation of $72 billion as of 22 October and $71 billion as of 26 October, checked on 26 and 29 October respectively. These rounded issuer disclosures are two points four days apart, not opening and closing October balances. Their difference does not establish monthly redemptions, net flows or a market trend. Source: <a href="https://www.circle.com/usdc">Circle USDC disclosures</a>.</p>
+        <p>For WTGXX, the archive records issuer-reported AUM of $761,984,900 as of 27 October, checked 29 October. The same dated table supplies 14 other WisdomTree product observations. They are fund AUM, not token circulation or chain allocations; they must not be added to USDC circulation. Source: <a href="https://www.wisdomtree.com/onchain/tokenized-funds">WisdomTree tokenized fund table</a>, reported in USD thousands and converted to dollars by multiplying by 1,000.</p>
+        <p>The 17 archived October observations comprise two circulation observations for one stablecoin and 15 fund AUM observations. Neither group is an exhaustive market sample. Current issuer pages can change and may no longer display these values. September net-asset figures and November updates are excluded; no comparable month-start, month-end or prior-year series is available here.</p>
+        <p><a href="/assets/datasets/october-2026-dated-observations-v1.csv" download>October observations (CSV)</a> · <a href="/assets/datasets/october-2026-dated-observations-v1.json" download>October observations (JSON)</a></p>
+        <p>Added 5 November 2026. Selection: reporting date from 1 through 31 October and checked no later than 31 October. This supplement preserves the archive's dates; it does not turn the November registry into an October market snapshot.</p>
+      </div></details>
       <div className={styles.downloads}><a href={`/assets/datasets/${stem}.csv`} download><Download size={17}/> Download data (CSV)</a><a href={`/assets/datasets/${stem}.json`} download>JSON data</a></div>
       <details id="evidence" className={styles.appendixDisclosure}><summary>Fund-by-fund review: all 20 products</summary><div><p>The table identifies firms named in the documents we reviewed. "Not identified here" means these documents did not establish a name for this role. It does not mean the fund lacks that service. A dated announcement describes the arrangement at that time, not a confirmation of its continuation today.</p><FundResearchTable/></div></details>
       <details id="methodology" className={styles.appendixDisclosure}><summary>About the research</summary><div className={styles.methods}>
         <h3>Scope and selection</h3><p>We examined public documents for 20 named fund, sub-fund and feeder products. Eleven were already covered in our fund research: BUIDL, FOBXX, WTGXX, USTB, USCC, JTRSY, CUSHY, VBDC, ACRED, HLSCOPE and OUSG. The review adds USYC, OpenEden TBILL, four Spiko sub-funds, uMINT, WTSYX and FLTTX. Selection reflects prior research and access to documentation, not fund size, commercial status or a random sample of the market.</p>
         <h3>Definitions</h3><dl className={styles.definitions}>{report.roles.map(role => <div key={role.id}><dt>{role.label}</dt><dd>{role.definition}</dd></div>)}</dl>
         <h3>How counts were calculated</h3><p>We checked four responsibilities for each product, giving 80 checks. The selected documents identify a firm for 49 of those checks; 31 remain unresolved. Each product counts once for each responsibility, regardless of the number of providers named. Five products have names across all four categories, but four are sub-funds of the same Spiko SICAV. These counts are not a service-quality or transparency ranking.</p>
+        <p>For each role, coverage = products with a named provider in that role ÷ 20 × 100. Custody: 10/20 = 50%; administration: 10/20 = 50%; transfer agency: 14/20 = 70%; digital records: 15/20 = 75%. The difference between digital-record and custody coverage is (15 − 10)/20 × 100 = 25 percentage points. All-four coverage = 5/20 = 25%. These denominators remain the original 20-product review, not the separate 26-product expanded edition or the current Network Explorer registry.</p>
         <h3>Dates and limitations</h3><p>Documents were checked on 21 October 2026. Four product entries use launch announcements; their dates are retained. Company statements have not been independently confirmed through contracts or operational testing. The WisdomTree prospectus viewer was not accessible, so custody and administration remain unresolved in our review. CUSHY's heading and feeder-oriented page title leave its exact legal vehicle name unresolved; OpenEden's FAQ does not establish TBILL's exact legal entity.</p><p>The review does not measure market size, investment performance or growth. A feeder and its underlying fund are not combined; chain deployments are not counted as separate funds. A missing name in this review may be available in other public or investor documents.</p>
         <h3>Edition and corrections</h3><p>Dataset edition {report.version}, published 21 October 2026. Editorial revision: 21 October 2026; no underlying observations were changed. Future corrections to data will be published as a numbered edition, retaining previous downloads. Send corrections with the relevant fund and a primary source to <a href="mailto:contact@fluidrwa.com?subject=Fund%20research%20correction">contact@fluidrwa.com</a>.</p>
       </div></details>
       <details id="sources" className={styles.appendixDisclosure}><summary>References</summary><ol className={styles.sourceList}>{report.sources.map((source, index) => <li id={`source-${source.id}`} key={source.id}><span>{index + 1}.</span><div><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a><small>{source.published ? `Published ${source.published}` : "Publication date not stated"}. Reviewed 21 October 2026.<br/>{source.locator}</small></div></li>)}</ol></details>
       <details className={styles.appendixDisclosure}><summary>Citation and reuse</summary><div><p className={styles.citation}>FluidRWA Research Team. (2026, October 21). <em>The firms behind tokenized funds.</em> {url}</p><p>Charts and FluidRWA's original analysis may be reused with attribution and a link to this report. Third-party documents remain subject to their owners' rights. Findings should be attributed to this 20-product review rather than the whole market.</p></div></details>
-      <p className={styles.footer}>Research as of 21 October 2026. For information only; not investment, tax or legal advice.</p>
+      <p className={styles.footer}>Provider research as of 21 October 2026. October financial supplement published 5 November 2026; original provider data and downloads unchanged. Cite the updated findings as: FluidRWA Research Team (5 November 2026), The firms behind tokenized funds, October findings, {url}#october-findings. For information only; not investment, tax or legal advice.</p>
     </section>
   </main>;
 }

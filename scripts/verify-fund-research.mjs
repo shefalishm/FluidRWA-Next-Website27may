@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
+execFileSync(process.execPath, ['scripts/build-october-observations.mjs', '--check'], { stdio: 'inherit' });
 import { createRequire } from 'node:module';
 const require=createRequire('/Users/shefalisharma/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json');
 const {chromium}=require('playwright');
@@ -20,6 +22,11 @@ try{
     assert.equal(response.status(),200);
     assert.equal(await page.locator('main h1').textContent(),'The firms behind tokenized funds');
     const reading=await page.locator('main').innerText();
+    assert.ok(reading.includes('15 of 20 products (75%)'));
+    assert.ok(reading.includes('Updated 5 November 2026'));
+    await page.locator('#october-financial-observations > summary').click();
+    assert.ok((await page.locator('#october-financial-observations').innerText()).includes('17 archived October observations'));
+    await page.locator('#october-financial-observations > summary').click();
     for(const phrase of ['Product-role cells','source-set coverage','Methodology and reproducibility','OCTOBER 2026 RESEARCH BASELINE'])assert.ok(!reading.includes(phrase),`Internal wording returned: ${phrase}`);
     assert.equal(await page.locator('#evidence').getAttribute('open'),null);
     assert.equal(await page.locator('#methodology').getAttribute('open'),null);
@@ -56,6 +63,7 @@ try{
     assert.ok(state.images.every(i=>i.alt.length>80 && i.width===(width>760?1400:780)));
     assert.ok(state.schema.some(s=>s['@type']==='Dataset'&&s.version===report.version));
     assert.ok(state.schema.some(s=>s['@type']==='Article'&&s.headline==='The firms behind tokenized funds'));
+    assert.ok(state.schema.some(s=>s['@type']==='Article'&&s.dateModified==='2026-11-05'&&s.datePublished==='2026-10-21'));
     assert.equal(state.schema.filter(s=>s['@type']==='ImageObject').length,3);
     assert.deepEqual(errors,[]);
     await page.screenshot({path:`${output}/full-${width}.png`,fullPage:true});
@@ -81,6 +89,14 @@ try{
     assert.equal(response.status(),200);assert.ok(response.headers()['content-type'].includes('image/png'));assert.ok((await response.body()).length>10000);
   }
   const index=await context.request.get(`${base}/network-explorer/research?analytics=off`);
+  const observations=await context.request.get(`${base}/assets/datasets/october-2026-dated-observations-v1.json`);
+  assert.equal(observations.status(),200);
+  const dated=await observations.json();
+  assert.equal(dated.observations.length,17);
+  assert.ok(dated.observations.every(row=>row.reportedAsOf.startsWith('2026-10')&&row.checked<='2026-10-31'));
+  const csv=await context.request.get(`${base}/assets/datasets/october-2026-dated-observations-v1.csv`);
+  assert.equal(csv.status(),200);
+  assert.equal((await csv.text()).split('\r\n').filter(Boolean).length,18);
   assert.ok((await index.text()).includes(route));
   const sitemap=await context.request.get(`${base}/sitemap.xml`);
   assert.ok((await sitemap.text()).includes(`https://www.fluidrwa.com${route}`));

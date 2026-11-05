@@ -38,6 +38,12 @@ Source limitations retained in the edition:
 
 ## Future editions and corrections
 
+### 5 November 2026 editorial supplement
+
+The existing October report now includes a linked findings section, explicit role-coverage formulas and a separately dated financial appendix. Original v1 observations and charts are unchanged. The 26-product v2 roster is not substituted for the 20-product denominator. The 2,006-record November registry is not an October market census.
+
+Run `node scripts/build-october-observations.mjs` to reproduce the new October CSV/JSON from the dated observation archive, or add `--check` to compare without writing. The selection requires both an October reporting date and a check no later than 31 October: 17 observations, comprising two USDC circulation points and 15 fund AUM points. September and November observations are excluded. No market total, net flow or monthly growth calculation is made. The linked issuer pages are original references, not a claim that their current contents still reproduce historical values.
+
 Do not silently overwrite published v1 downloads. Create a new numbered dataset, chart and download stem for a correction, and record the reason on the report page. Retain previous files. Recheck material claims, not only response statuses. Unknowns require better primary evidence, not guessed entities or family-level inheritance.
 
 For a later monthly comparison, retain product IDs and role definitions, state both review dates and separate changes in source access from changes in provider appointments. Report a matched-cohort result separately if the sample changes. Never infer market share or monthly fund flows from these role counts.
