@@ -8,6 +8,7 @@ const issuerAdditions = JSON.parse(fs.readFileSync('data/issuer-additions-octobe
 const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
 const dinari = JSON.parse(fs.readFileSync('data/issuer-additions-dinari-october30.json', 'utf8'));
 const november4 = JSON.parse(fs.readFileSync('data/issuer-additions-november4.json', 'utf8'));
+const novemberExpansion = JSON.parse(fs.readFileSync('data/issuer-additions-november4-expansion.json', 'utf8'));
 const xstocksTokenList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodAssets = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeFunds = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -29,6 +30,7 @@ const registry = [
   ...october30.assets,
   ...dinari.assets,
   ...november4.assets,
+  ...novemberExpansion.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
   ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
@@ -65,7 +67,7 @@ for (const root of ['assets','public/assets']) {
   const historyRows = fundHistory.observations.map(row => ({...row, metric:fundHistory.metric, currency:fundHistory.currency, scope:fundHistory.scope}));
   const historyKeys = Object.keys(historyRows[0]);
   fs.writeFileSync(`${root}/datasets/network-fund-disclosure-history.csv`,[historyKeys.map(cell).join(','),...historyRows.map(row => historyKeys.map(key => cell(row[key])).join(','))].join('\r\n'));
-  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${registry.length} identification records from research profiles and issuer or platform lists, including securities, property references and funds. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,issuerAdditions.selection,october30.selection,dinari.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection,november4.selection],assets:registry,relationships},null,2));
+  fs.writeFileSync(`${root}/datasets/network-asset-registry.json`,JSON.stringify({version:registryUpdated,reviewed:registryUpdated,scope:`${registry.length} identification records from research profiles and issuer or platform lists, including securities, property references and funds. These are not a complete market census, live-trading audit or comparable global market total.`,issuerListSelections:[ondoTokenList.selection,issuerAdditions.selection,october30.selection,dinari.selection,xstocksTokenList.selection,robinhoodAssets.selection,wisdomtreeFunds.selection,november4.selection,novemberExpansion.selection],assets:registry,relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.json`,JSON.stringify({version:relationshipsUpdated,reviewed:relationshipsUpdated,scope:'Named service relationships in reviewed primary material; not a complete market census or endorsement.',relationships},null,2));
   fs.writeFileSync(`${root}/datasets/network-infrastructure-relationships.csv`,[Object.keys(relationships[0]).map(cell).join(','),...relationships.map(row => Object.keys(relationships[0]).map(key => cell(row[key])).join(','))].join('\r\n'));
   if (!process.argv.includes('--registry-only')) {

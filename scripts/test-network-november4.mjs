@@ -28,10 +28,20 @@ try {
   }
   const coverage = await (await get('/api/network-explorer/v1/coverage')).json();
   const registry = JSON.parse(read('public/assets/datasets/network-asset-registry.json'));
-  const additions = JSON.parse(read('data/issuer-additions-november4.json')).assets;
-  const prior = JSON.parse(execFileSync('git', ['show', '50de1ea:public/assets/datasets/network-asset-registry.json'], { encoding: 'utf8', maxBuffer: 4_000_000 }));
+  const additions = JSON.parse(read('data/issuer-additions-november4-expansion.json')).assets;
+  const prior = JSON.parse(execFileSync('git', ['show', '98eb665:public/assets/datasets/network-asset-registry.json'], { encoding: 'utf8', maxBuffer: 4_000_000 }));
+  assert.equal(prior.assets.length, 1906);
+  assert.equal(additions.length, 100);
   const newIds = new Set(additions.map(row => row.id));
   assert.deepEqual(registry.assets.filter(row => !newIds.has(row.id)), prior.assets);
+  assert.deepEqual(registry.relationships, prior.relationships);
+  const paginated = [];
+  for (let offset = 0; offset < registry.assets.length; offset += 100) {
+    const page = await (await get(`/api/network-explorer/v1/assets?limit=100&offset=${offset}`)).json();
+    assert.equal(page.total, 2006);
+    paginated.push(...page.records);
+  }
+  assert.deepEqual(paginated, registry.assets);
   assert.equal(coverage.identifiedRecords, prior.assets.length + additions.length);
   assert.equal(coverage.datedValueRecords, prior.assets.filter(row => row.reportedValueUsd !== null && row.reportedAsOf).length);
   for (const cohort of new Set(additions.map(row => row.cohort))) {
@@ -83,18 +93,32 @@ try {
     }
     assert.deepEqual(errors, []);
     await page.goto(`${base}/network-explorer/registry`, { waitUntil: 'networkidle' });
-    await page.getByLabel('Cohort').selectOption('Lofty property listings');
-    await page.getByText(`42 of ${registry.assets.length} records`, { exact: true }).waitFor();
-    await page.getByRole('link', { name: 'Algorand asset record' }).first().waitFor();
+    await page.getByLabel('Cohort').selectOption('xStocks November issuer API');
+    await page.getByText(`97 of ${registry.assets.length} records`, { exact: true }).waitFor();
+    await page.getByRole('link', { name: 'Official xStocks product API' }).first().waitFor();
     if (width === 1440) {
       const pending = page.waitForEvent('download');
       await page.getByRole('button', { name: 'Download registry CSV' }).click();
       const csv = read(await (await pending).path());
-      assert.equal(csv.split('\r\n').length, 43);
-      assert.match(csv, /"networkAssetId"/);
+      assert.equal(csv.split('\r\n').length, 98);
+      assert.match(csv, /"issuerProductId"/);
+      assert.match(csv, /"productIsin"/);
     }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `registry overflow at ${width}px`);
     await page.screenshot({ path: `${screenshots}/registry-${width}.png`, fullPage: true });
+    await page.getByLabel('Cohort').selectOption('Superstate Opening Bell shares');
+    await page.getByText(`3 of ${registry.assets.length} records`, { exact: true }).waitFor();
+    await page.getByRole('link', { name: 'Superstate official product page' }).first().waitFor();
+    if (width === 1440) {
+      const pending = page.waitForEvent('download');
+      await page.getByRole('button', { name: 'Download registry CSV' }).click();
+      const csv = read(await (await pending).path());
+      assert.equal(csv.split('\r\n').length, 4);
+      for (const symbol of ['GLXY', 'FWDI', 'EXOD']) assert.ok(csv.includes(symbol));
+      const jsonDownload = page.waitForEvent('download');
+      await page.getByRole('link', { name: 'Download complete registry JSON' }).click();
+      assert.deepEqual(JSON.parse(read(await (await jsonDownload).path())), registry);
+    }
     assert.deepEqual(errors, []);
     await page.close();
   }

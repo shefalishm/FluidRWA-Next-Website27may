@@ -9,6 +9,8 @@ const classes = [...new Set(assetRegistry.map(asset => asset.assetClass))];
 const statuses = ["All value states", "Current disclosure", "Historical value", "Value not verified"];
 const robinhoodCount = assetRegistry.filter(asset => asset.issuer === "Robinhood Assets (Jersey) Limited").length;
 const loftyCount = assetRegistry.filter(asset => asset.cohort === "Lofty property listings").length;
+const xstocksCount = assetRegistry.filter(asset => asset.issuer === "Backed Assets (JE) Limited").length;
+const openingBellCount = assetRegistry.filter(asset => asset.cohort === "Superstate Opening Bell shares").length;
 
 function ChainEvidence({ asset }: { asset: RegistryAsset }) {
   if (!asset.contractEvidence) return null;
@@ -25,7 +27,7 @@ export function RegistryCoverage({ now }: { now: number }) {
       <div><strong>{assetRegistry.length}</strong><span>Identified assets</span></div>
       <div><strong>{assetRegistry.filter(asset => asset.cohort === "Research profile").length}</strong><span>Research profiles</span></div>
       <div><strong>{assetRegistry.filter(asset => asset.cohort === "Ondo issuer list").length}</strong><span>Ondo issuer list</span></div>
-      <div><strong>{assetRegistry.filter(asset => asset.cohort === "xStocks issuer list").length}</strong><span>xStocks issuer list</span></div>
+      <div><strong>{xstocksCount}</strong><span>xStocks products</span></div>
       <div><strong>{robinhoodCount}</strong><span>Robinhood issuer API</span></div>
       <div><strong>{loftyCount}</strong><span>Lofty property listings</span></div>
       <div><strong>{assetRegistry.filter(asset => asset.cohort === "WisdomTree digital funds").length}</strong><span>Digital funds, secondary record</span></div>
@@ -40,7 +42,7 @@ export function RegistryCoverage({ now }: { now: number }) {
       const valued = records.filter(asset => asset.reportedValueUsd !== null).length;
       return <div key={assetClass}><span>{assetClass}</span><div className={styles.coverageTrack} role="img" aria-label={`${valued} of ${records.length} ${assetClass} records have a dated value`}><span style={{width:`${100*valued/records.length}%`}} /></div><strong>{valued}/{records.length}</strong></div>;
     })}</div>
-    <p className={styles.disclosure}>Coverage includes 475 Ondo-listed tokens, 25 historical RealT property-linked references, 1,052 xStocks Ethereum products, {robinhoodCount} Robinhood Chain products, {loftyCount} Lofty property tokens on Algorand, and 14 WisdomTree digital funds whose blockchain record is secondary. Property rights and current trading are not verified. Different issuers may track the same underlying; repeated chain deployments of one product are not counted. This is not a census of RWA products or validation of active trading. Values with different metrics and reporting dates are never added together.</p>
+    <p className={styles.disclosure}>Coverage includes 475 Ondo-listed tokens, 25 historical RealT property-linked references, {xstocksCount} xStocks products, {openingBellCount} native share classes listed by Superstate, {robinhoodCount} Robinhood Chain products, {loftyCount} Lofty property tokens on Algorand, and 14 WisdomTree digital funds whose blockchain record is secondary. Property rights and current trading are not verified. Different issuers may track the same underlying; repeated chain deployments of one product are not counted. This is not a census of RWA products or validation of active trading. Values with different metrics and reporting dates are never added together.</p>
   </section>;
 }
 

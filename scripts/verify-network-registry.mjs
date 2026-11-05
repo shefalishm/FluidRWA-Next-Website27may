@@ -7,6 +7,7 @@ const additions = JSON.parse(fs.readFileSync('data/issuer-additions-october29.js
 const october30 = JSON.parse(fs.readFileSync('data/issuer-additions-october30.json', 'utf8'));
 const dinari = JSON.parse(fs.readFileSync('data/issuer-additions-dinari-october30.json', 'utf8'));
 const november4 = JSON.parse(fs.readFileSync('data/issuer-additions-november4.json', 'utf8'));
+const novemberExpansion = JSON.parse(fs.readFileSync('data/issuer-additions-november4-expansion.json', 'utf8'));
 const xstocksList = JSON.parse(fs.readFileSync('data/issuer-tokenlist-xstocks.json', 'utf8'));
 const robinhoodList = JSON.parse(fs.readFileSync('data/issuer-api-robinhood.json', 'utf8'));
 const wisdomtreeList = JSON.parse(fs.readFileSync('data/issuer-funds-wisdomtree.json', 'utf8'));
@@ -80,7 +81,34 @@ for (const row of november4.assets) {
     newKeys.add(key);
   }
 }
-const expectedRegistry = [...rows, ...november4.assets].map(row => row.id).sort();
+const expansionKeys = new Set([...rows, ...november4.assets].flatMap(row => [
+  row.contractAddress?.toLowerCase(), row.issuerProductId, row.productIsin,
+  row.contractEvidence?.match(/0x[0-9a-f]{40}$/i)?.[0].toLowerCase()
+]).filter(Boolean));
+for (const [cohort, count] of [['xStocks November issuer API', 97], ['Superstate Opening Bell shares', 3]]) {
+  if (novemberExpansion.assets.filter(row => row.cohort === cohort).length !== count) errors.push(`Invalid expansion cohort size: ${cohort}`);
+}
+for (const row of novemberExpansion.assets) {
+  const contract = row.contractAddress?.toLowerCase();
+  const xstock = row.cohort === 'xStocks November issuer API';
+  const openingBell = row.cohort === 'Superstate Opening Bell shares';
+  if (ids.has(row.id) || !row.name || !row.issuer || !date(row.sourceReviewed) || row.sourceReviewed !== '2026-11-04' ||
+      [row.reportedValueUsd, row.reportedMetric, row.reportedAsOf, row.sourcePublished].some(value => value !== null) ||
+      (!xstock && !openingBell) || (xstock && (
+        !/^https:\/\/api\.xstocks\.fi\/api\/v2\/public\/assets\?page=\d+$/.test(row.source) ||
+        !/^[a-f0-9-]{36}$/i.test(row.issuerProductId) || !/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(row.productIsin) ||
+        !/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(row.underlyingIsin) || row.chainId !== 1 || !/^0x[a-f0-9]{40}$/.test(contract) ||
+        row.contractEvidence !== `https://etherscan.io/token/${row.contractAddress}`)) || (openingBell && (
+        row.source !== `https://superstate.com/assets/${row.id.replace(/^opening-bell-/, '')}` ||
+        !/^[A-Z0-9]{9}$/.test(row.issuerProductId) || row.network !== 'Solana' || !/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(row.contractAddress) ||
+        row.contractEvidence !== `https://explorer.solana.com/address/${row.contractAddress}`))) errors.push(`Invalid expansion record: ${row.id}`);
+  ids.add(row.id);
+  for (const key of [contract, row.issuerProductId, row.productIsin, xstock && row.underlyingIsin].filter(Boolean)) {
+    if (expansionKeys.has(key)) errors.push(`Duplicate expansion identity or deployment: ${row.id}`);
+    expansionKeys.add(key);
+  }
+}
+const expectedRegistry = [...rows, ...november4.assets, ...novemberExpansion.assets].map(row => row.id).sort();
 const registryPath = 'assets/datasets/network-asset-registry.json';
 const download = fs.readFileSync(`public/${registryPath}`, 'utf8');
 if (download !== fs.readFileSync(registryPath, 'utf8') ||
@@ -116,5 +144,5 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(`Network registry valid: ${expectedRegistry.length} assets, including ${november4.assets.length} November additions; ${roles.length} sourced roles.`);
+  console.log(`Network registry valid: ${expectedRegistry.length} assets, including ${novemberExpansion.assets.length} expansion records; ${roles.length} sourced roles.`);
 }

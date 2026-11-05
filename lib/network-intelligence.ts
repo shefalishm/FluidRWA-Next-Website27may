@@ -6,6 +6,7 @@ import issuerAdditions from "@/data/issuer-additions-october29.json";
 import october30 from "@/data/issuer-additions-october30.json";
 import dinari from "@/data/issuer-additions-dinari-october30.json";
 import november4 from "@/data/issuer-additions-november4.json";
+import novemberExpansion from "@/data/issuer-additions-november4-expansion.json";
 import xstocksTokenList from "@/data/issuer-tokenlist-xstocks.json";
 import robinhoodAssets from "@/data/issuer-api-robinhood.json";
 import wisdomtreeFunds from "@/data/issuer-funds-wisdomtree.json";
@@ -14,7 +15,7 @@ import fundDisclosureHistory from "@/data/fund-disclosure-history.json";
 
 export { snapshot, ramp, fundDisclosureHistory };
 export { infrastructureRelationships };
-export const issuerListSelections = [ondoTokenList.selection, issuerAdditions.selection, october30.selection, dinari.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection, november4.selection];
+export const issuerListSelections = [ondoTokenList.selection, issuerAdditions.selection, october30.selection, dinari.selection, xstocksTokenList.selection, robinhoodAssets.selection, wisdomtreeFunds.selection, november4.selection, novemberExpansion.selection];
 export const explorerViews = ["fund-comparison", "supply", "assets", "registry", "networks", "vendors", "jurisdictions", "research", "methodology"] as const;
 export type ExplorerView = "overview" | typeof explorerViews[number];
 export type Asset = typeof snapshot.assets[number];
@@ -35,6 +36,7 @@ export const assetRegistry = [
   ...october30.assets,
   ...dinari.assets,
   ...november4.assets,
+  ...novemberExpansion.assets,
   ...xstocksTokenList.assets,
   ...robinhoodAssets.assets,
   ...wisdomtreeFunds.assets.map(({ symbol, reportedValueUsd }) => ({
