@@ -488,6 +488,7 @@ const baseUseCases: UseCase[] = [
   },
   {
     slug: "digital-asset-tax-reporting-cost-basis-operations",
+    updatedAt: "2026-11-06",
     title: "Digital Asset Tax Reporting and Cost-Basis Operations",
     industry: "Tax, Accounting and Digital Assets",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76",
@@ -500,13 +501,14 @@ const baseUseCases: UseCase[] = [
     stack: ["Custody and exchange data ingestion", "Transaction normalization and classification", "Wallet and account ownership mapping", "Tax-lot and cost-basis engine", "Exception review and evidence", "Forms, statements and accounting export"],
     vendorCategories: [
       { label: "Tax, Legal and Regulatory Vendors", href: "/vendors/legal-regulatory-vendors" },
+      { label: "Crypto Accounting Software and Reconciliation Test", href: "/vendors/crypto-accounting-tax-software#reconciliation-test" },
       { label: "Crypto Custody Providers", href: "/vendors/crypto-custody-providers" },
       { label: "Fund Administration and Transfer Agents", href: "/vendors/fund-administration-transfer-agents" },
       { label: "Blockchain Analytics and Compliance", href: "/vendors/compliance-infrastructure-providers" }
     ],
     example: "Useful for exchanges, custodians, wealth platforms, funds and enterprises that need defensible tax lots, customer reporting, financial statements or regulator-ready transaction evidence.",
     sources: [
-      { label: "IRS digital assets guidance", href: "https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets" },
+      { label: "IRS Form 1099-DA guidance", href: "https://www.irs.gov/businesses/understanding-your-form-1099-da" },
       { label: "OECD Crypto-Asset Reporting Framework", href: "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm" }
     ],
     faqs: [
@@ -1126,7 +1128,7 @@ const baseUseCases: UseCase[] = [
   }
 ];
 
-export const useCases = [...november5CaseStudies, ...november4CaseStudies, ...november3CaseStudies, ...november2CaseStudies, ...october29CaseStudies, ...october24CaseStudies, ...october21CaseStudies, ...october19CaseStudies, ...october15CaseStudies, ...october12CaseStudies, ...octoberCaseStudies, ...baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }))];
+export const useCases = [...november5CaseStudies, ...november4CaseStudies, ...november3CaseStudies, ...november2CaseStudies, ...october29CaseStudies, ...october24CaseStudies, ...october21CaseStudies, ...october19CaseStudies, ...october15CaseStudies, ...october12CaseStudies, ...octoberCaseStudies.filter((item) => item.slug !== "hsbc-gold-token-retail-physical-gold-case-study"), ...baseUseCases.map((item) => ({ ...item, guide: useCaseGuides[item.slug] }))];
 
 export function getUseCase(slug: string) {
   return useCases.find((useCase) => useCase.slug === slug);

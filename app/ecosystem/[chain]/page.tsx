@@ -65,6 +65,9 @@ function leadSummary(chain: NonNullable<ReturnType<typeof getChainEcosystem>>) {
   if (chain.slug === "solana") {
     return `FluidRWA tracks ${liveProjects.length} live projects in the Solana ecosystem across ${categories.length} categories, from DeFi and real world assets to DePIN, payments, staking, wallets and developer infrastructure. Every listing is reviewed, categorised and source checked for buyer research.`;
   }
+  if (chain.slug === "polkadot") {
+    return `Explore ${chain.projects.length} Polkadot ecosystem projects, including Moonbeam for EVM applications, Hydration for liquidity and Bifrost for liquid staking. This directory is a starting point, not a ranking or a complete ecosystem count.`;
+  }
   return `FluidRWA tracks ${liveProjects.length} live ${chain.name} ecosystem projects across ${categories.length} categories, including ${topCategoryNames(categories)}. The directory is built for buyer research, ecosystem mapping and future verified project profiles.`;
 }
 
@@ -130,21 +133,23 @@ export async function generateMetadata({ params }: { params: Promise<{ chain: st
       }
     };
   }
+  const title = chain.slug === "polkadot" ? `${chain.projects.length} Polkadot Ecosystem Projects: DeFi, EVM & Staking | FluidRWA` : `${chain.name} Ecosystem Projects | FluidRWA`;
+  const description = chain.slug === "polkadot" ? leadSummary(chain) : `${leadSummary(chain)} Explore project categories, market roles, buyer fit and ecosystem signals.`;
   return {
-    title: `${chain.name} Ecosystem Projects | FluidRWA`,
-    description: `${leadSummary(chain)} Explore project categories, market roles, buyer fit and ecosystem signals.`,
+    title,
+    description,
     alternates: { canonical: `${siteUrl}${chainProjectsBasePath}/${chain.slug}` },
     openGraph: {
-      title: `${chain.name} Ecosystem Projects | FluidRWA`,
-      description: `${leadSummary(chain)} Explore project categories, market roles, buyer fit and ecosystem signals.`,
+      title,
+      description,
       url: `${siteUrl}${chainProjectsBasePath}/${chain.slug}`,
       type: "website",
       images: [defaultOgImage]
     },
     twitter: {
       card: "summary_large_image",
-      title: `${chain.name} Ecosystem Projects | FluidRWA`,
-      description: `${leadSummary(chain)} Explore project categories, market roles, buyer fit and ecosystem signals.`,
+      title,
+      description,
       images: [defaultOgImage]
     }
   };

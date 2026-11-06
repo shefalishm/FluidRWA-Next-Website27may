@@ -18,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         if (/^redirectTo:\s*/m.test(raw)) return [];
         const slug = raw.match(/slug:\s*"([^"]+)"/)?.[1] || file.replace(/\.md$/, "");
         const reviewedDate = raw.match(/reviewedDate:\s*"([^"]+)"/)?.[1] || "2026-06-06";
-        return [{ url: `${siteUrl}/blog/${slug}`, lastModified: reviewedDate, changeFrequency: "monthly" as const, priority: 0.72 }];
+        const modifiedDate = raw.match(/^modifiedDate:\s*"([^"]+)"/m)?.[1];
+        return [{ url: `${siteUrl}/blog/${slug}`, lastModified: modifiedDate || reviewedDate, changeFrequency: "monthly" as const, priority: 0.72 }];
       })
     : [];
 
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}${chainProjectsBasePath}`, lastModified: chainEcosystemUpdatedAt, changeFrequency: "weekly", priority: 0.9 },
     ...getChainEcosystems().map((chain) => ({
       url: `${siteUrl}${chainProjectsBasePath}/${chain.slug}`,
-      lastModified: chainEcosystemUpdatedAt,
+      lastModified: chain.slug === "polkadot" ? "2026-11-06" : chainEcosystemUpdatedAt,
       changeFrequency: "monthly" as const,
       priority: 0.78
     })),
@@ -78,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...sitemapRoutePaths().map((route) => ({
       url: `${siteUrl}/${route}`,
-      lastModified: ["vendors/institutional-digital-asset-trading-platforms", "vendors/crypto-accounting-tax-software"].includes(route) ? "2026-10-10" : route.startsWith("vendors/") ? "2026-09-22" : "2026-05-27",
+      lastModified: ["vendors/crypto-accounting-tax-software", "vendors/fiat-on-off-ramp-providers", "vendors/stablecoin-infrastructure-providers"].includes(route) ? "2026-11-06" : route === "vendors/institutional-digital-asset-trading-platforms" ? "2026-10-10" : route.startsWith("vendors/") ? "2026-09-22" : "2026-05-27",
       changeFrequency: "weekly" as const,
       priority: route.startsWith("vendors/") ? 0.8 : 0.75
     })),

@@ -10,8 +10,9 @@ type AnalyticsData = {
   quarantinedRows: number;
   pipeline: Record<string, number>;
   leads: Array<{ id: string; createdAt: string; company: string; type: string; status: string; originPath: string; source: string; notification: string; deliveryEvent: string; canVerifyNotification: boolean }>;
-  summary: { submissions: number; vendorIntros: number; openBriefs: number; uniqueCategories: number; changePercent: number };
+  summary: { submissions: number; qualifiedOrLater: number; vendorIntros: number; openBriefs: number; uniqueCategories: number; changePercent: number };
   vendorApplications: { submissions: number; previousSubmissions: number; changePercent: number };
+  vendorEnquiries: { submissions: number; qualifiedOrLater: number };
   daily: Array<{ date: string; count: number }>;
   profiles: Array<{ name: string; category: string; count: number; lastSubmittedAt: string }>;
   categories: Array<{ name: string; count: number; vendorSpecific: number; openBriefs: number }>;
@@ -144,10 +145,10 @@ export function ConversionAnalyticsDashboard() {
             </div>
 
             <div className={styles.kpis}>
-              <article><span>Buyer submissions</span><strong>{data.summary.submissions}</strong><small>{data.summary.changePercent >= 0 ? "+" : ""}{data.summary.changePercent}% vs previous period</small></article>
+              <article><span>Accepted buyer enquiries</span><strong>{data.summary.submissions}</strong><small>{data.summary.changePercent >= 0 ? "+" : ""}{data.summary.changePercent}% vs previous period</small></article>
+              <article><span>Qualified buyer enquiries</span><strong>{data.summary.qualifiedOrLater}</strong><small>Currently qualified, proposal sent or paid</small></article>
               <article><span>Vendor introductions</span><strong>{data.summary.vendorIntros}</strong><small>Specific vendor requested</small></article>
               <article><span>Open project briefs</span><strong>{data.summary.openBriefs}</strong><small>Buyer needs a shortlist</small></article>
-              <article><span>Active categories</span><strong>{data.summary.uniqueCategories}</strong><small>Categories producing demand</small></article>
             </div>
 
             <section className={styles.pipeline} aria-labelledby="pipeline-title">
@@ -171,15 +172,16 @@ export function ConversionAnalyticsDashboard() {
               </tbody></table></div>
             </section>
 
-            {data.quarantinedRows > 0 ? <p>{data.quarantinedRows} suspected automated submissions were excluded from these totals because one address submitted more than ten times in a day or the source value was malformed. The records remain available for review in Supabase.</p> : null}
+            {data.quarantinedRows > 0 ? <p>{data.quarantinedRows} submissions were held out of these totals because one address submitted more than ten times in a day or the source value was malformed. This is a review flag, not proof of automation. The records remain available for review.</p> : null}
 
             <section className={styles.trend} aria-labelledby="vendor-application-title">
               <div className={styles.sectionHead}>
-                <div><p className={styles.eyebrow}>Vendor applications</p><h2 id="vendor-application-title">Completed review applications</h2></div>
+                <div><h2 id="vendor-application-title">Vendor enquiries and listing applications</h2></div>
                 <p>Updated {formatDate(data.generatedAt)}</p>
               </div>
-              <p><strong>{data.vendorApplications.submissions}</strong> saved in the last {days} days, compared with {data.vendorApplications.previousSubmissions} in the previous {days} days ({data.vendorApplications.changePercent >= 0 ? "+" : ""}{data.vendorApplications.changePercent}%).</p>
-              <p>Only applications saved through the vendor review form are included. Direct emails and clicks are not submissions.</p>
+              <p><strong>{data.vendorEnquiries.submissions}</strong> accepted vendor enquiries and <strong>{data.vendorEnquiries.qualifiedOrLater}</strong> currently qualified, proposal sent or paid. Counts are based on submission date and current stage, not on the date of qualification.</p>
+              <p>Of these, <strong>{data.vendorApplications.submissions}</strong> were listing applications, compared with {data.vendorApplications.previousSubmissions} in the previous {days} days ({data.vendorApplications.changePercent >= 0 ? "+" : ""}{data.vendorApplications.changePercent}%).</p>
+              <p>Counts include saved vendor intake only. Direct emails, clicks and form starts are not submissions.</p>
             </section>
 
             <section className={styles.trend} aria-labelledby="conversion-trend-title">

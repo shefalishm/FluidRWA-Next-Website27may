@@ -57,6 +57,8 @@ export const november2CaseStudies: (UseCase & { guide: UseCaseGuide })[] = [{
     sourceRecords: [
       "HSBC: Introducing the HSBC Gold Token to retail customers in Hong Kong, 27 March 2024; reviewed 2 November 2026. https://www.about.hsbc.com.hk/-/media/hong-kong/en/news-and-media/240412-introducing-hsbc-gold-token-en.pdf",
       "HSBC Hong Kong: HSBC Gold Token product information and risk disclosures, undated live page; reviewed 2 November 2026. https://www.hsbc.com.hk/investments/products/gold-token/",
+      "HSBC Hong Kong: Gold Token Key Facts Statement, effective 4 February 2026. https://www.hsbc.com.hk/content/dam/hsbc/hk/docs/investments/gold-token/key-facts-statement-v2.pdf",
+      "HSBC Hong Kong: Gold Token Principal Brochure, effective 4 February 2026. https://www.hsbc.com.hk/content/dam/hsbc/hk/docs/investments/gold-token/principal-brochure-v2.pdf",
       "HSBC: HSBC pilots quantum-safe technology for tokenised gold, 19 September 2024; reviewed 2 November 2026. https://www.hsbc.com/news-and-views/news/media-releases/2024/hsbc-pilots-quantum-safe-technology-for-tokenised-gold"
     ]
   }

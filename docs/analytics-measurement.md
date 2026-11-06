@@ -34,6 +34,8 @@ Recommended GA4 reports: hostname + device; date/hour + source/medium; landing p
 
 ## Traffic quality controls
 
+November 6 release: the protected conversion dashboard counts accepted buyer and vendor enquiries separately using saved intake records (existing spam, QA and review exclusions still apply). Vendor listing applications are a subset of vendor enquiries, not an additional total. Qualified means the record's current stage is qualified, proposal sent or paid. This is a submission-date cohort snapshot, not a count of qualification transitions or of ever-qualified leads; closed/lost records cannot be reconstructed without stage history. Staff should qualify a buyer after confirming a legitimate contact, a concrete requirement and a next step, or a vendor after confirming a real business, category fit and an actionable application. Clicks, starts, email intent and GA4 generate_lead are not qualification.
+
 - Analytics only loads on `fluidrwa.com` and `www.fluidrwa.com`; Cloudflare preview and local hostnames are excluded.
 - Automated browsers and common monitoring user agents are excluded before GA loads.
 - QA links using `?source=qa-test` are excluded.

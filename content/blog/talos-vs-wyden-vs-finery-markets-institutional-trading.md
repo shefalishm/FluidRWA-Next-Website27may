@@ -2,6 +2,7 @@
 title: "Talos vs Wyden vs Finery Markets: Institutional Crypto Trading Platforms (2026)"
 description: "Compare Talos, Wyden and Finery Markets for institutional digital asset execution, liquidity connectivity, OEMS, ECN, settlement and white-label trading."
 date: "2026-08-26"
+modifiedDate: "2026-11-06"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -74,6 +75,10 @@ Finery Markets describes a non-custodial crypto ECN supporting firm order books,
 | Regional broker | Wyden or Finery Markets | Choose based on whether full bank operations or market-access and white-label execution are the larger gap. |
 
 ## Reconcile one order across systems
+
+Before the demo, assign an owner to each record: order intent, fills, settlement instructions and the final custody or ledger entry. Ask each vendor to export those records for a partial fill followed by a cancel. The test is whether your operations team can reconstruct what happened without relying on a vendor dashboard.
+
+If execution and settlement are owned by separate teams, pair the [trading platform directory](/vendors/institutional-digital-asset-trading-platforms) with the [custody comparison](/blog/crypto-custody-providers-comparison-2026). [Share your trading requirements](/submit-requirement?source=trading-article-buyer) if you need help identifying which roles to shortlist.
 
 Take an order from approval through execution, allocation, settlement and the end-of-day record. Add a partial fill and a venue outage. Ask where the official order state lives, which party can amend it and how your operations team resolves a mismatch with the custodian or prime broker. The demo should include the audit trail, not just a trading screen.
 

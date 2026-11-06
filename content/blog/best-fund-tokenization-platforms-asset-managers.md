@@ -2,6 +2,7 @@
 title: "Best Fund Tokenization Platforms for Asset Managers in 2026"
 description: "Compare fund tokenization platforms by regulated roles, investor onboarding, transfer controls, administration, custody, distribution and redemptions."
 date: "2026-09-14"
+modifiedDate: "2026-11-06"
 reviewedDate: "2026-09-14"
 reviewedLabel: "September 14, 2026"
 category: "Fund Tokenization"
@@ -46,6 +47,10 @@ The best fund tokenization platform is the one that fits the fund's legal and op
 This is an editorial shortlist, not a ranking or endorsement. Capabilities and availability change. Obtain current proposals and legal advice for the intended fund and jurisdictions.
 
 ## Start with the Fund Operating Model
+
+Before scoring software, make a responsibility matrix for the transfer agent, administrator, custodian and distribution partner. For each role record the legal entity, authoritative record and fallback if it cannot process a subscription or redemption. The [October Network Explorer findings](/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings) give examples of disclosed role assignments; use them to frame questions, not to infer coverage for your fund.
+
+[Share your fund requirements](/submit-requirement?source=fund-article-buyer) with the domicile, investor type and operating roles still open.
 
 Before requesting demonstrations, document:
 

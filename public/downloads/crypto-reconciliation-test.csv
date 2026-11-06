@@ -1,0 +1,11 @@
+record_type,source,record_id,wallet,asset,units,reference,expected_treatment
+opening,custodian,A-opening,A,DEMO,5.00,,Opening balance; acquisition basis evidence absent
+opening,wallet-export,B-opening,B,DEMO,0.00,,Opening balance
+activity,custodian,A-withdrawal,A,DEMO,-1.00,transfer-1,Match with B-receipt
+activity,custodian,A-withdrawal,A,DEMO,-1.00,transfer-1,Ignore duplicate source record
+activity,custodian,A-fee,A,DEMO,-0.01,transfer-1,Keep fee separate from principal
+activity,wallet-export,B-receipt,B,DEMO,1.00,transfer-1,Match with A-withdrawal
+expected,review,A-close,A,DEMO,3.99,,Closing balance
+expected,review,B-close,B,DEMO,1.00,,Closing balance
+expected,review,total-close,both,DEMO,4.99,,Closing total; only fee reduces quantity
+exception,review,missing-basis,both,DEMO,,,Keep unknown acquisition basis unresolved; do not substitute zero

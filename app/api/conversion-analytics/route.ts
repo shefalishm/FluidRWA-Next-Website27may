@@ -42,6 +42,14 @@ function isVendorApplication(row: LeadRow) {
   return source === "vendor-review-application" || pathFromUrl(clean(row.page_url)) === "/vendor-membership";
 }
 
+function isVendorEnquiry(row: LeadRow) {
+  return isVendorApplication(row) || ["contact-vendor", "quick-vendor-popup", "vendor-waitlist", "apply-as-vendor", "vendor-membership"].includes(clean(row.request_source).toLowerCase());
+}
+
+function qualificationCount(rows: LeadRow[]) {
+  return rows.filter((row) => ["qualified", "proposal_sent", "paid"].includes(clean(row.status))).length;
+}
+
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -181,12 +189,14 @@ export async function GET(request: NextRequest) {
   const vendorApplications = usableRows.filter(isVendorApplication).filter((row) => clean(row.created_at));
   const currentVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) >= currentStart);
   const previousVendorApplications = vendorApplications.filter((row) => new Date(clean(row.created_at)) < currentStart);
+  const currentVendorEnquiries = usableRows.filter((row) => isVendorEnquiry(row) && new Date(clean(row.created_at)) >= currentStart);
   const buyerMetadata = usableRows
-    .filter((row) => !isVendorApplication(row))
+    .filter((row) => !isVendorEnquiry(row))
     .filter((row) => isBuyerSource(row.request_source))
     .filter((row) => clean(row.created_at));
   const previousBuyerCount = buyerMetadata.filter((row) => new Date(clean(row.created_at)) < currentStart).length;
-  const currentBuyerIds = buyerMetadata.filter((row) => new Date(clean(row.created_at)) >= currentStart).map((row) => clean(row.id)).filter(Boolean);
+  const currentBuyerMetadata = buyerMetadata.filter((row) => new Date(clean(row.created_at)) >= currentStart);
+  const currentBuyerIds = currentBuyerMetadata.map((row) => clean(row.id)).filter(Boolean);
   const currentIds = usableRows.filter(row => new Date(clean(row.created_at)) >= currentStart && !/(^|[-_ ])(qa|test|smoke)([-_ ]|$)/i.test(clean(row.request_source))).map(row => clean(row.id)).filter(Boolean);
   const currentDetails: LeadRow[] = [];
   for (let index = 0; index < currentIds.length; index += 100) {
@@ -270,7 +280,7 @@ export async function GET(request: NextRequest) {
       id: row.id,
       createdAt: row.created_at,
       company: clean(row.company_name) || clean(row.vendor_name) || "Company not recorded",
-      type: isVendorApplication(row) ? "Vendor application" : isBuyerSource(row.request_source) ? "Buyer enquiry" : "General enquiry",
+      type: isVendorApplication(row) ? "Vendor application" : isVendorEnquiry(row) ? "Vendor enquiry" : isBuyerSource(row.request_source) ? "Buyer enquiry" : "General enquiry",
       status: clean(row.status) || "new",
       originPath: classify(row).originPath,
       source: sourceLabel(clean(row.request_source)),
@@ -280,6 +290,7 @@ export async function GET(request: NextRequest) {
     })),
     summary: {
       submissions: current.length,
+      qualifiedOrLater: qualificationCount(current),
       vendorIntros: current.filter((row) => row.vendorSpecific).length,
       openBriefs: current.filter((row) => !row.vendorSpecific).length,
       uniqueCategories: new Set(current.map((row) => row.category).filter((name) => name !== "Unspecified")).size,
@@ -289,6 +300,10 @@ export async function GET(request: NextRequest) {
       submissions: currentVendorApplications.length,
       previousSubmissions: previousVendorApplications.length,
       changePercent: percentChange(currentVendorApplications.length, previousVendorApplications.length)
+    },
+    vendorEnquiries: {
+      submissions: currentVendorEnquiries.length,
+      qualifiedOrLater: qualificationCount(currentVendorEnquiries)
     },
     daily,
     profiles,

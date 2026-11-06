@@ -12,8 +12,10 @@ const spam = Array.from({ length: 1001 }, (_, index) => ({
   id: `spam-${index}`, created_at, contact_email: 'repeat@real.testmail', request_source: 'submit-requirement', page_url: 'https://www.fluidrwa.com/submit-requirement'
 }));
 const buyer = { id: 'buyer-1', created_at, contact_email: 'buyer@real.testmail', request_source: 'submit-requirement', page_url: 'https://www.fluidrwa.com/submit-requirement' };
-const vendor = { id: 'vendor-1', created_at, contact_email: 'vendor@real.testmail', request_source: 'vendor-review-application', page_url: 'https://www.fluidrwa.com/vendor-membership' };
-const rows = [...spam, buyer, vendor];
+const vendor = { id: 'vendor-1', created_at, status: 'paid', contact_email: 'vendor@real.testmail', request_source: 'vendor-review-application', page_url: 'https://www.fluidrwa.com/vendor-membership' };
+const vendorContact = { id: 'vendor-2', created_at, status: 'new', request_source: 'contact-vendor' };
+const excluded = { id: 'qa-1', created_at, status: 'qa_test', request_source: 'contact-vendor' };
+const rows = [...spam, buyer, vendor, vendorContact, excluded];
 let detailQueries = 0;
 const exports = {};
 vm.runInNewContext(compiled, {
@@ -30,7 +32,9 @@ vm.runInNewContext(compiled, {
       detailQueries++;
       assert.match(query.get('id'), /buyer-1/);
       assert.match(query.get('id'), /vendor-1/);
-      return { ok: true, json: async () => [{ ...buyer, status: 'qualified', vendor_category: 'Custody', vendor_name: 'Example provider', raw_payload: { FLUIDRWA_NOTIFICATION: { status: 'accepted' } } }, { ...vendor, status: 'paid', raw_payload: {} }] };
+      assert.match(query.get('id'), /vendor-2/);
+      assert.doesNotMatch(query.get('id'), /qa-1/);
+      return { ok: true, json: async () => [{ ...buyer, status: 'qualified', vendor_category: 'Custody', vendor_name: 'Example provider', raw_payload: { FLUIDRWA_NOTIFICATION: { status: 'accepted' } } }, vendor, vendorContact] };
     }
     const offset = Number(query.get('offset') || 0);
     return { ok: true, json: async () => rows.slice(offset, offset + 1000) };
@@ -43,14 +47,17 @@ const result = await exports.GET({
 });
 assert.equal(result.status, 200);
 assert.equal(result.body.summary.submissions, 1);
+assert.equal(result.body.summary.qualifiedOrLater, 1);
 assert.equal(result.body.vendorApplications.submissions, 1);
+assert.equal(result.body.vendorEnquiries.submissions, 2);
+assert.equal(result.body.vendorEnquiries.qualifiedOrLater, 1);
 assert.equal(result.body.quarantinedRows, 1001);
 assert.equal(detailQueries, 1);
 assert.equal(result.body.recent[0].originPath, '/submit-requirement');
 assert.equal(result.body.pipeline.qualified, 1);
 assert.equal(result.body.pipeline.paid, 1);
 assert.equal(result.body.pipeline.notificationAccepted, 1);
-assert.equal(result.body.pipeline.notificationUnknown, 1);
+assert.equal(result.body.pipeline.notificationUnknown, 2);
 assert.equal(JSON.stringify(result.body).includes('buyer@real.testmail'), false);
 const unauthorized = await exports.PATCH({ headers: new Headers(), nextUrl: new URL('https://www.fluidrwa.com/api/conversion-analytics') });
 assert.equal(unauthorized.status, 401);

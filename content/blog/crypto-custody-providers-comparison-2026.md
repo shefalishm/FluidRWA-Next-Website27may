@@ -2,6 +2,7 @@
 title: "Crypto Custody Providers Compared 2026"
 description: "Compare crypto custody providers by MPC, qualified custody, wallet infrastructure, institutional controls, DeFi access and tokenized asset support."
 date: "2026-08-15"
+modifiedDate: "2026-11-06"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -106,6 +107,10 @@ Tokenized asset projects should ask:
 Custody decisions affect investor trust, regulatory posture and operational risk. They should be made before launch, not after tokens are already issued.
 
 ## Buyer Checklist
+
+For a tokenized fund, ask for two records before the demo: the legal ownership register and the record showing who controls the wallet. Ask each provider which record it maintains, who can change it and what happens if the two disagree. The [October Network Explorer findings](/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings) show named operating roles across a scoped fund sample; they do not establish what any provider offers to a new customer.
+
+[Share your custody requirements](/submit-requirement?source=custody-article-buyer), including the assets, jurisdictions and signing or safeguarding responsibilities you need covered.
 
 - Supported assets and chains
 - Regulatory status and licenses

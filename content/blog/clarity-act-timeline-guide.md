@@ -1,17 +1,17 @@
 ---
 title: "CLARITY Act Timeline: What Passed, What Stalled, and What It Means for RWA"
-seoTitle: "CLARITY Act Timeline and Status (October 2026)"
-description: "The CLARITY Act's verified timeline, current status and potential effects on exchanges, custody, tokenized funds, credit, stablecoins and blockchain infrastructure."
+seoTitle: "Did the CLARITY Act Pass? Senate Status and What It Means for RWAs"
+description: "The House passed H.R. 3633, but a Senate vote to take it up failed. See what that means for tokenized funds, custody and exchanges under current law."
 date: "2026-10-25"
-reviewedDate: "2026-10-25"
-reviewedLabel: "October 25, 2026"
+reviewedDate: "2026-11-06"
+reviewedLabel: "November 6, 2026"
 reviewedBy: "FluidRWA Research Team"
 category: "Regulation"
 slug: "clarity-act-timeline-guide"
 image: "/assets/social/blog-clarity-act-timeline-guide-editorial.jpg"
 imageAlt: "The United States Capitol, where Congress is considering digital-asset market structure legislation."
 socialImage: "/assets/social/blog-clarity-act-timeline-guide-editorial.jpg"
-answer: "As of October 25, 2026, the US CLARITY Act is not law. The House passed H.R. 3633 on July 17, 2025, by 294 to 134. Senate committees then worked on different market-structure proposals, but on September 15, 2026, the Senate rejected a procedural vote to begin floor consideration, 49 to 50. Tokenized-asset businesses should follow the bill without treating its proposed rules as effective today."
+answer: "The House passed H.R. 3633, but the CLARITY Act has not become law as of November 6, 2026. On September 15 the Senate voted 49 to 50 against ending debate on whether to take up the bill. That was not a final vote on passage. Tokenized-asset teams should not rely on the bill's proposed rules as current law."
 ctaTitle: "Working through a tokenization project?"
 ctaText: "Describe the asset, investor journey and vendors you need. Prefer email? Write to contact@fluidrwa.com."
 ctaLabel: "Submit requirements"
@@ -19,7 +19,7 @@ ctaUrl: "/submit-requirement"
 ctaSecondaryLabel: "Email FluidRWA"
 ctaSecondaryUrl: "mailto:contact@fluidrwa.com"
 faq1q: "Has the CLARITY Act passed?"
-faq1a: "It passed the US House on July 17, 2025, but has not passed both chambers or become law as of October 25, 2026. A September 15, 2026 Senate cloture vote on the motion to proceed failed 49 to 50."
+faq1a: "It passed the US House on July 17, 2025, but has not passed both chambers or become law as of November 6, 2026. A September 15, 2026 Senate cloture vote on the motion to proceed failed 49 to 50."
 faq2q: "Did the Senate reject the CLARITY Act itself?"
 faq2a: "The September 15 vote rejected cloture on the motion to proceed to H.R. 3633. That was a procedural vote about taking up the bill, not a final vote on its passage."
 faq3q: "Are tokenized securities automatically digital commodities under CLARITY?"
@@ -51,7 +51,7 @@ The distinction matters. A platform cannot rely on proposed registration routes,
 | May 12, 2026 | Senate Banking leaders [released revised market-structure text ahead of markup](https://www.banking.senate.gov/newsroom/majority/chairman-scott-senators-lummis-tillis-release-market-structure-bill-text-ahead-of-banking-committee-markup). | This was a Senate proposal, not the House-passed version. |
 | September 15, 2026 | The [Senate rejected cloture on the motion to proceed, 49-50](https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00234.htm). | It was not a final roll-call vote on passage. |
 
-**As checked October 25, 2026:** no enacted CLARITY Act is established by these records. Any later vote or substituted text would require a new status check.
+**Status checked November 6, 2026:** the [Senate Daily Press record](https://www.dailypress.senate.gov/tuesday-september-15-2026/) confirms the failed procedural vote and motion to reconsider. The [October 1 Senate calendar](https://www.govinfo.gov/content/pkg/CCAL-119scal-2026-10-01/html/CCAL-119scal-2026-10-01-pt8.htm) lists that reconsideration motion as pending; the official records reviewed do not show enactment.
 
 ## What is in the House-passed bill?
 

@@ -24,6 +24,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: "/use-cases/hsbc-gold-token-retail-physical-gold-case-study", destination: "/use-cases/hsbc-gold-token-retail-ownership-case-study", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/blog.html", destination: "/blog", permanent: true },
       { source: "/vendor-ecosystem.html", destination: "/web3vendorecosystem", permanent: true },

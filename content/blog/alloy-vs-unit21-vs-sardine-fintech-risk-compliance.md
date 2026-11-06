@@ -2,7 +2,7 @@
 title: "Alloy vs Unit21 vs Sardine: Fintech Risk and Compliance Tools Compared"
 description: "Compare Alloy, Unit21 and Sardine for identity orchestration, fraud prevention, AML monitoring, payment screening and crypto risk operations."
 date: "2026-08-13"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-11-06"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -63,6 +63,12 @@ Consider Sardine where payment fraud and crypto funding are part of the same wor
 | Confirm before shortlisting | Data coverage and decision ownership | Alert tuning and filing scope | Product scope and payment liability |
 
 These observations come from the linked company documentation, checked 10 October 2026. They are not feature-completeness scores. Unlisted capabilities have not been assessed, and buyer questions are FluidRWA's procurement recommendations.
+
+## Test who owns each decision
+
+For a vendor pilot, replay one synthetic customer journey: a failed identity check, a retried payment and a later alert that needs manual review. Ask each provider to show which decision it owns, which events it hands off, and how a reviewer can reproduce the decision after a rule changes. If your product includes fiat funding, the [ramp onboarding evidence map](/network-explorer/research/ramp-onboarding) helps distinguish provider-hosted checks from checks your team must run.
+
+[Share your risk workflow](/submit-requirement?source=risk-article-buyer) with the checks you need to own and the systems that must receive the evidence.
 
 ## What Alloy Is Good For
 

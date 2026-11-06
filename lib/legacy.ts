@@ -15,8 +15,8 @@ type SeoOverride = {
 
 const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
-    title: "Top 10 RWA Tokenization Platforms for 2026",
-    description: "Compare 10 RWA tokenization platforms for funds, real estate and private markets. Understand operating models, buyer checks and the other providers you need.",
+    title: "10 RWA Tokenization Platforms Compared by Issuer Fit (2026)",
+    description: "Compare 10 RWA tokenization platforms by issuance model, investor eligibility, custody and redemptions. See which questions to ask before shortlisting.",
     heading: "Top 10 RWA tokenization platforms for 2026"
   },
   "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
@@ -82,12 +82,12 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare 30 blockchain development companies by Web3 and RWA specialty, delivery model, security approach and project fit."
   },
   "vendors/fiat-on-off-ramps/index.html": {
-    title: "29 Fiat On/Off-Ramp Providers Compared (2026)",
-    description: "Compare 29 fiat ramp providers by country coverage, payment methods, KYC, APIs, settlement, stablecoin support and product fit."
+    title: "Crypto On-Ramp and Off-Ramp Providers: 29 Compared",
+    description: "Compare fiat-to-crypto and crypto-to-fiat providers by country, payment method, KYC ownership and payout route. Verify the corridor before integrating."
   },
   "vendors/payments-stablecoins/index.html": {
-    title: "Stablecoin Providers: Payments, Payouts & Issuance",
-    description: "Compare 30 stablecoin infrastructure providers by buyer task: payments, payouts, issuance, treasury and compliance. Build a requirements-led shortlist."
+    title: "Stablecoin Infrastructure Providers for Payments & Payouts",
+    description: "Compare 30 providers for stablecoin payment acceptance, payouts, issuance, treasury and compliance. Check who holds funds and handles conversion and settlement."
   }
 };
 
@@ -426,6 +426,12 @@ export function legacyMainHtml(file: string) {
       '$1<p style="grid-column:1/-1;overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>');
   }
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
+  if (file === "vendors/fiat-on-off-ramps/index.html") {
+    renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Need customers to buy crypto, cash out or both? Start with the country, payment method and direction of travel. Then confirm who performs KYC, who handles failed payouts and which asset and network pairs are supported. See the <a href="/network-explorer/research/ramp-onboarding">ramp onboarding evidence map</a> for documented examples.</p>');
+  }
+  if (file === "vendors/payments-stablecoins/index.html") {
+    renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Start with the job: accept stablecoins, pay recipients, issue a token or manage treasury. Shortlist providers that support your corridor, then confirm who holds funds, who converts them and when the recipient can use the proceeds.</p>');
+  }
   if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToTenth(renderedHtml);
   if (file === "vendors/custody-solutions/index.html") {
     const custodyAnswer = `<aside class="directory-answer" aria-label="How to compare institutional crypto custody providers"><strong>Short answer</strong><p>Institutional buyers should compare custody providers by legal and regulatory status, key-control model, insurance scope, asset and chain coverage, transaction policy controls, reporting and recovery. A qualified custodian, an MPC wallet platform and a bank custody service solve different problems, so the shortlist must match who holds assets, who can approve movement and which evidence auditors require.</p><p><a href="/blog/crypto-custody-insurance-coverage-due-diligence">Understand custody insurance exclusions</a> and <a href="/blog/wallet-apis-asset-tokenization-platforms">compare wallet API control models</a> before issuing an RFP.</p></aside>`;
