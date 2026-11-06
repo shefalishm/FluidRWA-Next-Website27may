@@ -810,5 +810,17 @@
   "canva-vs-figma-vs-midjourney-visual-production": {
     "src": "/assets/blog-thumbnails/design-november4-card.webp",
     "alt": "FluidRWA: Illustrative design desk with a component grid and printed campaign formats"
+  },
+  "aave-v3-vs-compound-iii-vs-morpho-blue-lending-integration": {
+    "src": "/assets/blog-thumbnails/lending-november5-card.webp",
+    "alt": "FluidRWA: Conceptual illustration of lending channels and control valves beside a risk-review tablet"
+  },
+  "coinbound-vs-lunar-strategy-vs-serotonin-web3-growth": {
+    "src": "/assets/blog-thumbnails/growth-november5-card.webp",
+    "alt": "FluidRWA: Illustrated Web3 campaign review desk with channel plans, a microphone and an approval pencil"
+  },
+  "dock-vs-cheqd-vs-kilt-verifiable-credentials": {
+    "src": "/assets/blog-thumbnails/credentials-november5-card.webp",
+    "alt": "FluidRWA: Illustrated issuer, holder and verifier exchanging an identity card with a status marker"
   }
 }
