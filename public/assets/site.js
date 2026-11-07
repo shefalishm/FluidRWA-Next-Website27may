@@ -1744,6 +1744,7 @@ const initFluidRwaClickAttribution = () => {
   document.addEventListener("click", (event) => {
     const link = event.target.closest?.("a[href]");
     if (!link) return;
+    if (link.matches(".events-organizer-link")) return; // The event card owns this click's attribution.
 
     const href = link.getAttribute("href") || "";
     if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;

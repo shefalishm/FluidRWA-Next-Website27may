@@ -40,7 +40,7 @@ function EventCard({ event }: { event: ReviewedCalendarEvent }) {
         <div className="events-card-footer">
           <span>{event.audience}</span>
         </div>
-        {event.organizerUrl ? <a className="events-organizer-link" href={organizerTrackingUrl(event)} onClick={() => window.fluidRwaTrackEvent?.("event_organizer_click", { event_slug: event.slug, organizer_url: event.organizerUrl })} target="_blank" rel="noopener noreferrer" aria-label={`${event.name}: organizer details (opens in new tab)`}>Organizer details <ArrowUpRight size={16} aria-hidden="true" /></a> : null}
+        {event.organizerUrl ? <a className="events-organizer-link" href={organizerTrackingUrl(event)} onClick={() => window.fluidRwaTrackEvent?.("event_organizer_click", { event_slug: event.slug, organizer_url: event.organizerUrl, link_url: event.organizerUrl })} target="_blank" rel="noopener noreferrer" aria-label={`${event.name}: organizer details (opens in new tab)`}>Organizer details <ArrowUpRight size={16} aria-hidden="true" /></a> : null}
         <small className="events-checked">{event.checkedDate === calendarReviewedDate ? "Organizer checked 7 Nov 2026" : "Archived listing; last reviewed 2 Sep 2026"}</small>
       </div>
     </article>

@@ -61,6 +61,8 @@ const component = fs.readFileSync("components/Web3EventsCalendar.tsx", "utf8");
 assert.ok(!/itemScope|itemProp|schema.org\/Event/.test(component), "Collection cards must not emit Event microdata");
 assert.ok(component.includes('href={organizerTrackingUrl(event)}'));
 assert.ok(component.includes('organizer_url: event.organizerUrl'));
+assert.ok(component.includes('link_url: event.organizerUrl'));
+for (const file of ["assets/site.js", "public/assets/site.js"]) assert.ok(fs.readFileSync(file, "utf8").includes('if (link.matches(".events-organizer-link")) return;'));
 assert.ok(component.includes('useState<CalendarPeriod>("Upcoming")'));
 const page = fs.readFileSync("app/web3-events/page.tsx", "utf8");
 assert.ok(!page.includes("events-hero-panel"), "Internal coverage panel must not be published");
