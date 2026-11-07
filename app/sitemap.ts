@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...["", "/supply", "/assets", "/registry", "/networks", "/vendors", "/jurisdictions", "/research", "/methodology", "/research/ramp-onboarding"].map(view => ({ url: `${siteUrl}/network-explorer${view}`, lastModified: ["", "/registry", "/methodology"].includes(view) ? registryUpdated : view === "/assets" ? networkSnapshot.updated : view === "/supply" ? supplySnapshot.pageSnapshotCapturedAt.slice(0, 10) : view === "/research/ramp-onboarding" ? "2026-10-13" : view === "/research" ? "2026-10-21" : "2026-10-19", changeFrequency: "weekly" as const, priority: 0.85 })),
     { url: `${siteUrl}/tools/vendor-comparison`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.94 },
     { url: `${siteUrl}/news`, lastModified: "2026-09-10", changeFrequency: "hourly", priority: 0.86 },
-    { url: `${siteUrl}/web3-events`, lastModified: "2026-09-02", changeFrequency: "weekly", priority: 0.87 },
+    { url: `${siteUrl}/web3-events`, lastModified: "2026-11-07", changeFrequency: "weekly", priority: 0.87 },
     { url: `${siteUrl}/news/fluidrwa-surestack-partnership`, lastModified: "2026-07-23", changeFrequency: "monthly", priority: 0.76 },
     { url: `${siteUrl}/news/fluidrwa-minddeft-partnership`, lastModified: "2026-07-09", changeFrequency: "monthly", priority: 0.74 },
     { url: `${siteUrl}/news/nowpayments-featured-on-fluidrwa`, lastModified: "2026-09-10", changeFrequency: "monthly", priority: 0.78 },

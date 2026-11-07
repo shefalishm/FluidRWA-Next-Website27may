@@ -1,3 +1,5 @@
+import { eventReviews, newReviewedEvents } from "./web3EventReview";
+
 export type Web3Event = {
   slug: string;
   name: string;
@@ -11,13 +13,13 @@ export type Web3Event = {
   focus: string;
   audience: string;
   description: string;
-  status: "Confirmed dates" | "Month announced";
+  status: "Confirmed dates" | "Month announced" | "Date pending";
   track: "Builders" | "Institutional" | "Policy" | "Ecosystem";
 };
 
-// Dates are based on organizer announcements reviewed on 2 September 2026.
-// No event or ticket links are included here: check the organizer before making travel plans.
-export const web3Events: Web3Event[] = [
+// Original September records are preserved for the archive. Reviewed corrections
+// and organizer evidence are applied below before anything reaches the calendar.
+const originalWeb3Events: Web3Event[] = [
   {
     slug: "ethonline-2026",
     name: "ETHOnline 2026",
@@ -382,8 +384,8 @@ export const web3Events: Web3Event[] = [
 
 export const web3EventTracks = ["All", "Builders", "Institutional", "Policy", "Ecosystem"] as const;
 
-export type EventTheme = "Web3 & digital assets" | "Family offices & private capital";
-export type EventRegion = "North America" | "Europe" | "Asia-Pacific" | "Middle East" | "Africa" | "Global / online";
+export type EventTheme = "Web3 & digital assets" | "Family offices & private capital" | "AI & infrastructure";
+export type EventRegion = "North America" | "Latin America" | "Europe" | "Asia-Pacific" | "Middle East" | "Africa" | "Global / online";
 
 export type CalendarEvent = Web3Event & {
   theme: EventTheme;
@@ -408,7 +410,7 @@ const officialEventImages: Partial<Record<string, string>> = {
   "token2049-singapore-2026": "https://token2049.nyc3.cdn.digitaloceanspaces.com/Singapore/OG/T2049%20Singapore%20-%20OpenGraph%20(2026)%202%20OCT%202025.avif"
 };
 
-export const familyOfficeEvents: CalendarEvent[] = [
+const originalFamilyOfficeEvents: CalendarEvent[] = [
   {
     slug: "family-office-forum-frankfurt-2026",
     name: "Family Office Forum Frankfurt",
@@ -618,19 +620,74 @@ export const familyOfficeEvents: CalendarEvent[] = [
   }
 ];
 
-export const calendarEvents: CalendarEvent[] = [
-  ...web3Events.map((event) => ({
+const originalCalendarEvents: CalendarEvent[] = [
+  ...originalWeb3Events.map((event) => ({
     ...event,
     theme: "Web3 & digital assets" as const,
     region: regionForCountry(event.country),
     imageUrl: officialEventImages[event.slug]
   })),
-  ...familyOfficeEvents
+  ...originalFamilyOfficeEvents
 ];
+
+export const calendarReviewedDate = "2026-11-07";
+export const calendarCoverageEnd = "2028-03-31";
+
+export type EventReview = {
+  organizerUrl: string;
+  venue: string;
+  access: string;
+  checkedDate: string;
+  note?: string;
+  updates?: Partial<Web3Event>;
+};
+
+export type ReviewedCalendarEvent = CalendarEvent & Omit<EventReview, "updates"> & { imageAlt: string };
+
+const cityImages: Record<string, string> = {
+  Mumbai: "mumbai", London: "london", Dubai: "dubai", Zurich: "zurich",
+  "Hong Kong": "hong-kong", "Miami Beach": "miami", "New York": "new-york",
+  Singapore: "singapore", Cannes: "cannes", Amsterdam: "amsterdam"
+};
+
+export const calendarEvents: ReviewedCalendarEvent[] = [...originalCalendarEvents, ...newReviewedEvents].map((event) => {
+  const review = eventReviews[event.slug];
+  const updated = { ...event, ...review?.updates };
+  const image = cityImages[updated.city] || (updated.theme === "AI & infrastructure" ? "ai" : "capital");
+  return {
+    ...updated,
+    organizerUrl: review?.organizerUrl || "",
+    venue: review?.venue || "Venue not reverified",
+    access: review?.access || "Historical listing; check organizer archive",
+    checkedDate: review?.checkedDate || "2026-09-02",
+    note: review?.note,
+    imageUrl: `/assets/events/${image}.webp`,
+    imageAlt: cityImages[updated.city]
+      ? `Illustration of ${updated.city} architecture; not a photograph of ${updated.name}`
+      : `Illustration of ${updated.theme === "AI & infrastructure" ? "AI circuitry" : "finance and connected markets"}; not an event photograph`
+  };
+}).sort((a, b) => (a.startDate || `${a.year}-12-31`).localeCompare(b.startDate || `${b.year}-12-31`));
+
+export const familyOfficeEvents = calendarEvents.filter((event) => event.theme === "Family offices & private capital");
+
+export type CalendarPeriod = "Upcoming" | "Date pending" | "Past";
+export function eventPeriod(event: CalendarEvent, today = calendarReviewedDate): CalendarPeriod {
+  if (!event.startDate) return "Date pending";
+  return (event.endDate || event.startDate) < today ? "Past" : "Upcoming";
+}
+
+export function organizerTrackingUrl(event: ReviewedCalendarEvent): string {
+  const url = new URL(event.organizerUrl);
+  url.searchParams.set("utm_source", "fluidrwa");
+  url.searchParams.set("utm_medium", "event-calendar");
+  url.searchParams.set("utm_campaign", event.slug);
+  return url.toString();
+}
 
 export const eventRegions: Array<"All locations" | EventRegion> = [
   "All locations",
   "North America",
+  "Latin America",
   "Europe",
   "Asia-Pacific",
   "Middle East",

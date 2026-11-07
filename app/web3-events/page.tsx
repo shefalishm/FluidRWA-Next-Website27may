@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { Web3EventsCalendar } from "@/components/Web3EventsCalendar";
 import { siteUrl } from "@/lib/routes";
-import { calendarEvents, familyOfficeEvents } from "@/lib/web3Events";
+import { calendarEvents, familyOfficeEvents, eventPeriod, calendarReviewedDate } from "@/lib/web3Events";
 
 const pageUrl = `${siteUrl}/web3-events`;
-const confirmedEvents = calendarEvents.filter((event) => event.status === "Confirmed dates");
+const confirmedEvents = calendarEvents.filter((event) => eventPeriod(event) === "Upcoming");
 
 export const metadata: Metadata = {
-  title: "Web3 Events Calendar 2026-2027 | FluidRWA",
+  title: "Web3, RWA & AI Events Calendar 2026-2028 | FluidRWA",
   description:
-    "A curated calendar of announced Web3, blockchain, tokenization, digital-asset, policy, family-office and private-capital events from September 2026 through June 2027.",
+    "Organizer-verified Web3, RWA, blockchain, AI and private-capital events. Upcoming dates through December 2027, early-2028 announcements and a past-event archive. Reviewed November 7, 2026.",
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Web3 Events Calendar: 2026-2027",
+    title: "Web3, RWA & AI Events Calendar: 2026-2028",
     description: "Plan your Web3, tokenization, private-capital and digital-asset conference calendar with organizer-announced events.",
     url: pageUrl,
     type: "website"
@@ -24,17 +24,17 @@ export default function Web3EventsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Web3 Events Calendar 2026-2027",
+    name: "Web3, RWA & AI Events Calendar 2026-2028",
     url: pageUrl,
     description: metadata.description,
-    dateModified: "2026-09-02",
+    dateModified: calendarReviewedDate,
     mainEntity: {
       "@type": "ItemList",
       itemListElement: calendarEvents.map((event, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name: event.name,
-        url: `${pageUrl}#${event.slug}`
+        url: event.organizerUrl || `${pageUrl}#${event.slug}`
       }))
     }
   };
@@ -48,17 +48,17 @@ export default function Web3EventsPage() {
             <p className="eyebrow light-eyebrow">FluidRWA field calendar</p>
             <h1>Web3 events worth planning around</h1>
             <p>
-              A curated calendar of announced Web3, tokenization, digital-asset, policy and private-capital gatherings from September 2026 through June 2027.
+              Organizer-announced Web3, RWA, digital-asset, AI and private-capital gatherings. Research through March 2028, with confirmed dates kept separate from pending announcements.
             </p>
           </div>
           <aside className="events-hero-panel" aria-label="Calendar coverage">
             <span>Coverage window</span>
-            <strong>Sep 2026 - Jun 2027</strong>
+            <strong>Nov 2026 - Mar 2028</strong>
             <div>
-              <b>{calendarEvents.length}</b><span>organizer-announced events</span>
+              <b>{calendarEvents.filter((event) => event.checkedDate === calendarReviewedDate).length}</b><span>listings checked this review</span>
             </div>
             <div>
-              <b>{confirmedEvents.length}</b><span>with confirmed dates</span>
+              <b>{confirmedEvents.length}</b><span>upcoming or ongoing at review</span>
             </div>
           </aside>
         </div>
@@ -87,7 +87,7 @@ export default function Web3EventsPage() {
             </p>
           </div>
           <div className="events-private-capital-grid">
-            {familyOfficeEvents.slice(0, 4).map((event) => (
+            {familyOfficeEvents.filter((event) => eventPeriod(event) === "Upcoming").slice(0, 4).map((event) => (
               <article key={event.slug}>
                 <span>{event.dateLabel}</span>
                 <h3>{event.name}</h3>
