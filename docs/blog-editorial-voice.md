@@ -19,6 +19,7 @@ Write for someone trying to make a real purchase, launch, or operating decision.
 
 ## Edit out
 
+- Across all public pages, exclude internal workflow notes, counts checked, review-progress statistics and publication or release QA language. Keep useful source-check dates, public methodology and evidence limitations in natural reader-facing language.
 - Formulaic contrasts such as "not X, but Y" when a direct sentence works.
 - Filler openings: "here's the thing," "the real question is," "it's important to note," and "in today's fast-paced world."
 - Identical diligence paragraphs under every vendor, repeated RFP lists, and FAQs that merely restate the article.

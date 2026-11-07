@@ -5,7 +5,6 @@ import { siteUrl } from "@/lib/routes";
 import { calendarEvents, familyOfficeEvents, eventPeriod, calendarReviewedDate } from "@/lib/web3Events";
 
 const pageUrl = `${siteUrl}/web3-events`;
-const confirmedEvents = calendarEvents.filter((event) => eventPeriod(event) === "Upcoming");
 
 export const metadata: Metadata = {
   title: "Web3, RWA & AI Events Calendar 2026-2028 | FluidRWA",
@@ -48,19 +47,9 @@ export default function Web3EventsPage() {
             <p className="eyebrow light-eyebrow">FluidRWA field calendar</p>
             <h1>Web3 events worth planning around</h1>
             <p>
-              Organizer-announced Web3, RWA, digital-asset, AI and private-capital gatherings. Research through March 2028, with confirmed dates kept separate from pending announcements.
+              Organizer-announced Web3, RWA, digital-asset, AI and private-capital gatherings through March 2028, with confirmed dates kept separate from pending announcements.
             </p>
           </div>
-          <aside className="events-hero-panel" aria-label="Calendar coverage">
-            <span>Coverage window</span>
-            <strong>Nov 2026 - Mar 2028</strong>
-            <div>
-              <b>{calendarEvents.filter((event) => event.checkedDate === calendarReviewedDate).length}</b><span>listings checked this review</span>
-            </div>
-            <div>
-              <b>{confirmedEvents.length}</b><span>upcoming or ongoing at review</span>
-            </div>
-          </aside>
         </div>
       </section>
 

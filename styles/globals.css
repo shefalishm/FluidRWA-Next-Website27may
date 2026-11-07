@@ -6898,7 +6898,7 @@ body {
 
 .events-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(28px, 6vw, 76px);
   align-items: end;
 }

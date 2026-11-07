@@ -679,8 +679,8 @@ export function eventPeriod(event: CalendarEvent, today = calendarReviewedDate):
 export function organizerTrackingUrl(event: ReviewedCalendarEvent): string {
   const url = new URL(event.organizerUrl);
   url.searchParams.set("utm_source", "fluidrwa");
-  url.searchParams.set("utm_medium", "event-calendar");
-  url.searchParams.set("utm_campaign", event.slug);
+  url.searchParams.set("utm_medium", "referral");
+  url.searchParams.set("utm_campaign", "events_calendar");
   return url.toString();
 }
 

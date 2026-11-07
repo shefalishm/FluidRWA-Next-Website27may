@@ -124,7 +124,7 @@ export function Web3EventsCalendar() {
           </div>
           <p aria-live="polite">{visibleEvents.length} events shown. Last reviewed 7 November 2026. Dates are local calendar days; session times are not inferred. Verify dates, venue and access with the organizer before travel.</p>
         </div>
-        <p className="events-coverage-note">Research window: November 2026-March 2028. No exact-date January-March 2028 events were verified in this review. The announced March 2028 Abu Dhabi forum appears under Date pending. Pictures are original AI-generated city or topic illustrations, not event photographs.</p>
+        <p className="events-coverage-note">Exact dates for January-March 2028 events are not yet confirmed. The announced March 2028 Abu Dhabi forum appears under Date pending. Pictures are original AI-generated city or topic illustrations, not event photographs.</p>
 
         {eventsByYear.map(({ year, events }) => events.length > 0 ? (
           <section className="events-year" key={year} aria-labelledby={`events-${year}`}>
