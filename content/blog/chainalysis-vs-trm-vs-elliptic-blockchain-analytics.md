@@ -3,9 +3,12 @@ title: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Crypto Analytics Compare
 seoTitle: "Chainalysis vs TRM vs Elliptic vs Cognyte"
 description: "Compare four crypto analytics platforms for wallet screening, transaction monitoring, sanctions, investigations and forensics."
 date: "2026-08-03"
-reviewedDate: "2026-10-02"
-reviewedLabel: "October 2, 2026"
-modifiedDate: "2026-10-25"
+reviewedDate: "2026-11-07"
+reviewedLabel: "November 7, 2026"
+modifiedDate: "2026-11-07"
+reviewedBy: "FluidRWA Research Team"
+readerFirst: "true"
+considerationAfterTable: "true"
 category: "Compliance"
 slug: "chainalysis-vs-trm-vs-elliptic-blockchain-analytics"
 infographicImage: "/assets/infographics/chainalysis-vs-trm-vs-elliptic-blockchain-analytics-comparison.png"
@@ -17,7 +20,7 @@ infographicWidth: "1600"
 infographicHeight: "1050"
 image: "/assets/blog-images/chainalysis-vs-trm-vs-elliptic-blockchain-analytics.svg"
 imageAlt: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Crypto Analytics Compared editorial infrastructure visual"
-answer: "Chainalysis is a strong starting point for mature KYT and investigation programs; TRM Labs for configurable monitoring, threat intelligence and case workflows; Elliptic for institutional wallet screening and transaction monitoring; and Cognyte for intelligence-led law-enforcement investigations that combine blockchain tracing with broader investigative analytics. The four products should not be treated as interchangeable."
+answer: "Compare Chainalysis Address Screening, KYT and Reactor with TRM Wallet Screening, Transaction Monitoring and Forensics by the job you need done. Elliptic now combines wallet screening and transaction monitoring in Lens, with Investigator for deeper tracing. Cognyte BLINK serves a distinct law-enforcement investigation need. There is no evidence here of a universal accuracy, price or performance winner."
 ctaTitle: "Compare compliance vendors by workflow"
 ctaText: "FluidRWA helps tokenization, fintech and Web3 teams shortlist KYC, AML, wallet screening and compliance infrastructure providers by risk model."
 ctaLabel: "Compare Compliance Infrastructure"
@@ -47,11 +50,11 @@ socialImage: "/assets/social/blog-chainalysis-vs-trm-vs-elliptic-blockchain-anal
 socialTitle: "Chainalysis vs TRM vs Elliptic vs Cognyte"
 ---
 
-## Start with the decision your team has to make
+## Which blockchain analytics platform fits your workflow?
 
-If your product receives deposits, you may need a wallet risk check before crediting a customer. If an alert fires, an analyst needs a case record they can explain and revisit. A public-sector investigation has a different task: connecting blockchain activity to other evidence. Those jobs call for different demonstrations from vendors.
+For deposit and withdrawal controls, compare Chainalysis Address Screening and KYT, TRM Wallet Screening and Transaction Monitoring, and Elliptic Lens. For deeper tracing, compare Reactor, TRM Forensics and Elliptic Investigator. Include Cognyte BLINK when the task is a law-enforcement investigation connecting crypto activity to wider intelligence. Buying a screening API and buying an investigative workspace are different decisions.
 
-Chainalysis, TRM Labs and Elliptic are relevant to private-sector screening and monitoring. Cognyte is more closely associated with intelligence-led investigations. Ask each company to demonstrate the decision your team makes, the data behind it and the record you can export afterward.
+If your product receives deposits, test the risk check before crediting a customer and the analyst's evidence record after an alert. The product links below establish the vendors' stated scope; they do not establish comparative accuracy or prove that your chains, policy and purchased package are supported.
 
 ## Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Direct Decision
 
@@ -70,9 +73,9 @@ For private-sector compliance teams, Cognyte is usually an adjacent investigativ
 
 ### Chainalysis
 
-Chainalysis sells blockchain intelligence, KYT and investigation products to compliance teams and investigators. In a demonstration, separate the screening decision from the analyst's later investigation; they are different jobs.
+Chainalysis separates [Address Screening](https://www.chainalysis.com/product/address-screening/) for wallet risk checks, [KYT](https://www.chainalysis.com/product/kyt/) for transaction monitoring, and [Reactor](https://www.chainalysis.com/product/reactor/) for investigations. Ask which products and analyst seats the proposed package includes.
 
-Its KYT product focuses on monitoring incoming and outgoing crypto transactions, risk scoring, alerts, behavioral rules, case management and API integration. Chainalysis also has investigation tooling and data products that can support deeper forensic work.
+KYT documents configurable behavioral and direct/indirect exposure alerts. Address Screening also describes both direct and indirect exposure. Require a worked example showing where tracing stops, how exposure is calculated and which evidence survives an export.
 
 Ask Chainalysis to demonstrate these requirements if they matter to your team:
 
@@ -86,7 +89,7 @@ The main diligence question is whether Chainalysis' depth, pricing and operating
 
 ### TRM Labs
 
-TRM Labs is often evaluated for transaction monitoring, wallet screening, investigations, fraud detection and threat intelligence. It is relevant where compliance teams want flexible alerting and case management around deposits, withdrawals, wallets, counterparties and behavioral patterns.
+TRM distinguishes [Wallet Screening](https://www.trmlabs.com/crypto-compliance/wallet-screening), [Transaction Monitoring](https://www.trmlabs.com/crypto-compliance/transaction-monitoring) and [Forensics](https://www.trmlabs.com/forensics). Wallet Screening describes ownership, counterparty and indirect-risk settings; Transaction Monitoring describes multi-condition rules, case ownership, notes, daily transaction rescreening and a risk-engine audit log.
 
 Ask TRM to demonstrate these requirements if they matter to your team:
 
@@ -102,7 +105,7 @@ The main diligence question is how well TRM's risk categories, attribution and w
 
 ### Elliptic
 
-Elliptic is frequently evaluated for wallet screening, transaction monitoring, risk scoring and investigation workflows. Its materials emphasize real-time monitoring, configurable risk rules, automatic rescreening, wallet context and support for financial institutions, regulators, law enforcement and crypto businesses.
+[Elliptic Lens](https://www.elliptic.co/products/lens/) now combines wallet and transaction screening, configurable risk rules and continuous monitoring. [Investigator](https://www.elliptic.co/products/investigator/) provides deeper visual tracing and exportable investigation records. Older references name Navigator for transaction monitoring: Elliptic's [February 25, 2026 Lens announcement](https://www.elliptic.co/insights/introducing-the-new-lens-one-workflow-from-alert-to-decision/) explains the unified workflow for customers previously using Lens and Navigator. Confirm your API and migration scope rather than assuming every historical product name is a separate current purchase.
 
 Ask Elliptic to demonstrate these requirements if they matter to your team:
 
@@ -118,7 +121,7 @@ The main diligence question is whether Elliptic's coverage, risk methodology and
 
 ### Cognyte
 
-Cognyte positions BLINK around blockchain investigations for law-enforcement and intelligence teams. Its public materials emphasize following transaction trails, identifying suspects, generating investigative leads and combining blockchain activity with complementary analytics.
+[Cognyte positions BLINK](https://www.cognyte.com/blockchain-analytics/) around law-enforcement cryptocurrency investigations: suspect identification, historical and ongoing transaction tracing, and new leads using complementary analytics and intelligence techniques. This public page does not establish an embedded private-sector wallet-screening or KYT API equivalent to the other vendors' compliance products. Suspect identification and confiscation are vendor-described objectives, not guaranteed outcomes or proof of legal admissibility.
 
 Ask Cognyte to demonstrate these requirements if they matter to your team:
 
@@ -134,11 +137,27 @@ The main diligence question is whether the buyer needs an investigative intellig
 
 | Decision factor | Chainalysis | TRM Labs | Elliptic | Cognyte |
 |---|---|---|---|---|
-| Natural buyer | Exchanges, institutions, VASPs, regulators and mature compliance teams | Crypto businesses, fintechs and teams needing configurable monitoring | Institutions and crypto businesses needing screening and monitoring | Law-enforcement, intelligence and public-safety investigation teams |
-| Workflow to test | KYT, investigations and risk operations | Monitoring, threat intelligence, case management and investigations | Wallet screening, monitoring, rescreening and risk context | Intelligence-led tracing, suspect identification and lead generation |
-| Likely buyer task | Operational crypto compliance plus investigations | Private-sector monitoring and threat workflows | Screening and transaction risk operations | Cryptocurrency investigations connected to wider intelligence |
-| Main buying question | Do we need the full mature compliance and investigation suite? | Do we need configurable monitoring and threat intelligence? | Do we need screening and rescreening with institutional workflow fit? | Do we need investigative intelligence rather than an embedded KYT control? |
-| What to test | Alert quality, API flow, chains, case evidence and user-risk model | Rule tuning, analyst workflow, typologies and false positives | Attribution, risk categories, rescreening and reporting | Investigation data, attribution evidence, analyst workflow and legal admissibility needs |
+| Best fit to explore | Mature compliance and investigations | Configurable monitoring and threat intelligence | Screening, monitoring and rescreening | Public-sector investigative intelligence |
+| Core workflow | KYT, investigations and risk operations | Monitoring, cases and investigations | Wallet screening and transaction risk | Tracing and wider intelligence fusion |
+| Test first | Alert quality, APIs and case evidence | Rule tuning and false positives | Attribution, categories and reporting | Evidence handling and analyst workflow |
+| Screening product | [Address Screening](https://www.chainalysis.com/product/address-screening/) | [Wallet Screening](https://www.trmlabs.com/crypto-compliance/wallet-screening) | [Lens](https://www.elliptic.co/products/lens/) | Private-sector screening API scope not established by the cited BLINK page |
+| Monitoring product | [KYT](https://www.chainalysis.com/product/kyt/) | [Transaction Monitoring](https://www.trmlabs.com/crypto-compliance/transaction-monitoring) | Lens; Navigator appears in older materials | Require a separate demonstration of any operational compliance control |
+| Investigation product | [Reactor](https://www.chainalysis.com/product/reactor/) | [Forensics](https://www.trmlabs.com/forensics) | [Investigator](https://www.elliptic.co/products/investigator/) | [BLINK](https://www.cognyte.com/blockchain-analytics/) |
+
+The graphic summarizes the first three rows; the linked product rows provide the fuller purchasing context. These are workflow candidates, not exclusive capabilities or a ranking.
+
+## Acceptance checks before requesting a quote
+
+Use the same fictional stablecoin deposit and withdrawal cases for every shortlisted provider. Include a direct sanctioned-counterparty exposure, an indirect path through an intermediary, a later attribution change and an unsupported network. These are proposed buyer tests, not results from a FluidRWA product trial.
+
+| Purchase question | Evidence to request | What remains unproven by public product pages |
+|---|---|---|
+| How is indirect exposure treated? | Show the path, direction, amount/percentage, time window, hop or service stopping rule and attribution confidence. Compare it with direct exposure under the same policy. | A vendor's risk score is not a shared unit across vendors. [Chainalysis KYT](https://www.chainalysis.com/product/kyt/) describes exposure rules; [TRM's July 8, 2025 update](https://www.trmlabs.com/resources/blog/june-2025-product-highlights-upgrades-for-expanded-indirect-exposure-and-more) describes multi-hop exposure. Neither establishes equal methodology or today's coverage for your case. |
+| Are our networks and assets supported for this task? | Obtain a dated chain, token-contract and bridge list separately for screening, monitoring and tracing; test unsupported-asset responses. | A headline network count does not establish identical depth across products, assets or historical periods. |
+| Can our policy be configured and audited? | Change a threshold, record the policy version, rerun the case and export both decisions with their explanations. | KYT, TRM and Lens describe configuration; the exact controls, permissions and audit retention in your package require confirmation. |
+| What changes after the initial screen? | Introduce a later risk-label change; show rescreen triggers, timing, webhook delivery, retries and whether a closed case reopens. | [TRM monitoring](https://www.trmlabs.com/crypto-compliance/transaction-monitoring) describes daily transaction rescreening; [Lens](https://www.elliptic.co/products/lens/) describes automatic rescreening. Confirm wallet versus transaction scope and service commitments in the contract. |
+| Can an analyst hand over defensible evidence? | Export source transaction IDs, network, timestamps, attribution provenance, graph, notes, policy and decision history; reopen the record outside the tool. | Investigator describes exportable records; export formats, provenance retention and admissibility for every proposed product still need review. |
+| What exactly are we buying? | Quote API volumes, monitoring/rescreening units, analyst seats, investigation access, retention, support, training, overages and exit exports separately. | Public descriptions do not establish your price, bundled licences, latency guarantee or acceptance of your business. |
 
 ## How Tokenization Teams Should Use These Tools
 
@@ -176,17 +195,19 @@ Before choosing Chainalysis, TRM Labs, Elliptic, Cognyte or another analytics pr
 
 Shortlist providers based on the compliance decision you need to automate.
 
-Choose Chainalysis if your priority is mature KYT, investigation depth and institutional recognition.
+Evaluate Chainalysis when you need to connect Address Screening or KYT decisions to Reactor investigations; demonstrate the handoff and included access.
 
-Choose TRM Labs if your priority is flexible rules, threat intelligence and operational monitoring.
+Evaluate TRM when you need configurable monitoring and case review; test the policy audit log and escalation into Forensics.
 
-Choose Elliptic if your priority is wallet screening, ongoing transaction monitoring and institutional crypto risk workflows.
+Evaluate Elliptic when you want wallet and transaction screening in Lens; test rescreening and the context passed to Investigator.
 
 Consider Cognyte when the primary requirement is intelligence-led public-sector investigation rather than customer-level transaction monitoring.
 
-Then test all three against your real wallet flows. The best provider is the one that gives your compliance team accurate, usable signals without creating an unmanageable alert queue.
+Request the same acceptance demonstration and an itemized quote from your shortlist. Agree who can pause a transfer, resolve an alert and approve a policy exception. No tool replaces the buyer's compliance judgment or legal review.
 
 ## Continue Your Research
+
+Build a brief with your chains and token contracts, expected volumes, jurisdictions, screening decision point, analyst staffing and evidence-retention needs. Use it to compare directory candidates, then share it through the existing requirements path or email [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
 
 - [Compare compliance infrastructure providers](/vendors/compliance-infrastructure-providers/)
 - [Compare KYC and AML providers](/vendors/kyc-aml-providers/)
@@ -195,9 +216,14 @@ Then test all three against your real wallet flows. The best provider is the one
 
 ## Primary and Authoritative Sources
 
+Product scope and naming checked November 7, 2026 against the official pages linked above and below. This is a public-documentation comparison, not an independent test of detection accuracy, speed, false positives or legal suitability. The dated TRM update and Elliptic announcement explain specific changes; their publication dates are not current performance measurements.
+
+- [Chainalysis Address Screening](https://www.chainalysis.com/product/address-screening/)
 - [Chainalysis KYT](https://www.chainalysis.com/product/kyt/)
-- [Chainalysis KYT API documentation](https://kytdoc.kyt-dev.e.chainalysis.com/)
-- [TRM Labs transaction monitoring](https://www.trmlabs.com/blockchain-intelligence-platform/transaction-monitoring)
-- [Elliptic crypto transaction monitoring](https://www.elliptic.co/crypto-transaction-monitoring-tools)
+- [Chainalysis Reactor](https://www.chainalysis.com/product/reactor/)
+- [TRM Wallet Screening](https://www.trmlabs.com/crypto-compliance/wallet-screening)
+- [TRM Transaction Monitoring](https://www.trmlabs.com/crypto-compliance/transaction-monitoring)
+- [TRM Forensics](https://www.trmlabs.com/forensics)
+- [Elliptic Lens](https://www.elliptic.co/products/lens/)
+- [Elliptic Investigator](https://www.elliptic.co/products/investigator/)
 - [Cognyte blockchain analytics](https://www.cognyte.com/blockchain-analytics/)
-- [FATF virtual assets guidance](https://www.fatf-gafi.org/en/topics/virtual-assets.html)
