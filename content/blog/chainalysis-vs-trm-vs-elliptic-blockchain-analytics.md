@@ -1,5 +1,5 @@
 ---
-title: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte: Crypto Analytics Compared"
+title: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte"
 seoTitle: "Chainalysis vs TRM vs Elliptic vs Cognyte"
 description: "Compare four crypto analytics platforms for wallet screening, transaction monitoring, sanctions, investigations and forensics."
 date: "2026-08-03"

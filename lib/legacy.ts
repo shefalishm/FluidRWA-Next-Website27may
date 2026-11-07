@@ -11,6 +11,8 @@ type SeoOverride = {
   description: string;
   heading?: string;
   canonicalPath?: string;
+  socialImageAlt?: string;
+  openGraphType?: "article" | "website";
 };
 
 const seoOverrides: Record<string, SeoOverride> = {
@@ -27,7 +29,9 @@ const seoOverrides: Record<string, SeoOverride> = {
   "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": {
     title: "Chainalysis vs TRM vs Elliptic vs Cognyte",
     description: "Compare four crypto analytics platforms for wallet screening, transaction monitoring, sanctions, investigations and forensics.",
-    heading: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte"
+    heading: "Chainalysis vs TRM Labs vs Elliptic vs Cognyte",
+    socialImageAlt: "FluidRWA: Illustrative analyst reviewing network graphs across three monitors; not a vendor product screenshot.",
+    openGraphType: "article"
   },
   "blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers/index.html": {
     title: "Chainstack vs Alchemy vs QuickNode: Managed RPC",
@@ -232,14 +236,16 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
       description,
       url: canonical,
       siteName: "FluidRWA",
-      images: [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, width: 1200, height: 630 }],
-      type: "website"
+      images: [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, width: 1200, height: 630, ...(override?.socialImageAlt ? { alt: override.socialImageAlt } : {}) }],
+      type: override?.openGraphType || "website"
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage]
+      images: override?.socialImageAlt
+        ? [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, alt: override.socialImageAlt }]
+        : [ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage]
     },
     robots: {
       index: shouldIndex,

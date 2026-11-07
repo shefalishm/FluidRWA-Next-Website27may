@@ -498,6 +498,7 @@ function baseCardPreview(post) {
 }
 
 const specificCardImages = {
+  "chainalysis-vs-trm-vs-elliptic-blockchain-analytics": ["blog-chainalysis-vs-trm-vs-elliptic-blockchain-analytics-editorial", "FluidRWA: Illustrative analyst reviewing network graphs across three monitors; not a vendor product screenshot."],
   "what-s-the-difference-between-tokenization-methods": ["tokenization-methods", "Asset documents beside a digital ownership ledger"],
   "what-s-the-fastest-way-to-get-started-with-tokenization": ["tokenization-get-started", "Team planning an asset tokenization launch"],
   "what-s-the-minimum-asset-size-worth-tokenizing": ["tokenization-asset-size", "Financial analyst assessing the size of an asset"],
