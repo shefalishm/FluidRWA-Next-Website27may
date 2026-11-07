@@ -6332,6 +6332,40 @@ tr:last-child td { border-bottom: 0; }
   }
 }
 
+/* Accounting directory: separate FAQs, listing invitation and review provenance. */
+#accounting-buyer-resources h2 {
+  margin: 36px 0 16px;
+  font-size: 28px;
+  line-height: 1.25;
+}
+#accounting-buyer-resources h2:first-child { margin-top: 0; }
+#accounting-buyer-resources ul { padding-left: 24px; }
+#accounting-buyer-resources li + li { margin-top: 10px; }
+#accounting-buyer-resources details { border-bottom: 1px solid #cbd5e1; }
+#accounting-buyer-resources summary {
+  padding: 16px 4px;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.5;
+}
+#accounting-buyer-resources summary:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+#accounting-buyer-resources details p {
+  margin: 0;
+  padding: 0 4px 20px;
+  max-width: 80ch;
+  line-height: 1.7;
+}
+#accounting-buyer-resources .light-container > p { line-height: 1.7; }
+#accounting-buyer-resources .light-container > p:last-child {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #cbd5e1;
+  max-width: 85ch;
+}
+
 /* Final mobile QA override, intentionally last. */
 @media (max-width: 620px) {
   html,
