@@ -30,7 +30,7 @@ export const eventReviews: Record<string, EventReview> = {
   "africa-blockchain-week-2027": review("https://tuaevents.org/events", "Lagos Oriental Hotel", ticket, { updates: { name: "Africa Blockchain, DeFi & Web3 Summit 2027 (Africa Blockchain Week)" } }),
   "vienna-blockchain-week-2027": review("https://viennablockchainweek.org/about", "Vienna; venue pending", ticket),
   "ethconf-2027": review("https://ethconf.com/", "Javits Center, New York"),
-  "nzcryptocon-2027": review("https://nzcryptocon.com/", "Auckland; exact venue pending", "Organizer advertises early-bird tickets; exact event days pending", { note: "June 2027 only. No June 1 placeholder date is used." }),
+  "nzcryptocon-2027": review("https://nzcryptocon.com/", "Auckland; exact venue pending", "Organizer advertises early-bird tickets; exact event days pending", { note: "June 2027 is announced; exact days are pending." }),
   "global-blockchain-crypto-symposium-2027": review("https://blockchaincrypto-symposium.com/", "City of London; exact venue pending", "Attendance enquiries open; confirm 2027 booking conditions", { note: "Header announces June 2027. The retained Wednesday June 24 agenda belongs to 2026 and is not evidence of a 2027 day." }),
   "incrypted-conference-2027": review("https://incryptedconference.com/en/", "Kyiv; venue pending", "Organizer ticket link; exact event days pending", { note: "Organizer announces June 2027; older 2026 headings and speakers are not treated as the 2027 programme." }),
   "family-office-forum-zurich-2026": review(prestel + "familyofficeforumzurich.html", "The Dolder Grand", application),
@@ -41,7 +41,7 @@ export const eventReviews: Record<string, EventReview> = {
   "family-office-super-summit-2026": review("https://familyoffices.com/super/", "Fort Lauderdale; confirm venue after admission", "Family Office Club membership or qualified investor admission; no summit-only tickets"),
   "digital-family-office-forum-2027": review("https://ukfos.com/family-office-events-uk-2026", "Online", "Register interest with Private Markets Group; 2027 dates not verified", {
     updates: { startDate: undefined, endDate: undefined, dateLabel: "2027 dates pending", status: "Date pending", description: "Private Markets Group lists its digital family-office forum series. The previously listed February 9-10, 2027 dates could not be confirmed and have been withdrawn." },
-    note: "Not a confirmed 2027 edition. Retained separately for follow-up, without a machine-readable event date."
+    note: "The organizer has not confirmed a 2027 edition or exact dates."
   }),
   "family-office-forum-dubai-2027": review(prestel + "familyofficeforumdubai.html", "The Palace Downtown", application, {
     updates: { startDate: "2027-03-16", endDate: "2027-03-17", dateLabel: "16-17 Mar 2027" }, note: "Corrected from March 24-25 to the organizer's March 16-17 announcement."
