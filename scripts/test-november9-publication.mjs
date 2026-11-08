@@ -25,7 +25,7 @@ try {
       const errors = [];
       const onError = error => errors.push(error.message);
       page.on('pageerror', onError);
-      assert.equal((await page.goto(`${base}/${path}?analytics=off`, { waitUntil: 'networkidle' })).status(), 200);
+      assert.equal((await page.goto(`${base}/${path}?analytics=off${count ? '&hq=US' : ''}`, { waitUntil: 'networkidle' })).status(), 200);
       assert.equal(await page.title(), title);
       assert.equal(await page.locator('h1').count(), 1);
       assert.equal(await page.locator('h1').innerText(), heading);
@@ -43,6 +43,7 @@ try {
       if (count) {
         const cards = page.locator('.bc-provider-card, .bc-company-card');
         assert.equal(await cards.count(), count);
+        assert.equal(await page.locator('.bc-provider-card:visible, .bc-company-card:visible').count(), count, 'Removed HQ control must not leave a hidden URL filter');
         const order = await cards.evaluateAll(nodes => nodes.map(n => n.id));
         const sourceFile = path.includes('growth') ? 'vendors/growth-marketing/index.html' : 'vendors/blockchain-development/index.html';
         const original = [...fs.readFileSync(sourceFile, 'utf8').matchAll(/<article class="bc-(?:provider|company)-card[^>]*id="([^"]+)"/g)].map(m => m[1]);

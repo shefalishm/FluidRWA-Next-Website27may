@@ -1580,7 +1580,7 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   const queryControl = existingSearch || panel.querySelector("[data-provider-query]");
   const locationControl = locationSelect.querySelector("select");
-  const initialHq = new URLSearchParams(window.location.search).get("hq");
+  const initialHq = serviceDirectory ? null : new URLSearchParams(window.location.search).get("hq");
   if (initialHq && [...locationControl.options].some((option) => option.value === initialHq)) locationControl.value = initialHq;
   const regulatoryControl = regulatorySelect.querySelector("select");
   const budgetControl = budgetSelect.querySelector("select");
