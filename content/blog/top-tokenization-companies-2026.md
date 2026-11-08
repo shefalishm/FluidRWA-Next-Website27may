@@ -5,7 +5,7 @@ description: "Compare 10 RWA tokenization platforms by issuance model, investor 
 date: "2026-07-11"
 reviewedDate: "2026-09-30"
 reviewedLabel: "September 30, 2026"
-modifiedDate: "2026-11-06"
+modifiedDate: "2026-11-08"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 considerationAfterTable: "true"
@@ -43,10 +43,12 @@ socialImage: "/assets/social/blog-top-tokenization-companies-2026-editorial.jpg"
 infographicImage: "/assets/infographics/rwa-tokenization-platform-shortlist-map-2026.png"
 infographicMobileImage: "/assets/infographics/rwa-tokenization-platform-shortlist-map-2026-mobile.png"
 infographicName: "RWA Tokenization Platform Shortlist Map for 2026"
-infographicAlt: "Comparison infographic grouping Securitize, ADDX, InvestaX, Tokeny, Polymath, Zoniqx, Brickken, DigiShares, Taurus and Libre by buyer starting point"
+infographicAlt: "Shortlist map grouping Securitize, ADDX, InvestaX, Tokeny, Polymath, Zoniqx, Brickken, DigiShares, Taurus and KAIO by operating fit; names and buyer checks are also available in the article table."
 infographicCaption: "Ten RWA tokenization platform starting points grouped by operating fit. This is an editorial shortlist map, not a universal ranking."
 infographicWidth: "1600"
 infographicHeight: "1050"
+infographicMobileWidth: "900"
+infographicMobileHeight: "1600"
 ---
 
 ## Top 10 RWA Tokenization Platforms: Buyer Shortlist
@@ -55,16 +57,16 @@ Compare providers within the role you need filled. An issuance toolkit is not ne
 
 | Platform | Natural starting point | Confirm before shortlisting |
 |---|---|---|
-| Securitize | Regulated US digital securities and fund workflows | Contracting entity, regulated roles, asset eligibility and distribution scope |
-| Tokeny | ERC-3643-based permissioned token infrastructure | Jurisdiction fit, implementation ownership, integrations and distribution model |
-| Zoniqx | Modular issuance, identity, lifecycle and distribution infrastructure | Licensed intermediaries, production references and the status of any standards relied upon |
-| Brickken | Issuer-oriented tokenization tooling for a broad range of asset projects | Legal structuring, investor eligibility, custody and secondary transfer model |
-| DigiShares | Configurable real estate and private-market tokenization workflows | Market coverage, servicing depth, integrations and implementation support |
-| Polymath | Permissioned securities infrastructure and institutional blockchain tooling | Current product scope, network choice and operating partners |
-| ADDX | Regulated private-market issuance and investor access | Issuer eligibility, geography, product admission and distribution reach |
-| Taurus | Bank-oriented tokenization, custody and digital asset infrastructure | Modules required, custody model, chain support and integration effort |
-| InvestaX | Digital securities issuance and investment infrastructure | Jurisdiction, regulated functions, asset scope and investor access |
-| KAIO (formerly Libre) | Tokenized fund access and distribution infrastructure | Eligible investors, fund-administration dependencies and redemption model |
+| [Securitize](https://securitize.io/institutional-tokenization) | US digital securities and fund workflows with distinct service entities | Contracting entity, regulated roles, asset eligibility and distribution scope |
+| [Tokeny](https://docs.tokeny.com/docs/t-rex-platform) | ERC-3643-based permissioned token infrastructure | Jurisdiction fit, appointed KYC agent, integrations and distribution model |
+| [Zoniqx](https://www.zoniqx.com/solutions) | z360 lifecycle tools and zConnect distribution workflows | Licensed intermediaries, production references and the status of any standards relied upon |
+| [Brickken](https://www.brickken.com/) | Issuer-oriented issuance and lifecycle tooling | Legal structuring, investor eligibility, custody and secondary transfer model |
+| [DigiShares](https://digishares.io/real-estate-tokenization) | Configurable real estate and private-market tokenization workflows | Market coverage, servicing depth, integrations and implementation support |
+| [Polymath](https://www.polymath.network/capital-platform) | White-label Capital Platform built on Polymesh | Configured restrictions, network requirements and operating partners |
+| [ADDX](https://www.addx.co/en/) | Private-market issuance and accredited-investor access | Issuer eligibility, geography, product admission and distribution reach |
+| [Taurus](https://www.taurushq.com/capital/) | Taurus-CAPITAL issuance and servicing; separate custody module | Modules required, custody model, chain support and integration effort |
+| [InvestaX](https://investax.io/tokenization-platform) | Singapore-based digital securities issuance and market access | IC SG entity scope, investor restrictions, asset admission and custody arrangement |
+| [KAIO (formerly Libre)](https://kaio.xyz/) | Tokenized fund access and distribution infrastructure | Eligible investors and jurisdictions, fund terms and redemption model |
 
 ## Start with the asset and the job you need done
 
@@ -80,7 +82,9 @@ Have a defined project? [Share your requirements](/submit-requirement?source=tok
 
 For examples of how named providers divide responsibilities in real funds, see the [October Network Explorer findings](/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings). The sample describes disclosed fund arrangements, not a ranking or total provider AUM.
 
-**Buyer guidance revised November 6, 2026. Provider claims were last reviewed September 30, 2026.**
+**Buyer guidance revised November 6, 2026. The broader ecosystem review remains dated September 30, 2026.**
+
+**Shortlist sources and the specific service-boundary notes below were reviewed November 8, 2026.** The wider ecosystem descriptions retain their earlier review date except where a current source is linked. Product descriptions are not independent performance tests or confirmation that your offering will be accepted.
 
 ## How to read the shortlist
 
@@ -101,11 +105,16 @@ If you are still deciding whether your asset is ready, start with the FluidRWA [
 
 For architecture diligence, use the dedicated guides to [wallet APIs for asset tokenization](/blog/wallet-apis-asset-tokenization-platforms/), [custody insurance coverage and exclusions](/blog/crypto-custody-insurance-coverage-due-diligence/) and the [25-question stablecoin provider RFP](/blog/stablecoin-payment-provider-rfp-questions/). These address control boundaries that a platform shortlist alone cannot resolve.
 
-**Brand update, October 25, 2026:** Libre's former domain redirects to KAIO. The downloadable shortlist graphic still uses the former name; the company link below shows its current positioning. This branding check does not reverify every product claim in the comparison.
+The table links each shortlist starting point to its official product page. Four boundaries are especially important before an enquiry:
 
-These are company descriptions, not independent performance tests. Product pages checked for the shortlist on October 25, 2026: [Securitize](https://investors.securitize.io/overview/), [Tokeny](https://docs.tokeny.com/docs/the-erc-3643-token-standard), [Zoniqx](https://www.zoniqx.com/solutions), [Brickken](https://www.brickken.com/), [DigiShares](https://digishares.io/real-estate-tokenization), [Polymath](https://www.polymath.network/capital-platform), [ADDX](https://www.addx.co/en/), [Taurus-CAPITAL](https://www.taurushq.com/capital/), [InvestaX](https://investax.io/tokenization-platform) and [KAIO](https://kaio.xyz/). Confirm contracting entity, licenses, product availability and implementation scope directly before procurement.
+- **Software and regulated services:** Securitize's [October 25, 2026 company letter](https://www.sec.gov/comments/SR-DTC-2026-012/srdtc2026012-1108719-3924407.pdf) names Securitize Transfer Agent, LLC and Securitize Markets, LLC as distinct entities. Tokeny's [identity-provider documentation](https://docs.tokeny.com/docs/identity-providers) explicitly says Tokeny does not act as the KYC agent. Ask which entity and agreement cover each job; an SEC-hosted company letter is not SEC approval of your offering.
+- **Distribution and eligibility:** ADDX's site identifies ADDX Pte. Ltd. as its Singapore platform operator and describes accredited-investor access. InvestaX's [disclosures](https://investax.io/disclosures) identify IC SG Pte. Ltd., describe the relevant market scope and exclude US and sanctioned-country users. KAIO's fund pages limit access to onboarded accredited and/or institutional investors in eligible jurisdictions. None of these routes guarantees admission of a new issuer or liquidity for its asset.
+- **Modules and partners:** Taurus-CAPITAL describes issuance and servicing with Taurus-PROTECT integration; establish whether you are buying software, custody services or both. Zoniqx separates z360 lifecycle operations from zConnect discovery/distribution. A distribution feature or partner logo does not establish a committed buyer channel.
+- **Deployment and legal rights:** Polymath's Capital Platform describes a white-label application built on Polymesh. DigiShares describes real-estate investor administration and configured transfer controls. Brickken describes issuance, KYC/KYB and lifecycle tooling. Confirm the chosen version, permissions, legal wrapper and responsible operator for your asset; software configuration does not replace those decisions.
 
-For a closer enterprise comparison, read [Securitize vs Tokeny vs Zoniqx](/blog/securitize-vs-tokeny-vs-zoniqx-enterprise-tokenization-software/). Teams considering Zoniqx's DyCIST model should also read the [ERC-7518 explainer](/blog/erc-7518-dycist-standard-explained/) because ERC-7518 remains an Ethereum proposal in Review, not a finalized standard.
+Once you have a shortlist, use the [platform procurement comparison](/blog/asset-tokenization-platform-comparison) to evaluate evidence and pilot outcomes, then send the [tokenization platform RFP](/blog/rwa-tokenization-platform-rfp-template). The [directory](/vendors/tokenization-platforms/) remains the place to browse providers. The shortlist, evaluation guide and RFP serve different stages of the same purchase.
+
+For a closer enterprise comparison, read [Securitize vs Tokeny vs Zoniqx](/blog/securitize-vs-tokeny-vs-zoniqx-enterprise-tokenization-software/). Teams considering Zoniqx's DyCIST model should also read the [ERC-7518 explainer](/blog/erc-7518-dycist-standard-explained/). The [official ERC-7518 proposal](https://eips.ethereum.org/EIPS/eip-7518) is in Review, not Final, as checked November 8, 2026.
 
 ## Why Tokenization Vendor Comparison Is Harder in 2026
 
@@ -166,7 +175,7 @@ Evaluate whether the tokenization company integrates with custody providers such
 
 ### 4. Distribution and Liquidity
 
-Many tokenization projects fail because they issue the token before solving distribution.
+Issuing a token does not establish investor demand or a functioning secondary market.
 
 Ask:
 
@@ -197,11 +206,11 @@ The ten-platform shortlist above compares issuer-facing starting points. The com
 
 ### 1. Securitize
 
-Securitize is one of the most recognized institutional tokenization platforms for regulated digital securities and fund tokenization. It supports issuance, investor onboarding, compliance, transfer management and asset servicing for tokenized securities and funds.
+Securitize describes issuance, investor onboarding, transfer management and asset servicing for digital securities and funds. Confirm which technology and regulated-service entities would support your offering.
 
 **Best for:** large asset managers, regulated issuers, alternative investment firms and enterprise fund tokenization.
 
-**Strengths:** institutional credibility, regulated-market experience, asset servicing, compliance workflows and high-profile partnerships.
+**Strengths:** fund issuance, shareholder records and configured transfer workflows described in its product materials.
 
 **Watchouts:** smaller issuers may find the operating model more enterprise-oriented than they need.
 
@@ -213,7 +222,7 @@ Tokeny is a Luxembourg-based provider focused on regulated digital securities an
 
 **Best for:** banks, fund administrators, asset managers and regulated issuers that want modular tokenization infrastructure.
 
-**Strengths:** compliance automation, institutional positioning, digital securities focus and multi-jurisdiction capabilities.
+**Strengths:** permissioned token controls, issuer servicing and investor applications; jurisdiction fit depends on the offering and operating partners.
 
 **Watchouts:** buyers should evaluate distribution options and the broader operating stack around the software.
 
@@ -243,11 +252,11 @@ Ondo Finance is one of the most visible companies in tokenized U.S. Treasuries a
 
 ### 5. Brickken
 
-Brickken provides enterprise tokenization tools for companies, SMEs and asset issuers. It is often relevant for teams that need a more accessible tokenization platform rather than a highly bespoke institutional deployment.
+Brickken describes issuance, investor management and lifecycle tools for asset issuers. Compare the implementation and operating scope against your project rather than assuming it is cheaper or simpler than an institutional deployment.
 
 **Best for:** SMEs, private companies, real estate sponsors and issuers exploring digital securities or asset tokenization.
 
-**Strengths:** issuer-focused platform, practical tooling and accessible go-to-market positioning.
+**Strengths:** issuer tools, KYC/KYB workflow configuration and lifecycle management described on its product site.
 
 **Watchouts:** buyers should validate jurisdictional compliance, transfer rules, custody and distribution partners for their specific asset.
 
@@ -273,7 +282,7 @@ Superstate focuses on tokenized funds and investment products that bring regulat
 
 ### 8. Hashnote
 
-Hashnote is relevant in tokenized money market and institutional yield products. It belongs in the comparison set for buyers evaluating tokenized cash management, treasury and yield-bearing instruments.
+For the USYC route associated with Hashnote, use [Circle's current USYC product information](https://www.circle.com/usyc). It describes Circle International Bermuda Limited as token administrator for the Cayman Islands fund and restricts access to non-US persons, with additional eligibility conditions. This is a fund-access decision, not a purchase of general-purpose issuance software. Redemption capacity and fund terms must be confirmed; no settlement or return is guaranteed here.
 
 **Best for:** institutional treasury, cash management and yield-oriented tokenized products.
 
@@ -403,7 +412,7 @@ ADDX is a private markets platform focused on access to alternative investments 
 
 ### 21. Polymath
 
-Polymath has long been associated with security tokens and regulated asset issuance. It remains relevant in discussions about digital securities infrastructure and token standards.
+Polymath's Capital Platform describes white-label token issuance, investor portals, corporate actions and configured restrictions on Polymesh. Confirm the current deployment and operating partners rather than treating historical security-token activity as evidence of present product fit.
 
 **Best for:** regulated issuers and security-token workflows.
 
@@ -453,9 +462,11 @@ Midas offers tokenized investment products and is relevant for buyers evaluating
 
 ## Best Tokenization Companies by Use Case
 
+These are starting points by role, not scored winners or findings from comparative provider tests.
+
 ### Best for Large Asset Managers
 
-Shortlist Securitize, Tokeny and Zoniqx when the priority is regulated issuance, lifecycle management and institutional credibility. Add Fireblocks or Taurus if custody and transaction governance need a dedicated institutional layer.
+Evaluate Securitize, Tokeny and Zoniqx for issuance and lifecycle requirements, separating software from any regulated services or intermediaries needed. Add Fireblocks or Taurus if custody and transaction governance need a dedicated institutional layer.
 
 ### Best for Tokenized Treasuries and Money Market Products
 

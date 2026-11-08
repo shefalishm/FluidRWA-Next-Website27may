@@ -28,7 +28,9 @@ const seoOverrides: Record<string, SeoOverride> = {
   "blog/top-tokenization-companies-2026/index.html": {
     title: "10 RWA Tokenization Platforms Compared by Issuer Fit (2026)",
     description: "Compare 10 RWA tokenization platforms by issuance model, investor eligibility, custody and redemptions. See which questions to ask before shortlisting.",
-    heading: "Top 10 RWA tokenization platforms for 2026"
+    heading: "Top 10 RWA tokenization platforms for 2026",
+    socialImageAlt: "Illustrative investment documents and a globe outside an office building; not a provider office or evidence of a regulated offering.",
+    openGraphType: "article"
   },
   "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
     title: "Akash vs io.net vs Aethir (2026): GPU Compute Compared",

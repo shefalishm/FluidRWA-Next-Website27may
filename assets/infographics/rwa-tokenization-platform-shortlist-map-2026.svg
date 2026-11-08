@@ -24,7 +24,7 @@
     <text x="30" y="194" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">ADDX</text>
     <text x="30" y="240" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">InvestaX</text>
     <rect x="28" y="280" width="288" height="44" rx="6" fill="#eef7fc"/>
-    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#36516d">Best starting point: regulated roles</text>
+    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#36516d">Check first: service roles</text>
   </g>
 
   <g transform="translate(444 322)">
@@ -39,7 +39,7 @@
     <text x="30" y="194" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">Polymath</text>
     <text x="30" y="240" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">Zoniqx</text>
     <rect x="28" y="280" width="288" height="44" rx="6" fill="#fff9d8"/>
-    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#5f541f">Best starting point: transfer rules</text>
+    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#5f541f">Check first: transfer rules</text>
   </g>
 
   <g transform="translate(816 322)">
@@ -53,7 +53,7 @@
     <text x="30" y="161" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">Brickken</text>
     <text x="30" y="217" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">DigiShares</text>
     <rect x="28" y="280" width="288" height="44" rx="6" fill="#e8f8f5"/>
-    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#28685f">Best starting point: asset servicing</text>
+    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#28685f">Check first: servicing fit</text>
   </g>
 
   <g transform="translate(1188 322)">
@@ -61,13 +61,14 @@
     <rect width="340" height="12" rx="6" fill="#60748c"/>
     <circle cx="44" cy="58" r="22" fill="#edf1f5"/>
     <text x="44" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#4a5f77">04</text>
-    <text x="78" y="54" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#10233f">Bank and fund</text>
-    <text x="78" y="81" font-family="Arial, sans-serif" font-size="17" fill="#53667d">infrastructure</text>
+    <text x="78" y="54" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#10233f">Bank software and</text>
+    <text x="78" y="81" font-family="Arial, sans-serif" font-size="17" fill="#53667d">fund access</text>
     <line x1="28" y1="108" x2="312" y2="108" stroke="#e0e7ee"/>
     <text x="30" y="161" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">Taurus</text>
-    <text x="30" y="217" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">Libre</text>
+    <text x="30" y="217" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#10233f">KAIO</text>
+    <text x="30" y="247" font-family="Arial, sans-serif" font-size="17" fill="#53667d">formerly Libre</text>
     <rect x="28" y="280" width="284" height="44" rx="6" fill="#f0f3f6"/>
-    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4c6075">Best starting point: institution fit</text>
+    <text x="44" y="307" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4c6075">Check first: module or fund terms</text>
   </g>
 
   <rect x="72" y="710" width="1456" height="244" rx="8" fill="#10233f"/>
@@ -85,5 +86,5 @@
     <text x="1242" y="822" font-size="15" font-weight="800" fill="#2670b7">05</text><text x="1242" y="850" font-size="19" font-weight="800" fill="#10233f">Lifecycle + distribution</text>
   </g>
   <text x="108" y="920" font-family="Arial, sans-serif" font-size="17" fill="#cfe0ed">Editorial shortlist based on public product positioning. Verify current capabilities, contracts, regulatory scope and references directly.</text>
-  <text x="72" y="1010" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#53667d">FluidRWA Research Team  |  Updated September 2026  |  Save and share with attribution</text>
+  <text x="72" y="1010" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#53667d">FluidRWA Research Team  |  Shortlist sources: November 8, 2026  |  Save and share with attribution</text>
 </svg>
