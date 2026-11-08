@@ -6,6 +6,32 @@ import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFa
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
+const tokenizationScopeCorrections: Record<string, { role: string; fit: string; description: string; boundary: string; tags: string[]; source: string }> = {
+  Zoniqx: {
+    role: "Full-Stack Tokenization Infrastructure",
+    fit: "Issuers evaluating connected issuance, ownership records and lifecycle workflows",
+    description: "Zoniqx describes z360 for issuance configuration, ownership records, transfer logic and lifecycle operations, and zConnect for discovery and distribution workflows.",
+    boundary: "Confirm the selected modules, deployment networks, investor eligibility and distribution responsibilities for your offering. Product scope does not establish intermediary permissions or guaranteed liquidity.",
+    tags: ["z360", "zConnect", "Lifecycle records", "Issuer infrastructure"],
+    source: "https://www.zoniqx.com/solutions"
+  },
+  Securitize: {
+    role: "Issuance and Shareholder Records",
+    fit: "Fund and asset issuers evaluating issuance and shareholder-record workflows",
+    description: "Securitize describes institutional tokenization with configured transfer restrictions and shareholder-register workflows. Confirm which contracting entity provides each issuance, administration and distribution service.",
+    boundary: "A software workflow or group brand is not blanket regulatory approval. Request the service agreement, responsible entity and asset, investor and jurisdiction restrictions before shortlisting.",
+    tags: ["Issuance", "Shareholder records", "Transfer restrictions", "Funds"],
+    source: "https://securitize.io/institutional-tokenization"
+  },
+  Tokeny: {
+    role: "Permissioned Token Software",
+    fit: "Issuers evaluating ERC-3643 identity and permissioned-transfer workflows",
+    description: "Tokeny provides software for permissioned tokens and investor onboarding workflows. Its documentation states that Tokeny does not act as the KYC agent; the issuer appoints the responsible identity provider.",
+    boundary: "Confirm software deployment and servicing scope separately from identity verification, custody and other contracted services. Configuring transfer rules does not determine an offering's legal eligibility.",
+    tags: ["ERC-3643", "Investor onboarding", "Identity integration", "Issuer software"],
+    source: "https://docs.tokeny.com/docs/identity-providers"
+  }
+};
 type SeoOverride = {
   title: string;
   description: string;
@@ -88,8 +114,9 @@ const seoOverrides: Record<string, SeoOverride> = {
     openGraphType: "article"
   },
   "vendors/tokenization-platforms/index.html": {
-    title: "11 RWA Tokenization Platforms Compared (2026)",
-    description: "Compare 11 RWA tokenization platforms by issuance, compliance, custody, transfer controls and lifecycle support. Built for issuer shortlisting."
+    title: "RWA Tokenization Platform Directory: 11 Providers | FluidRWA",
+    description: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
+    heading: "RWA Tokenization Platform Directory"
   },
   "vendors/custody-solutions/index.html": {
     title: "28 Institutional Crypto Custody Providers Compared",
@@ -334,7 +361,16 @@ export function legacyJsonLd(file: string) {
     const graph = normalized.flatMap((item: { "@graph"?: unknown[] }) => item?.["@graph"] || []);
     const providerList = graph.find((item: { "@id"?: string }) => item?.["@id"]?.endsWith("#providers"));
     const items = providerList?.itemListElement;
+    const collection = graph.find((item: { "@type"?: string }) => item?.["@type"] === "CollectionPage");
+    if (collection) collection.dateModified = "2026-11-08";
     if (Array.isArray(items)) {
+      for (const entry of items) {
+        const correction = tokenizationScopeCorrections[entry.item?.name];
+        if (!correction) continue;
+        entry.item.description = correction.description;
+        entry.item.knowsAbout = correction.tags;
+        entry.item.additionalType = correction.role;
+      }
       const zoniqxIndex = items.findIndex((item: { item?: { name?: string } }) => item?.item?.name === "Zoniqx");
       if (zoniqxIndex >= 0 && items.length >= 10) {
         const [zoniqx] = items.splice(zoniqxIndex, 1);
@@ -452,7 +488,26 @@ export function legacyMainHtml(file: string) {
   if (file === "vendors/payments-stablecoins/index.html") {
     renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Start with the job: accept stablecoins, pay recipients, issue a token or manage treasury. Shortlist providers that support your corridor, then confirm who holds funds, who converts them and when the recipient can use the proceeds.</p>');
   }
-  if (file === "vendors/tokenization-platforms/index.html") renderedHtml = moveZoniqxToTenth(renderedHtml);
+  if (file === "vendors/tokenization-platforms/index.html") {
+    renderedHtml = moveZoniqxToTenth(renderedHtml)
+      .replace(/(<h1[^>]*>)[\s\S]*?(<\/h1>)/, `$1${seoOverrides[file].heading}$2`)
+      .replace(/(<h1[^>]*>[\s\S]*?<\/h1>)\s*<p>[\s\S]*?<\/p>/, '$1<p>Browse 11 issuer-side tokenization platforms and service providers for funds, securities and real-world assets. Separate configurable issuance software from custom implementation services, then confirm asset eligibility, investor restrictions and the entities responsible for each jurisdiction.</p>')
+      .replace('<strong>Full</strong><span>asset lifecycle support</span>', '<strong>Issuer-side</strong><span>software and services</span>')
+      .replace('<strong>Multi-chain</strong><span>coverage</span>', '<strong>Project fit</strong><span>confirm network support</span>')
+      .replace('This page is now limited to issuer-side platforms whose core product helps teams tokenize, manage and service assets.', 'Issuer software, white-label platforms and implementation services have different delivery models. HQ is not service availability or licensing. Asset and chain labels are discovery aids, not confirmation that your offering or investors are eligible.')
+      .replace(/<article class="bc-company-card\b[\s\S]*?<\/article>/g, (card) => {
+        const name = card.match(/<h3[^>]*>([^<]+)<\/h3>/)?.[1];
+        const correction = name && tokenizationScopeCorrections[name];
+        if (!correction) return card;
+        return card.replace(/data-search="[^"]*"/, `data-search="${name} ${correction.role} ${correction.tags.join(' ')}"`)
+          .replace(/(<p class="bc-best"><span>Best for<\/span>)[\s\S]*?<\/p>/, `$1${correction.fit}</p>`)
+          .replace(/(<p class="bc-desc"[^>]*>)[\s\S]*?<\/p>/, `$1${correction.description}</p>`)
+          .replace(/<div class="bc-tags">[\s\S]*?<\/div>/, `<div class="bc-tags">${correction.tags.map(tag => `<span>${tag}</span>`).join('')}</div>`)
+          .replace(/(<summary>Provider intelligence<\/summary>)\s*<p>[\s\S]*?<\/p>/, `$1<p>${correction.boundary} <a href="${correction.source}" target="_blank" rel="nofollow noopener noreferrer">Official product scope</a></p>`);
+      });
+    const nextSteps = `<div class="research-links" aria-label="Tokenization directory next steps"><strong>From discovery to a buyer brief</strong><p>Choose providers by delivery model, then share your asset, issuer and investor jurisdictions, required integrations and servicing responsibilities. Listings are discovery references, not verified permissions, paid rankings or guaranteed introductions.</p><a href="/blog/top-tokenization-companies-2026">Named-provider shortlist and issuer fit</a><a href="/blog/asset-tokenization-platform-comparison">Procurement evidence checklist</a><a href="/blog/rwa-tokenization-platform-rfp-template">Tokenization RFP template</a><a href="/blog/tokenization-platforms-vs-tokenization-service-providers">Platform software vs implementation services</a><a href="/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings">Disclosed infrastructure roles in the October research sample</a><a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a><a href="/vendor-membership?source=tokenization-directory">Submit company information for review</a></div>`;
+    renderedHtml = renderedHtml.replace(/(<label class="bc-search">)/, `${nextSteps}$1`);
+  }
   if (file === "vendors/custody-solutions/index.html") {
     const custodyAnswer = `<aside class="directory-answer" aria-label="How to compare institutional crypto custody providers"><strong>Short answer</strong><p>Institutional buyers should compare custody providers by legal and regulatory status, key-control model, insurance scope, asset and chain coverage, transaction policy controls, reporting and recovery. A qualified custodian, an MPC wallet platform and a bank custody service solve different problems, so the shortlist must match who holds assets, who can approve movement and which evidence auditors require.</p><p><a href="/blog/crypto-custody-insurance-coverage-due-diligence">Understand custody insurance exclusions</a> and <a href="/blog/wallet-apis-asset-tokenization-platforms">compare wallet API control models</a> before issuing an RFP.</p></aside>`;
     renderedHtml = renderedHtml.replace(/(<section class="bc-section" id="custody-directory">)/, `${custodyAnswer}$1`);

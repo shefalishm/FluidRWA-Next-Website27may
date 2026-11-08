@@ -193,7 +193,7 @@ const custodyAnswerSection = `
           <article><span>Trading controls</span><h3>Test settlement boundaries</h3><p>Copper is a natural candidate for off-exchange settlement. Require evidence for supported venues, counterparty exposure, settlement finality, insolvency treatment and the fallback when a venue or network is unavailable.</p></article>
           <article><span>Tokenized assets</span><h3>Test the full lifecycle</h3><p>Confirm the exact token contract, permission model, transfer restrictions, redemptions, corporate actions and reconciliation with the authoritative ownership record. A supported ticker is not sufficient evidence.</p></article>
         </div>
-        <div class="research-links" style="margin-top:24px"><strong>Compare related custody decisions</strong><a href="/blog/anchorage-vs-bitgo-vs-fireblocks-custody/">Anchorage vs BitGo vs Fireblocks</a><a href="/blog/fireblocks-vs-bitgo-vs-copper-institutional-custody/">Fireblocks vs BitGo vs Copper</a><a href="/blog/crypto-custody-insurance-coverage-due-diligence/">Crypto custody insurance explained</a></div>
+        <div class="research-links" style="margin-top:24px"><strong>Compare related custody decisions</strong><a href="/blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody">Anchorage vs BitGo vs Fireblocks</a><a href="/blog/fireblocks-vs-bitgo-vs-copper-custody-providers">Fireblocks vs BitGo vs Copper</a><a href="/blog/crypto-custody-insurance-coverage-due-diligence/">Crypto custody insurance explained</a></div>
       </div>
     </section>
 `;
@@ -440,12 +440,12 @@ updateFile("vendors/blockchain-development/index.html", (html) => {
 
 updateFile("vendors/tokenization-platforms/index.html", (html) => {
   html = setMeta(html, {
-    title: "Best Tokenization Platforms 2026 | RWA & Asset Tokenization",
-    description: "Find the right RWA tokenization platform for your asset class. Compare issuance, custody, and compliance features across 30+ vetted providers.",
+    title: "RWA Tokenization Platform Directory: 11 Providers | FluidRWA",
+    description: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
     url: "https://www.fluidrwa.com/vendors/tokenization-platforms",
-    ogDescription: "Find the right RWA tokenization platform for your asset class. Compare issuance, custody, and compliance features across 30+ vetted providers."
+    ogDescription: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist."
   });
-  html = html.replace(/<h1 id="bc-title">[^<]+<\/h1>/, `<h1 id="bc-title">RWA Tokenization Platforms for Issuers, Funds and Asset Owners</h1>`);
+  html = html.replace(/<h1 id="bc-title">[^<]+<\/h1>/, `<h1 id="bc-title">RWA Tokenization Platform Directory</h1>`);
   html = html.replace(/<p>Find platforms built to help issuers create, manage, service and distribute tokenized real-world assets, funds and securities\.<\/p>/, `<p>Compare issuer-side tokenization platforms for real-world assets, funds, securities and private markets by compliance, custody, investor onboarding, transfer controls and lifecycle servicing.</p>`);
   html = addHeroDecisionStrip(html, "tokenization-platform", [
     ["Best for:", "issuers comparing asset issuance, compliance and lifecycle workflows."],

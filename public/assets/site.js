@@ -1529,6 +1529,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   if (providerDirectory && providerDirectory.dataset.fluidrwaProcurementReady !== "true") {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
   const providerCards = Array.from(providerDirectory.querySelectorAll(".bc-provider-card, .bc-company-card"));
+  const scopedDirectory = ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
   const directoryHead = directorySection?.querySelector(".bc-directory-head, .solutions-section-head");
   const existingSearch = directorySection?.querySelector("#bcSearch");
@@ -1549,20 +1550,26 @@ const initLegacyVendorDirectoryWidgets = () => {
     <div class="vendor-procurement-actions">
       <a href="/submit-requirement?category=${encodeURIComponent(briefCategory)}&source=category-shortlist">${vendorUiText("Submit your requirements")}</a>
       <a href="/tokenization-readiness-assessment-tool?source=vendor-directory">${vendorUiText("Run readiness assessment")}</a>
-      <small>${document.documentElement.lang === "es" ? "Los filtros de presupuesto y regulación son indicativos. Confirme los datos directamente con cada proveedor." : "Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers."}</small>
+      <small>${scopedDirectory ? "Filters match directory text, not verified licenses, prices or service availability. HQ does not establish supported jurisdictions. Confirm eligibility and the responsible entity directly." : document.documentElement.lang === "es" ? "Los filtros de presupuesto y regulación son indicativos. Confirme los datos directamente con cada proveedor." : "Budget and regulatory filters are discovery signals inferred from directory information. Verify directly with providers."}</small>
     </div>`;
   const filters = document.createElement("div");
   filters.className = "vendor-procurement-filters";
   const locationSelect = buildFilterSelect("HQ country", "location", buildHqCountryOptions(profiles));
-  const regulatorySelect = buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
+  const regulatorySelect = scopedDirectory
+    ? buildFilterSelect("Workflow mentioned", "regulatory", [["all", "All workflows"], ["onboarding", "Identity / onboarding"], ["custody", "Custody / wallet"], ["payments", "Payments / settlement"], ["lifecycle", "Issuance / lifecycle"]])
+    : buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
   const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
   const resetButton = document.createElement("button");
   resetButton.type = "button";
   resetButton.className = "vendor-filter-reset";
   resetButton.textContent = vendorUiText("Reset filters");
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
+  if (scopedDirectory) budgetSelect.remove();
   panel.querySelector(".vendor-procurement-search").after(filters);
-  if (existingSearch) panel.querySelector(".vendor-procurement-search").remove();
+  if (existingSearch) {
+    if (scopedDirectory) panel.querySelector(".vendor-procurement-search").replaceChildren(existingSearch.closest("label"));
+    else panel.querySelector(".vendor-procurement-search").remove();
+  }
   directoryHead?.after(panel);
 
   const queryControl = existingSearch || panel.querySelector("[data-provider-query]");
@@ -1584,15 +1591,19 @@ const initLegacyVendorDirectoryWidgets = () => {
       const matchesProcurement =
         matchesVendorSearch(profile, query) &&
         matchesHqCountry(profile, locationControl.value) &&
-        (regulatoryControl.value === "all" || profile.regulatory === regulatoryControl.value) &&
-        (budgetControl.value === "all" || profile.budget === budgetControl.value);
+        (regulatoryControl.value === "all" || (scopedDirectory
+          ? ({ onboarding: /identity|kyc|onboarding/, custody: /custody|wallet/, payments: /payment|settlement|payout/, lifecycle: /issuance|lifecycle|servicing/ }[regulatoryControl.value]?.test(profile.text))
+          : profile.regulatory === regulatoryControl.value)) &&
+        (scopedDirectory || budgetControl.value === "all" || profile.budget === budgetControl.value);
       card.dataset.procurementHidden = String(!matchesProcurement);
       const visible = matchesProcurement && card.dataset.serviceHidden !== "true";
       card.hidden = !visible;
       if (visible) visibleCount += 1;
     });
-    [...providerCards].sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
-      .forEach((card) => providerDirectory.appendChild(card));
+    if (!scopedDirectory) {
+      [...providerCards].sort((a, b) => vendorSearchScore(profiles.get(b), query) - vendorSearchScore(profiles.get(a), query))
+        .forEach((card) => providerDirectory.appendChild(card));
+    }
     status.textContent = document.documentElement.lang === "es"
       ? `${visibleCount.toLocaleString()} de ${providerCards.length.toLocaleString()} proveedores cumplen los criterios`
       : `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
