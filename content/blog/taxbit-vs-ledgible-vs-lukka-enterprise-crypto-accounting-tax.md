@@ -1,10 +1,11 @@
 ---
-title: "TaxBit vs Ledgible vs Lukka: Accounting and Tax"
-seoTitle: "TaxBit vs Ledgible vs Lukka: Crypto Accounting"
-description: "Compare TaxBit, Ledgible and Lukka for crypto accounting, tax reporting, reconciliation, audit evidence and enterprise finance workflows."
+title: "TaxBit vs Ledgible vs Lukka: Accounting, Tax and Cost Basis"
+seoTitle: "TaxBit vs Ledgible vs Lukka: Tax Reporting & Cost Basis"
+description: "Compare TaxBit, Ledgible and Lukka for digital asset accounting, tax information reporting, cost basis, source reconciliation and integrations."
 date: "2026-09-22"
-reviewedDate: "2026-10-23"
-reviewedLabel: "October 23, 2026"
+reviewedDate: "2026-11-09"
+reviewedLabel: "November 9, 2026"
+modifiedDate: "2026-11-09"
 reviewedBy: "FluidRWA Research Team"
 readerFirst: "true"
 considerationAfterTable: "true"
@@ -18,7 +19,7 @@ infographicCaption: "Three enterprise digital-asset accounting and tax platforms
 infographicWidth: "1600"
 infographicHeight: "1050"
 image: "/assets/blog-images/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax.svg"
-imageAlt: "TaxBit vs Ledgible vs Lukka: Enterprise Crypto Accounting and Tax Comparison (2026) editorial infrastructure visual"
+imageAlt: "Illustrative accounting desk with calculator, financial reports and a laptop; not a vendor product screenshot"
 answer: "Start with the output your team needs: reconciled books, customer tax reports or a reusable digital-asset data feed. TaxBit documents separate accounting and tax products; Ledgible documents crypto accounting and source reconciliation; Lukka describes enterprise data management alongside reporting. Compare the exact package against one real close period, not a generic vendor ranking."
 ctaTitle: "Move from comparison to a qualified shortlist"
 ctaText: "Share your project requirements and use FluidRWA's vendor ecosystem to identify providers that fit your architecture, controls and operating model."
@@ -38,7 +39,7 @@ faq2a: "Test the same close-period records and expected outputs with each shortl
 faq3q: "Does a listed integration guarantee complete coverage?"
 faq3a: "No. Confirm the source, asset, transaction type, historical period and refresh method."
 faq4q: "Were the products tested by FluidRWA?"
-faq4a: "No. Public company materials were reviewed on October 23, 2026. The suggested close-period trial is a buyer exercise, not a benchmark we conducted."
+faq4a: "No. Public company materials were reviewed on November 9, 2026. The suggested close-period trial is a buyer exercise, not a benchmark we conducted."
 ---
 
 ## Start with the report you cannot produce today
@@ -49,37 +50,53 @@ Write down the missing deliverable before requesting demos: a reconciled ledger,
 
 ## What do the providers document?
 
+| Decision factor | TaxBit | Ledgible | Lukka |
+| --- | --- | --- | --- |
+| Explore | Accounting, basis and reporting | Subledger, tax and reporting products | Enterprise data and reporting |
+| Ask first | Which outputs are contracted? | Who owns forms and filing? | Software or service engagement? |
+| Test first | Lots, history and approval | Reconciliation and ledger export | Normalization and corrections |
+
 | Provider | Publicly documented scope | First question for your demo | Primary source |
 | --- | --- | --- | --- |
-| TaxBit | Separate Accounting Suite and enterprise tax information-reporting products | Which product is quoted, and does it cover our close, reporting or both? | [Accounting overview](https://info.taxbit.com/accounting/what-is-the-taxbit-accounting-suite) and [Tax Suite](https://www.taxbit.com/products/enterprise-tax) |
-| Ledgible | Crypto accounting, source management, reports and integrations, with documented source-level reconciliation | Can the records reconcile to our books with an explanation for every difference? | [Accounting overview](https://support.ledgible.io/hc/en-us/articles/360059213851-Ledgible-Accounting-Overview) and [reconciliation guide](https://support.ledgible.io/hc/en-us/articles/25651516537357-Using-the-Reconciliation-Tab) |
-| Lukka | Enterprise data management and tax/business reporting within a broader digital-asset data offering | Which normalized records and outputs will feed our finance systems? | [Enterprise data management](https://lukka.tech/enterprise-data-management/) |
+| TaxBit | Accounting documentation plus separate cost-basis and information-reporting workflows | Which accounting, basis and filing outputs are in the quote? | [Accounting overview](https://info.taxbit.com/accounting/what-is-the-taxbit-accounting-suite), [cost basis](https://www.taxbit.com/platform/cost-basis) and [reporting](https://www.taxbit.com/platform/reporting) |
+| Ledgible | Digital Asset Accounting, Enterprise Tax and Tax Information Reporting are distinct solution areas | Are we buying a subledger, tax calculations or data and forms for a reporting system? | [Accounting](https://ledgible.io/accounting/) and [Tax Information Reporting](https://ledgible.io/tir/) |
+| Lukka | Enterprise data management alongside tax/business reporting and reconciliation services | Which normalized records, services and outputs will feed our finance systems? | [Enterprise data management](https://lukka.tech/enterprise-data-management/) and [tax/business reporting](https://lukka.tech/tax-and-business-reporting/) |
 
-Sources checked October 23, 2026. These are company descriptions, not independent validation of accuracy or accounting-policy suitability. A capability not established here is **not verified**, not necessarily absent.
+Sources checked November 9, 2026. These are company descriptions, not independent validation of accuracy or accounting-policy suitability. A capability not established here is **not verified**, not necessarily absent. This comparison is not legal or tax advice and does not determine an entity's reporting obligations.
 
 ## TaxBit: separate the accounting package from the tax package
 
-TaxBit documents an Accounting Suite and a separate tax information-reporting product. Do not assume the quote for one includes the other.
+TaxBit's Accounting Suite help page describes transaction standardization, lot-level calculations and journal mappings to ERP systems. Its current reporting platform separately describes form generation and filing after customer approval. Do not assume the quote for one includes the other, or that the older Accounting Suite documentation establishes today's commercial availability for your entity.
 
-For accounting, request a walkthrough from imported transactions to reconciled balances and the output your ledger accepts. For tax reporting, use the [tax-season process](https://info.taxbit.com/knowledge/tax-season-process-overview) to ask about account setup, review, approval and corrections. Its documentation describes approval before filing; confirm who inside your organization owns that approval.
+The [cost-basis product](https://www.taxbit.com/platform/cost-basis) describes acquisition lots, account-level methods and flags for incomplete history. Ask the demo team to trace a disposal back to its acquisition and fee records. Your adviser should approve the applicable method; a list of software methods does not establish which one you may use.
+
+For [information reporting](https://www.taxbit.com/platform/reporting), name the required forms, jurisdiction, recipient delivery, approval and correction steps. Confirm who submits each output and who owns rejected filings. No accuracy or audit-outcome guarantee follows from these product descriptions.
 
 Pricing, contracted coverage and implementation effort were not established in this review.
 
 ## Ledgible: put reconciliation at the centre of the demo
 
-Ledgible's accounting documentation separates sources, transactions, reports and integrations. Its reconciliation guide describes comparing calculated balances with source balances.
+Ledgible's accounting product describes a digital-asset subledger, gain/loss reporting and OFX exports for ledger import. Its [accounting help guide](https://support.ledgible.io/hc/en-us/articles/360059213851-Ledgible-Accounting-Overview) also describes ledger connections and mappings; confirm the current connector and sync direction rather than treating a file export as a live integration.
 
-Bring a wallet or exchange history with a known difference and ask the team to locate and explain it. Check whether the resulting correction remains visible to the person reviewing the close. This is a proposed buyer test, not a result from a test FluidRWA performed.
+Its separate [Tax Information Reporting solution](https://ledgible.io/tir/) describes aggregation, taxpayer mapping and form generation, including connection to existing reporting systems. That differs from a firm's own accounting close and from the [professional tax product](https://ledgible.io/professional/). Ask where cost-basis calculation ends and form preparation, filing, delivery and corrections begin.
+
+The [reconciliation guide](https://support.ledgible.io/hc/en-us/articles/25651516537357-Using-the-Reconciliation-Tab) compares calculated and source balances by asset. Bring a history with a known difference and ask the team to explain it. Check whether corrections remain visible to the reviewer. This is a proposed buyer test, not a result FluidRWA obtained.
 
 Confirm the exact source and history supported, what happens when credentials expire and what export your accountant receives. A named integration does not establish completeness for every transaction type.
 
 ## Lukka: decide whether you need a broader data foundation
 
-Lukka's enterprise materials describe data management alongside tax and business reporting. That is relevant when the same records must serve several downstream teams.
+Lukka's enterprise materials describe data management alongside tax and business reporting. Its [reporting page](https://lukka.tech/tax-and-business-reporting/) separately lists financial statements, tax forms, NAV reporting and cash/crypto reconciliation services. Confirm which are software outputs and which require a service engagement.
 
 For example, a fund administrator may need consistent inputs for accounting, valuation review and reporting rather than a standalone tax output. This is a buyer scenario, not a claim that Lukka has implemented your particular workflow.
 
 Ask which fields arrive from each source, how they are normalized, how changes are recorded and how outputs reach your systems. Verify which valuation data and licences are included; public descriptions do not settle commercial entitlements.
+
+## Cost basis and reporting need different evidence
+
+A complete balance is not proof that acquisition history is complete. Include a transfer with missing basis, a fee paid in another asset and a later correction in the trial. Ask the provider to retain the source identifier, acquisition lot, selected method, valuation timestamp and reviewer decision behind the result.
+
+For regulatory reporting, add a sample reportable account and a rejected or corrected output. Have your advisers define the expected form, jurisdiction and treatment. Ask who handles onboarding documentation, taxpayer matching, approval, filing acknowledgements and recipient delivery. Do not assume every listed regime is included or that software determines your legal obligations.
 
 ## A close-period trial that produces a useful answer
 
@@ -112,4 +129,4 @@ Browse the [vendor ecosystem](/web3vendorecosystem), [share your accounting requ
 
 ## Sources and review
 
-Exact company sources appear beside the observations above. Public materials checked October 23, 2026. FluidRWA did not access customer accounts, test these products or assess legal compliance. Reviewed by FluidRWA Research Team.
+Exact company sources appear beside the observations above. Public materials checked November 9, 2026; some help guides retain older publication dates. FluidRWA did not access customer accounts, test these products or assess legal compliance. Reviewed by FluidRWA Research Team.

@@ -117,9 +117,9 @@ const comparisons = [
     title: "Enterprise Crypto Accounting and Tax",
     vendors: ["TaxBit", "Ledgible", "Lukka"],
     rows: [
-      ["Explore", "Accounting and tax product scope", "Crypto accounting and reconciliation", "Enterprise data and reporting"],
-      ["Ask first", "Which product and outputs are included?", "How are source differences explained?", "Which records feed our systems?"],
-      ["Test first", "Close or filing workflow and corrections", "Duplicate imports and missing transactions", "Normalization, corrections and exports"]
+      ["Explore", "Accounting, basis and reporting", "Subledger, tax and reporting products", "Enterprise data and reporting"],
+      ["Ask first", "Which outputs are contracted?", "Who owns forms and filing?", "Software or service engagement?"],
+      ["Test first", "Lots, history and approval", "Reconciliation and ledger export", "Normalization and corrections"]
     ]
   },
   {

@@ -452,6 +452,7 @@ function baseCardPreview(post) {
 
   const editorial = path.basename(post.socialImage || "").replace(/\.jpg$/, ".webp");
   if (editorial.endsWith("-editorial.webp") && fs.existsSync(path.join(root, "public/assets/blog-thumbnails", editorial))) {
+    if (["akash-vs-io-net-vs-aethir-decentralized-gpu-compute", "taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax"].includes(post.slug)) return { src: `/assets/blog-thumbnails/${editorial}`, alt: post.imageAlt };
     return { src: `/assets/blog-thumbnails/${editorial}`, alt: `Editorial image for ${post.title}` };
   }
 

@@ -6,6 +6,13 @@ import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFa
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
+const serviceScopeCorrections: Record<string, { description: string; fit: string; tags: string[] }> = {
+  Coinbound: { description: "Coinbound lists influencer marketing, PR, SEO, paid media, community management and advisory services. Confirm the channels, deliverables and approval responsibilities in the proposal.", fit: "Teams comparing agency-led creator, media and owned-channel campaigns", tags: ["Influencer marketing", "PR", "SEO", "Paid media", "Community"] },
+  "Lunar Strategy": { description: "Lunar Strategy lists go-to-market strategy, social media, community, influencer and PR services. Confirm the delivery team, channel scope and reporting definitions for your campaign.", fit: "Teams comparing launch positioning and ongoing ecosystem campaigns", tags: ["GTM", "Social media", "Community", "Influencers", "PR"] },
+  Serotonin: { description: "Serotonin describes go-to-market work across marketing, strategy, public relations, content, social and design. Ask which services and delivery staff are included in the engagement.", fit: "Teams evaluating positioning, communications and marketing execution", tags: ["Strategy", "PR", "Content", "Social", "Design"] },
+  Alchemy: { description: "Alchemy provides blockchain APIs and developer infrastructure. Confirm the network, RPC methods, historical reads and account throughput needed by your application.", fit: "Engineering teams evaluating managed blockchain APIs", tags: ["RPC", "APIs", "Developer tools"] },
+  QuickNode: { description: "QuickNode provides managed RPC and blockchain data products. Confirm network-specific archive coverage, method limits and any separately contracted event pipelines.", fit: "Engineering teams evaluating RPC and data delivery", tags: ["RPC", "Data", "WebSockets"] }
+};
 const tokenizationScopeCorrections: Record<string, { role: string; fit: string; description: string; boundary: string; tags: string[]; source: string }> = {
   Zoniqx: {
     role: "Full-Stack Tokenization Infrastructure",
@@ -59,9 +66,20 @@ const seoOverrides: Record<string, SeoOverride> = {
     openGraphType: "article"
   },
   "blog/akash-vs-io-net-vs-aethir-decentralized-gpu-compute/index.html": {
-    title: "Akash vs io.net vs Aethir (2026): GPU Compute Compared",
-    description: "Compare Akash, io.net and Aethir for AI training, inference, GPU supply, containers, pricing considerations and enterprise workloads.",
-    heading: "Akash, io.net or Aethir?"
+    title: "Akash vs io.net vs Aethir vs Lium: GPU Compute Compared",
+    description: "Compare Akash, io.net, Aethir and Lium by deployment model, GPU access, provider economics and operational responsibility.",
+    heading: "Akash vs io.net vs Aethir vs Lium: GPU Compute Compared",
+    schemaHeadline: "Akash vs io.net vs Aethir vs Lium: GPU Compute Compared",
+    socialImageAlt: "Illustrative data-center GPU computing equipment; not a provider facility or performance benchmark.",
+    openGraphType: "article"
+  },
+  "blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax/index.html": {
+    title: "TaxBit vs Ledgible vs Lukka: Tax Reporting & Cost Basis",
+    description: "Compare TaxBit, Ledgible and Lukka for digital asset accounting, tax information reporting, cost basis, source reconciliation and integrations.",
+    heading: "TaxBit vs Ledgible vs Lukka: Accounting, Tax and Cost Basis",
+    schemaHeadline: "TaxBit vs Ledgible vs Lukka: Accounting, Tax and Cost Basis",
+    socialImageAlt: "Illustrative financial accounting workstation; not a screenshot of TaxBit, Ledgible or Lukka.",
+    openGraphType: "article"
   },
   "blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics/index.html": {
     title: "Chainalysis vs TRM vs Elliptic vs Cognyte",
@@ -124,8 +142,16 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare 28 institutional crypto custodians by regulatory status, MPC or cold-storage controls, insurance, asset support and operating model."
   },
   "vendors/blockchain-development/index.html": {
-    title: "30 Blockchain Development Companies Compared (2026)",
-    description: "Compare 30 blockchain development companies by Web3 and RWA specialty, delivery model, security approach and project fit."
+    title: "Blockchain Development Companies & Infrastructure Directory",
+    description: "Browse blockchain engineering, RPC, security, data and network providers. Separate build partners from infrastructure and explore country hiring guides.",
+    heading: "Blockchain Development Companies and Infrastructure",
+    socialImageAlt: "FluidRWA blockchain development and infrastructure directory; provider listing order is not a ranking."
+  },
+  "vendors/growth-marketing/index.html": {
+    title: "Web3 Growth & Marketing Companies Directory | FluidRWA",
+    description: "Browse Web3 marketing agencies, community tools and media partners by service. Compare strategy, PR, content, SEO, paid media and campaign responsibilities.",
+    heading: "Web3 Growth and Marketing Companies",
+    socialImageAlt: "FluidRWA vendor ecosystem directory, including growth and marketing services; not a performance ranking."
   },
   "vendors/fiat-on-off-ramps/index.html": {
     title: "Crypto On-Ramp and Off-Ramp Providers: 29 Compared",
@@ -263,7 +289,8 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
     "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors."
   );
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
-  const ogImage = file.startsWith("blog/") && parsedOgImage ? parsedOgImage : defaultSocialImage;
+  const scopedSocial = ["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
+  const ogImage = (file.startsWith("blog/") || scopedSocial) && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const resolvedCanonicalPath = override?.canonicalPath || canonicalPath;
   const canonical = `${siteUrl}${resolvedCanonicalPath === "/" ? "" : resolvedCanonicalPath}`;
   const robotsValue = matchTag(html, /<meta\s+name=["']robots["']\s+content=["']([\s\S]*?)["']\s*\/?>/i)?.toLowerCase() || "";
@@ -313,9 +340,30 @@ export function legacyJsonLd(file: string) {
       return null;
     }
   }).filter(Boolean);
-  const fallback = legacyVendorFallbackJsonLd(file, siteUrl);
-  const withFallback = fallback ? [...parsed, fallback] : parsed;
+  const growth = file === "vendors/growth-marketing/index.html";
+  const sourceNames = growth ? [...html.matchAll(/<h3 itemprop="name">([^<]*)<\/h3>/g)].map(m => m[1]) : [];
+  const fallback = legacyVendorFallbackJsonLd(file, siteUrl, sourceNames);
+  if (growth && fallback) {
+    const list = parsed.flatMap(block => block?.["@graph"] || [block]).find(entry => entry["@type"] === "ItemList");
+    const additions = fallback["@graph"].find(entry => entry["@type"] === "ItemList")?.itemListElement || [];
+    if (list) {
+      for (const item of additions) list.itemListElement.push({ ...item, position: list.itemListElement.length + 1 });
+      list.numberOfItems = list.itemListElement.length;
+    }
+  }
+  const withFallback = fallback && !growth ? [...parsed, fallback] : parsed;
   const normalized = JSON.parse(normalizeEditorialText(JSON.stringify(withFallback)));
+  if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file)) {
+    for (const block of normalized) for (const entry of block?.["@graph"] || [block]) {
+      if (entry?.["@type"] === "CollectionPage") entry.dateModified = "2026-11-09";
+      if (entry?.["@type"] === "ItemList") for (const row of entry.itemListElement || []) {
+        if (!row.item) continue;
+        delete row.item.address;
+        const correction = serviceScopeCorrections[row.item.name];
+        if (correction) { row.item.description = correction.description; row.item.knowsAbout = correction.tags; }
+      }
+    }
+  }
   const override = seoOverrides[file];
   if (override) {
     for (const block of normalized) {
@@ -474,10 +522,47 @@ export function legacyMainHtml(file: string) {
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, ""));
   const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
-  const fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file);
+  const growthNames = file === "vendors/growth-marketing/index.html" ? [...html.matchAll(/<h3 itemprop="name">([^<]*)<\/h3>/g)].map(m => m[1]) : [];
+  let fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file, growthNames);
+  if (growthNames.length) fallbackDirectory = fallbackDirectory.replace('id="vendor-directory"', 'id="additional-marketing-providers"')
+    .replace(/<label class="bc-search">[\s\S]*?<\/label>/, '')
+    .replace(/<p class="bc-count">[\s\S]*?<\/p>/, '')
+    .replace('Compare Growth &amp; Marketing Vendors', 'Additional marketing providers');
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
+  if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file)) {
+    const marketing = file.includes("growth-marketing");
+    renderedHtml = renderedHtml
+      .replace(/<dt>HQ<\/dt>/g, '<dt>Listed location</dt>')
+      .replace(/<dt>Coverage<\/dt>/g, '<dt>Listed coverage</dt>')
+      .replace('<strong>29</strong><span>companies</span>', '<strong>32</strong><span>companies</span>')
+      .replace(/(<h1[^>]*>)[\s\S]*?(<\/h1>)/, `$1${seoOverrides[file].heading}$2`)
+      .replace(/(<h1[^>]*>[\s\S]*?<\/h1>)\s*<p>[\s\S]*?<\/p>/, marketing
+        ? '$1<p>Find a Web3 marketing partner for positioning, PR, content, SEO, community or paid acquisition. This directory also includes media and community tools: buying a placement or software subscription is different from hiring an agency to own a campaign.</p>'
+        : '$1<p>Separate a team that builds your application from the infrastructure it uses. This directory includes RPC and data platforms, networks, interoperability and security providers alongside engineering services. Start with the work you need delivered, then confirm ownership of code, deployment and maintenance.</p>')
+      .replace('29 companies with service type, best-fit use case, jurisdiction coverage, strengths and provider-level structured data.', '32 listings spanning agencies, media and community products. Confirm the service, delivery team and target audience before shortlisting.')
+      .replace('<strong>Global</strong><span>Coverage</span>', '<strong>Project fit</strong><span>confirm availability</span>')
+      .replace('<strong>SEO</strong><span>Indexed</span>', '<strong>Service scope</strong><span>agency, media or tool</span>');
+    renderedHtml = renderedHtml.replace(/<article class="bc-(?:provider|company)-card\b[\s\S]*?<\/article>/g, card => {
+      const name = card.match(/<h3[^>]*>([^<]+)<\/h3>/)?.[1];
+      const correction = name && serviceScopeCorrections[name];
+      if (!correction) return card;
+      return card.replace(/(<p\b[^>]*itemprop="description"[^>]*>)[\s\S]*?<\/p>/, `$1${correction.description}</p>`)
+        .replace(/(<p class="bc-best-fit"><strong>Best for:<\/strong>)[\s\S]*?<\/p>/, `$1 ${correction.fit}</p>`)
+        .replace(/(<p class="bc-best"><span>Best for<\/span>)[\s\S]*?<\/p>/, `$1${correction.fit}</p>`)
+        .replace(/<div class="bc-(?:provider-tags|tags)">[\s\S]*?<\/div>/, `<div class="bc-provider-tags">${correction.tags.map(tag => `<span>${tag}</span>`).join('')}</div>`);
+    });
+    const resources = marketing
+      ? `<h2 id="service-buyer-guide">Choose the service before the agency</h2><p>Strategy and branding define the audience, positioning and message. Content and SEO produce owned assets over time. PR seeks earned coverage; a media placement is a separately agreed purchase. Community operations cover moderation and member support, while influencer and paid campaigns need disclosure, channel eligibility and approval responsibilities.</p><p>Ask for named deliverables, who owns ad accounts and creative rights, how spend is separated from fees, and how reporting distinguishes reach from qualified enquiries. Do not treat follower growth or a campaign case study as a forecast.</p><p><a href="https://coinbound.io/" rel="nofollow noopener noreferrer" target="_blank">Coinbound</a> lists influencer, PR, SEO, paid media and advisory services. <a href="https://www.lunarstrategy.com/" rel="nofollow noopener noreferrer" target="_blank">Lunar Strategy</a> lists GTM, social, community, influencer and PR services. Confirm the quoted scope rather than assuming either is influencer-only. These service menus were checked November 9, 2026; they do not establish campaign results.</p><div class="research-links"><strong>Compare approaches</strong><a href="/blog/coinbound-vs-lunar-strategy-vs-serotonin-web3-growth">Coinbound vs Lunar Strategy vs Serotonin</a><a href="/vendors/ai-marketing-content-tools">AI marketing and content tools</a></div>`
+      : `<h2 id="service-buyer-guide">Build partner, infrastructure or security review?</h2><p>A custom development engagement should specify architecture, source-code ownership, tests, deployment and support. RPC and indexing products supply application inputs; networks define execution and settlement; interoperability adds cross-chain dependencies. Security review and bug bounties have their own scope and do not guarantee exploit prevention.</p><p>The <a href="https://ethereum.org/developers/docs/" target="_blank" rel="nofollow noopener noreferrer">Ethereum developer documentation</a> separates contracts, nodes, APIs, testing and security. Use that distinction in the brief: identify what your team operates and what the supplier must deliver. Documentation checked November 9, 2026; no provider performance ranking is implied.</p><div class="research-links"><strong>Country hiring guides</strong><a href="/blog/top-blockchain-development-companies-united-states-2026">United States</a><a href="/blog/top-blockchain-development-companies-united-kingdom-2026">United Kingdom</a><a href="/blog/top-blockchain-development-companies-india-2026">India</a><a href="/blog/top-blockchain-development-companies-germany-2026">Germany</a><a href="/blog/top-blockchain-development-companies-brazil-2026">Brazil</a></div><p>Country guides are hiring starting points, not proof of headquarters, licensing or availability. Confirm the contracting entity, delivery location, time-zone overlap and applicable data terms.</p>`;
+    const guide = `<section class="bc-section" aria-labelledby="service-buyer-guide"><div class="light-container">${resources}<p>Listing order is not a performance ranking. Existing company profiles have their own evidence and review dates; this service guide does not reverify every listing or jurisdiction.</p><div class="research-links"><a href="/submit-requirement">Share your project requirements</a><a href="/vendor-membership">Submit your company for consideration</a><a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></div></div></section>`;
+    renderedHtml += guide;
+    renderedHtml = renderedHtml.replace(/<a\b([^>]*\bhref="(https?:\/\/[^\"]+)"[^>]*)>/gi, (match, attrs: string, href: string) => {
+      if (/^https:\/\/(?:www\.)?fluidrwa\.com\//.test(href) || /\bnofollow\b/.test(attrs)) return match;
+      return /\brel="/.test(attrs) ? `<a${attrs.replace(/rel="([^"]*)"/, 'rel="$1 nofollow"')}>` : `<a${attrs} rel="nofollow">`;
+    });
+  }
   if (["contact.html", "submit-project.html", "apply-as-vendor.html"].includes(file)) {
     renderedHtml = renderedHtml.replace(/(<form\b[^>]*class="[^"]*fluid-intake-form[^"]*"[^>]*>)/,
       '$1<p style="grid-column:1/-1;overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>');

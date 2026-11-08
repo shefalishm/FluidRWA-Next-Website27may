@@ -1528,8 +1528,9 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   if (providerDirectory && providerDirectory.dataset.fluidrwaProcurementReady !== "true") {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
-  const providerCards = Array.from(providerDirectory.querySelectorAll(".bc-provider-card, .bc-company-card"));
-  const scopedDirectory = ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
+  const serviceDirectory = ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
+  const providerCards = Array.from((serviceDirectory ? document : providerDirectory).querySelectorAll(".bc-provider-card, .bc-company-card"));
+  const scopedDirectory = serviceDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
   const directoryHead = directorySection?.querySelector(".bc-directory-head, .solutions-section-head");
   const existingSearch = directorySection?.querySelector("#bcSearch");
@@ -1555,7 +1556,11 @@ const initLegacyVendorDirectoryWidgets = () => {
   const filters = document.createElement("div");
   filters.className = "vendor-procurement-filters";
   const locationSelect = buildFilterSelect("HQ country", "location", buildHqCountryOptions(profiles));
-  const regulatorySelect = scopedDirectory
+  const regulatorySelect = serviceDirectory
+    ? buildFilterSelect("Service mentioned", "regulatory", window.location.pathname.includes("growth-marketing")
+      ? [["all", "All services"], ["strategy", "Strategy / branding"], ["content", "Content / SEO"], ["community", "Community / influencers"], ["media", "PR / paid media"]]
+      : [["all", "All services"], ["engineering", "Engineering / contracts"], ["rpc", "RPC / data"], ["security", "Security / audits"], ["networks", "Networks / interoperability"]])
+    : scopedDirectory
     ? buildFilterSelect("Workflow mentioned", "regulatory", [["all", "All workflows"], ["onboarding", "Identity / onboarding"], ["custody", "Custody / wallet"], ["payments", "Payments / settlement"], ["lifecycle", "Issuance / lifecycle"]])
     : buildFilterSelect("License / regulatory status", "regulatory", [["all", "All regulatory profiles"], ["licensed", "Licensed / regulated"], ["compliance", "Compliance-enabled"], ["not-stated", "Not stated"]]);
   const budgetSelect = buildFilterSelect("Typical engagement", "budget", [["all", "All budget ranges"], ["starter", "Starter / pilot"], ["growth", "Growth stage"], ["enterprise", "Enterprise"]]);
@@ -1564,6 +1569,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   resetButton.className = "vendor-filter-reset";
   resetButton.textContent = vendorUiText("Reset filters");
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
+  if (serviceDirectory) locationSelect.remove();
   if (scopedDirectory) budgetSelect.remove();
   panel.querySelector(".vendor-procurement-search").after(filters);
   if (existingSearch) {
@@ -1592,7 +1598,7 @@ const initLegacyVendorDirectoryWidgets = () => {
         matchesVendorSearch(profile, query) &&
         matchesHqCountry(profile, locationControl.value) &&
         (regulatoryControl.value === "all" || (scopedDirectory
-          ? ({ onboarding: /identity|kyc|onboarding/, custody: /custody|wallet/, payments: /payment|settlement|payout/, lifecycle: /issuance|lifecycle|servicing/ }[regulatoryControl.value]?.test(profile.text))
+          ? ({ strategy: /strategy|branding|brand /, content: /content|seo/, community: /community|influencer|kol/, media: /public relations|pr |paid media|paid ads|advertis/, engineering: /engineering|development|smart contract/, rpc: /rpc|api|indexing|data/, security: /security|audit|bounty/, networks: /layer 1|layer 2|l1|l2|cross chain|interoperability/, onboarding: /identity|kyc|onboarding/, custody: /custody|wallet/, payments: /payment|settlement|payout/, lifecycle: /issuance|lifecycle|servicing/ }[regulatoryControl.value]?.test(profile.text))
           : profile.regulatory === regulatoryControl.value)) &&
         (scopedDirectory || budgetControl.value === "all" || profile.budget === budgetControl.value);
       card.dataset.procurementHidden = String(!matchesProcurement);
@@ -1624,6 +1630,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     setHqQueryParameter("all");
     regulatoryControl.value = "all";
     budgetControl.value = "all";
+    if (serviceDirectory) document.dispatchEvent(new Event("fluidrwa-reset-service-filter"));
     applyProviderFilters();
   });
   applyProviderFilters();
@@ -1699,7 +1706,8 @@ const initLegacyVendorDirectoryWidgets = () => {
       providerCards.forEach((card) => {
         const isMatch = !areaMatch || matchesArea(getCardServiceData(card), areaMatch);
         matchedCount += isMatch && areaMatch ? 1 : 0;
-        const matchesService = !areaMatch || (isMatch && (!areaMatch.expectedCount || matchedCount <= areaMatch.expectedCount));
+        const uncapped = /\/vendors\/(growth-marketing-companies|blockchain-development-companies)\/?$/.test(window.location.pathname);
+        const matchesService = !areaMatch || (isMatch && (uncapped || !areaMatch.expectedCount || matchedCount <= areaMatch.expectedCount));
         card.dataset.serviceHidden = String(!matchesService);
         const isVisible = matchesService && card.dataset.procurementHidden !== "true";
         card.hidden = !isVisible;
@@ -1721,7 +1729,13 @@ const initLegacyVendorDirectoryWidgets = () => {
           ? `${visibleCount.toLocaleString()} providers shown for ${activeArea.querySelector("h3")?.textContent || "this service area"}`
           : "";
       }
+      if (/\/vendors\/(growth-marketing-companies|blockchain-development-companies)\/?$/.test(window.location.pathname)) {
+        const query = document.querySelector("#bcSearch, [data-provider-query]");
+        query?.dispatchEvent(new Event("input"));
+      }
     };
+
+    document.addEventListener("fluidrwa-reset-service-filter", () => applyServiceFilter(null));
 
     allButton.addEventListener("click", () => {
       applyServiceFilter(null);

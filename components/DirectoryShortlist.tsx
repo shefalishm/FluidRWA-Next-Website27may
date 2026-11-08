@@ -21,7 +21,7 @@ function readCard(card: HTMLElement): ShortlistItem | null {
   const name = cleanText(card.querySelector("h3")?.textContent);
   if (!name) return null;
   const bestFor = cleanText(card.querySelector(".bc-best, .bc-best-fit")?.textContent).replace(/^Best for\s*/i, "");
-  const meta = Array.from(card.querySelectorAll(".bc-company-meta div, .bc-details dl div"))
+  const meta = Array.from(card.querySelectorAll(".bc-company-meta div, .bc-details dl div, .bc-provider-facts div"))
     .slice(0, 3)
     .map((item) => {
       const label = cleanText(item.querySelector("dt")?.textContent);
@@ -63,7 +63,8 @@ export function DirectoryShortlist() {
 
   useEffect(() => {
     if (!isDirectory) return;
-    const cards = Array.from(document.querySelectorAll<HTMLElement>(".bc-company-card"));
+    const selector = pathname === "/vendors/growth-marketing-companies" ? ".bc-company-card, .bc-provider-card" : ".bc-company-card";
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(selector));
     if (cards.length < 2) return;
     const cleanups: Array<() => void> = [];
 

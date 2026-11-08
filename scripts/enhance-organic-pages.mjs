@@ -402,11 +402,11 @@ updateFile("vendors/blockchain-development/index.html", (html) => {
     `<article><span>Buyer clarity</span><h3>How does this page help teams compare?</h3><p>It separates blockchain development agencies from infrastructure vendors so buyers can quickly understand which type of provider fits their project.</p></article>`
   );
   html = setMeta(html, {
-    title: "Top Blockchain Development Companies 2026 | Compare 50+ Vendors",
-    description: "Compare vetted blockchain development companies by specialty, pricing model, and delivery track record. Vendor profiles, real client fit, no sales calls required.",
+    title: "Blockchain Development Companies & Infrastructure Directory",
+    description: "Browse blockchain engineering, RPC, security, data and network providers. Separate build partners from infrastructure and explore country hiring guides.",
     url: "https://www.fluidrwa.com/vendors/blockchain-development-companies",
-    ogTitle: "Top Blockchain Development Companies 2026 | Compare 50+ Vendors",
-    ogDescription: "Compare vetted blockchain development companies by specialty, pricing model, and delivery track record. Vendor profiles, real client fit, no sales calls required."
+    ogTitle: "Blockchain Development Companies & Infrastructure Directory",
+    ogDescription: "Browse blockchain engineering, RPC, security, data and network providers. Separate build partners from infrastructure and explore country hiring guides."
   });
   html = html
     .replaceAll("https://www.fluidrwa.com/vendors/blockchain-development#webpage", "https://www.fluidrwa.com/vendors/blockchain-development-companies#webpage")

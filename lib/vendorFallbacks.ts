@@ -369,11 +369,11 @@ export function fallbackForLegacyFile(file: string) {
   return fallbackCategories[file] || null;
 }
 
-export function legacyVendorFallbackHtml(file: string) {
+export function legacyVendorFallbackHtml(file: string, excludedNames: string[] = []) {
   const category = fallbackForLegacyFile(file);
   if (!category) return "";
 
-  const cards = category.vendors
+  const cards = category.vendors.filter(vendor => !excludedNames.includes(vendor.name))
     .map((vendor, index) => {
       const id = slugify(vendor.name);
       const search = [
@@ -425,7 +425,7 @@ export function legacyVendorFallbackHtml(file: string) {
   </section>`;
 }
 
-export function legacyVendorFallbackJsonLd(file: string, siteUrl: string) {
+export function legacyVendorFallbackJsonLd(file: string, siteUrl: string, excludedNames: string[] = []) {
   const category = fallbackForLegacyFile(file);
   if (!category) return null;
   const url = `${siteUrl}/vendors/${category.slug}`;
@@ -448,7 +448,7 @@ export function legacyVendorFallbackJsonLd(file: string, siteUrl: string) {
         "@id": `${url}#providers`,
         name: category.title,
         numberOfItems: category.vendors.length,
-        itemListElement: category.vendors.map((vendor, index) => ({
+        itemListElement: category.vendors.filter(vendor => !excludedNames.includes(vendor.name)).map((vendor, index) => ({
           "@type": "ListItem",
           position: index + 1,
           url: `${url}#${slugify(vendor.name)}`,
