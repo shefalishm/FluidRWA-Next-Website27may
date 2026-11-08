@@ -116,7 +116,8 @@ const seoOverrides: Record<string, SeoOverride> = {
   "vendors/tokenization-platforms/index.html": {
     title: "RWA Tokenization Platform Directory: 11 Providers | FluidRWA",
     description: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
-    heading: "RWA Tokenization Platform Directory"
+    heading: "RWA Tokenization Platform Directory",
+    socialImageAlt: "FluidRWA tokenization directory: 11 issuer-side platforms and service providers in directory order, not a ranking."
   },
   "vendors/custody-solutions/index.html": {
     title: "28 Institutional Crypto Custody Providers Compared",

@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
+import sharp from 'sharp';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || `${process.env.HOME}/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright`);
@@ -14,6 +16,12 @@ const pages = [
 ];
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const checked = new Set();
+const hash = value => crypto.createHash('sha256').update(value).digest('hex');
+const socialBytes = fs.readFileSync('public/assets/social/tokenization-platforms.png');
+assert.equal(hash(socialBytes), hash(fs.readFileSync('assets/social/tokenization-platforms.png')));
+const social = await sharp(socialBytes).metadata();
+assert.equal(social.width, 1200);
+assert.equal(social.height, 630);
 try {
   for (const width of [1440, 390, 360]) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, serviceWorkers: 'block' });
@@ -103,6 +111,8 @@ try {
           checked.add(target);
           const result = await context.request.get(target);
           assert.equal(result.status(), 200, `${path} -> ${target}`);
+          const localAsset = `public${destination.pathname}`;
+          if (destination.pathname.startsWith('/assets/') && fs.existsSync(localAsset)) assert.equal(hash(await result.body()), hash(fs.readFileSync(localAsset)), `${target}: exact asset bytes`);
         }
       }
       await page.locator('h1').scrollIntoViewIfNeeded();
