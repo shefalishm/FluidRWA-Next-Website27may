@@ -96,9 +96,9 @@ const comparisons = [
     title: "RPC and Node Infrastructure",
     vendors: ["Alchemy", "QuickNode", "Infura"],
     rows: [
-      ["Best fit", "Apps needing integrated developer APIs", "Multi-chain apps and event pipelines", "Ethereum and EVM managed access"],
-      ["Core workflow", "RPC, data APIs, smart wallets and webhooks", "RPC, Streams, Webhooks and dedicated nodes", "Managed APIs and Ethereum workflows"],
-      ["Test first", "Rate limits, simulation and wallet flows", "Latency, failover and archive access", "Reliability, methods and usage limits"]
+      ["Start with", "Chain API plus data APIs", "RPC plus event pipelines", "Network-specific managed RPC"],
+      ["Check scope", "Network and method feature matrix", "Archive and pruning by network", "Endpoint, transport and archive lists"],
+      ["Test first", "Account throughput and retries", "Method limits and reconnects", "Daily credits and throughput"]
     ]
   },
   {

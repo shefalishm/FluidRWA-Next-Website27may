@@ -13,9 +13,18 @@ type SeoOverride = {
   canonicalPath?: string;
   socialImageAlt?: string;
   openGraphType?: "article" | "website";
+  schemaHeadline?: string;
 };
 
 const seoOverrides: Record<string, SeoOverride> = {
+  "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
+    title: "Alchemy vs QuickNode vs Infura: RPC Compared | FluidRWA",
+    description: "Compare Alchemy, QuickNode and Infura for RPC networks, archive reads, WebSockets, authentication and rate limits, with a workload acceptance checklist.",
+    heading: "Alchemy vs QuickNode vs Infura: RPC Compared",
+    schemaHeadline: "Alchemy vs QuickNode vs Infura: RPC Compared",
+    socialImageAlt: "FluidRWA: Illustrative server racks and blue network cables; not a provider facility photograph.",
+    openGraphType: "article"
+  },
   "blog/top-tokenization-companies-2026/index.html": {
     title: "10 RWA Tokenization Platforms Compared by Issuer Fit (2026)",
     description: "Compare 10 RWA tokenization platforms by issuance model, investor eligibility, custody and redemptions. See which questions to ask before shortlisting.",
@@ -279,7 +288,7 @@ export function legacyJsonLd(file: string) {
     for (const block of normalized) {
       const entries = block?.["@graph"] || [block];
       for (const entry of entries) {
-        if (entry?.["@type"] === "Article") entry.headline = override.title;
+        if (entry?.["@type"] === "Article") entry.headline = override.schemaHeadline || override.title;
         if (entry?.["@type"] === "CollectionPage") entry.name = override.title;
         if (entry?.["@type"] === "Article" || entry?.["@type"] === "CollectionPage") {
           entry.description = override.description;
