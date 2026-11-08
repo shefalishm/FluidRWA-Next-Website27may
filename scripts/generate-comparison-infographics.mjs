@@ -19,6 +19,17 @@ const outputDirs = [path.join(root, "assets/infographics"), path.join(root, "pub
 outputDirs.forEach((dir) => fs.mkdirSync(dir, { recursive: true }));
 
 const comparisons = [
+  {
+    slug: "asset-tokenization-platform-comparison",
+    kind: "workflow",
+    title: "Tokenization Platform Procurement Matrix",
+    vendors: ["Managed services", "Modular software", "Network controls"],
+    rows: [
+      ["Scope", "Named entities and service roles", "Issuer tools and partner handoffs", "Identity and asset rules"],
+      ["Evidence", "Offering and service agreements", "API, deployment and export scope", "Runtime and rule configuration"],
+      ["Pilot", "Subscription through redemption", "Integration failures and recovery", "Rejected and privileged transfers"]
+    ]
+  },
   ...october29Batch,
   ...october24Batch,
   ...october22Batch,

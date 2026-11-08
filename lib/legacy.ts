@@ -78,9 +78,12 @@ const seoOverrides: Record<string, SeoOverride> = {
     heading: "NOWPayments, Coinbase Commerce or BitPay?"
   },
   "blog/asset-tokenization-platform-comparison/index.html": {
-    title: "Asset Tokenization Platforms Compared: 2026 Buyer Guide",
-    description: "Compare asset tokenization platforms by asset type, compliance, investor workflows, custody, distribution, reporting and lifecycle fit.",
-    heading: "Compare asset tokenization platforms"
+    title: "Asset Tokenization Platform Comparison: Buyer Checklist | FluidRWA",
+    description: "Evaluate asset tokenization platforms with a procurement matrix, documented controls, evidence requests and a pilot checklist for issuance and servicing.",
+    heading: "Asset Tokenization Platform Comparison: Buyer Checklist",
+    schemaHeadline: "Asset Tokenization Platform Comparison: Buyer Checklist",
+    socialImageAlt: "Illustrative property documents, portfolio photographs and a tablet; not a platform screenshot or legal ownership record.",
+    openGraphType: "article"
   },
   "vendors/tokenization-platforms/index.html": {
     title: "11 RWA Tokenization Platforms Compared (2026)",
