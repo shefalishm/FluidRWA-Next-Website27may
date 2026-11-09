@@ -534,7 +534,7 @@ function pageHtml(company, profile, alternatives) {
       </section>`;
   const introHref = `/submit-requirement?vendor=${encodeURIComponent(company.name)}&category=${encodeURIComponent(category)}&source=company-profile`;
   const knowsAbout = Array.isArray(company.knowsAbout) ? company.knowsAbout.slice(0, 10) : [];
-  const isWeb3Profile = !company.categoryDir.startsWith("ai-") && !company.categoryDir.startsWith("decentralized-ai-");
+  const isWeb3Profile = company.slug !== "brands-essential" && !company.categoryDir.startsWith("ai-") && !company.categoryDir.startsWith("decentralized-ai-");
   const coverage = typeof company.address === "object" && company.address?.addressCountry
     ? company.address.addressCountry
     : "Verify with provider";

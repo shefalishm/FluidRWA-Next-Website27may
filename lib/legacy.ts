@@ -242,6 +242,7 @@ function shouldShowWeb3VettedBadges(file: string) {
 }
 
 function addVettedBadgeToVendorCard(cardHtml: string) {
+  if (cardHtml.includes('id="sherlock"')) return cardHtml;
   if (cardHtml.includes('class="bc-vetted-badge"') || cardHtml.includes('class="vendor-vetted-badge"')) {
     return cardHtml;
   }
