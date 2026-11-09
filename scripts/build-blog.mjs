@@ -516,6 +516,14 @@ const recentCardPreviews = [];
 const cardImage = (name, alt) => ({ src: `/assets/blog-thumbnails/${name}.webp`, alt });
 
 function cardPreview(post) {
+  const newComparisonPreviews = {
+    "digishares-vs-blocksquare-vs-tokeny-real-estate-offering": "Property offering setup",
+    "lofty-vs-reental-vs-finexity-property-investor-rights": "Property investment rights",
+    "paxg-vs-xaut-vs-xaum-physical-gold-redemption": "Physical gold redemption",
+  };
+  if (Object.hasOwn(newComparisonPreviews, post.slug)) {
+    return cardImage(post.slug, `FluidRWA comparison: ${newComparisonPreviews[post.slug]}`);
+  }
   if (uniqueCardImages[post.slug]) {
     recentCardPreviews.push(uniqueCardImages[post.slug].src);
     return uniqueCardImages[post.slug];
