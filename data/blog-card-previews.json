@@ -1,4 +1,7 @@
 {
+  "uk-carf-cryptoasset-reporting-hmrc-guide": { "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp", "alt": "FluidRWA guide illustration: UK cryptoasset reporting" },
+  "eu-dlt-pilot-regime-tokenized-securities-guide": { "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide.webp", "alt": "FluidRWA guide illustration: EU distributed ledger market infrastructure" },
+  "erc-7540-asynchronous-tokenized-vaults-guide": { "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide.webp", "alt": "FluidRWA guide illustration: asynchronous tokenized vaults" },
   "woleet-vs-originstamp-vs-opentimestamps-document-evidence": {
     "src": "/assets/blog-thumbnails/woleet-vs-originstamp-vs-opentimestamps-document-evidence.webp",
     "alt": "FluidRWA comparison illustration: Portable document timestamp proofs"
