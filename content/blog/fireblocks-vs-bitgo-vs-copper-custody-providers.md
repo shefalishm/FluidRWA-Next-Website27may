@@ -161,3 +161,11 @@ Before choosing Fireblocks, BitGo, Copper or any custody provider, ask:
 - How are stablecoin, fiat and tokenization workflows integrated?
 - What happens if we migrate providers?
 
+## Verify the custody arrangement, not just the product
+
+- [Fireblocks' governance and policy documentation](https://www.fireblocks.com/platforms/governance-and-policies) describes transaction authorization controls. A wallet policy feature does not determine who acts as custodian under your agreement.
+- [BitGo's entity and licence disclosures](https://www.bitgo.com/company/licenses) are a starting point for identifying the contracting entity. Verify the applicable licence, service and jurisdiction against the agreement and regulator records.
+- [Copper's ClearLoop documentation](https://copper.co/en-us/solutions/clearloop-network) describes collateral mobility and off-exchange settlement. Confirm your venues, collateral treatment, settlement frequency and default procedures before relying on the arrangement.
+
+These sources describe vendor offerings; they are not a custody opinion or an independent assessment of controls.
+

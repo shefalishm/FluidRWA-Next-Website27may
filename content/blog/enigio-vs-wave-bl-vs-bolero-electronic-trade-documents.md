@@ -75,13 +75,10 @@ Use one shipment and name every party that must receive, hold, endorse or surren
 
 Choose Enigio when the priority is creating transferable digital originals that can work across document types and existing processes; Wave BL when carrier and forwarder electronic-bill-of-lading workflows, including master and house bills, are central; and Bolero when eBL lifecycle management must connect closely with broader bank, corporate and trade-finance workflows.
 
-## Research basis
+## Sources and what they establish
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+- [Enigio's product overview](https://enigio.com/) describes transferable digital originals for trade documents, including eBLs.
+- [WaveBL's platform overview](https://wavebl.com/) documents support for master and house electronic bills of lading.
+- [Bolero's Galileo overview](https://www.bolero.net/) describes eBL lifecycle management alongside trade-finance workflows.
 
-- Enigio trace:original
-- Enigio technology
-- Wave BL
-- Bolero platform
-- Bolero electronic bills of lading
-- Bolero connectivity
+Before buying, ask the carrier, forwarder and financing bank to walk through the same bill from issuance to transfer and surrender. Record which parties can participate, the rulebook each party uses and how the shipment proceeds if a counterparty cannot receive the electronic document. Product documentation does not establish legal recognition for every route.

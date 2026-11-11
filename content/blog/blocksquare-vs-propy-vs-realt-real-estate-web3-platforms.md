@@ -75,13 +75,8 @@ Use a real proposed asset, with permission to share its documents. Ask how title
 
 Choose Blocksquare when you are an owner, operator or platform building tokenized-real-estate issuance and distribution infrastructure; Propy when the core problem is digitizing a property sale and closing workflow; and RealT when the goal is to access a curated marketplace of fractionalized property investments rather than launch an issuer platform.
 
-## Research basis
+## Sources and what they establish
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
-
-- Blocksquare products
-- Blocksquare protocol documentation
-- Propy FAQ
-- Propy overview
-- RealT investor FAQ
-- RealT white paper
+- [Blocksquare's revenue distribution documentation](https://docs.blocksquare.io/for-developers/revenue-distribution-contract) describes economic rights specified in a corporate resolution. Check that resolution and the deal terms before assuming what a token holder can claim.
+- [Propy's transaction FAQ](https://propy.com/browse/faq/) explains its online closing workflow. Evidence of a digital closing does not establish that the property was offered as a fractional investment.
+- [RealT's investor guide](https://faq.realt.co/en/article/what-is-realt-who-can-invest-how-do-i-invest-1yyc5h5/) describes the investor onboarding and purchase process. Use the specific offering documents to identify the issuer, investor rights and transfer restrictions; the general guide does not settle those questions.
