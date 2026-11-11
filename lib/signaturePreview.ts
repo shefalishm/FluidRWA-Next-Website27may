@@ -1,9 +1,9 @@
-export const signaturePlacementLabel = "Signature Vendor Preview";
+export const signaturePlacementLabel = "Signature Listing";
 
 const previewLabel = `<p class="signature-placement-label">${signaturePlacementLabel}</p>`;
 
 export function addSignaturePreview(file: string, html: string) {
-  if (!/^vendors\/(?!ai-|decentralized-ai-|verifiable-ai-)[^/]+\/index\.html$/.test(file)) return html;
+  if (!/^vendors\/[^/]+\/index\.html$/.test(file)) return html;
 
   const card = /<article class="(?:bc-company-card|bc-provider-card|vc-firm-card)\b[^>]*>/;
   if (card.test(html)) {
