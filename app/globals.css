@@ -1,5 +1,6 @@
 @import "../styles/globals.css";
 @import "./vendor-buyer-resources.css";
+@import "./signature-placement.css";
 .directory-answer {
   width: min(1180px, calc(100% - 40px));
   margin: 28px auto 8px;

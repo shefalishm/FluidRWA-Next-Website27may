@@ -1,4 +1,5 @@
 import fs from "./contentFs";
+import { addSignaturePreview } from "./signaturePreview";
 import path from "node:path";
 import type { Metadata } from "next";
 import { fileForRoute, siteUrl } from "./routes";
@@ -619,6 +620,7 @@ export function legacyMainHtml(file: string) {
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");
   }
+  renderedHtml = addSignaturePreview(file, renderedHtml);
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }
 
