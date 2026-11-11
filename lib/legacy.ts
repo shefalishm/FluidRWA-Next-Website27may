@@ -1,7 +1,7 @@
 import fs from "./contentFs";
 import path from "node:path";
 import type { Metadata } from "next";
-import { siteUrl } from "./routes";
+import { fileForRoute, siteUrl } from "./routes";
 import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
 
 const root = process.cwd();
@@ -592,8 +592,6 @@ export function legacyMainHtml(file: string) {
           .replace(/<div class="bc-tags">[\s\S]*?<\/div>/, `<div class="bc-tags">${correction.tags.map(tag => `<span>${tag}</span>`).join('')}</div>`)
           .replace(/(<summary>Provider intelligence<\/summary>)\s*<p>[\s\S]*?<\/p>/, `$1<p>${correction.boundary} <a href="${correction.source}" target="_blank" rel="nofollow noopener noreferrer">Official product scope</a></p>`);
       });
-    const nextSteps = `<div class="research-links" aria-label="Tokenization directory next steps"><strong>From discovery to a buyer brief</strong><p>Choose providers by delivery model, then share your asset, issuer and investor jurisdictions, required integrations and servicing responsibilities. Listings are discovery references, not verified permissions, paid rankings or guaranteed introductions.</p><a href="/blog/top-tokenization-companies-2026">Named-provider shortlist and issuer fit</a><a href="/blog/asset-tokenization-platform-comparison">Procurement evidence checklist</a><a href="/blog/rwa-tokenization-platform-rfp-template">Tokenization RFP template</a><a href="/blog/tokenization-platforms-vs-tokenization-service-providers">Platform software vs implementation services</a><a href="/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings">Disclosed infrastructure roles in the October research sample</a><a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a><a href="/vendor-membership?source=tokenization-directory">Submit company information for review</a></div>`;
-    renderedHtml = renderedHtml.replace(/(<label class="bc-search">)/, `${nextSteps}$1`);
   }
   if (file === "vendors/custody-solutions/index.html") {
     const custodyAnswer = `<aside class="directory-answer" aria-label="How to compare institutional crypto custody providers"><strong>Short answer</strong><p>Institutional buyers should compare custody providers by legal and regulatory status, key-control model, insurance scope, asset and chain coverage, transaction policy controls, reporting and recovery. A qualified custodian, an MPC wallet platform and a bank custody service solve different problems, so the shortlist must match who holds assets, who can approve movement and which evidence auditors require.</p><p><a href="/blog/crypto-custody-insurance-coverage-due-diligence">Understand custody insurance exclusions</a> and <a href="/blog/wallet-apis-asset-tokenization-platforms">compare wallet API control models</a> before issuing an RFP.</p></aside>`;
@@ -609,7 +607,12 @@ export function legacyMainHtml(file: string) {
       renderedHtml += `<script id="vendor-search-index-data" type="application/json">${safeJson}</script>`;
     }
   }
-  renderedHtml += relatedVendorDirectories(file);
+  const resources = relatedVendorDirectories(file);
+  if (file === "vendors/tokenization-platforms/index.html" && renderedHtml.includes('<label class="bc-search">')) {
+    renderedHtml = renderedHtml.replace('<label class="bc-search">', () => `${resources}<label class="bc-search">`);
+  } else {
+    renderedHtml += resources;
+  }
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
     renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 29, 2026</p>`;
   }
@@ -654,7 +657,7 @@ function moveZoniqxToTenth(html: string) {
   });
 }
 
-function relatedVendorDirectories(file: string) {
+export function relatedVendorDirectories(file: string) {
   if (!file.startsWith("vendors/")) return "";
 
   const slug = file.toLowerCase();
@@ -696,7 +699,50 @@ function relatedVendorDirectories(file: string) {
     ];
   }
 
-  return `<nav class="related-vendor-directories" aria-label="Related vendor directories"><p class="eyebrow">Continue comparing</p><h2>Related vendor directories</h2><div>${links.map(([href, label]) => `<a href="${href}">${label}<span aria-hidden="true">→</span></a>`).join("")}</div></nav>`;
+  const oldNav = `<nav class="related-vendor-directories" aria-label="Related vendor directories"><p class="eyebrow">Continue comparing</p><h2>Related vendor directories</h2><div>${links.map(([href, label]) => `<a href="${href}">${label}<span aria-hidden="true">→</span></a>`).join("")}</div></nav>`;
+  if (/^vendors\/(?:ai-|decentralized-ai-|verifiable-ai-)/.test(slug)) return oldNav;
+
+  const category = slug.split("/")[1];
+  const isTokenization = category === "tokenization-platforms";
+  const guides: Record<string, [string, string]> = {
+    "custody-solutions": ["/blog/crypto-custody-insurance-coverage-due-diligence", "Understand custody insurance exclusions"],
+    "fiat-on-off-ramps": ["/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers", "Compare ramp onboarding and integrations"],
+    "payments-stablecoins": ["/blog/white-label-crypto-payment-gateway-buyer-guide", "Read the crypto payment gateway buyer guide"],
+    "security-audits": ["/blog/smart-contract-audit-security-requirements", "Prepare your smart contract audit scope"],
+    "crypto-accounting-tax-software": ["/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax", "Compare crypto tax and accounting tools"],
+    "institutional-digital-asset-trading-platforms": ["/blog/talos-vs-wyden-vs-finery-markets-institutional-trading", "Compare institutional trading platforms"],
+    "node-as-a-service-rpc": ["/blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers", "Compare RPC providers"],
+  };
+  const guide = guides[category];
+  const resourceLinks = isTokenization ? [
+    ["/blog/top-tokenization-companies-2026", "Explore tokenization providers"],
+    ["/blog/asset-tokenization-platform-comparison", "Use the procurement checklist"],
+    ["/blog/rwa-tokenization-platform-rfp-template", "Get the tokenization RFP template"],
+    ["/blog/tokenization-platforms-vs-tokenization-service-providers", "Compare software and implementation services"],
+    ["/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings", "See who supports tokenized funds"],
+  ] : [
+    ...(guide ? [guide] : []),
+    ["/tools/vendor-comparison", "Compare vendors side by side"],
+    ...links.filter(([href]) => fileForRoute(href.slice(1)) !== file),
+  ];
+  const intro = isTokenization
+    ? "Start with your asset, where you plan to issue it, and where your investors are based. Then decide which integrations and ongoing servicing you need the provider to handle."
+    : "Write down what the provider needs to deliver and what your team will handle. Ask each candidate for a written scope, a pricing breakdown and a reference for similar work.";
+
+  return `<section class="vendor-buyer-resources" aria-labelledby="vendor-buyer-heading">
+    <div class="vendor-buyer-layout">
+      <div>
+        <h2 id="vendor-buyer-heading">${isTokenization ? "Build your tokenization shortlist" : "Build your vendor shortlist"}</h2>
+        <p>${intro}</p>
+        <p class="vendor-buyer-note">${isTokenization ? "Confirm licensing, eligibility and service scope with each provider before you shortlist." : "Ready to share your brief? <a href='/submit-requirement'>Submit your project requirements</a>."}</p>
+      </div>
+      <ul aria-label="Shortlisting resources">${resourceLinks.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join("")}</ul>
+    </div>
+    <div class="vendor-buyer-contact">
+      <span>For providers: <a href="/vendor-membership?source=${isTokenization ? "tokenization-directory" : "web3-category-directory"}">Submit your company for review</a></span>
+      <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a>
+    </div>
+  </section>`;
 }
 
 const sureStackSecurityCard = `<article class="bc-company-card reveal vendor-card--vetted" id="surestack" itemscope itemtype="https://schema.org/Organization" data-search="surestack surestack technology group vetted risk management security provider ai powered web3 risk intelligence threat monitoring digital asset security tokenization security vulnerability detection atlas intelligence crypto risk security infrastructure risk management global"><div class="bc-company-top bc-company-top--vetted"><div class="bc-company-mark bc-company-mark--logo" aria-hidden="true"><img src="/assets/company-logos/surestack.png" alt="" loading="lazy" decoding="async"></div><div><p class="bc-company-index">01 / Vetted Risk Management &amp; Security Provider</p><h3 itemprop="name">SureStack</h3><span class="bc-vetted-badge">Vetted</span></div></div><p class="bc-best-fit"><strong>Best for:</strong> Digital asset issuers, tokenization teams, funds and Web3 operators that need AI-powered risk intelligence, threat monitoring and proactive security visibility before launch or while scaling.</p><p itemprop="description">SureStack Technology Group is an AI-powered Web3 risk intelligence platform focused on detecting vulnerabilities, monitoring risk signals and helping teams protect digital asset operations before threats hit the chain.</p><details class="bc-provider-details"><summary>Read provider intelligence</summary><p>SureStack strengthens the security and risk-management layer for teams building tokenized asset workflows, protocol infrastructure and digital asset operations. The company positions Atlas Intelligence around proactive threat reporting, vulnerability detection and operational risk protection. FluidRWA lists SureStack as a vetted risk management and security provider based on submitted vendor information; buyers should still verify scope, coverage, response workflows and commercial terms during diligence.</p></details><dl class="bc-company-meta"><div><dt>HQ</dt><dd>Newark, Delaware, United States</dd></div><div><dt>Founded</dt><dd>Not disclosed</dd></div><div><dt>Services</dt><dd>Web3 Risk Intelligence, Threat Monitoring, Digital Asset Security, Tokenization Risk Management</dd></div><div><dt>Coverage</dt><dd>Global</dd></div></dl><div class="bc-company-tags"><span>Vetted</span><span>Risk Intelligence</span><span>Threat Monitoring</span><span>Digital Asset Security</span><span>Tokenization Security</span><span>Atlas Intelligence</span></div><div class="bc-company-actions"><a class="btn btn-primary light-primary" href="https://surestack.tech/" target="_blank" rel="noopener noreferrer">Visit Website</a><a class="btn btn-soft" href="/submit-requirement?vendor=SureStack&amp;category=Security%20Audit%20Companies&amp;source=vendor-card">Request Intro</a></div></article>`;

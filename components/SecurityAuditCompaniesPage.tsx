@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
+import { relatedVendorDirectories } from "@/lib/legacy";
 
 type SecurityVendor = {
   name: string;
@@ -357,6 +358,7 @@ export function SecurityAuditCompaniesPage() {
           </article>
         </div>
       </section>
+      <div dangerouslySetInnerHTML={{ __html: relatedVendorDirectories("vendors/security-audits/index.html") }} />
       <aside className="directory-disclosure" aria-label="Directory disclosure">
         <strong>How listings, logos and counts work</strong>
         <p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA&apos;s enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p>
