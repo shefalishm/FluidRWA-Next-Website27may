@@ -412,3 +412,9 @@ But smart contracts should not be treated as a shortcut around law, security or 
 For tokenization teams, the question is not simply "can we deploy a smart contract?" The better question is: "what exact asset workflow should be automated, which rules belong onchain, which controls stay offchain, and which vendors are responsible for each layer?"
 
 If you are evaluating a project now, start with the [FluidRWA tokenization readiness assessment](/tokenization-readiness-assessment-tool), then compare [smart contract developers](/vendors/smart-contract-development-companies/), [security audit firms](/vendors/security-audit-companies/) and [tokenization platforms](/vendors/tokenization-platforms/) based on the actual workflow you need to launch. If your next step is vendor selection, use the [smart contract development company comparison](/blog/top-smart-contract-development-companies-web3-tokenization/) before requesting proposals.
+
+## Technical references
+
+- [Ethereum developer documentation: introduction to smart contracts](https://ethereum.org/developers/docs/smart-contracts/): contract execution and access to offchain data.
+- [Ethereum developer documentation: oracles](https://ethereum.org/developers/docs/oracles/): how offchain data reaches onchain applications.
+- [Ethereum developer documentation: smart contract security](https://ethereum.org/developers/docs/smart-contracts/security/): security risks and defensive design practices.

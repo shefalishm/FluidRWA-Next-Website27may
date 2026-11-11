@@ -38,3 +38,7 @@ For the separate question of choosing infrastructure to issue or integrate metal
 - Paxos, PAXG documentation: https://docs.paxos.com/guides/stablecoin/paxg
 - Tether Gold, whitepaper: https://gold.tether.to/Tether%20Gold%20Whitepaper.pdf
 - Matrixdock, announced physical redemption: https://www.matrixdock.com/blog/announcements/matrixdock-completes-first-ever-physical-redemption-of-tokenized-gold
+
+## Ask for a written redemption quote before transferring tokens
+
+Give each issuer the same scenario: the holder's jurisdiction, the token quantity, and the desired delivery or collection location. Ask for the minimum token amount, any bar-size constraint, the fee basis and when the quote expires. Separate issuer redemption from selling tokens on an exchange. An exchange minimum does not tell you what the issuer requires for physical handover.

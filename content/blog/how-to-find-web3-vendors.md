@@ -51,3 +51,7 @@ Score vendors against practical criteria:
 Before signing or building deeply around a vendor, ask for implementation examples, documentation, security posture, support SLAs and references. If the vendor touches regulated workflows, confirm what they handle and what remains your responsibility.
 
 The strongest vendor discovery process is simple: define the workflow, map the category, shortlist fit, validate deeply and then move to implementation.
+
+## Build the shortlist around one handoff
+
+For a marketplace that wants to pay suppliers in local currency from a stablecoin balance, start with the payout route. Specify the sending entity, destination country, currency and settlement evidence needed by finance. Ask each provider to show a successful payout and a returned one. A provider that handles conversion may still rely on a separate party for the bank leg; ask who owns the escalation.

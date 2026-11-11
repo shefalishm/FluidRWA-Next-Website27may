@@ -45,3 +45,7 @@ The [BIS summary of tokenization](https://www.bis.org/publications/fsi-summary-f
 Compare the proposed costs with your current way of issuing and servicing the asset. If the new structure improves access, speed or recordkeeping, explain how that benefit will be measured. If the business case depends on secondary-market liquidity, ask who will provide it and under what rules. No vendor can responsibly give a universal price or savings percentage without your project scope.
 
 Use the [tokenization platform directory](/vendors/tokenization-platforms/) to identify possible software providers, then ask who covers the surrounding legal, custody, compliance and payment work. Send a scoped budget question to [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
+
+## Compare year-one cost on the same assumptions
+
+Request separate quotes for legal setup, issuance, recurring platform fees, servicing, and transaction charges. Give each bidder the same number of investor accounts and transfers. For illustration only, if an agreement charges $4 per verification and you expect 300 verification attempts, that line contributes $1,200 before minimums or rechecks. Add the cost of exporting records and changing providers before comparing totals.

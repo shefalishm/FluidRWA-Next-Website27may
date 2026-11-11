@@ -111,7 +111,7 @@ Put unresolved questions into the purchase decision rather than hiding them in a
 
 ## Where should buyers continue their research?
 
-For payment acceptance vendor research, see the existing [NOWPayments, Coinbase Commerce and BitPay comparison](/blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways). For customer fiat funding, start with the [fiat on/off-ramp directory](/vendors/fiat-on-off-ramp-providers) and its sourced onboarding dataset.
+For payment acceptance vendor research, see the existing [NOWPayments, Coinbase Business and BitPay comparison](/blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways). For customer fiat funding, start with the [fiat on/off-ramp directory](/vendors/fiat-on-off-ramp-providers) and its sourced onboarding dataset.
 
 Send the journey you want to operate to [contact@fluidrwa.com](mailto:contact@fluidrwa.com), including the customer geography, currencies, assets/networks and responsibilities your team wants to retain.
 

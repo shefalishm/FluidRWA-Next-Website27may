@@ -50,3 +50,7 @@ For example, a private real estate fund targeting accredited investors is differ
 ## Where To Start
 
 Begin with [tokenization platforms](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory-vendors/), [KYC/AML providers](/vendors/kyc-aml-providers/) and [payments infrastructure](/vendors/fiat-on-off-ramp-providers/).
+
+## Run a distribution before launching the offering
+
+Give each shortlisted team a sample rent distribution and a transfer around the record date. Have them show which investor is entitled to payment, how the official register establishes that entitlement, and how the payment file reconciles to bank records. Ask who corrects a mismatch and whether you can export the evidence without the platform.

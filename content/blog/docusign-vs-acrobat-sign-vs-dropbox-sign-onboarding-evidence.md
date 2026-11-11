@@ -34,3 +34,7 @@ A signature workflow is not an eligibility determination. Keep identity review, 
 - [Docusign Connect events](https://developers.docusign.com/platform/webhooks/connect/event-triggers)
 - [Acrobat Sign webhook guide](https://developer.adobe.com/acrobat-sign/docs/overview/acrobat_sign_events/)
 - [Dropbox Sign callbacks](https://developers.hellosign.com/docs/guides/events-and-callbacks)
+
+## Keep the signed document and the audit record together
+
+Run a two-signer test with each product. Save the event sent after the first signature and compare it with the event after all parties sign. Download the completed agreement and its audit evidence, then repeat with a declined envelope. Check how your integration distinguishes an intermediate event from completion and whether it can retrieve the evidence if a notification arrives late.

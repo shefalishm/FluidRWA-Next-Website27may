@@ -50,3 +50,7 @@ The more institutional the fund, the more important the operational stack become
 ## Useful Vendor Categories
 
 Review [legal and regulatory firms](/vendors/legal-regulatory-vendors/), [tokenization platforms](/vendors/tokenization-platforms/), [custody solutions](/vendors/crypto-custody-providers/) and [payment rails](/vendors/stablecoin-infrastructure-providers/) early in the process.
+
+## Assign ownership of a failed redemption
+
+Draw the path from the investor request through eligibility, available cash, settlement and the official investor register. At every step, name the system of record and the party allowed to stop or correct the process. In a rehearsal, make the cash leg fail after approval and verify that neither the portal nor the register records the redemption as complete.

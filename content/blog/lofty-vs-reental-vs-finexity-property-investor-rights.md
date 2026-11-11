@@ -38,3 +38,7 @@ This is a document-reading comparison, not a review of live offerings or an inve
 - Lofty, operating model: https://www.lofty.ai/how-it-works
 - Reental, country-specific structures: https://www.reental.co/en/en
 - FINEXITY, project companies and subordinated debt: https://finexity.com/discover/faq
+
+## Compare the deal terms, not the platform label
+
+Pick one available offering per platform. Save the deal name, document version and jurisdiction, then mark the clauses covering the instrument, payment priority, transfer restrictions and exit. Do not carry a term from one offering into another. Where the offering documents are gated, ask for access and leave the right unverified until you can read the clause.

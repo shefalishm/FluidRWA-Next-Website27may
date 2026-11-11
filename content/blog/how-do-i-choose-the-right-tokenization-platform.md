@@ -47,3 +47,7 @@ Ask who provides each function and which company signs the contract for it. A de
 Create one approved investor and one who should be rejected. Try to transfer the asset to an ineligible wallet. Change an investor's details after issuance. Then export the ledger and ask finance or operations to reconcile it with their own records. You will learn more from those exceptions than from another issuance animation.
 
 Request a proposal showing implementation work, ongoing support, security review, usage charges and migration assistance. Keep the same brief and pilot tasks for each bidder. The [tokenization platform directory](/vendors/tokenization-platforms/) is a starting list; it does not mean every provider fits your asset. Send your project outline to [contact@fluidrwa.com](mailto:contact@fluidrwa.com) for a focused discussion.
+
+## Give every platform the same test
+
+Use an offering with two investor types and a transfer that requires approval. Ask each platform to show how it admits an eligible investor, blocks an ineligible transfer, records the approval and exports the result. Repeat the export with a sample closed account. Use the result to compare what your team can operate itself and what needs the vendor's help.

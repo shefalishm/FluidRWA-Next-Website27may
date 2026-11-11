@@ -97,10 +97,10 @@ For the proposed program, draw a mint and a redemption from the customer's instr
 
 Circle is a natural starting point for businesses building around USDC, EURC, Circle Mint and USDC-backed branded stablecoin infrastructure; Paxos for enterprises seeking a regulated white-label issuer with reserve management, attestation, redemption and distribution experience; and Brale for organizations evaluating custom branded stablecoins, managed reserves, native multi-chain issuance and API-led payment or payout workflows. The key decision is not the token contract alone but the legal issuer, reserve structure, redemption promise, distribution plan and operating responsibilities.
 
-## Research basis
+## Who issues the token?
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+- [Circle xReserve](https://www.circle.com/xreserve) documents a model in which a partner blockchain team deploys the token and USDC held in a Circle-deployed contract backs it. Do not infer that Circle is the issuer of the partner token, or that the holder has the same redemption rights as a holder of USDC.
+- [Paxos stablecoin issuance](https://www.paxos.com/tokenization/stablecoin-issuance) describes white-label issuance and distinguishes it from joining the USDG network. Ask which legal entity would issue your asset and who can redeem directly.
+- [Brale API documentation](https://docs.brale.xyz/) describes stablecoin issuance and transfer workflows. Confirm the named issuer, applicable reserve disclosures, supported networks and redemption terms for the specific asset.
 
-- C
-- P
-- B
+These are provider disclosures, not a legal or reserve assessment. Ask each provider to show the relevant agreement and walk through a redemption, including the point at which the holder receives fiat or another token.

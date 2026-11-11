@@ -1,53 +1,25 @@
 ---
 title: "What's the Minimum Asset Size Worth Tokenizing?"
-description: "Threshold for viability. A practical answer for teams evaluating asset tokenization, RWA infrastructure and tokenization providers."
+description: "There is no universal minimum asset size. Compare fixed launch and servicing costs with the value of the workflow improvement or distribution opportunity."
 date: "2026-05-26"
 category: "Tokenization"
 slug: "what-s-the-minimum-asset-size-worth-tokenizing"
 image: "/assets/blog-images/what-s-the-minimum-asset-size-worth-tokenizing.svg"
 imageAlt: "What's the Minimum Asset Size Worth Tokenizing? editorial infrastructure visual"
-answer: "Asset tokenization converts rights, records or economic interests in an asset into digital tokens that can be issued, managed and transferred through compliant technology infrastructure. The token is only one layer; legal, custody, payments, compliance and servicing matter just as much."
+answer: "There is no universal minimum asset size. Compare fixed launch and servicing costs with the value of the workflow improvement or distribution opportunity."
 ctaTitle: "Find tokenization vendors faster."
 ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, custody solutions and infrastructure partners for your asset workflow."
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
-faq1q: "Is what's the minimum asset size worth tokenizing a legal question or a technology question?"
-faq1a: "It is both. Asset tokenization requires technology, but legal structure, investor rights, compliance and operating controls usually decide whether the project is viable."
-faq2q: "What vendors are usually needed for tokenization?"
-faq2a: "Most projects need a tokenization platform, legal counsel, KYC/AML provider, custody or wallet infrastructure, compliance tools and payment rails."
-faq3q: "Where should I start if I am evaluating tokenization?"
-faq3a: "Start by defining the asset, jurisdiction, investor type, distribution model and required vendor categories before choosing a platform."
 socialImage: "/assets/social/blog-what-s-the-minimum-asset-size-worth-tokenizing.png"
 ---
 
-## Quick Answer
+## What to check
 
-Asset tokenization converts rights, records or economic interests in an asset into digital tokens that can be issued, managed and transferred through compliant technology infrastructure. The token is only one layer; legal, custody, payments, compliance and servicing matter just as much.
+Estimate setup, annual running costs, per-investor costs and the number of recurring events the product is likely to generate.
 
-## What This Means
+## Work through an example
 
-Threshold for viability. For a business, the practical question is not simply whether tokenization is possible. The real question is whether the asset, investor base, jurisdiction, and operating workflow are strong enough to justify a tokenized structure.
+Model low, base and high participation. Identify the volume at which the incremental benefit covers the additional costs.
 
-Tokenization projects usually need a coordinated stack: a [tokenization platform](/vendors/tokenization-platforms/), [legal and regulatory advisors](/vendors/legal-regulatory-vendors/), [KYC and AML providers](/vendors/kyc-aml-providers/), [custody solutions](/vendors/crypto-custody-providers/), and payment or stablecoin rails where money movement is involved.
-
-## How To Evaluate It
-
-Start with the asset and investor journey. Define who can buy, how they are verified, what rights the token represents, how transfers are controlled, how income is distributed, and what happens if a vendor changes.
-
-A simple evaluation checklist includes:
-
-- asset type and legal ownership structure
-- investor eligibility and KYC requirements
-- blockchain, custody and wallet model
-- payment rails and settlement process
-- reporting, servicing and tax documentation
-- transfer restrictions and compliance monitoring
-- vendor continuity and data portability
-
-## Vendor Categories To Review
-
-Most teams should begin with [tokenization platforms](/vendors/tokenization-platforms/) and then add adjacent providers based on risk. Regulated products usually need [compliance infrastructure](/vendors/compliance-infrastructure-providers/), [legal support](/vendors/legal-regulatory-vendors/), and secure [custody providers](/vendors/crypto-custody-providers/). Projects accepting fiat or stablecoins should also review [fiat on and off ramps](/vendors/fiat-on-off-ramp-providers/) and [payments and stablecoin providers](/vendors/stablecoin-infrastructure-providers/).
-
-## Bottom Line
-
-Tokenization is strongest when it solves a real operational or market-access problem. It should make ownership, onboarding, servicing, settlement or distribution clearer and more efficient. If it only adds a token without improving the workflow, the project is probably not ready.
+For broader context, see [how asset tokenization works](/blog/what-is-asset-tokenization-and-how-does-it-work).

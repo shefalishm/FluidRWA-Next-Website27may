@@ -41,3 +41,7 @@ The best ramp provider for a consumer wallet may not be the best provider for in
 ## Where To Compare Providers
 
 FluidRWA’s [fiat on and off ramp provider page](/vendors/fiat-on-off-ramp-providers/) groups ramp providers, stablecoin infrastructure, payment processors, banking rails and regional specialists so teams can compare by workflow instead of searching from scratch.
+
+## Test both directions before choosing a provider
+
+Use the same country, currency, asset and network in two test cases: buy the asset from a bank account, then sell it back into that account. Log who performs identity checks, what quote the user sees, when money becomes available and who handles a failed transfer. A working purchase does not establish that the reverse route is supported. For a vendor-by-vendor integration review, see the [MoonPay, Transak and Banxa comparison](/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers).

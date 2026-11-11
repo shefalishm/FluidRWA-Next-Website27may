@@ -41,3 +41,7 @@ Ask for relevant experience, not just general blockchain interest.
 ## Where To Compare Firms
 
 FluidRWA’s [legal and regulatory directory](/vendors/legal-regulatory-vendors/) groups law firms and advisors focused on digital assets, tokenization, funds, compliance and cross-border structures.
+
+## What to ask for in the first engagement
+
+Send counsel a one-page description of the legal entity, the rights attached to the instrument, where buyers live, and who maintains ownership records. Request a written scope that identifies which jurisdictions and activities are covered, which assumptions could change the answer, and which work needs local counsel. A vendor's country list is not a legal opinion about your distribution plan.

@@ -41,3 +41,7 @@ Also confirm how data is stored, what reporting is available and how the provide
 ## Where To Start
 
 Use FluidRWA’s [KYC and AML provider directory](/vendors/kyc-aml-providers/) for identity and verification tools, and review [compliance infrastructure](/vendors/compliance-infrastructure-providers/) for monitoring, policy and reporting workflows.
+
+## Separate a wallet alert from an identity decision
+
+In a test environment, use one synthetic customer who passes identity verification but whose test wallet generates a screening alert. Record whether the payout stops, who can clear the case and what evidence supports that decision. Repeat with a wallet check that times out. A timeout, a confirmed alert and a clean result should not all lead to the same action.

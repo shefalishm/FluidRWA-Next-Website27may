@@ -39,3 +39,7 @@ This is an operational guide, not legal advice.
 - [Regulation (EU) 2022/858](https://eur-lex.europa.eu/eli/reg/2022/858/oj)
 - [ESMA DLT Pilot Regime resources](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime)
 - [ESMA recommendations on reform](https://www.esma.europa.eu/press-news/esma-news/esma-suggests-amendments-dlt-pilot-regime-make-it-permanent)
+
+## Check the instrument and venue separately
+
+Article 3 of [Regulation (EU) 2022/858](https://eur-lex.europa.eu/eli/reg/2022/858/oj) sets separate tests for shares, debt and certain collective investment units, as well as an aggregate limit for instruments on an infrastructure. Ask the venue which threshold applies to your instrument and whether its permission sets a lower one. ESMA's [list of authorised infrastructures](https://www.esma.europa.eu/document/list-authorised-dlt-market-infrastructures) is the place to check named permissions. Its Article 14 review records that 21X AG's specific DLT TSS permission began on 3 December 2024; that date is not evidence that any particular instrument can trade there today.

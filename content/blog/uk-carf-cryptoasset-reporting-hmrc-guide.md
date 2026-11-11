@@ -41,3 +41,7 @@ CARF is not the Travel Rule, and filing a CARF report is not a substitute for ot
 
 - [HMRC: Check whether you need to report](https://www.gov.uk/guidance/check-if-youll-need-to-report-cryptoasset-data-to-hmrc)
 - [UK reporting and due diligence regulations](https://www.legislation.gov.uk/uksi/2025/744/made)
+
+## Plan around the deadline, not an assumed opening date
+
+The first reporting period runs from 1 January through 31 December 2026, with reports due by 31 May 2027. On 2 November 2026, [HMRC updated its guidance](https://www.gov.uk/guidance/check-if-youll-need-to-report-cryptoasset-data-to-hmrc) to remove the 1 January 2027 filing-service opening date and the first-year 31 January registration deadline. Check the [HMRC guidance collection](https://www.gov.uk/government/collections/reporting-to-hmrc-if-you-provide-cryptoasset-services-in-the-uk) for current instructions. For a mock fiat purchase, retain the customer record, asset and quantity, transaction time, fiat consideration and event reference; then check the current schema for how that input rolls into the report. The mock record is not a filing template.

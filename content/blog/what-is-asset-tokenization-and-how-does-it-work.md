@@ -44,3 +44,7 @@ The exact sequence varies by asset and jurisdiction. A tokenized fund share, a w
 Shared digital records can make ownership and transfer events easier to follow. Rules in the system may also automate parts of a workflow. The [BIS review of tokenization](https://www.bis.org/publications/fsi-summary-financial-stability-implications-tokenisation-executive-summary) describes possible efficiency and transparency gains, alongside new dependencies and risks. Those gains need to be demonstrated for the actual product; a token by itself does not create liquidity or reduce every cost.
 
 Before speaking to vendors, write down the asset, investor group, jurisdictions, holder rights and events that must work after issuance. Then compare [tokenization platforms](/vendors/tokenization-platforms/) and providers responsible for custody, compliance and payments. For a scoped enquiry, email [contact@fluidrwa.com](mailto:contact@fluidrwa.com).
+
+## Follow an investor from subscription to transfer
+
+Consider a property vehicle whose documents define units in the vehicle. The issuer approves a subscription, records it and issues the corresponding tokens. Before accepting a transfer, the operator checks the buyer's eligibility and updates the ownership record required by the documents. A token in a wallet does not by itself tell you whether the holder owns part of the property, a unit in the vehicle or a contractual claim. Read the terms for that distinction.

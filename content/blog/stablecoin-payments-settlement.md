@@ -41,3 +41,7 @@ Enterprise teams should also evaluate support for KYB, sanctions screening, tran
 ## Where To Start
 
 FluidRWA’s [payments and stablecoins provider page](/vendors/stablecoin-infrastructure-providers/) groups stablecoin APIs, payment processors, settlement rails and related infrastructure for easier comparison.
+
+## Reconcile a payout from instruction to bank credit
+
+For a stablecoin-funded supplier payment, tie the payment ID to the onchain transaction, the conversion receipt and the final bank credit. Compare instructed and received amounts in their respective currencies, recording the exchange rate and fees separately. Test a confirmed onchain transfer followed by a rejected bank payout; assign an owner for the funds and the customer update at that point.

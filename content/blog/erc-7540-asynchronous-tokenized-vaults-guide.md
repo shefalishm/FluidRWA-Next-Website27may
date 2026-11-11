@@ -38,3 +38,7 @@ Ask the vault operator how it sets prices, handles queues and responds to cancel
 
 - [ERC-7540 specification](https://eips.ethereum.org/EIPS/eip-7540)
 - [ERC-4626 specification](https://eips.ethereum.org/EIPS/eip-4626)
+
+## A partial fill in asset and share units
+
+Suppose Alice requests a deposit of 1,000 asset units and Bob requests 500 under the same nonzero request ID. If the batch becomes 40% claimable, the claimable deposit amounts are 400 and 200 asset units respectively; the remainder is pending. At an illustrative exchange rate of 2 asset units per share, those claim amounts produce 200 and 100 shares, ignoring fees and rounding. The rate is an example, not a term of ERC-7540. Use the request ID and controller to track state, and check the actual claim output separately. The base standard does not define cancellation.

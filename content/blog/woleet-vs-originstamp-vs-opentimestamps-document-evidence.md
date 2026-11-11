@@ -32,3 +32,7 @@ Ask what happens if anchoring is delayed and whether the application must poll f
 - [Woleet proof receipts](https://doc.woleet.io/reference/creating-proofs)
 - [OriginStamp API documentation](https://docs.originstamp.com/)
 - [OpenTimestamps project and clients](https://github.com/opentimestamps)
+
+## Test whether you can verify after cancelling
+
+Timestamp the same file with each option and export everything needed to prove it later. Hand the file and proof to a colleague without access to your account. Ask them to identify which verifier they need, what time claim they can independently establish and whether an account or API call is required. Change one byte and confirm that the proof no longer verifies against that copy.

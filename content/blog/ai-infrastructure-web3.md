@@ -41,3 +41,7 @@ Strong AI infrastructure makes teams faster while keeping accountability clear.
 ## Where To Compare Providers
 
 FluidRWA’s [AI infrastructure directory](/vendors/ai-infrastructure/) includes providers across analytics, automation, compute, agents, security intelligence and Web3 tooling.
+
+## A pilot for investor document review
+
+Start with a set of redacted subscription documents that includes missing signatures, mismatched entity names and unfamiliar document formats. Have an analyst label the expected outcome before running the same files through each tool. Track missed issues separately from false alarms; the two errors have different costs. Ask where the files and prompts are stored, how deletion works and which decision still requires a person.

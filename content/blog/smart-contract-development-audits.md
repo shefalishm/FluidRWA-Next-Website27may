@@ -43,3 +43,7 @@ Post-launch monitoring is increasingly important. Audits reduce risk, but they d
 ## Where To Compare Providers
 
 Use FluidRWA’s [smart contract development category](/vendors/smart-contract-development-companies/), [blockchain development company directory](/vendors/blockchain-development-companies/) and [security audit category](/vendors/security-audit-companies/) to compare teams by workflow.
+
+## Specify who fixes findings and who signs off
+
+Ask the development firm for a release manifest with the contract version, dependencies and deployment configuration. Give that same version to the auditor. Agree in advance who fixes findings, what triggers a retest and how your team checks that the reviewed version is the version deployed. Include upgrade permissions and incident ownership in the handoff.

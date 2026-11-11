@@ -40,3 +40,7 @@ Use it if you are sponsoring an offering and choosing the software and service p
 - DigiShares, real estate offering workflow: https://digishares.io/real-estate-tokenization
 - Blocksquare, corporate resolution: https://docs.blocksquare.io/infrastructure/tokenization-protocol/corporate-resolution
 - Tokeny, investor onboarding and qualification: https://docs.tokeny.com/docs/onboard-investors and https://docs.tokeny.com/docs/qualify-investors
+
+## Assign each responsibility before the demo
+
+Ask every provider to complete the same responsibility map: who approves subscriptions, who decides eligibility, where the official ownership record lives and who services distributions. For each answer, record the legal entity, the software used and the evidence the issuer can export. Leave a row unresolved if the answer depends on a partner that has not been named in the proposal.

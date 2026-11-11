@@ -88,10 +88,10 @@ Take one asset from investor approval to issuance, transfer restriction and rede
 
 AWS Managed Blockchain is a natural starting point when an AWS-centered team needs managed access to supported public networks or private Hyperledger Fabric infrastructure; Kaleido when a consortium or institution wants a modular blockchain business platform with network, middleware and digital asset capabilities; and SettleMint when regulated institutions need a broader digital asset lifecycle and application platform spanning issuance, compliance, custody orchestration, settlement and servicing. Choose based on whether the core problem is managed nodes, consortium application infrastructure or end-to-end digital asset operations.
 
-## Research basis
+## What each platform documents
 
-This comparison was prepared from publicly available vendor materials, documentation and product information. External source links are intentionally not included.
+- [AWS Managed Blockchain documentation](https://docs.aws.amazon.com/managed-blockchain/): separates managed blockchain access from Query, which exposes indexed blockchain data. Compare the exact service and supported network rather than assuming every network supports both.
+- [Kaleido platform overview](https://www.kaleido.io/): presents network infrastructure, digital asset tools and middleware. Ask which components are included in the proposed deployment and who operates each one.
+- [SettleMint lifecycle platform](https://www.settlemint.com/): documents issuance, compliance, settlement and servicing capabilities. Custody orchestration does not establish that SettleMint is the asset custodian; request the responsible entity and operating agreement.
 
-- A
-- K
-- S
+Use the same recovery exercise for all three: restart the deployment in a clean environment and verify which configuration, permissions and transaction records you can restore without vendor intervention.

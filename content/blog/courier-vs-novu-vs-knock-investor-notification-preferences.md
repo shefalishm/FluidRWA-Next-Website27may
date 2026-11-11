@@ -32,3 +32,7 @@ Ask how the portal exports or synchronizes a preference change and what happens 
 - [Courier documentation](https://www.courier.com/docs/)
 - [Novu documentation](https://docs.novu.co/)
 - [Knock preferences](https://docs.knock.app/preferences/overview)
+
+## Give each provider the same preference scenario
+
+Create a test investor who opts out of marketing email but still needs statements in their portal. Send the same event twice, then change the investor's preference and rerun it. Ask each provider to show how global defaults, subscriber preferences and workflow overrides interact, and which log shows the final routing decision. Require a demonstration of any override before counting it as supported.
