@@ -131,6 +131,8 @@
   background: #f5f8fc;
 }
 .home-signature-grid img { width: min(100%, 176px); height: 80px; object-fit: contain; }
+.home-signature-grid img[src$="/signature-frax.webp"],
+.home-signature-grid img[src$="/signature-alloy.webp"] { width: min(78%, 132px); }
 .home-signature-logo.home-signature-logo-dark { background: #142a45; }
 .home-signature-grid h3 { margin: 0; font-size: 19px; line-height: 1.25; letter-spacing: 0; }
 .home-signature-grid p { margin: 0; color: #455c72; font-size: 14px; line-height: 1.5; }
