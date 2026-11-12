@@ -2,7 +2,6 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
 import { relatedVendorDirectories } from "@/lib/legacy";
-import { isSignatureCandidate, signaturePlacementLabel, signatureTopChoiceLabel } from "@/lib/signaturePreview";
 
 type SecurityVendor = {
   name: string;
@@ -157,7 +156,6 @@ const securityVendors: SecurityVendor[] = [
 ];
 
 export function SecurityAuditCompaniesPage() {
-  const signatureIndex = securityVendors.findIndex(({ name }) => isSignatureCandidate(name));
   const canonical = `${siteUrl}/vendors/security-audit-companies`;
   const schema = {
     "@context": "https://schema.org",
@@ -277,12 +275,10 @@ export function SecurityAuditCompaniesPage() {
         <div className="security-vendor-list">
           {securityVendors.map((vendor, index) => {
             const id = vendor.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-            const isSignature = index === signatureIndex;
             return (
-              <article className={isSignature ? "security-vendor-card signature-placement-preview" : "security-vendor-card"} id={id} key={vendor.name}>
+              <article className="security-vendor-card" id={id} key={vendor.name}>
                 <div className="security-vendor-rank">{String(index + 1).padStart(2, "0")}</div>
                 <div className="security-vendor-main">
-                  {isSignature ? <p className="signature-placement-label"><span className="signature-top-choice">{signatureTopChoiceLabel}</span><span>{signaturePlacementLabel}</span></p> : null}
                   <div className="security-vendor-title-row">
                     <div className="security-vendor-logo" aria-hidden="true">
                       {vendor.logo ? <img src={vendor.logo} alt="" loading="lazy" decoding="async" /> : vendor.name.slice(0, 2)}
