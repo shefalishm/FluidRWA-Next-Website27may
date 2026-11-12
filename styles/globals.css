@@ -13396,35 +13396,35 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   }
 }
 
-/* Keep every vendor content heading on one clear editorial axis. */
+/* Center section intros without changing the catalogue or FAQ layout. */
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .solutions-section-head,
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .section-heading-lite {
   width: 100%;
   max-width: 100%;
   margin: 0 0 40px;
-  text-align: left;
+  text-align: center;
 }
 
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .solutions-section-head .eyebrow,
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .section-heading-lite .eyebrow {
-  margin-left: 0;
-  margin-right: 0;
-  text-align: left;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .solutions-section-head h2,
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .section-heading-lite h2 {
   max-width: 900px;
-  margin: 10px 0 16px;
-  text-align: left;
+  margin: 10px auto 16px;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .solutions-section-head p,
 .light-home main.next-page-shell:has(.bc-company-grid) .bc-section .section-heading-lite p {
   max-width: 760px;
-  margin-left: 0;
-  margin-right: 0;
-  text-align: left;
+  margin-inline: auto;
+  text-align: center;
+  text-wrap: pretty;
 }
 
 @media (max-width: 720px) {
