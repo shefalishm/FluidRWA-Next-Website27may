@@ -131,6 +131,10 @@
   background: linear-gradient(180deg, #f5f9ff, #fff);
 }
 .home-signature-grid img { width: min(100%, 132px); height: 70px; object-fit: contain; }
+.home-signature-logo:has(img[src$="/anchorage-digital.svg"]) {
+  background: #142a45;
+  border-radius: 6px;
+}
 .home-signature-grid h3 { margin: 0; font-size: 19px; line-height: 1.25; letter-spacing: 0; }
 .home-signature-grid p { margin: 0; color: #455c72; font-size: 14px; line-height: 1.5; }
 .home-signature-grid .home-signature-category { color: #245e98; font-size: 12px; font-weight: 750; }
