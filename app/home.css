@@ -131,6 +131,7 @@
   background: linear-gradient(180deg, #f5f9ff, #fff);
 }
 .home-signature-grid img { width: min(100%, 132px); height: 70px; object-fit: contain; }
+.home-signature-grid img[src$="/apex-tokeny.webp"] { width: min(100%, 160px); }
 .home-signature-logo:has(img[src$="/anchorage-digital.svg"]) {
   background: #142a45;
   border-radius: 6px;
