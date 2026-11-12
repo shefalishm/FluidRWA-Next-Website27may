@@ -1,6 +1,7 @@
-export const signaturePlacementLabel = "Signature Listing";
+export const signaturePlacementLabel = "Signature Vendor";
+export const signatureTopChoiceLabel = "Top Choice";
 
-const previewLabel = `<p class="signature-placement-label">${signaturePlacementLabel}</p>`;
+const previewLabel = `<p class="signature-placement-label"><span class="signature-top-choice">${signatureTopChoiceLabel}</span><span>${signaturePlacementLabel}</span></p>`;
 
 // Existing members and featured partners are not candidates for a Signature slot.
 const excludedMemberIds = ["nowpayments", "nownodes", "minddeft", "surestack", "brandsessential", "lium", "golt"];

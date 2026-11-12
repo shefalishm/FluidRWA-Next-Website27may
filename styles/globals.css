@@ -13359,6 +13359,20 @@ body:has(.directory-shortlist-bar) .quick-intake-launcher { bottom: 92px; }
   margin-top: 26px;
 }
 
+.tokenization-shortlist-panel .organic-conversion-inner {
+  text-align: center;
+}
+
+.next-page-shell .tokenization-shortlist-panel .organic-conversion-inner :is(h2, p) {
+  margin-inline: auto;
+}
+
+.next-page-shell .tokenization-shortlist-panel .organic-conversion-actions {
+  justify-content: center;
+  justify-items: center;
+  flex-wrap: wrap;
+}
+
 .next-page-shell:has(.bc-company-grid) .organic-conversion-actions .btn {
   min-height: 48px;
   border-radius: 5px;

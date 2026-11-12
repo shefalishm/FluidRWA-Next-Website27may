@@ -2,7 +2,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
 import { relatedVendorDirectories } from "@/lib/legacy";
-import { isSignatureCandidate, signaturePlacementLabel } from "@/lib/signaturePreview";
+import { isSignatureCandidate, signaturePlacementLabel, signatureTopChoiceLabel } from "@/lib/signaturePreview";
 
 type SecurityVendor = {
   name: string;
@@ -282,7 +282,7 @@ export function SecurityAuditCompaniesPage() {
               <article className={isSignature ? "security-vendor-card signature-placement-preview" : "security-vendor-card"} id={id} key={vendor.name}>
                 <div className="security-vendor-rank">{String(index + 1).padStart(2, "0")}</div>
                 <div className="security-vendor-main">
-                  {isSignature ? <p className="signature-placement-label">{signaturePlacementLabel}</p> : null}
+                  {isSignature ? <p className="signature-placement-label"><span className="signature-top-choice">{signatureTopChoiceLabel}</span><span>{signaturePlacementLabel}</span></p> : null}
                   <div className="security-vendor-title-row">
                     <div className="security-vendor-logo" aria-hidden="true">
                       {vendor.logo ? <img src={vendor.logo} alt="" loading="lazy" decoding="async" /> : vendor.name.slice(0, 2)}

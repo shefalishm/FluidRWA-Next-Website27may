@@ -1,117 +1,37 @@
+.signature-placement-preview:not(tr),
+tr.signature-placement-preview > td {
+  background: #f1e8ff !important;
+}
+
 .signature-placement-preview:not(tr) {
-  grid-column: 1 / -1;
-  position: relative;
-  isolation: isolate;
-  border: 1px solid #719bec !important;
-  border-radius: 8px !important;
-  background: linear-gradient(145deg, rgb(91 156 248 / 24%), transparent 45%),
-    linear-gradient(118deg, #0b2251, #174798 62%, #102f69) !important;
-  box-shadow: inset 0 1px 0 rgb(240 249 255 / 42%),
-    inset 0 -3px 0 rgb(5 23 59 / 52%), 0 7px 0 -3px #0c2655,
-    0 14px 28px rgb(12 47 117 / 23%);
+  background: linear-gradient(145deg, #f1e8ff, #faf6ff 65%, #fff) !important;
+  border-color: #7946cb !important;
+  box-shadow: inset 0 3px #7946cb;
 }
-.signature-placement-preview:not(tr)::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 1px;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(112deg, transparent 32%, rgb(217 240 255 / 15%) 49%, transparent 64%);
-  background-size: 240% 100%;
-  background-position: 100% 0;
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .signature-placement-preview:not(tr) {
-    transition: translate 220ms ease, box-shadow 220ms ease;
-  }
-  .signature-placement-preview:not(tr)::after { transition: background-position 680ms ease; }
-  .signature-placement-preview:not(tr):hover {
-    translate: 0 -4px;
-    box-shadow: inset 0 1px 0 rgb(240 249 255 / 50%),
-      inset 0 -3px 0 rgb(5 23 59 / 52%), 0 10px 0 -3px #0c2655,
-      0 19px 34px rgb(12 47 117 / 28%);
-  }
-  .signature-placement-preview:not(tr):hover::after { background-position: 0 0; }
-}
-.signature-placement-preview { color: #f3f7ff !important; }
-.signature-placement-preview :is(h3, h4, p:not(.signature-placement-label), dt, dd, summary, label, small, strong, a:not(.btn), .bc-company-index, .vc-firm-index) {
-  color: #f3f7ff !important;
-}
-.signature-placement-preview :is(h3, h4) { font-weight: 800; }
-.signature-placement-preview :is(.bc-company-index, .vc-firm-index, .bc-best > span, .bc-best-fit > strong) {
-  color: #ffe188 !important;
-}
-.signature-placement-preview :is(.bc-best, .bc-best-fit, details, .bc-company-meta > div, .bc-provider-meta > div) {
-  background: rgb(8 28 72 / 55%) !important;
-  border-color: #779ce1 !important;
-}
-.signature-placement-preview :is(.bc-tags, .bc-company-tags, .bc-provider-tags, .ai-pill-row) span {
-  background: #173c80 !important;
-  border-color: #7299e4 !important;
-  color: #f3f7ff !important;
-}
-.signature-placement-preview :is(a.btn-primary, button:not([aria-expanded])) {
-  background: #ffda67 !important;
-  border-color: #ffda67 !important;
-  color: #10254f !important;
-}
-.signature-placement-preview p.signature-placement-label {
-  display: inline-flex;
+
+.signature-placement-preview .signature-placement-label {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 7px;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 0 10px;
-  padding: 3px 8px;
-  border: 1px solid #c6a257;
-  border-radius: 4px;
-  background: #10254f;
-  color: #ffe188 !important;
+  gap: 4px 8px;
+  margin: 0 0 6px;
+  color: #54269c;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.4;
+  line-height: 1.35;
 }
-.signature-placement-label::before {
-  content: "";
-  flex: 0 0 5px;
-  height: 5px;
-  border: 1px solid currentColor;
-  transform: rotate(45deg);
-}
-tr.signature-placement-preview td {
-  background: linear-gradient(180deg, #204b98, #112e67) !important;
-  border-block: 1px solid #719bec;
-  color: #f3f7ff !important;
-}
-tr.signature-placement-preview td:first-child { border-inline-start: 3px solid #f6cd57; }
-tr.signature-placement-preview td :is(span, a) { color: #f3f7ff !important; }
-tr.signature-placement-preview .signature-placement-label { margin-bottom: 6px; }
 
-.signature-placement-preview details {
-  box-sizing: border-box;
-  padding: 0 16px !important;
-  border: 1px solid rgb(156 188 244 / 40%) !important;
-  border-radius: 6px;
+.signature-placement-label .signature-top-choice {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #54269c;
+  color: #fff;
 }
-.signature-placement-preview details > summary {
-  min-height: 44px;
-  padding-block: 10px;
+
+tr.signature-placement-preview > td:first-child {
+  box-shadow: inset 3px 0 #7946cb;
 }
-.signature-placement-preview details > summary:focus-visible {
-  outline: 2px solid #ffe188;
-  outline-offset: 2px;
-  border-radius: 3px;
-}
-.signature-placement-preview details[open] {
-  padding-block-end: 14px !important;
-}
-.signature-placement-preview details[open] > summary {
-  margin-block-end: 10px;
-  border-bottom: 1px solid rgb(156 188 244 / 30%);
-}
-.signature-placement-preview details a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+
+tr.signature-placement-preview > td {
+  background: linear-gradient(180deg, #f1e8ff, #faf6ff) !important;
 }
