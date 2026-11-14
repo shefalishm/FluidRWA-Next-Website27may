@@ -196,3 +196,14 @@
   .home-signature-grid > li + li { border-inline-start: 0; border-block-start: 1px solid #e4dccf; }
   .home-signature-grid > li:last-child:nth-child(odd) a { width: 100%; }
 }
+
+.home-hub-section {
+  min-block-size: 100svh;
+  display: grid;
+  align-content: center;
+}
+.home-hub-section > .home-hub-inner { min-inline-size: 0; }
+.home-signature.home-hub-section { padding-block-start: 112px; }
+@media (max-width: 800px) {
+  .home-signature.home-hub-section { padding-block-start: 92px; }
+}
