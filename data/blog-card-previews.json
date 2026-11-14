@@ -1,4 +1,6 @@
 {
+  "stripe-vs-adyen-vs-cybersource-network-tokenization": { "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization.webp", "alt": "FluidRWA illustration of a stored card credential and two routes for processing a recurring payment." },
+  "modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers": { "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers.webp", "alt": "FluidRWA illustration of paired ledger postings and a separate reconciliation checkpoint." },
   "uk-carf-cryptoasset-reporting-hmrc-guide": { "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp", "alt": "FluidRWA guide illustration: UK cryptoasset reporting" },
   "eu-dlt-pilot-regime-tokenized-securities-guide": { "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide.webp", "alt": "FluidRWA guide illustration: EU distributed ledger market infrastructure" },
   "erc-7540-asynchronous-tokenized-vaults-guide": { "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide.webp", "alt": "FluidRWA guide illustration: asynchronous tokenized vaults" },

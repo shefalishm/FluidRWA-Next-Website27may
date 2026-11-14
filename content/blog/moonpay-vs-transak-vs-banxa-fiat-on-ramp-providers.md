@@ -5,7 +5,7 @@ description: "Compare documented ramp onboarding, KYC hand-offs, wallet controls
 date: "2026-08-03"
 reviewedDate: "2026-10-23"
 reviewedLabel: "October 23, 2026"
-modifiedDate: "2026-10-24"
+modifiedDate: "2026-11-14"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 category: "Payments"
@@ -102,6 +102,14 @@ Wallet ownership checks, recovery arrangements and accounting completeness remai
 | Can we recover missed events? | Replay or lookup procedure, identifiers and retention terms |
 | What prevents wrong-network delivery? | Documented controls and recovery policy, not just API fields |
 | How does finance close the day? | Statements, fee treatment and an exception ledger |
+
+## Where Stripe Crypto Onramp fits
+
+If your team already uses Stripe, its Crypto Onramp is worth checking for a specific job: letting a customer buy crypto with fiat. Stripe documents a hosted flow, a web embed and native mobile components. Access requires an application, including for sandbox use, and the documentation labels the product as a preview. Confirm the status of your chosen integration before building around it.
+
+Stripe says it acts as merchant of record and handles identity verification and sanctions screening for its onramp transaction. That does not cover your own onboarding, ongoing account monitoring or any obligations for the rest of your product. For support and reconciliation, test retrieving a session and linking its transaction identifier, when available, to the customer order in your system. Ask separately about eligibility, supported assets and networks, and any sell-side requirements. The buy flow documented here does not establish an off-ramp.
+
+Sources checked November 14, 2026: [Stripe Crypto Onramp documentation](https://docs.stripe.com/crypto/onramp) and [Crypto Onramp Sessions API](https://docs.stripe.com/api/crypto/onramp_sessions). This is a separate integration note; Stripe was not added to the three-provider dataset or downloads.
 
 ## Separate ramp funding from merchant payments
 
