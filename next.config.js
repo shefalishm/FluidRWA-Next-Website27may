@@ -51,6 +51,8 @@ const nextConfig = {
       { source: "/vendors/custody-wallets", destination: "/vendors/crypto-custody-providers", permanent: true },
       { source: "/vendors/blockchain-analytics-transaction-monitoring", destination: "/vendors/compliance-infrastructure-providers", permanent: true },
       { source: "/vendors/legal-regulatory", destination: "/vendors/legal-regulatory-vendors", permanent: true },
+      { source: "/vendors/staking-providers", destination: "/vendors/institutional-staking-validator-infrastructure", permanent: true },
+      { source: "/blog/chainalysis-vs-trm-labs-vs-elliptic-vs-cognyte", destination: "/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics", permanent: true },
       { source: "/vendors/kyc-aml", destination: "/vendors/kyc-aml-providers", permanent: true },
       { source: "/vendors/smart-contract-development", destination: "/vendors/smart-contract-development-companies", permanent: true },
       { source: "/vendors/ai-infrastructure", destination: "/vendors/ai-infrastructure-providers", permanent: true },
