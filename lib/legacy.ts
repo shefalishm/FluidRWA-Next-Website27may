@@ -290,8 +290,11 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
     "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors."
   );
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
-  const scopedSocial = ["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
+  const scopedSocial = ["index.html", "vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
   const ogImage = (file.startsWith("blog/") || scopedSocial) && parsedOgImage ? parsedOgImage : defaultSocialImage;
+  const socialImageAlt = override?.socialImageAlt || (file === "index.html" && parsedOgImage
+    ? matchTag(html, /<meta\s+property=["']og:image:alt["']\s+content=["']([^"']+)["']\s*\/?>/i)
+    : undefined);
   const resolvedCanonicalPath = override?.canonicalPath || canonicalPath;
   const canonical = `${siteUrl}${resolvedCanonicalPath === "/" ? "" : resolvedCanonicalPath}`;
   const robotsValue = matchTag(html, /<meta\s+name=["']robots["']\s+content=["']([\s\S]*?)["']\s*\/?>/i)?.toLowerCase() || "";
@@ -306,15 +309,15 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
       description,
       url: canonical,
       siteName: "FluidRWA",
-      images: [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, width: 1200, height: 630, ...(override?.socialImageAlt ? { alt: override.socialImageAlt } : {}) }],
+      images: [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, width: 1200, height: 630, ...(socialImageAlt ? { alt: socialImageAlt } : {}) }],
       type: override?.openGraphType || "website"
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: override?.socialImageAlt
-        ? [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, alt: override.socialImageAlt }]
+      images: socialImageAlt
+        ? [{ url: ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage, alt: socialImageAlt }]
         : [ogImage.startsWith("/") ? `${siteUrl}${ogImage}` : ogImage]
     },
     robots: {
