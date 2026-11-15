@@ -1,4 +1,7 @@
 {
+  "openai-vs-claude-vs-gemini-batch-api": { "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api.webp", "alt": "FluidRWA illustration of a document queue and its processing results." },
+  "okta-vs-duo-vs-yubico-phishing-resistant-mfa": { "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa.webp", "alt": "FluidRWA illustration of a physical security key and sign-in checkpoints." },
+  "google-cloud-vs-azure-vs-aws-confidential-ai-inference": { "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference.webp", "alt": "FluidRWA illustration of a GPU workload and a verification checkpoint." },
   "stripe-vs-adyen-vs-cybersource-network-tokenization": { "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization.webp", "alt": "FluidRWA illustration of a stored card credential and two routes for processing a recurring payment." },
   "modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers": { "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers.webp", "alt": "FluidRWA illustration of paired ledger postings and a separate reconciliation checkpoint." },
   "uk-carf-cryptoasset-reporting-hmrc-guide": { "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp", "alt": "FluidRWA guide illustration: UK cryptoasset reporting" },

@@ -3,6 +3,7 @@ title: "Lofty vs Reental vs FINEXITY: What Do Property Token Investors Own?"
 description: "Compare the property exposure Lofty, Reental and FINEXITY describe, and learn which documents to read before relying on distributions or resale."
 date: "2026-11-09"
 reviewedDate: "2026-11-09"
+modifiedDate: "2026-11-15"
 reviewedLabel: "November 9, 2026"
 category: "Vendor Comparisons"
 slug: "lofty-vs-reental-vs-finexity-property-investor-rights"
@@ -38,6 +39,18 @@ This is a document-reading comparison, not a review of live offerings or an inve
 - Lofty, operating model: https://www.lofty.ai/how-it-works
 - Reental, country-specific structures: https://www.reental.co/en/en
 - FINEXITY, project companies and subordinated debt: https://finexity.com/discover/faq
+
+## Compare the instrument and the exit independently
+
+Use Lofty's public explanation as a starting point for identifying how the property interest is held, but confirm the current offering agreement for the specific property. Look for who receives rental income first and which expenses can be deducted. If you are shown historical distributions, ask whether they came from rent or from a different source and how vacancy or repairs affect future payments.
+
+Reental publishes material across multiple markets. A structure in one country does not establish what an investor receives in another. Start with the project documents for the actual jurisdiction and find the named counterparty and the payment obligation. Verify who can decide to extend a project or change its distribution timetable. Keep any unread or gated offering term marked unverified.
+
+FINEXITY's FAQ describes project entities and subordinated debt. For an offering that uses debt, inspect repayment terms and payment priority. A claim against a project company may behave differently from an ownership interest in property, particularly if the project company is under stress. Do not infer an identical instrument or priority for every offering based on a platform FAQ.
+
+## Ask two questions about each exit
+
+Who must act for the investor to receive money, and where does the money come from? A scheduled repayment depends on the conditions in the agreement. Selling to another investor requires demand, a workable transfer process and a price both sides accept. Record each possible path separately. An offering that looks liquid in a demo may be hard to exit when no buyer appears; the public materials reviewed here do not measure that risk.
 
 ## Compare the deal terms, not the platform label
 

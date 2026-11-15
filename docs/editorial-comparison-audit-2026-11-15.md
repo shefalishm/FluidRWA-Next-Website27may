@@ -1,0 +1,9 @@
+# Comparison depth audit, November 15, 2026
+
+The November 14 Bing exports report site totals by day, not pages. The October 9 page export is historical: Top Tokenization Companies had 11,874 citations, Crypto Custody Providers Comparison 3,543, Talos/Wyden/Finery Markets 2,544, and Alloy/Unit21/Sardine 1,775. The separately supplied Search Console snapshot identified Chainalysis/TRM/Elliptic and Alchemy/QuickNode/Infura as strong impression examples. MoonPay/Transak/Banxa remains the user's structural reference.
+
+What to carry forward: a direct answer, a scoped comparison table with primary evidence, an explanation of where each provider fits, a test that reflects a realistic failure, evidence a buyer should request, and clear limits. FAQ answers should address distinct reader questions. Page length is a screening signal, not a target. Preserve existing URLs and evidence dates. An editorial update does not imply that every provider was reverified.
+
+The initial filename screen looked at comparison and vs slugs; sections, sources and body depth were manually checked for the pages edited. Six additional existing articles were materially below the references and were improved: DigiShares/Blocksquare/Tokeny, Lofty/Reental/FINEXITY, PAXG/XAUT/XAUm, Courier/Novu/Knock, Docusign/Acrobat Sign/Dropbox Sign, Woleet/OriginStamp/OpenTimestamps.
+
+Remaining review candidates, not yet diagnosed: OtterSec/Neodyme/Sec3, Together/Fireworks/Replicate, Safe/Squads/Fordefi, Docusign/OneSpan/Adobe Sign and Clerk/WorkOS/Auth0. Check the Together comparison against the existing hosted-inference comparison before adding material. Do not treat the standalone on-ramp versus off-ramp definition as a vendor comparison. Prioritize remaining URLs using a current page-level Search Console/Bing export when available.

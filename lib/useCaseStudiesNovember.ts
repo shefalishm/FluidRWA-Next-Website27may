@@ -3,18 +3,20 @@ import type { UseCaseGuide } from "./useCaseGuides";
 
 type Study = UseCase & { guide: UseCaseGuide };
 type Input = Omit<UseCase, "caseStudy" | "updatedAt" | "example"> & {
+  reviewDate?: string;
+  reviewLabel?: string;
   caseStudy: Omit<NonNullable<UseCase["caseStudy"]>, "verifiedThrough">;
   audience: string;
   questions: string[];
   faqs: UseCaseGuide["faqs"];
 };
 
-function study({ audience, questions, faqs, caseStudy, ...item }: Input): Study {
+function study({ audience, questions, faqs, caseStudy, reviewDate = "2026-11-09", reviewLabel = "November 9, 2026", ...item }: Input): Study {
   return {
     ...item,
-    updatedAt: "2026-11-09",
+    updatedAt: reviewDate,
     example: item.summary,
-    caseStudy: { ...caseStudy, verifiedThrough: "November 9, 2026" },
+    caseStudy: { ...caseStudy, verifiedThrough: reviewLabel },
     guide: {
       title: item.title, answer: item.summary, audience, questions, faqs,
       group: "Financial services",
@@ -29,6 +31,84 @@ const tokenization = { label: "Tokenization platforms", href: "/vendors/tokeniza
 const development = { label: "Blockchain development companies", href: "/vendors/blockchain-development-companies" };
 
 export const novemberCaseStudies = [
+  study({
+    slug: "project-mariana-wholesale-cbdc-fx-case-study",
+    title: "Project Mariana: How Central Banks Tested Wholesale CBDC for Foreign Exchange",
+    industry: "Wholesale foreign exchange",
+    reviewDate: "2026-11-15", reviewLabel: "November 15, 2026",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Illustrative urban financial district, not a location from the Project Mariana experiment",
+    visualKicker: "Project Mariana", visualLabel: "Proof of concept",
+    summary: "The BIS Innovation Hub and three central banks tested whether hypothetical wholesale CBDCs could be exchanged and settled through an automated market maker on a public blockchain.",
+    problem: "A cross-border FX trade needs both currency legs to settle. Different systems can make it difficult to coordinate exchange, liquidity and operational controls.",
+    stack: ["Hypothetical wholesale CBDCs", "Token standard", "Bridge", "Automated market maker"],
+    vendorCategories: [development],
+    audience: "Wholesale payments, FX and settlement teams",
+    questions: ["Who is allowed to provide liquidity and trade?", "What happens if a trade cannot execute at the expected price?", "What evidence will finance use to match the two currency legs?"],
+    faqs: [
+      { q: "Were real central bank currencies traded?", a: "No. Project Mariana tested hypothetical wholesale CBDCs. It did not establish public access, commercial availability or an issuance decision." },
+      { q: "Was the entire system a public market?", a: "No. The experiment used public-chain technology concepts, but the reported design does not establish that members of the public were authorized to trade or hold a real currency." },
+    ],
+    caseStudy: {
+      company: "BIS Innovation Hub, Banque de France, Monetary Authority of Singapore and Swiss National Bank",
+      status: "Completed technical experiment using hypothetical currencies",
+      background: [
+        "Banks exchanging currencies are exposed to settlement risk if one delivers its payment but the other does not. A payment-versus-payment design ties both legs together. It still needs a way to source liquidity, quote the trade and control who can participate.",
+        "Mariana tested how those tasks could fit together when the money is represented as a wholesale token. It focused on euro, Singapore dollar and Swiss franc test instruments. The question was technical feasibility, not whether the participating central banks would issue these instruments.",
+      ],
+      operatingModel: [
+        { title: "Represent the currencies consistently", detail: "The design used a common token standard for the hypothetical currencies so the exchange application could interact with them. A common interface helps software integration; it does not make their legal terms or account structures identical." },
+        { title: "Move the test instruments to the FX network", detail: "A bridge connected the domestic test networks to the shared network. That creates a separate control point: a future implementation would need to specify how movements are authorized and how inconsistent records are investigated." },
+        { title: "Quote and exchange using liquidity pools", detail: "The automated market maker pooled the three currencies and priced simulated spot trades. The project reported automatic execution and immediate settlement within the experiment. This says nothing about market depth or execution costs at production volume." },
+        { title: "Reconcile the movement and account for exclusions", detail: "For a follow-on pilot, retain a record of both legs and their instructions. Test an unavailable currency pool and a trade that fails its pricing limit before judging whether the workflow is operationally useful." },
+      ],
+      milestones: [{ date: "September 28, 2023", title: "Pilot results published", detail: "The BIS and participating central banks released the proof-of-concept results." }],
+      outcomes: [{ value: "3", label: "Hypothetical currencies used", context: "Test euro, Singapore dollar and Swiss franc instruments, not issued commercial products or real-value settlement totals." }],
+      updates: ["The final report presents a technical experiment and cautions against interpreting it as intent to issue CBDC or as endorsement of a particular solution."],
+      successFactors: ["Treat the FX quote, both cash legs and exceptions as separate records your operations team can reconcile.", "Validate participant permissions, pricing controls and bridge recovery before testing larger workloads."],
+      limitations: ["The experiment did not establish issuance, commercial deployment, regulatory approval or market-wide liquidity.", "Its recorded behavior under test conditions is not evidence of production performance."],
+      sourceRecords: ["BIS, Project Mariana overview: https://www.bis.org/project/mariana", "Banque de France, Project Mariana final report, September 2023: https://www.banque-france.fr/system/files/2023-09/20230928%20Mariana%20final%20report_0.pdf"],
+    },
+  }),
+  study({
+    slug: "paypal-ey-pyusd-sap-invoice-payment-case-study",
+    title: "How PayPal Paid EY With PYUSD From Its ERP System",
+    industry: "Accounts payable",
+    reviewDate: "2026-11-15", reviewLabel: "November 15, 2026",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Illustrative finance team reviewing documents, not PayPal or EY staff",
+    visualKicker: "PayPal and EY", visualLabel: "Company-reported supplier payment",
+    summary: "SAP's Taulia describes PayPal paying EY from its core ERP using PYUSD, with Coinbase as the recipient's custodian. The example shows how a stablecoin payment can start in accounts payable rather than a standalone wallet.",
+    problem: "When finance adds a new payment rail, it still needs to preserve invoice approval, identify the recipient and reconcile the completed payment.",
+    stack: ["ERP payment instruction", "SAP Digital Currency Hub", "PYUSD", "Payee custody"],
+    vendorCategories: [{ label: "Stablecoin infrastructure", href: "/vendors/stablecoin-infrastructure-providers" }],
+    audience: "Accounts payable, treasury and finance systems teams",
+    questions: ["Can an accountant match the external payment to the original payable?", "Who confirms the payee wallet and network?", "How is a failed or late payment handled without paying the invoice twice?"],
+    faqs: [
+      { q: "Did the supplier have to be paid from a manual wallet?", a: "Taulia describes the payment as originating from PayPal's core ERP through the SAP Digital Currency Hub." },
+      { q: "Does this prove lower costs than a wire?", a: "No. The cited sources do not provide comparable transaction pricing, operating cost, failure rates or settlement-time measurements for this payment." },
+    ],
+    caseStudy: {
+      company: "PayPal, EY, SAP and Coinbase",
+      status: "Supplier payment reported by SAP's Taulia",
+      background: [
+        "The important starting point for a supplier payment is an approved liability. Changing the settlement rail does not remove the need to identify the supplier, verify approved payment details and close the invoice in the accounting system.",
+        "Taulia identifies a real PayPal-to-EY payment using PYUSD, with Coinbase as the payee's custodian. SAP's product documentation separately describes the Digital Currency Hub as connecting an ERP payment process to a blockchain-based rail. The documented example establishes the parties and broad workflow; it does not expose the transaction's accounting records.",
+      ],
+      operatingModel: [
+        { title: "Initiate payment from the finance system", detail: "The company case describes PayPal paying from its core ERP. In a similar deployment, preserve the approved invoice and payment-run identity through any external hand-off; do not create a second, manual authorization record that finance cannot follow." },
+        { title: "Send the designated settlement asset", detail: "The reported payment asset was PYUSD. Buyers should verify how an approved instruction identifies the token, network and destination, and where the rules for funding and any fees are applied. Those settings are not established for the reported payment." },
+        { title: "Receive to the payee's custodian", detail: "Taulia names Coinbase for the recipient custody role. Custody identifies one participant in the workflow; it does not establish how, or whether, EY converted or withdrew the funds." },
+        { title: "Close the invoice against independent evidence", detail: "A pilot should match the approved payable, the rail's status and the recipient's receipt. Handle mismatches as exceptions before an operator retries a payment. This is a buyer control, not a claim about PayPal's internal implementation." },
+      ],
+      milestones: [{ date: "2025", title: "Taulia publishes the example", detail: "Taulia's payment guide identifies the parties, the ERP origin, the token and the payee custodian. This is the publication context, not an asserted payment date." }],
+      outcomes: [{ value: "1", label: "Named supplier-payment example reviewed", context: "The public description is a documented example, not a count of payments across PayPal or EY." }],
+      updates: ["SAP's product documentation describes newer payment and statement-reporting options separately. Do not infer that those features were used in the PayPal example."],
+      successFactors: ["Start with one supplier and one currency and preserve the usual sign-off and supplier validation.", "Before expanding, replay a rejected instruction and a confirmed transfer with a missing ERP status update. Verify that neither triggers a duplicate payment."],
+      limitations: ["The sources do not establish the invoice amount, chain transaction identifier, fees, volume, or independently measured savings.", "The case does not establish that the recipient redeemed PYUSD or that the same workflow is available to every buyer."],
+      sourceRecords: ["SAP Taulia, Next-Gen Payments case example: https://taulia.com/wp-content/uploads/2025/06/replaced_Next-Gen-Payments_v3.pdf", "SAP Help Portal, Digital Currency Hub: https://help.sap.com/doc/d38a485b480f45849e0cf6ce8d80f65b/SHIP/en-US/732a7a3bd7c540b5a1b750f80ca29168.pdf", "SAP Help Portal, Digital Currency Hub release notes: https://help.sap.com/docs/SAP_DIGITAL_CURRENCY_HUB/4cf1ea7532b148bd82c3c7c75da21c0d?locale=en-US"],
+    },
+  }),
   study({
     slug: "walmart-canada-blockchain-freight-invoice-reconciliation",
     title: "How Walmart Canada Used Blockchain to Reconcile Freight Invoices",

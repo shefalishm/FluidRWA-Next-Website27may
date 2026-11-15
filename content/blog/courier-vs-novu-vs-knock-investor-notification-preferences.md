@@ -2,6 +2,7 @@
 title: "Courier vs Novu vs Knock: Notification Preferences for Investor Portals"
 description: "Compare how notification tools manage recipient preferences across distribution updates, account alerts and newsletters."
 date: "2026-11-10"
+modifiedDate: "2026-11-15"
 category: "Vendor Comparisons"
 slug: "courier-vs-novu-vs-knock-investor-notification-preferences"
 considerationAfterTable: "true"
@@ -32,6 +33,22 @@ Ask how the portal exports or synchronizes a preference change and what happens 
 - [Courier documentation](https://www.courier.com/docs/)
 - [Novu documentation](https://docs.novu.co/)
 - [Knock preferences](https://docs.knock.app/preferences/overview)
+
+## Make the portal accountable for the final send decision
+
+Keep a table that maps each portal event to its workflow, allowed channels and whether the investor has a choice. A preference panel can change an email subscription, but it may also need to change the behavior of scheduled delivery and resend jobs. Record the scope of each setting: a single topic, a channel within one workflow or a global preference. Ask the policy owner to approve that mapping before you implement any overrides.
+
+Courier should demonstrate what happens when the same recipient uses multiple channels and opts out of only one. Novu should demonstrate how a subscriber setting interacts with workflow configuration. Knock should show the scope at which your application can read and write a preference. Use the same subscriber IDs and workflow events across demos. Verify the final delivery result from actual test records rather than inferring it from the setting screen.
+
+## Test the portal when records disagree
+
+Try changing the preference in two browser tabs. Your own portal must decide which update wins and what version it displays after refresh. Trigger a send while the change is in progress and test against your team's documented policy. If the system sends or suppresses a message, support should be able to identify the policy and preference in effect at that time.
+
+Add a bounced address, a duplicate trigger and a provider outage to the trial. A bounce does not mean the investor opted out, and a suppression does not mean the communication is no longer required. Keep failed delivery and user choice as separate outcomes.
+
+## Keep investor information out of delivery tooling where possible
+
+Ask what data the workflow needs. A message that a statement is ready rarely needs to contain the statement itself. Use test data to inspect message logs and exports, then decide what personal information support can retrieve. Measure whether an operator can answer an investor's complaint without opening any investment documents. The provider guides above establish a starting point for testing; they do not establish policy compliance or delivery performance.
 
 ## Give each provider the same preference scenario
 
