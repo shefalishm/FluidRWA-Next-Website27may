@@ -170,7 +170,7 @@ If you need **independent audit**, compare OpenZeppelin, ConsenSys Diligence, Ce
 
 If you need **contract libraries and secure admin operations**, OpenZeppelin is often part of the evaluation set.
 
-If you need **simulation, monitoring and DevOps**, compare Tenderly, Gelato, Blocknative and related operations providers.
+If you need **simulation, monitoring and DevOps**, compare Tenderly, Gelato and other active operations providers against the specific workflow. Blocknative's former APIs are covered in our [historical migration record](/fluidrwa/blocknative), not in the shortlist.
 
 If you need **tokenization contracts**, make sure the developer understands [tokenization platforms](/vendors/tokenization-platforms/), [KYC and AML providers](/vendors/kyc-aml-providers/), [custody providers](/vendors/crypto-custody-providers/) and investor eligibility workflows before writing code.
 

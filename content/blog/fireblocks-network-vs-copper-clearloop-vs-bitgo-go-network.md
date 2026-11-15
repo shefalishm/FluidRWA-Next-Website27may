@@ -2,6 +2,7 @@
 title: "Fireblocks Network vs Copper ClearLoop vs BitGo Go Network (2026)"
 description: "Compare Fireblocks Network, Copper ClearLoop and BitGo Go Network for institutional connectivity, off-exchange settlement, collateral mobility and counterparty risk."
 date: "2026-08-26"
+modifiedDate: "2026-11-15"
 reviewedDate: "2026-08-26"
 reviewedLabel: "August 26, 2026"
 category: "Settlement Infrastructure"
@@ -73,6 +74,19 @@ For one exchange and one asset, ask where collateral sits before an order, when 
 ## Conclusion
 
 Choose Fireblocks Network for broad institutional digital-asset connectivity, Copper ClearLoop for collateralized off-exchange trading and settlement workflows, and BitGo Go Network when trading connectivity should sit close to BitGo's qualified custody and institutional wallet stack.
+
+## Follow the collateral through a failed settlement
+
+Ask for one diagram with the custodian, venue, counterparty and the entity that can release collateral. Mark which balances are reflected as trading credit and which are actual custody holdings. Then take a simulated fill into a delayed settlement window. Ask which party can see and act on the mismatch, what remains locked, and when new trading must stop. Do not use the presence of an exchange in a vendor's network as proof that an account or asset qualifies.
+
+| Scenario | Evidence to request |
+| --- | --- |
+| Collateral allocation | Agreed account, asset, venue and the records for the custodian's balance and the venue's credit |
+| Fill without settlement | Open delivery obligation, deadline, party responsible and a traceable escalation |
+| Release or withdrawal | Authorization owner, any lock or restriction, and matching records of the completed movement |
+| Correction at close | Original movement, correction reference, balance after correction and approval evidence |
+
+Use the same cases for Fireblocks, Copper and BitGo. Keep eligibility, insolvency treatment and legal rights in separate due diligence with the responsible entities. An operational test is not a legal determination.
 
 ## Primary sources
 

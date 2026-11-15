@@ -2,7 +2,7 @@
 title: "Talos vs Wyden vs Finery Markets: Institutional Crypto Trading Platforms (2026)"
 description: "Compare Talos, Wyden and Finery Markets for institutional digital asset execution, liquidity connectivity, OEMS, ECN, settlement and white-label trading."
 date: "2026-08-26"
-modifiedDate: "2026-11-06"
+modifiedDate: "2026-11-15"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -81,6 +81,18 @@ Before the demo, assign an owner to each record: order intent, fills, settlement
 If execution and settlement are owned by separate teams, pair the [trading platform directory](/vendors/institutional-digital-asset-trading-platforms) with the [custody comparison](/blog/crypto-custody-providers-comparison-2026). [Share your trading requirements](/submit-requirement?source=trading-article-buyer) if you need help identifying which roles to shortlist.
 
 Take an order from approval through execution, allocation, settlement and the end-of-day record. Add a partial fill and a venue outage. Ask where the official order state lives, which party can amend it and how your operations team resolves a mismatch with the custodian or prime broker. The demo should include the audit trail, not just a trading screen.
+
+## Worked example: Reconcile a partially filled order
+
+Use a fictional order for 10 units. The first venue fills six units and the remaining four are canceled. Ask the provider to export the original instruction, accepted order, fill and cancellation as separate records. Your operations team should be able to start with a client order ID, find the venue IDs and reconcile six units rather than ten. Populate fees using the test venue's records, not the quote shown before execution.
+
+| Boundary | What to show | What counts as a failure |
+| --- | --- | --- |
+| Order to execution | Client reference, route or counterparty, fills and canceled remainder | A canceled remainder appears as executed exposure |
+| Execution to settlement | Which party owes which asset and when, with a settlement reference | A fill is shown as settled when the settlement record is missing |
+| Settlement to close | Position and cash records, fee breakdown and exception owner | Finance cannot link a variance to the trade or correct it without overwriting the history |
+
+Use this test to distinguish roles. Ask Talos how a routed trade returns to your own records. Ask Wyden how the institution's downstream systems receive the reports and exceptions. Ask Finery Markets which evidence comes from its trading workflow and which must be supplied by counterparties and settlement providers. The same test can reveal very different integration work; the article does not claim these platforms were tested.
 
 ## Conclusion
 

@@ -31,6 +31,8 @@ faq3a: "Do not assume so. Review the provider's contract, retention, sub-process
 
 ## First decide what you need to run
 
+This comparison focuses on background prediction jobs: submitting a request, tracking completion, handling a missing callback and retaining the result. For bulk processing through model-provider APIs, see [OpenAI vs Claude vs Gemini batch APIs](/blog/openai-vs-claude-vs-gemini-batch-api).
+
 An AI document-review product may need a low-latency response for an interactive user and a longer background job for a large file. A model-serving decision should begin with the job, the data and the operating team, not the longest list of models.
 
 We reviewed public vendor materials on October 30, 2026. The table summarizes documented approaches, not an independent performance test. Pricing, availability, data terms and supported models should be confirmed for the specific account and deployment.

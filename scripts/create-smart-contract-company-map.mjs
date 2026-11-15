@@ -48,7 +48,6 @@ const groups = [
     title: "Ops, Oracles & Automation",
     color: "#e1a400",
     vendors: [
-      ["Blocknative", "blocknative.com", "assets/company-logos/blocknative.png"],
       ["Chainlink", "chain.link"],
       ["Gelato", "gelato.network"],
       ["Pyth Network", "pyth.network"],

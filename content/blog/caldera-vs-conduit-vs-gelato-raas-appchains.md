@@ -37,6 +37,8 @@ socialImage: "/assets/social/blog-caldera-vs-conduit-vs-gelato-raas-appchains-ed
 
 ## What happens after the chain launches?
 
+Use this comparison to plan an application-chain launch, including application migration, wallet connections and automation. For rollup operator and security responsibilities, see [Caldera vs Conduit vs AltLayer](/blog/caldera-vs-conduit-vs-altlayer-rollup-as-a-service).
+
 Launching a dedicated rollup or appchain is not just a developer decision. It changes how users bridge assets, how liquidity forms, how the product is monitored, how fees are managed, how upgrades happen and how security assumptions are explained.
 
 Caldera, Conduit and Gelato all describe rollup infrastructure. This comparison concentrates on the work around launch: connecting users, sponsoring transactions and operating the chain once people rely on it.

@@ -221,9 +221,60 @@ const definitions: Tutorial[] = [
   }
 ];
 
+const walkthroughs: Record<string, string[]> = {
+  "how-to-create-a-metamask-wallet": [
+    "Practice with the unused account: copy its public address and verify it against the wallet display. A public address is safe to share for receiving funds; a recovery phrase is not.",
+    "If a site or support agent asks for your recovery phrase, close the page. Do not fund the account until you understand its recovery method."
+  ],
+  "how-to-receive-and-send-crypto-safely": [
+    "For a small test transfer, write down the asset, network and recipient. After sending, ask the recipient to verify the actual credit on the agreed network.",
+    "If the chain says confirmed but the recipient does not see a credit, save the transaction hash and ask the recipient service to investigate before sending again."
+  ],
+  "how-to-read-a-blockchain-transaction": [
+    "For a test token transfer, record the top-level destination and compare it with the recipient shown in the token movement. A top-level call to a contract can be different from the eventual token recipient.",
+    "If you cannot identify the right token contract or find matching movement, treat delivery as unverified even if the transaction itself succeeded."
+  ],
+  "how-to-understand-crypto-network-gas-fees": [
+    "For an illustrative Ethereum transaction using 21,000 gas at an effective price of 20 gwei per gas, the execution fee is 420,000 gwei, or 0.00042 ETH. This is arithmetic, not a live quote or an estimate for a contract call.",
+    "Compare the estimate before signing with gas used and the effective gas price in the receipt. Record application or exchange fees separately."
+  ],
+  "how-to-review-and-revoke-wallet-token-approvals": [
+    "On a test account, make a limited approval and record its token, spender and network. Revoke the approval and recheck the same allowance on that network after confirmation.",
+    "If an approval still appears, check whether it belongs to a different spender, account or network before trying again. Revoking cannot recover funds already transferred."
+  ],
+  "how-to-test-and-deploy-a-smart-contract-on-a-testnet": [
+    "Write a passing test for the intended operation and a failing test for the same action from an unauthorized account. Use a practice contract and verify the deployed network and address before sharing them.",
+    "Save the compiler settings, deployment receipt and test results. Stop if the wallet requests a mainnet transaction or if the deployed configuration differs from the one tested."
+  ],
+  "how-to-design-smart-contract-access-controls": [
+    "Use separate test accounts for the administrator and operator. Confirm that the operator can perform the intended action but cannot grant itself an administrative role. Revoke the operator and repeat the test.",
+    "If the revoked account retains access, identify another role or route that grants the same action. Require a passing test for the corrected policy before deployment."
+  ],
+  "how-to-use-chainlink-data-feeds-safely": [
+    "Take a synthetic fresh answer, an answer whose timestamp exceeds the application's permitted age and a case where the read fails. Run the same application action against each input.",
+    "Check that your application uses the correct decimals, base and quote, and fails or pauses according to policy when the answer is unusable rather than displaying it as current."
+  ],
+  "how-to-design-tokenized-fund-reconciliation": [
+    "Create a synthetic subscription for 100 units and a register entry for 90. Match the incoming cash, governing register and chain movement by the original subscription ID.",
+    "Check that the discrepancy stays open with a named owner. Do not change the authoritative register simply to make the reports match."
+  ],
+  "how-to-design-reliable-payment-webhook-processing": [
+    "In the sandbox, deliver the same documented test event twice and run a case where an earlier status arrives after a later one. Check the provider API where applicable before declaring the payment complete.",
+    "Confirm that only one business action happened and that a missing status can be recovered through reconciliation. Use test credentials and redact personal data from screenshots and logs."
+  ],
+  "how-to-handle-a-pending-metamask-transaction": [
+    "Use a practice transaction to find its network, hash and explorer status. If the explorer already shows confirmation, do not pay to speed it up or send a duplicate.",
+    "If MetaMask offers a replacement on the same pending transaction, review the new fee and check the status of the resulting transaction. Do not assume cancellation can reverse a confirmed transfer."
+  ],
+  "how-to-identify-a-tokenized-fund-contract": [
+    "Compare two hypothetical contracts with the same ticker on different chains. Accept only a network-and-address pair that a dated issuer record names for the exact product.",
+    "If the issuer lists the fund but not the contract, mark the address unverified. Do not add chain balances or wrapper supplies to the reported fund NAV."
+  ]
+};
+
 export const tutorials: LearnArticle[] = [...november5Tutorials, ...november4Tutorials, ...november3Tutorials, ...researchedTutorials, ...definitions.map((item): LearnArticle => ({
   slug:item.slug, title:item.title, description:item.description, level:item.level, topic:item.topic,
-  readTime:item.level === "Beginner" ? "4 min read" : "5 min read", updatedAt:item.updatedAt || "2026-10-31",
+  readTime:item.level === "Beginner" ? "4 min read" : "5 min read", updatedAt:walkthroughs[item.slug] ? "2026-11-15" : item.updatedAt || "2026-10-31",
   accent:item.topic === "Tokenization" ? "blue" : item.topic === "Stablecoins" ? "green" : "amber",
   relatedHref:item.level === "Beginner" ? "/learn#beginner-tutorials" : item.topic === "Tokenization" ? "/vendors/tokenization-platforms" : item.topic === "Stablecoins" ? "/vendors/stablecoin-infrastructure-providers" : "/vendors/smart-contract-development-companies",
   relatedLabel:item.level === "Beginner" ? "Browse beginner tutorials" : item.topic === "Tokenization" ? "Explore tokenization platforms" : item.topic === "Stablecoins" ? "Explore stablecoin providers" : "Explore smart contract providers",
@@ -231,6 +282,7 @@ export const tutorials: LearnArticle[] = [...november5Tutorials, ...november4Tut
     {id:"overview", title:"What you will do", body:[item.intro]},
     {id:"before-you-start", title:"Before you start", body:[item.needs]},
     ...item.steps.map(([title,body],index)=>({id:`step-${index+1}`,title:`Step ${index+1}: ${title}`,body:[body]})),
+    ...(walkthroughs[item.slug] ? [{id:"worked-example",title:"Worked example",body:walkthroughs[item.slug]}] : []),
     {id:"check-your-work",title:"Check your work",body:[item.check]}
   ],
   faqs:item.faq.map(([question,answer])=>({question,answer})),

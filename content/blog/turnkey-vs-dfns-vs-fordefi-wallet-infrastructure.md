@@ -2,6 +2,7 @@
 title: "Turnkey vs Dfns vs Fordefi: Wallet Infrastructure Comparison (2026)"
 description: "Compare Turnkey, Dfns and Fordefi for embedded wallets, institutional key management, MPC, policy controls, transaction signing and DeFi operations."
 date: "2026-08-27"
+modifiedDate: "2026-11-15"
 reviewedDate: "2026-08-27"
 reviewedLabel: "August 27, 2026"
 category: "Wallet Infrastructure"
@@ -69,6 +70,14 @@ Fordefi focuses on institutional wallet operations and DeFi access, combining MP
 ## Test a transaction the policy should reject
 
 Create a wallet with the approval policy you intend to use. Submit a permitted transfer, then try a destination or amount that should be blocked. Ask who can change that policy, how the change is approved and what logs show after an attempted override. Repeat with a lost credential to see the recovery path before real assets are involved.
+
+## Test recovery and migration separately
+
+Start with a test wallet and a small synthetic approval policy. Remove a test operator and then lose access to the remaining operator's usual device. Ask each provider which party can initiate recovery, who approves it, whether the wallet address changes and how the recovery appears in the audit log. A recovery demo that uses an unrestricted vendor administrator does not prove your controlled workflow works.
+
+For migration, write down the intended outcome first. Keeping the address, transferring assets to a new wallet and exporting key material are different options. Ask Turnkey to explain the trust and export boundaries for your setup; ask Dfns to demonstrate the proposed signer and role model; ask Fordefi to show how approval and transaction policies are carried over or rebuilt. Obtain explicit evidence for the intended chain and wallet type rather than assuming portability.
+
+Before signing, have a finance operator trace an approval that was denied and a successful recovery. The operator should know which actor authorized each step and whether the replacement setup can still enforce the original limits. This is an acceptance exercise, not a claim that the providers implement the same recovery or export controls.
 
 ## Conclusion
 

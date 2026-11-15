@@ -22,6 +22,8 @@ socialTitle: "Caldera vs Conduit vs AltLayer"
 
 ## Side-by-side comparison
 
+Use this comparison to establish who operates the rollup, owns upgrades and provides additional security services. For application-chain launch and integrations, see [Caldera vs Conduit vs Gelato](/blog/caldera-vs-conduit-vs-gelato-raas-appchains).
+
 This page is about choosing the chain's framework, data-availability arrangement and operating responsibilities. If your main question is how a chain connects to wallet onboarding and gas sponsorship, use our separate [Caldera, Conduit and Gelato appchain comparison](/blog/caldera-vs-conduit-vs-gelato-raas-appchains).
 
 | Decision factor | Caldera | Conduit | AltLayer |
