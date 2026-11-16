@@ -161,7 +161,7 @@ Ask the vendor to walk through one property like yours:
 - **Onboarding and transfers:** Who performs investor checks, and how does the platform handle an ineligible applicant or a restricted transfer?
 - **Settlement and servicing:** Who collects funds and handles failed payments, distributions and refunds? Ask to see the records you can export for your administrator.
 
-FluidRWA has a paid listing relationship with Tokenizer.Estate. Its inclusion here does not change the editorial Top 10.
+Tokenizer.Estate compensates FluidRWA for its placement. Its inclusion here does not change the editorial Top 10.
 
 ### 2. Compliance and Transfer Controls
 

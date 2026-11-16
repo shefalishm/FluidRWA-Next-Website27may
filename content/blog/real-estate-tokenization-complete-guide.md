@@ -116,7 +116,7 @@ Sygnum's broader tokenization work and early real-estate issuance examples demon
 
 These companies are examples of roles to investigate, not endorsements or a statement that any provider is suitable for every property or jurisdiction.
 
-For an issuer-branded launch, [Tokenizer.Estate](/fluidrwa/tokenizer-estate) is a white-label software example for issuance and onboarding. It coordinates with third parties for work such as legal structuring and payment processing. Ask for a written breakdown of responsibilities before contracting. This is a paid FluidRWA listing, not an endorsement.
+For an issuer-branded launch, [Tokenizer.Estate](/fluidrwa/tokenizer-estate) is a white-label software example for issuance and onboarding. It coordinates with third parties for work such as legal structuring and payment processing. Ask for a written breakdown of responsibilities before contracting. Tokenizer.Estate compensates FluidRWA for its placement; inclusion is not an endorsement.
 
 ## A Practical Implementation Roadmap
 

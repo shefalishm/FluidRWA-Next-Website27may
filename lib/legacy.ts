@@ -290,7 +290,7 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
     "FluidRWA helps teams discover Web3, RWA and digital asset infrastructure vendors."
   );
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
-  const scopedSocial = ["index.html", "vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
+  const scopedSocial = ["index.html", "vendors/tokenization-platforms/index.html", "vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
   const ogImage = (file.startsWith("blog/") || scopedSocial) && parsedOgImage ? parsedOgImage : defaultSocialImage;
   const socialImageAlt = override?.socialImageAlt || (file === "index.html" && parsedOgImage
     ? matchTag(html, /<meta\s+property=["']og:image:alt["']\s+content=["']([^"']+)["']\s*\/?>/i)
