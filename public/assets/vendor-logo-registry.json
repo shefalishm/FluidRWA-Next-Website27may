@@ -1,4 +1,10 @@
 {
+  "tokenizer-estate": {
+    "name": "Tokenizer.Estate",
+    "logo": "/assets/vendor-logos/tokenizer-estate.png",
+    "domain": "tokenizer.estate",
+    "source": "official"
+  },
   "hyperliquid": {
     "name": "Hyperliquid",
     "logo": "/assets/vendor-logos/hyperliquid.png",

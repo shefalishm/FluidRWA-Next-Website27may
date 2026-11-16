@@ -11,36 +11,86 @@
 </head>
 <body class="home-page light-home company-profile-page">
   <main id="main">
-    <section class="light-section" aria-labelledby="profile-title">
-      <div class="light-container" style="max-width:960px;padding-block:8rem 3rem">
-        <img src="/assets/company-logos/tokenizer-estate.svg" width="143" height="46" alt="">
-        <p class="eyebrow light-eyebrow">Real Estate Tokenization / Paid Vetted Listing</p>
-        <h1 id="profile-title">Tokenizer.Estate</h1>
-        <p>Tokenizer.Estate provides white-label software for real estate owners who want to issue tokens and onboard investors under their own brand. The provider is based in Dubai, UAE and operates as Infinity Bytes Software Design L.L.C.</p>
-        <p>FluidRWA was paid for this listing. Review of public materials is not regulatory approval or an endorsement.</p>
-        <p><a class="btn btn-primary light-primary" href="https://tokenizer.estate/" rel="sponsored noopener noreferrer">Visit website</a> <a href="https://www.linkedin.com/company/tokenizer-estate/" rel="sponsored noopener noreferrer">Company LinkedIn</a></p>
-      </div>
-    </section>
-    <section class="light-section" aria-labelledby="profile-scope">
-      <div class="light-container" style="max-width:960px;padding-block:2rem 4rem">
-        <h2 id="profile-scope">What the platform covers</h2>
-        <ul>
-          <li><strong>Branded issuance:</strong> A client-branded offering page, investor portal and administration tools.</li>
-          <li><strong>Investor onboarding:</strong> The applicant describes configurable investor groups, eligibility checks and transfer restrictions. Confirm who handles exceptions.</li>
-          <li><strong>Payments and launch coordination:</strong> The provider describes payment integrations, stablecoin options and referrals to legal, banking and payment partners. Confirm currencies, settlement flows and contracting entities.</li>
-        </ul>
-        <h2>Licensing and audit scope</h2>
-        <p>Tokenizer.Estate states that it does not hold investment licenses. Its <a href="https://tokenizer.estate/worldwide" rel="sponsored noopener noreferrer">jurisdiction overview</a> describes the service as software and partner referrals, not legal or regulatory guidance. Confirm project-specific requirements with qualified counsel.</p>
-        <p><a href="https://hacken.io/audits/tokenizer-estate/sca-tokenizer-token-nov2025/">Hacken's December 2, 2025 report</a> covers an Ethereum Solidity token contract, with final reviewed commit <code>8593776</code>. Ask the provider to map that scope to your deployment. It does not cover the entire platform.</p>
-        <h2>What to confirm before shortlisting</h2>
-        <ol>
-          <li>Request a responsibility matrix for issuance, eligibility, payments and recordkeeping.</li>
-          <li>Ask for a demo showing what happens when an investor is ineligible, a payment fails or a transfer is blocked.</li>
-          <li>Confirm the fees, relevant partner agreements and how to export records if you switch providers.</li>
-        </ol>
-        <p><a href="https://tokenizer.estate/about-platform" rel="sponsored noopener noreferrer">Product information</a> | <a href="https://tokenizer.estate/privacy" rel="sponsored noopener noreferrer">Company identification</a> | <a href="/vendors/tokenization-platforms">Compare tokenization platforms</a></p>
-      </div>
-    </section>
+    <style>
+      .te-profile{color:#142536;background:#fff}
+      .te-wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+      .te-hero{padding:8.5rem 0 4rem;background:linear-gradient(115deg,#fafcfb,#e8f4ee);border-bottom:1px solid #d5e7dd}
+      .te-crumb{display:inline-block;margin-bottom:2rem;font-size:.9rem}
+      .te-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:3rem;align-items:start}
+      .te-profile h1{font-size:3.75rem;letter-spacing:0;line-height:1.06;margin:.5rem 0 1rem;overflow-wrap:anywhere}
+      .te-profile h2{font-size:2rem;letter-spacing:0;line-height:1.15;margin:0 0 1.2rem}
+      .te-profile h3{font-size:1.12rem;letter-spacing:0;margin:0 0 .5rem}
+      .te-profile p,.te-profile li{line-height:1.65}
+      .te-profile p{margin:0 0 1rem}
+      .te-kicker{color:#176143;font-weight:800;font-size:.86rem}
+      .te-intro{max-width:39rem;font-size:1.15rem;color:#405264}
+      .te-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem 1.25rem;margin-top:1.4rem}
+      .te-facts{padding:1.5rem;background:#fff;border:1px solid #cfdfd6;border-radius:8px;box-shadow:0 14px 42px #183f2e0e}
+      .te-facts img{display:block;width:min(215px,100%);height:auto;margin:0 auto 1rem}
+      .te-facts dl{margin:0}
+      .te-facts dl div{padding:.65rem 0;border-top:1px solid #e1ebe5}
+      .te-facts dt{font-weight:750;font-size:.8rem;color:#4a6055}
+      .te-facts dd{margin:0;overflow-wrap:anywhere}
+      .te-section{padding:3.5rem 0}
+      .te-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+      .te-cards article{padding:1.35rem;border:1px solid #dbe6e1;border-top:3px solid #358963;border-radius:8px}
+      .te-cards p{margin:0;color:#405264}
+      .te-evidence{background:#f3f7f8;border-block:1px solid #dfe8eb}
+      .te-evidence ol{margin:0;padding-left:1.35rem}
+      .te-evidence li+li{margin-top:.6rem}
+      .te-profile .te-disclosure{margin-top:1.1rem;font-size:.85rem;color:#425970}
+      @media(max-width:800px){.te-layout,.te-cards{grid-template-columns:1fr}.te-layout{gap:1.65rem}.te-profile h1{font-size:2.65rem}.te-hero{padding:7rem 0 2.25rem}.te-section{padding:2.4rem 0}}
+      @media(max-width:400px){.te-profile h1{font-size:2rem}}
+    </style>
+    <article class="te-profile">
+      <section class="te-hero" aria-labelledby="profile-title">
+        <div class="te-wrap">
+          <a class="te-crumb" href="/vendors/tokenization-platforms">&larr; Tokenization Platform Directory</a>
+          <div class="te-layout">
+            <div>
+              <p class="te-kicker">Real estate tokenization</p>
+              <h1 id="profile-title">Tokenizer.Estate</h1>
+              <p class="te-intro">White-label issuance and investor onboarding software for property owners who want to launch under their own brand.</p>
+              <div class="te-actions"><a class="btn btn-primary light-primary" href="https://tokenizer.estate/" rel="sponsored noopener noreferrer">Visit website</a><a href="https://www.linkedin.com/company/tokenizer-estate/" rel="sponsored noopener noreferrer">Company LinkedIn</a></div>
+              <p class="te-disclosure"><strong>Paid Vetted Listing.</strong> Review of public materials is not regulatory approval or an endorsement.</p>
+            </div>
+            <aside class="te-facts" aria-label="Company facts">
+              <img src="/assets/company-logos/tokenizer-estate.svg" width="143" height="46" alt="Tokenizer.Estate logo">
+              <dl><div><dt>Company</dt><dd>Infinity Bytes Software Design L.L.C</dd></div><div><dt>Based in</dt><dd>Dubai, United Arab Emirates</dd></div><div><dt>Delivery model</dt><dd>White-label software and partner coordination</dd></div></dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="te-section" aria-labelledby="profile-scope">
+        <div class="te-wrap">
+          <h2 id="profile-scope">What the platform covers</h2>
+          <div class="te-cards">
+            <article><h3>Branded issuance</h3><p>A client-branded offering page, investor portal and administration tools.</p></article>
+            <article><h3>Investor onboarding</h3><p>The provider describes configurable investor groups, eligibility checks and transfer restrictions. Confirm who handles exceptions.</p></article>
+            <article><h3>Payments and launch</h3><p>The provider describes payment integrations, stablecoin options and referrals to legal, banking and payment partners.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="te-section te-evidence" aria-labelledby="profile-evidence">
+        <div class="te-wrap te-layout">
+          <div>
+            <h2 id="profile-evidence">Licensing and audit scope</h2>
+            <p>Tokenizer.Estate states that it does not hold investment licenses. Its <a href="https://tokenizer.estate/worldwide" rel="sponsored noopener noreferrer">jurisdiction overview</a> describes software and referrals, not legal or regulatory guidance. Confirm project-specific requirements with qualified counsel.</p>
+            <p><a href="https://hacken.io/audits/tokenizer-estate/sca-tokenizer-token-nov2025/">Hacken's December 2, 2025 report</a> covers an Ethereum Solidity token contract at final reviewed commit <code>8593776</code>, not the entire platform. Ask how that scope maps to your deployment.</p>
+          </div>
+          <div>
+            <h2>Before you shortlist</h2>
+            <ol><li>Ask who owns issuance, eligibility, payments and recordkeeping.</li><li>Request a demo of a rejected investor, failed payment or blocked transfer.</li><li>Confirm fees, partner responsibilities and how to export your records.</li></ol>
+          </div>
+        </div>
+      </section>
+      <section class="te-section" aria-labelledby="profile-resources">
+        <div class="te-wrap">
+          <h2 id="profile-resources">Product and company resources</h2>
+          <div class="te-actions"><a href="https://tokenizer.estate/about-platform" rel="sponsored noopener noreferrer">Product information</a><a href="https://tokenizer.estate/privacy" rel="sponsored noopener noreferrer">Company identification</a><a href="/vendors/tokenization-platforms">Compare tokenization platforms</a></div>
+        </div>
+      </section>
+    </article>
   </main>
 </body>
 </html>
