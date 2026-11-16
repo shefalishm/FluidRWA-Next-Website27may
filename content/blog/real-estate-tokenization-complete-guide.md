@@ -3,6 +3,7 @@ title: "Real Estate Tokenization: A Complete Guide for Owners, Fund Managers and
 description: "A complete guide to real estate tokenization: property structures, fractional ownership, use cases, vendor roles, documented examples, risks, implementation steps and FAQs."
 date: "2026-09-04"
 reviewedDate: "2026-09-04"
+modifiedDate: "2026-11-16"
 reviewedLabel: "September 4, 2026"
 category: "Real Estate Tokenization"
 slug: "real-estate-tokenization-complete-guide"
@@ -114,6 +115,8 @@ Sygnum's broader tokenization work and early real-estate issuance examples demon
 | Security and integration | Smart-contract testing, APIs, data security and monitoring | Security auditors, blockchain developers and integration specialists |
 
 These companies are examples of roles to investigate, not endorsements or a statement that any provider is suitable for every property or jurisdiction.
+
+For an issuer-branded launch, [Tokenizer.Estate](/fluidrwa/tokenizer-estate) is a white-label software example for issuance and onboarding. It coordinates with third parties for work such as legal structuring and payment processing. Ask for a written breakdown of responsibilities before contracting. This is a paid FluidRWA listing, not an endorsement.
 
 ## A Practical Implementation Roadmap
 

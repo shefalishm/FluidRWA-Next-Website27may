@@ -4,7 +4,7 @@ import sharp from "sharp";
 const source = fs.readFileSync("vendors/tokenization-platforms/index.html", "utf8");
 const providers = [...source.matchAll(/<article class="bc-company-card[\s\S]*?<h3[^>]*>([^<]+)<\/h3>/g)].map(match => match[1]);
 const index = providers.indexOf("Zoniqx");
-if (providers.length !== 11 || index < 0) throw new Error("Expected all 11 directory providers");
+if (providers.length !== 12 || index < 0) throw new Error("Expected all 12 directory providers");
 providers.splice(9, 0, ...providers.splice(index, 1));
 const esc = value => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 const rows = providers.map((name, i) => {
@@ -18,7 +18,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 <g font-family="Arial, Helvetica, sans-serif" fill="#162438">
 <text x="64" y="68" font-size="20" font-weight="700" fill="#1765aa">FluidRWA</text>
 <text x="64" y="127" font-size="48" font-weight="700">Tokenization Platform Directory</text>
-<text x="64" y="172" font-size="24">11 issuer-side platforms and service providers</text>
+<text x="64" y="172" font-size="24">12 issuer-side platforms and service providers</text>
 ${rows}
 <text x="64" y="592" font-size="18" fill="#41536a">Directory order, not a ranking. Confirm asset, investor and jurisdiction eligibility.</text>
 </g></svg>`;

@@ -8,7 +8,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_PATH || `${process.env.HOME}
 const base = process.argv[2] || 'http://localhost:3118';
 const canonical = 'https://www.fluidrwa.com';
 const pages = [
-  ['/vendors/tokenization-platforms', 'RWA Tokenization Platform Directory: 11 Providers | FluidRWA', 'Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.', 11],
+  ['/vendors/tokenization-platforms', 'RWA Tokenization Platform Directory: 12 Providers | FluidRWA', 'Browse 12 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.', 12],
   ['/vendors/crypto-custody-providers', '28 Institutional Crypto Custody Providers Compared', 'Compare 28 institutional crypto custodians by regulatory status, MPC or cold-storage controls, insurance, asset support and operating model.', 28],
   ['/blog/clarity-act-timeline-guide', 'Did the CLARITY Act Pass? Senate Status and What It Means for RWAs | FluidRWA', 'The House passed H.R. 3633, but a Senate vote to take it up failed. See what that means for tokenized funds, custody and exchanges under current law.', 0],
   ['/vendors/fiat-on-off-ramp-providers', 'Crypto On-Ramp and Off-Ramp Providers: 29 Compared', 'Compare fiat-to-crypto and crypto-to-fiat providers by country, payment method, KYC ownership and payout route. Verify the corridor before integrating.', 29],

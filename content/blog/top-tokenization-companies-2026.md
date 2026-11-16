@@ -5,7 +5,7 @@ description: "Compare 10 RWA tokenization platforms by issuance model, investor 
 date: "2026-07-11"
 reviewedDate: "2026-09-30"
 reviewedLabel: "September 30, 2026"
-modifiedDate: "2026-11-08"
+modifiedDate: "2026-11-16"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 considerationAfterTable: "true"
@@ -67,6 +67,10 @@ Compare providers within the role you need filled. An issuance toolkit is not ne
 | [Taurus](https://www.taurushq.com/capital/) | Taurus-CAPITAL issuance and servicing; separate custody module | Modules required, custody model, chain support and integration effort |
 | [InvestaX](https://investax.io/tokenization-platform) | Singapore-based digital securities issuance and market access | IC SG entity scope, investor restrictions, asset admission and custody arrangement |
 | [KAIO (formerly Libre)](https://kaio.xyz/) | Tokenized fund access and distribution infrastructure | Eligible investors and jurisdictions, fund terms and redemption model |
+
+## Sponsored listing: Tokenizer.Estate for real estate issuers
+
+[Tokenizer.Estate](/fluidrwa/tokenizer-estate) offers a white-label investor portal, onboarding and payment integrations for real estate issuers. It coordinates with third parties for legal, banking and payment work. Ask which entities handle investor checks and settlement for your offering. This paid listing is separate from the editorial Top 10.
 
 ## Start with the asset and the job you need done
 

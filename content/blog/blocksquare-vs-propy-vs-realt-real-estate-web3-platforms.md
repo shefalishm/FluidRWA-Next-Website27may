@@ -3,6 +3,7 @@ title: "Blocksquare vs Propy vs RealT: Web3 Platforms for Real Estate (2026)"
 description: "Compare Blocksquare, Propy and RealT for tokenized real estate infrastructure, property transactions, fractional ownership and investor access."
 date: "2026-09-01"
 reviewedDate: "2026-09-01"
+modifiedDate: "2026-11-16"
 reviewedLabel: "September 1, 2026"
 category: "Real Estate"
 slug: "blocksquare-vs-propy-vs-realt-real-estate-web3-platforms"
@@ -56,6 +57,10 @@ RealT describes a marketplace through which eligible participants can acquire fr
 **Good fit:** Investors evaluating access to fractionalized real-estate exposure, subject to the platform's eligibility, offering and jurisdictional terms.
 
 **Potential limitation:** Marketplace availability, investor eligibility, property geography, transfer restrictions and liquidity vary. A buyer should review the legal entity, operating agreement, property economics, manager duties, risks and tax consequences for every individual offering.
+
+## Sponsored listing: When to consider Tokenizer.Estate
+
+[Tokenizer.Estate](/fluidrwa/tokenizer-estate) fits the issuance workstream when the buyer is a property owner who needs a branded investor portal and help coordinating onboarding and payments. It serves a different purpose from software for closing property sales or a marketplace for buying fractional investments. Ask for a project-specific demo and confirm who handles legal work, payment settlement and distribution. This paid listing is separate from the three-platform editorial comparison.
 
 ## Best fit by buyer scenario
 

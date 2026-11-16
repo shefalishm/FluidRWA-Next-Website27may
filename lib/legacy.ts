@@ -132,10 +132,10 @@ const seoOverrides: Record<string, SeoOverride> = {
     openGraphType: "article"
   },
   "vendors/tokenization-platforms/index.html": {
-    title: "RWA Tokenization Platform Directory: 11 Providers | FluidRWA",
-    description: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
+    title: "RWA Tokenization Platform Directory: 12 Providers | FluidRWA",
+    description: "Browse 12 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
     heading: "RWA Tokenization Platform Directory",
-    socialImageAlt: "FluidRWA tokenization directory: 11 issuer-side platforms and service providers in directory order, not a ranking."
+    socialImageAlt: "FluidRWA tokenization directory: 12 issuer-side platforms and service providers in directory order, not a ranking."
   },
   "vendors/custody-solutions/index.html": {
     title: "28 Institutional Crypto Custody Providers Compared",
@@ -581,7 +581,7 @@ export function legacyMainHtml(file: string) {
   if (file === "vendors/tokenization-platforms/index.html") {
     renderedHtml = moveZoniqxToTenth(renderedHtml)
       .replace(/(<h1[^>]*>)[\s\S]*?(<\/h1>)/, `$1${seoOverrides[file].heading}$2`)
-      .replace(/(<h1[^>]*>[\s\S]*?<\/h1>)\s*<p>[\s\S]*?<\/p>/, '$1<p>Browse 11 issuer-side tokenization platforms and service providers for funds, securities and real-world assets. Separate configurable issuance software from custom implementation services, then confirm asset eligibility, investor restrictions and the entities responsible for each jurisdiction.</p>')
+      .replace(/(<h1[^>]*>[\s\S]*?<\/h1>)\s*<p>[\s\S]*?<\/p>/, '$1<p>Browse 12 issuer-side tokenization platforms and service providers for funds, securities and real-world assets. Separate configurable issuance software from custom implementation services, then confirm asset eligibility, investor restrictions and the entities responsible for each jurisdiction.</p>')
       .replace('<strong>Full</strong><span>asset lifecycle support</span>', '<strong>Issuer-side</strong><span>software and services</span>')
       .replace('<strong>Multi-chain</strong><span>coverage</span>', '<strong>Project fit</strong><span>confirm network support</span>')
       .replace('This page is now limited to issuer-side platforms whose core product helps teams tokenize, manage and service assets.', 'Issuer software, white-label platforms and implementation services have different delivery models. HQ is not service availability or licensing. Asset and chain labels are discovery aids, not confirmation that your offering or investors are eligible.')

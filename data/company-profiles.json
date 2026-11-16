@@ -1,4 +1,15 @@
 {
+  "tokenizer-estate": {
+    "name": "Tokenizer.Estate",
+    "slug": "tokenizer-estate",
+    "sourceUrl": "https://tokenizer.estate/",
+    "officialTitle": "Tokenizer.Estate",
+    "siteName": "Tokenizer.Estate",
+    "officialDescription": "White-label software for real estate token issuance, investor onboarding and payment integrations.",
+    "logoSource": "https://tokenizer.estate/logo.svg",
+    "logoPath": "/assets/company-logos/tokenizer-estate.svg",
+    "researchedAt": "2026-11-16"
+  },
   "akash-network": {
     "name": "Akash Network",
     "slug": "akash-network",

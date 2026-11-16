@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/news/fluidrwa-minddeft-partnership`, lastModified: "2026-07-09", changeFrequency: "monthly", priority: 0.74 },
     { url: `${siteUrl}/news/nowpayments-featured-on-fluidrwa`, lastModified: "2026-09-10", changeFrequency: "monthly", priority: 0.78 },
     { url: `${siteUrl}/fluidrwa/lium`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/fluidrwa/tokenizer-estate`, lastModified: "2026-11-16", changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/learn`, lastModified: "2026-11-06", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/apply-as-freelancer`, lastModified: "2026-07-16", changeFrequency: "weekly", priority: 0.88 },
     ...learnArticles.map((article) => ({
@@ -77,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.82
     })),
-    ...sitemapRoutePaths().map((route) => ({
+    ...sitemapRoutePaths().filter((route) => route !== "fluidrwa/tokenizer-estate").map((route) => ({
       url: `${siteUrl}/${route}`,
       lastModified: ["vendors/growth-marketing-companies", "vendors/blockchain-development-companies"].includes(route) ? "2026-11-09" : route === "vendors/tokenization-platforms" ? "2026-11-08" : ["vendors/crypto-accounting-tax-software", "vendors/fiat-on-off-ramp-providers", "vendors/stablecoin-infrastructure-providers"].includes(route) ? "2026-11-06" : route === "vendors/institutional-digital-asset-trading-platforms" ? "2026-10-10" : route.startsWith("vendors/") ? "2026-09-22" : "2026-05-27",
       changeFrequency: "weekly" as const,

@@ -440,10 +440,10 @@ updateFile("vendors/blockchain-development/index.html", (html) => {
 
 updateFile("vendors/tokenization-platforms/index.html", (html) => {
   html = setMeta(html, {
-    title: "RWA Tokenization Platform Directory: 11 Providers | FluidRWA",
-    description: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
+    title: "RWA Tokenization Platform Directory: 12 Providers | FluidRWA",
+    description: "Browse 12 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist.",
     url: "https://www.fluidrwa.com/vendors/tokenization-platforms",
-    ogDescription: "Browse 11 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist."
+    ogDescription: "Browse 12 issuer-side tokenization platforms and service providers. Filter by project fit, compare asset and jurisdiction requirements, and build a shortlist."
   });
   html = html.replace(/<h1 id="bc-title">[^<]+<\/h1>/, `<h1 id="bc-title">RWA Tokenization Platform Directory</h1>`);
   html = html.replace(/<p>Find platforms built to help issuers create, manage, service and distribute tokenized real-world assets, funds and securities\.<\/p>/, `<p>Compare issuer-side tokenization platforms for real-world assets, funds, securities and private markets by compliance, custody, investor onboarding, transfer controls and lifecycle servicing.</p>`);
