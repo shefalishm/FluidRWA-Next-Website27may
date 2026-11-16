@@ -60,7 +60,9 @@ RealT describes a marketplace through which eligible participants can acquire fr
 
 ## When to consider Tokenizer.Estate
 
-[Tokenizer.Estate](/fluidrwa/tokenizer-estate) fits the issuance workstream when the buyer is a property owner who needs a branded investor portal and help coordinating onboarding and payments. It serves a different purpose from software for closing property sales or a marketplace for buying fractional investments. Ask for a project-specific demo and confirm who handles legal work, payment settlement and distribution. Tokenizer.Estate compensates FluidRWA for its placement and is not part of the three-platform editorial comparison.
+[Tokenizer.Estate](/fluidrwa/tokenizer-estate) fits the issuance workstream when the buyer is a property owner who needs a branded investor portal and help coordinating onboarding and payments. It serves a different purpose from software for closing property sales or a marketplace for buying fractional investments. Ask for a project-specific demo and confirm who handles legal work, payment settlement and distribution.
+
+*Disclosure: Tokenizer.Estate is a paying FluidRWA partner.*
 
 ## Best fit by buyer scenario
 

@@ -151,17 +151,9 @@ For example:
 
 Do not choose a vendor only because it says "RWA tokenization" on its website. Ask what asset classes it has actually supported.
 
-#### Real estate: Where Tokenizer.Estate fits
+For example, [**Tokenizer.Estate**](/fluidrwa/tokenizer-estate) is a specialist to evaluate if you own or manage a property and want to launch an offering under your own brand. It provides white-label software for offering pages, token issuance, investor onboarding and payment integrations. The company also describes coordinating with outside legal, banking and payment providers. That coordination is distinct from providing those services itself.
 
-[Tokenizer.Estate](/fluidrwa/tokenizer-estate) is a specialist to evaluate if you own or manage a property and want to launch an offering under your own brand. It provides white-label software for offering pages, token issuance, investor onboarding and payment integrations. The company also describes coordinating with outside legal, banking and payment providers. That coordination is distinct from providing those services itself.
-
-Ask the vendor to walk through one property like yours:
-
-- **Structure and reporting:** Which entity holds the property, what rights does the token represent, and how do property cash flows reconcile to investor statements?
-- **Onboarding and transfers:** Who performs investor checks, and how does the platform handle an ineligible applicant or a restricted transfer?
-- **Settlement and servicing:** Who collects funds and handles failed payments, distributions and refunds? Ask to see the records you can export for your administrator.
-
-Tokenizer.Estate compensates FluidRWA for its placement. Its inclusion here does not change the editorial Top 10.
+*Disclosure: Tokenizer.Estate is a paying FluidRWA partner.*
 
 ### 2. Compliance and Transfer Controls
 
