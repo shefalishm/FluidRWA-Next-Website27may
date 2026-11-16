@@ -43,6 +43,20 @@ This RFP is for teams evaluating transaction evidence and tax software. Its U.S.
 
 An unmatched deposit is a research task. It could be an incomplete transfer record or a different event entirely. Ask the vendor to stop short of classification where the source file cannot support it.
 
+## Worked answer key
+
+Run the demo twice: first without E08, then with it. For this exercise only, assign the whole USD 1,000 in E01 to the 10 units acquired, carry that lot history across the internal transfer, and make no fee or other adjustments to asset A. The USD difference below is a check on the fixture arithmetic, not a tax result. Do not calculate a fee result for asset B from this file: E05 records the quantity paid but deliberately leaves its dollar value blank.
+
+| Records | Expected output | What the reviewer should check |
+| --- | --- | --- |
+| E01, E03 and E04 | One four-unit internal movement, linked to the original A lot. Under the fixture assumptions, six A remain at Exchange-A and four are recorded at Wallet-A before any sale. | E04 is not a second purchase. The acquisition reference and date carry through the transfer. |
+| E02 and E05 | A separate 0.02 B fee movement, with a link to the transfer and B's acquisition history. | The fee does not reduce the four A received or disappear into the A lot. Any dollar valuation the vendor supplies has its own source. |
+| E06 | One A sold. The fixture assigns USD 100 of basis to that unit. Before the correction, USD 140 proceeds minus USD 100 gives a USD 40 unadjusted difference. | The result traces through E04 to E01. Three units from the known lot remain in Wallet-A. |
+| E07 | Two A received and an open classification and basis exception. The receipt is visible without being treated as a second purchase or a confirmed internal transfer. | Quantity and basis status are separate: Wallet-A shows five A after receipt, but the two exception units do not inherit the known lot's basis. |
+| E08 | Revised proceeds of USD 138 against the same disposal, leaving an unadjusted difference of USD 38. A reviewer can still recover the USD 140 version. | There is still one disposal, the change from the first run is minus USD 2, and the correction does not change holdings. |
+
+Have someone who did not attend the demo reproduce the USD 2 change from the exports and find the unresolved E07 item. That is a better acceptance test than asking the salesperson to explain the dashboard again.
+
 ## Pass/fail scorecard for the live demo
 
 | Gate | Pass when | Fail when |
@@ -61,6 +75,31 @@ Ask for two files, not just a PDF. One should be a transaction-level table with 
 If a bidder cannot export an input-to-output link, ask whether the limitation is contractual, technical or specific to the connector. Record what would require an analyst to repair by hand. For production, request a sample from each connector class your team actually uses; a single chain or exchange demo is not evidence of every integration.
 
 When comparing vendor pricing, include the work that remains outside the platform: source collection, unresolved wallet ownership, independent valuation, accounting export and review. Ask who carries the cost if a source changes its format or an old connector stops returning history.
+
+## Questions to paste into the RFP
+
+Ask bidders to mark each response as available in the proposed product, dependent on configuration, manual, or unavailable. A roadmap commitment should not count as a demonstrated capability.
+
+| RFP question | Evidence to request |
+| --- | --- |
+| How far back can you import each of our sources, and how do you flag a gap rather than treating it as zero activity? | A dated coverage matrix by connector and a backfill that flags a missing date range. |
+| What happens when the same records arrive by both API and CSV, or a connector changes its format? | An overlapping import and a rejected-row report showing why a record was kept, merged, or sent for review. |
+| Who can change basis, valuation or classification? Can a second person approve the change? | A role matrix and a system-generated history with the old value, new value, reason and approver. |
+| Can we reproduce a prior close after a source correction or a rule change? | Two exports with stable identifiers and a reconciliation explaining what changed. |
+| What can we export if we leave, and what would need to be rebuilt? | Files and a field dictionary covering lots, source links, adjustments and exceptions, plus the written export terms. Have your team open the files without a vendor login. |
+
+## How to choose between two vendors that pass the demo
+
+Set the must-pass controls before opening proposals: traceable source records, visible unknowns, a reproducible correction and an export your own team can use. If a vendor fails one, mark it unresolved until it demonstrates a fix. A lower quote or more connectors should not offset missing audit evidence.
+
+For vendors that pass, record which steps took manual work, who would do that work at close, and what happens when volume spikes. For example, suppose both vendors return USD 38 for E06 after the correction. Vendor A produces a versioned export without intervention. Vendor B gets there only after an analyst repairs a link, but records that repair and its approval. Both may pass the control; Vendor B leaves an operating cost and a deadline risk to price. If Vendor B cannot reproduce the first export at all, it fails the prior-close control rather than losing a few preference points.
+
+| Record on the decision sheet | What to enter |
+| --- | --- |
+| Must-pass controls | Pass, fail, or unresolved, with a link to the observed evidence |
+| Manual workload | Steps outside the product, time observed during the demo, and who would own them |
+| Commercial assumptions | Included connectors and history, export terms, implementation effort and costs still unquoted |
+| Decision and follow-up | Shortlist, hold, or reject; condition, owner and date for each unresolved item |
 
 ## Keep tax rules separate from software output
 
