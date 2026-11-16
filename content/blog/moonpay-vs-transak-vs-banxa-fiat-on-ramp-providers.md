@@ -74,6 +74,8 @@ These are exercises for your pilot. FluidRWA has not run test transactions with 
 
 ## How should buyers evaluate onboarding?
 
+Open the [Ramp Onboarding Evidence Map](/network-explorer/research/ramp-onboarding) for source dates, unresolved questions and CSV evidence. Use the separate [country and payment-method matrix](/blog/crypto-on-ramp-country-payment-methods) to scope your first quote test; public support is not a partner-specific guarantee.
+
 1. Write down the customer country, payment method, fiat currency, asset, network and buy/sell direction.
 2. Ask each provider to confirm that exact configuration, rather than comparing global coverage totals.
 3. Draw the customer journey, including every verification screen and redirect.

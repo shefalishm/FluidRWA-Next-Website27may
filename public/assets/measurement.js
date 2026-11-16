@@ -83,6 +83,15 @@
       var url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return;
       var targetPath = url.pathname.replace(/\/$/, '') || '/';
+      var originPath = window.location.pathname;
+      var fromExplorer = /^\/network-explorer(?:\/|$)/.test(originPath);
+      if (/^\/(?:es\/)?blog\/[^/]+\/?$/.test(originPath) && /^\/network-explorer(?:\/|$)/.test(targetPath)) {
+        intent('article_to_explorer_click', { origin_path: originPath, link_url: url.origin + targetPath });
+      }
+      if (fromExplorer && (/^\/assets\/datasets\/[\w.-]+\.csv$/i.test(targetPath) ||
+        (targetPath === '/api/network-explorer/v1/fund-comparison' && url.searchParams.get('format') === 'csv'))) {
+        intent('explorer_csv_click', { origin_path: originPath, link_url: url.origin + targetPath });
+      }
       if (targetPath.startsWith('/vendors/') || targetPath === '/web3vendorecosystem') {
         intent('directory_click', { origin_path: window.location.pathname, directory_path: targetPath, link_url: url.origin + url.pathname });
         return;

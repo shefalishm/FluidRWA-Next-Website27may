@@ -2,6 +2,12 @@
 
 Production GA4: G-Q5L2HZK162, property 534444955. Reporting dates use UTC. Only fluidrwa.com and www.fluidrwa.com load tracking. Local, Vercel previews and workers.dev backups are excluded. Add analytics=off to production testing URLs; source=qa-test is also excluded.
 
+## Network Explorer measurement
+
+Use a 28-day GA4 exploration with event name, origin path and link URL. `article_to_explorer_click` tracks internal article-to-Explorer navigation. `explorer_csv_click` tracks link intent for Explorer CSVs, not completed downloads; `research_download` is the existing event for Explorer CSVs generated client-side. The existing `explorer_research_action` event with `cta=fund-selected` or `footprint-role` indicates an explicit comparison interaction. Do not count its CSV actions again alongside CSV clicks. Query strings and selected funds are not included in the new click events. Use event counts and active users separately; repeated clicks are not unique visitors.
+
+Use existing enquiry CTA events and accepted intake records to measure demand. A click is not an enquiry; a saved submission is not necessarily qualified. In a separate monthly worksheet, use Search Console page filters for Explorer clicks, Bing's cited-page export, and referring domains from Search Console Links. Those external reports are not GA events or proof of causality. Suggested comparison: rolling 28 days and prior 28 days, with each export's availability dates shown. Do not compare newly instrumented counts to untracked prior periods.
+
 ## October 28 reader measurement
 
 `article_scroll` records 25, 50, 75 and 90 percent reached through the article element, once per page view. It runs on actual visible-page scrolls, not timers; it does not establish that text was read. SPA return visits reset the thresholds. Short pages are excluded. `percent_scrolled` and `article_slug` are the only new allowed parameters. No engagement duration is fabricated or overridden.

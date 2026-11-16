@@ -47,3 +47,8 @@ Run `node scripts/build-october-observations.mjs` to reproduce the new October C
 Do not silently overwrite published v1 downloads. Create a new numbered dataset, chart and download stem for a correction, and record the reason on the report page. Retain previous files. Recheck material claims, not only response statuses. Unknowns require better primary evidence, not guessed entities or family-level inheritance.
 
 For a later monthly comparison, retain product IDs and role definitions, state both review dates and separate changes in source access from changes in provider appointments. Report a matched-cohort result separately if the sample changes. Never infer market share or monthly fund flows from these role counts.
+# Monthly evidence brief
+
+November 2026 edition `fund-aum-2026-11-v1.json` freezes six observations for three selected funds. Run `node scripts/build-november-fund-aum.mjs --check` to verify the public CSV and its archived November 2 baselines.
+
+For each new edition, record the selection rule before measuring; retain product identifier, exact source URL, as-of date, review date, unit and scope. Distinguish a newer figure from a rechecked link. Require matched scope and dates before calculating a change. If a source stops reporting a measure, log the missing observation instead of imputing it. Do not aggregate overlapping products or infer flows from AUM. Publish a separate edition URL and data export; add a dated correction note without replacing frozen prior editions.

@@ -56,7 +56,7 @@ export function GoogleAnalytics() {
 
   return (
     <>
-      <Script src="/assets/measurement.js?v=4" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
+      <Script src="/assets/measurement.js?v=5" strategy="afterInteractive" onReady={() => setMeasurementReady(true)} />
       {measurementReady && <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
       <Script id="fluidrwa-google-analytics" strategy="afterInteractive">

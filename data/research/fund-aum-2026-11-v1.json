@@ -1,0 +1,14 @@
+{
+  "version": "2026-11-v1",
+  "published": "2026-11-16",
+  "earlierAsOf": "2026-11-02",
+  "laterAsOf": "2026-11-12",
+  "earlierChecked": "2026-11-04",
+  "laterChecked": "2026-11-16",
+  "metric": "Issuer-reported fund AUM (USD), including book-entry shares",
+  "rows": [
+    {"id":"ustb","ticker":"USTB","name":"Invesco Short Duration US Government Securities Fund","earlier":635618049,"later":686335862,"source":"https://superstate.com/assets/ustb"},
+    {"id":"uscc","ticker":"USCC","name":"Bitwise Crypto Carry Fund","earlier":177579856,"later":141610550,"source":"https://superstate.com/assets/uscc"},
+    {"id":"vbdc","ticker":"VBDC","name":"Valinor BDC Exposure Fund","earlier":10030430,"later":9945594,"source":"https://superstate.com/assets/vbdc"}
+  ]
+}

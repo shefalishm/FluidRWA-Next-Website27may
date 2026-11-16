@@ -1,0 +1,7 @@
+"edition","fund_id","ticker","fund_name_at_later_review","metric","reported_as_of","value_usd","source_url","checked_on"
+"2026-11-v1","ustb","USTB","Invesco Short Duration US Government Securities Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-02","635618049","https://superstate.com/assets/ustb","2026-11-04"
+"2026-11-v1","ustb","USTB","Invesco Short Duration US Government Securities Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-12","686335862","https://superstate.com/assets/ustb","2026-11-16"
+"2026-11-v1","uscc","USCC","Bitwise Crypto Carry Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-02","177579856","https://superstate.com/assets/uscc","2026-11-04"
+"2026-11-v1","uscc","USCC","Bitwise Crypto Carry Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-12","141610550","https://superstate.com/assets/uscc","2026-11-16"
+"2026-11-v1","vbdc","VBDC","Valinor BDC Exposure Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-02","10030430","https://superstate.com/assets/vbdc","2026-11-04"
+"2026-11-v1","vbdc","VBDC","Valinor BDC Exposure Fund","Issuer-reported fund AUM (USD), including book-entry shares","2026-11-12","9945594","https://superstate.com/assets/vbdc","2026-11-16"
