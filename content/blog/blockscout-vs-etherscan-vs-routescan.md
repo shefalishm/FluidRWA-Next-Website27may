@@ -3,6 +3,7 @@ title: "Blockscout vs Etherscan vs Routescan: Blockchain Explorer Comparison (20
 description: "Compare Blockscout, Etherscan and Routescan for hosted explorers, chain launches, contract verification, APIs and multi-chain data access."
 date: "2026-08-25"
 reviewedDate: "2026-08-25"
+modifiedDate: "2026-11-16"
 reviewedLabel: "August 25, 2026"
 category: "Blockchain Data"
 slug: "blockscout-vs-etherscan-vs-routescan"
@@ -165,6 +166,21 @@ List required endpoints before selecting a plan. Common needs include transactio
 | Error semantics | Codes, retries and status visibility | Can the client distinguish delay from permanent failure? |
 
 Benchmark realistic workloads, not one successful request. Include large historical ranges, concurrent users and reporting peaks. Cache public immutable data where appropriate, but do not cache changing proxy or verification state indefinitely.
+
+## Worked example: Export evidence for a transfer across two networks
+
+Take a synthetic bridge transfer with one source transaction and a separate destination transaction. Begin with the deposit or message reference from the bridge or operator, then open the explorer for each network. Check the source chain ID, transaction hash, block, token contract and relevant log. Do the same for the destination. The destination transaction may have a different hash and token contract. Matching tickers or amounts alone do not connect the two legs.
+
+| Step | What the reviewer should save | What should remain unverified |
+| --- | --- | --- |
+| Source leg | Chain identifier, hash, block, log index, asset contract and raw amount | Whether a separate destination transaction has completed |
+| Destination leg | Its own hash and log, destination token contract and the evidence linking it to the bridge message | Ownership of the receiving account if no authoritative record establishes it |
+| Contract verification | The address being queried, the displayed verification status and, for proxies, the implementation evidence available for the relevant block | A historical implementation if only the current proxy view was checked |
+| Evidence export | Query date, software or endpoint used, chain identifiers and any missing results | Completeness unless the export was checked against the expected window and sources |
+
+Repeat the exercise on an explorer where one chain is absent. A missing result should yield an explicit exception, not a conclusion that the transfer failed. Explorer records can prove certain chain events; use the bridge or operator's evidence to match the two legs and follow your own rules for finality.
+
+[Etherscan's multichain API documentation](https://kb.etherscan.com/etherscan-api-v2-multichain) and [Routescan's API documentation](https://docs.routescan.io/) describe their respective interfaces for supported networks. [Blockscout documentation](https://docs.blockscout.com/) covers its explorer and APIs. Check support on the actual deployments and measure your own results; this example is not a benchmark. Sources for this section checked November 16, 2026.
 
 ## Build-versus-buy economics
 

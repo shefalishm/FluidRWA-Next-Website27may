@@ -4,7 +4,7 @@ description: "Compare Checkout.com, Nuvei and Worldpay for crypto merchants, fia
 date: "2026-08-13"
 reviewedDate: "2026-08-13"
 reviewedLabel: "August 13, 2026"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-11-16"
 category: "Vendor Comparisons"
 slug: "checkoutcom-vs-nuvei-vs-worldpay-crypto-payment-processing"
 image: "/assets/blog-images/checkoutcom-vs-nuvei-vs-worldpay-crypto-payment-processing.svg"
@@ -59,6 +59,23 @@ Investigate Worldpay for exchange acquiring and payouts. Confirm the eligible ma
 | First buyer question | Which entity acquires and settles our payments? | Which crypto product and legal entity are in the contract? | Which exchange flows and dispute terms apply? |
 
 These cells summarize public company materials, not a comparison of approval rates, prices or operational performance. "Confirm" means this review did not verify the feature for that proposed configuration.
+
+## Nuvei vs Worldpay for global card acquiring
+
+A merchant can accept cards in a country without having the same acquiring setup as a merchant incorporated there. Give Nuvei and Worldpay the same legal entities, merchant activity, countries, card types and settlement currencies. Ask which entity acquires each route and what happens if a proposed route or merchant category is not eligible. Do not infer local acquiring from a generic country list or from the checkout currency.
+
+| Decision | Nuvei evidence to request | Worldpay evidence to request |
+| --- | --- | --- |
+| Contracted route | Identify the acquirer and approved merchant activity for each proposed market | Identify the acquirer and approved activity for the same entity and market |
+| Authorization and capture | Demonstrate the documented Auth and Settle flow with your intended API version | Demonstrate the card payment lifecycle, including a settle request and the later status |
+| Bank reconciliation | Supply a sample funding statement, with fees, FX and adjustments separated | Supply the equivalent funding record and show how to join it to a payment and event reference |
+| Chargeback ownership | Confirm whether the proposed arrangement qualifies for the relevant dispute tooling and reports | Identify the dispute product, evidence submission path and deadlines for the contracted account |
+
+Nuvei's [Auth and Settle documentation](https://docs.nuvei.com/documentation/additional-links/rest-2-0/features/financial-operations/auth-and-settle/) separates authorization from the request to settle. Its [disputes report documentation](https://docs.nuvei.com/documentation/control-panel-docs/risk/disputes-report/) limits that particular report to merchants processing through Nuvei Acquirer. [Worldpay Card Payments v7](https://docs.worldpay.com/access/products/card-payments/manage-payments) documents a sent-for-settlement state and recommends using payment events. These are product-specific sources, not evidence that an individual merchant has been approved or funded.
+
+In a demo, make finance match the merchant's payment ID to the captured amount, funding line, fees and eventual dispute. Ask for an exception such as a capture accepted by the API that has not appeared on the funding statement. Repeat the same check for each market you are considering. A card-acquiring quote does not establish crypto checkout, fiat-to-crypto funding or stablecoin settlement eligibility.
+
+Sources for this section checked November 16, 2026. Checkout.com remains in the broader comparison below.
 
 ## What Checkout.com Is Good For
 

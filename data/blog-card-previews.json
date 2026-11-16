@@ -1,4 +1,5 @@
 {
+  "enterprise-crypto-tax-reporting-software-rfp": { "src": "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp.webp", "alt": "FluidRWA illustration of transaction records, a reconciliation exception and an audit export" },
   "openai-vs-claude-vs-gemini-batch-api": { "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api.webp", "alt": "FluidRWA illustration of a document queue and its processing results." },
   "okta-vs-duo-vs-yubico-phishing-resistant-mfa": { "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa.webp", "alt": "FluidRWA illustration of a physical security key and sign-in checkpoints." },
   "google-cloud-vs-azure-vs-aws-confidential-ai-inference": { "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference.webp", "alt": "FluidRWA illustration of a GPU workload and a verification checkpoint." },

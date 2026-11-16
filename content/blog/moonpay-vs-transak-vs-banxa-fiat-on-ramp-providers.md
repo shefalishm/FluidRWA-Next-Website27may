@@ -5,7 +5,7 @@ description: "Compare documented ramp onboarding, KYC hand-offs, wallet controls
 date: "2026-08-03"
 reviewedDate: "2026-10-23"
 reviewedLabel: "October 23, 2026"
-modifiedDate: "2026-11-14"
+modifiedDate: "2026-11-16"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 category: "Payments"
@@ -49,13 +49,16 @@ faq6a: "Eighteen observations across three providers and six buyer tasks, each w
 
 ## Where does your customer go during checkout?
 
-Decide how much of checkout your team will build. Then ask where customers complete identity checks and who helps when an order fails. Those answers will shape the integration more than the provider's API count.
+Use this table to choose which integration to test first. It is a reading guide to the documented products, not a new set of dataset observations.
 
-| Your starting point | Documentation to explore | Important boundary |
+| Your product needs | Which flow to evaluate first | What to ask the provider to demonstrate |
 | --- | --- | --- |
-| You want a widget integration with supporting transaction APIs | [MoonPay Widget API](https://dev.moonpay.com/api-reference/widget/overview) | The reference describes quotes, transaction lookups and configuration discovery; it does not establish your production eligibility |
-| You want to build a custom on-ramp interface backed by provider APIs | [Transak Whitelabel API](https://docs.transak.com/integration/api) | The current limitations table excludes off-ramp and sends standard document/liveness verification to a provider widget |
-| You have a backend and want an API/SDK payment journey | [Banxa Native integration](https://docs.banxa.com/products/native-api/docs/how-it-works/integration-overview) | Access requires a signed agreement; payment methods and implementation paths need separate review |
+| A hosted widget with buy and sell discovery | [MoonPay Widget APIs](https://dev.moonpay.com/api-reference/widget/overview) | Show the applicable quote, payment method and transaction lookup, then confirm the actual sell corridor and partner permissions. |
+| An API-led buy flow with a provider step for standard KYC | [Transak Whitelabel API](https://docs.transak.com/integration/api) | Show the hosted document and liveness step, then return to your app and trace the resulting order. The documented Whitelabel limitations table excludes off-ramp. |
+| More control over the interface and a native SDK/API integration | [Banxa Native](https://docs.banxa.com/products/native-api/docs/how-it-works/integration-overview) | Confirm the agreement and enabled payment methods, and test eligibility separately from identity verification. |
+| Buy and sell in the same release | Ask each vendor to identify its exact buy and sell products | Get written evidence for the proposed country, payment method, asset, chain and customer type. A buy demo or an API family name does not establish sell support. |
+
+Decide how much of checkout your team will build. Then ask where customers complete identity checks and who helps when an order fails. Those answers will shape the integration more than the provider's API count.
 
 The documentation above gives you three integration routes to examine. It does not confirm that your customers will be approved. We rechecked the three overview pages on October 23, 2026 and updated the Transak integration row to match its current limitations table. The other dataset rows retain their October 7 review dates.
 

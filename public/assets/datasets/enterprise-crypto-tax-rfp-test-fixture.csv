@@ -1,0 +1,9 @@
+id,timestamp_utc,account,event,asset,quantity,usd_amount,linked_id,review_note
+E01,2026-01-10T13:00:00Z,Exchange-A,buy,A,10,1000,,Known acquisition
+E02,2026-01-10T13:20:00Z,Exchange-A,buy,B,1,20,,Known fee asset acquisition
+E03,2026-02-01T09:00:00Z,Exchange-A,transfer_out,A,4,,E04,Verified same owner
+E04,2026-02-01T09:01:00Z,Wallet-A,transfer_in,A,4,,E03,Verified same owner
+E05,2026-02-01T09:00:00Z,Exchange-A,transfer_fee,B,0.02,,E03,Keep visible as separate fee
+E06,2026-02-15T14:00:00Z,Wallet-A,sell,A,1,140,E04,Original proceeds
+E07,2026-03-01T13:00:00Z,Wallet-A,unidentified_receipt,A,2,,,Source ownership and basis unknown
+E08,2026-03-10T11:00:00Z,Wallet-A,correct_sale_proceeds,A,1,138,E06,Revised proceeds not an additional sale
