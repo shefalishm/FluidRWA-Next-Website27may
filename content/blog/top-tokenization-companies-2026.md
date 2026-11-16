@@ -68,10 +68,6 @@ Compare providers within the role you need filled. An issuance toolkit is not ne
 | [InvestaX](https://investax.io/tokenization-platform) | Singapore-based digital securities issuance and market access | IC SG entity scope, investor restrictions, asset admission and custody arrangement |
 | [KAIO (formerly Libre)](https://kaio.xyz/) | Tokenized fund access and distribution infrastructure | Eligible investors and jurisdictions, fund terms and redemption model |
 
-## Sponsored listing: Tokenizer.Estate for real estate issuers
-
-[Tokenizer.Estate](/fluidrwa/tokenizer-estate) offers a white-label investor portal, onboarding and payment integrations for real estate issuers. It coordinates with third parties for legal, banking and payment work. Ask which entities handle investor checks and settlement for your offering. This paid listing is separate from the editorial Top 10.
-
 ## Start with the asset and the job you need done
 
 If you are issuing a fund, start with investor eligibility, subscriptions, the ownership register and redemptions. If you are tokenizing real estate or another private asset, clarify the legal ownership structure and who services investors after issuance. The token contract is only one part of either project.
@@ -154,6 +150,18 @@ For example:
 - A digital securities product may need transfer agent workflows, broker-dealer support and securities-law compliance.
 
 Do not choose a vendor only because it says "RWA tokenization" on its website. Ask what asset classes it has actually supported.
+
+#### Real estate: Where Tokenizer.Estate fits
+
+[Tokenizer.Estate](/fluidrwa/tokenizer-estate) is a specialist to evaluate if you own or manage a property and want to launch an offering under your own brand. It provides white-label software for offering pages, token issuance, investor onboarding and payment integrations. The company also describes coordinating with outside legal, banking and payment providers. That coordination is distinct from providing those services itself.
+
+Ask the vendor to walk through one property like yours:
+
+- **Structure and reporting:** Which entity holds the property, what rights does the token represent, and how do property cash flows reconcile to investor statements?
+- **Onboarding and transfers:** Who performs investor checks, and how does the platform handle an ineligible applicant or a restricted transfer?
+- **Settlement and servicing:** Who collects funds and handles failed payments, distributions and refunds? Ask to see the records you can export for your administrator.
+
+FluidRWA has a paid listing relationship with Tokenizer.Estate. Its inclusion here does not change the editorial Top 10.
 
 ### 2. Compliance and Transfer Controls
 
@@ -482,7 +490,7 @@ Evaluate Centrifuge, Maple Finance, Figure and Provenance Blockchain. Focus on b
 
 ### Best for Real Estate Tokenization
 
-Evaluate DigiShares, Zoniqx, Brickken and specialist real estate tokenization providers. Real estate tokenization requires careful SPV structuring, title review, income distribution, tax handling and investor communications.
+Evaluate [Tokenizer.Estate](/fluidrwa/tokenizer-estate) first for a branded real estate issuance and onboarding workflow, alongside DigiShares, Zoniqx and Brickken. Compare which parts each provider handles directly and which require separate partners. Real estate tokenization requires careful SPV structuring, title review, income distribution, tax handling and investor communications.
 
 ### Best for Banks and Financial Institutions
 
