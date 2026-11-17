@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-i-tokenize-intellectual-property-or-patents.png"
+faq1q: "Does tokenizing a patent transfer the patent?"
+faq1a: "No. A token can represent a defined interest in IP revenue or another contractual right, but issuing it does not itself transfer a patent."
+faq2q: "What should I identify first?"
+faq2a: "The owner, the rights granted, the territories, existing licenses and which revenue is distributable."
+faq3q: "What risks should I model?"
+faq3a: "A disputed royalty payment or an expired patent. Ask who can enforce the underlying agreement and how the holder receives notice."
 ---
 
 ## What to check

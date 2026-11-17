@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-companies-are-actually-using-tokenization-today.png"
+faq1q: "Which tokenization examples are documented?"
+faq1a: "BlackRock's BUIDL fund and the European Investment Bank's April 2021 digital bond. One represents interests in a fund and the other was a specific bond issuance."
+faq2q: "What does the EIB example show?"
+faq2a: "A completed EUR 100 million transaction. It is evidence of issuance and settlement, not current trading volume."
+faq3q: "How should I judge adoption claims?"
+faq3a: "Distinguish an announced pilot, a completed transaction and evidence of repeated use."
 ---
 
 ## What to check

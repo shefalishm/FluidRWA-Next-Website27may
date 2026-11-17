@@ -14,6 +14,12 @@ ctaTitle: "Keep researching"
 ctaLabel: "Open the related resource"
 ctaUrl: "/blog/enterprise-crypto-tax-reporting-software-rfp"
 socialImage: "/assets/social/blog-reconcile-crypto-cost-basis-missing-transfer-lots-editorial.jpg"
+faq1q: "What should I do first when a custody transfer loses lot history?"
+faq1a: "Match movement and ownership first, then restore original lot lineage separately."
+faq2q: "How should I treat unsupported basis?"
+faq2a: "Leave it unknown instead of setting it to zero or using the transfer-day price. Record fees on their own line."
+faq3q: "How do I test the reconciliation controls?"
+faq3a: "Import the same file twice and confirm balances do not change. Remove the L2 evidence and confirm one transferred unit is flagged rather than given a zero cost. Change the recipient to an unverified wallet and confirm it is not auto-classified as internal."
 ---
 
 ## The exercise

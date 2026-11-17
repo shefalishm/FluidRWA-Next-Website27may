@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-dlx-law-vs-dla-piper-vs-clifford-chance-tokenization-legal-counsel.png"
 socialTitle: "DLx Law vs DLA Piper vs Clifford Chance"
+faq1q: "Which law firm fits which mandate?"
+faq1a: "DLx Law suits partner-led, crypto-native US work and detailed product or regulatory architecture. DLA Piper suits mandates needing a broad global platform and technology transactions capability. Clifford Chance suits complex cross-border finance, capital markets and institutional tokenization."
+faq2q: "What should I look at when choosing counsel?"
+faq2a: "The jurisdictions, the instrument and the regulated roles in your structure, matched against the team that would actually handle the work."
+faq3q: "Is this legal advice?"
+faq3a: "No. It is a comparison of publicly described capabilities. Engage qualified counsel for advice on your own structure."
 ---
 
 ## Side-by-side comparison

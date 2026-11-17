@@ -14,6 +14,12 @@ ctaTitle: "Keep researching"
 ctaLabel: "Open the related resource"
 ctaUrl: "/network-explorer"
 socialImage: "/assets/social/blog-tokenizing-private-company-shares-register-secondary-trading-editorial.jpg"
+faq1q: "What should I decide before choosing infrastructure?"
+faq1a: "Decide precisely what the token represents, then identify the controlling ownership record, the transfer approvals and evidence of actual venue eligibility."
+faq2q: "Is technical transferability the same as liquidity?"
+faq2a: "No. A token that can technically be transferred is not necessarily tradable on any venue."
+faq3q: "What does the SEC staff statement say?"
+faq3a: "In its January 2026 statement on tokenized securities, SEC staff distinguish issuer-sponsored and third-party-sponsored models. It is staff guidance, not an approval or a legal determination for your offering."
 ---
 
 ## Choose the representation first

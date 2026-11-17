@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-turnkey-vs-dfns-vs-fordefi-wallet-infrastructure.png"
 socialTitle: "Turnkey vs Dfns vs Fordefi"
+faq1q: "Which wallet infrastructure fits which need?"
+faq1a: "Turnkey suits composable, chain-agnostic wallet and signing primitives with enclave-based policy controls. Dfns suits institution-oriented wallet infrastructure with MPC key management and governance workflows. Fordefi suits secure institutional DeFi access with transaction simulation and policy-controlled operations."
+faq2q: "How do I test a wallet policy?"
+faq2a: "Create a wallet with your intended approval policy, submit a permitted transfer, then try a destination or amount that should be blocked. Ask who can change the policy and what logs show after an attempted override."
+faq3q: "Should I test recovery too?"
+faq3a: "Yes. Repeat the test with a lost credential to see the recovery path before real assets are involved."
 ---
 
 ## Side-by-side comparison

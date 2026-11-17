@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways.png"
 socialTitle: "NOWPayments vs Coinbase Business vs BitPay"
+faq1q: "Can I still start a new Coinbase Commerce integration?"
+faq1a: "No. Coinbase set 31 March 2026 as the cutoff for the Commerce portal and directs eligible merchants to Coinbase Business."
+faq2q: "How should I compare the gateways?"
+faq2a: "Compare NOWPayments, Coinbase Business and BitPay using the same checkout, refund and settlement scenario."
+faq3q: "What should I test beyond a successful checkout?"
+faq3a: "Test an underpayment, a late payment and a refund request after settlement. Ask what the merchant sees, who contacts the customer and which record finance can match to the order."
 ---
 
 ## Side-by-side comparison

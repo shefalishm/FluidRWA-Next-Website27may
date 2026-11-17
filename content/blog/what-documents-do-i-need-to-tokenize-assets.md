@@ -13,6 +13,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-documents-do-i-need-to-tokenize-assets.png"
+faq1q: "What documents do I need?"
+faq1a: "The set depends on the instrument, jurisdiction and roles. Begin with evidence of asset ownership, offering rights and operating responsibilities."
+faq2q: "What should I decide first?"
+faq2a: "What an investor will legally hold. A token could record a fund share, a claim against an issuer or another interest, and the documentation for each is not interchangeable."
+faq3q: "Who should map the documents?"
+faq3a: "Qualified counsel should map the asset, issuer, offering and investor jurisdictions before you select a template or circulate anything to investors."
 ---
 
 ## Build the document checklist around the transaction

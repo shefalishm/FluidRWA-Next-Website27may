@@ -10,6 +10,12 @@ answer: "Woleet documents downloadable proof receipts, OriginStamp offers an API
 image: "/assets/blog-images/woleet-vs-originstamp-vs-opentimestamps-document-evidence.svg"
 imageAlt: "Woleet vs OriginStamp vs OpenTimestamps: Portable Document Timestamp Proofs editorial infrastructure visual"
 socialImage: "/assets/social/blog-woleet-vs-originstamp-vs-opentimestamps-document-evidence.png"
+faq1q: "Does a timestamp prove authorship or approval?"
+faq1a: "No. A timestamp alone does not establish authorship or approval."
+faq2q: "How do I test whether a proof is portable?"
+faq2a: "Ask a reviewer who has never logged in to your account to verify the archived file and proof without signing in to the original service."
+faq3q: "What should I archive?"
+faq3a: "The exact file bytes, the proof and the verification instructions. Note that the time you requested the timestamp and the time the proof became verifiable can differ."
 ---
 
 A timestamp can help show that a particular file existed by a certain time. It cannot show who approved the file or whether its contents are true. For a document archive, the buying question is what a reviewer can still verify after the original service is gone.

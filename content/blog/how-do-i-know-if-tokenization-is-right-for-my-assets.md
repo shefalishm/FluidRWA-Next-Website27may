@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-do-i-know-if-tokenization-is-right-for-my-assets.png"
+faq1q: "When is tokenization worth evaluating?"
+faq1a: "When the rights are clear and a recurring transaction or recordkeeping problem justifies the change."
+faq2q: "What should I inventory first?"
+faq2a: "Who owns the asset, who can transfer it and who maintains the authoritative record. Then identify a workflow that is expensive today."
+faq3q: "When should I stop?"
+faq3a: "Pilot one asset with a defined success measure, such as fewer manual register corrections. Stop if a conventional database solves the same problem more simply."
 ---
 
 ## What to check

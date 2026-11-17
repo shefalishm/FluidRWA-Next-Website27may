@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-solve-care-vs-patientory-vs-medibloc-web3-healthcare-platforms.png"
 socialTitle: "Solve.Care vs Patientory vs MediBloc"
+faq1q: "Which healthcare platform fits which use case?"
+faq1a: "Solve.Care suits healthcare-network coordination across benefits, care and payments. Patientory suits a patient-facing health wallet and consumer engagement. MediBloc suits a patient-controlled health-data ecosystem with verifiable credentials."
+faq2q: "Is data described as patient-controlled really patient-controlled?"
+faq2a: "Test that claim against the provider's actual permissions and the healthcare rules that apply to your service."
+faq3q: "How do I test consent and correction?"
+faq3a: "Map one patient's record from creation to clinician access and later correction. Ask what the patient can see, which organization remains responsible and how access is revoked. Use synthetic data in any demonstration."
 ---
 
 ## Side-by-side comparison

@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-blockchain-should-i-use-for-tokenization.png"
+faq1q: "How should I choose a blockchain for tokenization?"
+faq1a: "Choose a network after checking required controls, custody support, settlement assets and operational resilience for the exact instrument."
+faq2q: "What should I confirm about a network?"
+faq2a: "Wallet and custodian support, availability of historical data, transaction costs and who manages upgrades."
+faq3q: "What failure should I rehearse?"
+faq3a: "An outage or delayed confirmation. Verify how operators reconcile the register and whether a second network would complicate servicing."
 ---
 
 ## What to check

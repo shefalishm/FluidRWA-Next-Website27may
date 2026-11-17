@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-many-investors-can-own-a-single-tokenized-asset.png"
+faq1q: "Does token divisibility limit the number of investors?"
+faq1a: "No. Token divisibility is not an investor limit. The applicable offering rules, ownership structure and servicing capacity can constrain the number of holders."
+faq2q: "What counts as an investor?"
+faq2a: "Ask counsel whether the structure counts wallets, registered holders or beneficial owners for the question at hand."
+faq3q: "How can I test the counting?"
+faq3a: "Model one investor with two wallets and a nominee holding for several clients. Check which records prevent incorrect counting."
 ---
 
 ## What to check

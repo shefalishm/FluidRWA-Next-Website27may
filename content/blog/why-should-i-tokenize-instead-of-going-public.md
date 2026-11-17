@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-why-should-i-tokenize-instead-of-going-public.png"
+faq1q: "Is tokenizing the same as going public?"
+faq1a: "No. Tokenizing an interest and listing securities publicly are different decisions. Compare distribution goals, investor access and obligations before choosing either route."
+faq2q: "What should I define first?"
+faq2a: "Whether the business needs new capital, a secondary exit or simply better ownership records."
+faq3q: "How do I compare the routes?"
+faq3a: "Model a private issuance with restricted transfers against a public listing. Compare ongoing obligations and realistic exit options rather than treating a token as a listing."
 ---
 
 ## What to check

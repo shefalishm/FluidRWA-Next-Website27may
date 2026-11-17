@@ -14,6 +14,12 @@ ctaTitle: "Keep researching"
 ctaLabel: "Open the related resource"
 ctaUrl: "/network-explorer/fund-comparison"
 socialImage: "/assets/social/blog-tokenized-asset-custody-wallet-settlement-roles-editorial.jpg"
+faq1q: "Who holds a tokenized asset?"
+faq1a: "Underlying-asset custody, control of the investor wallet, the official ownership record and cash settlement are separate functions. Pull evidence for each before assuming a single vendor is responsible."
+faq2q: "What evidence should I ask for?"
+faq2a: "A custody agreement or product disclosure naming the role, wallet terms with a key-control diagram and recovery test, the prospectus and transfer-agent appointment, and settlement instructions."
+faq3q: "Why does this matter for shortlisting?"
+faq3a: "Treating the four functions as one can lead to the wrong shortlist, because different providers may hold each responsibility."
 ---
 
 ## Four questions that prevent the wrong shortlist

@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-much-money-can-tokenization-save-my-business.png"
+faq1q: "How much can tokenization save?"
+faq1a: "It depends on which recurring steps are replaced and whether the old systems can be retired. Count the new controls and integration costs too."
+faq2q: "What should I baseline?"
+faq2a: "Hours and unit costs for reconciliation, onboarding and reporting, including exceptions, parallel operations and vendor fees."
+faq3q: "How do I separate real savings from assumptions?"
+faq3a: "Compare one period before and after a pilot at comparable volume, and keep measured savings apart from assumptions about future scale."
 ---
 
 ## What to check

@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-support-will-i-get-from-a-tokenization-provider.png"
+faq1q: "What support does a tokenization provider give?"
+faq1a: "It depends on the contract and can differ between initial implementation, incident response and ongoing asset servicing."
+faq2q: "What should I request?"
+faq2a: "A responsibility matrix, support hours, escalation targets and the list of excluded tasks."
+faq3q: "How can I test support?"
+faq3a: "Ask the provider to walk through a failed distribution after hours. Confirm who responds, who can correct records and who updates investors."
 ---
 
 ## What to check

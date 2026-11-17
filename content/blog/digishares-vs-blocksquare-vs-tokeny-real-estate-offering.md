@@ -12,6 +12,12 @@ answer: "For a property sponsor, the most useful comparison starts with the work
 image: "/assets/blog-images/digishares-vs-blocksquare-vs-tokeny-real-estate-offering.svg"
 imageAlt: "DigiShares vs Blocksquare vs Tokeny: Launching a Tokenized Real Estate Offering editorial infrastructure visual"
 socialImage: "/assets/social/blog-digishares-vs-blocksquare-vs-tokeny-real-estate-offering.png"
+faq1q: "What should a property sponsor compare first?"
+faq1a: "Start with the work the sponsor will still have to do after closing. Ask each provider to demonstrate the same offering before comparing proposals."
+faq2q: "How do the three providers describe themselves?"
+faq2a: "DigiShares describes a white-label real estate offering workflow. Blocksquare documents a property-specific tokenization protocol. Tokeny documents investor onboarding and qualification workflows."
+faq3q: "How do I make the comparison fair?"
+faq3a: "Send each provider the same one-page brief: a property-owning vehicle, a defined investor population, one subscription currency and a quarterly distribution. Put a named owner beside every approval, record and payment."
 ---
 
 For a property sponsor, the most useful comparison starts with the work the sponsor will still have to do after closing. DigiShares describes a white-label real estate offering workflow. Blocksquare documents a property-specific tokenization protocol. Tokeny documents investor onboarding and qualification workflows. Ask each to demonstrate the same offering before comparing proposals.

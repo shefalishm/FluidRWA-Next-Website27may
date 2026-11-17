@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-hypernative-vs-hexagate-vs-forta-runtime-security.png"
 socialTitle: "Hypernative vs Hexagate vs Forta"
+faq1q: "Which runtime security provider fits which need?"
+faq1a: "Hypernative suits managed real-time monitoring and automated response across protocol and treasury risks. Hexagate suits security-led detection and prevention workflows. Forta suits an open decentralized detection network with community and premium feeds."
+faq2q: "How do I test a monitoring tool before an incident?"
+faq2a: "Pick a contract event that would require action, such as an unexpected admin change or a large treasury movement. Ask how each system detects it, what context reaches the responder and whether the response can be tested without risking funds."
+faq3q: "Why include a harmless look-alike event?"
+faq3a: "It lets your team judge the work created by false alarms."
 ---
 
 ## Side-by-side comparison

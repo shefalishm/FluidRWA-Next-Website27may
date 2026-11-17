@@ -13,6 +13,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-are-hidden-costs-in-tokenization-services.png"
+faq1q: "Where do hidden costs tend to appear?"
+faq1a: "In implementation, ongoing servicing, exceptions and switching providers. Compare total cost over the intended life of the asset."
+faq2q: "Why can a setup quote look low?"
+faq2a: "Onboarding, custody, administration and transaction costs can sit in other contracts. Ask each provider to price the same asset and operating scenario."
+faq3q: "Who pays which costs?"
+faq3a: "Identify which costs the issuer pays, which are charged to investors and which require internal staff time."
 ---
 
 ## Compare the cost to operate, not just to issue

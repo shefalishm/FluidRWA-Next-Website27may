@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-do-tax-implications-change-with-tokenized-assets.png"
+faq1q: "Does a token change the tax treatment?"
+faq1a: "Tax analysis depends on the legal instrument, jurisdiction and taxpayer. The presence of a token alone does not determine the treatment."
+faq2q: "What records should I prepare?"
+faq2a: "An event ledger for issuance, transfer, distributions and redemption, with the entity, dates, currencies and valuation source for each event."
+faq3q: "How should I work with a tax adviser?"
+faq3a: "Give the adviser a sample transaction from subscription through disposal, and resolve classification and reporting questions before applying rules to the rest of the data."
 ---
 
 ## What to check

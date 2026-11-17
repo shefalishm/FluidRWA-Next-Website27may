@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-secure-is-your-customer-data-in-tokenization.png"
+faq1q: "How secure is customer data in tokenization?"
+faq1a: "It depends on how data is collected, stored and accessed. Putting identifying information on a shared ledger can make correction and deletion harder."
+faq2q: "What should I map?"
+faq2a: "Where identity records, wallet associations and document copies are stored, plus retention, access roles and third-party processors."
+faq3q: "How can I test it?"
+faq3a: "Test a departing employee's access and a customer correction request. Confirm neither relies on changing immutable public data."
 ---
 
 ## What to check

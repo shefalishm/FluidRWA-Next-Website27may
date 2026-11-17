@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-foreign-investors-buy-tokenized-assets.png"
+faq1q: "Can foreign investors buy tokenized assets?"
+faq1a: "They may be eligible, but access depends on the offering terms, investor residence and applicable restrictions. An approved wallet does not override those rules."
+faq2q: "What should I request from the issuer?"
+faq2a: "The offering's country eligibility policy, the investor classifications it accepts and the evidence used to establish residence."
+faq3q: "What if an investor moves country?"
+faq3a: "Test a change of residence after subscription. Ask who reviews it, what happens to existing holdings and whether a later transfer or redemption is affected."
 ---
 
 ## What to check

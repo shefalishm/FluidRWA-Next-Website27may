@@ -13,6 +13,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-long-does-it-take-to-tokenize-an-asset.png"
+faq1q: "What determines the timeline?"
+faq1a: "The slowest unresolved dependency, often legal structure, onboarding, integrations or operational approval, rather than token deployment."
+faq2q: "How should I build a schedule?"
+faq2a: "Map the legal instrument, asset eligibility, target investors, payment path and servicing arrangements first. Record each dependency with an owner and an acceptance test."
+faq3q: "Is deploying a token the hard part?"
+faq3a: "No. How quickly someone can deploy a token does not usually set the launch date."
 ---
 
 ## Build a schedule around dependencies

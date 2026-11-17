@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-securitize-vs-tokeny-vs-digishares-tokenization-platforms.png"
 socialTitle: "Securitize vs Tokeny vs DigiShares"
+faq1q: "What should I decide before picking a tokenization platform?"
+faq1a: "The first decision is not the software vendor. It is the asset, legal structure, jurisdictions, regulated roles and servicing model the platform must support."
+faq2q: "How do the three platforms differ?"
+faq2a: "Securitize suits a regulated, vertically integrated tokenized-securities model. Tokeny suits permissioned-token standards, embedded compliance and an EVM-oriented white-label or API approach. DigiShares suits a configurable platform for tokenization, investor management and related marketplace workflows."
+faq3q: "Does this comparison recommend a platform?"
+faq3a: "No. It sets out starting points to investigate. Confirm scope, roles and current terms with each provider and your counsel."
 ---
 
 ## Side-by-side comparison

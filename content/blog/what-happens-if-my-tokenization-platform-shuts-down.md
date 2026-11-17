@@ -13,6 +13,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-happens-if-my-tokenization-platform-shuts-down.png"
+faq1q: "Do my rights disappear if the platform shuts down?"
+faq1a: "Not necessarily. Rights do not automatically disappear when a software provider closes, but access and servicing can fail without a portability plan."
+faq2q: "What should I retain before an outage?"
+faq2a: "Current holdings, dated history, investor identifiers and applicable access controls, and a way to reconcile exports to the authoritative record."
+faq3q: "Who can administer the asset after a shutdown?"
+faq3a: "Start with the instrument and service agreements to identify which record determines ownership and which entity can amend it. Work with counsel and the administrator before replacing the platform."
 ---
 
 ## Find the record that survives the platform

@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-i-reverse-a-tokenization-if-needed.png"
+faq1q: "Can a finalized blockchain transaction be reversed?"
+faq1a: "Generally no. You may be able to correct a token record or unwind an issuance, but that is different from reversing a finalized blockchain transaction."
+faq2q: "Who can freeze, cancel or reissue tokens?"
+faq2a: "That depends on what the contract supports and what the offering documents authorize. Map who may freeze, cancel, reissue or correct the register before you launch."
+faq3q: "How can I test a correction?"
+faq3a: "Rehearse a mistaken allocation. Trace the old and replacement balances, and confirm the cash leg and the ownership register are corrected as well."
 ---
 
 ## What to check

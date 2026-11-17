@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-enigio-vs-wave-bl-vs-bolero-electronic-trade-documents.png"
 socialTitle: "Enigio vs Wave BL vs Bolero"
+faq1q: "Which provider fits which trade document workflow?"
+faq1a: "Enigio suits transferable digital originals across document types. Wave BL suits carrier and forwarder electronic bill of lading workflows. Bolero suits eBL lifecycle management tied to bank, corporate and trade-finance workflows."
+faq2q: "How do I test an electronic bill of lading provider?"
+faq2a: "Use one shipment and name every party that must receive, hold, endorse or surrender the bill. Ask what happens when a counterparty is outside the provider's usual network, a document is corrected or a bank rejects a presentation."
+faq3q: "Do I need legal review?"
+faq3a: "Yes. Have transaction counsel check whether the proposed electronic record will work under the governing law and contract used on your route."
 ---
 
 ## Side-by-side comparison

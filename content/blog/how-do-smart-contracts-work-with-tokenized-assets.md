@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-do-smart-contracts-work-with-tokenized-assets.png"
+faq1q: "What can a smart contract enforce for a tokenized asset?"
+faq1a: "Rules such as permitted transfers and issuance limits."
+faq2q: "What do smart contracts still depend on?"
+faq2a: "They still depend on off-chain inputs and on the parties authorized to maintain them, such as whoever updates eligibility."
+faq3q: "How can I test the rules?"
+faq3a: "Test a transfer to a previously eligible holder whose approval has expired. Check the result and the evidence available to the operator."
 ---
 
 ## What to check

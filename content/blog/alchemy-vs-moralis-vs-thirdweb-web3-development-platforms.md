@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-alchemy-vs-moralis-vs-thirdweb-web3-development-platforms-editorial.jpg"
 socialTitle: "Alchemy vs Moralis vs thirdweb"
+faq1q: "How do Alchemy, Moralis and thirdweb differ?"
+faq1a: "Each starts from a different point in its documentation: Alchemy from chain and data APIs, Moralis from indexed Web3 data, and thirdweb from app-building tools spanning wallets, contracts and payments."
+faq2q: "How should I choose between them?"
+faq2a: "Decide which components you want to buy, which you must control and how hard each would be to replace."
+faq3q: "How do I test the platforms?"
+faq3a: "Build the same small feature with each, such as showing a token balance and then initiating a transaction. Record which service supplies chain data, which submits the transaction and how you recover a missed event."
 ---
 
 ## Side-by-side comparison
