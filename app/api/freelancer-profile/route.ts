@@ -1,3 +1,4 @@
+import { d1LeadStoreEnabled, formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { NextResponse } from "next/server";
 import { notifyFreelancerSubmission } from "@/lib/emailNotifications";
 import { freelancerCategories, freelancerTags, type FreelancerCategory } from "@/lib/freelancerMarketplace";
@@ -55,14 +56,13 @@ function isLikelyAutomatedSubmission(payload: FreelancerProfilePayload) {
 }
 
 async function insertSupabaseRow(row: Record<string, unknown>) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     return { mode: "preview" as const, data: null };
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/freelancer_profiles`, {
+  const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/freelancer_profiles`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,
@@ -173,6 +173,7 @@ export async function POST(request: Request) {
     try {
       insert = await insertSupabaseRow(row);
     } catch (error) {
+      if (d1LeadStoreEnabled()) throw error;
       schemaWarning = error instanceof Error ? error.message : "Supabase freelancer profile table is not ready.";
       insert = { mode: "needs_schema", data: null };
     }

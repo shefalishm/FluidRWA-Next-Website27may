@@ -1,3 +1,4 @@
+import { d1LeadStoreEnabled, formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { NextResponse } from "next/server";
 import { assessFamilyOfficeStack, type FamilyOfficeAnswers, type FamilyOfficeLead } from "@/lib/familyOfficeStackRules";
 import { escapeEmailHtml, sendNotificationEmail } from "@/lib/emailNotifications";
@@ -17,14 +18,13 @@ function isValidLead(lead: StackAssessmentRequest["lead"]) {
 }
 
 async function insertSupabaseRow(table: string, row: Record<string, unknown>) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     return { mode: "preview" as const, data: null, storageError: null };
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/${table}`, {
+  const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/${table}`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,
@@ -145,6 +145,7 @@ export async function POST(request: Request) {
     };
 
     const insert = await insertSupabaseRow("family_office_stack_assessments", assessmentRow);
+    if (d1LeadStoreEnabled() && insert.mode !== "supabase") throw new Error("Assessment could not be saved");
     const insertedAssessment = Array.isArray(insert.data) ? insert.data[0] : null;
     const assessmentId = insertedAssessment?.id || `preview-${Date.now()}`;
 

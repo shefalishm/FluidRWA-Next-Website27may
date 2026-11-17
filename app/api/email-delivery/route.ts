@@ -1,3 +1,4 @@
+import { formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { Webhook } from "svix";
 import { NextResponse } from "next/server";
 
@@ -12,8 +13,7 @@ type Row = { id: string; raw_payload: Record<string, unknown>; updated_at: strin
 
 export async function POST(request: Request) {
   const secret = process.env.RESEND_WEBHOOK_SECRET;
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url, key } = formStoreConfig();
   if (!secret || !url || !key) return NextResponse.json({ ok: false }, { status: 503, headers });
   const limit = 65536;
   if (Number(request.headers.get("content-length")) > limit) return NextResponse.json({ ok: false }, { status: 413, headers });
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
   const endpoint = `${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`;
   try {
     const query = new URLSearchParams({ select: "id,raw_payload,updated_at", "raw_payload->FLUIDRWA_NOTIFICATION->>messageId": `eq.${emailId}`, limit: "2" });
-    const read = await fetch(`${endpoint}?${query}`, { headers: databaseHeaders, cache: "no-store", signal: AbortSignal.timeout(10000) });
+    const read = await formStoreFetch(`${endpoint}?${query}`, { headers: databaseHeaders, cache: "no-store", signal: AbortSignal.timeout(10000) });
     if (!read.ok) throw new Error("read failed");
     const rows = await read.json() as Row[];
     if (!rows.length) {
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     }
     const updateQuery = new URLSearchParams({ id: `eq.${row.id}`, updated_at: `eq.${row.updated_at}`, select: "id" });
     const now = new Date().toISOString();
-    const update = await fetch(`${endpoint}?${updateQuery}`, {
+    const update = await formStoreFetch(`${endpoint}?${updateQuery}`, {
       method: "PATCH", headers: { ...databaseHeaders, Prefer: "return=representation" }, signal: AbortSignal.timeout(10000),
       body: JSON.stringify({ raw_payload: { ...row.raw_payload, FLUIDRWA_NOTIFICATION: { ...receipt, lastEvent, eventAt: new Date(eventTime).toISOString(), eventId, checkedAt: now, verificationSource: "signed_resend_webhook" } }, updated_at: now })
     });

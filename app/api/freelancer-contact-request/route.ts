@@ -1,3 +1,4 @@
+import { d1LeadStoreEnabled, formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { NextResponse } from "next/server";
 import { escapeEmailHtml, notificationRecipient, sendNotificationEmail } from "@/lib/emailNotifications";
 
@@ -24,14 +25,13 @@ function isValidEmail(value: string) {
 }
 
 async function insertSupabaseRow(row: Record<string, unknown>) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     return { mode: "preview" as const, data: null };
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/freelancer_intro_requests`, {
+  const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/freelancer_intro_requests`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,
@@ -108,7 +108,8 @@ export async function POST(request: Request) {
     try {
       const insert = await insertSupabaseRow(row);
       mode = insert.mode;
-    } catch {
+    } catch (error) {
+      if (d1LeadStoreEnabled()) throw error;
       mode = "needs_schema";
     }
 

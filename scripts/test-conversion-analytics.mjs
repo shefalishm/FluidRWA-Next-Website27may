@@ -18,10 +18,11 @@ const excluded = { id: 'qa-1', created_at, status: 'qa_test', request_source: 'c
 const rows = [...spam, buyer, vendor, vendorContact, excluded];
 let detailQueries = 0;
 const exports = {};
-vm.runInNewContext(compiled, {
+const analyticsVm = {
   exports, URL, URLSearchParams, Buffer, Date, Map, Set, console,
   process: { env: { ANALYTICS_DASHBOARD_KEY: 'test-secret', SUPABASE_URL: 'https://database.invalid', SUPABASE_SERVICE_ROLE_KEY: 'test-role' } },
   require(name) {
+    if (name === '@/lib/formStore') return { formStoreConfig: () => ({ url: analyticsVm.process.env.SUPABASE_URL, key: analyticsVm.process.env.SUPABASE_SERVICE_ROLE_KEY }), formStoreFetch: (...args) => analyticsVm.fetch(...args) };
     if (name === 'node:crypto') return crypto;
     if (name === 'next/server') return { NextResponse: { json: (body, options) => ({ body, status: options?.status || 200 }) } };
     throw new Error(`Unexpected import ${name}`);
@@ -39,7 +40,8 @@ vm.runInNewContext(compiled, {
     const offset = Number(query.get('offset') || 0);
     return { ok: true, json: async () => rows.slice(offset, offset + 1000) };
   }
-});
+};
+vm.runInNewContext(compiled, analyticsVm);
 
 const result = await exports.GET({
   nextUrl: new URL('https://www.fluidrwa.com/api/conversion-analytics?days=7'),

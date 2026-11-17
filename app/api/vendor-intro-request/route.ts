@@ -1,3 +1,4 @@
+import { formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { NextResponse } from "next/server";
 import { notifyFormSubmission } from "@/lib/emailNotifications";
 import { formPayloadRejection, formRequestRejection } from "@/lib/formAbuse";
@@ -99,14 +100,13 @@ async function parseRequest(request: Request): Promise<VendorIntroPayload> {
 }
 
 async function insertSupabaseRow(row: Record<string, unknown>) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     throw new Error("Supabase lead capture is not configured.");
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`, {
+  const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,
@@ -126,8 +126,7 @@ async function insertSupabaseRow(row: Record<string, unknown>) {
 }
 
 async function tooManyRecentSubmissions(email: string) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
   if (!supabaseUrl || !serviceRoleKey) return false;
   const query = new URLSearchParams({
     select: "id",
@@ -136,7 +135,7 @@ async function tooManyRecentSubmissions(email: string) {
     limit: "1"
   });
   try {
-    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+    const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
       method: "HEAD",
       headers: {
         apikey: serviceRoleKey,
@@ -286,11 +285,12 @@ export async function POST(request: Request) {
     // An accepted email API request is not proof of inbox delivery.
     if (requestId) {
       try {
-        const receipt = await fetch(`${process.env.SUPABASE_URL!.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${encodeURIComponent(requestId)}`, {
+        const { url, key } = formStoreConfig();
+        const receipt = await formStoreFetch(`${url!.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${encodeURIComponent(requestId)}`, {
           method: "PATCH",
           headers: {
-            apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
-            Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+            apikey: key!,
+            Authorization: `Bearer ${key}`,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({ raw_payload: { ...normalized.rawPayload, FLUIDRWA_NOTIFICATION: {

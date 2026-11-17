@@ -8,10 +8,10 @@ Run `node --env-file=<existing-private-env-file> scripts/copy-form-submissions-t
 
 ## Live cutover acceptance
 
-1. Bind the private database to a staging Worker only. Implement server-only, validated, parameterized writes with saved IDs, rate limits and duplicate checks. Require a durable save before a success response, and record email accepted, delivered, failed, or unknown independently. Never treat an email failure as losing an already-saved lead.
+1. Run the SQL in `migrations/private-leads/0001_form_submissions.sql`. The Worker binding is `LEADS_DB` and the server-side opt-in is `LEAD_STORE_DRIVER=d1`. Leave the flag unset in production while testing. Stage this on a protected preview and do not allow real data into the preview. The adapter uses an explicit internal table and filter allowlist and parameterized SQL. A missing D1 binding in D1 mode returns an error rather than silently changing data stores. Existing saved-mode response values are retained for client compatibility.
 2. Verify browser-to-storage-to-inbox with synthetic, clearly marked test data for buyer brief, contact, vendor application, quick enquiry, vendor comparison, both assessments and supported freelancer forms. Confirm that mandatory fields and source attribution survive, and that QA or spam does not count toward leads. Test notification failure, retries and rollback without sending duplicates. Use a fixed internal QA email recipient for tests.
 3. Address the protected analytics dashboard and delivery webhook reads and updates, and any sign-in dependency, before switching the database. Review retention and backup access. Keep customer-facing URLs and the existing anti-spam rules.
-4. Reconcile the historical copy again at cutover, including late writes and status changes. Verify new production rows and inbox delivery after cutover. Keep the old store available for rollback, then consider downgrading only once auth and reporting no longer depend on it.
+4. Refresh the verified copy again just before cutover and arrange a final reconciliation of late writes and status changes. Seed the working table from the archive while production is still on Supabase. Do not overwrite newer D1 stages or delivery receipts with a stale archive after activation. Verify new production rows and inbox delivery. Before any rollback, reconcile D1-only submissions and statuses back to the old store. Keep Supabase for authentication until that usage is replaced or explicitly retired.
 
 ## Manual test on the current live system
 

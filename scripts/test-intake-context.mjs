@@ -7,10 +7,11 @@ const source = fs.readFileSync('app/api/vendor-intro-request/route.ts', 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 let saved, notified, writes = 0, recentCount = 0;
 const exports = {};
-vm.runInNewContext(compiled, {
+const intakeVm = {
   exports, URL, URLSearchParams, console,
   process: { env: { SUPABASE_URL: 'https://database.invalid', SUPABASE_SERVICE_ROLE_KEY: 'test-only' } },
   require(name) {
+    if (name === '@/lib/formStore') return { formStoreConfig: () => ({ url: intakeVm.process.env.SUPABASE_URL, key: intakeVm.process.env.SUPABASE_SERVICE_ROLE_KEY }), formStoreFetch: (...args) => intakeVm.fetch(...args) };
     if (name === 'next/server') return { NextResponse: { json: (body, options) => ({ body, status: options?.status || 200 }) } };
     if (name === '@/lib/emailNotifications') return { notifyFormSubmission: async payload => { notified = payload; return { ok: true, skipped: false }; } };
     if (name === '@/lib/formAbuse') {
@@ -22,10 +23,12 @@ vm.runInNewContext(compiled, {
   },
   fetch: async (_url, options) => {
     if (options.method === 'HEAD') return { ok: true, headers: { get: () => `*/${recentCount}` } };
+    if (options.method === 'PATCH') return { ok: true };
     saved = JSON.parse(options.body); writes++;
     return { ok: true, json: async () => [{ ...saved, id: 'test-id' }] };
   }
-});
+};
+vm.runInNewContext(compiled, intakeVm);
 const base = { contactEmail: 'qa@fluidrwa.com', firstName: 'Test', lastName: 'Only', companyName: 'Test', projectDescription: 'A test requirement' };
 async function submit(payload) {
   return exports.POST(new Request('https://site.invalid/api/vendor-intro-request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }));
