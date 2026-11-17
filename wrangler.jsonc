@@ -5,6 +5,7 @@
   "compatibility_date": "2026-09-17",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "workers_dev": true,
+  "vars": { "LEAD_STORE_DRIVER": "d1" },
   "ratelimits": [{ "name": "FORM_RATE_LIMITER", "namespace_id": "2026100701", "simple": { "limit": 5, "period": 60 } }],
   "routes": [
     { "pattern": "fluidrwa.com/*", "zone_name": "fluidrwa.com" },
@@ -18,6 +19,11 @@
       "binding": "NETWORK_DB",
       "database_name": "fluidrwa-network-intelligence",
       "database_id": "7a7cee74-a2ab-425b-aaa1-e12eb6628968"
+    },
+    {
+      "binding": "LEADS_DB",
+      "database_name": "fluidrwa-private-leads",
+      "database_id": "aff6fd8c-ab84-4109-a8c8-db4acb653ff5"
     }
   ],
   "assets": {

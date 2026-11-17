@@ -1,3 +1,4 @@
+import { formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { NextResponse } from "next/server";
 import { notifyFormSubmission } from "@/lib/emailNotifications";
 
@@ -74,14 +75,13 @@ function buildProjectSummary(payload: Required<Pick<VendorLead, "urls">> & Vendo
 }
 
 async function insertSupabaseRow(row: Record<string, unknown>) {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     throw new Error("Supabase lead capture is not configured.");
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`, {
+  const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,

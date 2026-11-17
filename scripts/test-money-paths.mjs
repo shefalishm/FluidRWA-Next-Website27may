@@ -38,10 +38,11 @@ const abuse = {};
 vm.runInNewContext(compile('lib/formAbuse.ts'), { exports: abuse, URL, Date });
 const api = {};
 const writes = [];
-vm.runInNewContext(compile('app/api/vendor-intro-request/route.ts'), {
+const moneyVm = {
   exports: api, URL, URLSearchParams, Date, console,
   process: { env: { SUPABASE_URL: 'https://database.invalid', SUPABASE_SERVICE_ROLE_KEY: 'test' } },
   require(name) {
+    if (name === '@/lib/formStore') return { formStoreConfig: () => ({ url: moneyVm.process.env.SUPABASE_URL, key: moneyVm.process.env.SUPABASE_SERVICE_ROLE_KEY }), formStoreFetch: (...args) => moneyVm.fetch(...args) };
     if (name === 'next/server') return { NextResponse: { json: (body, options) => ({ body, status: options?.status || 200 }) } };
     if (name === '@/lib/formAbuse') return abuse;
     if (name === '@/lib/emailNotifications') return { notifyFormSubmission: async () => ({ ok: true, skipped: false, messageId: 'receipt-123' }) };
@@ -52,7 +53,8 @@ vm.runInNewContext(compile('app/api/vendor-intro-request/route.ts'), {
     writes.push({ method: options.method, body: JSON.parse(options.body) });
     return { ok: true, json: async () => [{ id: 'saved-request' }] };
   }
-});
+};
+vm.runInNewContext(compile('app/api/vendor-intro-request/route.ts'), moneyVm);
 const payload = { contactEmail: 'qa@fluidrwa.com', firstName: 'QA', companyName: 'QA only', projectDescription: 'Local mocked test', source: 'qa-test', rawPayload: { FORM_ELAPSED_MS: '2000', FLUIDRWA_NOTIFICATION: { status: 'forged' } } };
 const request = body => new Request('https://www.fluidrwa.com/api/vendor-intro-request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
 const accepted = await api.POST(request(payload));

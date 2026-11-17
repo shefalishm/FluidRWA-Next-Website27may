@@ -1,3 +1,4 @@
+import { formStoreConfig, formStoreFetch } from "@/lib/formStore";
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -132,8 +133,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ ok: false, message: "That analytics access key is not valid." }, { status: 401 });
   }
 
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url: supabaseUrl, key: serviceRoleKey } = formStoreConfig();
   if (!supabaseUrl || !serviceRoleKey) {
     return NextResponse.json({ ok: false, message: "Supabase analytics is not configured." }, { status: 503 });
   }
@@ -153,7 +153,7 @@ export async function GET(request: NextRequest) {
       limit: String(pageSize),
       offset: String(offset)
     });
-    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+    const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
       headers: {
         apikey: serviceRoleKey,
         Authorization: `Bearer ${serviceRoleKey}`
@@ -199,13 +199,13 @@ export async function GET(request: NextRequest) {
   const currentBuyerIds = currentBuyerMetadata.map((row) => clean(row.id)).filter(Boolean);
   const currentIds = usableRows.filter(row => new Date(clean(row.created_at)) >= currentStart && !/(^|[-_ ])(qa|test|smoke)([-_ ]|$)/i.test(clean(row.request_source))).map(row => clean(row.id)).filter(Boolean);
   const currentDetails: LeadRow[] = [];
-  for (let index = 0; index < currentIds.length; index += 100) {
-    const ids = currentIds.slice(index, index + 100);
+  for (let index = 0; index < currentIds.length; index += 90) {
+    const ids = currentIds.slice(index, index + 90);
     const query = new URLSearchParams({
       select: "id,created_at,status,company_name,vendor_name,vendor_category,request_source,page_url,lead_source,raw_payload",
       id: `in.(${ids.join(",")})`
     });
-    const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
+    const response = await formStoreFetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?${query}`, {
       headers: {
         apikey: serviceRoleKey,
         Authorization: `Bearer ${serviceRoleKey}`
@@ -335,11 +335,10 @@ export async function PATCH(request: NextRequest) {
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(input?.id || "") || !["new", "qualified", "proposal_sent", "paid", "lost", "spam", "qa_test"].includes(input?.status || "")) {
     return NextResponse.json({ ok: false, message: "Select a valid lead and stage." }, { status: 400, headers });
   }
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url, key } = formStoreConfig();
   if (!url || !key) return NextResponse.json({ ok: false }, { status: 503, headers });
   try {
-    const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${input.id}&select=id,status`, {
+    const response = await formStoreFetch(`${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${input.id}&select=id,status`, {
       method: "PATCH",
       headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=representation" },
       body: JSON.stringify({ status: input.status, updated_at: new Date().toISOString() })
@@ -363,13 +362,12 @@ export async function POST(request: NextRequest) {
     id = JSON.parse(text)?.id;
     if (!/^[0-9a-f-]{36}$/i.test(id || "")) throw new Error("invalid id");
   } catch { return NextResponse.json({ ok: false }, { status: 400, headers }); }
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const { url, key } = formStoreConfig();
   if (!url || !key || !process.env.RESEND_API_KEY) return NextResponse.json({ ok: false, message: "Email verification is not configured." }, { status: 503, headers });
   const databaseHeaders = { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" };
   const endpoint = `${url.replace(/\/$/, "")}/rest/v1/vendor_intro_requests?id=eq.${id}`;
   try {
-    const read = await fetch(`${endpoint}&select=raw_payload,updated_at`, { headers: databaseHeaders, cache: "no-store" });
+    const read = await formStoreFetch(`${endpoint}&select=raw_payload,updated_at`, { headers: databaseHeaders, cache: "no-store" });
     if (!read.ok) throw new Error("read failed");
     const [row] = await read.json() as Array<{ raw_payload: Record<string, unknown>; updated_at: string }>;
     const receipt = row?.raw_payload?.FLUIDRWA_NOTIFICATION as { messageId?: string; lastEvent?: string; verificationSource?: string } | undefined;
@@ -379,7 +377,7 @@ export async function POST(request: NextRequest) {
     if (!provider.ok) return NextResponse.json({ ok: false, message: "Delivery history is unavailable with the current email credential. This does not mean delivery failed. Signed delivery updates appear automatically once received." }, { status: 502, headers });
     const email = await provider.json() as { last_event?: string };
     const lastEvent = typeof email.last_event === "string" ? email.last_event.slice(0, 40) : "unknown";
-    const update = await fetch(`${endpoint}&updated_at=eq.${encodeURIComponent(row.updated_at)}&select=id`, {
+    const update = await formStoreFetch(`${endpoint}&updated_at=eq.${encodeURIComponent(row.updated_at)}&select=id`, {
       method: "PATCH", headers: { ...databaseHeaders, Prefer: "return=representation" },
       body: JSON.stringify({ raw_payload: { ...row.raw_payload, FLUIDRWA_NOTIFICATION: { ...receipt, lastEvent, checkedAt: new Date().toISOString() } }, updated_at: new Date().toISOString() })
     });

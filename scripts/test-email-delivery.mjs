@@ -9,10 +9,11 @@ const emailId = '01a16316-2eae-71c6-8c8a-d8c0a78cbd40';
 const code = ts.transpileModule(fs.readFileSync('app/api/email-delivery/route.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 let row, failWrite = false, writes = 0, reads = 0;
 const api = {};
-vm.runInNewContext(code, {
+const deliveryVm = {
   exports: api, Buffer, URLSearchParams, Date, AbortSignal,
   process: { env: { RESEND_WEBHOOK_SECRET: secret, SUPABASE_URL: 'https://database.invalid', SUPABASE_SERVICE_ROLE_KEY: 'local-test' } },
   require(name) {
+    if (name === '@/lib/formStore') return { formStoreConfig: () => ({ url: deliveryVm.process.env.SUPABASE_URL, key: deliveryVm.process.env.SUPABASE_SERVICE_ROLE_KEY }), formStoreFetch: (...args) => deliveryVm.fetch(...args) };
     if (name === 'svix') return { Webhook };
     if (name === 'next/server') return { NextResponse: { json: (body, options = {}) => ({ body, status: options.status || 200 }) } };
     throw new Error(name);
@@ -29,7 +30,8 @@ vm.runInNewContext(code, {
     if (!failWrite) row = { ...row, ...update };
     return { ok: true, json: async () => failWrite ? [] : [{ id: row.id }] };
   }
-});
+};
+vm.runInNewContext(code, deliveryVm);
 const freshRow = () => ({ id: 'lead', updated_at: '2026-10-23T00:00:00Z', raw_payload: { KEEP: 'unchanged', FLUIDRWA_NOTIFICATION: { status: 'accepted', messageId: emailId } } });
 const event = (type = 'email.delivered', age = 0) => ({ type, created_at: new Date(Date.now() - age).toISOString(), data: { email_id: emailId } });
 const request = (body, { id = 'msg_test', bad = false, timestamp = new Date() } = {}) => {
