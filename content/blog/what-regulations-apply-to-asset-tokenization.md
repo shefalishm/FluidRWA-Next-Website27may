@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-regulations-apply-to-asset-tokenization.png"
+faq1q: "Is there a single tokenization rulebook?"
+faq1a: "No. There is no single global tokenization rulebook. Start with the rights represented, where the offer is made and what each participant does."
+faq2q: "How should I map the rules?"
+faq2a: "Map issuance, distribution, custody, trading and settlement separately, and record the entity and jurisdiction for each activity."
+faq3q: "Does one approval cover every role?"
+faq3a: "Do not assume so. Ask counsel to review a concrete offer and transfer scenario, including a buyer outside the issuer's jurisdiction."
 ---
 
 ## What to check

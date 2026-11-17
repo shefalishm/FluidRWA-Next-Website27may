@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-immutable-vs-ronin-vs-oasys-web3-gaming-infrastructure.png"
 socialTitle: "Immutable vs Ronin vs Oasys"
+faq1q: "Which gaming infrastructure fits which studio?"
+faq1a: "Immutable suits studios wanting a broad stack with onboarding, assets, commerce and growth tooling. Ronin suits studios that want a gaming-native chain and Sky Mavis ecosystem distribution. Oasys suits studios wanting an EVM-compatible, multi-layer gaming chain designed around gas-free player interactions."
+faq2q: "What is the main decision factor?"
+faq2a: "Whether you need a full gaming stack, access to an existing gaming ecosystem or a particular chain architecture."
+faq3q: "Does this comparison name a best option?"
+faq3a: "No. It describes starting points based on each provider's public documentation. Confirm current terms with each provider."
 ---
 
 ## Side-by-side comparison

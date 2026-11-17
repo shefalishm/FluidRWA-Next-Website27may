@@ -10,6 +10,12 @@ answer: "UK CARF reporting applies to in-scope cryptoasset service providers. It
 image: "/assets/blog-images/uk-carf-cryptoasset-reporting-hmrc-guide.svg"
 imageAlt: "UK CARF Reporting: A Practical Guide for Cryptoasset Service Providers editorial infrastructure visual"
 socialImage: "/assets/social/blog-uk-carf-cryptoasset-reporting-hmrc-guide.png"
+faq1q: "Who must report under UK CARF?"
+faq1a: "In-scope cryptoasset service providers. They collect information on reportable users and transactions and report to HMRC."
+faq2q: "When is the first reporting deadline?"
+faq2a: "The first UK reporting period is calendar year 2026, with reports due by 31 May 2027."
+faq3q: "Does my vendor handle the reporting?"
+faq3a: "Do not assume so. A vendor that supplies identity checks or executes trades is not automatically responsible. Map each product to the legal entity providing the service and ask counsel to document which entity is in scope."
 ---
 
 UK CARF reporting applies to in-scope cryptoasset service providers. It requires them to collect information on reportable users and transactions and report to HMRC. The first UK reporting period is calendar year 2026, with reports due by 31 May 2027. Start by identifying the reporting legal entity and the data it can actually retrieve.

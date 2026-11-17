@@ -12,6 +12,12 @@ answer: "Start by asking whether the issuer will accept a redemption request fro
 image: "/assets/blog-images/paxg-vs-xaut-vs-xaum-physical-gold-redemption.svg"
 imageAlt: "PAX Gold vs Tether Gold vs Matrixdock XAUm: Physical Gold Redemption editorial infrastructure visual"
 socialImage: "/assets/social/blog-paxg-vs-xaut-vs-xaum-physical-gold-redemption.png"
+faq1q: "Can I redeem a gold token for physical metal?"
+faq1a: "Ask whether the issuer will accept a redemption request from you, for the amount you hold and at a location you can use. An exchange listing does not answer any of those questions."
+faq2q: "Is selling the token the same as redeeming it?"
+faq2a: "No. Buying a token, selling it for cash or stablecoins, and handing it to the issuer for metal are separate transactions that may have different counterparties and conditions."
+faq3q: "Does a cash redemption mean I can collect a bar?"
+faq3a: "No. A cash redemption does not establish that you can collect a bar."
 ---
 
 Start by asking whether the issuer will accept a redemption request from you, for the amount you hold and at a location you can use. An exchange listing does not answer any of those questions.

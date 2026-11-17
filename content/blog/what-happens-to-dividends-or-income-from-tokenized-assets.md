@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-happens-to-dividends-or-income-from-tokenized-assets.png"
+faq1q: "Do token holders automatically receive income?"
+faq1a: "Only if the underlying terms entitle them to it. The token does not decide the amount, timing or method by itself."
+faq2q: "What should I check about a distribution?"
+faq2a: "The record date, eligible holders, expenses, payment currency and the treatment of transfers around the cutoff."
+faq3q: "How can I test it?"
+faq3a: "Trace one distribution from cash received to the holder statement. Reconcile amounts withheld, failed payments and corrections."
 ---
 
 ## What to check

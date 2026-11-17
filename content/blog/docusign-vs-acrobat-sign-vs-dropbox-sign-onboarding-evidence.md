@@ -10,6 +10,12 @@ answer: "Docusign Connect, Acrobat Sign webhooks and Dropbox Sign callbacks can 
 image: "/assets/blog-images/docusign-vs-acrobat-sign-vs-dropbox-sign-onboarding-evidence.svg"
 imageAlt: "Docusign vs Acrobat Sign vs Dropbox Sign: Signing Evidence for Investor Onboarding editorial infrastructure visual"
 socialImage: "/assets/social/blog-docusign-vs-acrobat-sign-vs-dropbox-sign-onboarding-evidence.png"
+faq1q: "Can a signing notification mark onboarding complete?"
+faq1a: "Not on its own. Docusign Connect, Acrobat Sign webhooks and Dropbox Sign callbacks can alert your portal, but verify that all required signers finished and that the final packet and audit evidence match the intended agreement version."
+faq2q: "Is a completed signature the same as investor eligibility?"
+faq2a: "No. Keep investor eligibility as a separate decision from signing evidence."
+faq3q: "What evidence should I keep?"
+faq3a: "Define the evidence you want to retain up front, and keep the signed document and the audit record together."
 ---
 
 An investor clicking Finish is not enough to close an onboarding task. Your operations team needs to know which version was signed, whether all required signers finished, and where the final evidence was stored.

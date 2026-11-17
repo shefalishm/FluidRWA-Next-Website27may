@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-i-tokenize-real-estate-a-beginner-s-guide.png"
+faq1q: "What does a real estate token represent?"
+faq1a: "It can represent an interest in a property vehicle or a contractual claim. Determine what holders actually own before you choose software."
+faq2q: "What should I check first?"
+faq2a: "Start with title, financing and the entity that owns the building. Then map the instrument, the distribution waterfall and the exit terms."
+faq3q: "How do I test the model?"
+faq3a: "For a rental building, trace one month of rent through operating expenses, debt service and distributions. Show which records the investor can inspect."
 ---
 
 ## What to check

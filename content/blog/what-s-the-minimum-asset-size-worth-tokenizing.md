@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-s-the-minimum-asset-size-worth-tokenizing.png"
+faq1q: "Is there a minimum asset size worth tokenizing?"
+faq1a: "There is no universal minimum. Compare fixed launch and servicing costs with the value of the workflow improvement or distribution opportunity."
+faq2q: "What costs should I estimate?"
+faq2a: "Setup, annual running costs, per-investor costs and the number of recurring events the product is likely to generate."
+faq3q: "How do I model viability?"
+faq3a: "Model low, base and high participation, and identify the volume at which the incremental benefit covers the additional costs."
 ---
 
 ## What to check

@@ -26,6 +26,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-hummingbird-vs-unit21-vs-flagright-aml-case-management.png"
 socialTitle: "Hummingbird vs Unit21 vs Flagright"
+faq1q: "Which AML platform fits which need?"
+faq1a: "Hummingbird suits a provider-neutral investigation and regulatory-reporting workspace. Unit21 suits transaction monitoring, fraud detection and case management as a configurable no-code stack. Flagright suits an AI-native AML and fraud operations platform with integrated investigation."
+faq2q: "What should I compare first?"
+faq2a: "Whether you need a standalone case workspace or a combined monitoring and case management stack."
+faq3q: "Does this comparison pick a winner?"
+faq3a: "No. Test each platform on your own alert and case workflow."
 ---
 
 ## Side-by-side comparison

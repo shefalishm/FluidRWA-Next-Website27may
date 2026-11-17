@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-blocksquare-vs-propy-vs-realt-real-estate-web3-platforms.png"
 socialTitle: "Blocksquare vs Propy vs RealT"
+faq1q: "Which real estate platform fits which goal?"
+faq1a: "Blocksquare suits owners, operators or platforms building tokenized real estate issuance and distribution. Propy suits digitizing a property sale and closing workflow. RealT suits access to a curated marketplace of fractionalized property investments."
+faq2q: "What should I ask about a tokenized property?"
+faq2a: "How title is held, what a buyer actually receives, who collects rent or other income and what happens on a resale or dispute."
+faq3q: "Is the token display enough to judge an offering?"
+faq3a: "No. It is useful only when the property rights and ongoing servicing behind it are clear. Request the legal documents alongside the product screens."
 ---
 
 ## Side-by-side comparison

@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-caldera-vs-conduit-vs-altlayer-rollup-as-a-service-editorial.jpg"
 socialTitle: "Caldera vs Conduit vs AltLayer"
+faq1q: "What should I compare across Caldera, Conduit and AltLayer?"
+faq1a: "Compare the exact rollup framework, settlement and data-availability configuration, who controls upgrades and how the chain exits the service. Ask for the same configuration from each provider so the proposals are like for like."
+faq2q: "Do public product pages show which provider performs best?"
+faq2a: "No. Public product pages do not establish a performance winner for your deployment. Test your own configuration instead."
+faq3q: "How do I test an exit from a managed rollup service?"
+faq3a: "Set up the proposed chain, change a contract or network setting under its normal approval process, then test a withdrawal during an interrupted service. Ask how users can see the status of that withdrawal."
 ---
 
 ## Side-by-side comparison

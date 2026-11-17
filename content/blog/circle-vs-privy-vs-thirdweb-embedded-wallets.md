@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-circle-vs-privy-vs-thirdweb-embedded-wallets.png"
 socialTitle: "Circle vs Privy vs thirdweb"
+faq1q: "Which embedded wallet provider fits which product?"
+faq1a: "Circle suits wallet operations close to USDC, payouts and API-controlled financial workflows. Privy suits authentication and low-friction user-owned wallets. thirdweb suits a broad developer stack with in-app wallets and smart-account tooling."
+faq2q: "How do I test recovery?"
+faq2a: "Create a wallet with the sign-in method your product would offer, fund it with a test asset and remove the user's device. Ask how access is restored, who can authorize recovery and whether the previous session is revoked."
+faq3q: "Is a smooth first login enough to judge a provider?"
+faq3a: "No. It says little about the controls your support team will need later."
 ---
 
 ## Side-by-side comparison

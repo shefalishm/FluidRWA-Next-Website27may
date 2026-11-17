@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-problems-can-tokenization-actually-solve.png"
+faq1q: "What problems is tokenization most useful for?"
+faq1a: "Specific issuance, transfer or servicing problems where several parties need consistent records and rules."
+faq2q: "How do I decide if it is worth it?"
+faq2a: "Identify a repeated handoff and compare the cost of a shared ledger, a conventional system and process changes."
+faq3q: "How should I pilot it?"
+faq3a: "Pilot a workflow with measurable errors or delays. Keep the incumbent method as a comparison and track exception handling."
 ---
 
 ## What to check

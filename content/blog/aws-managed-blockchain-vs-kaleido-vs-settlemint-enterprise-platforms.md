@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Submit Requirements"
 ctaSecondaryUrl: "/submit-requirement"
 socialImage: "/assets/social/blog-aws-managed-blockchain-vs-kaleido-vs-settlemint-enterprise-platforms.png"
 socialTitle: "AWS Managed Blockchain vs Kaleido vs SettleMint"
+faq1q: "Which enterprise blockchain platform fits which team?"
+faq1a: "AWS Managed Blockchain suits an AWS-centered team needing managed access to supported public networks or private Hyperledger Fabric. Kaleido suits consortia wanting a modular business platform. SettleMint suits regulated institutions needing a broader digital asset lifecycle and application platform."
+faq2q: "What should drive the choice?"
+faq2a: "Choose based on your operating model, governance needs and the lifecycle the platform must support, not on the product category alone."
+faq3q: "Does this comparison pick a winner?"
+faq3a: "No. The three serve different starting points, so test each against the same scenario."
 ---
 
 ## Side-by-side comparison

@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-how-often-should-i-review-my-tokenization-strategy.png"
+faq1q: "What review cadence should I use?"
+faq1a: "Use a regular review cadence plus event-driven checks when the product, vendors or controls change. Set the frequency according to the importance of the asset and workflow."
+faq2q: "Who should own the review?"
+faq2a: "Assign owners to monitor rule changes, dependencies and recurring failures."
+faq3q: "What should trigger an out-of-cycle review?"
+faq3a: "A change such as a custody integration update. Require documented impact, test results and an approved rollback plan."
 ---
 
 ## What to check

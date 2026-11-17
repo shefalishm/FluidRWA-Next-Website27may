@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-s-the-fastest-way-to-get-started-with-tokenization.png"
+faq1q: "What is the fastest way to start?"
+faq1a: "Start with one clearly defined asset, one eligible investor group and a small workflow test before attempting a production launch."
+faq2q: "What should I prepare?"
+faq2a: "An asset and rights summary, the authoritative register and one lifecycle event to demonstrate."
+faq3q: "Is a fast demo approval to onboard real investors?"
+faq3a: "No. Do not confuse a fast demo with approval to onboard real investors. Rehearse subscription and a failed transfer with test data first."
 ---
 
 ## What to check

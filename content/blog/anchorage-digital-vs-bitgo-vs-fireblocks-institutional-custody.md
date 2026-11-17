@@ -21,6 +21,12 @@ topCtaText: "Match regulated custody, wallet controls and settlement needs to su
 topCtaUrl: "/submit-requirement?source=blog-shortlist&topic=institutional-custody"
 socialImage: "/assets/social/blog-anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody-editorial.jpg"
 socialTitle: "Anchorage Digital vs BitGo vs Fireblocks"
+faq1q: "What is the difference between regulated custody and custody technology?"
+faq1a: "Regulated custody is a legal and operational service where a custodian holds assets under defined responsibilities. Custody technology, such as MPC wallet tooling, helps an institution operate its own wallets. Separate these before comparing Anchorage Digital, BitGo and Fireblocks, because the legal responsibilities differ."
+faq2q: "What should I test before choosing a custody provider?"
+faq2a: "Give each provider the same withdrawal scenario: a new destination address, a large transfer and one unavailable approver. Ask who can add the address, who approves the payment, how the policy change is logged and how access is regained after a lost key or device."
+faq3q: "Does this comparison pick a winner?"
+faq3a: "No. Each provider is a starting point for a different need, so the right choice depends on your legal structure, approval model and the evidence your operations team will actually receive."
 ---
 
 ## Short answer

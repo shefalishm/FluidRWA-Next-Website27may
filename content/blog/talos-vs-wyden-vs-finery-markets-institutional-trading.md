@@ -25,6 +25,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-talos-vs-wyden-vs-finery-markets-institutional-trading.png"
 socialTitle: "Talos vs Wyden vs Finery Markets"
+faq1q: "Which trading platform fits which need?"
+faq1a: "Talos suits broad institutional execution, portfolio and trade-lifecycle infrastructure. Wyden suits bank and broker orchestration across front, middle and back office. Finery Markets suits non-custodial ECN, OTC and white-label liquidity workflows."
+faq2q: "What is the first question to ask?"
+faq2a: "Which part of the trade lifecycle you actually need the platform to cover, from execution through post-trade."
+faq3q: "Does this comparison pick a winner?"
+faq3a: "No. The platforms solve different problems, so match each one to your workflow before comparing proposals."
 ---
 
 ## Side-by-side comparison

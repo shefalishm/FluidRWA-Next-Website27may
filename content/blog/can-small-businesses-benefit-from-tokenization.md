@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-small-businesses-benefit-from-tokenization.png"
+faq1q: "When can tokenization help a small business?"
+faq1a: "When the business has a repeatable ownership or distribution problem. A one-off issuance may not justify the fixed operating costs."
+faq2q: "What should a small business compare tokenization against?"
+faq2a: "Compare the proposal with ordinary shares, debt or a conventional registry. Include the cost of counsel, investor support and reporting."
+faq3q: "What if fewer investors subscribe than expected?"
+faq3a: "Model a small raise with fewer subscribers than planned and check whether the business can still service holders without depending on new issuance."
 ---
 
 ## What to check

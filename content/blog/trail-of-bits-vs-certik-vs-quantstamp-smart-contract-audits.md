@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-trail-of-bits-vs-certik-vs-quantstamp-smart-contract-audits.png"
 socialTitle: "Trail of Bits vs CertiK vs Quantstamp"
+faq1q: "Which audit provider fits which project?"
+faq1a: "Trail of Bits suits high-assurance review with custom research and adversarial testing. CertiK suits a broad engagement that can combine audits with wider security products. Quantstamp suits buyers wanting a published focus on formal verification, static analysis and protocol-security assessment."
+faq2q: "Does an audit remove risk?"
+faq2a: "No. The real decision is which review scope, evidence and remediation process fits your contracts."
+faq3q: "What should I ask before engaging an auditor?"
+faq3a: "The scope of the review, the evidence you will receive and how remediation and re-review are handled."
 ---
 
 ## Side-by-side comparison

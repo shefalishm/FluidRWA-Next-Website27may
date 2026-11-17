@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Submit Requirements"
 ctaSecondaryUrl: "/submit-requirement"
 socialImage: "/assets/social/blog-sumsub-vs-trulioo-vs-veriff-kyc-identity-verification-editorial.jpg"
 socialTitle: "Sumsub vs Trulioo vs Veriff"
+faq1q: "Which KYC provider fits which team?"
+faq1a: "Sumsub suits a full-cycle platform spanning user and business verification, monitoring and case management. Trulioo suits global person and business verification through a broad data-source network. Veriff suits document and biometric verification with liveness and a guided capture experience."
+faq2q: "What should drive the selection?"
+faq2a: "Country-level performance, fraud mix, data policy and manual-review needs, not a headline country count."
+faq3q: "How do I test the workflow?"
+faq3a: "Use consented test identities from your markets, including a legitimate applicant whose document scan fails, someone who changes address and a case needing manual review. Ask which checks ran, why the result was returned and who can overturn it."
 ---
 
 ## Side-by-side comparison

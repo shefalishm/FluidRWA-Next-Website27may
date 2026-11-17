@@ -17,6 +17,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-energy-web-vs-powerledger-vs-xpansiv-renewable-energy-certificates.png"
 socialTitle: "Energy Web vs Powerledger vs Xpansiv I-REC Registry"
+faq1q: "Which provider fits which certificate need?"
+faq1a: "Energy Web suits markets needing configurable book-and-claim and registry infrastructure. Powerledger suits energy trading and traceability on a modular market platform. Xpansiv's I-REC Registry suits issuing, transferring or redeeming I-REC(E) certificates in eligible markets."
+faq2q: "How do I test certificate infrastructure?"
+faq2a: "Ask each candidate to show how a specific energy attribute is created, transferred, claimed and retired under the registry and jurisdiction you plan to use."
+faq3q: "Is a blockchain record enough proof of a claim?"
+faq3a: "No. A blockchain record is only one part of the chain of evidence. Confirm who can make the claim, what record proves retirement and how a duplicate or disputed claim is handled."
 ---
 
 ## Side-by-side comparison

@@ -10,6 +10,12 @@ answer: "Courier, Novu and Knock all offer recipient preference controls. Compar
 image: "/assets/blog-images/courier-vs-novu-vs-knock-investor-notification-preferences.svg"
 imageAlt: "Courier vs Novu vs Knock: Notification Preferences for Investor Portals editorial infrastructure visual"
 socialImage: "/assets/social/blog-courier-vs-novu-vs-knock-investor-notification-preferences.png"
+faq1q: "What should I test in a notification preference system?"
+faq1a: "Test whether opting out of an optional newsletter suppresses only that newsletter and leaves unrelated account notices intact."
+faq2q: "How do I run the test?"
+faq2a: "Create two fictional investors. One opts out of a newsletter and the other opts out of email alerts for a particular topic. Trigger a newsletter, a document-ready update and an account notice, and record the expected recipients and channels before sending."
+faq3q: "Who should own the final send decision?"
+faq3a: "The portal should stay accountable for the final send decision. Ask each provider how your support team can explain a suppressed message."
 ---
 
 Investor portals need to send different kinds of messages. A reader who opts out of a newsletter may still expect to hear that a distribution statement is ready. Compare how each system represents those choices and how easily support can explain why a message was or was not sent.

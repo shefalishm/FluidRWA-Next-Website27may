@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-can-tokenization-help-me-raise-capital-faster.png"
+faq1q: "Does tokenization make fundraising faster?"
+faq1a: "It can simplify parts of subscription and recordkeeping, but it cannot make investor demand or legal approvals arrive sooner."
+faq2q: "How do I measure whether it helps?"
+faq2a: "Measure the time spent sourcing investors, approving documents, onboarding and reconciling payments separately."
+faq3q: "How do I avoid false credit?"
+faq3a: "Use one prior raise as a baseline and only attribute an improvement to tokenization if the comparable step actually gets faster."
 ---
 
 ## What to check

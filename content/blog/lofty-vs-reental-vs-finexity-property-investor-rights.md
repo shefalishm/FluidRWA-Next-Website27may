@@ -12,6 +12,12 @@ answer: "Read the instrument before comparing projected yields. Lofty describes 
 image: "/assets/blog-images/lofty-vs-reental-vs-finexity-property-investor-rights.svg"
 imageAlt: "Lofty vs Reental vs FINEXITY: What Do Property Token Investors Own? editorial infrastructure visual"
 socialImage: "/assets/social/blog-lofty-vs-reental-vs-finexity-property-investor-rights.png"
+faq1q: "What do property token investors actually own?"
+faq1a: "Read the instrument before comparing projected yields. Lofty describes fractional property shares, Reental describes different structures in Spain and the US, and FINEXITY describes tokenized debt issued by a project company. The offering documents define the actual rights."
+faq2q: "Does a marketplace listing guarantee an exit?"
+faq2a: "No. A listing can advertise an interest without providing a buyer or guaranteeing a price."
+faq3q: "What should I trace before investing?"
+faq3a: "Ask for a sample distribution statement showing where the money came from and what was deducted, then trace an exit with and without a willing buyer. Check transfer approval, lockups, maturity and early repayment rights."
 ---
 
 Read the instrument before comparing projected yields. Lofty describes fractional property shares; Reental describes different structures in Spain and the US; FINEXITY describes tokenized debt issued by a project company. These descriptions are starting points. The individual offering documents define the actual rights.

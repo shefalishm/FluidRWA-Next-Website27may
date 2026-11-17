@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-what-s-the-difference-between-tokenization-methods.png"
+faq1q: "How do tokenization methods differ?"
+faq1a: "By what the token represents and whether the ledger is authoritative or mirrors a separate record."
+faq2q: "What should I compare?"
+faq2a: "A tokenized fund share, a contractual revenue claim and a mirrored registry entry, by issuer, holder rights and correction process."
+faq3q: "What if the wallet and the register disagree?"
+faq3a: "Walk through a mismatch and identify which record wins and who can repair the discrepancy."
 ---
 
 ## What to check

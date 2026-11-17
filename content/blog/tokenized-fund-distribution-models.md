@@ -14,6 +14,12 @@ ctaTitle: "Keep researching"
 ctaLabel: "Open the related resource"
 ctaUrl: "/network-explorer/fund-comparison"
 socialImage: "/assets/social/blog-tokenized-fund-distribution-models-editorial.jpg"
+faq1q: "What does distribution mean for a tokenized fund?"
+faq1a: "It is the arrangement that gets an eligible investor into a fund. A portal, distributor, transfer agent and secondary venue do different jobs."
+faq2q: "What should I verify?"
+faq2a: "Verify the product, the access route, the eligibility rules and the responsible legal entity separately."
+faq3q: "How can I test a subscription?"
+faq3a: "Ask who markets the product and which entity signs the investor agreement. Trace received cash, the valuation point, confirmed units and the investor statement using one transaction reference."
 ---
 
 ## Compare the three models

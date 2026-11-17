@@ -14,6 +14,12 @@ ctaTitle: "Keep researching"
 ctaLabel: "Open the related resource"
 ctaUrl: "/network-explorer/research/ramp-onboarding"
 socialImage: "/assets/social/blog-crypto-on-ramp-country-payment-methods-editorial.jpg"
+faq1q: "Does country coverage mean a payment method is available?"
+faq1a: "No. Country coverage does not guarantee a specific payment method."
+faq2q: "What should I match when checking an on-ramp?"
+faq2a: "Match user location, direction, fiat currency, asset, chain and partner configuration."
+faq3q: "How do I confirm that a route works?"
+faq3a: "Use a live quote and an approved test to confirm it before you tell users the route is supported."
 ---
 
 ## Country evidence matrix

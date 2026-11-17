@@ -10,6 +10,12 @@ answer: "The EU DLT Pilot Regime provides a route for eligible market infrastruc
 image: "/assets/blog-images/eu-dlt-pilot-regime-tokenized-securities-guide.svg"
 imageAlt: "EU DLT Pilot Regime: A Guide to Trading and Settling Tokenized Securities editorial infrastructure visual"
 socialImage: "/assets/social/blog-eu-dlt-pilot-regime-tokenized-securities-guide.png"
+faq1q: "What is the EU DLT Pilot Regime?"
+faq1a: "A route for eligible market infrastructure operators to trade or settle certain financial instruments recorded using distributed ledger technology."
+faq2q: "Is it a blanket license for token issuance?"
+faq2a: "No. A venue's permission also does not establish that your instrument can be admitted."
+faq3q: "What infrastructure types does it cover?"
+faq3a: "A DLT MTF for trading, a DLT SS for settlement and a DLT TSS for combined trading and settlement. Identify which entity performs each function."
 ---
 
 The EU DLT Pilot Regime provides a route for eligible market infrastructure operators to trade or settle certain financial instruments recorded using distributed ledger technology. It is not a blanket license for token issuance, and a venue's permission does not establish that your instrument can be admitted.

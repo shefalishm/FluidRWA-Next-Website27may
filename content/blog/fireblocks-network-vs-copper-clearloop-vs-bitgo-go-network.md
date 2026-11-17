@@ -18,6 +18,12 @@ ctaSecondaryLabel: "Compare Vendor Websites"
 ctaSecondaryUrl: "/tools/vendor-comparison"
 socialImage: "/assets/social/blog-fireblocks-network-vs-copper-clearloop-vs-bitgo-go-network.png"
 socialTitle: "Fireblocks Network vs Copper ClearLoop vs BitGo Go Network"
+faq1q: "Which network fits which need?"
+faq1a: "Fireblocks Network suits broad institutional digital-asset connectivity. Copper ClearLoop suits collateralized off-exchange trading and settlement. BitGo Go Network suits trading connectivity close to BitGo's qualified custody and wallet stack."
+faq2q: "How do I test a trading network?"
+faq2a: "For one exchange and one asset, ask where collateral sits before an order, when it moves and which party can stop or reverse an instruction."
+faq3q: "What failure should I rehearse?"
+faq3a: "A venue outage after execution but before final settlement. Treasury and risk teams should see the resulting balance, claim and next action."
 ---
 
 ## Side-by-side comparison

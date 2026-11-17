@@ -12,6 +12,12 @@ ctaText: "Use FluidRWA to compare tokenization platforms, compliance providers, 
 ctaLabel: "Explore Tokenization Vendors"
 ctaUrl: "/vendors/tokenization-platforms/"
 socialImage: "/assets/social/blog-is-tokenization-safe-what-are-the-risks.png"
+faq1q: "Is tokenization safe?"
+faq1a: "Safety depends on the underlying asset, the enforceability of rights and operational controls. A secure token cannot make a weak issuer or illiquid asset safe."
+faq2q: "What risks should I separate?"
+faq2a: "Asset risk from custody, contract, transfer, settlement and recordkeeping risks, and identify who owns each control."
+faq3q: "What failure should I rehearse?"
+faq3a: "A provider outage during redemption. Check which rights continue, where instructions go and what evidence proves completion."
 ---
 
 ## What to check
