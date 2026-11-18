@@ -21,6 +21,10 @@ faq2a: "The Grid describes the profile-claim process as free. Check current term
 faq3q: "Should an infrastructure vendor use RWA.xyz's issuer form?"
 faq3a: "Use the role that fits the company. RWA.xyz documents separate paths for platforms and issuers and for service providers."
 ---
+A potential buyer finds your company in a directory, checks your website and sees a different product description on a third profile. Which version should they believe? Before buying more exposure, make the information a buyer encounters consistent enough to trust.
+
+The best listing channel for your business depends on who needs to find you and what they need to learn. A tokenized-asset data platform, an ecosystem profile and a service-provider directory serve different purposes. Here is how to choose where to spend your time.
+
 ## Match the channel to the job
 
 | Channel | Purpose to investigate | Official next step |

@@ -42,7 +42,7 @@ Use Regulation (EU) 2022/858 as the baseline and confirm the current consolidate
 
 This is an operational guide, not legal advice.
 
-The [Council Presidency discussion paper dated 13 February 2026](https://data.consilium.europa.eu/doc/document/WK-2365-2026-REV-1/en/pdf) describes proposed amendments following the Commission's December 2025 package. That dated working document is evidence of reform discussions, not proof that any particular amendment is law today. This review does not establish the latest legislative outcome or reverify every authorised infrastructure; confirm the current legal text and individual permission before relying on a threshold or exemption.
+The [Council Presidency discussion paper dated 13 February 2026](https://data.consilium.europa.eu/doc/document/WK-2365-2026-REV-1/en/pdf) describes proposed amendments following the Commission's December 2025 package. For an issuer, the practical distinction is between a proposed change and a permission the venue can use: ask the operator to identify the applicable rule and any conditions attached to your instrument.
 
 For provider checks, use [the entity and activity lookup guide](/blog/are-tokenization-providers-regulated) and [vendor evidence checklist](/blog/rwa-vendor-due-diligence-checklist). A general regulatory register entry is not a substitute for the particular DLT permission.
 

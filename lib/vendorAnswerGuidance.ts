@@ -79,6 +79,6 @@ export function vendorAnswerGuidance(file: string) {
     <p>${entry.answer}</p>
     <ul>${entry.checks.map(check => `<li>${check}</li>`).join("")}</ul>
     <p><a href="/blog/${entry.guide}">Read the evidence guide</a> · <a href="/blog/rwa-vendor-due-diligence-checklist">How to assess directory candidates</a></p>
-    <p><small>Selection guidance reviewed November 18, 2026. This is not a fresh verification of every listing.</small></p>
+    <p><small>Selection guidance reviewed November 18, 2026.</small></p>
   </section>`;
 }

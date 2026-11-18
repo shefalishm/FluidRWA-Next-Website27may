@@ -17,10 +17,14 @@ ctaUrl: "/submit-requirement"
 faq1q: "Does a licence make a provider safe?"
 faq1a: "No. A permission does not establish service quality, solvency or investment safety. Security and operational due diligence remain separate."
 faq2q: "What if a register cannot be loaded?"
-faq2a: "Record the failed check and use the regulator's alternate lookup or contact route. Do not mark the claim verified merely because the register exists."
+faq2a: "Use the regulator's alternative search or contact route, and search by the legal name and identifier on the proposed contract."
 faq3q: "Does a licence cover every company in a group?"
 faq3a: "Do not assume so. Match the specific contracting entity, activity and jurisdiction to the permission."
 ---
+A provider's website says it is regulated. Your proposal arrives under a different company name. Is that a routine group arrangement, or are you about to buy a service from an entity that cannot perform the work you need?
+
+The answer starts with the name on the contract, not the logo on the homepage. This guide shows how to connect that entity to its actual activity and the relevant regulator, so your next conversation is about the right business rather than a reassuring badge.
+
 ## Start with the contract, not the brand
 
 Record the legal name and identifier of the entity that will serve you. Ask which activities it performs directly and which are performed by affiliates or third parties. Match that answer to the official record, including restrictions, status and any relevant warnings. Do not infer a subsidiary's permission from a parent's licence.
@@ -38,7 +42,7 @@ This guide explains a research process, not whether a particular offering is law
 | Switzerland | [FINMA authorised institutions](https://www.finma.ch/en/finma-public/authorised-institutions-individuals-and-products/) | Relevant institution or product category and its status |
 | Spain | [CNMV company search](https://www.cnmv.es/portal/consultas/busquedaporentidad?lang=en) | Investment-service entity records and relevant register categories |
 
-These links identify lookup tools, not a verification of any provider. Some require JavaScript or may be temporarily unavailable. A failed lookup is unresolved evidence, not proof that the company is unlicensed.
+Search using the legal name on your proposed contract. If a register requires JavaScript or will not load, use the regulator's alternative search or contact route.
 
 ## Keep a scoped record of what you found
 

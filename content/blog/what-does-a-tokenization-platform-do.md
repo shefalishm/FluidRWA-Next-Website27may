@@ -21,6 +21,10 @@ faq2a: "No. Transfer capability and venue integration do not guarantee investor 
 faq3q: "Can an issuer switch platforms?"
 faq3a: "It depends on contract control, register portability, integrations and service terms. Test exports and migration responsibilities before appointment."
 ---
+Minting the token can be the shortest part of a tokenization project. The harder work starts when an investor changes a wallet, a distribution needs correcting or someone asks for a complete ownership record before the next reporting deadline.
+
+A useful platform has to earn its place in those ordinary moments, not just in the launch presentation. Walk through the six workflows below with a single fictional investor, from subscription to exit. You will quickly see which jobs the software handles and which still belong to your team or another provider.
+
 ## The six workflows to evaluate
 
 | Workflow | What to demonstrate | Evidence to retain |

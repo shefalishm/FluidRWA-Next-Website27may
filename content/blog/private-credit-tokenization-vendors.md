@@ -21,6 +21,10 @@ faq2a: "No. Trace the underlying evidence, data owner, update process and indepe
 faq3q: "What should a vendor demo include?"
 faq3a: "A late payment, partial principal repayment, fees, corrections and reproducible investor statements, using the same synthetic assumptions for every bidder."
 ---
+A borrower pays interest late. Part of the principal arrives the following week. Senior investors expect one allocation, junior investors another, and the servicer needs its fee. Putting the loan onchain has not made any of those decisions disappear.
+
+That is the real starting point for a private-credit infrastructure shortlist. Before comparing token features, decide who will maintain the loan data, apply the waterfall and explain the result to investors. The right provider mix follows from that operating story.
+
 ## Start with the work you are buying
 
 | Workstream | Evidence to request | What a token alone does not establish |
@@ -44,7 +48,7 @@ Use the [private-credit tokenization guide](/blog/private-credit-tokenization-gu
 | Alter Domus | [Official site](https://alterdomus.com/) | What loan administration, accounting and reporting work is included? |
 | Apex Group | [Official site](https://www.apexgroup.com/) | Which administration and asset-servicing entity and mandate fit your structure? |
 
-Candidates are grouped by the responsibilities to investigate, not ranked by quality or returns. A link is a starting point for evidence collection, not confirmation that every provider offers every function above. FluidRWA has commercial listing services; inclusion in this research table is not a licence check or a promise of suitability.
+Read the table by workstream: a lending product, issuance platform and administrator answer different parts of the same brief. Start with the row that matches the work your team needs, then use the question beside it in your first provider call. FluidRWA offers commercial listing services; the table is not ordered by payment or expected returns.
 
 Onchain lending products and regulated funds can differ materially in recourse, investor rights and supervision. Do not compare headline yields as if the legal protections were identical.
 

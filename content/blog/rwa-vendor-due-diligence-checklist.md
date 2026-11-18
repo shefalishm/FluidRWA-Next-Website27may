@@ -21,6 +21,10 @@ faq2a: "It depends on complexity, evidence quality and unanswered questions. Do 
 faq3q: "What should stop a purchase?"
 faq3a: "An unresolved critical control, such as unclear authority to move assets, missing permissions for a required service or unusable exit records."
 ---
+The demo goes well. The proposal looks polished. Your launch date is approaching, and the vendor says it can cover everything. Before you sign, ask a less comfortable question: if the service stopped tomorrow, could your team recover the records, control the assets and keep serving investors?
+
+Due diligence turns that question into a practical buying process. You do not need to ask every provider for the same mountain of documents. You need evidence for the responsibilities you are handing over, starting with the twelve checks below.
+
 ## Twelve checks and the evidence to request
 
 | Check | Evidence to request | Hold the decision when |

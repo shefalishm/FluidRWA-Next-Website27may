@@ -21,6 +21,10 @@ faq2a: "Yes, but check the contracting entities, permissions, independent approv
 faq3q: "Who is liable for an incorrect mint?"
 faq3a: "That depends on the facts and contracts. Request a written responsibility split and have counsel review it."
 ---
+Imagine your first investor has subscribed, the tokens are ready and the launch team is about to celebrate. Then someone asks: who can actually move the backing assets, and who is responsible if the ownership register is wrong? The issuance demo may have looked complete, but those two questions belong to different parts of the operating model.
+
+That is why a platform-versus-custodian decision is less about choosing a brand and more about assigning responsibility. Start with one investor's money and follow it through the entire transaction.
+
 ## Compare responsibilities before comparing brands
 
 | Question | Tokenization platform | Custody arrangement |
