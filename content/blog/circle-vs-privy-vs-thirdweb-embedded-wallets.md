@@ -25,6 +25,12 @@ faq3q: "Is a smooth first login enough to judge a provider?"
 faq3a: "No. It says little about the controls your support team will need later."
 ---
 
+## Start with the wallet control model
+
+Compare who controls signing authority, how recovery works and what happens if the vendor becomes unavailable. Then test onboarding, transaction approval, fee sponsorship and an export or migration using the same synthetic accounts; a smooth sign-in demo does not establish recoverability or custody scope.
+
+Use the [vendor evidence checklist](/blog/rwa-vendor-due-diligence-checklist) and [platform versus custodian guide](/blog/tokenization-platform-vs-custodian) to keep software, key custody and asset custody separate.
+
 ## Side-by-side comparison
 
 | Decision factor | Circle | Privy | thirdweb |

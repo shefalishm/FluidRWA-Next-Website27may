@@ -2,8 +2,8 @@
 title: "ERC-7540 Explained: Asynchronous Deposits and Redemptions for Tokenized Vaults"
 description: "Understand ERC-7540 request states, controller permissions and what to test before integrating an asynchronous vault."
 date: "2026-11-10"
-reviewedDate: "2026-11-10"
-reviewedLabel: "November 10, 2026"
+reviewedDate: "2026-11-18"
+reviewedLabel: "November 18, 2026"
 category: "Guides"
 slug: "erc-7540-asynchronous-tokenized-vaults-guide"
 answer: "ERC-7540 extends ERC-4626 with asynchronous deposit and redemption flows. A user submits a request, waits until it becomes claimable, then claims the result. The interface standardizes that workflow; it does not guarantee when requests clear, what price applies or whether liquidity will be available."
@@ -44,6 +44,14 @@ Ask the vault operator how it sets prices, handles queues and responds to cancel
 
 - [ERC-7540 specification](https://eips.ethereum.org/EIPS/eip-7540)
 - [ERC-4626 specification](https://eips.ethereum.org/EIPS/eip-4626)
+
+## Compare vendor implementations, not standard labels
+
+Ask whether deposits, redemptions or both are asynchronous. Confirm which accounts may act as controller or operator and how authorization can be revoked. The interface preserves familiar claim method names but changes behavior: preview methods for asynchronous flows must revert. An integration cannot simply assume every synchronous ERC-4626 client works unchanged.
+
+Record the implementation's price-setting policy, request queue, pause behavior and supported cancellation extensions separately. The base specification does not prescribe a universal fulfillment timetable or cancellation workflow. An audit of the standard is not evidence about the deployed implementation.
+
+Use the [vendor evidence checklist](/blog/rwa-vendor-due-diligence-checklist) and [platform responsibilities guide](/blog/what-does-a-tokenization-platform-do) when evaluating the operating arrangements around a vault.
 
 ## A partial fill in asset and share units
 
