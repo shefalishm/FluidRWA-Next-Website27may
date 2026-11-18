@@ -516,6 +516,15 @@ const recentCardPreviews = [];
 const cardImage = (name, alt) => ({ src: `/assets/blog-thumbnails/${name}.webp`, alt });
 
 function cardPreview(post) {
+  const evidenceGuides = new Set([
+    "tokenization-platform-vs-custodian", "what-does-a-tokenization-platform-do",
+    "rwa-vendor-due-diligence-checklist", "are-tokenization-providers-regulated",
+    "private-credit-tokenization-vendors", "where-web3-vendors-should-list-their-company"
+  ]);
+  if (evidenceGuides.has(post.slug)) return {
+    src: post.image,
+    alt: post.imageAlt
+  };
   const newComparisonPreviews = {
     "digishares-vs-blocksquare-vs-tokeny-real-estate-offering": "Property offering setup",
     "lofty-vs-reental-vs-finexity-property-investor-rights": "Property investment rights",

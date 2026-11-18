@@ -13,6 +13,12 @@ FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simp
 ## Core pages
 
 - Home: https://www.fluidrwa.com/
+- Platform responsibilities: https://www.fluidrwa.com/blog/what-does-a-tokenization-platform-do
+- Platform versus custody: https://www.fluidrwa.com/blog/tokenization-platform-vs-custodian
+- Vendor evidence checklist: https://www.fluidrwa.com/blog/rwa-vendor-due-diligence-checklist
+- Regulatory entity and activity checks: https://www.fluidrwa.com/blog/are-tokenization-providers-regulated
+- Private credit vendor roles: https://www.fluidrwa.com/blog/private-credit-tokenization-vendors
+- Company profile and directory options: https://www.fluidrwa.com/blog/where-web3-vendors-should-list-their-company
 - Vendor ecosystem directory: https://www.fluidrwa.com/web3vendorecosystem
 - Solutions and specialized vendor categories: https://www.fluidrwa.com/solutions
 - FluidRWA Arcade vendor category game: https://www.fluidrwa.com/arcade

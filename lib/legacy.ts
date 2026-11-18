@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Metadata } from "next";
 import { fileForRoute, siteUrl } from "./routes";
 import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
+import { vendorAnswerGuidance } from "./vendorAnswerGuidance";
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
@@ -535,6 +536,8 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
+  const guidance = vendorAnswerGuidance(file);
+  if (guidance) renderedHtml = renderedHtml.replace("</section>", `</section>${guidance}`);
   if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file)) {
     const marketing = file.includes("growth-marketing");
     renderedHtml = renderedHtml

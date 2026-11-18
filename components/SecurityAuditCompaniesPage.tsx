@@ -2,6 +2,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
 import { relatedVendorDirectories } from "@/lib/legacy";
+import { vendorAnswerGuidance } from "@/lib/vendorAnswerGuidance";
 
 type SecurityVendor = {
   name: string;
@@ -246,6 +247,7 @@ export function SecurityAuditCompaniesPage() {
         </div>
       </section>
 
+      <div dangerouslySetInnerHTML={{ __html: vendorAnswerGuidance("vendors/security-audit-companies/index.html") }} />
       <section className="light-container security-guide-strip" aria-label="Security selection path">
         {[
           ["01", "Pre-launch audit", "Review contract logic, permissions, upgrade paths and external integrations."],

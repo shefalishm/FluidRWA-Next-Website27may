@@ -2,8 +2,8 @@
 title: "EU DLT Pilot Regime: A Guide to Trading and Settling Tokenized Securities"
 description: "A practical guide to DLT trading, settlement and combined infrastructure, with a checklist for evaluating an operator's permission."
 date: "2026-11-10"
-reviewedDate: "2026-11-10"
-reviewedLabel: "November 10, 2026"
+reviewedDate: "2026-11-18"
+reviewedLabel: "November 18, 2026"
 category: "Guides"
 slug: "eu-dlt-pilot-regime-tokenized-securities-guide"
 answer: "The EU DLT Pilot Regime provides a route for eligible market infrastructure operators to trade or settle certain financial instruments recorded using distributed ledger technology. It is not a blanket license for token issuance, and a venue's permission does not establish that your instrument can be admitted."
@@ -36,9 +36,15 @@ Ask the operator to show how an order becomes a trade, what record establishes o
 
 ## Separate the rules from reform proposals
 
+The framework is Regulation (EU) 2022/858 and has applied since 23 March 2023. It concerns eligible financial instruments, not every asset represented by a token. A real-estate-related instrument is not automatically outside the regime: its legal classification and eligibility matter, rather than the underlying asset label alone.
+
 Use Regulation (EU) 2022/858 as the baseline and confirm the current consolidated text and the operator's live permission before acting. ESMA has recommended changes, including making the regime permanent. A recommendation or Commission proposal is not itself an applicable exemption. Also avoid treating a MiCA authorization as interchangeable with permission to operate securities market infrastructure.
 
 This is an operational guide, not legal advice.
+
+The [Council Presidency discussion paper dated 13 February 2026](https://data.consilium.europa.eu/doc/document/WK-2365-2026-REV-1/en/pdf) describes proposed amendments following the Commission's December 2025 package. That dated working document is evidence of reform discussions, not proof that any particular amendment is law today. This review does not establish the latest legislative outcome or reverify every authorised infrastructure; confirm the current legal text and individual permission before relying on a threshold or exemption.
+
+For provider checks, use [the entity and activity lookup guide](/blog/are-tokenization-providers-regulated) and [vendor evidence checklist](/blog/rwa-vendor-due-diligence-checklist). A general regulatory register entry is not a substitute for the particular DLT permission.
 
 ## Primary sources
 
