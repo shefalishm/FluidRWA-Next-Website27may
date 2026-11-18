@@ -45,6 +45,7 @@ Use the [private-credit tokenization guide](/blog/private-credit-tokenization-gu
 | Maple | [Product documentation](https://docs.maple.finance/) | Are you buying infrastructure or seeking exposure to an existing lending product? |
 | Securitize | [Official site](https://securitize.io/) | Which group entity supplies issuance, register services or distribution in your jurisdiction? |
 | Tokeny | [Official site](https://tokeny.com/) | Which token controls, corporate actions and integrations are included in the proposed product? |
+| Zoniqx | [Official site](https://www.zoniqx.com) | Which issuance, lifecycle, compliance and distribution components are in the proposed product, and on which chains? |
 | Alter Domus | [Official site](https://alterdomus.com/) | What loan administration, accounting and reporting work is included? |
 | Apex Group | [Official site](https://www.apexgroup.com/) | Which administration and asset-servicing entity and mandate fit your structure? |
 
