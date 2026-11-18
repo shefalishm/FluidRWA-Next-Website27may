@@ -1,4 +1,11 @@
-type Guidance = { heading: string; answer: string; checks: string[]; guide: string };
+type Guidance = {
+  heading: string;
+  answer: string;
+  checks: string[];
+  guide: string;
+  providersHeading?: string;
+  providerGroups?: { heading: string; providers: { name: string; line: string }[] }[];
+};
 
 const guidance: Record<string, Guidance> = {
   "tokenization-platforms": {
@@ -47,13 +54,50 @@ const guidance: Record<string, Guidance> = {
     heading: "What a family office should ask infrastructure providers",
     answer: "A family office evaluating tokenization needs clear private-offering controls, investor classes, reporting and an exit path. The offices listed below are not interchangeable with the platforms and custodians an office may appoint.",
     checks: ["Investor-class handling and private-offering restrictions", "Custody integration and consolidated reporting", "Register exports, contract control and migration terms"],
-    guide: "what-does-a-tokenization-platform-do"
+    guide: "what-does-a-tokenization-platform-do",
+    providersHeading: "Infrastructure providers family offices ask about",
+    providerGroups: [
+      { heading: "Custody", providers: [
+        { name: "Anchorage Digital", line: "Digital asset custody for institutional portfolios." },
+        { name: "Fidelity Digital Assets", line: "Digital asset custody for institutional client portfolios." },
+        { name: "Sygnum Bank", line: "Custody, tokenization and trading workflows for asset owners." },
+        { name: "Zodia Custody", line: "Institutional custody through its Abu Dhabi operating entity." }
+      ] },
+      { heading: "Tokenized fund access", providers: [
+        { name: "Ondo Finance", line: "Onchain access to tokenized US Treasury exposure." }
+      ] },
+      { heading: "Private market venues", providers: [
+        { name: "ADDX", line: "Access to tokenized private market assets in Asia-Pacific." },
+        { name: "Archax", line: "Venue services for tokenized securities in the UK." }
+      ] }
+    ]
   },
   "broker-dealers": {
     heading: "Fit the technology to the broker-dealer's registered role",
     answer: "Identify the issuer, intermediary, transfer agent, custodian and venue before selecting a digital-securities provider. A shared brand or technology integration does not establish that each entity has the permissions required for your transaction.",
     checks: ["Named entities, permitted activities and restrictions", "Books and records, supervision and approval evidence", "Transfer-agent and custody integration responsibilities"],
-    guide: "are-tokenization-providers-regulated"
+    guide: "are-tokenization-providers-regulated",
+    providersHeading: "Digital-securities and private-placement providers",
+    providerGroups: [
+      { heading: "US digital-securities providers", providers: [
+        { name: "INX Securities", line: "Electronic trading and private placement workflows." },
+        { name: "Oasis Pro Markets", line: "Digital securities trading and private placement workflows." },
+        { name: "Prometheum", line: "Digital asset clearing, settlement and custody workflows." },
+        { name: "Securitize Markets", line: "Digital securities placement and secondary trading workflows." },
+        { name: "Texture Capital", line: "Digital securities issuance and secondary trading workflows." },
+        { name: "tZERO Securities", line: "Securities trading, placement and settlement workflows." }
+      ] },
+      { heading: "Private-placement and capital-raising firms", providers: [
+        { name: "Dalmore Group", line: "Private placement and capital raising workflows." },
+        { name: "Entoro Securities", line: "Private placement and corporate finance workflows." },
+        { name: "North Capital Private Securities", line: "Private fund placement and distribution workflows." },
+        { name: "WealthForge Securities", line: "Alternative investment placement and distribution workflows." }
+      ] },
+      { heading: "Outside the US", providers: [
+        { name: "ADDX", line: "Private market access and transaction workflows in Singapore." },
+        { name: "Archax", line: "Securities venue and transaction workflows in the UK." }
+      ] }
+    ]
   },
   "security-audit-companies": {
     heading: "What an RWA security audit can establish",
@@ -78,6 +122,10 @@ export function vendorAnswerGuidance(file: string) {
     <h2 id="vendor-evidence-title">${entry.heading}</h2>
     <p>${entry.answer}</p>
     <ul>${entry.checks.map(check => `<li>${check}</li>`).join("")}</ul>
+    ${entry.providerGroups ? `<h3>${entry.providersHeading}</h3>
+    <p>These providers are drawn from companies listed on FluidRWA. The order is alphabetical, not a ranking. Check each firm's licences and status with the relevant regulator before you engage.</p>
+    ${entry.providerGroups.map(group => `<p><strong>${group.heading}</strong></p>
+    <ul>${group.providers.map(provider => `<li><strong>${provider.name}</strong>: ${provider.line}</li>`).join("")}</ul>`).join("")}` : ""}
     <p><a href="/blog/${entry.guide}">Read the evidence guide</a> · <a href="/blog/rwa-vendor-due-diligence-checklist">How to assess directory candidates</a></p>
     <p><small>Selection guidance reviewed November 18, 2026.</small></p>
   </section>`;

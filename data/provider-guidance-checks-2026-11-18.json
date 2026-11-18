@@ -1,0 +1,232 @@
+{
+  "checkedDate": "2026-11-18",
+  "scope": "Internal inclusion gate for the two guidance lists only. Access date and source reporting date are separate. Not a clean disciplinary-history or universal service-eligibility finding.",
+  "records": [
+    {
+      "provider": "Anchorage Digital",
+      "entity": "Anchorage Digital Bank National Association",
+      "register": "OCC",
+      "source": "https://www.occ.gov/topics/charters-and-licensing/financial-institution-lists/national-by-name.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-09-30",
+      "outcome": "pass",
+      "reason": "Named entry in OCC active national bank list; custody entity mapped through Anchorage legal page. US bank entity only; not a securities-trading permission.",
+      "otherSources": [
+        "https://www.anchorage.com/legal"
+      ]
+    },
+    {
+      "provider": "Fidelity Digital Assets",
+      "entity": "Fidelity Digital Assets, National Association",
+      "register": "OCC",
+      "source": "https://www.occ.gov/topics/charters-and-licensing/financial-institution-lists/national-by-name.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-09-30",
+      "outcome": "pass",
+      "reason": "Named entry in OCC active national bank list. Current Fidelity terms identify the national association; institutional custody scope only, not every Fidelity affiliate.",
+      "otherSources": [
+        "https://www.fidelitydigitalassets.com/terms-of-use"
+      ]
+    },
+    {
+      "provider": "Sygnum Bank",
+      "entity": "Sygnum Bank AG",
+      "register": "FINMA",
+      "source": "https://www.finma.ch/en/~/media/finma/dokumente/bewilligungstraeger/pdf/beh.pdf?sc_lang=en",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-11-18",
+      "outcome": "pass",
+      "reason": "Directly downloaded list: named Zurich bank entry, without a cessation flag. Provider site maps Swiss custody, trading and tokenization services. Does not cover other Sygnum jurisdictions.",
+      "otherSources": [
+        "https://www.sygnum.com/"
+      ]
+    },
+    {
+      "provider": "Zodia Custody",
+      "entity": "Tungsten Custody Solutions Ltd",
+      "register": "ADGM FSRA",
+      "source": "https://www.adgm.com/public-registers/fsra/firms/financial-firms/tungsten-custody-solutions-ltd-220129",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Active; Providing Custody of Virtual Assets, FSP 220129. No retail clients. Provider legal page maps Zodia Abu Dhabi to this entity. Public line limited to Abu Dhabi, not a group-wide authorisation.",
+      "otherSources": [
+        "https://zodia-custody.com/licenses-registrations/"
+      ]
+    },
+    {
+      "provider": "Ondo Finance",
+      "entity": "Ondo Capital Management LLC",
+      "register": "SEC IAPD",
+      "source": "https://adviserinfo.sec.gov/firm/summary/325197",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-05-13",
+      "outcome": "pass",
+      "reason": "Live browser: SEC Approved, effective 2025-08-06. Current Form ADV identifies ONDO I LP; product documentation identifies that LP as OUSG issuer. Scoped to the OUSG product, not all Ondo products.",
+      "otherSources": [
+        "https://reports.adviserinfo.sec.gov/reports/ADV/325197/PDF/325197.pdf",
+        "https://docs.ondo.finance/qualified-access-products/ousg/regulatory-compliance"
+      ]
+    },
+    {
+      "provider": "Superstate",
+      "entity": "Superstate Advisers LLC; legacy Superstate Inc.",
+      "register": "SEC IAPD",
+      "source": "https://adviserinfo.sec.gov/firm/summary/336188",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-10-30",
+      "outcome": "not checked",
+      "reason": "Active adviser confirmed, effective 2025-06-02, but the requested treasury-service mapping was not established: current USTB page names Invesco as investment manager. Legacy Superstate Inc. record is withdrawn. Omit rather than apply affiliate registration to a product role.",
+      "otherSources": [
+        "https://adviserinfo.sec.gov/firm/summary/327562",
+        "https://superstate.com/assets/ustb"
+      ]
+    },
+    {
+      "provider": "ADDX",
+      "entity": "ADDX Pte. Ltd.",
+      "register": "MAS FID",
+      "source": "https://eservices.mas.gov.sg/fid/institution/detail/246926-ADDX-PTE-LTD",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Specific institution record: Capital Markets Services Licensee for securities and collective investment schemes, custodial services and Recognised Market Operator. Singapore scope; no investor eligibility guarantee.",
+      "otherSources": []
+    },
+    {
+      "provider": "Archax",
+      "entity": "Archax Ltd",
+      "register": "FCA",
+      "source": "https://register.fca.org.uk/s/firm?id=0010X00004QQYEvQAP",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Live register browser: Authorised since 2020-09-08, FRN 838656; expanded Investments permissions show Operating a Multilateral Trading Facility. UK scope only.",
+      "otherSources": []
+    },
+    {
+      "provider": "INX Securities",
+      "entity": "INX Securities, LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_162182.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; firm operations include private placements and ATS/electronic trading. CRD 162182.",
+      "otherSources": []
+    },
+    {
+      "provider": "Oasis Pro Markets",
+      "entity": "Oasis Pro Markets LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_149420.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; operations include private placements and ATS matching for securities that may be digitally represented. CRD 149420.",
+      "otherSources": []
+    },
+    {
+      "provider": "Prometheum",
+      "entity": "Prometheum Capital LLC, doing business as Prometheum Ember Capital",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_312784.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; crypto asset clearing, settlement and custody. CRD 312784. Public line uses these operations, not permission for another ATS affiliate.",
+      "otherSources": []
+    },
+    {
+      "provider": "Securitize Markets",
+      "entity": "Securitize Markets, LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_283256.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; digital securities placements and ATS secondary transactions. CRD 283256.",
+      "otherSources": []
+    },
+    {
+      "provider": "Texture Capital",
+      "entity": "Texture Capital, Inc.",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_300853.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; initial digital securities offerings, placements and ATS operations. CRD 300853.",
+      "otherSources": []
+    },
+    {
+      "provider": "tZERO Securities",
+      "entity": "tZERO Securities, LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_123421.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; private placements, ATS, and clearing/settlement operations. CRD 123421.",
+      "otherSources": []
+    },
+    {
+      "provider": "Dalmore Group",
+      "entity": "Dalmore Group LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_136352.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; private placements and corporate securities underwriting/selling-group operations. CRD 136352.",
+      "otherSources": []
+    },
+    {
+      "provider": "Entoro Securities",
+      "entity": "Entoro Securities, LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_35192.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; private placements and investment banking/M&A advisory. CRD 35192.",
+      "otherSources": []
+    },
+    {
+      "provider": "North Capital Private Securities",
+      "entity": "North Capital Private Securities Corporation",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_154559.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; private fund placement, Reg A placement and distribution workflows. CRD 154559.",
+      "otherSources": []
+    },
+    {
+      "provider": "WealthForge Securities",
+      "entity": "WealthForge Securities, LLC",
+      "register": "FINRA BrokerCheck",
+      "source": "https://files.brokercheck.finra.org/firm/firm_152550.pdf",
+      "checkedDate": "2026-11-18",
+      "sourceDate": null,
+      "outcome": "pass",
+      "reason": "Downloaded firm report: current SEC/SRO registration, no suspension; private placements, real estate syndication and alternative offering distribution. CRD 152550.",
+      "otherSources": []
+    },
+    {
+      "provider": "SDX / SIX Digital Exchange",
+      "entity": "SIX Digital Exchange AG / SDX Trading AG (legacy); SIX SIS AG (current list)",
+      "register": "FINMA",
+      "source": "https://www.finma.ch/en/~/media/finma/dokumente/bewilligungstraeger/pdf/bourses.pdf?la=en",
+      "checkedDate": "2026-11-18",
+      "sourceDate": "2026-11-18",
+      "outcome": "fail",
+      "reason": "Current directly downloaded list names SIX SIS AG but not the proposed legacy entities. SIX reports a digital-CSD merger. Failed exact legacy entity match; omitted, not a statement that the group is unlicensed.",
+      "otherSources": [
+        "https://www.six-group.com/en/newsroom/media-releases/2026/20260505-custody-consolidation.html"
+      ]
+    }
+  ]
+}
+
