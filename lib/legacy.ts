@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { fileForRoute, siteUrl } from "./routes";
 import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
 import { vendorAnswerGuidance } from "./vendorAnswerGuidance";
+import { searchTitle } from "./searchTitle";
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
@@ -284,7 +285,7 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   const html = readLegacy(file);
   if (!html) return {};
   const override = seoOverrides[file];
-  const title = override?.title || normalizeEditorialText(matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA");
+  const title = searchTitle(override?.title || normalizeEditorialText(matchTag(html, /<title>([\s\S]*?)<\/title>/i) || "FluidRWA"), canonicalPath);
   const description = override?.description || normalizeEditorialText(
     matchTag(html, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
     matchTag(html, /<meta\s+property=["']og:description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i) ||
@@ -606,12 +607,7 @@ export function legacyMainHtml(file: string) {
   renderedHtml = renderedHtml.replace(/<p>(<a href="\/downloads\/fluidrwa-buyer-brief\.txt"[\s\S]*?)<\/p>/g,
     (_match, links: string) => `<div class="buyer-guide-actions">${links.replace(/ · /g, "")}</div>`);
   if (file === "vendor-ecosystem.html") {
-    const index = html.match(/<script id="vendor-search-index-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
-    if (index) {
-      const parsed = JSON.parse(decodeHtmlEntities(index));
-      const safeJson = JSON.stringify(parsed).replace(/</g, "\\u003c");
-      renderedHtml += `<script id="vendor-search-index-data" type="application/json">${safeJson}</script>`;
-    }
+    renderedHtml += `<script id="vendor-search-index-data" type="application/json" data-src="/assets/datasets/vendor-search-index.json"></script>`;
   }
   const resources = relatedVendorDirectories(file);
   if (file === "vendors/tokenization-platforms/index.html" && renderedHtml.includes('<label class="bc-search">')) {

@@ -22,7 +22,7 @@ ctaText: "Map token identity, transfer restrictions, liquidity, finality and rec
 ctaLabel: "Submit integration requirements"
 ctaUrl: "/submit-requirement?source=cross-chain-transfer-models"
 ctaSecondaryLabel: "Explore interoperability providers"
-ctaSecondaryUrl: "/vendors/cross-chain-interoperability-providers"
+ctaSecondaryUrl: "/vendors/defi-infrastructure-providers"
 faq1q: "Is CCTP a bridge for any ERC-20 token?"
 faq1a: "No. Circle documents support for specified assets and domains. Verify the current asset and origin/destination pair in Circle's documentation."
 faq2q: "Is an Across fill the same event as final relayer settlement?"

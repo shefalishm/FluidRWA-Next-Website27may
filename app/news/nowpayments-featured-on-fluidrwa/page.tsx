@@ -12,7 +12,7 @@ const coverImagePath = "/assets/news/nowpayments-featured-on-fluidrwa-cover.jpg"
 const previewImageUrl = `${siteUrl}/assets/news/nowpayments-featured-on-fluidrwa-og.jpg`;
 
 export const metadata: Metadata = {
-  title: `${title} | FluidRWA`,
+  title: "NOWPayments Joins FluidRWA's Stablecoin Infrastructure Directory",
   description,
   keywords: [
     "NOWPayments",

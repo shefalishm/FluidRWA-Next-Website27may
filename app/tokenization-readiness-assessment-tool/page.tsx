@@ -7,7 +7,7 @@ import { tokenizationAssessmentFaqs } from "@/lib/tokenizationAssessmentContent"
 const pageUrl = `${siteUrl}/tokenization-readiness-assessment-tool`;
 
 export const metadata: Metadata = {
-  title: "Free Tokenization Readiness Assessment Tool for RWA Projects | FluidRWA",
+  title: "Free Tokenization Readiness Assessment | FluidRWA",
   description:
     "Use FluidRWA's free tokenization readiness assessment tool to evaluate RWA tokenization gaps, budget range, timeline, complexity and vendor categories before choosing tokenization platforms or providers.",
   keywords: [

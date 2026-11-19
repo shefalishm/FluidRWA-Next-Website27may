@@ -102,7 +102,7 @@ Marsh provides insurance broking and risk-advisory services across financial and
 
 Evaluate Evertas when specialist underwriting and crypto-specific policy coverage are needed. Evaluate Coincover when wallet protection, governance and recovery technology are the requirement. Engage Marsh or another qualified broker when the institution needs risk advice, market access and structured placement.
 
-Do not describe a protection service as insurance, and do not treat an insurance limit as proof that every operational loss is covered. Compare [institutional crypto custody providers](/vendors/crypto-custody-providers/), [MPC wallet providers](/vendors/mpc-wallet-providers/) and [cybersecurity companies](/vendors/cybersecurity-companies/) as part of the same control environment.
+Do not describe a protection service as insurance, and do not treat an insurance limit as proof that every operational loss is covered. Compare [institutional crypto custody providers](/vendors/crypto-custody-providers/), [MPC wallet providers](/vendors/crypto-custody-providers/) and [cybersecurity companies](/vendors/security-audit-companies/) as part of the same control environment.
 
 ## Primary Sources
 

@@ -27,7 +27,7 @@ export const october15CaseStudies: (UseCase & { guide: UseCaseGuide })[] = [
     seoDescription: "Hong Kong 2024 digital green bonds case study: four currencies, HK$6 billion equivalent, CMU clearing, HSBC Orion, investor record and evidence limits.",
     problem: "A sovereign bond program must connect issuance, legal holding, payment, international access and sustainability reporting without assuming that a blockchain record replaces established settlement institutions.",
     stack: ["Sovereign green bond program", "Four-currency issuance", "HSBC Orion digital-bond platform", "CMU clearing and settlement", "Euroclear and Clearstream access", "Green-bond disclosure records"],
-    vendorCategories: [tokenization, custody, { label: "Institutional Trading Infrastructure", href: "/vendors/institutional-trading-infrastructure" }],
+    vendorCategories: [tokenization, custody, { label: "Institutional Trading Infrastructure", href: "/vendors/institutional-digital-asset-trading-platforms" }],
     example: "A completed 2024 sovereign issuance, not a projection of future digital-bond market size or unrestricted public-token trading.",
     guide: guide(
       "hong-kong-multicurrency-digital-green-bonds-case-study",
@@ -99,7 +99,7 @@ export const october15CaseStudies: (UseCase & { guide: UseCaseGuide })[] = [
     seoDescription: "World Bank bond-i case study: A$110 million 2018 issuance, Commonwealth Bank platform, off-chain cash, 2020 redemption and evidence limits.",
     problem: "Digital bond records need to survive issuance, servicing and redemption while investor access and cash settlement remain operationally and legally controlled.",
     stack: ["World Bank debt security", "Commonwealth Bank platform", "Permissioned blockchain record", "Authorized investors", "Off-chain cash settlement", "Coupon and redemption servicing"],
-    vendorCategories: [tokenization, custody, { label: "Institutional Trading Infrastructure", href: "/vendors/institutional-trading-infrastructure" }],
+    vendorCategories: [tokenization, custody, { label: "Institutional Trading Infrastructure", href: "/vendors/institutional-digital-asset-trading-platforms" }],
     example: "A completed two-year bond lifecycle; it does not prove that every cash or securities step was onchain.",
     guide: guide(
       "world-bank-bondi-blockchain-bond-lifecycle-case-study",

@@ -152,7 +152,7 @@ export default async function NewsPage() {
             <article className="signal-card" key={`${item.sourceName}-${item.canonicalUrl}`}>
               {item.imageUrl ? (
                 <a className="signal-card-image" href={item.canonicalUrl} target="_blank" rel="noopener noreferrer">
-                  <img src={item.imageUrl} alt="" loading="lazy" decoding="async" />
+                  <img src={item.imageUrl} alt={`News illustration: ${item.title}`} loading="lazy" decoding="async" />
                 </a>
               ) : null}
               <div className="signal-card-content">

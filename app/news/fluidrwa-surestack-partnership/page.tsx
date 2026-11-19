@@ -15,7 +15,7 @@ const coverImageUrl = `${siteUrl}${coverImagePath}`;
 const previewImageUrl = `${siteUrl}${previewImagePath}`;
 
 export const metadata: Metadata = {
-  title: `${seoTitle} | FluidRWA`,
+  title: seoTitle,
   description,
   keywords: [
     "SureStack FluidRWA partnership",

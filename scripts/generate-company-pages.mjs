@@ -790,6 +790,8 @@ function patchVendorEcosystemProfileIndex(companies, categories, companyProfiles
     grouped.get(company.categoryTitle).push(company);
   }
   const searchIndex = buildVendorSearchIndex(categories, companyProfiles);
+  fs.mkdirSync(path.join(root, "public/assets/datasets"), { recursive: true });
+  fs.writeFileSync(path.join(root, "public/assets/datasets/vendor-search-index.json"), JSON.stringify(searchIndex).replace(/</g, "\\u003c"));
   const indexHtml = `${start}
     <script id="vendor-search-index-data" type="application/json">${esc(JSON.stringify(searchIndex))}</script>
     <section class="vendor-profile-index" aria-labelledby="company-profile-index-title">

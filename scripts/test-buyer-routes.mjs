@@ -9,9 +9,9 @@ for (const route of [...categoryRoutes, "blog/top-tokenization-companies-2026"])
   assert(html.includes('source='), `${route}: enquiry attribution missing`);
 }
 const ecosystem = fs.readFileSync(".next/server/app/web3vendorecosystem.html", "utf8");
-const index = ecosystem.match(/<script id="vendor-search-index-data" type="application\/json">([\s\S]*?)<\/script>/);
-assert(index, "Search index missing from generated page");
-assert(JSON.parse(index[1]).length > 800, "Category search index unexpectedly incomplete");
+assert(ecosystem.includes('data-src="/assets/datasets/vendor-search-index.json"'), "External search index missing from generated page");
+assert(JSON.parse(fs.readFileSync('public/assets/datasets/vendor-search-index.json', 'utf8')).length > 800, "Category search index unexpectedly incomplete");
+assert(Buffer.byteLength(ecosystem) < 1000000, "Vendor directory exceeds Bing's 1 MB HTML guidance");
 const contact = fs.readFileSync(".next/server/app/contact.html", "utf8");
 assert(contact.includes('value="contact-general"'));
 assert(contact.includes("Send Inquiry"));

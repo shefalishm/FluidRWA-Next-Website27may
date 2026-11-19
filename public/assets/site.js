@@ -1327,20 +1327,22 @@ if (vendorSearch) {
       text: normalizeVendorText(`${name} ${expandedName} ${link.getAttribute("href") || ""} ${category}`)
     };
   });
+  const searchIndexSource = document.querySelector("#vendor-search-index-data")?.dataset.src;
+  let searchIndexLoading = Boolean(searchIndexSource);
+  let searchIndexFailed = false;
+  const parseCategorySearchIndex = (parsed) => Array.isArray(parsed)
+    ? parsed.map((item) => ({
+        name: item.name || "", href: item.href || "", category: item.category || "Category listing",
+        description: item.description || "",
+        text: normalizeVendorText(`${item.name || ""} ${item.category || ""} ${item.description || ""} ${item.keywords || ""} ${item.href || ""}`)
+      }))
+    : [];
   const categorySearchIndex = (() => {
     const script = document.querySelector("#vendor-search-index-data");
     if (!script?.textContent) return [];
     try {
       const parsed = JSON.parse(script.textContent);
-      return Array.isArray(parsed)
-        ? parsed.map((item) => ({
-            name: item.name || "",
-            href: item.href || "",
-            category: item.category || "Category listing",
-            description: item.description || "",
-            text: normalizeVendorText(`${item.name || ""} ${item.category || ""} ${item.description || ""} ${item.keywords || ""} ${item.href || ""}`)
-          }))
-        : [];
+      return parseCategorySearchIndex(parsed);
     } catch {
       return [];
     }
@@ -1466,6 +1468,8 @@ if (vendorSearch) {
       statusNode.textContent = normalizedQuery || hasFilters
         ? resultCount ? (document.documentElement.lang === "es" ? `${resultCount.toLocaleString()} ${resultCount === 1 ? "proveedor encontrado" : "proveedores encontrados"}.` : `${resultCount.toLocaleString()} matching ${resultCount === 1 ? "vendor" : "vendors"}.`) : (document.documentElement.lang === "es" ? "No se encontraron proveedores. Amplíe la búsqueda o restablezca los filtros." : "No matching vendors. Try a broader search or reset filters.")
         : "";
+      if (normalizedQuery && !hasFilters && searchIndexLoading) statusNode.textContent = document.documentElement.lang === "es" ? "Buscando en todos los proveedores..." : "Searching all vendors...";
+      if (normalizedQuery && !hasFilters && searchIndexFailed) statusNode.textContent += document.documentElement.lang === "es" ? " La búsqueda completa no está disponible. Explore las categorías para ver más proveedores." : " Full search is temporarily unavailable. Browse categories for more providers.";
     }
   };
 
@@ -1511,6 +1515,20 @@ if (vendorSearch) {
   });
 
   updateVendorDirectory();
+
+  if (searchIndexSource) {
+    fetch(searchIndexSource, { cache: "no-cache" })
+      .then(response => {
+        if (!response.ok) throw new Error("Vendor search unavailable");
+        return response.json();
+      })
+      .then(rows => {
+        if (!Array.isArray(rows) || !rows.length) throw new Error("Empty vendor search index");
+        categorySearchIndex.push(...parseCategorySearchIndex(rows));
+      })
+      .catch(() => { searchIndexFailed = true; })
+      .finally(() => { searchIndexLoading = false; updateVendorDirectory(); });
+  }
 
   if (initialQuery) {
     const controls = vendorSearch.closest(".vendor-controls") || vendorSearch;

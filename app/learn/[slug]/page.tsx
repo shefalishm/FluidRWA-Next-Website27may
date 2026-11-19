@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { getLearnArticle, learnArticles } from "@/lib/learn";
 import { siteUrl } from "@/lib/routes";
+import { searchTitle } from "@/lib/searchTitle";
 
 type LearnArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: LearnArticlePageProps): Promi
   if (!article) return {};
   const url = `${siteUrl}/learn/${article.slug}`;
   return {
-    title: `${article.title} | FluidRWA Learn`,
+    title: searchTitle(`${article.title} | FluidRWA Learn`, `/learn/${article.slug}`),
     description: article.description,
     alternates: { canonical: url },
     openGraph: {

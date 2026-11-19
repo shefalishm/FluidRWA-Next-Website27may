@@ -24,6 +24,10 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: "/vendors/cross-chain-interoperability-providers", destination: "/vendors/defi-infrastructure-providers", permanent: true },
+      { source: "/vendors/cybersecurity-companies", destination: "/vendors/security-audit-companies", permanent: true },
+      { source: "/vendors/mpc-wallet-providers", destination: "/vendors/crypto-custody-providers", permanent: true },
+      { source: "/vendors/institutional-trading-infrastructure", destination: "/vendors/institutional-digital-asset-trading-platforms", permanent: true },
       { source: "/use-cases/hsbc-gold-token-retail-physical-gold-case-study", destination: "/use-cases/hsbc-gold-token-retail-ownership-case-study", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/blog.html", destination: "/blog", permanent: true },

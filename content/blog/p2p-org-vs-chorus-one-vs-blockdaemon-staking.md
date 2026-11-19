@@ -117,7 +117,7 @@ Compare net outcomes after provider fees and operational costs. Reward estimates
 
 Shortlist P2P.org when broad multi-network APIs, direct validators or a white-label experience are important. Shortlist Chorus One when an SDK-led integration and local signing align with the target control model. Shortlist Blockdaemon when staking needs to sit inside a broader institutional infrastructure relationship.
 
-Compare [institutional staking providers](/vendors/staking-providers/), [crypto custody providers](/vendors/crypto-custody-providers/) and [MPC wallet providers](/vendors/mpc-wallet-providers/) together. The staking provider should never be selected independently of custody, signing and accounting.
+Compare [institutional staking providers](/vendors/staking-providers/), [crypto custody providers](/vendors/crypto-custody-providers/) and [MPC wallet providers](/vendors/crypto-custody-providers/) together. The staking provider should never be selected independently of custody, signing and accounting.
 
 ## Primary Sources
 

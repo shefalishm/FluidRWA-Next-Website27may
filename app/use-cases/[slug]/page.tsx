@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Plus } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/routes";
 import { getUseCase, useCases } from "@/lib/useCases";
+import { searchTitle } from "@/lib/searchTitle";
 
 type PageProps = { params: Promise<{ slug: string }> };
 const reviewedDate = "2026-09-26";
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const item = getUseCase((await params).slug);
   if (!item) return {};
   const modifiedDate = item.updatedAt || reviewedDate;
-  const title = `${item.guide.title} | FluidRWA`;
+  const title = searchTitle(`${item.guide.title} | FluidRWA`, `/use-cases/${item.slug}`);
   const description = item.seoDescription || `Explore ${item.guide.title.toLowerCase()}: operating workflows, implementation steps, risks, controls and vendor-selection questions.`;
   return { title, description, alternates: { canonical: `${siteUrl}/use-cases/${item.slug}` }, openGraph: { title, description, type: "article", modifiedTime: modifiedDate, url: `${siteUrl}/use-cases/${item.slug}`, images: [{ url: item.image, alt: item.imageAlt }] } };
 }
