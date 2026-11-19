@@ -1,0 +1,1227 @@
+{
+  "observedAt": "2026-11-20",
+  "site": "https://www.fluidrwa.com/",
+  "beforePeriod": {
+    "start": "2026-10-20",
+    "end": "2026-11-02",
+    "days": 14
+  },
+  "afterPeriod": {
+    "start": "2026-11-05",
+    "end": "2026-11-18",
+    "days": 14
+  },
+  "sourceEvidence": "Downloaded through Bing AI Performance Pages UI after observing each custom date range. Export filename date differs from download date.",
+  "sourceFiles": [
+    {
+      "name": "www.fluidrwa.com_AIPageStatsReport_11_19_2026.csv",
+      "sha256": "8591a73d13dc8de7ce6543661aee9d07548ba3b2a0309383c630d999f9092997"
+    },
+    {
+      "name": "www.fluidrwa.com_AIPageStatsReport_11_19_2026 (1).csv",
+      "sha256": "26c3987256f5fe0a2e9bcc2810a985b1622f93ed492f78ad208be530d6319250"
+    }
+  ],
+  "caveat": "Bing describes this report as a sample of overall activity. Absence means not listed in that export, not proof of zero citations in every AI response. No causal or competitor attribution follows from a page count.",
+  "summary": {
+    "beforePages": 106,
+    "afterPages": 35,
+    "beforeReportedCitations": 13886,
+    "afterReportedCitations": 637,
+    "declined": 100,
+    "noLongerListed": 84,
+    "increased": 19
+  },
+  "pages": [
+    {
+      "url": "https://www.fluidrwa.com/blog/top-tokenization-companies-2026",
+      "beforeReported": 1988,
+      "afterReported": 73,
+      "deltaReported": -1915,
+      "declinePercent": 96.33,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/digital-asset-tax-reporting-cost-basis-operations",
+      "beforeReported": 1473,
+      "afterReported": 0,
+      "deltaReported": -1473,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/talos-vs-wyden-vs-finery-markets-institutional-trading",
+      "beforeReported": 1008,
+      "afterReported": 0,
+      "deltaReported": -1008,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/best-fund-tokenization-platforms-asset-managers",
+      "beforeReported": 825,
+      "afterReported": 0,
+      "deltaReported": -825,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/persona-vs-alloy-vs-socure-identity-orchestration",
+      "beforeReported": 612,
+      "afterReported": 0,
+      "deltaReported": -612,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/kyc-aml-providers-comparison-2026",
+      "beforeReported": 611,
+      "afterReported": 0,
+      "deltaReported": -611,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-altlayer-rollup-as-a-service",
+      "beforeReported": 594,
+      "afterReported": 0,
+      "deltaReported": -594,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/rollup-as-a-service-appchains",
+      "beforeReported": 530,
+      "afterReported": 0,
+      "deltaReported": -530,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/smart-contract-development-company-comparison-2026",
+      "beforeReported": 498,
+      "afterReported": 0,
+      "deltaReported": -498,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/crypto-custody-providers-comparison-2026",
+      "beforeReported": 340,
+      "afterReported": 5,
+      "deltaReported": -335,
+      "declinePercent": 98.53,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/legal-regulatory-vendors",
+      "beforeReported": 327,
+      "afterReported": 0,
+      "deltaReported": -327,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/alloy-vs-unit21-vs-sardine-fintech-risk-compliance",
+      "beforeReported": 304,
+      "afterReported": 0,
+      "deltaReported": -304,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification",
+      "beforeReported": 249,
+      "afterReported": 0,
+      "deltaReported": -249,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/top-smart-contract-development-companies-web3-tokenization",
+      "beforeReported": 235,
+      "afterReported": 0,
+      "deltaReported": -235,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/figment-vs-kiln-vs-twinstake-staking-infrastructure",
+      "beforeReported": 222,
+      "afterReported": 0,
+      "deltaReported": -222,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/alchemy-vs-quicknode-vs-chainstack-rpc-node-providers",
+      "beforeReported": 219,
+      "afterReported": 0,
+      "deltaReported": -219,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/carta-vs-angellist-vs-juniper-square-fund-administration",
+      "beforeReported": 189,
+      "afterReported": 0,
+      "deltaReported": -189,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers",
+      "beforeReported": 183,
+      "afterReported": 0,
+      "deltaReported": -183,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/sumsub-vs-trulioo-vs-veriff-kyc-identity-verification",
+      "beforeReported": 177,
+      "afterReported": 0,
+      "deltaReported": -177,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/rain-vs-immersve-vs-reap-stablecoin-card-issuing",
+      "beforeReported": 171,
+      "afterReported": 0,
+      "deltaReported": -171,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/blockaid-vs-blowfish-vs-hypernative-web3-security",
+      "beforeReported": 162,
+      "afterReported": 2,
+      "deltaReported": -160,
+      "declinePercent": 98.77,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/institutional-crypto-custody-providers-tokenized-assets",
+      "beforeReported": 156,
+      "afterReported": 0,
+      "deltaReported": -156,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/institutional-staking-validator-infrastructure",
+      "beforeReported": 144,
+      "afterReported": 0,
+      "deltaReported": -144,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/stablecoin-payment-provider-rfp-questions",
+      "beforeReported": 114,
+      "afterReported": 0,
+      "deltaReported": -114,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/asset-tokenization-platform-comparison",
+      "beforeReported": 112,
+      "afterReported": 0,
+      "deltaReported": -112,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/circle-vs-privy-vs-thirdweb-embedded-wallets",
+      "beforeReported": 110,
+      "afterReported": 0,
+      "deltaReported": -110,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/vanta-vs-drata-vs-secureframe-compliance-automation",
+      "beforeReported": 107,
+      "afterReported": 0,
+      "deltaReported": -107,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/zerohash-vs-paxos-vs-bakkt-embedded-crypto-infrastructure",
+      "beforeReported": 105,
+      "afterReported": 0,
+      "deltaReported": -105,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax",
+      "beforeReported": 103,
+      "afterReported": 0,
+      "deltaReported": -103,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/best-blockchain-development-companies-web3-rwa",
+      "beforeReported": 101,
+      "afterReported": 0,
+      "deltaReported": -101,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/chainlink-ccip-vs-layerzero-vs-axelar-cross-chain-messaging",
+      "beforeReported": 99,
+      "afterReported": 0,
+      "deltaReported": -99,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/circle-vs-paxos-vs-brale-stablecoin-issuance-infrastructure",
+      "beforeReported": 98,
+      "afterReported": 0,
+      "deltaReported": -98,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blockchain-projects/polkadot",
+      "beforeReported": 127,
+      "afterReported": 46,
+      "deltaReported": -81,
+      "declinePercent": 63.78,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/smart-contract-audit-security-requirements",
+      "beforeReported": 76,
+      "afterReported": 0,
+      "deltaReported": -76,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/rwa-tokenization-platform-comparison-2026",
+      "beforeReported": 69,
+      "afterReported": 0,
+      "deltaReported": -69,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-gelato-raas-appchains",
+      "beforeReported": 66,
+      "afterReported": 0,
+      "deltaReported": -66,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/private-credit-tokenization-guide",
+      "beforeReported": 64,
+      "afterReported": 0,
+      "deltaReported": -64,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/taurus-vs-metaco-vs-fireblocks-institutional-custody",
+      "beforeReported": 64,
+      "afterReported": 0,
+      "deltaReported": -64,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/blockscout-vs-etherscan-vs-routescan",
+      "beforeReported": 54,
+      "afterReported": 2,
+      "deltaReported": -52,
+      "declinePercent": 96.3,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/inx-vs-tzero-vs-texture-capital-digital-securities",
+      "beforeReported": 49,
+      "afterReported": 0,
+      "deltaReported": -49,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/checkoutcom-vs-nuvei-vs-worldpay-crypto-payment-processing",
+      "beforeReported": 47,
+      "afterReported": 0,
+      "deltaReported": -47,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/crypto-custody-insurance-coverage-due-diligence",
+      "beforeReported": 47,
+      "afterReported": 0,
+      "deltaReported": -47,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/tokeny-vs-securitize",
+      "beforeReported": 44,
+      "afterReported": 0,
+      "deltaReported": -44,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/fnality-vs-partior-vs-kinexys-institutional-payment-networks",
+      "beforeReported": 44,
+      "afterReported": 2,
+      "deltaReported": -42,
+      "declinePercent": 95.45,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/how-to-design-transfer-controls-tokenized-securities",
+      "beforeReported": 40,
+      "afterReported": 0,
+      "deltaReported": -40,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/falconx-vs-b2c2-vs-gsr-institutional-crypto-liquidity-otc",
+      "beforeReported": 35,
+      "afterReported": 0,
+      "deltaReported": -35,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/web3-infrastructure-stack-tokenized-fund",
+      "beforeReported": 35,
+      "afterReported": 0,
+      "deltaReported": -35,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/debridge-vs-squid-vs-socket-cross-chain-liquidity",
+      "beforeReported": 34,
+      "afterReported": 0,
+      "deltaReported": -34,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/turnkey-vs-dfns-vs-fordefi-wallet-infrastructure",
+      "beforeReported": 32,
+      "afterReported": 0,
+      "deltaReported": -32,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/learn/stablecoin-vendor-selection",
+      "beforeReported": 32,
+      "afterReported": 0,
+      "deltaReported": -32,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/asset-tokenization-2026-100-questions-answered",
+      "beforeReported": 83,
+      "afterReported": 52,
+      "deltaReported": -31,
+      "declinePercent": 37.35,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/fenergo-vs-complyadvantage-vs-napier-ai-financial-crime-compliance",
+      "beforeReported": 30,
+      "afterReported": 0,
+      "deltaReported": -30,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/can-i-tokenize-real-estate-a-beginner-s-guide",
+      "beforeReported": 28,
+      "afterReported": 0,
+      "deltaReported": -28,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/plaid-vs-truelayer-vs-tink-bank-account-verification",
+      "beforeReported": 37,
+      "afterReported": 10,
+      "deltaReported": -27,
+      "declinePercent": 72.97,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/network-explorer/research/tokenized-fund-infrastructure-october-2026",
+      "beforeReported": 25,
+      "afterReported": 0,
+      "deltaReported": -25,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/p2p-org-vs-chorus-one-vs-blockdaemon-staking",
+      "beforeReported": 22,
+      "afterReported": 0,
+      "deltaReported": -22,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/what-companies-are-actually-using-tokenization-today",
+      "beforeReported": 24,
+      "afterReported": 3,
+      "deltaReported": -21,
+      "declinePercent": 87.5,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/hqlax-vs-baton-systems-vs-fnality-institutional-settlement-collateral",
+      "beforeReported": 20,
+      "afterReported": 0,
+      "deltaReported": -20,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/how-to-migrate-tokenization-platform-investor-records",
+      "beforeReported": 18,
+      "afterReported": 0,
+      "deltaReported": -18,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blockchain-projects/arbitrum",
+      "beforeReported": 41,
+      "afterReported": 24,
+      "deltaReported": -17,
+      "declinePercent": 41.46,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/evertas-vs-coincover-vs-marsh-digital-asset-risk",
+      "beforeReported": 17,
+      "afterReported": 0,
+      "deltaReported": -17,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/wallet-apis-asset-tokenization-platforms",
+      "beforeReported": 17,
+      "afterReported": 0,
+      "deltaReported": -17,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/stablecoin-infrastructure-providers",
+      "beforeReported": 22,
+      "afterReported": 5,
+      "deltaReported": -17,
+      "declinePercent": 77.27,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/solidus-labs-vs-eventus-vs-nasdaq-trade-surveillance",
+      "beforeReported": 15,
+      "afterReported": 0,
+      "deltaReported": -15,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/broker-dealers",
+      "beforeReported": 15,
+      "afterReported": 0,
+      "deltaReported": -15,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/safe-vs-fordefi-vs-utila-wallet-infrastructure",
+      "beforeReported": 14,
+      "afterReported": 0,
+      "deltaReported": -14,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/circle-vs-bridge-vs-bvnk-stablecoin-infrastructure",
+      "beforeReported": 12,
+      "afterReported": 0,
+      "deltaReported": -12,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/enterprise-tokenization-platform-cost",
+      "beforeReported": 12,
+      "afterReported": 0,
+      "deltaReported": -12,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/how-to-reconcile-stablecoin-payments-bank-statements",
+      "beforeReported": 12,
+      "afterReported": 0,
+      "deltaReported": -12,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/nownodes-vs-getblock-vs-drpc-multichain-rpc",
+      "beforeReported": 12,
+      "afterReported": 0,
+      "deltaReported": -12,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/legal-regulatory-vendors-tokenized-assets",
+      "beforeReported": 9,
+      "afterReported": 0,
+      "deltaReported": -9,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/what-are-the-real-benefits-of-tokenizing-assets",
+      "beforeReported": 8,
+      "afterReported": 0,
+      "deltaReported": -8,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/canton-vs-polymesh-vs-provenance-institutional-rwa-blockchains",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/hacken-vs-certik-vs-the-network-firm-proof-of-reserves",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/how-much-does-it-cost-to-tokenize-an-asset",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/investor-onboarding-stack-tokenized-securities",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/lifi-vs-rango-vs-rubic-cross-chain-swap-api",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/proof-of-reserve-vendor-due-diligence",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/web3-blockchain-compliance-guide",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/web3-healthcare-use-cases-50-applications",
+      "beforeReported": 15,
+      "afterReported": 8,
+      "deltaReported": -7,
+      "declinePercent": 46.67,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/learn/tokenization-vendor-comparison",
+      "beforeReported": 7,
+      "afterReported": 0,
+      "deltaReported": -7,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/centrifuge-vs-maple-vs-goldfinch-onchain-private-credit",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/fireblocks-vs-bitgo-vs-copper-custody-providers",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/rwa-xyz-vs-artemis-vs-allium-rwa-blockchain-data",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/securitize-vs-tokeny-vs-digishares-tokenization-platforms",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/taxbit-vs-cointracker-vs-koinly-crypto-accounting",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/unstructured-vs-llamaparse-vs-reducto-document-ingestion",
+      "beforeReported": 6,
+      "afterReported": 0,
+      "deltaReported": -6,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/besu-vs-corda-vs-canton-private-ledger-architecture",
+      "beforeReported": 5,
+      "afterReported": 0,
+      "deltaReported": -5,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/hummingbird-vs-unit21-vs-flagright-aml-case-management",
+      "beforeReported": 5,
+      "afterReported": 0,
+      "deltaReported": -5,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/music-tokenization-guide-royalties-rights",
+      "beforeReported": 5,
+      "afterReported": 0,
+      "deltaReported": -5,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/fiat-on-off-ramp-providers",
+      "beforeReported": 12,
+      "afterReported": 7,
+      "deltaReported": -5,
+      "declinePercent": 41.67,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://fluidrwa.com/blog/arweave-vs-filecoin-vs-storj",
+      "beforeReported": 4,
+      "afterReported": 0,
+      "deltaReported": -4,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/icapital-vs-verifyinvestor-vs-investready-accreditation",
+      "beforeReported": 6,
+      "afterReported": 2,
+      "deltaReported": -4,
+      "declinePercent": 66.67,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/broadridge-distributed-ledger-repo-case-study",
+      "beforeReported": 6,
+      "afterReported": 2,
+      "deltaReported": -4,
+      "declinePercent": 66.67,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/fund-administration-transfer-agents",
+      "beforeReported": 4,
+      "afterReported": 0,
+      "deltaReported": -4,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blockchain-projects/base",
+      "beforeReported": 3,
+      "afterReported": 0,
+      "deltaReported": -3,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/custody",
+      "beforeReported": 3,
+      "afterReported": 0,
+      "deltaReported": -3,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/walmart-canada-dl-freight-invoice-reconciliation-case-study",
+      "beforeReported": 3,
+      "afterReported": 0,
+      "deltaReported": -3,
+      "declinePercent": 100.0,
+      "status": "not_in_later_export",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/northern-trust-alternatives-digital-asset-custody-apis-reporting",
+      "beforeReported": 6,
+      "afterReported": 5,
+      "deltaReported": -1,
+      "declinePercent": 16.67,
+      "status": "declined",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/chainalysis-vs-trm-vs-elliptic-blockchain-analytics",
+      "beforeReported": 0,
+      "afterReported": 1,
+      "deltaReported": 1,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/cargox-vs-bolero-vs-enigio-electronic-trade-documents",
+      "beforeReported": 0,
+      "afterReported": 2,
+      "deltaReported": 2,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/galxe-vs-zealy-vs-layer3-web3-campaigns",
+      "beforeReported": 0,
+      "afterReported": 2,
+      "deltaReported": 2,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/digital-identity-account-recovery",
+      "beforeReported": 0,
+      "afterReported": 2,
+      "deltaReported": 2,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/blockchain-development-companies",
+      "beforeReported": 0,
+      "afterReported": 2,
+      "deltaReported": 2,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/apex-group-vs-iq-eq-vs-jtc-digital-asset-fund-administration",
+      "beforeReported": 0,
+      "afterReported": 3,
+      "deltaReported": 3,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/real-estate-tokenization-complete-guide",
+      "beforeReported": 45,
+      "afterReported": 48,
+      "deltaReported": 3,
+      "declinePercent": -6.67,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/visa-usdc-stablecoin-settlement-case-study",
+      "beforeReported": 0,
+      "afterReported": 3,
+      "deltaReported": 3,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blockchain-projects/avalanche",
+      "beforeReported": 0,
+      "afterReported": 4,
+      "deltaReported": 4,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/fluidrwa/alchemy",
+      "beforeReported": 0,
+      "afterReported": 4,
+      "deltaReported": 4,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/use-cases/de-beers-tracr-diamond-traceability-case-study",
+      "beforeReported": 0,
+      "afterReported": 4,
+      "deltaReported": 4,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/web3-supply-chain-use-cases-50-applications",
+      "beforeReported": 0,
+      "afterReported": 5,
+      "deltaReported": 5,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/fluidrwa/alloy",
+      "beforeReported": 0,
+      "afterReported": 6,
+      "deltaReported": 6,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/node-as-a-service-rpc-providers",
+      "beforeReported": 3,
+      "afterReported": 13,
+      "deltaReported": 10,
+      "declinePercent": -333.33,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/blockchain-faqs-guide-100-questions",
+      "beforeReported": 3,
+      "afterReported": 16,
+      "deltaReported": 13,
+      "declinePercent": -433.33,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/vendors/crypto-custody-providers",
+      "beforeReported": 19,
+      "afterReported": 40,
+      "deltaReported": 21,
+      "declinePercent": -110.53,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/art-tokenization-guide-fractional-ownership",
+      "beforeReported": 14,
+      "afterReported": 41,
+      "deltaReported": 27,
+      "declinePercent": -192.86,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/clarity-act-timeline-guide",
+      "beforeReported": 0,
+      "afterReported": 29,
+      "deltaReported": 29,
+      "declinePercent": null,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    },
+    {
+      "url": "https://www.fluidrwa.com/blog/web3-adoption-across-industries",
+      "beforeReported": 9,
+      "afterReported": 164,
+      "deltaReported": 155,
+      "declinePercent": -1722.22,
+      "status": "increased",
+      "queryAttribution": "Not supplied by the page export",
+      "replacementCitation": null
+    }
+  ]
+}

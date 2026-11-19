@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import sharp from "sharp";
 
-const batch = JSON.parse(fs.readFileSync("data/creative-thumbnails-2026-11-19.json"));
+const batch = JSON.parse(fs.readFileSync(process.argv[2] || "data/creative-thumbnails-2026-11-19.json"));
 const previews = JSON.parse(fs.readFileSync("data/blog-card-previews.json"));
 const index = fs.readFileSync("blog.html", "utf8");
 for (const { slug } of batch) {
@@ -28,4 +28,4 @@ for (const { slug } of batch) {
   }
   assert.ok(fs.statSync(preview.src.slice(1)).size < 81920);
 }
-console.log("PASS: all 10 rendered cards, article and FluidRWA alt text, compression, dimensions, social images, asset parity and image locks.");
+console.log(`PASS: all ${batch.length} rendered cards, article and FluidRWA alt text, compression, dimensions, social images, asset parity and image locks.`);

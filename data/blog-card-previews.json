@@ -28,52 +28,52 @@
     "alt": "FluidRWA - Firecrawl vs Exa vs Tavily: AI Research APIs Compared: conceptual illustration of a mechanical research library retrieving a page beside a compass and prism."
   },
   "enterprise-crypto-tax-reporting-software-rfp": {
-    "src": "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp.webp",
-    "alt": "FluidRWA illustration of transaction records, a reconciliation exception and an audit export"
+    "src": "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp-creative-20261120.webp",
+    "alt": "FluidRWA: Enterprise Crypto Tax Reporting Software RFP: Cost Basis and Audit Exports. A reconciliation workbench holds records, a balance and an audit receipt."
   },
   "openai-vs-claude-vs-gemini-batch-api": {
-    "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api.webp",
-    "alt": "FluidRWA illustration of a document queue and its processing results."
+    "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api-creative-20261120.webp",
+    "alt": "FluidRWA: OpenAI vs Claude vs Gemini: Batch APIs for Document Processing. Document batches move through three distinct processing workshops."
   },
   "okta-vs-duo-vs-yubico-phishing-resistant-mfa": {
-    "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa.webp",
-    "alt": "FluidRWA illustration of a physical security key and sign-in checkpoints."
+    "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa-creative-20261120.webp",
+    "alt": "FluidRWA: Okta vs Duo vs Yubico: Phishing-Resistant MFA for Privileged Teams. A physical security key enters a polished lock beside a phishing hook."
   },
   "google-cloud-vs-azure-vs-aws-confidential-ai-inference": {
-    "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference.webp",
-    "alt": "FluidRWA illustration of a GPU workload and a verification checkpoint."
+    "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference-creative-20261120.webp",
+    "alt": "FluidRWA: Google Cloud vs Azure vs AWS: Confidential AI Inference Controls. A protected computing chamber encloses a model workload."
   },
   "stripe-vs-adyen-vs-cybersource-network-tokenization": {
-    "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization.webp",
-    "alt": "FluidRWA illustration of a stored card credential and two routes for processing a recurring payment."
+    "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization-creative-20261120.webp",
+    "alt": "FluidRWA: Stripe vs Adyen vs Cybersource: Network Tokens for Recurring Card Payments. A payment credential follows distinct recurring-payment routes."
   },
   "modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers": {
-    "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers.webp",
-    "alt": "FluidRWA illustration of paired ledger postings and a separate reconciliation checkpoint."
+    "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers-creative-20261120.webp",
+    "alt": "FluidRWA: Modern Treasury vs Formance vs TigerBeetle: Ledgers for Stablecoin Payments. A balanced payment mechanism and return arrow represent reconciliation and reversals."
   },
   "uk-carf-cryptoasset-reporting-hmrc-guide": {
-    "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp",
-    "alt": "FluidRWA guide illustration: UK cryptoasset reporting"
+    "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide-creative-20261120.webp",
+    "alt": "FluidRWA: UK CARF Reporting: A Practical Guide for Cryptoasset Service Providers. Crypto transaction evidence is prepared for a reporting handoff."
   },
   "eu-dlt-pilot-regime-tokenized-securities-guide": {
-    "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide.webp",
-    "alt": "FluidRWA guide illustration: EU distributed ledger market infrastructure"
+    "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide-creative-20261120.webp",
+    "alt": "FluidRWA: EU DLT Pilot Regime: A Guide to Trading and Settling Tokenized Securities. A miniature securities marketplace connects trading and settlement facilities."
   },
   "erc-7540-asynchronous-tokenized-vaults-guide": {
-    "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide.webp",
-    "alt": "FluidRWA guide illustration: asynchronous tokenized vaults"
+    "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide-creative-20261120.webp",
+    "alt": "FluidRWA: ERC-7540 Explained: Asynchronous Deposits and Redemptions for Tokenized Vaults. A vault request moves through waiting and completion stages."
   },
   "woleet-vs-originstamp-vs-opentimestamps-document-evidence": {
-    "src": "/assets/blog-thumbnails/woleet-vs-originstamp-vs-opentimestamps-document-evidence.webp",
-    "alt": "FluidRWA comparison illustration: Portable document timestamp proofs"
+    "src": "/assets/blog-thumbnails/woleet-vs-originstamp-vs-opentimestamps-document-evidence-creative-20261120.webp",
+    "alt": "FluidRWA: Woleet vs OriginStamp vs OpenTimestamps: Portable Document Timestamp Proofs. A magnifier examines a document beside a mechanical clock and a sealed evidence capsule."
   },
   "docusign-vs-acrobat-sign-vs-dropbox-sign-onboarding-evidence": {
-    "src": "/assets/blog-thumbnails/docusign-vs-acrobat-sign-vs-dropbox-sign-onboarding-evidence.webp",
-    "alt": "FluidRWA comparison illustration: Investor onboarding signature evidence"
+    "src": "/assets/blog-thumbnails/docusign-vs-acrobat-sign-vs-dropbox-sign-onboarding-evidence-creative-20261120.webp",
+    "alt": "FluidRWA: Docusign vs Acrobat Sign vs Dropbox Sign: Signing Evidence for Investor Onboarding. An agreement and signature tools sit beside a preserved evidence envelope."
   },
   "courier-vs-novu-vs-knock-investor-notification-preferences": {
-    "src": "/assets/blog-thumbnails/courier-vs-novu-vs-knock-investor-notification-preferences.webp",
-    "alt": "FluidRWA comparison illustration: Investor portal notification preferences"
+    "src": "/assets/blog-thumbnails/courier-vs-novu-vs-knock-investor-notification-preferences-creative-20261120.webp",
+    "alt": "FluidRWA: Courier vs Novu vs Knock: Notification Preferences for Investor Portals. Notification channels branch from investor preference controls."
   },
   "top-tokenization-companies-2026": {
     "src": "/assets/blog-thumbnails/blog-top-tokenization-companies-2026-editorial.webp",
@@ -918,5 +918,49 @@
   "paxg-vs-xaut-vs-xaum-physical-gold-redemption": {
     "src": "/assets/blog-thumbnails/paxg-vs-xaut-vs-xaum-physical-gold-redemption-creative-20261119.webp",
     "alt": "FluidRWA - PAX Gold vs Tether Gold vs Matrixdock XAUm: Physical Gold Redemption: conceptual illustration of a gold bar delivered from a vault into white-gloved hands."
+  },
+  "are-tokenization-providers-regulated": {
+    "src": "/assets/blog-thumbnails/are-tokenization-providers-regulated-creative-20261120.webp",
+    "alt": "FluidRWA: Are Tokenization Providers Regulated? How to Check the Entity and Activity. A magnifying glass examines an entity document in an archive."
+  },
+  "private-credit-tokenization-vendors": {
+    "src": "/assets/blog-thumbnails/private-credit-tokenization-vendors-creative-20261120.webp",
+    "alt": "FluidRWA: Private Credit Tokenization Vendors: Compare the Operating Roles. A glass bridge links loan records to an industrial property model."
+  },
+  "rwa-vendor-due-diligence-checklist": {
+    "src": "/assets/blog-thumbnails/rwa-vendor-due-diligence-checklist-creative-20261120.webp",
+    "alt": "FluidRWA: RWA Vendor Due Diligence Checklist: Twelve Evidence Checks. An analyst examines vendor records, a key and an evidence folder."
+  },
+  "tokenization-platform-vs-custodian": {
+    "src": "/assets/blog-thumbnails/tokenization-platform-vs-custodian-creative-20261120.webp",
+    "alt": "FluidRWA: Tokenization Platform vs Custodian: Roles, Controls and Evidence. Issuance machinery and a separate custody vault represent distinct responsibilities."
+  },
+  "what-does-a-tokenization-platform-do": {
+    "src": "/assets/blog-thumbnails/what-does-a-tokenization-platform-do-creative-20261120.webp",
+    "alt": "FluidRWA: What Does a Tokenization Platform Do? Six Issuer Workflows. A miniature workshop assembles offering records and property interests."
+  },
+  "where-web3-vendors-should-list-their-company": {
+    "src": "/assets/blog-thumbnails/where-web3-vendors-should-list-their-company-creative-20261120.webp",
+    "alt": "FluidRWA: Where Should Web3 Vendors List Their Company? Profile and Directory Options. A company profile folio sits among specialist storefronts."
+  },
+  "crypto-on-ramp-country-payment-methods": {
+    "src": "/assets/blog-thumbnails/crypto-on-ramp-country-payment-methods-creative-20261120.webp",
+    "alt": "FluidRWA: Crypto On-Ramps by Country: MoonPay, Transak and Banxa. Payment cards connect to a glass wallet across varied country routes."
+  },
+  "reconcile-crypto-cost-basis-missing-transfer-lots": {
+    "src": "/assets/blog-thumbnails/reconcile-crypto-cost-basis-missing-transfer-lots-creative-20261120.webp",
+    "alt": "FluidRWA: How to Reconcile Crypto Cost Basis When a Custody Transfer Loses Lot History. A hand repairs the missing receipt link between two transfer cases."
+  },
+  "tokenized-asset-custody-wallet-settlement-roles": {
+    "src": "/assets/blog-thumbnails/tokenized-asset-custody-wallet-settlement-roles-creative-20261120.webp",
+    "alt": "FluidRWA: Tokenized Assets: Who Holds the Asset, Controls the Wallet and Settles the Trade? An asset model, key vault and settlement trays show separate operating roles."
+  },
+  "tokenized-fund-distribution-models": {
+    "src": "/assets/blog-thumbnails/tokenized-fund-distribution-models-creative-20261120.webp",
+    "alt": "FluidRWA: Who Distributes Tokenized Funds? Three Access Models Compared. Three entrances lead investors into a miniature fund greenhouse."
+  },
+  "tokenizing-private-company-shares-register-secondary-trading": {
+    "src": "/assets/blog-thumbnails/tokenizing-private-company-shares-register-secondary-trading-creative-20261120.webp",
+    "alt": "FluidRWA: Tokenizing Private Company Shares: Who Runs the Register and Can Investors Trade? Ownership segments change hands beside a shareholder register."
   }
 }

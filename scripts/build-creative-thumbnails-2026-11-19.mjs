@@ -5,12 +5,15 @@ import sharp from "sharp";
 const root = process.cwd();
 const sourceDir = process.argv[2];
 if (!sourceDir) throw new Error("Pass the directory containing the approved generated PNG artwork.");
-const batch = JSON.parse(fs.readFileSync(path.join(root, "data/creative-thumbnails-2026-11-19.json")));
+const manifest = process.argv[3] || "data/creative-thumbnails-2026-11-19.json";
+const version = process.argv[4] || "20261119";
+if (!/^\d{8}$/.test(version)) throw new Error("Expected an eight-digit asset version.");
+const batch = JSON.parse(fs.readFileSync(path.join(root, manifest)));
 const contact = [];
 for (const [index, item] of batch.entries()) {
   const source = path.join(sourceDir, item.sourceFile);
   let webp;
-  for (let quality = 78; quality >= 35; quality -= 5) {
+  for (let quality = 78; quality >= 18; quality -= 5) {
     webp = await sharp(source).resize(1200, 675, { fit: "cover" }).webp({ quality, effort: 6 }).toBuffer();
     if (webp.length < 81920) break;
   }
@@ -19,10 +22,10 @@ for (const [index, item] of batch.entries()) {
   for (const base of ["assets", "public/assets"]) {
     fs.mkdirSync(path.join(root, base, "blog-thumbnails"), { recursive: true });
     fs.mkdirSync(path.join(root, base, "social"), { recursive: true });
-    fs.writeFileSync(path.join(root, base, "blog-thumbnails", item.slug + "-creative-20261119.webp"), webp);
-    fs.writeFileSync(path.join(root, base, "social", item.slug + "-creative-20261119.jpg"), social);
+    fs.writeFileSync(path.join(root, base, "blog-thumbnails", item.slug + "-creative-" + version + ".webp"), webp);
+    fs.writeFileSync(path.join(root, base, "social", item.slug + "-creative-" + version + ".jpg"), social);
   }
   contact.push({ input: await sharp(webp).resize(400, 225).png().toBuffer(), left: (index % 2) * 400, top: Math.floor(index / 2) * 225 });
   console.log(item.slug + ": thumbnail " + webp.length + " bytes, social " + social.length + " bytes");
 }
-await sharp({ create: { width: 800, height: 1125, channels: 3, background: "#ffffff" } }).composite(contact).png().toFile("/tmp/fluidrwa-creative-thumbnails-contact.png");
+await sharp({ create: { width: 800, height: Math.ceil(batch.length / 2) * 225, channels: 3, background: "#ffffff" } }).composite(contact).png().toFile("/tmp/fluidrwa-creative-thumbnails-contact-" + version + ".png");
