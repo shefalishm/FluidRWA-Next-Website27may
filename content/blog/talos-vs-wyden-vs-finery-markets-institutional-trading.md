@@ -2,7 +2,7 @@
 title: "Talos vs Wyden vs Finery Markets: Institutional Crypto Trading Platforms (2026)"
 description: "Compare Talos, Wyden and Finery Markets for institutional digital asset execution, liquidity connectivity, OEMS, ECN, settlement and white-label trading."
 date: "2026-08-26"
-modifiedDate: "2026-11-15"
+modifiedDate: "2026-11-19"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -14,6 +14,7 @@ infographicCaption: "Company-documentation summary checked 10 October 2026. Buye
 infographicKeywords: "Talos, Wyden, Finery Markets, institutional trading comparison"
 category: "Institutional Trading"
 slug: "talos-vs-wyden-vs-finery-markets-institutional-trading"
+editorialUpdatedLabel: "November 19, 2026"
 image: "/assets/blog-images/talos-vs-wyden-vs-finery-markets-institutional-trading.svg"
 imageAlt: "Talos vs Wyden vs Finery Markets: Institutional Crypto Trading Platforms (2026) editorial infrastructure visual"
 answer: "Choose Talos for broad institutional execution, portfolio and trade-lifecycle infrastructure; Wyden for bank and broker orchestration spanning front, middle and back office; and Finery Markets for non-custodial ECN, OTC and white-label liquidity workflows."
@@ -99,6 +100,36 @@ Use a fictional order for 10 units. The first venue fills six units and the rema
 | Settlement to close | Position and cash records, fee breakdown and exception owner | Finance cannot link a variance to the trade or correct it without overwriting the history |
 
 Use this test to distinguish roles. Ask Talos how a routed trade returns to your own records. Ask Wyden how the institution's downstream systems receive the reports and exceptions. Ask Finery Markets which evidence comes from its trading workflow and which must be supplied by counterparties and settlement providers. The same test can reveal very different integration work; the article does not claim these platforms were tested.
+
+## Institutional trading in 2026: prove the route from order to settled position
+
+A dealer can show a competitive execution price while finance is still unable to explain the final position. That is the difference between a trading demonstration and an operating-model demonstration. Ask each shortlisted provider to connect the order, fills, fees, counterparty obligation, settlement instruction and final balances.
+
+The [Talos product overview](https://www.talos.com/), [Wyden platform overview](https://www.wyden.io/) and [Finery Markets product overview](https://www.finerymarkets.com/) were revisited November 19, 2026. Talos describes trading and related operating products; Wyden describes a trade-lifecycle platform; Finery Markets distinguishes marketplace and trading-software products. Confirm the purchased module and service entity rather than treating each group as one identical execution venue.
+
+| Buyer | Decision to test first | Evidence to retain |
+| --- | --- | --- |
+| Asset manager | Order control and execution across approved counterparties | Decision rules, timestamps, fills and post-trade allocation |
+| Bank or broker | Integration with the existing client, treasury and accounting stack | Account mapping, approvals, positions and settlement exceptions |
+| OTC desk or liquidity business | Dealer connectivity and the applicable marketplace or software model | Counterparty relationship, quote terms, credit and settlement duties |
+
+These are buyer scenarios, not a performance ranking.
+
+### The difficult-order exercise
+
+Send a fictional order that receives two partial fills, followed by a cancellation request. Then simulate a delayed acknowledgment from one connected service. Ask how the system distinguishes requested cancellation from confirmed cancellation, and how it prevents an uncertain state from creating a duplicate order.
+
+Reconcile the result by quantity, price, fee currency and account. Include the execution reference and settlement reference separately. A position should not become "settled" simply because a trade has filled.
+
+Next disable one venue or counterparty. Check which orders can continue, whether policy changes are recorded and how your team explains the new route. Repeat after removing an operator's access.
+
+### Quote the same scope
+
+Request pricing for the same venues, accounts, users, volume bands, integration work and service level. Separate software/platform access, connectivity, execution or venue charges, market data, implementation and support. Confirm whether the provider, a connected venue or another counterparty handles the asset and cash obligations.
+
+For jurisdiction, name the buyer entity, instrument and counterparties. A broad list of integrations does not settle your permissions or eliminate counterparty exposure.
+
+Use the [RFQ, order-book and OTC execution guide](/blog/rfq-vs-order-book-vs-otc-crypto-execution) to define the model, then [submit the trading workflow](/submit-requirement?source=blog-shortlist&topic=institutional-trading&article=talos-vs-wyden-vs-finery-markets-institutional-trading) with execution and settlement requirements stated separately.
 
 ## Conclusion
 

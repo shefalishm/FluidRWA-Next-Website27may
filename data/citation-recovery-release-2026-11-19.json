@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-19",
+  "baselineCommit": "4fbe686e7452473bb57f8deb306496546b3d1066",
+  "evidenceScope": "182 URLs in the November 16 aggregate Bing page export. Aggregate citations do not prove daily page-level loss. The 14 query observations were supplied by the user, not independently reproduced in Copilot in this release.",
+  "updatedPaths": [
+    "/blog/alloy-vs-unit21-vs-sardine-fintech-risk-compliance",
+    "/blog/best-blockchain-development-companies-web3-rwa",
+    "/blog/best-fund-tokenization-platforms-asset-managers",
+    "/blog/circle-vs-bridge-vs-bvnk-stablecoin-infrastructure",
+    "/blog/crypto-custody-providers-comparison-2026",
+    "/blog/enterprise-crypto-tax-reporting-software-rfp",
+    "/blog/figment-vs-kiln-vs-twinstake-staking-infrastructure",
+    "/blog/kyc-aml-providers-comparison-2026",
+    "/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers",
+    "/blog/real-estate-tokenization-complete-guide",
+    "/blog/smart-contract-development-company-comparison-2026",
+    "/blog/talos-vs-wyden-vs-finery-markets-institutional-trading",
+    "/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax",
+    "/blog/tokenization-law-firms-rwa-projects",
+    "/blog/tokenizing-private-company-shares-register-secondary-trading",
+    "/blog/top-tokenization-companies-2026",
+    "/blog/web3-adoption-across-industries",
+    "/use-cases/digital-asset-tax-reporting-cost-basis-operations"
+  ],
+  "prompts": [
+    {
+      "query": "automation cost basis tracking digital assets scale",
+      "target": "/use-cases/digital-asset-tax-reporting-cost-basis-operations",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "blockchain development firms smart contracts scalable architecture",
+      "target": "/blog/best-blockchain-development-companies-web3-rwa",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "moonpay vs other fiat on-ramps",
+      "target": "/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "Figment Kiln Twinstake Chorus One institutional staking comparison",
+      "target": "/blog/figment-vs-kiln-vs-twinstake-staking-infrastructure",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "compare digital asset providers regulation custody settlement service",
+      "target": "/blog/crypto-custody-providers-comparison-2026",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "enterprise crypto tax reporting solutions evaluation criteria",
+      "target": "/blog/enterprise-crypto-tax-reporting-software-rfp",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "automated reporting for internal audit digital asset tax compliance",
+      "target": "/use-cases/digital-asset-tax-reporting-cost-basis-operations",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "how to use web3 architecture across global sectors",
+      "target": "/blog/web3-adoption-across-industries",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "issuance platforms for tokenized assets providers",
+      "target": "/blog/top-tokenization-companies-2026",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "best platforms tokenized private companies 2026",
+      "target": "/blog/tokenizing-private-company-shares-register-secondary-trading",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "aml kyc solutions digital asset payments",
+      "target": "/blog/kyc-aml-providers-comparison-2026",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "real estate tokenization",
+      "target": "/blog/real-estate-tokenization-complete-guide",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "best law firms lawyers token offering risk review",
+      "target": "/blog/tokenization-law-firms-rwa-projects",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    },
+    {
+      "query": "Circle vs Bridge stablecoin orchestration comparison",
+      "target": "/blog/circle-vs-bridge-vs-bvnk-stablecoin-infrastructure",
+      "mapping": "Editorial target, not a verified Bing query-to-page attribution",
+      "baseline": "User-supplied report: no visible FluidRWA card in the sampled answer",
+      "postPublicationRetest": null,
+      "visibleCitations": null,
+      "brandRecommendation": null
+    }
+  ]
+}

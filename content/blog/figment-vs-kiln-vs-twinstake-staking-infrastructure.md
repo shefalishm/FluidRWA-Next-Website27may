@@ -1,12 +1,14 @@
 ---
 title: "Figment vs Kiln vs Twinstake vs Chorus One: Institutional Staking"
+seoTitle: "Figment vs Kiln vs Twinstake vs Chorus One: Staking 2026"
 description: "Compare Figment, Kiln, Twinstake and Chorus One on custody hand-offs, staking APIs, validator operations, rewards reporting and withdrawals."
 date: "2026-08-09"
 reviewedDate: "2026-08-09"
 reviewedLabel: "August 9, 2026"
-modifiedDate: "2026-11-16"
+modifiedDate: "2026-11-19"
 category: "Staking"
 slug: "figment-vs-kiln-vs-twinstake-staking-infrastructure"
+editorialUpdatedLabel: "November 19, 2026"
 image: "/assets/blog-images/figment-vs-kiln-vs-twinstake-staking-infrastructure.svg"
 imageAlt: "FluidRWA illustration for an institutional staking infrastructure comparison"
 answer: "Figment documents staking APIs and rewards data; Kiln documents transaction crafting; Twinstake describes non-custodial institutional staking; Chorus One documents rewards reporting via its API and dashboard. Shortlist against the same network, custodian, exit procedure and finance export. Public documentation does not establish a universal winner."
@@ -190,6 +192,59 @@ Shortlist Twinstake when non-custodial service and institutional reporting matte
 Include Chorus One when the proposal combines validator operations with rewards reporting your finance team can reconcile. Confirm withdrawal responsibilities and incident terms for the chosen network and custody arrangement.
 
 Most serious buyers should speak with at least two providers. If the asset base is large, using more than one staking provider may also reduce concentration risk.
+
+## A 2026 institutional staking shortlist should survive the exit test
+
+The proposal looks attractive when validators are earning rewards. The harder question arrives when your fund needs liquidity and the operator, custodian and finance team each describe a different exit status. Before comparing headline reward rates, agree who can request an exit, who can authorize it and which event actually returns usable assets.
+
+For Figment, Kiln, Twinstake and Chorus One, the useful comparison is a combination of integration method, custody hand-off, operational service and reporting. Staking rewards are network-dependent; an advertised estimate is not a promised return or a like-for-like performance benchmark.
+
+| Provider | Current first-party material to inspect | Buyer fit to test | Do not assume |
+| --- | --- | --- | --- |
+| Figment | [Current API documentation](https://docs.figment.io/reference/getting-started-1) | A staking integration that must fit an existing wallet and rewards workflow | An older API guide is the current integration contract |
+| Kiln | [Reporting API](https://www.kiln.fi/reporting-api) | Consistent stake and reward data alongside transaction crafting | A reporting API also signs or controls the assets |
+| Twinstake | [API Staking](https://www.twinstake.com/products/api-staking) | Client or aggregator staking with position, reward and lifecycle data | Every reported position can be exited immediately |
+| Chorus One | [Chorus One SDK](https://sdk.chorus.one/) | Application-led non-custodial staking and transaction workflows | SDK support establishes compatibility with every custodian |
+
+These four source pages were reviewed November 19, 2026. They support the descriptions in this table; they do not establish negotiated prices, customer eligibility or comparative performance. Figment's older v1 guide links to newer documentation, so new integrations should resolve the current version before development. The four providers' commercial and network scopes should be confirmed separately.
+
+### Price the entire operating arrangement
+
+Ask for a proposal covering the exact network, stake size, customer type, custody arrangement and integration model. Separate validator commission, platform/API charges, minimum commitments, custody fees, network costs and any additional service. If the fee is a share of rewards, define the reward base and the treatment of execution-layer rewards, network penalties and optional products.
+
+Do not turn a public network estimate into a vendor-specific net yield. To compare proposed economics, give all providers the same illustrative reward assumptions and calculate the contractual charges against those assumptions. Label the result as a scenario, not a forecast.
+
+For jurisdiction, request the contracting entity, customer eligibility and permitted product use. The location of validator servers does not settle whether your institution may offer staking to a particular customer group.
+
+### The five records finance needs
+
+At minimum, connect the client account, stake or validator identity, movement transaction, reward period and fee record. Keep activation, active staking, exit request, exit completion and withdrawal available as distinguishable events.
+
+The following is an illustrative reconciliation structure, not a provider's actual export:
+
+| Record | Why it matters |
+| --- | --- |
+| Position identifier and network | Prevents two similarly named assets or accounts being merged |
+| Effective period and timestamps | Distinguishes earned, observed and paid rewards |
+| Gross reward and provider charge | Explains the amount before and after the commercial fee |
+| Status transition and transaction reference | Connects the finance record to activation or withdrawal evidence |
+| Correction reference | Preserves changes after a reward or fee adjustment |
+
+Have finance reproduce one reporting period from raw position and reward records. Include a wallet holding assets outside the validator, a position activated partway through the period and an exit spanning the reporting boundary. Otherwise the demonstration may hide the very exceptions your team will later reconcile manually.
+
+### Slashing coverage is a contract question
+
+Ask who is responsible for validator errors, which events are covered, what exclusions apply and how a claim is calculated. Distinguish service credits, indemnities and insurance. Request the applicable policy or contract wording rather than treating any security or coverage badge as complete protection.
+
+Run an incident tabletop with the custodian and operator together. Who detects the incident? Who may change a destination? How is a compromised approver removed? What happens if your API key is unavailable while an exit is required? How does the customer receive an explanation that matches the operational record?
+
+These are proposed diligence exercises. The article does not assert that every provider offers the same coverage or that FluidRWA has tested their incident response.
+
+### Keep staking, lending and additional yield products separate
+
+A protocol staking mandate should not silently expand into lending, restaking or another yield arrangement. Each may introduce additional contracts, counterparties, liquidity rules or loss mechanisms. Require a separate approval and reporting line for any extra exposure.
+
+After the shortlist is narrowed, browse [institutional staking and validator infrastructure](/vendors/institutional-staking-validator-infrastructure/) or [submit a staking brief](/submit-requirement?source=blog-shortlist&topic=institutional-staking&article=figment-vs-kiln-vs-twinstake-staking-infrastructure). Include your network, custodian, minimum liquidity requirement and reporting format so the next conversation is about a workable mandate.
 
 ## Primary Sources
 

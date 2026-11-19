@@ -2,10 +2,12 @@
 title: "KYC AML Providers Comparison 2026"
 description: "Compare KYC and AML providers for Web3, tokenization, fintech and digital asset platforms by identity, KYB, wallet risk and compliance workflow."
 date: "2026-08-15"
+modifiedDate: "2026-11-19"
 reviewedDate: "2026-08-15"
 reviewedLabel: "August 15, 2026"
 category: "Vendor Comparisons"
 slug: "kyc-aml-providers-comparison-2026"
+editorialUpdatedLabel: "November 19, 2026"
 image: "/assets/blog-images/kyc-aml-providers-comparison-2026.svg"
 imageAlt: "KYC AML Providers Comparison 2026 editorial infrastructure visual"
 answer: "KYC and AML providers should be compared by the compliance workflow they support. Sumsub and Persona are strong for identity orchestration; Alloy and Unit21 are strong for fintech decisioning and monitoring; Chainalysis, TRM Labs and Elliptic are stronger for wallet and blockchain risk; Notabene, Sygna and VerifyVASP are relevant for travel rule workflows."
@@ -149,6 +151,38 @@ For tokenization projects, this matters because eligibility can affect whether a
 KYC and AML costs may include document checks, liveness checks, database checks, KYB reports, beneficial-owner checks, wallet screenings, transaction monitoring events, manual reviews and platform fees. Buyers should model realistic usage instead of only comparing headline per-user pricing.
 
 For example, an institutional onboarding flow may require one KYB check, multiple beneficial-owner KYC checks, sanctions screening, document review and wallet screening. That can cost materially more than a simple retail KYC flow.
+
+## AML and KYC for digital asset payments: design the decision chain
+
+A customer can pass an identity check and still make a payment that requires review. A wallet can have no obvious adverse history while its owner or beneficiary is not eligible for your service. These are different decisions, so a comparison of digital-asset compliance vendors should separate them before scoring features.
+
+| Decision | Evidence or workflow to evaluate | What it does not establish |
+| --- | --- | --- |
+| Who is the customer? | Identity or business verification, supporting evidence and review | Permission for every later transaction |
+| Is there a screening concern? | Name and entity screening with match review | That a similar name is the same person |
+| What is the wallet exposure? | Relevant blockchain analysis and attributable transaction evidence | The complete identity or legal status of its controller |
+| Does the behavior require investigation? | Transaction rules, linked events and case workflow | A final legal or regulatory conclusion |
+| Can the payment proceed? | Your approved policy, permissions and responsible decision owner | That a vendor has assumed all of your obligations |
+
+[Sumsub's documentation](https://docs.sumsub.com/) distinguishes verification, monitoring, Travel Rule and case-management areas. [Persona's current introduction](https://docs.withpersona.com/getting-started) exposes versioned product documentation. Both were reviewed November 19, 2026 for this addition. Their documentation establishes product categories, not measured accuracy on your users.
+
+The Unit21 documentation URL listed below led to an access-controlled login during this check. That is a source-access limitation, not evidence that the product lacks a capability. Request the relevant current technical material directly rather than treating an inaccessible page as either proof or disproof.
+
+### A payment-specific pilot
+
+Use fictional or properly permissioned records and set the expected outcomes with your compliance team. Include a genuine customer with a similar-name match, an incomplete business ownership record, a changed beneficiary, a wallet exposure requiring review and an already-approved customer whose later activity changes.
+
+For each case, record the source evidence, vendor response, rule or model version, reviewer action and final internal decision. Measure false-positive workload and missed relevant cases separately. Do not optimize for a high automatic-approval rate without examining the cases behind it.
+
+Then disconnect the provider temporarily. Decide whether your application stops, queues for review or uses another approved route. A timeout must not silently become an approval, and a duplicate response must not create two customer cases or two payment attempts.
+
+### Compare the full price of a decision
+
+Quotes may meter verifications, reverifications, screening, monitoring, cases, data access and analyst seats differently. Give each provider the same expected customer mix and monthly event volumes. Include manual-review work and data retention instead of comparing a single per-check price.
+
+Confirm jurisdiction, document support, lawful data handling and access controls for the actual customer population. Retain only the information your approved policy requires. Have counsel and compliance owners determine obligations; a product's feature name is not a compliance opinion.
+
+Use the [ongoing KYC guide](/blog/ongoing-kyc-tokenized-assets-investor-rechecks) for rechecks after onboarding and the [screening comparison](/blog/opensanctions-vs-world-check-one-vs-complyadvantage-screening) for match evidence and case review.
 
 ## Recommended Buyer Path
 

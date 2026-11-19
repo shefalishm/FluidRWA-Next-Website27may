@@ -489,11 +489,11 @@ const baseUseCases: UseCase[] = [
   },
   {
     slug: "digital-asset-tax-reporting-cost-basis-operations",
-    updatedAt: "2026-11-06",
+    updatedAt: "2026-11-19",
     title: "Digital Asset Tax Reporting and Cost-Basis Operations",
     industry: "Tax, Accounting and Digital Assets",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76",
-    imageAlt: "Tax analysts reconciling digital asset transaction records",
+    imageAlt: "FluidRWA - Digital Asset Tax Reporting and Cost-Basis Operations: tax analysts reconciling financial records",
     visualLabel: "Cost Basis",
     visualKicker: "Tax Operations",
     summary: "Institutions can normalize wallet, exchange and custody activity into reviewed tax lots, gains, income events and reportable customer records.",
@@ -510,6 +510,7 @@ const baseUseCases: UseCase[] = [
     example: "Useful for exchanges, custodians, wealth platforms, funds and enterprises that need defensible tax lots, customer reporting, financial statements or regulator-ready transaction evidence.",
     sources: [
       { label: "IRS Form 1099-DA guidance", href: "https://www.irs.gov/businesses/understanding-your-form-1099-da" },
+      { label: "IRS 2026 Form 1099-DA instructions, reviewed November 19, 2026", href: "https://www.irs.gov/instructions/i1099da" },
       { label: "OECD Crypto-Asset Reporting Framework", href: "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm" }
     ],
     faqs: [

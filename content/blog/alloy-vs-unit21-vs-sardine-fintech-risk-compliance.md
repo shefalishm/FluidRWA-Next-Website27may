@@ -2,7 +2,7 @@
 title: "Alloy vs Unit21 vs Sardine: Fintech Risk and Compliance Tools Compared"
 description: "Compare Alloy, Unit21 and Sardine for identity orchestration, fraud prevention, AML monitoring, payment screening and crypto risk operations."
 date: "2026-08-13"
-modifiedDate: "2026-11-06"
+modifiedDate: "2026-11-19"
 reviewedDate: "2026-10-10"
 reviewedLabel: "October 10, 2026"
 reviewedBy: "FluidRWA Research Team"
@@ -14,6 +14,7 @@ infographicCaption: "Public company-documentation summary checked 10 October 202
 infographicKeywords: "Alloy, Unit21, Sardine, fraud and AML comparison"
 category: "Vendor Comparisons"
 slug: "alloy-vs-unit21-vs-sardine-fintech-risk-compliance"
+editorialUpdatedLabel: "November 19, 2026"
 image: "/assets/blog-images/alloy-vs-unit21-vs-sardine-fintech-risk-compliance.svg"
 imageAlt: "Alloy vs Unit21 vs Sardine: Fintech Risk and Compliance Tools Compared editorial infrastructure visual"
 answer: "Alloy documents identity and risk orchestration; Unit21 documents AML monitoring and case operations; Sardine documents fraud prevention and AML. Their capabilities overlap. Compare the specific product, data inputs, decision ownership and investigation workflow needed by your team."
@@ -136,6 +137,36 @@ Use Unit21 across the lifecycle.
 Use Sardine when the front door involves payment risk, crypto purchases or stablecoin funding.
 
 Most mature fintech and Web3 stacks will combine these categories rather than pick only one vendor.
+
+## A 2026 risk-platform comparison should include the case your policy gets wrong
+
+A clean onboarding demo is the easiest case. The revealing case is a legitimate customer rejected by a rule, or an accepted customer whose later activity needs investigation. Give Alloy, Unit21 and Sardine the same permissioned examples and ask how the proposed configuration reaches and revises its decisions.
+
+The [Alloy](https://www.alloy.com/), [Unit21](https://www.unit21.ai/) and [Sardine](https://www.sardine.ai/) product sites, revisited November 19, 2026, describe overlapping identity, fraud and financial-crime workflows. Overlap makes exact scope more important: a broad platform description does not establish that all data sources, monitoring features or investigation tools are included in one proposal.
+
+| Case | What to examine | Outcome to measure separately |
+| --- | --- | --- |
+| Similar-name screening result | Source evidence and analyst resolution | False-positive effort |
+| Returning customer with changed behavior | Event history, rules and escalation | Relevant cases surfaced for review |
+| Changed business ownership | Updated entity evidence and decision record | Completeness of the recheck |
+| Provider or data-source outage | Explicit unavailable state and approved fallback | Cases incorrectly accepted or unnecessarily blocked |
+| Reversed analyst decision | Attribution, reason and downstream update | Reproducibility of the changed outcome |
+
+Agree the expected treatment with your compliance owners before the demo. Do not use a vendor's demonstration approval rate as a universal measure of accuracy.
+
+### Review AI assistance as a separate control
+
+Where the proposal includes an AI investigator or case summary, ask the reviewer to open the exact evidence behind each material statement. Introduce a contradictory record and a missing record. The summary should not fill either gap with a plausible story.
+
+Confirm who may close a case, change a rule or override an escalation. Request the rule/model version, decision history, access permissions and retention settings. A fluent explanation is not proof that the decision is correct.
+
+### Procurement questions that change the operating cost
+
+Price the same customer population, verification mix, transaction events, screening frequency, analyst seats and retention period. Identify separately billed datasets or partners. Include review effort and correction work, rather than comparing only a per-check charge.
+
+Ask for data-processing terms and the contracting entity for the proposed jurisdictions. Assign ownership for complaints, adverse decisions, incident escalation and vendor exit. The organization using the system still needs an approved policy and responsible decision makers.
+
+Continue with [ongoing investor KYC](/blog/ongoing-kyc-tokenized-assets-investor-rechecks), [screening evidence and match review](/blog/opensanctions-vs-world-check-one-vs-complyadvantage-screening), or [submit a risk-workflow brief](/submit-requirement?source=blog-shortlist&topic=fraud-aml&article=alloy-vs-unit21-vs-sardine-fintech-risk-compliance).
 
 ## Primary Sources
 

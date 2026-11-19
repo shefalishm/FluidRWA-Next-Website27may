@@ -1,16 +1,17 @@
 ---
 title: "TaxBit vs Ledgible vs Lukka: Accounting, Tax and Cost Basis"
-seoTitle: "TaxBit vs Ledgible vs Lukka: Tax Reporting & Cost Basis"
+seoTitle: "Crypto Cost Basis Software 2026: TaxBit, Ledgible, Lukka"
 description: "Compare TaxBit, Ledgible and Lukka for digital asset accounting, tax information reporting, cost basis, source reconciliation and integrations."
 date: "2026-09-22"
 reviewedDate: "2026-11-09"
 reviewedLabel: "November 9, 2026"
-modifiedDate: "2026-11-09"
+modifiedDate: "2026-11-19"
 reviewedBy: "FluidRWA Research Team"
 readerFirst: "true"
 considerationAfterTable: "true"
 category: "Crypto Accounting and Tax Infrastructure"
 slug: "taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax"
+editorialUpdatedLabel: "November 19, 2026"
 infographicImage: "/assets/infographics/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax-comparison.png"
 infographicMobileImage: "/assets/infographics/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax-comparison-mobile.png"
 infographicName: "TaxBit vs Ledgible vs Lukka Enterprise Comparison Matrix"
@@ -122,6 +123,63 @@ Software output alone does not establish the right accounting policy or legal re
 - Permissions, retention and usable exports if you leave.
 
 Keep the final choice tied to the trial results. No enterprise price comparison, performance ranking or certification assessment was verified for this article.
+
+## Which cost-basis software fits your buyer type in 2026?
+
+Imagine that your closing balance matches the custodian, but the gain on one disposal looks wrong. The missing fact may be a purchase made before a wallet migration. A faster calculation engine will not recreate that evidence. The useful purchase is a system that shows where the history ends, preserves the correction and carries the reviewed result into the next report.
+
+That is why cost-basis automation should be evaluated by buyer and output, rather than by the largest advertised integration count.
+
+| Buyer | Starting shortlist or product category | Deliverable to request | Commercial comparison |
+| --- | --- | --- | --- |
+| Enterprise finance team | Ledgible accounting, TaxBit's applicable accounting/basis package, Lukka enterprise data | Reconciled source records, reviewed lots and a journal-ready export | Separate implementation, monthly usage, historical backfill and ledger connections |
+| Exchange or broker | TaxBit cost basis/reporting, Ledgible tax information reporting; consider GainsKeeper for Digital Assets as an adjacent option | Account-level lots, reportability inputs, approved forms and corrections | Quote the entire reporting workflow, not only the calculation API |
+| Tax practice | Ledgible professional tax or a tax-practice workflow compatible with client records | Per-client evidence, review access and accountant-ready output | Confirm who pays per client and which transaction tiers apply |
+| Individual investor | A personal tax product such as CoinTracker rather than an enterprise subledger | Personal acquisition history and the required local tax reports | Check tax year, transaction cap and whether downloads are included |
+
+The first three providers remain the editorial comparison on this URL. The additional products above illustrate adjacent buying routes, not results from a head-to-head product test.
+
+[Ledgible's cost-basis page](https://ledgible.io/cost-basis/) describes source-connected calculation for on-chain and off-chain activity. Its [pricing page](https://ledgible.io/pricing/) distinguishes professional tax pricing from custom enterprise accounting pricing; the latter varies with users, wallets, exchange connections, volume and ledger integrations. Do not apply a professional-tax starting price to an enterprise implementation.
+
+[TaxBit's cost-basis product](https://www.taxbit.com/platform/cost-basis) describes lot tracking across wallets, exchanges and custodians. [Lukka's enterprise data management](https://lukka.tech/enterprise-data-management/) addresses the data foundation behind downstream outputs. These are different starting points: compare the exact data and reporting package in the proposal.
+
+[GainsKeeper for Digital Assets](https://www.wolterskluwer.com/en/solutions/gainskeeper/gainskeeper-for-digital-assets) is aimed at digital-asset reporting workflows, including tax lots and Form 1099-DA. It must not be confused with GainsKeeper for Individual Investors: the [official discontinuation notice](https://www.gkis.net/closing.html) says that individual product's final supported tax year was 2024 and expressly separates it from other Wolters Kluwer products.
+
+[CoinTracker's pricing page](https://www.cointracker.com/pricing) offers personal tax plans differentiated by transaction allowance and services. Its free portfolio tier does not include downloadable tax forms. A portfolio tracker is therefore not a free substitute for every reporting output.
+
+### A reproducible cost-basis acceptance test
+
+Use a fictional, permissioned test dataset before exposing customer records. For an illustrative arithmetic check, suppose a company acquires two units for a total of $200, transfers both to another controlled wallet, and later sells one for $150. Ignore fees for this simplified calculation. If the approved policy carries the original $100 unit basis through that internal transfer, the gain on the sale is $50, not $150. This is a software test assumption, not a determination of tax treatment.
+
+Now remove the acquisition record and run the same import. A useful exception workflow shows the missing evidence rather than presenting a confident zero-basis result. Restore the acquisition, approve the correction, rerun the disposal and compare the old and new export. A reviewer should be able to explain the change without reconstructing it from screenshots.
+
+| Test case | Pass condition to agree before the demo |
+| --- | --- |
+| Historical acquisition missing | Record is surfaced as an exception with an owner and evidence request |
+| Transfer across controlled accounts | Both movements are linked under the approved policy without losing acquisition history |
+| Same symbol on two chains | Network and contract identity are retained, not merged by ticker alone |
+| Fee paid in another asset | Separate movement and valuation inputs remain inspectable |
+| Duplicate API and CSV import | Duplicate detection preserves the original source identifiers |
+| Backdated correction | Prior output remains available and the changed calculation is traceable |
+| Source disconnects | The stale period is visible and backfill does not silently duplicate records |
+| Accountant leaves the organization | Access is removed without losing reviewer attribution |
+| Vendor contract ends | Raw inputs, mappings, lots, decisions and usable outputs can be exported |
+
+These are proposed acceptance tests. FluidRWA has not run this dataset through the providers.
+
+### Form 1099-DA: ask the right period-specific question
+
+The [IRS's 2026 Form 1099-DA instructions](https://www.irs.gov/instructions/i1099da) distinguish covered from noncovered digital assets and describe different basis-reporting treatment, including optional reporting methods for certain transactions. Do not assume that every broker statement supplies complete acquisition history or that one rule applies to every token and account. Have a qualified adviser define your entity's requirements, then ask the vendor to demonstrate those requirements using the correct reporting year.
+
+Keep calculation, filing and recipient delivery as separate acceptance gates. A correct lot calculation does not prove that a form was submitted, accepted, delivered or corrected. Retain the relevant account, approval, submission and correction identifiers alongside the reported amount.
+
+### Security evidence belongs in the proposal, not a logo comparison
+
+Ask for the actual security report or trust-center materials covering the purchased service, examination period, relevant exceptions, subprocessors and customer responsibilities. Request read-only source permissions where feasible, retention controls, a deletion process and a recovery exercise. A SOC badge alone does not establish that your connector, entity or implementation is within scope.
+
+For a fuller procurement pack, use the [enterprise crypto tax reporting RFP](/blog/enterprise-crypto-tax-reporting-software-rfp), the [audit evidence checklist](/blog/digital-asset-tax-audit-evidence-checklist), and the [missing-transfer-lot exercise](/blog/reconcile-crypto-cost-basis-missing-transfer-lots). Together they connect the vendor shortlist to a repeatable finance workflow.
+
+**November 19, 2026 update:** the product, pricing, discontinuation and IRS pages linked in this section were reviewed for this addition. Earlier observations elsewhere retain their stated review dates. Public descriptions were not treated as independent product tests.
 
 ## Where to go next
 

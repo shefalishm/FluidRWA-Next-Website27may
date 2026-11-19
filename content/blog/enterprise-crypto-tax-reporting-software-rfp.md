@@ -2,11 +2,13 @@
 title: "Enterprise Crypto Tax Reporting Software RFP: Cost Basis and Audit Exports"
 description: "Use a worked dataset and a pass/fail scorecard to evaluate digital asset tax software for transfers, missing cost basis, corrections and audit exports."
 date: "2026-11-16"
+modifiedDate: "2026-11-19"
 reviewedDate: "2026-11-16"
 reviewedLabel: "November 16, 2026"
 reviewedBy: "FluidRWA Research Team"
 category: "Tax & Accounting"
 slug: "enterprise-crypto-tax-reporting-software-rfp"
+editorialUpdatedLabel: "November 19, 2026"
 image: "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp.webp"
 imageAlt: "FluidRWA illustration of transaction records, a reconciliation exception and an audit export"
 readerFirst: "true"
@@ -100,6 +102,34 @@ For vendors that pass, record which steps took manual work, who would do that wo
 | Manual workload | Steps outside the product, time observed during the demo, and who would own them |
 | Commercial assumptions | Included connectors and history, export terms, implementation effort and costs still unquoted |
 | Decision and follow-up | Shortlist, hold, or reject; condition, owner and date for each unresolved item |
+
+## Enterprise evaluation criteria: three gates before the score
+
+A weighted score can hide a basic failure. A platform may look excellent on interface, coverage and price while being unable to recover the acquisition history behind one material disposal. Before assigning points, define three non-negotiable gates for your own dataset.
+
+| Gate | Evidence the vendor must produce | What prevents acceptance |
+| --- | --- | --- |
+| Data completeness | Source inventory, opening positions, import periods and a reconciliation of gaps | A matching ending balance presented as proof that all acquisition history exists |
+| Reproducible calculation | Raw event, lot, valuation input, approved method and correction trail for a sample disposal | A final gain number with no explainable route back to the source |
+| Deliverable ownership | Named owner for each form, filing, delivery, ledger export and correction | An ambiguous promise that the platform "handles reporting" |
+
+Only compare scored features after those gates are satisfied or the exception is explicitly accepted by the responsible finance and tax owners. The gates are procurement recommendations, not claims that a particular product has passed them.
+
+### Compare a realistic first year, not the demo subscription
+
+Ask every provider to price the same historical backfill, active sources, entities, users, transaction bands and finished outputs. Include onboarding, mapping, reviewer support, filing or delivery services, API charges and an export at termination. Put the assumptions beside the quoted price.
+
+Then model one difficult month: a source disconnects, the transaction count increases and a closed-period classification is corrected. Ask what is charged, what work your team must perform and how long access to the prior output remains available. Do not multiply a personal tax plan's price by headcount to estimate enterprise cost.
+
+For security, request the report covering the exact service and period, access roles, connector permissions, subprocessors and retention settings. Ask whether the vendor needs trading or withdrawal privileges; where the task is data ingestion, justify any permission beyond the agreed data access.
+
+### The final deliverable is a decision record
+
+Keep the brief, data dictionary, expected results, observed exceptions, proposal assumptions and approval together. Another reviewer should understand why the chosen product fits the entity and reporting period without attending the sales call.
+
+For a current provider and product-scope discussion, read [TaxBit vs Ledgible vs Lukka](/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax). For the evidence retained after implementation, use the [digital asset tax audit checklist](/blog/digital-asset-tax-audit-evidence-checklist). Share the scoped requirement through the [project form](/submit-requirement?source=blog-shortlist&topic=enterprise-crypto-tax&article=enterprise-crypto-tax-reporting-software-rfp).
+
+**Editorial addition: November 19, 2026.** This section adds an evaluation rubric and does not claim a new vendor benchmark or silently refresh prior source observations.
 
 ## Keep tax rules separate from software output
 
