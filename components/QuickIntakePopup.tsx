@@ -3,6 +3,8 @@
 import { Building2, Check, MessageSquareText, Send, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { prepareIntakeWebsite } from "@/lib/intakeWebsite";
+import { appendIntakeAttribution, captureIntakeAttribution } from "@/lib/intakeAttribution";
 
 type IntakeMode = "project" | "vendor";
 
@@ -50,6 +52,8 @@ export function QuickIntakePopup() {
   const renderedAt = useRef(Date.now());
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => { captureIntakeAttribution(); }, [pathname]);
+
   const hidden = ["/submit-requirement", "/vendor-membership", "/apply-as-vendor", "/conversion-analytics", "/auth"].some(
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   ) || pathname.startsWith("/network-preview");
@@ -86,12 +90,15 @@ export function QuickIntakePopup() {
     event.preventDefault();
     if (submitting) return;
     const form = event.currentTarget;
+    const website = form.querySelector<HTMLInputElement>('input[name="website"]');
+    if (website) prepareIntakeWebsite(website);
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
     const data = new FormData(form);
+    appendIntakeAttribution(data);
     const value = (name: string) => String(data.get(name) || "").trim();
     const companyName = value("companyName");
     const category = value("category");
@@ -205,19 +212,19 @@ export function QuickIntakePopup() {
                   </button>
                 </div>
 
-                <form className="quick-intake-form" onSubmit={handleSubmit}>
+                <form className="quick-intake-form" noValidate onSubmit={handleSubmit}>
                   <div className="quick-intake-pair">
                     <label>First name<input name="firstName" autoComplete="given-name" maxLength={100} required /></label>
                     <label>Work email<input name="contactEmail" type="email" autoComplete="email" maxLength={100} required /></label>
                   </div>
                   <label>Company<input name="companyName" autoComplete="organization" maxLength={100} required /></label>
                   {mode === "vendor" ? (
-                    <label>Company website<input name="website" type="url" autoComplete="url" placeholder="https://" maxLength={250} required /></label>
+                    <label>Company website<input name="website" type="text" inputMode="url" autoComplete="url" placeholder="www.company.com" onInput={event => event.currentTarget.setCustomValidity("")} maxLength={250} required /></label>
                   ) : null}
                   <label>
-                    {mode === "project" ? "What do you need?" : "Primary category"}
-                    <select name="category" required defaultValue="">
-                      <option value="">Select a category</option>
+                    {mode === "project" ? "Category (optional)" : "Primary category"}
+                    <select name="category" required={mode === "vendor"} defaultValue="">
+                      <option value="">{mode === "project" ? "Not sure yet" : "Select a category"}</option>
                       {(mode === "project" ? projectCategories : vendorCategories).map((item) => <option key={item}>{item}</option>)}
                     </select>
                   </label>

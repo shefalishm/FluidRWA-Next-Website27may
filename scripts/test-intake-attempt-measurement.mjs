@@ -22,6 +22,7 @@ async function exercise({ valid = true, disabled = false, ok = true, filtered = 
     vendor: null, category: null, source: null,
     form: { checkValidity: () => valid, querySelector: () => ({ focus() {} }), querySelectorAll: () => [{ name: 'WEBSITE' }] },
     normalizeWebsite: () => { normalizations++; },
+    appendIntakeAttribution: () => {},
     trackEvent: (name, details) => events.push({ name, details }),
     analyticsDetails: () => ({ form_type: 'project' }),
     getIsVendorForm: () => false,

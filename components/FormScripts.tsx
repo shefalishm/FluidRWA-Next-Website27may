@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { prepareIntakeWebsite } from "@/lib/intakeWebsite";
+import { appendIntakeAttribution, captureIntakeAttribution } from "@/lib/intakeAttribution";
 
 declare global {
   interface Window {
@@ -14,6 +16,7 @@ export function FormScripts() {
   const pathname = usePathname();
 
   useEffect(() => {
+    captureIntakeAttribution();
     const params = new URLSearchParams(window.location.search);
     const vendor = params.get("vendor");
     const category = params.get("category");
@@ -106,17 +109,21 @@ export function FormScripts() {
       const sourceField = form.querySelector<HTMLInputElement>('input[name="REQUEST_SOURCE"]');
       const pageField = form.querySelector<HTMLInputElement>('input[name="PAGE_URL"]');
       const normalizeWebsite = (input: HTMLInputElement) => {
-        if (input.type !== "url" || input.name !== "WEBSITE") return;
-        const value = input.value.trim();
-        if (/^(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[/:?#].*)?$/i.test(value) && !/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
-          input.value = `https://${value}`;
-        }
+        if (!["WEBSITE", "PROOF_LINK", "MEDIA_LINK"].includes(input.name)) return;
+        prepareIntakeWebsite(input);
       };
       const handleWebsiteChange = (event: Event) => {
         if (event.target instanceof HTMLInputElement) normalizeWebsite(event.target);
       };
       form.addEventListener("change", handleWebsiteChange);
-      cleanups.push(() => form.removeEventListener("change", handleWebsiteChange));
+      const clearWebsiteValidity = (event: Event) => {
+        if (event.target instanceof HTMLInputElement && ["WEBSITE", "PROOF_LINK", "MEDIA_LINK"].includes(event.target.name)) event.target.setCustomValidity("");
+      };
+      form.addEventListener("input", clearWebsiteValidity);
+      cleanups.push(() => {
+        form.removeEventListener("change", handleWebsiteChange);
+        form.removeEventListener("input", clearWebsiteValidity);
+      });
       if (vendorField && vendor) vendorField.value = vendor;
       if (categoryField && category) categoryField.value = category;
       const requirementCategory = form.querySelector<HTMLSelectElement>('[name="REQUIREMENT_CATEGORY"]');
@@ -189,7 +196,7 @@ export function FormScripts() {
         if (button.disabled) return;
         // Count the user's attempt even when client-side validation prevents a request.
         trackEvent("form_submit_attempt", analyticsDetails());
-        form.querySelectorAll<HTMLInputElement>('input[name="WEBSITE"]').forEach((input) => {
+        form.querySelectorAll<HTMLInputElement>('input[name="WEBSITE"], input[name="PROOF_LINK"], input[name="MEDIA_LINK"]').forEach((input) => {
           normalizeWebsite(input);
         });
         if (!form.checkValidity()) {
@@ -208,6 +215,7 @@ export function FormScripts() {
         status.textContent = loadingText;
 
         const formData = new FormData(form);
+        appendIntakeAttribution(formData);
         if (params.get("article")) formData.set("ATTRIBUTION_ARTICLE", params.get("article")!.slice(0, 160));
         const originPath = params.get("origin_path");
         if (originPath?.startsWith("/") && !originPath.startsWith("//")) formData.set("ATTRIBUTION_ORIGIN_PATH", originPath.split(/[?#]/)[0]);
