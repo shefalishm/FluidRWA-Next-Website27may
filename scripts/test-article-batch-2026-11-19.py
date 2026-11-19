@@ -87,10 +87,11 @@ for item in BATCH:
     assert len(ids) == len(set(ids)), (slug, "duplicate IDs")
     for href in re.findall(r'href="(#.*?)"', html):
         assert href[1:] in ids, (slug, href)
-    for folder, suffix in [("blog-thumbnails", "webp"), ("social", "jpg")]:
-        relative = Path("assets") / folder / f"{slug}.{suffix}"
+    images = dict(re.findall(r'^(image|socialImage): "([^"]+)"$', source, re.M))
+    for image in images.values():
+        relative = Path(image.lstrip("/"))
         assert (ROOT / relative).read_bytes() == (ROOT / "public" / relative).read_bytes(), slug
-    assert (ROOT / "assets/blog-thumbnails" / f"{slug}.webp").stat().st_size < 81920, slug
+    assert (ROOT / images["image"].lstrip("/")).stat().st_size < 81920, slug
     for index in ["blog.html", "sitemap.xml", "llms.txt"]:
         assert f"/blog/{slug}" in (ROOT / index).read_text(), (slug, index)
     results.append({"slug": slug, "bodyWords": words, "titleLength": len(page.title), "faqs": len(faq["mainEntity"]), "sources": len(article["citation"])})

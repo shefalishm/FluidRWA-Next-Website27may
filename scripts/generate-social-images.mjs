@@ -260,6 +260,7 @@ for (const file of files) {
   const parsed = parseFrontmatter(fs.readFileSync(full, "utf8"));
   const slug = parsed.data.slug || file.replace(/\.md$/, "");
   if (requestedSlugs.size && !requestedSlugs.has(slug)) continue;
+  if (String(parsed.data.socialImageLocked || "").toLowerCase() === "true") continue;
   parsed.data.socialImage = `/assets/social/blog-${slug}.png`;
   if (!preserveCustomSocialImages.has(slug)) {
     card({ output: `blog-${slug}.png`, label: parsed.data.category || "Insight", title: parsed.data.socialTitle || parsed.data.title, slug });

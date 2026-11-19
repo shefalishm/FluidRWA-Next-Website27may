@@ -1,20 +1,68 @@
 {
-  "digital-asset-tax-audit-evidence-checklist": { "src": "/assets/blog-thumbnails/digital-asset-tax-audit-evidence-checklist.webp", "alt": "FluidRWA workflow diagram connecting original transaction records, reviewed decisions and a versioned audit export" },
-  "rfq-vs-order-book-vs-otc-crypto-execution": { "src": "/assets/blog-thumbnails/rfq-vs-order-book-vs-otc-crypto-execution.webp", "alt": "FluidRWA execution diagram connecting an approved trading instruction, execution records and final settlement evidence" },
-  "ongoing-kyc-tokenized-assets-investor-rechecks": { "src": "/assets/blog-thumbnails/ongoing-kyc-tokenized-assets-investor-rechecks.webp", "alt": "FluidRWA investor lifecycle diagram showing a change event, evidence review and updated product permissions" },
-  "crypto-on-ramp-failures-refunds-pending-orders-webhooks": { "src": "/assets/blog-thumbnails/crypto-on-ramp-failures-refunds-pending-orders-webhooks.webp", "alt": "FluidRWA on-ramp diagram separating payment confirmation, provider order status and token delivery" },
-  "crypto-wallet-policy-engines-approvals-limits-recovery": { "src": "/assets/blog-thumbnails/crypto-wallet-policy-engines-approvals-limits-recovery.webp", "alt": "FluidRWA wallet control diagram connecting a versioned policy, independent approvals and the exact transaction payload" },
-  "opensanctions-vs-world-check-one-vs-complyadvantage-screening": { "src": "/assets/blog-thumbnails/opensanctions-vs-world-check-one-vs-complyadvantage-screening.webp", "alt": "FluidRWA screening comparison diagram separating source data, candidate matching and a reviewed case decision" },
-  "firecrawl-vs-exa-vs-tavily-ai-research-apis": { "src": "/assets/blog-thumbnails/firecrawl-vs-exa-vs-tavily-ai-research-apis.webp", "alt": "FluidRWA AI research diagram connecting source discovery, page retrieval and verification of claim support" },
-  "enterprise-crypto-tax-reporting-software-rfp": { "src": "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp.webp", "alt": "FluidRWA illustration of transaction records, a reconciliation exception and an audit export" },
-  "openai-vs-claude-vs-gemini-batch-api": { "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api.webp", "alt": "FluidRWA illustration of a document queue and its processing results." },
-  "okta-vs-duo-vs-yubico-phishing-resistant-mfa": { "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa.webp", "alt": "FluidRWA illustration of a physical security key and sign-in checkpoints." },
-  "google-cloud-vs-azure-vs-aws-confidential-ai-inference": { "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference.webp", "alt": "FluidRWA illustration of a GPU workload and a verification checkpoint." },
-  "stripe-vs-adyen-vs-cybersource-network-tokenization": { "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization.webp", "alt": "FluidRWA illustration of a stored card credential and two routes for processing a recurring payment." },
-  "modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers": { "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers.webp", "alt": "FluidRWA illustration of paired ledger postings and a separate reconciliation checkpoint." },
-  "uk-carf-cryptoasset-reporting-hmrc-guide": { "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp", "alt": "FluidRWA guide illustration: UK cryptoasset reporting" },
-  "eu-dlt-pilot-regime-tokenized-securities-guide": { "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide.webp", "alt": "FluidRWA guide illustration: EU distributed ledger market infrastructure" },
-  "erc-7540-asynchronous-tokenized-vaults-guide": { "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide.webp", "alt": "FluidRWA guide illustration: asynchronous tokenized vaults" },
+  "digital-asset-tax-audit-evidence-checklist": {
+    "src": "/assets/blog-thumbnails/digital-asset-tax-audit-evidence-checklist-creative-20261119.webp",
+    "alt": "FluidRWA - Digital Asset Tax Audit Evidence: A Practical Reporting Checklist: conceptual illustration of a magnifier examining a receipt exception in a tax evidence binder."
+  },
+  "rfq-vs-order-book-vs-otc-crypto-execution": {
+    "src": "/assets/blog-thumbnails/rfq-vs-order-book-vs-otc-crypto-execution-creative-20261119.webp",
+    "alt": "FluidRWA - RFQ vs Order Book vs OTC: Institutional Crypto Execution Compared: conceptual illustration of three physical execution paths leading to a common settlement vault."
+  },
+  "ongoing-kyc-tokenized-assets-investor-rechecks": {
+    "src": "/assets/blog-thumbnails/ongoing-kyc-tokenized-assets-investor-rechecks-creative-20261119.webp",
+    "alt": "FluidRWA - Ongoing KYC for Tokenized Assets: When to Recheck Investors: conceptual illustration of a fictional analyst comparing identity records beside investor documents."
+  },
+  "crypto-on-ramp-failures-refunds-pending-orders-webhooks": {
+    "src": "/assets/blog-thumbnails/crypto-on-ramp-failures-refunds-pending-orders-webhooks-creative-20261119.webp",
+    "alt": "FluidRWA - Crypto On-Ramp Failures: Refunds, Pending Orders and Webhooks: conceptual illustration of a payment conveyor with a delayed package and refund return path."
+  },
+  "crypto-wallet-policy-engines-approvals-limits-recovery": {
+    "src": "/assets/blog-thumbnails/crypto-wallet-policy-engines-approvals-limits-recovery-creative-20261119.webp",
+    "alt": "FluidRWA - Crypto Wallet Policy Engines: Approvals, Limits and Recovery: conceptual illustration of a dual-key vault mechanism and a separately sealed recovery key."
+  },
+  "opensanctions-vs-world-check-one-vs-complyadvantage-screening": {
+    "src": "/assets/blog-thumbnails/opensanctions-vs-world-check-one-vs-complyadvantage-screening-creative-20261119.webp",
+    "alt": "FluidRWA - OpenSanctions vs World-Check One vs ComplyAdvantage: Screening: conceptual illustration of a fictional screening archive with optical lenses and a file for human review."
+  },
+  "firecrawl-vs-exa-vs-tavily-ai-research-apis": {
+    "src": "/assets/blog-thumbnails/firecrawl-vs-exa-vs-tavily-ai-research-apis-creative-20261119.webp",
+    "alt": "FluidRWA - Firecrawl vs Exa vs Tavily: AI Research APIs Compared: conceptual illustration of a mechanical research library retrieving a page beside a compass and prism."
+  },
+  "enterprise-crypto-tax-reporting-software-rfp": {
+    "src": "/assets/blog-thumbnails/enterprise-crypto-tax-reporting-software-rfp.webp",
+    "alt": "FluidRWA illustration of transaction records, a reconciliation exception and an audit export"
+  },
+  "openai-vs-claude-vs-gemini-batch-api": {
+    "src": "/assets/blog-thumbnails/openai-vs-claude-vs-gemini-batch-api.webp",
+    "alt": "FluidRWA illustration of a document queue and its processing results."
+  },
+  "okta-vs-duo-vs-yubico-phishing-resistant-mfa": {
+    "src": "/assets/blog-thumbnails/okta-vs-duo-vs-yubico-phishing-resistant-mfa.webp",
+    "alt": "FluidRWA illustration of a physical security key and sign-in checkpoints."
+  },
+  "google-cloud-vs-azure-vs-aws-confidential-ai-inference": {
+    "src": "/assets/blog-thumbnails/google-cloud-vs-azure-vs-aws-confidential-ai-inference.webp",
+    "alt": "FluidRWA illustration of a GPU workload and a verification checkpoint."
+  },
+  "stripe-vs-adyen-vs-cybersource-network-tokenization": {
+    "src": "/assets/blog-thumbnails/stripe-vs-adyen-vs-cybersource-network-tokenization.webp",
+    "alt": "FluidRWA illustration of a stored card credential and two routes for processing a recurring payment."
+  },
+  "modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers": {
+    "src": "/assets/blog-thumbnails/modern-treasury-vs-formance-vs-tigerbeetle-stablecoin-ledgers.webp",
+    "alt": "FluidRWA illustration of paired ledger postings and a separate reconciliation checkpoint."
+  },
+  "uk-carf-cryptoasset-reporting-hmrc-guide": {
+    "src": "/assets/blog-thumbnails/uk-carf-cryptoasset-reporting-hmrc-guide.webp",
+    "alt": "FluidRWA guide illustration: UK cryptoasset reporting"
+  },
+  "eu-dlt-pilot-regime-tokenized-securities-guide": {
+    "src": "/assets/blog-thumbnails/eu-dlt-pilot-regime-tokenized-securities-guide.webp",
+    "alt": "FluidRWA guide illustration: EU distributed ledger market infrastructure"
+  },
+  "erc-7540-asynchronous-tokenized-vaults-guide": {
+    "src": "/assets/blog-thumbnails/erc-7540-asynchronous-tokenized-vaults-guide.webp",
+    "alt": "FluidRWA guide illustration: asynchronous tokenized vaults"
+  },
   "woleet-vs-originstamp-vs-opentimestamps-document-evidence": {
     "src": "/assets/blog-thumbnails/woleet-vs-originstamp-vs-opentimestamps-document-evidence.webp",
     "alt": "FluidRWA comparison illustration: Portable document timestamp proofs"
@@ -858,5 +906,17 @@
   "dock-vs-cheqd-vs-kilt-verifiable-credentials": {
     "src": "/assets/blog-thumbnails/credentials-november5-card.webp",
     "alt": "FluidRWA: Illustrated issuer, holder and verifier exchanging an identity card with a status marker"
+  },
+  "digishares-vs-blocksquare-vs-tokeny-real-estate-offering": {
+    "src": "/assets/blog-thumbnails/digishares-vs-blocksquare-vs-tokeny-real-estate-offering-creative-20261119.webp",
+    "alt": "FluidRWA - DigiShares vs Blocksquare vs Tokeny: Launching a Tokenized Real Estate Offering: conceptual illustration of modular apartment architecture above a blueprint and offering documents."
+  },
+  "lofty-vs-reental-vs-finexity-property-investor-rights": {
+    "src": "/assets/blog-thumbnails/lofty-vs-reental-vs-finexity-property-investor-rights-creative-20261119.webp",
+    "alt": "FluidRWA - Lofty vs Reental vs FINEXITY: What Do Property Token Investors Own?: conceptual illustration of a divided townhouse, glass ownership fragment, key and property deed."
+  },
+  "paxg-vs-xaut-vs-xaum-physical-gold-redemption": {
+    "src": "/assets/blog-thumbnails/paxg-vs-xaut-vs-xaum-physical-gold-redemption-creative-20261119.webp",
+    "alt": "FluidRWA - PAX Gold vs Tether Gold vs Matrixdock XAUm: Physical Gold Redemption: conceptual illustration of a gold bar delivered from a vault into white-gloved hands."
   }
 }
