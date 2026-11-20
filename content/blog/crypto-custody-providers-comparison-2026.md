@@ -299,3 +299,7 @@ Fireblocks' separate Trust Company page is an important reason to name the produ
 **Editorial change, November 20, 2026:** added entity-specific procurement criteria, insurance questions and six focused FAQs. The linked service pages were checked for the limited product references above; this is not an independent regulatory determination, insurance review or security test.
 
 For connected workflows, read [institutional trading selection](/blog/talos-vs-wyden-vs-finery-markets-institutional-trading), [wallet policy engines](/blog/crypto-wallet-policy-engines-approvals-limits-recovery) and the [Anchorage Digital profile](/fluidrwa/anchorage-digital).
+
+## Alternatives for two different custody decisions
+
+The [Anchorage Digital alternatives guide](/blog/anchorage-digital-alternatives-2026) focuses on institutional mandates, reporting and custody transitions. The [Fireblocks alternatives guide](/blog/fireblocks-alternatives-2026) separates wallet-infrastructure replacement from a change of custody service. Start with that distinction before comparing supplier proposals.

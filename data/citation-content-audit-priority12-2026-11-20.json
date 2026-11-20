@@ -1,0 +1,226 @@
+{
+  "date": "2026-11-20",
+  "scope": "Targeted content-evidence pass for the twelve highest-loss rows in the matched-period worklist, not the full 100-page replacement-citation audit",
+  "browserAvailable": false,
+  "secondaryLegalOrFinancialClaimsAdopted": false,
+  "rows": [
+    {
+      "source": "https://flexe.io/blog/rwa-tokenization-platforms/",
+      "access": "readable",
+      "strength": "A dated measurement method separates distributed from represented assets and explains changes of data source.",
+      "ours": "FluidRWA already separates issuer software, investment products and operating roles; it is not a market-size ranking.",
+      "action": "Retain the buyer-selection intent. Link source-scoped Network Explorer evidence and alternatives rather than import secondary totals.",
+      "caveat": "Current November 16 revision cannot by itself establish the cause of the November 3 drop.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/top-tokenization-companies-2026",
+      "declineEvidence": {
+        "beforeReported": 1988,
+        "afterReported": 73,
+        "status": "declined"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2024/081624-cost-basis-reporting-us-digital-asset-brokers.pdf",
+      "access": "readable PDF",
+      "strength": "A narrowly scoped broker cost-basis explainer identifies its authors and underlying regulatory publication date.",
+      "ours": "The use case now has an illustrative missing-acquisition calculation, ten procurement questions and six operational FAQs.",
+      "action": "Keep current IRS instructions as the rule reference; add source-year and covered/noncovered acceptance boundaries, not copied legal conclusions.",
+      "caveat": "A 2024 professional article is not automatic evidence of the current rule for every entity.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/use-cases/digital-asset-tax-reporting-cost-basis-operations",
+      "declineEvidence": {
+        "beforeReported": 1473,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://www.spark.money/tools/crypto-institutional-trading-platform-comparison",
+      "access": "readable",
+      "strength": "A clear contents list separates OMS, EMS, execution algorithms, connectivity and detailed feature comparison.",
+      "ours": "Talos comparison already includes lifecycle records, a partial-fill reconciliation example and the new control-plane matrix.",
+      "action": "Retain the operational example and consider a concise terminology crosswalk if buyer testing finds OMS/EMS confusion.",
+      "caveat": "Vendor-owned overview is not an independent execution benchmark.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/talos-vs-wyden-vs-finery-markets-institutional-trading",
+      "declineEvidence": {
+        "beforeReported": 1008,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://www.upshift.finance/blog/asset-tokenization-platforms",
+      "access": "readable",
+      "strength": "A side-by-side table distinguishes tokenized fund shares from a strategy operated inside a vault.",
+      "ours": "The fund guide already has operating-role and launch-gate matrices plus a worked subscription/redemption focus.",
+      "action": "Add a separate product-versus-software-versus-vault decision path only where that buyer intent is demonstrated.",
+      "caveat": "Do not import its third-party legal summaries, scale figures or product assertions without primary checks.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/best-fund-tokenization-platforms-asset-managers",
+      "declineEvidence": {
+        "beforeReported": 825,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://walletinvestor.com/news/finance-news/alloy-vs-persona-vs-socure-best-identity-verification-platforms-reviewed/",
+      "access": "readable",
+      "strength": "An early four-column table makes role, buyer fit and main consideration easy to scan.",
+      "ours": "FluidRWA has already added a synthetic decision trial and corrected the assumption that orchestration belongs to only one vendor.",
+      "action": "Use the new Sumsub alternatives guide for broader discovery and preserve product-specific Socure RiskOS scope.",
+      "caveat": "Third-party customer and speed statistics were not adopted.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/persona-vs-alloy-vs-socure-identity-orchestration",
+      "declineEvidence": {
+        "beforeReported": 612,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://www.buckinghamcapitalconsulting.com/kyc-aml-index",
+      "access": "readable but body review incomplete",
+      "strength": "The visible title explicitly separates identity verification and transaction monitoring.",
+      "ours": "The local guide already covers provider comparison, case management, privacy, pricing pitfalls and a payment-specific pilot.",
+      "action": "Do not add another generic FAQ section. Prioritize per-criterion primary-source provenance and live-case evidence.",
+      "caveat": "No independent validation of the publisher's rankings or full scoring method was established.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/kyc-aml-providers-comparison-2026",
+      "declineEvidence": {
+        "beforeReported": 611,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://eco.com/support/en/articles/11819204-what-is-caldera-raas-behind-manta-apechain-and-plume",
+      "access": "readable",
+      "strength": "The opening explains sequencer, data availability, settlement and post-launch operations as distinct components.",
+      "ours": "FluidRWA's Caldera comparison already adds post-launch ownership, failure exercises and full-scope cost questions.",
+      "action": "Keep a source-linked responsibility map for sequencer, RPC, explorer, bridge and data availability.",
+      "caveat": "Named chain deployments and framework coverage require primary provider checks before reuse.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/caldera-vs-conduit-vs-altlayer-rollup-as-a-service",
+      "declineEvidence": {
+        "beforeReported": 594,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://www.dwellir.com/blog/best-rollup-as-a-service-providers",
+      "access": "readable",
+      "strength": "The guide puts price-model scope and what remains after launch near the beginning.",
+      "ours": "The category has discovery coverage; the comparison now contains the operational depth and cost boundary.",
+      "action": "Link the category directly to the scoped comparison and acceptance workflow; do not transplant quote-based figures.",
+      "caveat": "Published November 9, so this page cannot explain the initial November 3 cliff.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/vendors/rollup-as-a-service-appchains",
+      "declineEvidence": {
+        "beforeReported": 530,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://theblockopedia.com/top-crypto-smart-contract-development-companies/",
+      "access": "readable",
+      "strength": "The introduction separates build agencies, auditors, research and infrastructure instead of assuming a single vendor role.",
+      "ours": "FluidRWA already separates developer, auditor and operator and discusses authority, handover and full-product cost.",
+      "action": "Add artifact-backed acceptance evidence for repository handover, privileges and remediation; avoid adding another role disclaimer alone.",
+      "caveat": "Publisher comparisons are not verification of every listed vendor's engagement capability.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/smart-contract-development-company-comparison-2026",
+      "declineEvidence": {
+        "beforeReported": 498,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://guardian.security/blog/best-crypto-custodians/",
+      "access": "readable",
+      "strength": "The visible quick answer groups institutional custody candidates and names charter, keys, assurance and insurance as different checks.",
+      "ours": "FluidRWA now has an entity-specific ten-criterion matrix and long-form Anchorage and Fireblocks alternatives.",
+      "action": "Keep custodial service separate from wallet software, and ask for actual policy/assurance scope instead of publishing untested scores.",
+      "caveat": "Its November 12 update is not proof of a November 3 replacement event.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/crypto-custody-providers-comparison-2026",
+      "declineEvidence": {
+        "beforeReported": 340,
+        "afterReported": 5,
+        "status": "declined"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://rwavendors.com/category/legal-compliance-regulatory",
+      "access": "no readable body; alternate reviewed",
+      "alternateSource": "https://iioutlook.com/vendors/legal",
+      "strength": "The alternate has function-based filters, but concerns legal technology rather than selecting tokenization counsel.",
+      "ours": "The local page is legal-advisory discovery. A generic legal-tech directory is a weak intent match; legacy firm names need a separate current-primary-source review.",
+      "action": "Repair the candidate set for counsel-selection queries; check current firm identities and engagement scope before editing.",
+      "caveat": "Neither an empty response nor a weak legal-tech match demonstrates an actual replacement citation.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/vendors/legal-regulatory-vendors",
+      "declineEvidence": {
+        "beforeReported": 327,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    },
+    {
+      "source": "https://reverbico.com/blog/sardine-vs-unit21-vs-alloy/",
+      "access": "cache miss; alternate reviewed",
+      "alternateSource": "https://www.alloy.com/guides/best-ai-agent-solutions-for-financial-compliance",
+      "strength": "The vendor-owned alternate distinguishes agent, copilot and framework purchases and presents evaluation criteria.",
+      "ours": "FluidRWA already includes an AI-assistance control and questions about policy errors, reviewers and operating cost.",
+      "action": "Require primary product evidence and test human authority, case replay and source provenance; do not repeat the vendor's self-ranking.",
+      "caveat": "The alternate is a broader compliance-agent guide, not a direct three-platform replacement comparison.",
+      "fluidrwaUrl": "https://www.fluidrwa.com/blog/alloy-vs-unit21-vs-sardine-fintech-risk-compliance",
+      "declineEvidence": {
+        "beforeReported": 304,
+        "afterReported": 0,
+        "status": "not_in_later_export"
+      },
+      "actualAiReplacementCitation": null,
+      "queryAttribution": "Not supplied by page export",
+      "aiCitationObservation": "Not observed in this pass; browser connection unavailable",
+      "observedAt": "2026-11-20"
+    }
+  ]
+}

@@ -621,6 +621,18 @@ function updateLlms(posts) {
   fs.writeFileSync(llmsPath, text);
 }
 
+function updateSelectedLlms(posts) {
+  const llmsPath = path.join(root, "llms.txt");
+  const text = fs.readFileSync(llmsPath, "utf8");
+  const section = text.match(/\n## Blog insights\n([\s\S]*?)(?=\n## |$)/);
+  if (!section) throw new Error("Missing Blog insights section in llms.txt.");
+  const urls = new Set(posts.map(post => blogUrl(post.slug)));
+  const existing = section[1].split("\n").filter(line => ![...urls].some(url => line.endsWith(url)));
+  const additions = posts.map(post => `- ${post.title}: ${blogUrl(post.slug)}`);
+  const next = `\n## Blog insights\n${existing.join("\n").trimEnd()}\n${additions.join("\n")}\n`;
+  fs.writeFileSync(llmsPath, text.replace(section[0], next));
+}
+
 const posts = readPosts().filter((post) => !post.redirectTo);
 const selectedSlugs = process.argv.includes("--only") ? new Set(process.argv.slice(process.argv.indexOf("--only") + 1).filter(arg => !arg.startsWith("--"))) : null;
 if (selectedSlugs && (!selectedSlugs.size || [...selectedSlugs].some(slug => !posts.some(post => post.slug === slug)))) throw new Error("Select existing article slugs after --only.");
@@ -640,6 +652,7 @@ fs.writeFileSync(path.join(blogDir, "tokenization", "index.html"), categoryPage(
 updateSitemap(posts);
 updateLlms(posts);
 } else {
+  if (process.argv.includes("--refresh-llms")) updateSelectedLlms(posts.filter(post => selectedSlugs.has(post.slug)));
   if (process.argv.includes("--refresh-index")) {
     fs.writeFileSync(path.join(root, "blog.html"), indexPage(posts));
     fs.mkdirSync(path.join(blogDir, "tokenization"), { recursive: true });

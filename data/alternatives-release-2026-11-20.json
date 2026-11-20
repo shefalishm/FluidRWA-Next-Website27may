@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-20",
+  "baselineCommit": "c725feb2aa7058101d960857c5f967b978d0adf2",
+  "slugs": [
+    "securitize-alternatives-2026",
+    "tokeny-alternatives-2026",
+    "fireblocks-alternatives-2026",
+    "anchorage-digital-alternatives-2026",
+    "moonpay-alternatives-2026",
+    "sumsub-alternatives-2026"
+  ],
+  "incomingSlugs": [
+    "top-tokenization-companies-2026",
+    "best-fund-tokenization-platforms-asset-managers",
+    "crypto-custody-providers-comparison-2026",
+    "fireblocks-vs-bitgo-vs-copper-custody-providers",
+    "moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers",
+    "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers"
+  ],
+  "minimumBodyWords": 3000,
+  "totalBodyWords": 19084,
+  "thumbnailMaxBytes": 81920,
+  "designChanged": false,
+  "cloudflareSettingsChanged": false,
+  "actualAiReplacementAuditComplete": false,
+  "citationRecoveryDemonstrated": false,
+  "googleSubmissionsConfirmedThisRelease": false,
+  "limitations": [
+    "Browser connection unavailable after the user requested continuation",
+    "Five parallel tasks stopped at account usage limit; three first drafts were retained and reviewed, three guides completed locally",
+    "Priority twelve-row content-evidence review is separate from actual Copilot citation attribution"
+  ]
+}

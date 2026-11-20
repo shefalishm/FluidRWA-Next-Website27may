@@ -43,13 +43,13 @@ Create Securitize, Tokeny, Fireblocks, Anchorage Digital, MoonPay and Sumsub alt
 
 Zoniqx belongs in relevant issuance comparisons only, described neutrally using current primary product material. Product names use lowercase z. Retain the creative-artwork standard with unique compressed thumbnails, descriptive alt text and separate social previews.
 
-Status: still unfinished. Six original artwork source images have been generated, but no alternatives guide is being published in the core-fix release. Each needs a complete distinct 3,000-word article, source verification, integration and publication checks. Generated artwork is not evidence that those articles are complete.
+Status: the subsequent alternatives release completes six distinct guides with more than 3,000 body words each, primary-source role summaries, unique compressed artwork and source/link/schema checks. See docs/alternatives-release-2026-11-20.md for counts and verification scope. This is a separate release from the earlier core fixes; a successful production verification is required before reporting the new guides live.
 
 ## Combined core implementation
 
 Groups 2-5 now have five canonical blog updates and the cost-basis use-case update. Each blog adds a ten-criterion buyer matrix, ten procurement questions, six focused FAQs and matching unordered ItemList data. The older duplicate comparison remains redirected. Original publication, broader review dates and artwork are retained. No live vendor performance benchmark or numerical rating is asserted. See data/combined-core-recovery-2026-11-20.json and scripts/test-combined-core-recovery.mjs.
 
-The 60-topic plan and specialist AI sales briefs were completed in the preceding release. Full fixed-query replacement-citation analysis across all 100 declining pages, the remaining Google indexing requests and the six new alternatives guides remain open. Citation recovery has not been demonstrated.
+The 60-topic plan and specialist AI sales briefs were completed in the preceding release. A further targeted content-evidence pass covers the twelve highest-loss rows, with access and relevance limitations preserved. Full fixed-query replacement-citation analysis across all 100 declining pages and the remaining Google indexing requests remain open. Citation recovery has not been demonstrated.
 
 ## Additional review: weekly competitor-article engine
 

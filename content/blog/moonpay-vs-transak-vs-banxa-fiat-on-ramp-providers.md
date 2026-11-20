@@ -5,12 +5,12 @@ description: "Compare documented ramp onboarding, KYC hand-offs, wallet controls
 date: "2026-08-03"
 reviewedDate: "2026-10-23"
 reviewedLabel: "October 23, 2026"
-modifiedDate: "2026-11-19"
+modifiedDate: "2026-11-20"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 category: "Payments"
 slug: "moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers"
-editorialUpdatedLabel: "November 19, 2026"
+editorialUpdatedLabel: "November 20, 2026"
 socialImage: "/assets/social/blog-moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers-editorial.jpg"
 rampDataset: "true"
 infographicImage: "/assets/infographics/moonpay-transak-banxa-onboarding-dataset.png"
@@ -188,3 +188,7 @@ Every row in the evidence table links to its exact primary source. All sources w
 - [Banxa: Native webhooks](https://docs.banxa.com/products/native-api/docs/transaction-lifecycle/webhooks)
 
 **Editorial update and integration-overview recheck: October 23, 2026. Detailed dataset verification: October 7, 2026. Reviewed by FluidRWA Research Team.**
+
+## Compare a wider ramp shortlist without losing existing orders
+
+The [MoonPay alternatives guide](/blog/moonpay-alternatives-2026) adds Banxa, Onramper, Ramp Network, Stripe crypto onramp and Transak to a role-based evaluation. Its migration runbook keeps pending purchases, refunds, disputes and historical support references separate from the launch of a new funding interface.

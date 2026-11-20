@@ -225,3 +225,7 @@ Before choosing a compliance provider, define:
 - Which decisions must be auditable?
 - Which data must be retained, deleted or exported?
 - Which compliance work remains with internal teams?
+
+## Compare identity alternatives without dropping adjacent controls
+
+The [Sumsub alternatives guide](/blog/sumsub-alternatives-2026) compares Alloy, Ondato, Persona, Trulioo and Veriff for different identity and business-verification workflows. It covers case continuity, reverification, evidence handling and safe event recovery without treating a wallet-risk service as a substitute for identity verification.

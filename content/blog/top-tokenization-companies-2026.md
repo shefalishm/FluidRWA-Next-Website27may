@@ -609,3 +609,7 @@ FluidRWA compares operating fit rather than awarding a universal winner. Sources
 **Editorial change, November 20, 2026:** added the procurement scorecard, ten buyer questions and targeted FAQs. The linked Tokeny, DigiShares and Zoniqx product pages were checked for these specific role descriptions today; earlier ecosystem descriptions retain their separately stated review dates.
 
 Continue with [fund-platform selection](/blog/best-fund-tokenization-platforms-asset-managers), [custody and settlement](/blog/crypto-custody-providers-comparison-2026), and [the Tokeny profile](/fluidrwa/tokeny).
+
+## Compare alternatives by the operating role
+
+For a broader service-stack decision, use [Securitize alternatives](/blog/securitize-alternatives-2026). For issuer software, ownership records and a controlled transition, use [Tokeny alternatives](/blog/tokeny-alternatives-2026). These guides separate the role being purchased from the evidence needed to approve it.

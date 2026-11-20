@@ -962,5 +962,29 @@
   "tokenizing-private-company-shares-register-secondary-trading": {
     "src": "/assets/blog-thumbnails/tokenizing-private-company-shares-register-secondary-trading-creative-20261120.webp",
     "alt": "FluidRWA: Tokenizing Private Company Shares: Who Runs the Register and Can Investors Trade? Ownership segments change hands beside a shareholder register."
+  },
+  "securitize-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/securitize-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: Securitize Alternatives for Issuance and Service-Stack Buyers. Illustrative paper financial district with an investor register and four issuance routes."
+  },
+  "tokeny-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/tokeny-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: Tokeny Alternatives for Issuer Software and Register Portability. Illustrative ownership register being moved between two issuer workbenches."
+  },
+  "fireblocks-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/fireblocks-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: Fireblocks Alternatives for Custody and Wallet Operations in 2026. Illustrative approval lock and separate custodial vault connected by an instruction envelope."
+  },
+  "anchorage-digital-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/anchorage-digital-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: Anchorage Digital Alternatives for Institutional Custody and Reporting. Illustrative institutional custody handover with a sealed asset case and ownership records."
+  },
+  "moonpay-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/moonpay-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: MoonPay Alternatives 2026: Compare On-Ramp Operations. Illustrative payment-card routes to a wallet, including a pending gate and refund loop."
+  },
+  "sumsub-alternatives-2026": {
+    "src": "/assets/blog-thumbnails/sumsub-alternatives-2026-creative-20261120.webp",
+    "alt": "FluidRWA: Sumsub Alternatives for Identity, KYB and Case Continuity. Illustrative analyst reviewing separate identity, business-ownership and wallet-risk records."
   }
 }

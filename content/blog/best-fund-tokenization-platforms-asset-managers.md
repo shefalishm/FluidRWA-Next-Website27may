@@ -202,3 +202,7 @@ For a smaller private-asset offering, include DigiShares or another relevant iss
 **Editorial change, November 20, 2026:** added the launch-gate matrix and focused FAQs, with the linked Tokeny and Zoniqx role descriptions checked today. The older RWA platform-comparison URL remains consolidated into the main tokenization guide to avoid splitting the same buyer question across duplicate pages. Earlier review dates are preserved.
 
 Read the [main tokenization shortlist](/blog/top-tokenization-companies-2026), [institutional custody comparison](/blog/crypto-custody-providers-comparison-2026) and [fund distribution guide](/blog/tokenized-fund-distribution-models) alongside the operating evidence in [Network Explorer](/network-explorer/fund-comparison).
+
+## Take the platform shortlist into a scoped alternatives review
+
+Use [Securitize alternatives](/blog/securitize-alternatives-2026) when the manager is reconsidering coordinated issuance and appointed services. Use [Tokeny alternatives](/blog/tokeny-alternatives-2026) when the central problem is issuer software, register portability and investor servicing. Neither guide assumes that changing the interface replaces the fund's operating appointments.
