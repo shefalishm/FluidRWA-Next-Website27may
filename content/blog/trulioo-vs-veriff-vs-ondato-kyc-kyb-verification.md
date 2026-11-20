@@ -4,7 +4,8 @@ description: "Compare Trulioo, Veriff and Ondato for global KYC, document and bi
 date: "2026-08-17"
 reviewedDate: "2026-10-07"
 reviewedLabel: "October 7, 2026"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-11-20"
+editorialUpdatedLabel: "November 20, 2026"
 category: "Compliance"
 slug: "trulioo-vs-veriff-vs-ondato-kyc-kyb-verification"
 infographicImage: "/assets/infographics/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification-comparison.png"
@@ -43,6 +44,43 @@ faq8q: "How should KYC vendors be tested?"
 faq8a: "Use consented test cases across target countries and document types, including edge cases. Measure completion, decision accuracy, abandonment, manual review, webhook reliability and the quality of the compliance record."
 socialImage: "/assets/social/blog-trulioo-vs-veriff-vs-ondato-kyc-kyb-verification-editorial.jpg"
 ---
+
+## The company exists. Does the applicant have authority to act for it?
+
+A company-register match can establish that a business record exists. It does not, by itself, establish that the person opening your account controls the business, that the ownership chain is complete or that the business is eligible for your product. A useful KYC and KYB comparison follows that entire journey instead of awarding a winner for the largest country count.
+
+[Trulioo's current business-verification product page](https://www.trulioo.com/products/kyb-business-verification) provides a starting point for its KYB offering. [Veriff's pricing and capability page](https://www.veriff.com/pricing) lists business verification alongside its other products. [Ondato describes company, representative and beneficial-owner checks](https://ondato.com/). Availability in a product catalogue is the beginning of procurement, not confirmation that every registry, legal form and ownership layer you need is included in your plan.
+
+## Separate four questions in the demo
+
+| Question | Example evidence | What a pass must not imply |
+| --- | --- | --- |
+| Does this business exist? | Legal name, registry identifier, status and record date | That the applicant represents it |
+| Who controls it? | Ownership chain and supporting records | That every owner has been screened |
+| Is this person authorized? | Identity result and authority evidence under your policy | That a matching name grants signing rights |
+| Can this customer use our product? | Eligibility decision and documented review | That successful KYB approves an investment offering |
+
+Take the same set of business types to each candidate: a straightforward domestic company, a foreign company with translated documents, a holding-company chain and a legal form with limited public ownership information. These are proposed test cases. Record missing fields explicitly rather than turning a partial match into a complete one.
+
+For each case, ask the vendor to show what the applicant sees when evidence is missing. Can the applicant save progress? Does the request explain which document is needed? Can a reviewer ask for one correction without restarting every check? A technically accurate service can still lose good customers if its recovery flow is confusing.
+
+## Evaluate coverage at the field and document level
+
+Build a coverage sheet with jurisdiction, legal form, registry, available fields, ownership depth, refresh behavior and required supporting documents. Keep source-record age separate from the moment your platform fetched it. A freshly retrieved historical record is still historical evidence.
+
+Ask who decides when a registry response conflicts with an uploaded document. The appropriate outcome may be a pending review, not an automatic rejection. Preserve both records, the discrepancy and the reviewer's explanation under your retention policy. Avoid putting personal records into a shared spreadsheet simply because it is convenient for comparing vendors.
+
+## Price the unresolved cases as well as the successful ones
+
+Request separate pricing for company lookup, document retrieval, connected-person verification, screening, ownership research, ongoing monitoring and manual work. Then replay the same case pack. One business may trigger several checks, several retries and a human review; a headline per-company price does not capture that full cost.
+
+Use a simple procurement measure: total evaluation cost divided by completed, policy-compliant business onboardings. Report unresolved and rejected cases alongside the denominator, with reasons. Do not improve the apparent conversion rate by dropping hard legal forms from the sample halfway through the evaluation.
+
+## Test the change after approval
+
+Change a synthetic company's address, representative or ownership record after its initial approval. Observe how the new event reaches your case queue and whether the earlier approval remains reconstructable. Ask how monitoring is enabled and billed; do not assume it follows automatically from an initial KYB check.
+
+For a tokenized offering, connect that event to the investor's eligibility and transaction-control process. Identity software does not determine the legal consequences of an ownership change. Your designated compliance owner must define that policy. [Share the countries, legal forms and expected volumes](/submit-requirement?source=kyb-comparison&article=trulioo-vs-veriff-vs-ondato-kyc-kyb-verification) to build a more relevant shortlist, or compare the [wider KYC and AML directory](/vendors/kyc-aml-providers).
 
 ## The Short Answer
 

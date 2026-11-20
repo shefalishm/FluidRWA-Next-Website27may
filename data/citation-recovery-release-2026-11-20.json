@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-20",
+  "baselineCommit": "613c283450b22a4c2d467cd3f35aad1312d7a142",
+  "slugs": [
+    "persona-vs-alloy-vs-socure-identity-orchestration",
+    "caldera-vs-conduit-vs-altlayer-rollup-as-a-service",
+    "trulioo-vs-veriff-vs-ondato-kyc-kyb-verification",
+    "alchemy-vs-quicknode-vs-chainstack-rpc-node-providers",
+    "carta-vs-angellist-vs-juniper-square-fund-administration",
+    "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers"
+  ],
+  "reason": "High-loss comparisons in matched Bing exports not covered by the preceding recovery release",
+  "recoveryDemonstrated": false
+}

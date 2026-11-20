@@ -4,7 +4,8 @@ description: "Compare Caldera, Conduit and AltLayer for rollup frameworks, data 
 date: "2026-08-26"
 reviewedDate: "2026-08-26"
 reviewedLabel: "August 26, 2026"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-11-20"
+editorialUpdatedLabel: "November 20, 2026"
 category: "Rollup Infrastructure"
 slug: "caldera-vs-conduit-vs-altlayer-rollup-as-a-service"
 image: "/assets/blog-images/caldera-vs-conduit-vs-altlayer-rollup-as-a-service.svg"
@@ -25,6 +26,41 @@ faq2a: "No. Public product pages do not establish a performance winner for your 
 faq3q: "How do I test an exit from a managed rollup service?"
 faq3a: "Set up the proposed chain, change a contract or network setting under its normal approval process, then test a withdrawal during an interrupted service. Ask how users can see the status of that withdrawal."
 ---
+
+## A chain can launch quickly and still be difficult to operate
+
+Your demo chain works. Then the sequencer stops accepting transactions just as an investor needs to withdraw. Who can restart it, who can authorize a software change and which records does your team need to explain the interruption? Those questions separate a deployment service from a production operating arrangement.
+
+Caldera, Conduit and AltLayer should therefore receive the same configuration brief. [Caldera's Rollup Engine quickstart](https://docs.caldera.xyz/rollup-engine/quickstart) is a deployment starting point; [Conduit's documentation](https://docs.conduit.xyz/overview) describes a wider chain-infrastructure platform. [AltLayer's current RaaS page](https://altlayer.io/raas) describes stack and data-availability choices. None of those product descriptions determines the operating guarantees of your signed configuration.
+
+## The configuration sheet to attach to an RFP
+
+| Field | Specify before comparing proposals | Why it changes the decision |
+| --- | --- | --- |
+| Execution and settlement | Framework, release, settlement chain and supported upgrade path | Similar branding can hide different finality and upgrade assumptions |
+| Data availability | Exact DA system and the procedure when it becomes unavailable | A cheap normal day does not establish recoverability |
+| Sequencing | Operator, access policy, emergency authority and transaction ordering | The service can stop even when the application is healthy |
+| Bridge | Operator, contracts, upgrade keys and withdrawal states | Bridging is a separate dependency, not a free security property |
+| Records and monitoring | RPC history, indexer recovery and incident evidence | Operations teams need to reconstruct what users experienced |
+| Exit | Export format, infrastructure handover and termination assistance | A runnable chain matters more than possession of a database dump |
+
+For a bank or regulated-asset project, add a separate data-classification review. An access-controlled application is not automatically a private ledger; a permissioned sequencer does not by itself prevent data becoming visible elsewhere. Have the architecture team map where transaction payloads, logs and support records travel. Legal and compliance reviewers should assess the actual activity and jurisdictions, not treat an infrastructure vendor's enterprise positioning as permission to conduct financial services.
+
+## A failure drill that gives the proposals substance
+
+Use a non-production deployment and a small synthetic transaction set. Submit a transfer, interrupt the agreed service component and observe whether the application can tell the difference between accepted, included and finalized. Restore the component under the proposed approval process. Then reconcile the original request with the final chain result, including a deliberately retried request.
+
+Next, test a withdrawal during the interruption. Record who can initiate it, the dependencies that must remain available, the expected delay and how a user sees its status. Do not promise an emergency exit merely because a diagram contains a bridge. A useful acceptance pack includes the incident timeline, transaction identifiers, runbook, authority matrix and any unresolved dependency.
+
+Finally, ask a second engineer to take over using only the handover materials. If recovery depends on an undocumented vendor action, put that action, response commitment and escalation route in the proposal. This is a buyer-designed drill, not a claim that any of the three vendors failed it.
+
+## Model the bill when traffic is quiet and when it spikes
+
+Keep platform charges, sequencing, settlement gas, data availability, proving where relevant, RPC, indexing, observability and support in separate rows. Request a low-activity month, a normal month and a burst scenario. State which costs are fixed, metered, passed through or subject to a minimum. Ask how a delayed settlement or retry changes the bill rather than comparing only the launch fee.
+
+A second provider can be useful to evaluate when your first proposal leaves an important dependency unresolved. Zeeve, Gelato and other providers should enter a broader shortlist only after their proposed architecture is matched to the same requirements. More logos do not make an apples-to-oranges comparison fairer.
+
+For wallet onboarding and gas sponsorship, use the separate [appchain integration comparison](/blog/caldera-vs-conduit-vs-gelato-raas-appchains). For the architecture and operating model above, [submit the chain requirements](/submit-requirement?source=rollup-comparison&article=caldera-vs-conduit-vs-altlayer-rollup-as-a-service).
 
 ## Side-by-side comparison
 
@@ -92,4 +128,4 @@ The next step is a like-for-like proposal: the same framework, settlement layer,
 - [Conduit platform](https://www.conduit.xyz/platform)
 - [Conduit documentation](https://docs.conduit.xyz/)
 - [AltLayer RaaS](https://altlayer.io/raas)
-- [AltLayer RaaS documentation](https://docs.altlayer.io/altlayer-documentation/rollup-as-a-service/what-is-rollup-as-a-service-raas)
+- [AltLayer current RaaS product and architecture overview](https://altlayer.io/raas)

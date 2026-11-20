@@ -4,7 +4,8 @@ description: "Compare Sumsub, Persona, Socure and Chainalysis for KYC, KYB, iden
 date: "2026-08-01"
 reviewedDate: "2026-10-02"
 reviewedLabel: "October 2, 2026"
-modifiedDate: "2026-10-25"
+modifiedDate: "2026-11-20"
+editorialUpdatedLabel: "November 20, 2026"
 category: "Compliance"
 slug: "sumsub-vs-persona-vs-chainalysis-kyc-aml-providers"
 image: "/assets/blog-images/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers.svg"
@@ -34,6 +35,43 @@ faq8q: "Where can I compare more compliance vendors?"
 faq8a: "FluidRWA maintains KYC, AML, compliance infrastructure and legal vendor directories for tokenization and Web3 teams."
 socialImage: "/assets/social/blog-sumsub-vs-persona-vs-chainalysis-kyc-aml-providers-editorial.jpg"
 ---
+
+## A verified investor can still send funds from a risky wallet
+
+An investor passes identity checks and reaches the funding screen. The wallet used for payment has not been assessed, and nobody has established whether the investor controls it. That is not one failed KYC check. It is a missing handoff between different controls.
+
+Sumsub, Persona, Socure and Chainalysis belong in the same architecture discussion, but not in a single interchangeable ranking. [Persona documents identity integration routes](https://docs.withpersona.com/getting-started), while [Socure RiskOS covers decisioning and orchestration](https://www.socure.com/solutions/riskos). [Chainalysis KYT addresses crypto transaction monitoring](https://www.chainalysis.com/product/kyt/). The buyer needs to identify which decisions each product will supply and who owns the final policy.
+
+## The integration detail that changes a Sumsub proposal
+
+[Sumsub's current provider documentation](https://docs.sumsub.com/docs/providers) distinguishes managed access from bring-your-own-key arrangements. Its table lists Chainalysis as BYOK: the customer holds a provider relationship and supplies credentials. A visible integration therefore does not mean that the underlying analytics subscription is automatically included in the Sumsub price.
+
+[Its Crypto Monitoring FAQ](https://docs.sumsub.com/docs/crypto-monitoring-faq) also separates wallet screening before a transfer from transaction screening after broadcast. It points to a separate wallet-ownership process when ownership evidence is required. These are product and workflow distinctions, not a legal conclusion about which checks a particular offering must perform.
+
+## Follow the investor through the complete workflow
+
+| Stage | Decision to make | Keep separate from |
+| --- | --- | --- |
+| Identity onboarding | Whether the person or business satisfies the defined identity policy | Investment eligibility and wallet risk |
+| Investor eligibility | Whether this investor can access the specific offering | A general identity approval |
+| Wallet linkage | Whether the relevant person controls or is authorized to use the wallet | The wallet's transaction-risk history |
+| Pre-transfer assessment | Whether the proposed funding route needs review under your policy | A guarantee about all future activity |
+| Post-broadcast monitoring | Whether the observed transfer creates a new case | Proof that settlement and investor allocation are complete |
+| Ongoing review | Whether changed facts require another decision | Erasure of the original approval evidence |
+
+Map each stage to a vendor product, your application and an accountable person. Where a decision can pause a subscription or transfer, define the pending state and the customer-support message. Avoid presenting a provider outage as a failed identity or an accusation of wrongdoing.
+
+## Test a delayed result without losing the subscription
+
+Use synthetic applicants and a sandbox transaction scenario. Delay the risk response after the application creates a subscription reference. Your system should preserve that reference, distinguish pending review from failure and avoid allocating the same payment twice when a callback is retried.
+
+Then simulate a newly flagged wallet after onboarding. Ask how the event reaches the case queue, what evidence the reviewer receives and how an authorized decision is recorded. Do not place personal identity documents or detailed risk allegations on a public chain. Any downstream eligibility or transfer action should follow the policy set by the responsible team.
+
+## Price the complete control stack
+
+Request separate commercial lines for identity checks, business verification, screening, transaction volume, external analytics access, ongoing monitoring, case users and implementation. State who supplies and rotates each API credential. Record who provides support when an upstream source is unavailable and whether incident investigation crosses two vendor contracts.
+
+The procurement target is not the fewest logos. It is a complete set of controls with understandable responsibility, reliable handoffs and a recoverable record. Use the [identity-orchestration comparison](/blog/persona-vs-alloy-vs-socure-identity-orchestration) for the onboarding decision layer and [share the proposed investor-to-wallet workflow](/submit-requirement?source=compliance-stack&article=sumsub-vs-persona-vs-chainalysis-kyc-aml-providers) to compare the missing components.
 
 ## These Vendors Do Different Compliance Jobs
 

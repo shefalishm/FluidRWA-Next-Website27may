@@ -4,7 +4,8 @@ description: "Compare Carta, AngelList and Juniper Square for fund administratio
 date: "2026-08-09"
 reviewedDate: "2026-08-09"
 reviewedLabel: "August 9, 2026"
-modifiedDate: "2026-10-28"
+modifiedDate: "2026-11-20"
+editorialUpdatedLabel: "November 20, 2026"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 considerationAfterTable: "true"
@@ -37,6 +38,45 @@ faq8q: "Where can I compare more fund administration vendors?"
 faq8a: "FluidRWA maintains a fund administration and transfer agent provider directory for private market and tokenized asset teams."
 socialImage: "/assets/social/blog-carta-vs-angellist-vs-juniper-square-fund-administration-editorial.jpg"
 ---
+
+## The portal looks finished. The quarter-end work has only begun
+
+An investor can sign documents and see a balance, yet the fund team still spends days reconciling subscriptions, fees and distributions. That is why a polished investor portal is not a complete fund-administration comparison. The decision is about the work somebody must perform after the software screen looks correct.
+
+[Carta's fund-administration page](https://carta.com/fund-management/fund-administration/) connects administration with its broader fund products. [AngelList's current fund platform](https://www.angellist.com/funds) is explicitly venture-oriented. [Juniper Square's administration offering](https://www.junipersquare.com/administration/fund-administration) combines administration services with technology for private-market managers. Compare the proposed engagement, not every capability mentioned anywhere on the vendor's website.
+
+## Give every administrator the same operating case
+
+Use a hypothetical fund with four investors, two portfolio positions, a management fee and one distribution. Add a late subscription, an amended investor record and an expense allocated between two entities. The numbers can be synthetic; the point is to see the accounting and approval process, not obtain investment advice from a demo.
+
+Ask each candidate to walk from the source documents to the closing records, bank reconciliation, investor capital accounts and final statement. If a token or wallet reference is part of the proposed structure, introduce it as an additional record identifier, not a replacement for the legal investor record. Ask who resolves any difference between those systems.
+
+## Separate software access from service responsibility
+
+| Workstream | What to identify in the proposal | Evidence to request |
+| --- | --- | --- |
+| Fund accounting | Who prepares the books, applies policies and reviews exceptions | Sample close checklist and responsibility matrix |
+| Investor operations | Who handles onboarding, amendments, capital calls and questions | Escalation path and example investor record |
+| Valuation | Who supplies inputs, applies policy and approves changes | Valuation policy handoff and review trail |
+| Tax | Preparation, filing, investor documents and excluded work | Named service scope and delivery calendar |
+| Treasury | Who initiates, approves and reconciles movements | Approval controls and reconciliation output |
+| Migration | Who maps historical records and resolves opening differences | Trial conversion, exception log and sign-off |
+
+An administrator may prepare a calculation while the manager retains approval. A portal may display a tax document prepared by a separate provider. Preserve those distinctions in the contract, especially when several affiliated or external service entities are involved.
+
+## Make the exception visible before quarter-end
+
+In the demo, deliberately change one synthetic investor's banking instructions and submit a duplicate capital-call payment reference. Observe whether the workflow holds the exception, identifies the owner and preserves the original record. Ask how the team documents an authorized correction without overwriting history.
+
+Next, introduce a late valuation update after a draft statement has been circulated. Ask which outputs change, who approves the revision and how investors are told that a prior document is superseded. A satisfactory answer includes an actual workflow and record trail, not simply a promise that the team is responsive.
+
+## Normalize the proposal against the life of the fund
+
+Keep setup, recurring administration, investor counts, extra entities, transaction volume, tax, audit support, special reporting, integrations and termination assistance in separate rows. Ask which assumptions trigger repricing. A low fee for a simple first year does not describe the cost of a later vehicle with more investors and a more complicated close.
+
+For migration, obtain a parallel-close plan. Reconcile opening balances, commitments, paid-in capital, distributions, fees and document history before retiring the old workflow. Require a named owner for each unresolved difference. A successful file import alone is not a completed administrator transition.
+
+If the fund uses tokenized access or stablecoin subscriptions, confirm that the proposed administrator supports that exact arrangement and identify any separate custody, transfer-agent or payment provider. Do not infer support from a general digital-assets statement. [Describe the fund structure and outsourced work](/submit-requirement?source=fund-admin-acceptance&article=carta-vs-angellist-vs-juniper-square-fund-administration) to build a narrower shortlist.
 
 ## Start with your fund structure
 
