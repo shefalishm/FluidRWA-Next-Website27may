@@ -389,12 +389,17 @@ function postPage(post, posts) {
     .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
     .slice(0, 4);
   const research = post.rampDataset === "true" || post.readerFirst === "true" ? null : getBlogResearch(post.slug);
-  const citations = post.reviewedBy ? [...new Set([...post.html.matchAll(/href="(https:\/\/[^"]+)"/g)].map(match => match[1]))] : research?.sources?.map(([, href]) => href) || [];
+  const citations = post.reviewedBy || post.comparisonItems ? [...new Set([...post.html.matchAll(/href="(https:\/\/[^"]+)"/g)].map(match => match[1]))] : research?.sources?.map(([, href]) => href) || [];
+  const comparisonItems = (Array.isArray(post.comparisonItems) ? post.comparisonItems : String(post.comparisonItems || "").split("|")).map(name => name.trim()).filter(Boolean);
+  for (const name of comparisonItems) {
+    if (!post.html.toLowerCase().includes(name.toLowerCase())) throw new Error(`Schema item is not visible: ${post.slug}: ${name}`);
+  }
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Article", headline: post.title, description, image: infographicUrl ? [imageUrl, infographicUrl] : imageUrl, datePublished: post.date, dateModified: post.modifiedDate || postReviewedDate, author: { "@type": "Organization", name: "FluidRWA", url: site }, publisher: { "@type": "Organization", name: "FluidRWA", logo: { "@type": "ImageObject", url: `${site}/assets/fluidrwa-small-logo.png` } }, mainEntityOfPage: url, citation: citations, speakable: { "@type": "SpeakableSpecification", cssSelector: [".answer-box", ".research-block"] }, about: [{ "@type": "Thing", name: post.category }, { "@type": "Thing", name: "Web3 vendor discovery" }, { "@type": "Thing", name: "Digital asset infrastructure" }] },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site }, { "@type": "ListItem", position: 2, name: "Insights", item: `${site}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] },
+      ...(comparisonItems.length ? [{ "@type": "ItemList", name: `${post.title}: providers discussed`, itemListOrder: "https://schema.org/ItemListUnordered", numberOfItems: comparisonItems.length, itemListElement: comparisonItems.map(name => ({ "@type": "ListItem", name })) }] : []),
       ...(faqs.length ? [{ "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }] : []),
       ...(post.reviewedBy && !infographicUrl ? [{ "@type": "ImageObject", name: post.title, contentUrl: `${site}${post.image}`, caption: post.imageAlt, creator: { "@type": "Organization", name: "FluidRWA" } }] : []),
       ...(infographicUrl ? [{ "@type": "ImageObject", name: post.infographicName || post.title, contentUrl: infographicUrl, caption: post.infographicCaption || post.infographicAlt, creditText: "FluidRWA Research", creator: { "@type": "Organization", name: "FluidRWA", url: site }, copyrightNotice: "FluidRWA", acquireLicensePage: `${site}/contact`, keywords: post.infographicKeywords ? post.infographicKeywords.split(",").map(value => value.trim()).filter(Boolean) : ["RWA tokenization platforms", "asset tokenization comparison", "tokenization vendor shortlist"] }] : [])
@@ -602,7 +607,7 @@ function updateSitemap(posts) {
   let sitemap = fs.readFileSync(sitemapPath, "utf8");
   sitemap = sitemap.replace(/\s*<url><loc>https:\/\/www\.fluidrwa\.com\/blog(?:\.html|\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g, "");
   sitemap = sitemap.replace(/\s*<url><loc>https:\/\/www\.fluidrwa\.com\/reports-research<\/loc>[\s\S]*?<\/url>/g, "");
-  const entries = [`  <url><loc>${site}/blog</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>`, `  <url><loc>${site}/reports-research</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>`, `  <url><loc>${blogUrl("tokenization")}</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>`, ...posts.map((p) => `  <url><loc>${blogUrl(p.slug)}</loc><lastmod>${esc(p.reviewedDate || reviewedDate)}</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>`)].join("\n");
+  const entries = [`  <url><loc>${site}/blog</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>`, `  <url><loc>${site}/reports-research</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>`, `  <url><loc>${blogUrl("tokenization")}</loc><lastmod>${reviewedDate}</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>`, ...posts.map((p) => `  <url><loc>${blogUrl(p.slug)}</loc><lastmod>${esc(p.modifiedDate || p.reviewedDate || p.date)}</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>`)].join("\n");
   sitemap = sitemap.replace(/\s*<\/urlset>/, `\n${entries}\n</urlset>`);
   fs.writeFileSync(sitemapPath, sitemap);
 }
@@ -646,7 +651,7 @@ updateLlms(posts);
     const url = blogUrl(post.slug);
     const entry = sitemap.split("<url>").find(part => part.startsWith(`<loc>${url}</loc>`));
     if (entry) sitemap = sitemap.replace(entry, entry.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${esc(post.modifiedDate || post.reviewedDate || reviewedDate)}</lastmod>`));
-    else sitemap = sitemap.replace("</urlset>", `<url><loc>${url}</loc><lastmod>${esc(post.reviewedDate || post.date)}</lastmod></url>\n</urlset>`);
+    else sitemap = sitemap.replace("</urlset>", `<url><loc>${url}</loc><lastmod>${esc(post.modifiedDate || post.reviewedDate || post.date)}</lastmod></url>\n</urlset>`);
   }
   fs.writeFileSync(sitemapPath, sitemap);
 }

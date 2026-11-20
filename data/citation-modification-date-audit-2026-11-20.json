@@ -1,0 +1,125 @@
+{
+  "auditDate": "2026-11-20",
+  "scope": "Current November 19 modifiedDate fields checked against the commit introducing that value; this is not a legal or product verification-date refresh",
+  "rows": [
+    {
+      "file": "content/blog/alloy-vs-unit21-vs-sardine-fintech-risk-compliance.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/best-blockchain-development-companies-web3-rwa.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/best-fund-tokenization-platforms-asset-managers.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/circle-vs-bridge-vs-bvnk-stablecoin-infrastructure.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/crypto-custody-providers-comparison-2026.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/enterprise-crypto-tax-reporting-software-rfp.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/figment-vs-kiln-vs-twinstake-staking-infrastructure.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/kyc-aml-providers-comparison-2026.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/real-estate-tokenization-complete-guide.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/smart-contract-development-company-comparison-2026.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/talos-vs-wyden-vs-finery-markets-institutional-trading.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/tokenization-law-firms-rwa-projects.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/tokenizing-private-company-shares-register-secondary-trading.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/top-tokenization-companies-2026.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    },
+    {
+      "file": "content/blog/web3-adoption-across-industries.md",
+      "introducingCommit": "57558c9e18a7a4349930539ca223c2f74f8c0e9f",
+      "bodyChanged": true,
+      "meaningfulSourceDifference": true,
+      "result": "source content or non-date metadata changed"
+    }
+  ]
+}

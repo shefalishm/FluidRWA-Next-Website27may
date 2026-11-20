@@ -1,0 +1,192 @@
+{
+  "date": "2026-11-20",
+  "rows": [
+    {
+      "slug": "top-tokenization-companies-2026",
+      "vendors": [
+        "Securitize",
+        "Tokeny",
+        "Zoniqx",
+        "Brickken",
+        "DigiShares",
+        "Polymath",
+        "ADDX",
+        "Taurus",
+        "InvestaX",
+        "KAIO"
+      ],
+      "faqs": [
+        [
+          "What are the best platforms for tokenized private companies in 2026?",
+          "Start with issuance and shareholder servicing rather than a tokenized investment product. Compare the issuer tooling described by Tokeny, DigiShares and Zoniqx against the company's ownership register, investor restrictions, corporate actions and intended jurisdictions. Obtain proposals for the actual operating model, not a general platform ranking."
+        ],
+        [
+          "Which issuance platforms support tokenized assets, and how do providers differ?",
+          "This shortlist separates issuance software, institutional infrastructure and investor-access models. Tokeny describes issuer and investor applications; Zoniqx separates z360 issuer workflows from zConnect distribution. Compare the contracted services and appointed intermediaries for the asset being issued."
+        ],
+        [
+          "What is a tokenization platform?",
+          "It is software and associated workflows for representing and servicing asset interests using tokens. The offering documents, ownership record, investor eligibility, custody and servicing responsibilities still need to be defined outside a token contract."
+        ],
+        [
+          "Which providers offer infrastructure for tokenized asset issuance?",
+          "The ten starting points in this guide include Securitize, Tokeny, Zoniqx, Brickken, DigiShares, Polymath, ADDX, Taurus, InvestaX and KAIO. They are not interchangeable: select the relevant service role before comparing implementation proposals."
+        ],
+        [
+          "Which platforms can a fintech trust for tokenized asset issuance?",
+          "Trust should follow evidence: the exact contracting entity, responsibilities, security scope, recoverability, exportability and a demonstrated complete lifecycle. A platform name, logo or marketing security claim is not enough to approve an issuance."
+        ],
+        [
+          "Which providers cover end-to-end tokenized fund launch and asset management?",
+          "Ask for a responsibility matrix connecting issuance, administration, transfer agency, custody and distribution. A platform may coordinate several steps while other entities perform the services. Use the fund-platform comparison and Network Explorer to frame those questions."
+        ]
+      ],
+      "block": "## A purchase-ready platform scorecard\n\nA founder can leave a tokenization demo impressed and still not know who will answer an investor's redemption request. Resolve that uncertainty before scoring features. Start with a single offering, a named operating team and the records that must agree when money and ownership move.\n\nThe following is a buyer evaluation framework, not a scored benchmark or a claim that every shortlisted platform supplies every function.\n\n| Criterion | Evidence the buyer should obtain | Acceptance exercise |\n|---|---|---|\n| Ownership record | Offering documents and appointed register owner | Reconcile an issued interest to the investor record |\n| Investor eligibility | Product-specific rules and accountable reviewer | Reject an ineligible applicant without accepting funds |\n| Issuance authority | Defined administrator and signing permissions | Require independent approval for minting |\n| Funding | Account, payment reference and allocation rules | Hold an unmatched payment outside the ownership register |\n| Transfer restrictions | Configured rules and exception authority | Attempt a transfer to an unapproved investor |\n| Servicing | Distribution, voting and corporate-action records | Reproduce one investor statement from source events |\n| Redemption | Cutoffs, liquidity owner and cancellation evidence | Reconcile interest cancellation to final payment |\n| Integrations | Versioned API documentation and support ownership | Recover from a missed event without duplicating an action |\n| Security | Service-specific assessment and recovery procedure | Remove an administrator and test continuity |\n| Exit | Export format, contractual assistance and retained records | Reconstruct holdings without the incumbent dashboard |\n\n### Match the software role before choosing a company\n\n[Tokeny's platform documentation](https://docs.tokeny.com/docs/t-rex-platform) describes issuer servicing and investor applications. [DigiShares](https://digishares.io/) describes configurable tokenization software. [Zoniqx](https://www.zoniqx.com/) distinguishes z360 from zConnect. Those product descriptions help identify the questions to ask; they do not assign your offering's legal responsibilities or promise investor demand.\n\nFor a property sponsor, start with a branded investor journey and ongoing distributions. For a private company, start with ownership changes and corporate actions. For a fund manager, begin with the administrator and transfer-agent model. Do not use the same weighted scorecard for all three.\n\n### Ten questions to take into the selection meeting\n\n1. Which legal entity contracts for each service?\n2. Who maintains the authoritative ownership record?\n3. Who approves investor eligibility for this offering?\n4. What happens to money received before approval?\n5. Which actions need independent authorization?\n6. How are blocked transfers investigated and released?\n7. Who reconciles distributions, fees and redemptions?\n8. What history can we export, including corrections?\n9. Which implementation and third-party charges are outside the quote?\n10. Can we complete an orderly migration without losing investor access?\n\n### How we compare and what changed\n\nFluidRWA compares operating fit rather than awarding a universal winner. Sources are company product materials and the linked public records; suggested acceptance tests are our buyer guidance, not tests performed on vendor systems. No numerical rating is assigned without a comparable test.\n\n**Editorial change, November 20, 2026:** added the procurement scorecard, ten buyer questions and targeted FAQs. The linked Tokeny, DigiShares and Zoniqx product pages were checked for these specific role descriptions today; earlier ecosystem descriptions retain their separately stated review dates.\n\nContinue with [fund-platform selection](/blog/best-fund-tokenization-platforms-asset-managers), [custody and settlement](/blog/crypto-custody-providers-comparison-2026), and [the Tokeny profile](/fluidrwa/tokeny)."
+    },
+    {
+      "slug": "talos-vs-wyden-vs-finery-markets-institutional-trading",
+      "vendors": [
+        "Talos",
+        "Wyden",
+        "Finery Markets"
+      ],
+      "faqs": [
+        [
+          "Talos vs Wyden vs Finery Markets: how do they differ for institutional trading?",
+          "Talos documents multi-venue trading technology; Wyden describes a bank and broker operating layer joining trading with settlement and accounting; Finery Markets describes electronic liquidity workflows including RFQ. The appropriate choice depends on which part of your trade lifecycle needs to change."
+        ],
+        [
+          "What should an institution check before choosing a digital asset trading platform?",
+          "Check eligible entities and counterparties, funding and credit arrangements, order controls, custody dependencies, settlement records, recovery and exportability. Demonstrate a partial fill, cancellation and failed settlement using one persistent order identifier."
+        ],
+        [
+          "Which provider suits OTC and RFQ workflows?",
+          "Finery Markets explicitly documents RFQ and liquidity workflows, while Talos also offers RFQ within its trading infrastructure. Compare counterparty access, quote firmness, expiry, credit and settlement arrangements for the actual product being proposed."
+        ],
+        [
+          "What integrations and settlement options do these platforms support?",
+          "Request the exact connector, message version and operational support model for each venue, custodian and accounting system. Talos describes FIX, REST and WebSocket interfaces; Wyden describes custody and core-banking integration. A connectivity claim does not guarantee access or settlement finality."
+        ],
+        [
+          "How do these platforms handle custody and counterparty risk?",
+          "Trading software does not remove the institution's exposure to its custodians and counterparties. Map who holds assets, who owes settlement, which limits apply and what happens when a counterparty or connector becomes unavailable."
+        ],
+        [
+          "What do these platforms cost, and which are quote-based?",
+          "This review does not establish a comparable public tariff for the same institutional scope across all three. Obtain itemized proposals covering modules, venues, users, implementation, support, transaction charges and third-party services."
+        ]
+      ],
+      "block": "## Compare the control plane, not just the trading screen\n\nThe awkward moment in a trading demo is often after the trade. A portfolio manager sees a fill, operations sees a pending movement and finance sees no settled balance. A useful platform evaluation follows that disagreement until each system agrees on what actually happened.\n\nFresh product references for the following scope are [Talos Trading](https://www.talos.com/our-solutions/trading), [Wyden Digital Asset Trading](https://www.wyden.io/solutions/digital-asset-trading/) and [Finery Markets RFQ](https://finerymarkets.com/rfq.html). These are vendor descriptions, not comparative execution results.\n\n| Criterion | Ask all three providers | Evidence to retain |\n|---|---|---|\n| Order ownership | Where does an instruction become authoritative? | Client and venue identifiers |\n| RFQ terms | Is a quote firm and when does it expire? | Quote, expiry and acceptance record |\n| Credit | What limits apply before routing? | Limit decision and exposure record |\n| Funding | Which assets must be prefunded? | Account and available-balance evidence |\n| Partial fills | How are fills and residuals allocated? | Fill-by-fill audit trail |\n| Custody | Who controls the settlement assets? | Custody agreement and integration map |\n| Settlement | Which event closes the obligation? | Confirmation and reconciliation state |\n| Outage recovery | What prevents a duplicate order? | Retry and replay procedure |\n| Reporting | Can independent systems reproduce the trade? | Export with fees and timestamps |\n| Commercial scope | What is excluded from implementation? | Itemized statement of work |\n\n### Choose by the hardest unresolved dependency\n\nStart with Talos when the investigation centres on a multi-venue execution and trading technology stack. Start with Wyden when bank or broker operations must connect trading, settlement and accounting. Start with Finery Markets when the central problem is electronic liquidity interaction, including RFQ. These are investigation paths, not recommendations to skip legal, risk or operational approval.\n\nIf the biggest gap is asset safeguarding, procurement should first resolve the [custody model](/blog/crypto-custody-providers-comparison-2026). If the team cannot distinguish a quote from an executable order, use the [RFQ, order-book and OTC guide](/blog/rfq-vs-order-book-vs-otc-crypto-execution) before commissioning an integration.\n\n### Ten questions for an operational sign-off\n\n1. Who can submit an instruction and change a limit?\n2. What distinguishes a rejected order from an uncertain order?\n3. Which counterparties are available to our contracting entity?\n4. How are quote expiry and price movement recorded?\n5. What prevents routing beyond available credit or funds?\n6. How are fees assigned across partial fills?\n7. Who owns an unsettled obligation overnight?\n8. Can operations recover after a missed event?\n9. Can an independent reviewer reconcile the final balances?\n10. What complete history do we receive when leaving?\n\n**Editorial change, November 20, 2026:** added the control-plane matrix, operational questions and six focused FAQs. The three linked product pages were checked today for these specific scope descriptions. Existing broader review and infographic dates remain unchanged. FluidRWA has not conducted a live execution benchmark or obtained equivalent contractual quotes."
+    },
+    {
+      "slug": "crypto-custody-providers-comparison-2026",
+      "vendors": [
+        "Anchorage Digital",
+        "BitGo",
+        "Fireblocks",
+        "Copper",
+        "Gemini",
+        "Fidelity Digital Assets"
+      ],
+      "faqs": [
+        [
+          "How do digital asset custody providers compare on regulation, custody and settlement services?",
+          "Compare the exact legal entity and service contract, then separate asset safeguarding from wallet software, execution and settlement. Group branding and a supported asset list do not establish permission or suitability for a particular customer."
+        ],
+        [
+          "What are the best institutional crypto custody providers in 2026?",
+          "The shortlist depends on entity, asset and operating model. Anchorage Digital, BitGo, Copper, Fidelity Digital Assets and Gemini are starting points for custody-service evaluation; assess Fireblocks' software and separate Trust Company offering as distinct products."
+        ],
+        [
+          "What should I ask a custodian before onboarding?",
+          "Ask about contracting entity, asset segregation, signing and recovery authority, withdrawal approvals, eligible assets and networks, statements, incident response, subcontractors and exit assistance. Test a complete withdrawal and reconciliation rather than only account opening."
+        ],
+        [
+          "How does custody insurance work, and what does it usually not cover?",
+          "Coverage depends on the actual policy, insured parties, exclusions, limits and claims conditions. Ask how a client loss would be handled and whether sublimits or aggregate limits apply. Do not assume a published insurance amount covers every customer, asset or loss."
+        ],
+        [
+          "Which custodians support tokenized assets and staking?",
+          "Request support for the exact token contract, network and activity in the contracted entity. Custody of a token does not necessarily include issuer eligibility, servicing, staking or redemption. Confirm each workflow separately."
+        ],
+        [
+          "What is the difference between qualified custody and self-custody?",
+          "A custody service assigns safekeeping responsibilities under a service and legal arrangement. In self-custody, the customer retains control through its own signing and governance model, potentially using third-party software. Whether a service satisfies a particular qualified-custody requirement needs entity-specific legal review."
+        ]
+      ],
+      "block": "## An institutional custody decision starts with one withdrawal\n\nImagine the finance team has authorized a payment, one approver is unavailable and the destination has just changed. A custody proposal becomes meaningful when it explains who may act, what evidence is required and how the instruction reaches a reconciled final state. A list of chains or signing features cannot answer those questions alone.\n\nCurrent service references include [Anchorage Digital](https://www.anchorage.com/), [BitGo](https://www.bitgo.com/), [Copper](https://copper.co/en-us), [Fidelity Digital Assets](https://www.fidelitydigitalassets.com/), [Gemini custody](https://www.gemini.com/institutions/custody) and [Fireblocks Trust Company](https://www.fireblocks.com/trustco). Use these to establish product scope, then request the agreements and security evidence for your actual entity.\n\n| Criterion | Evidence to request | Test or decision |\n|---|---|---|\n| Contracting entity | Service agreement and applicable permissions | Confirm which entity accepts the customer |\n| Asset ownership | Segregation and recordkeeping terms | Match account ownership to statements |\n| Signing authority | Initiator, approver and recovery roles | Attempt a prohibited instruction |\n| Destination control | Address approval and change process | Independently validate a changed destination |\n| Recovery | Credential and key recovery procedure | Remove an unavailable operator safely |\n| Asset support | Exact network, token contract and activity | Check a deposit and withdrawal on the intended network |\n| Settlement | Counterparty, timing and release conditions | Handle an obligation that does not complete |\n| Reporting | Statements, fees and transaction identifiers | Reconcile to the finance ledger |\n| Insurance | Policy scope, exclusions and claims handling | Document uncovered scenarios |\n| Exit | Export, transfer and account-closure support | Complete a limited migration rehearsal |\n\n### Avoid solving a service problem with the wrong product\n\nAn institution seeking safekeeping under a custody agreement should not select wallet software solely because its signing controls look sophisticated. Conversely, a team that needs application-level transaction governance should not assume a custody account replaces every software integration.\n\nFireblocks' separate Trust Company page is an important reason to name the product, not just the brand. Gemini's current custody page describes MPC; do not carry forward an assumption that its architecture is defined only by historical cold-storage descriptions. Neither observation establishes how a proposed agreement meets your institution's legal obligations.\n\n### Ten questions for the risk committee\n\n1. Which entity will hold or control the assets?\n2. What happens to ownership records during insolvency or an operational incident?\n3. Who can initiate, approve and recover a withdrawal?\n4. Can one administrator change policy and then approve their own transaction?\n5. Which assets and activities are excluded from the service?\n6. How do staking or tokenized-asset restrictions affect exit?\n7. What evidence establishes settlement rather than only broadcast?\n8. Which insurance exclusions matter to our use case?\n9. How are balances reconciled independently?\n10. How do we migrate if access or service is interrupted?\n\n**Editorial change, November 20, 2026:** added entity-specific procurement criteria, insurance questions and six focused FAQs. The linked service pages were checked for the limited product references above; this is not an independent regulatory determination, insurance review or security test.\n\nFor connected workflows, read [institutional trading selection](/blog/talos-vs-wyden-vs-finery-markets-institutional-trading), [wallet policy engines](/blog/crypto-wallet-policy-engines-approvals-limits-recovery) and the [Anchorage Digital profile](/fluidrwa/anchorage-digital)."
+    },
+    {
+      "slug": "taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax",
+      "vendors": [
+        "TaxBit",
+        "Ledgible",
+        "Lukka"
+      ],
+      "faqs": [
+        [
+          "How do you automate cost basis tracking for digital assets at scale?",
+          "Inventory the sources, preserve raw records, map ownership, match transfers and apply an approved lot-selection policy. Route missing acquisitions and ambiguous events to review. Automation should reproduce the calculation and its evidence, not silently replace missing history with an assumption."
+        ],
+        [
+          "What should enterprise crypto tax reporting solutions be evaluated on?",
+          "Evaluate source completeness, lot provenance, approved methods, corrections, entity and year scope, reporting outputs, access controls and exportability. Accounting close and customer information reporting are different deliverables and should have separate acceptance tests."
+        ],
+        [
+          "How do enterprise crypto tax systems calculate cost basis?",
+          "They associate disposals with acquisition lots using configured methods and transaction classifications, fees and valuations. Correct results depend on complete evidence and applicable policy. Have the responsible tax adviser approve methods and treatment."
+        ],
+        [
+          "How do you automate reporting for internal audit and digital asset tax compliance in a repeatable process?",
+          "Freeze a source snapshot, version classifications and calculation rules, assign reviewers, preserve approvals and generate traceable outputs. Rerun the same input and explain every change when a correction or rule update creates a different result."
+        ],
+        [
+          "Which enterprise crypto tax reporting vendors integrate with ERP and accounting systems?",
+          "TaxBit, Ledgible and Lukka offer different accounting, data and reporting scopes. Request the exact ERP connector or file format, supported version, posting direction, reconciliation controls and owner of failed imports rather than treating integration as a yes-or-no feature."
+        ],
+        [
+          "What data does a crypto tax tool need from custodians and exchanges?",
+          "It needs account ownership, transactions, opening positions and acquisition history, asset and network identifiers, timestamps, quantities, fees and valuations. Reporting workflows may also need taxpayer and account classifications. A closing balance or blockchain transaction alone is not complete basis evidence."
+        ]
+      ],
+      "block": "## A repeatable close is a better test than a polished tax report\n\nThe difficult reporting case is not the trade with a complete purchase history. It is the disposal after an internal transfer, an expired exchange connection and a correction approved two weeks after close. Give each provider that same story and ask for a reproducible evidence trail.\n\nCurrent product starting points are [TaxBit](https://www.taxbit.com/), [Ledgible](https://ledgible.io/) and [Lukka](https://lukka.tech/). Their accounting, data and tax-reporting offerings are not one interchangeable package. This matrix is a buyer test plan, not a vendor certification.\n\n| Criterion | Required evidence | Acceptance exercise |\n|---|---|---|\n| Source completeness | Accounts, periods and import status | Identify a missing historical interval |\n| Asset identity | Network and contract mapping | Separate similarly named tokens |\n| Ownership | Controlled-account inventory | Match an internal transfer without a disposal assumption |\n| Acquisition lots | Source-linked opening positions | Flag a missing acquisition rather than conceal it |\n| Method governance | Adviser-approved policy and version | Reproduce a calculation under the selected method |\n| Fees and valuation | Timestamped inputs and treatment | Trace a fee paid in another asset |\n| Reconciliation | Quantity and value breaks | Explain a balance difference from source evidence |\n| Reporting scope | Entity, year, forms and deliverables | Demonstrate the required output and approval |\n| Corrections | Prior and replacement versions | Retain the original while producing a corrected export |\n| Exit and audit | Exportable raw and derived records | Rebuild an approved result outside the dashboard |\n\n### Separate calculation approval from filing approval\n\nA calculation can be internally consistent while still being the wrong report for the entity or period. Have one acceptance step for source and lot reconstruction, then another for the reporting output. Name the reviewer responsible for taxpayer information, exceptions, recipient delivery and corrections.\n\nThe [IRS instructions for Form 1099-DA for 2026](https://www.irs.gov/instructions/i1099da) distinguish covered and noncovered digital assets. They are a specific US reporting reference, not a global tax rule or a reason to assume every source statement contains acquisition history. A qualified adviser should decide the requirements for the relevant entity and activity.\n\n### Ten questions before committing the finance team\n\n1. Which source periods and opening positions are included?\n2. How are controlled-account transfers linked?\n3. What identifies a token across networks?\n4. How are missing acquisitions exposed?\n5. Who approves classification and method changes?\n6. Can a reviewer trace every output to raw evidence?\n7. Which ERP integration is included and who owns rejected postings?\n8. How are recipient delivery and corrections supported?\n9. What charges apply to backfill, entities and exception review?\n10. What complete evidence package can we export?\n\n**Editorial change, November 20, 2026:** added the repeatability matrix, ten procurement questions and six operational FAQs; checked the linked product homepages for product-family scope and the current IRS instruction page for the covered/noncovered distinction. Earlier detailed product-documentation reviews retain their stated dates. Suggested trials are buyer exercises, not performance tests conducted by FluidRWA.\n\nUse the [cost-basis operating playbook](/use-cases/digital-asset-tax-reporting-cost-basis-operations), [tax-audit evidence checklist](/blog/digital-asset-tax-audit-evidence-checklist) and [enterprise reporting RFP](/blog/enterprise-crypto-tax-reporting-software-rfp) to build the acceptance pack."
+    },
+    {
+      "slug": "best-fund-tokenization-platforms-asset-managers",
+      "vendors": [
+        "Securitize",
+        "Tokeny",
+        "Zoniqx",
+        "Taurus",
+        "KAIO"
+      ],
+      "faqs": [
+        [
+          "Which providers offer end-to-end tokenized fund launch for asset managers?",
+          "Compare the full operating arrangement rather than a single brand. This guide considers Securitize, Tokeny, Zoniqx, Taurus and KAIO as different starting points. Require named responsibility for issuance, administration, investor records, custody, distribution and redemptions."
+        ],
+        [
+          "How do tokenization platforms differ on transfer agency, compliance and distribution?",
+          "Some provide software used by appointed operators; others connect separate service entities or investor-access networks. Identify who maintains the authoritative register, approves eligibility and distributes the offering. Do not infer these mandates from a token contract or integration list."
+        ],
+        [
+          "What does it cost to launch a tokenized fund?",
+          "There is no comparable all-in public price established here. Budget separately for software, implementation, legal structuring, administration, custody, onboarding, distribution, servicing and exit. Request a quote for the same fund, investor scope and lifecycle."
+        ],
+        [
+          "Which chains do fund tokenization platforms support?",
+          "Confirm the exact network, token standard, deployment environment and lifecycle functions for the proposed product. A supported chain does not establish availability of investor eligibility, custody, redemptions or administrator integration on that chain."
+        ],
+        [
+          "How long does it take to launch a tokenized fund?",
+          "The critical path includes legal structure, service appointments, investor eligibility, data integration, testing and operational approval. Ask for milestone dependencies and acceptance criteria rather than relying on an issuer-software deployment estimate."
+        ],
+        [
+          "What should an asset manager ask a tokenization platform before signing?",
+          "Ask who owns each record and operating responsibility, what is excluded, how subscriptions and redemptions reconcile, how exceptions and wallet recovery work, and what can be exported or migrated. Obtain written scope from every required service provider."
+        ]
+      ],
+      "block": "## An asset manager's launch gate: subscriptions must work in both directions\n\nA fund launch can look complete when the first investor subscribes. The more revealing test is a rejected subscription followed by a redemption, a wallet change and a revised investor statement. The manager needs a coordinated operating model for all four, not simply a token that transfers successfully.\n\n[Tokeny's documentation](https://docs.tokeny.com/docs/t-rex-platform) describes issuer servicing and investor applications. [Zoniqx](https://www.zoniqx.com/) separates z360 issuance and lifecycle workflows from zConnect distribution. These are useful starting points for a responsibility map; neither product label establishes who is appointed to administer your fund or accept its investors.\n\n| Launch gate | What the manager must establish | Evidence to approve |\n|---|---|---|\n| Fund structure | Domicile, vehicle and investor rights | Approved offering documentation |\n| Service appointments | Administrator, register owner and custodian | Named agreements and boundaries |\n| Eligibility | Investor type and jurisdiction rules | Product-specific onboarding test |\n| Subscription | Money receipt, cutoff and allocation | Reconciled instruction and ownership entry |\n| Ownership record | Authority across register and chain | Exception and correction procedure |\n| Distribution | Actual investor-access mandate | Scope, restrictions and remuneration terms |\n| Redemption | Liquidity, notice and payment ownership | Full cancellation-to-payment rehearsal |\n| Reporting | NAV, fees and investor statements | Approved source-to-statement trace |\n| Recovery | Wallet replacement and operator continuity | Independently approved recovery test |\n| Exit | Data and operational portability | Complete export and transition plan |\n\n### Treat alternatives as different operating models\n\nA team comparing Securitize, Tokeny, Zoniqx, Taurus and KAIO should explain why each candidate belongs in the same request for proposal. A manager seeking software for its existing appointed operators has a different purchase from a manager seeking access to a coordinated service stack. A distribution relationship is another distinct decision.\n\nFor a smaller private-asset offering, include DigiShares or another relevant issuer-software option from the [platform directory](/vendors/tokenization-platforms) only when the proposed scope fits. Do not add every provider to create a longer list. Compare a narrower set against the same obligations and operating records.\n\n### Ten questions to settle before the implementation budget\n\n1. Which entity owns the fund's authoritative investor record?\n2. Who accepts or rejects a subscription?\n3. What happens to unmatched or early money?\n4. Who approves token issuance and cancellation?\n5. How are NAV changes and fee adjustments propagated?\n6. What proves an investor received a distribution?\n7. Which party supplies actual distribution access?\n8. What happens when an eligible investor loses a wallet?\n9. Which launch dependencies are outside the platform contract?\n10. Can the administrator service investors after a platform migration?\n\n**Editorial change, November 20, 2026:** added the launch-gate matrix and focused FAQs, with the linked Tokeny and Zoniqx role descriptions checked today. The older RWA platform-comparison URL remains consolidated into the main tokenization guide to avoid splitting the same buyer question across duplicate pages. Earlier review dates are preserved.\n\nRead the [main tokenization shortlist](/blog/top-tokenization-companies-2026), [institutional custody comparison](/blog/crypto-custody-providers-comparison-2026) and [fund distribution guide](/blog/tokenized-fund-distribution-models) alongside the operating evidence in [Network Explorer](/network-explorer/fund-comparison)."
+    }
+  ]
+}

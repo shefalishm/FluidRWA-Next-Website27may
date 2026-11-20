@@ -489,7 +489,7 @@ const baseUseCases: UseCase[] = [
   },
   {
     slug: "digital-asset-tax-reporting-cost-basis-operations",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     title: "Digital Asset Tax Reporting and Cost-Basis Operations",
     industry: "Tax, Accounting and Digital Assets",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76",
