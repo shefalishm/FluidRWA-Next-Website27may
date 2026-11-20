@@ -2,6 +2,8 @@
 
 This combines the November 20 competitor research with the supplied Claude handoff. The objective is to improve the affected buyer pages, investigate technical causes and create useful alternatives coverage without changing the design, inventing verification claims or creating duplicate canonical pages.
 
+The later attachment, FluidRWA citation recovery and weekly competitor-article engine, was read before production deployment and is incorporated below. Its dashboard counts, time windows and current rankings are attributed observations in the supplied review, not silently merged into the separate matched-period CSV totals.
+
 ## Completed foundation
 
 - Published the previous 18-page recovery release and the 23-image replacement release.
@@ -48,6 +50,22 @@ Status: still unfinished. Six original artwork source images have been generated
 Groups 2-5 now have five canonical blog updates and the cost-basis use-case update. Each blog adds a ten-criterion buyer matrix, ten procurement questions, six focused FAQs and matching unordered ItemList data. The older duplicate comparison remains redirected. Original publication, broader review dates and artwork are retained. No live vendor performance benchmark or numerical rating is asserted. See data/combined-core-recovery-2026-11-20.json and scripts/test-combined-core-recovery.mjs.
 
 The 60-topic plan and specialist AI sales briefs were completed in the preceding release. Full fixed-query replacement-citation analysis across all 100 declining pages, the remaining Google indexing requests and the six new alternatives guides remain open. Citation recovery has not been demonstrated.
+
+## Additional review: weekly competitor-article engine
+
+- The report explicitly labels competitor results as Bing rankings, not confirmed Copilot citations. Keep them as research candidates until an observed AI answer supplies the source link, query, date and surface. Do not label every candidate a replacement citation.
+- Its November 13-18, three-month and daily figures describe different windows from our matched 14-day exports. Store and compare like-for-like windows; a missing page in an export is not universal proof of zero citations.
+- Topic drift beginning around November 2 is a correlation hypothesis. Do not remove, redirect or de-index existing AI content on that basis. A bounded publishing experiment should keep new generic AI sales coverage out of the main Web3 recovery batch, record the start, avoid simultaneous uncontrolled changes and compare Web3 query cohorts. The proposed December 4 review is a checkpoint, not a promised recovery date.
+- A prior Bing support case already received a response saying no known reporting change explained the decline. Do not duplicate that case or present a general outage as established. A follow-up should supply the matched-period files, a fixed-query citation sample and the qualified Cloudflare findings, including the current settings-access limitation.
+- The proposed 50-piece weekly mix is a capacity proposal, not an approved automation or an output guarantee. An update and a newly researched 3,000-word article are different units of work. Source review, distinct buyer intent and acceptance checks govern release, not a quota.
+- The attachment's 600-900-word alternatives format conflicts with the user's direct 3,000-word minimum. Retain the direct requirement. Do not bulk publish short alternatives pages to satisfy the proposed volume.
+- The twelve AI-sales headlines are additional candidate briefs. Check current ownership, product availability, actual workflow comparability and primary evidence before commissioning. Earlier source checks already found a reason to hold Persana; public vendor lists alone are not verification of availability or suitability.
+- A four-article AI-sales pilot in a separate clearly identified section is a proposed experiment. No new route, sitemap architecture or scheduled publication has been created by this content release. Existing AI routes remain unchanged.
+- Friday monitoring should distinguish search position, visible AI citation, AI referral traffic and qualified form submissions. Freeze exact prompts and repeat observations rather than treating one answer as a stable ranking.
+
+## Follow-up evidence record
+
+For every fixed-query observation retain: prompt; language and location; engine/surface; observation time; displayed source URL; cited passage or claim; FluidRWA presence; competitor presence; candidate gap; source freshness; intervention; and repeat observation. Use an explicit not-observed state when no AI answer is shown. Record organic results separately. No invented confidence percentage, review count or performance score is permitted.
 
 ## Shared implementation rules
 
