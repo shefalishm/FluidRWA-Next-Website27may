@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { InvestorInterestBand } from "@/components/InvestorInterestBand";
 import { JsonLd } from "@/components/JsonLd";
 import { VentureCapitalFilters } from "@/components/VentureCapitalFilters";
 import { FamilyOfficeTable } from "@/components/FamilyOfficeTable";
@@ -57,6 +58,7 @@ export default async function AppRoutePage({ params }: RouteParams) {
         <JsonLd key={index} data={item} />
       ))}
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      {["vendors/tokenization-platforms", "tokenization"].includes(routePath) ? <InvestorInterestBand source="tokenization" /> : null}
       {spanishByEnglishPath.has(`/${routePath}`) ? (
         <div style={{ maxWidth: 1180, margin: "24px auto", padding: "0 24px" }}>
           <a href={spanishUrl(`/${routePath}`)} lang="es" hrefLang="es">Leer esta guía en español</a>

@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     : [];
 
   const routes: MetadataRoute.Sitemap = [
+    { url: `${siteUrl}/investors`, lastModified: "2026-11-21", changeFrequency: "monthly", priority: 0.8 },
     { url: siteUrl, lastModified: "2026-11-19", changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}${chainProjectsBasePath}`, lastModified: chainEcosystemUpdatedAt, changeFrequency: "weekly", priority: 0.9 },
     ...getChainEcosystems().map((chain) => ({

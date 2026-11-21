@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { InvestorInterestBand } from "@/components/InvestorInterestBand";
 import { IntelligenceExplorer } from "@/components/IntelligenceExplorer";
 import { explorerViews, type ExplorerView } from "@/lib/network-intelligence";
 export const dynamic = "force-static";
@@ -12,5 +13,5 @@ export async function generateMetadata({ params }: { params: Promise<{ view: str
 export default async function Page({ params }: { params: Promise<{ view: string }> }) {
   const { view } = await params;
   if (!explorerViews.includes(view as typeof explorerViews[number])) notFound();
-  return <IntelligenceExplorer view={view as ExplorerView} />;
+  return <><IntelligenceExplorer view={view as ExplorerView} />{["assets", "fund-comparison"].includes(view) ? <InvestorInterestBand source={`network-${view}`} /> : null}</>;
 }

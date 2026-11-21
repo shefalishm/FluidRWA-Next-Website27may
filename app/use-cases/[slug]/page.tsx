@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { InvestorInterestBand } from "@/components/InvestorInterestBand";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Plus } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
@@ -61,5 +62,6 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
     </div>
     <section className="uc-hub-cta"><div className="uc-container"><div><p className="uc-kicker">Your next step</p><h2>Turn the use case into a plan.</h2><p>Define your needs before you shortlist providers.</p></div><div className="uc-actions"><a className="uc-button" href="/tokenization-readiness-assessment-tool">Assess your project <ArrowRight size={18} /></a><a className="uc-text-link" href="/submit-requirement">Submit a brief <ArrowRight size={17} /></a></div></div></section>
     <section className="uc-related"><div className="uc-container"><p className="uc-kicker">Continue your research</p><h2>Related use cases</h2><div className="uc-related-grid">{related.map((next) => <a key={next.slug} href={`/use-cases/${next.slug}`}><p className="uc-kicker">{next.industry}</p><h3>{next.guide.title}</h3><ArrowRight size={19} aria-hidden="true" /></a>)}</div></div></section>
+    {item.vendorCategories.some(category => category.href === "/vendors/tokenization-platforms") ? <InvestorInterestBand source="tokenization-use-case" /> : null}
   </main>;
 }

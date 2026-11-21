@@ -102,7 +102,7 @@ export default {
     if (blockedIncidentSource(request)) {
       return Response.json({ ok: false, code: "request_rejected", message: "This request could not be accepted." }, { status: 403 });
     }
-    const intakePaths = ["/api/vendor-intro-request", "/api/vendor-comparison-lead", "/api/tokenization-assessment", "/api/family-office-stack-assessment", "/api/freelancer-contact-request", "/api/freelancer-marketplace-waitlist", "/api/freelancer-profile"];
+    const intakePaths = ["/api/investor-interest", "/api/vendor-intro-request", "/api/vendor-comparison-lead", "/api/tokenization-assessment", "/api/family-office-stack-assessment", "/api/freelancer-contact-request", "/api/freelancer-marketplace-waitlist", "/api/freelancer-profile"];
     if (request.method === "POST" && intakePaths.includes(url.pathname)) {
       const rejection = formRequestRejection(request);
       if (rejection) return Response.json({ ok: false, code: rejection, message: "Please reload the form and try again, or email contact@fluidrwa.com." }, { status: rejection === "request_too_large" ? 413 : 403 });
