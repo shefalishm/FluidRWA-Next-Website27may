@@ -23,7 +23,9 @@ for (const row of rows) {
   assert.ok(!/^# /m.test(body), row.slug + " duplicate H1");
   assert.ok(!/\b(?:guaranteed returns|100% approval|not verified|unverified)\b/i.test(body), row.slug + " prohibited filler or guarantee");
   const external = [...body.matchAll(/\]\((https:\/\/[^)]+)\)/g)].map(match => match[1]);
-  assert.ok(new Set(external.map(url => new URL(url).hostname)).size >= 3, row.slug + " source breadth");
+  const references = [...external, ...field(source, "sourceReferences").split("|")];
+  assert.ok(new Set(references.map(url => new URL(url).hostname)).size >= 3, row.slug + " source breadth");
+  assert.ok(external.every(url => /(^|\.)sec\.gov$/.test(new URL(url).hostname)), row.slug + " vendor hyperlink remains");
   const internal = [...body.matchAll(/\]\((\/(?:blog|fluidrwa|vendors)\/[^)]+)\)/g)].map(match => match[1]);
   assert.ok(new Set(internal.filter(url => url.startsWith("/blog/"))).size >= 3, row.slug + " related comparisons");
   for (const target of internal) {
@@ -43,6 +45,10 @@ for (const row of rows) {
   assert.equal(article.datePublished, "2026-11-20");
   assert.equal(article.dateModified, "2026-11-20");
   assert.ok(article.citation.length >= 3);
+  for (const url of field(source, "sourceReferences").split("|")) {
+    assert.ok(article.citation.includes(url), row.slug + " missing source attribution");
+    assert.ok(!html.includes(`href="${url}"`), row.slug + " clickable vendor link remains");
+  }
   assert.equal(faq.mainEntity.length, 6);
   for (let i = 1; i <= 6; i++) {
     const q = field(source, `faq${i}q`);

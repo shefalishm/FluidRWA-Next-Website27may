@@ -12,6 +12,7 @@ editorialUpdatedLabel: "November 20, 2026"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 comparisonItems: "Alloy|Ondato|Persona|Trulioo|Veriff"
+sourceReferences: "https://docs.sumsub.com/|https://www.alloy.com/|https://ondato.com/|https://docs.withpersona.com/getting-started|https://www.trulioo.com/products/kyb-business-verification|https://www.veriff.com/pricing|https://docs.sumsub.com/docs/providers"
 answer: "Evaluate Alloy for orchestration, Ondato for a scoped onboarding arrangement, Persona for configurable verification journeys, Trulioo for business identity and ownership evidence, and Veriff for its proposed verification package. First inventory the Sumsub products in use. Choose against case continuity, decision authority, data handling and accepted integration evidence rather than brand-level feature counts."
 image: "/assets/blog-thumbnails/sumsub-alternatives-2026-creative-20261120.webp"
 imageAlt: "FluidRWA: Sumsub Alternatives for Identity, KYB and Case Continuity. Illustrative analyst reviewing separate identity, business-ownership and wallet-risk records."
@@ -44,17 +45,17 @@ The applicant has uploaded the documents, a reviewer has requested one correctio
 
 A Sumsub alternatives review should start with that operational reality. Identity verification is not only a pass or fail response. It includes the evidence collected, the decisions made, the people allowed to review it, the product actions permitted afterward and the history needed when somebody asks why a decision occurred. Replacing one part without mapping the others can create more work and confusion.
 
-[Sumsub's documentation](https://docs.sumsub.com/) separates user verification, business verification, transaction monitoring, Travel Rule and case-management areas. Establish which products your organization actually uses. The five alternatives below are identity, business-verification and orchestration investigation paths. They should not be assumed to replace every financial-crime or transaction-risk service in a broader arrangement.
+Sumsub's documentation separates user verification, business verification, transaction monitoring, Travel Rule and case-management areas. Establish which products your organization actually uses. The five alternatives below are identity, business-verification and orchestration investigation paths. They should not be assumed to replace every financial-crime or transaction-risk service in a broader arrangement.
 
 ## Five alternatives, alphabetically, with the role kept visible
 
 | Alternative and primary source | Published role to investigate | A useful selection question | Boundary to resolve |
 |---|---|---|---|
-| [Alloy](https://www.alloy.com/) | Identity and fraud workflows with data orchestration | Do we need to change how several signals are coordinated? | Source contracts, decision ownership and ongoing operating scope |
-| [Ondato](https://ondato.com/) | Individual and business verification with KYC and AML workflows | Do we need a differently scoped onboarding arrangement? | Exact modules, customer population and review responsibilities |
-| [Persona](https://docs.withpersona.com/getting-started) | Verification, inquiry, account and workflow primitives | Do we need configurable application and review journeys? | Configuration, historical evidence and business-action controls |
-| [Trulioo](https://www.trulioo.com/products/kyb-business-verification) | Business verification and ownership-related data workflows | Is business identity and ownership evidence our main gap? | Data sources, entity coverage and unresolved ownership cases |
-| [Veriff](https://www.veriff.com/pricing) | Identity verification with business-verification offerings listed | Which verification package fits our proposed users and workflow? | Package scope, production availability and contract terms |
+| Alloy | Identity and fraud workflows with data orchestration | Do we need to change how several signals are coordinated? | Source contracts, decision ownership and ongoing operating scope |
+| Ondato | Individual and business verification with KYC and AML workflows | Do we need a differently scoped onboarding arrangement? | Exact modules, customer population and review responsibilities |
+| Persona | Verification, inquiry, account and workflow primitives | Do we need configurable application and review journeys? | Configuration, historical evidence and business-action controls |
+| Trulioo | Business verification and ownership-related data workflows | Is business identity and ownership evidence our main gap? | Data sources, entity coverage and unresolved ownership cases |
+| Veriff | Identity verification with business-verification offerings listed | Which verification package fits our proposed users and workflow? | Package scope, production availability and contract terms |
 
 This is an alphabetical shortlist, not a claim that the products are identical. The right purchasing conversation depends on the job. A company needing business ownership evidence has a different problem from an application redesigning document capture. An institution coordinating multiple data providers may need an orchestration layer rather than simply a replacement check.
 
@@ -62,7 +63,7 @@ This is an alphabetical shortlist, not a claim that the products are identical. 
 
 Collect the product schedules, integrations, decision rules, data-provider relationships and case queues that are in use. Ask operations to demonstrate one normal case, one incomplete case and one escalated case. Those journeys will reveal dependencies that a product menu or API-key inventory alone may miss.
 
-Separate the commercial relationships behind each component. [Sumsub's crypto-monitoring provider documentation](https://docs.sumsub.com/docs/providers) distinguishes managed arrangements from bring-your-own-key integrations. That distinction matters when planning a transition: some underlying services may require separate contracts or credentials rather than moving automatically with the visible interface.
+Separate the commercial relationships behind each component. Sumsub's crypto-monitoring provider documentation distinguishes managed arrangements from bring-your-own-key integrations. That distinction matters when planning a transition: some underlying services may require separate contracts or credentials rather than moving automatically with the visible interface.
 
 Do not turn that example into a claim that every product has the same provider model. Request the arrangement for the modules your organization uses. Record which supplier receives data, who maintains the contract and who owns unresolved cases. A clean product boundary helps procurement avoid buying a replacement for one function while accidentally dropping another.
 
@@ -87,7 +88,7 @@ A public capability list is the beginning of this process. It is not a substitut
 
 ## Alloy: investigate orchestration as an operating decision
 
-[Alloy](https://www.alloy.com/) describes identity and fraud workflows with an orchestration engine and data ecosystem. That makes it a candidate when the buyer is reconsidering how checks and signals are coordinated, not only where an applicant uploads a document.
+Alloy describes identity and fraud workflows with an orchestration engine and data ecosystem. That makes it a candidate when the buyer is reconsidering how checks and signals are coordinated, not only where an applicant uploads a document.
 
 Ask the team to show the proposed decision path with your required sources, fallback conditions and review responsibilities. The key question is what happens when one result is missing, contradictory or late. An orchestration demonstration should make dependencies and authority clearer rather than conceal them behind a single success response.
 
@@ -95,7 +96,7 @@ Use the [Alloy profile](/fluidrwa/alloy) as an entry point, then request the exa
 
 ## Ondato: compare the proposed onboarding scope
 
-[Ondato](https://ondato.com/) presents individual and business verification alongside KYC, AML and related onboarding offerings. Keep the proposal tied to the specific modules, customer population and operating model being purchased.
+Ondato presents individual and business verification alongside KYC, AML and related onboarding offerings. Keep the proposal tied to the specific modules, customer population and operating model being purchased.
 
 Give the supplier a representative case that cannot complete without review. Ask which evidence the applicant supplies, which information a reviewer sees and how a correction is requested. The useful demonstration is not only a smooth successful application. It should show how an unresolved case returns to an accountable queue without restarting the customer unnecessarily.
 
@@ -103,7 +104,7 @@ Ondato belongs in the investigation when the team wants a differently scoped onb
 
 ## Persona: test configuration and business-action boundaries
 
-[Persona's documentation](https://docs.withpersona.com/getting-started) describes inquiries, verifications, accounts, cases and workflows. Those are useful primitives to investigate when the buyer needs a configurable verification journey rather than a single isolated check.
+Persona's documentation describes inquiries, verifications, accounts, cases and workflows. Those are useful primitives to investigate when the buyer needs a configurable verification journey rather than a single isolated check.
 
 Ask how the proposed journey represents a person, a verification attempt and the organization's ongoing account relationship. They should not become interchangeable identifiers. A repeated attempt should remain traceable without creating a second business account accidentally. A changed result should be assessed against the policy and product action that the organization has actually approved.
 
@@ -111,7 +112,7 @@ Persona is a useful evaluation path when configuration and application integrati
 
 ## Trulioo: make business ownership evidence concrete
 
-[Trulioo's business-verification page](https://www.trulioo.com/products/kyb-business-verification) describes business data and ownership-related workflows. Evaluate that scope when an organization's main difficulty is establishing the identity of a business and the people connected to it.
+Trulioo's business-verification page describes business data and ownership-related workflows. Evaluate that scope when an organization's main difficulty is establishing the identity of a business and the people connected to it.
 
 Prepare an entity example with a clearly documented ownership relationship and another with an unresolved link. Ask the candidate to distinguish a record located in a source from a conclusion that the buyer is authorized to rely on. The reviewer should understand what was found, where it came from and what additional evidence is still needed.
 
@@ -119,7 +120,7 @@ Trulioo belongs in a business-verification investigation when those data and own
 
 ## Veriff: evaluate the actual package, including current business scope
 
-[Veriff's pricing and product page](https://www.veriff.com/pricing) lists identity-verification packages and business verification. Do not carry forward an assumption that its scope is limited to individual document checks. Ask for the current proposed package rather than extrapolate from a remembered older product list.
+Veriff's pricing and product page lists identity-verification packages and business verification. Do not carry forward an assumption that its scope is limited to individual document checks. Ask for the current proposed package rather than extrapolate from a remembered older product list.
 
 Show the implementation team the full journey from applicant invitation through final application status. Include a repeated attempt, an interrupted session and a case that needs a reviewer. Confirm which functions belong in the offered package and which require a separate commercial or implementation arrangement.
 

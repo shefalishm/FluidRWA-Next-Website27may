@@ -12,6 +12,7 @@ editorialUpdatedLabel: "November 20, 2026"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 comparisonItems: "BitGo|Fidelity Digital Assets|Gemini|Sygnum"
+sourceReferences: "https://www.anchorage.com/|https://www.bitgo.com/|https://www.fidelitydigitalassets.com/|https://www.gemini.com/institutions/custody|https://www.sygnum.com/custody/|https://www.sygnum.com/help/accounts/custody-fees-at-sygnum/"
 answer: "Investigate BitGo for a scoped custody proposal, Fidelity Digital Assets for institutional custody and trading, Gemini for its custody approval and reporting workflow, and Sygnum when banking requirements are part of the review. Compare the actual entity, assets, authority, settlement dependencies and exit evidence rather than treating brands as interchangeable."
 image: "/assets/blog-thumbnails/anchorage-digital-alternatives-2026-creative-20261120.webp"
 imageAlt: "FluidRWA: Anchorage Digital Alternatives for Institutional Custody and Reporting. Illustrative institutional custody handover with a sealed asset case and ownership records."
@@ -44,16 +45,16 @@ The withdrawal is approved, the receiving address is ready, and finance is waiti
 
 That is the right starting point for Anchorage Digital alternatives. Identify whether you are selecting a new custody service, adding a second custodian or replacing an existing arrangement. Those decisions have different consequences for account ownership, asset availability, trading connections, reporting and incident response. A shortlist should follow the mandate rather than precede it.
 
-[Anchorage Digital](https://www.anchorage.com/) presents custody alongside trading, self-custody, staking and financial infrastructure. This guide compares the custody-service decision. It does not assume another custody account replaces every product or relationship a customer may use under the Anchorage Digital brand.
+Anchorage Digital presents custody alongside trading, self-custody, staking and financial infrastructure. This guide compares the custody-service decision. It does not assume another custody account replaces every product or relationship a customer may use under the Anchorage Digital brand.
 
 ## Four custody alternatives, alphabetically
 
 | Alternative and primary source | Published starting point | Fit to investigate | Clarify before selection |
 |---|---|---|---|
-| [BitGo](https://www.bitgo.com/) | Custody, self-custody and related institutional services | A custody-service proposal connected to wider asset operations | Exact product, entity, authority and account model |
-| [Fidelity Digital Assets](https://www.fidelitydigitalassets.com/) | Institutional custody and trading | An institutional custody relationship with defined trading needs | Institutional service scope rather than retail-product assumptions |
-| [Gemini](https://www.gemini.com/institutions/custody) | Custody with MPC, portal and API workflows | A proposal joining custody operations with an accessible reporting interface | Entity, approvals, available assets and service commitments |
-| [Sygnum](https://www.sygnum.com/custody/) | Digital-asset custody within a banking offering | A custody proposal considered alongside banking requirements | Which entity, jurisdiction and contracted services apply |
+| BitGo | Custody, self-custody and related institutional services | A custody-service proposal connected to wider asset operations | Exact product, entity, authority and account model |
+| Fidelity Digital Assets | Institutional custody and trading | An institutional custody relationship with defined trading needs | Institutional service scope rather than retail-product assumptions |
+| Gemini | Custody with MPC, portal and API workflows | A proposal joining custody operations with an accessible reporting interface | Entity, approvals, available assets and service commitments |
+| Sygnum | Digital-asset custody within a banking offering | A custody proposal considered alongside banking requirements | Which entity, jurisdiction and contracted services apply |
 
 These are investigation paths, not equivalent bundles or a ranking. A provider may offer several account types, and a brand may operate through different entities. Require the proposed agreement to identify the service and customer eligibility. Do not substitute a group's marketing footprint for a review of the entity that would actually serve the institution.
 
@@ -86,7 +87,7 @@ Request artifacts that the operating team can use, not only descriptions of cont
 
 ## BitGo: specify the custody product you intend to buy
 
-[BitGo](https://www.bitgo.com/) distinguishes custody and self-custody products. That distinction matters when the institution is comparing a service relationship rather than only wallet technology. Ask the proposal to name the specific product and entity, without assuming that every product under the brand carries the same responsibilities.
+BitGo distinguishes custody and self-custody products. That distinction matters when the institution is comparing a service relationship rather than only wallet technology. Ask the proposal to name the specific product and entity, without assuming that every product under the brand carries the same responsibilities.
 
 The practical evaluation should follow an instruction from internal approval through the provider's acceptance and final reporting. Ask who can change an address, who can approve a withdrawal and what evidence the institution receives. Test the relationship between account permissions and API access. A convenient integration should not create an alternate authority path that the custody policy never considered.
 
@@ -94,7 +95,7 @@ BitGo belongs in the investigation when the institution wants a scoped custody p
 
 ## Fidelity Digital Assets: keep the institutional service in view
 
-[Fidelity Digital Assets](https://www.fidelitydigitalassets.com/) presents institutional custody and trading separately from retail Fidelity Crypto access. Evaluate the institutional arrangement actually being proposed. Familiarity with a retail account does not establish the account hierarchy, controls or reporting needed by a fund, adviser or corporate treasury.
+Fidelity Digital Assets presents institutional custody and trading separately from retail Fidelity Crypto access. Evaluate the institutional arrangement actually being proposed. Familiarity with a retail account does not establish the account hierarchy, controls or reporting needed by a fund, adviser or corporate treasury.
 
 Prepare a demonstration brief that names the asset, account ownership, authorized roles and desired trading relationship. Ask how records connect across custody and execution, and what remains the institution's responsibility. Include a trade that does not settle as expected. The team should know where the unresolved obligation sits and who can provide authoritative evidence of its status.
 
@@ -102,7 +103,7 @@ This is a useful starting point when an institution is reviewing custody alongsi
 
 ## Gemini: test the current approval and reporting experience
 
-[Gemini's custody page](https://www.gemini.com/institutions/custody) describes MPC and portal or API access for balances, withdrawals and statements. Use that current description rather than assuming the service is defined only by older cold-storage accounts. Architecture and service terms are different diligence questions.
+Gemini's custody page describes MPC and portal or API access for balances, withdrawals and statements. Use that current description rather than assuming the service is defined only by older cold-storage accounts. Architecture and service terms are different diligence questions.
 
 Ask the team to demonstrate an approved-address change followed by a withdrawal. Show how the institution's permissions, provider review and audit records interact. Then attempt the same operation through the API. The question is whether the proposed interfaces preserve the agreed approval model, not simply whether both interfaces exist.
 
@@ -110,7 +111,7 @@ Gemini belongs in the shortlist when the institution wants to investigate that c
 
 ## Sygnum: compare the entity and banking scope explicitly
 
-[Sygnum's custody page](https://www.sygnum.com/custody/) places custody within a wider digital-asset banking offering. Its public [custody-fee explanation](https://www.sygnum.com/help/accounts/custody-fees-at-sygnum/) describes a volume-related annual basis-point model. Obtain the current proposal for the actual entity and services rather than extrapolating from a historic price sheet.
+Sygnum's custody page places custody within a wider digital-asset banking offering. Its public custody-fee explanation describes a volume-related annual basis-point model. Obtain the current proposal for the actual entity and services rather than extrapolating from a historic price sheet.
 
 The institution should state whether banking services are part of the purchase or merely adjacent context. Identify which accounts, cash movements and custody records need to reconcile. A combined commercial conversation can be useful, but the operational owners still need to understand the boundaries between custody, trading, payments and any financing relationship.
 

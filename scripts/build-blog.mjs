@@ -389,7 +389,8 @@ function postPage(post, posts) {
     .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
     .slice(0, 4);
   const research = post.rampDataset === "true" || post.readerFirst === "true" ? null : getBlogResearch(post.slug);
-  const citations = post.reviewedBy || post.comparisonItems ? [...new Set([...post.html.matchAll(/href="(https:\/\/[^"]+)"/g)].map(match => match[1]))] : research?.sources?.map(([, href]) => href) || [];
+  const sourceReferences = Array.isArray(post.sourceReferences) ? post.sourceReferences : post.sourceReferences ? [post.sourceReferences] : [];
+  const citations = post.reviewedBy || post.comparisonItems ? [...new Set([...post.html.matchAll(/href="(https:\/\/[^"]+)"/g)].map(match => match[1]).concat(sourceReferences))] : research?.sources?.map(([, href]) => href) || [];
   const comparisonItems = (Array.isArray(post.comparisonItems) ? post.comparisonItems : String(post.comparisonItems || "").split("|")).map(name => name.trim()).filter(Boolean);
   for (const name of comparisonItems) {
     if (!post.html.toLowerCase().includes(name.toLowerCase())) throw new Error(`Schema item is not visible: ${post.slug}: ${name}`);

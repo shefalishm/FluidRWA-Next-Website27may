@@ -1,0 +1,260 @@
+{
+  "changedAt": "2026-11-21",
+  "scope": "Six alternatives guides; anchor text retained; SEC and internal links preserved",
+  "articles": [
+    {
+      "slug": "securitize-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "DigiShares",
+          "url": "https://digishares.io/"
+        },
+        {
+          "label": "InvestaX",
+          "url": "https://investax.io/"
+        },
+        {
+          "label": "Tokeny",
+          "url": "https://docs.tokeny.com/docs/t-rex-platform"
+        },
+        {
+          "label": "Zoniqx",
+          "url": "https://www.zoniqx.com/"
+        }
+      ]
+    },
+    {
+      "slug": "tokeny-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "Tokeny's platform documentation",
+          "url": "https://docs.tokeny.com/docs/t-rex-platform"
+        },
+        {
+          "label": "DigiShares",
+          "url": "https://digishares.io/"
+        },
+        {
+          "label": "InvestaX",
+          "url": "https://investax.io/"
+        },
+        {
+          "label": "Zoniqx",
+          "url": "https://www.zoniqx.com/"
+        },
+        {
+          "label": "DigiShares",
+          "url": "https://digishares.io/"
+        },
+        {
+          "label": "InvestaX",
+          "url": "https://investax.io/"
+        },
+        {
+          "label": "Zoniqx",
+          "url": "https://www.zoniqx.com/"
+        }
+      ]
+    },
+    {
+      "slug": "fireblocks-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "Fireblocks self-custody documentation",
+          "url": "https://fireblocks.readme.io/docs/self-custody-infrastructure"
+        },
+        {
+          "label": "Fireblocks Trust Company page",
+          "url": "https://www.fireblocks.com/trustco"
+        },
+        {
+          "label": "Anchorage Digital",
+          "url": "https://www.anchorage.com/"
+        },
+        {
+          "label": "BitGo",
+          "url": "https://www.bitgo.com/"
+        },
+        {
+          "label": "Copper",
+          "url": "https://copper.co/en-us"
+        },
+        {
+          "label": "Dfns",
+          "url": "https://dfns.co/"
+        },
+        {
+          "label": "Fordefi",
+          "url": "https://www.fordefi.com/"
+        },
+        {
+          "label": "Anchorage Digital's primary site",
+          "url": "https://www.anchorage.com/"
+        },
+        {
+          "label": "BitGo's site",
+          "url": "https://www.bitgo.com/"
+        },
+        {
+          "label": "Copper's primary site",
+          "url": "https://copper.co/en-us"
+        },
+        {
+          "label": "Dfns",
+          "url": "https://dfns.co/"
+        },
+        {
+          "label": "Fordefi",
+          "url": "https://www.fordefi.com/"
+        }
+      ]
+    },
+    {
+      "slug": "anchorage-digital-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "Anchorage Digital",
+          "url": "https://www.anchorage.com/"
+        },
+        {
+          "label": "BitGo",
+          "url": "https://www.bitgo.com/"
+        },
+        {
+          "label": "Fidelity Digital Assets",
+          "url": "https://www.fidelitydigitalassets.com/"
+        },
+        {
+          "label": "Gemini",
+          "url": "https://www.gemini.com/institutions/custody"
+        },
+        {
+          "label": "Sygnum",
+          "url": "https://www.sygnum.com/custody/"
+        },
+        {
+          "label": "BitGo",
+          "url": "https://www.bitgo.com/"
+        },
+        {
+          "label": "Fidelity Digital Assets",
+          "url": "https://www.fidelitydigitalassets.com/"
+        },
+        {
+          "label": "Gemini's custody page",
+          "url": "https://www.gemini.com/institutions/custody"
+        },
+        {
+          "label": "Sygnum's custody page",
+          "url": "https://www.sygnum.com/custody/"
+        },
+        {
+          "label": "custody-fee explanation",
+          "url": "https://www.sygnum.com/help/accounts/custody-fees-at-sygnum/"
+        }
+      ]
+    },
+    {
+      "slug": "moonpay-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "MoonPay primary source",
+          "url": "https://www.moonpay.com/"
+        },
+        {
+          "label": "Banxa",
+          "url": "https://banxa.com/"
+        },
+        {
+          "label": "Onramper",
+          "url": "https://onramper.com/"
+        },
+        {
+          "label": "Ramp Network",
+          "url": "https://rampnetwork.com/"
+        },
+        {
+          "label": "Stripe crypto onramp",
+          "url": "https://docs.stripe.com/crypto/onramp"
+        },
+        {
+          "label": "Transak",
+          "url": "https://docs.transak.com/"
+        },
+        {
+          "label": "Banxa website",
+          "url": "https://banxa.com/"
+        },
+        {
+          "label": "Onramper website",
+          "url": "https://onramper.com/"
+        },
+        {
+          "label": "Ramp Network website",
+          "url": "https://rampnetwork.com/"
+        },
+        {
+          "label": "Stripe onramp documentation",
+          "url": "https://docs.stripe.com/crypto/onramp"
+        },
+        {
+          "label": "Transak documentation",
+          "url": "https://docs.transak.com/"
+        }
+      ]
+    },
+    {
+      "slug": "sumsub-alternatives-2026",
+      "removedLinks": [
+        {
+          "label": "Sumsub's documentation",
+          "url": "https://docs.sumsub.com/"
+        },
+        {
+          "label": "Alloy",
+          "url": "https://www.alloy.com/"
+        },
+        {
+          "label": "Ondato",
+          "url": "https://ondato.com/"
+        },
+        {
+          "label": "Persona",
+          "url": "https://docs.withpersona.com/getting-started"
+        },
+        {
+          "label": "Trulioo",
+          "url": "https://www.trulioo.com/products/kyb-business-verification"
+        },
+        {
+          "label": "Veriff",
+          "url": "https://www.veriff.com/pricing"
+        },
+        {
+          "label": "Sumsub's crypto-monitoring provider documentation",
+          "url": "https://docs.sumsub.com/docs/providers"
+        },
+        {
+          "label": "Alloy",
+          "url": "https://www.alloy.com/"
+        },
+        {
+          "label": "Ondato",
+          "url": "https://ondato.com/"
+        },
+        {
+          "label": "Persona's documentation",
+          "url": "https://docs.withpersona.com/getting-started"
+        },
+        {
+          "label": "Trulioo's business-verification page",
+          "url": "https://www.trulioo.com/products/kyb-business-verification"
+        },
+        {
+          "label": "Veriff's pricing and product page",
+          "url": "https://www.veriff.com/pricing"
+        }
+      ]
+    }
+  ]
+}

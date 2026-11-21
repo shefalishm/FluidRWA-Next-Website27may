@@ -12,6 +12,7 @@ editorialUpdatedLabel: "November 20, 2026"
 readerFirst: "true"
 reviewedBy: "FluidRWA Research Team"
 comparisonItems: "Anchorage Digital|BitGo|Copper|Dfns|Fordefi"
+sourceReferences: "https://fireblocks.readme.io/docs/self-custody-infrastructure|https://www.fireblocks.com/trustco|https://www.anchorage.com/|https://www.bitgo.com/|https://copper.co/en-us|https://dfns.co/|https://www.fordefi.com/"
 image: "/assets/blog-thumbnails/fireblocks-alternatives-2026-creative-20261120.webp"
 socialImage: "/assets/social/fireblocks-alternatives-2026-creative-20261120.jpg"
 imageLocked: "true"
@@ -48,9 +49,9 @@ This guide therefore starts with responsibility, not a league table. The alphabe
 
 ## Separate the two Fireblocks baselines
 
-The [Fireblocks self-custody documentation](https://fireblocks.readme.io/docs/self-custody-infrastructure) describes MPC infrastructure, an API Co-Signer and key backups. That is an infrastructure baseline, not by itself a conclusion about a third party's safekeeping obligations.
+The Fireblocks self-custody documentation describes MPC infrastructure, an API Co-Signer and key backups. That is an infrastructure baseline, not by itself a conclusion about a third party's safekeeping obligations.
 
-The separate [Fireblocks Trust Company page](https://www.fireblocks.com/trustco) presents custody services. Do not collapse this service into the self-custody product or infer that every Fireblocks customer uses the same contractual arrangement.
+The separate Fireblocks Trust Company page presents custody services. Do not collapse this service into the self-custody product or infer that every Fireblocks customer uses the same contractual arrangement.
 
 Before seeking quotes, extract the product names and entity names from your agreement. Draw a responsibility map showing the asset owner, authorized instruction issuer, transaction approver, signing participant, record keeper and recovery authority. If any box says only Fireblocks, refine it. A brand name is too broad to tell the next provider what must actually change.
 
@@ -62,11 +63,11 @@ The product-role column below is a narrow summary of the linked primary source. 
 
 | Alternative and primary source | Product role described | Investigate when | Not an automatic fit when |
 |---|---|---|---|
-| [Anchorage Digital](https://www.anchorage.com/) | Institutional custody alongside other digital asset services | You are reconsidering the custody relationship | You only want a drop-in signing API replacement |
-| [BitGo](https://www.bitgo.com/) | Distinct custody and self-custody product families | You want to compare both models explicitly | The proposal does not name the selected product |
-| [Copper](https://copper.co/en-us) | Custody, trading, settlement and collateral infrastructure | Your problem includes trading collateral workflows | You need only an embedded wallet component |
-| [Dfns](https://dfns.co/) | Wallet, transaction, policy and governance technology | Your team is procuring wallet infrastructure | You need the technology vendor to become custodian |
-| [Fordefi](https://www.fordefi.com/) | MPC self-custody wallet platform | Your requirement is controlled onchain operations | Your mandate requires a separate custody service |
+| Anchorage Digital | Institutional custody alongside other digital asset services | You are reconsidering the custody relationship | You only want a drop-in signing API replacement |
+| BitGo | Distinct custody and self-custody product families | You want to compare both models explicitly | The proposal does not name the selected product |
+| Copper | Custody, trading, settlement and collateral infrastructure | Your problem includes trading collateral workflows | You need only an embedded wallet component |
+| Dfns | Wallet, transaction, policy and governance technology | Your team is procuring wallet infrastructure | You need the technology vendor to become custodian |
+| Fordefi | MPC self-custody wallet platform | Your requirement is controlled onchain operations | Your mandate requires a separate custody service |
 
 The useful outcome may be a split architecture. Long-term holdings and operational wallets do not necessarily need the same service. However, splitting them adds reconciliation, transfer approvals and incident coordination. Require a named owner for those boundaries instead of treating additional vendors as an automatic reduction in risk.
 
@@ -93,31 +94,31 @@ Set nonnegotiable gates before inviting demonstrations. A buyer might make exact
 
 ### Anchorage Digital: investigate a custody relationship
 
-[Anchorage Digital's primary site](https://www.anchorage.com/) separates custody from self-custody offerings. Specify which relationship you are evaluating. The [existing Anchorage Digital profile](/fluidrwa/anchorage-digital) is a navigation aid, not a substitute for the proposed agreement.
+Anchorage Digital's primary site separates custody from self-custody offerings. Specify which relationship you are evaluating. The [existing Anchorage Digital profile](/fluidrwa/anchorage-digital) is a navigation aid, not a substitute for the proposed agreement.
 
 Ask the custody team to walk through your instruction lifecycle: authority verification, approval, rejection, escalation, settlement and statement delivery. Choose this path if changing the safekeeping relationship is part of the objective. Do not assume an institutional custody proposal will preserve a Fireblocks application integration unchanged.
 
 ### BitGo: name custody or self-custody
 
-[BitGo's site](https://www.bitgo.com/) lists custody wallets separately from self-custody hot and cold wallets. Evaluate one named product at a time. The [BitGo profile](/fluidrwa/bitgo) can help organize the initial research.
+BitGo's site lists custody wallets separately from self-custody hot and cold wallets. Evaluate one named product at a time. The [BitGo profile](/fluidrwa/bitgo) can help organize the initial research.
 
 Send two separate scopes if you genuinely need both models. One should cover the custody account and instruction obligations; the other should cover your team's wallet operation and recovery responsibilities. Compare their combined burden with the incumbent arrangement. A single commercial relationship should not obscure two different operational control models.
 
 ### Copper: start with the collateral workflow
 
-[Copper's primary site](https://copper.co/en-us) presents ClearLoop and counterparty connectivity within its institutional offering. Begin with the actual trading and collateral process, not a presumed equivalence between wallets. Find its verified directory entry under [Copper](/vendors/crypto-custody-providers#copper-co).
+Copper's primary site presents ClearLoop and counterparty connectivity within its institutional offering. Begin with the actual trading and collateral process, not a presumed equivalence between wallets. Find its verified directory entry under [Copper](/vendors/crypto-custody-providers#copper-co).
 
 Ask which party records collateral obligations, when assets become available for another use, and how a failed settlement is handled. Choose this investigation if collateral movement is driving the replacement decision. A desk without that requirement should not inherit a complex settlement project merely because the functionality appears attractive.
 
 ### Dfns: infrastructure responsibility stays explicit
 
-[Dfns](https://dfns.co/) states it is a technology provider, not a provider of custody, banking or financial services. That boundary matters more than broad platform terminology.
+Dfns states it is a technology provider, not a provider of custody, banking or financial services. That boundary matters more than broad platform terminology.
 
 Write down which buyer team will own transaction construction, permission administration, monitoring and recovery after implementation. Choose this route if you can resource an infrastructure operating model. Require the proposed configuration to satisfy the scorecard; do not assume a policy or governance product name proves equivalence with your existing rules.
 
 ### Fordefi: evaluate the self-custody workflow
 
-[Fordefi](https://www.fordefi.com/) describes self-custody of private keys and granular policies. Keep the evaluation focused on your own operators and transaction intents. Its directory entry is [Fordefi](/vendors/crypto-custody-providers#fordefi).
+Fordefi describes self-custody of private keys and granular policies. Keep the evaluation focused on your own operators and transaction intents. Its directory entry is [Fordefi](/vendors/crypto-custody-providers#fordefi).
 
 Give the vendor examples of a permitted transfer, an unauthorized contract interaction and a legitimate exception. Choose this route if an operational wallet is the requirement. Ask separately how the buyer's custody mandate is fulfilled; a self-custody platform description does not resolve that institutional question.
 
