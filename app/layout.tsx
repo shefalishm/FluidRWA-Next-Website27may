@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PayPalMembershipCheckout />
         <RouteReady />
         <GoogleAnalytics />
-        <Script src="/assets/site.js?v=directory-controls-20261108" strategy="afterInteractive" />
+        <Script src="/assets/site.js?v=vendor-vetting-20261122" strategy="afterInteractive" />
       </body>
     </html>
   );
