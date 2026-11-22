@@ -170,8 +170,8 @@ export function Header() {
               </div>
             </div>
           </div>
-          <a className="nav-secondary-cta" href="/vendor-membership">
-            Become a Vetted Listing
+          <a className="nav-secondary-cta" href="/apply">
+            Apply to be a Vetted Vendor
           </a>
           <a className="nav-ecosystem-cta" href="/submit-requirement">
             Submit Requirements

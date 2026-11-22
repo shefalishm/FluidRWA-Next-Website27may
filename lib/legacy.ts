@@ -52,6 +52,11 @@ type SeoOverride = {
 };
 
 const seoOverrides: Record<string, SeoOverride> = {
+  "vendor-membership.html": {
+    title: "Apply to be a Vetted Vendor | FluidRWA",
+    description: "Apply to be a Vetted Vendor on FluidRWA. Share your company details and evidence for review before a Vetted badge is awarded.",
+    canonicalPath: "/apply"
+  },
   "blog/alchemy-vs-quicknode-vs-infura-rpc-node-providers/index.html": {
     title: "Alchemy vs QuickNode vs Infura: RPC Compared | FluidRWA",
     description: "Compare Alchemy, QuickNode and Infura for RPC networks, archive reads, WebSockets, authentication and rate limits, with a workload acceptance checklist.",
@@ -863,6 +868,8 @@ function ensureSecurityVendorSchema(file: string, items: unknown[]) {
 
 function rewriteLinks(html: string) {
   return html
+    .replaceAll("Become a Vetted Listing", "Apply to be a Vetted Vendor")
+    .replaceAll("Apply as Vendor", "Apply to be a Vetted Vendor")
     .replaceAll('href="index.html"', 'href="/"')
     .replaceAll('href="/index.html"', 'href="/"')
     .replaceAll('href="blog.html"', 'href="/blog"')
@@ -902,6 +909,7 @@ function rewriteLinks(html: string) {
     .replace(/href=["']vendors\/([^"']+)\/index\.html(["'])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
     .replace(/href=["']\/vendors\/([^"'#\/]+)\/?(["'#])/g, (_, slug, quote) => `href="/vendors/${preferredVendorLinks[slug] || slug}${quote}`)
     .replace(/href=["'](?:\.\.\/)*blog\/([^"']+)\/index\.html(["'])/g, 'href="/blog/$1$2')
+    .replace(/href="(?:\.\.\/)*(?:\/?apply-as-vendor(?:\.html)?|\/?vendor-membership(?:\.html)?)(#[^"]*)?"/g, 'href="/apply$1"')
     .replace(/src=["']assets\//g, 'src="/assets/')
     .replace(/href=["']assets\//g, 'href="/assets/');
 }

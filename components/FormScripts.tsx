@@ -160,15 +160,15 @@ export function FormScripts() {
         const generalInquiry = sourceValue === "contact-general";
         const vendorListingSubmission = vendorForm || sourceValue === "submit-project-listing";
         return {
-          defaultButtonText: button.textContent || (vendorListingSubmission ? "List Your Company on FluidRWA" : generalInquiry ? "Send Inquiry" : "Submit Requirement"),
-          loadingText: vendorListingSubmission ? "Saving your listing details..." : generalInquiry ? "Sending your inquiry..." : "Submitting your requirements...",
+          defaultButtonText: button.textContent || (vendorListingSubmission ? "Apply to be a Vetted Vendor" : generalInquiry ? "Send Inquiry" : "Submit Requirement"),
+          loadingText: vendorListingSubmission ? "Saving your application..." : generalInquiry ? "Sending your inquiry..." : "Submitting your requirements...",
           successTitle: vendorListingSubmission
-            ? "Your listing details have been saved"
+            ? "Your application has been received"
             : generalInquiry
               ? "Your inquiry has been received"
               : "Your project requirements have been received",
           successCopy: vendorListingSubmission
-            ? "Your application has been received for review. If approved, FluidRWA will contact you with appropriate visibility options and a private commercial proposal."
+            ? "Thanks. We have your application and will be in touch by email. Applications are reviewed before a Vetted badge is awarded."
             : generalInquiry
               ? "Thank you for contacting FluidRWA. Our team will review your note and follow up if there is a fit."
               : "Thank you for sharing your requirements. Our team will review your project and contact you with the most relevant next steps."

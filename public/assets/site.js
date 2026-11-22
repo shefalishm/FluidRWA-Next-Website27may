@@ -177,12 +177,12 @@ const contactCopy = {
     description: "Project type, stage, vendor categories, region, timeline and any important requirements.",
   },
   vendor: {
-    eyebrow: "Vendor listing",
-    title: "Become a Vetted Listing",
+    eyebrow: "Vendor vetting",
+    title: "Apply to be a Vetted Vendor",
     body: "Share your company category, proof points, buyer fit and regions served. FluidRWA will review the application and follow up if there is a fit.",
     source: "contact-vendor",
-    button: "Become a Vetted Listing",
-    description: "Company category, services, ideal customers, regions served and why your company should be listed.",
+    button: "Apply to be a Vetted Vendor",
+    description: "Company category, product, team and supporting evidence for a vetting review.",
   },
   general: {
     eyebrow: "General inquiry",
@@ -262,7 +262,7 @@ leadConversionForms.forEach((form) => {
     }
     if (status) {
       status.className = "form-status is-loading";
-      status.textContent = isListingSubmission ? "Saving your listing details..." : isGeneralInquiry ? "Sending your inquiry..." : "Submitting your requirements...";
+      status.textContent = isListingSubmission ? "Saving your application..." : isGeneralInquiry ? "Sending your inquiry..." : "Submitting your requirements...";
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -305,9 +305,9 @@ leadConversionForms.forEach((form) => {
       if (status) {
         status.className = "form-status is-success";
         status.textContent = isReviewApplication
-          ? "Thank you. Your application has been received for review. If approved, FluidRWA will contact you with the appropriate visibility options."
+          ? "Thanks. We have your application and will be in touch by email. Applications are reviewed before a Vetted badge is awarded."
           : isListingSubmission
-          ? "Thank you. Your listing details have been received for review."
+          ? "Thanks. We have your application and will be in touch by email."
           : isGeneralInquiry
             ? "Thank you. Your inquiry has been received."
             : "Thank you. Your project requirements have been received.";

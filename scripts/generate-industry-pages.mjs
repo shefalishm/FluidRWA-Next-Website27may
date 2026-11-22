@@ -184,7 +184,7 @@ function labelForHref(href) {
     "/vendors/security-audit-companies": "Security & Audit Companies",
     "/vendors/smart-contract-development-companies": "Smart Contract Development",
     "/vendors/growth-marketing-companies": "Growth & Marketing",
-    "/apply-as-vendor": "Apply as Vendor",
+    "/apply-as-vendor": "Apply to be a Vetted Vendor",
     "/web3vendorecosystem": "Explore Vendor Ecosystem",
     "/contact": "Contact FluidRWA",
     "/vendors/ai-infrastructure-providers": "AI Infrastructure Providers"

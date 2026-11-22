@@ -245,7 +245,7 @@ const pageCards = [
   ["arcade.png", "Arcade", "Learn the vendor ecosystem through quick games", "arcade"],
   ["contact.png", "Contact", "Connect with FluidRWA", "contact"],
   ["submit-project.png", "Submit Project", "Tell us what you are building", "submit-project"],
-  ["apply-as-vendor.png", "Apply as Vendor", "Get discovered by digital asset teams", "apply-as-vendor"]
+  ["apply-as-vendor.png", "Apply to be a Vetted Vendor", "Get discovered by digital asset teams", "apply-as-vendor"]
 ];
 for (const [output, label, title, slug] of pageCards) card({ output, label, title, slug });
 

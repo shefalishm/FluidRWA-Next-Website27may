@@ -54,7 +54,7 @@ export function QuickIntakePopup() {
 
   useEffect(() => { captureIntakeAttribution(); }, [pathname]);
 
-  const hidden = ["/submit-requirement", "/vendor-membership", "/apply-as-vendor", "/conversion-analytics", "/auth"].some(
+  const hidden = ["/submit-requirement", "/apply", "/vendor-membership", "/apply-as-vendor", "/conversion-analytics", "/auth"].some(
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   ) || pathname.startsWith("/network-preview");
 
@@ -194,21 +194,22 @@ export function QuickIntakePopup() {
               <div className="quick-intake-success">
                 <span className="quick-intake-success-icon" aria-hidden="true"><Check size={24} /></span>
                 <p className="quick-intake-eyebrow">Received</p>
-                <h2 id="quick-intake-title">Thank you, we have your details.</h2>
-                <p>FluidRWA will review the information and follow up if there is a relevant next step.</p>
+                <h2 id="quick-intake-title">Thank you, we have your details</h2>
+                <p>{mode === "vendor" ? "We have your application and will be in touch by email. A review and approval are required before a Vetted badge is awarded." : "FluidRWA will review the information and follow up if there is a relevant next step."}</p>
                 <button className="quick-intake-submit" type="button" onClick={close}>Done</button>
               </div>
             ) : (
               <>
                 <p className="quick-intake-eyebrow">Start with the essentials</p>
                 <h2 id="quick-intake-title">How can FluidRWA help?</h2>
-                <p className="quick-intake-privacy">Prefer email? <a href={`mailto:contact@fluidrwa.com?subject=${encodeURIComponent(mode === "vendor" ? "Vendor listing enquiry" : "Project enquiry")}`} style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
+                {mode === "vendor" ? <p className="quick-intake-privacy"><a href="/apply">Apply to be a Vetted Vendor</a>. Share the essentials here, or use the full application.</p> : null}
+                <p className="quick-intake-privacy">Prefer email? <a href={`mailto:contact@fluidrwa.com?subject=${encodeURIComponent(mode === "vendor" ? "Vendor vetting enquiry" : "Project enquiry")}`} style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
                 <div className="quick-intake-tabs" role="tablist" aria-label="Enquiry type">
                   <button type="button" role="tab" aria-selected={mode === "project"} onClick={() => selectMode("project")}>
                     <MessageSquareText aria-hidden="true" size={17} /> Project
                   </button>
                   <button type="button" role="tab" aria-selected={mode === "vendor"} onClick={() => selectMode("vendor")}>
-                    <Building2 aria-hidden="true" size={17} /> Vendor
+                    <Building2 aria-hidden="true" size={17} /> Vendor vetting
                   </button>
                 </div>
 
@@ -234,7 +235,7 @@ export function QuickIntakePopup() {
                   </label>
                   {error ? <p className="quick-intake-error" role="alert">{error}</p> : null}
                   <button className="quick-intake-submit" type="submit" disabled={submitting}>
-                    <Send aria-hidden="true" size={17} /> {submitting ? "Sending..." : "Send details"}
+                    <Send aria-hidden="true" size={17} /> {submitting ? "Sending..." : mode === "vendor" ? "Apply to be a Vetted Vendor" : "Send details"}
                   </button>
                   <p className="quick-intake-privacy">Your details are used only to review and respond to this enquiry.</p>
                 </form>
