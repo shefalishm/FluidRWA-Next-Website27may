@@ -21,7 +21,11 @@ for (const anchor of root.querySelectorAll("main a[href]")) {
   const href = anchor.getAttribute("href");
   if (/^https?:\/\//i.test(href)) assert.ok(allowedExternalHosts.has(new URL(href).hostname.replace(/^www\./, "")), `External vendor hyperlink: ${href}`);
 }
-assert.equal(cards.length, 40);
+assert.equal(cards.length, 39);
+const names = cards.map((card) => card.querySelector("h3").textContent);
+assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base", numeric: true })), "Directory must be alphabetical");
+assert.ok(!root.querySelector("#antier"));
+assert.ok(!root.querySelector("main").textContent.includes("Antier"));
 assert.equal(root.querySelectorAll(".bc-vetted-badge").length, 1, "Do not assign new Vetted status");
 assert.ok(!root.querySelector("#yul-assembly-specialists"));
 assert.ok(!root.querySelector("main").textContent.includes("500B+"));
@@ -50,4 +54,4 @@ assert.ok(mainSections.indexOf("smart-contract-shortlist") < mainSections.indexO
 assert.ok(mainSections.indexOf("smart-contract-fit") < mainSections.indexOf("smart-contract-directory"));
 const words = root.querySelector("main").textContent.trim().split(/\s+/).length;
 assert.ok(words >= Math.ceil(5929 * 1.3), `Expected at least 30% net growth, found ${words}`);
-console.log(`PASS: ${words} main-content words (${((words / 5929 - 1) * 100).toFixed(1)}% net growth), 40 matching entries, 10 matching FAQs, valid anchors, status corrections, preserved membership badge and repeatable generation.`);
+console.log(`PASS: ${words} main-content words (${((words / 5929 - 1) * 100).toFixed(1)}% net growth), ${cards.length} alphabetized matching entries, no Antier, 10 matching FAQs, valid anchors, status corrections, preserved membership badge and repeatable generation.`);

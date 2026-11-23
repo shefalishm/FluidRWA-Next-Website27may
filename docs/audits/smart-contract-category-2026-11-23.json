@@ -8,10 +8,12 @@
     "previousCategoryEntries": 29,
     "removedNonCompanySkillEntries": ["Yul+/Assembly Specialists"],
     "retainedCategoryEntries": 28,
-    "addedToThisCategory": ["Purrweb", "Antier", "Webisoft", "PixelPlex", "Boosty Labs", "EvaCodes", "IdeaSoft", "LimeChain", "ChainSafe Systems", "Nethermind", "Protofire", "Wonderland"],
+    "addedToThisCategory": ["Boosty Labs", "ChainSafe Systems", "EvaCodes", "IdeaSoft", "LimeChain", "Nethermind", "PixelPlex", "Protofire", "Purrweb", "Webisoft", "Wonderland"],
     "alreadyListedElsewhereInDirectory": ["Nethermind"],
-    "newToDirectoryCount": 11,
-    "newCategoryTotal": 40,
+    "newToDirectoryCount": 10,
+    "newCategoryTotal": 39,
+    "excludedAtUserRequest": ["Antier"],
+    "displayOrder": "Alphabetical by company or tool name, case-insensitive; no featured-first placement.",
     "method": "Compared exact normalized h3 profile names across all baseline vendors HTML pages and vendor-ecosystem.html at 3cd346c. A mention in a research worklist or blog was not counted as a directory profile. Entries include companies and supporting tools; they are not all custom-development agencies."
   },
   "search": {

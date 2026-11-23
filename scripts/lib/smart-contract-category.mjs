@@ -162,12 +162,14 @@ export function enhanceSmartContractCategory(html) {
   hero.querySelector(".bc-hero-decision").set_content(`<span><strong>Build:</strong> compare delivery teams by project and chain.</span><span><strong>Review:</strong> scope independent security assessment separately.</span><span><strong>Operate:</strong> assign keys, upgrades, monitoring and recovery.</span>`);
   hero.insertAdjacentHTML("afterend", quick + fit);
   const directory = root.querySelector("#smart-contract-directory");
-  directory.querySelector(".solutions-section-head p:last-child").set_content("Development companies, independent security reviewers and supporting tools have different roles. Use the role and evidence questions to decide which belongs in your project, then confirm the exact scope with the provider.");
+  directory.querySelector(".solutions-section-head p:last-child").set_content("Entries are alphabetical, not ranked. Development companies, independent security reviewers and supporting tools have different roles. Use the role and evidence questions to decide which belongs in your project, then confirm the exact scope with the provider.");
   directory.querySelector("#providers-title").set_content("Compare companies and supporting tools");
   const grid = directory.querySelector(".bc-company-grid");
+  grid.querySelector("#antier")?.remove();
+  const includedBuilders = builders.filter(([id]) => id !== "antier");
   const first = grid.querySelector("#minddeft-technologies");
   // Preserve the existing membership card and badge; do not assign new Vetted status.
-  for (const [id, name, role, fit, description, ask, source] of [...builders].reverse()) {
+  for (const [id, name, role, fit, description, ask, source] of [...includedBuilders].reverse()) {
     grid.querySelector(`#${id}`)?.remove();
     first.insertAdjacentHTML("afterend", `<article class="bc-company-card" id="${id}" itemscope itemtype="https://schema.org/Organization" data-search="${esc(`${name} ${role} ${fit}`.toLowerCase())}"><div class="bc-company-top"><div class="bc-company-mark" aria-hidden="true">${name[0]}</div><div><p class="bc-company-index">${role}</p><h3 itemprop="name">${name}</h3></div></div><p class="bc-best"><span>Evaluate for</span>${fit}</p><p class="bc-desc" itemprop="description">${description}</p><details class="bc-details"><summary>Evidence and scope to confirm</summary><p>${ask}</p></details><p class="sc-source"><a href="${source}">Primary technical material</a></p></article>`);
   }
@@ -213,12 +215,13 @@ export function enhanceSmartContractCategory(html) {
     card.setAttribute("data-search", `${card.querySelector("h3").textContent} ${role} ${best} ${description}`.toLowerCase());
   }
   const cards = grid.querySelectorAll(".bc-company-card");
+  cards.sort((a, b) => a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent, "en", { sensitivity: "base", numeric: true }));
   cards.forEach((card, index) => {
     const label = card.querySelector(".bc-company-index");
     label.set_content(`${String(index + 1).padStart(2, "0")} / ${label.textContent.replace(/^\d+\s*\/\s*/, "")}`);
   });
   directory.querySelector("#bcCount").set_content(`Showing ${cards.length} companies and tools`);
-  hero.querySelector(".bc-snapshot").set_content(`<div><strong>${builders.length + 1}</strong><span>engineering starting points</span></div><div><strong>3</strong><span>separate delivery roles: build, review, operate</span></div><div><strong>${cards.length}</strong><span>companies and supporting tools in the directory</span></div>`);
+  hero.querySelector(".bc-snapshot").set_content(`<div><strong>${includedBuilders.length + 1}</strong><span>engineering starting points</span></div><div><strong>3</strong><span>separate delivery roles: build, review, operate</span></div><div><strong>${cards.length}</strong><span>companies and supporting tools in the directory</span></div>`);
   directory.insertAdjacentHTML("afterend", chain + proof + acceptance + rwa + scenarios + brief + delivery + score + ops + questions);
   const json = root.querySelector('script[type="application/ld+json"]');
   const graph = JSON.parse(json.textContent);
@@ -230,6 +233,7 @@ export function enhanceSmartContractCategory(html) {
   const software = new Set(["foundry-paradigm", "hardhat-nomic-foundation", "remix-ide", "zodiac-gnosis-guild"]);
   cards.forEach((card) => card.setAttribute("itemtype", `https://schema.org/${software.has(card.id) ? "SoftwareApplication" : "Organization"}`));
   list.itemListElement = cards.map((card, index) => ({ "@type": "ListItem", position: index + 1, url: `${url}#${card.id}`, item: { "@type": software.has(card.id) ? "SoftwareApplication" : "Organization", name: card.querySelector("h3").textContent, description: card.querySelector(".bc-desc").textContent } }));
+  grid.set_content(cards.map((card) => card.outerHTML).join("\n"));
   graph["@graph"] = graph["@graph"].filter((item) => item["@type"] !== "FAQPage");
   graph["@graph"].push({ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faq.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) });
   json.set_content(JSON.stringify(graph).replaceAll("<", "\\u003c"));
