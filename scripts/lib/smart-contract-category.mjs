@@ -234,5 +234,15 @@ export function enhanceSmartContractCategory(html) {
   graph["@graph"].push({ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faq.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) });
   json.set_content(JSON.stringify(graph).replaceAll("<", "\\u003c"));
   root.querySelector('meta[name="description"]').setAttribute("content", "Compare smart contract development companies for Web3 and RWA. Explore project fit, evidence checks, chain expertise, audit scope and a practical hiring brief.");
+  root.querySelectorAll(".bc-company-card .sc-source").forEach((node) => node.remove());
+  const technicalReferenceHosts = new Set(["solana.com", "owasp.org", "docs.soliditylang.org", "eips.ethereum.org", "ethereum.org"]);
+  for (const anchor of root.querySelectorAll("main a[href]")) {
+    const href = anchor.getAttribute("href");
+    if (!/^https?:\/\//i.test(href)) continue;
+    const host = new URL(href).hostname.replace(/^www\./, "");
+    if (host === "fluidrwa.com" || technicalReferenceHosts.has(host)) continue;
+    if (/^Visit Website$/i.test(anchor.textContent.trim())) anchor.remove();
+    else anchor.replaceWith(anchor.innerHTML);
+  }
   return root.toString().replace(/[\t ]+$/gm, "");
 }

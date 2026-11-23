@@ -14,6 +14,11 @@ for (const anchor of root.querySelectorAll('a[href^="#"]')) {
   assert.ok(ids.includes(anchor.getAttribute("href").slice(1)), anchor.outerHTML);
 }
 const cards = root.querySelectorAll(".bc-company-card");
+const allowedExternalHosts = new Set(["fluidrwa.com", "solana.com", "owasp.org", "docs.soliditylang.org", "eips.ethereum.org", "ethereum.org"]);
+for (const anchor of root.querySelectorAll("main a[href]")) {
+  const href = anchor.getAttribute("href");
+  if (/^https?:\/\//i.test(href)) assert.ok(allowedExternalHosts.has(new URL(href).hostname.replace(/^www\./, "")), `External vendor hyperlink: ${href}`);
+}
 assert.equal(cards.length, 40);
 assert.equal(root.querySelectorAll(".bc-vetted-badge").length, 1, "Do not assign new Vetted status");
 assert.ok(!root.querySelector("#yul-assembly-specialists"));

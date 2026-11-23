@@ -3,6 +3,17 @@
   "scope": "First Web3 vendor menu category: Smart Contract Development Companies",
   "page": "https://www.fluidrwa.com/vendors/smart-contract-development-companies",
   "baselineCommit": "3cd346c3bc9fb03bd07fac7708b9ddd5c18e6cb4",
+  "publicLinkPolicy": "No outbound vendor website or vendor-repository hyperlinks on the category page. Preserve exact research sources internally; retain internal FluidRWA links and non-vendor technical-standard references. Updated after the user's explicit clarification during deployment preparation.",
+  "directoryChangeCounts": {
+    "previousCategoryEntries": 29,
+    "removedNonCompanySkillEntries": ["Yul+/Assembly Specialists"],
+    "retainedCategoryEntries": 28,
+    "addedToThisCategory": ["Purrweb", "Antier", "Webisoft", "PixelPlex", "Boosty Labs", "EvaCodes", "IdeaSoft", "LimeChain", "ChainSafe Systems", "Nethermind", "Protofire", "Wonderland"],
+    "alreadyListedElsewhereInDirectory": ["Nethermind"],
+    "newToDirectoryCount": 11,
+    "newCategoryTotal": 40,
+    "method": "Compared exact normalized h3 profile names across all baseline vendors HTML pages and vendor-ecosystem.html at 3cd346c. A mention in a research worklist or blog was not counted as a directory profile. Entries include companies and supporting tools; they are not all custom-development agencies."
+  },
   "search": {
     "query": "top smart contract development companies",
     "url": "https://www.google.com/search?q=top+smart+contract+development+companies",
