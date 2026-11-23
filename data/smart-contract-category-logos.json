@@ -1,0 +1,158 @@
+{
+  "ackee-blockchain": {
+    "src": "/assets/vendor-logos/smart-contract/ackee-blockchain.webp",
+    "originalAsset": "/assets/company-logos/ackee-blockchain.png"
+  },
+  "boosty-labs": {
+    "src": "/assets/vendor-logos/smart-contract/boosty-labs.webp",
+    "source": "https://boostylabs.com/wp-content/uploads/2025/01/favicon.ico"
+  },
+  "certik": {
+    "src": "/assets/vendor-logos/smart-contract/certik.webp",
+    "originalAsset": "/assets/company-logos/certik.png"
+  },
+  "chainlink": {
+    "src": "/assets/vendor-logos/smart-contract/chainlink.webp",
+    "originalAsset": "/assets/vendor-logos/chainlink.png"
+  },
+  "chainsafe-systems": {
+    "src": "/assets/vendor-logos/smart-contract/chainsafe-systems.webp",
+    "source": "https://cdn.prod.website-files.com/681b30cba1950e210362e39a/6821ccb1da6a66024fa12751_appicon.png"
+  },
+  "code4rena": {
+    "src": "/assets/vendor-logos/smart-contract/code4rena.webp",
+    "originalAsset": "/assets/vendor-logos/code4rena.png"
+  },
+  "consensys-diligence": {
+    "src": "/assets/vendor-logos/smart-contract/consensys-diligence.webp",
+    "originalAsset": "/assets/vendor-logos/consensys-diligence.png"
+  },
+  "cookbook-dev": {
+    "src": "/assets/vendor-logos/smart-contract/cookbook-dev.webp",
+    "source": "https://avatars.githubusercontent.com/u/104172520?s=200&v=4"
+  },
+  "cyfrin": {
+    "src": "/assets/vendor-logos/smart-contract/cyfrin.webp",
+    "originalAsset": "/assets/vendor-logos/cyfrin.png"
+  },
+  "evacodes": {
+    "src": "/assets/vendor-logos/smart-contract/evacodes.webp",
+    "source": "https://evacodes.com/wp-content/uploads/2026/08/evacodes-site-icon.png"
+  },
+  "foundry-paradigm": {
+    "src": "/assets/vendor-logos/smart-contract/foundry-paradigm.webp",
+    "source": "https://www.getfoundry.sh/foundry-logo.png"
+  },
+  "gelato-network": {
+    "src": "/assets/vendor-logos/smart-contract/gelato-network.webp",
+    "originalAsset": "/assets/vendor-logos/gelato-network.png"
+  },
+  "halborn": {
+    "src": "/assets/vendor-logos/smart-contract/halborn.webp",
+    "originalAsset": "/assets/vendor-logos/halborn.png"
+  },
+  "hardhat-nomic-foundation": {
+    "src": "/assets/vendor-logos/smart-contract/hardhat-nomic-foundation.webp",
+    "source": "https://hardhat.org/images/hardhat-logo.svg"
+  },
+  "hexens": {
+    "src": "/assets/vendor-logos/smart-contract/hexens.webp",
+    "originalAsset": "/assets/vendor-logos/hexens.png"
+  },
+  "ideasoft": {
+    "src": "/assets/vendor-logos/smart-contract/ideasoft.webp",
+    "source": "https://www.google.com/s2/favicons?domain=ideasoft.io&sz=128"
+  },
+  "immunefi": {
+    "src": "/assets/vendor-logos/smart-contract/immunefi.webp",
+    "originalAsset": "/assets/vendor-logos/immunefi.png"
+  },
+  "limechain": {
+    "src": "/assets/vendor-logos/smart-contract/limechain.webp",
+    "source": "https://cdn.prod.website-files.com/660a86b7bec017e773968f3a/66b05331cf019698cbcf06a5_LimeChain-Webclip.svg"
+  },
+  "manifold-finance": {
+    "src": "/assets/vendor-logos/smart-contract/manifold-finance.webp",
+    "source": "https://avatars.githubusercontent.com/u/73733967?s=200&v=4"
+  },
+  "minddeft-technologies": {
+    "src": "/assets/vendor-logos/smart-contract/minddeft-technologies.webp",
+    "originalAsset": "/assets/company-logos/minddeft-technologies.webp"
+  },
+  "nethermind": {
+    "src": "/assets/vendor-logos/smart-contract/nethermind.webp",
+    "originalAsset": "/assets/vendor-logos/nethermind.png"
+  },
+  "openzeppelin": {
+    "src": "/assets/vendor-logos/smart-contract/openzeppelin.webp",
+    "originalAsset": "/assets/company-logos/openzeppelin.png"
+  },
+  "opyn": {
+    "src": "/assets/vendor-logos/smart-contract/opyn.webp",
+    "originalAsset": "/assets/vendor-logos/opyn.png"
+  },
+  "pixelplex": {
+    "src": "/assets/vendor-logos/smart-contract/pixelplex.webp",
+    "source": "https://pixelplex.io/favicon-96x96.png"
+  },
+  "protofire": {
+    "src": "/assets/vendor-logos/smart-contract/protofire.webp",
+    "source": "https://protofire.io/roundtable/logos/protofire.svg"
+  },
+  "purrweb": {
+    "src": "/assets/vendor-logos/smart-contract/purrweb.webp",
+    "source": "https://www.purrweb.com/vendor/webflow/website-files/678ccce8ba65076a9fdb8a49/67da7bd18169065026fecd31_256%20(1).png"
+  },
+  "pyth-network": {
+    "src": "/assets/vendor-logos/smart-contract/pyth-network.webp",
+    "originalAsset": "/assets/vendor-logos/pyth-network.png"
+  },
+  "remix-ide": {
+    "src": "/assets/vendor-logos/smart-contract/remix-ide.webp",
+    "originalAsset": "/assets/vendor-logos/remix-ide.png"
+  },
+  "sherlock": {
+    "src": "/assets/vendor-logos/smart-contract/sherlock.webp",
+    "originalAsset": "/assets/vendor-logos/sherlock.png"
+  },
+  "spearbit": {
+    "src": "/assets/vendor-logos/smart-contract/spearbit.webp",
+    "originalAsset": "/assets/vendor-logos/spearbit.png"
+  },
+  "tenderly": {
+    "src": "/assets/vendor-logos/smart-contract/tenderly.webp",
+    "originalAsset": "/assets/vendor-logos/tenderly.png"
+  },
+  "thirdweb": {
+    "src": "/assets/vendor-logos/smart-contract/thirdweb.webp",
+    "originalAsset": "/assets/vendor-logos/thirdweb.png"
+  },
+  "tokenfi": {
+    "src": "/assets/vendor-logos/smart-contract/tokenfi.webp",
+    "originalAsset": "/assets/vendor-logos/tokenfi.png"
+  },
+  "trail-of-bits": {
+    "src": "/assets/vendor-logos/smart-contract/trail-of-bits.webp",
+    "source": "https://trailofbits.com/apple-touch-icon.png"
+  },
+  "uma-protocol": {
+    "src": "/assets/vendor-logos/smart-contract/uma-protocol.webp",
+    "source": "https://uma.xyz/favicon-32x32.png"
+  },
+  "webisoft": {
+    "src": "/assets/vendor-logos/smart-contract/webisoft.webp",
+    "source": "https://webisoft.com/logo.png"
+  },
+  "wonderland": {
+    "src": "/assets/vendor-logos/smart-contract/wonderland.webp",
+    "source": "https://avatars.githubusercontent.com/u/84030563?s=200&v=4"
+  },
+  "zetachain": {
+    "src": "/assets/vendor-logos/smart-contract/zetachain.webp",
+    "originalAsset": "/assets/vendor-logos/zetachain.png"
+  },
+  "zodiac-gnosis-guild": {
+    "src": "/assets/vendor-logos/smart-contract/zodiac-gnosis-guild.webp",
+    "source": "https://www.zodiac.eco/zodiac48.png"
+  }
+}

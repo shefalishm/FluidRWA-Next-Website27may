@@ -22,6 +22,22 @@ for (const anchor of root.querySelectorAll("main a[href]")) {
   if (/^https?:\/\//i.test(href)) assert.ok(allowedExternalHosts.has(new URL(href).hostname.replace(/^www\./, "")), `External vendor hyperlink: ${href}`);
 }
 assert.equal(cards.length, 39);
+let logoBytes = 0;
+for (const card of cards) {
+  const image = card.querySelector(".bc-company-mark img");
+  assert.ok(image, `Missing logo: ${card.id}`);
+  assert.equal(card.getAttribute("data-vendor-logo-ready"), "true");
+  assert.equal(image.getAttribute("loading"), "lazy");
+  assert.equal(image.getAttribute("width"), "160");
+  assert.equal(image.getAttribute("height"), "160");
+  const src = image.getAttribute("src");
+  assert.ok(src.startsWith("/assets/vendor-logos/smart-contract/"));
+  const bytes = fs.statSync(`public${src}`).size;
+  assert.ok(bytes < 20000, `Oversized logo: ${card.id}`);
+  logoBytes += bytes;
+}
+assert.ok(logoBytes < 200000, `Logo payload exceeds budget: ${logoBytes}`);
+console.log(`PASS: 39 local, lazy-loaded logos; ${(logoBytes / 1024).toFixed(1)} KB total.`);
 const names = cards.map((card) => card.querySelector("h3").textContent);
 assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base", numeric: true })), "Directory must be alphabetical");
 assert.ok(!root.querySelector("#antier"));

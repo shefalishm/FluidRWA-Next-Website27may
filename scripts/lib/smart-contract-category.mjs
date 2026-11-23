@@ -2,6 +2,7 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const { parse } = require("next/dist/compiled/node-html-parser");
+const categoryLogos = require("../../data/smart-contract-category-logos.json");
 const url = "https://www.fluidrwa.com/vendors/smart-contract-development-companies";
 const providerSources = {
   "ackee-blockchain": "https://ackee.xyz/", "certik": "https://www.certik.com/", "chainlink": "https://chain.link/", "code4rena": "https://code4rena.com/", "consensys-diligence": "https://consensys.io/diligence/", "cookbook-dev": "https://www.cookbook.dev/", "cyfrin": "https://www.cyfrin.io/", "foundry-paradigm": "https://getfoundry.sh/", "gelato-network": "https://gelato.cloud/", "halborn": "https://www.halborn.com/", "hardhat-nomic-foundation": "https://hardhat.org/", "hexens": "https://hexens.io/", "immunefi": "https://immunefi.com/", "manifold-finance": "https://www.manifoldfinance.com/", "openzeppelin": "https://docs.openzeppelin.com/contracts/", "opyn": "https://github.com/opynfinance", "pyth-network": "https://www.pyth.network/", "remix-ide": "https://remix.ethereum.org/", "sherlock": "https://sherlock.xyz/", "spearbit": "https://spearbit.com/", "tenderly": "https://tenderly.co/", "thirdweb": "https://thirdweb.com/", "tokenfi": "https://www.tokenfi.com/", "trail-of-bits": "https://trailofbits.com/services/blockchain/", "uma-protocol": "https://uma.xyz/", "zetachain": "https://www.zetachain.com/", "zodiac-gnosis-guild": "https://www.zodiac.eco/"
@@ -156,7 +157,7 @@ export function enhanceSmartContractCategory(html) {
   root.querySelector("#yul-assembly-specialists")?.remove();
   root.querySelector("#sc-category-styles")?.remove();
   root.querySelector("head").insertAdjacentHTML("beforeend", `<style id="sc-category-styles">${styles}</style>`);
-  root.querySelector("#sc-category-styles").set_content(`${styles}\n#smart-contract-shortlist h2{text-wrap:balance}#smart-contract-directory .solutions-section-head{display:block!important}#smart-contract-directory .vendor-procurement-intro{display:none}`);
+  root.querySelector("#sc-category-styles").set_content(`${styles}\n#smart-contract-shortlist h2{text-wrap:balance}#smart-contract-directory .solutions-section-head{display:block!important}#smart-contract-directory .vendor-procurement-intro{display:none}#smart-contract-directory .bc-company-top{align-items:center}#smart-contract-directory .bc-company-mark{width:80px;height:80px;flex:0 0 80px;padding:8px;background:#fff;border:1px solid #d8e3ef;border-radius:8px;overflow:hidden}#smart-contract-directory .bc-company-mark img{display:block;width:100%;height:100%;object-fit:contain}@media(max-width:600px){#smart-contract-directory .bc-company-mark{width:64px;height:64px;flex-basis:64px;padding:6px}#smart-contract-directory .bc-company-top>div:last-child{min-width:0}#smart-contract-directory .bc-company-top h3{overflow-wrap:anywhere}}`);
   const hero = root.querySelector(".bc-hero");
   hero.querySelector("h1").set_content("Smart Contract Development Companies for Web3 and RWA");
   hero.querySelector(".bc-hero-decision").set_content(`<span><strong>Build:</strong> compare delivery teams by project and chain.</span><span><strong>Review:</strong> scope independent security assessment separately.</span><span><strong>Operate:</strong> assign keys, upgrades, monitoring and recovery.</span>`);
@@ -217,6 +218,12 @@ export function enhanceSmartContractCategory(html) {
   const cards = grid.querySelectorAll(".bc-company-card");
   cards.sort((a, b) => a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent, "en", { sensitivity: "base", numeric: true }));
   cards.forEach((card, index) => {
+    const logo = categoryLogos[card.id];
+    if (!logo) throw new Error(`Missing category logo: ${card.id}`);
+    card.setAttribute("data-vendor-logo-ready", "true");
+    const mark = card.querySelector(".bc-company-mark");
+    mark.setAttribute("class", "bc-company-mark bc-company-mark--logo vendor-brand-mark");
+    mark.set_content(`<img src="${logo.src}" alt="${esc(card.querySelector("h3").textContent)} logo" width="160" height="160" loading="lazy" decoding="async">`);
     const label = card.querySelector(".bc-company-index");
     label.set_content(`${String(index + 1).padStart(2, "0")} / ${label.textContent.replace(/^\d+\s*\/\s*/, "")}`);
   });
