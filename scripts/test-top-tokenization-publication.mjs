@@ -15,6 +15,9 @@ const providers = ['Securitize', 'Tokeny', 'Zoniqx', 'Brickken', 'DigiShares', '
 const graphic = '/assets/infographics/rwa-tokenization-platform-shortlist-map-2026';
 const social = `/assets/social/blog-${slug}-editorial.jpg`;
 const thumbnail = `/assets/blog-thumbnails/blog-${slug}-editorial.webp`;
+const source = fs.readFileSync(`content/blog/${slug}.md`, 'utf8');
+const bodyWords = source.split('---').slice(2).join('---').trim().split(/\s+/).length;
+assert.ok(bodyWords >= Math.ceil(5335 * 1.3), 'Expected at least 30% additional buyer content');
 const attr = (tag, name) => tag?.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 async function get(path) {
@@ -25,7 +28,7 @@ async function get(path) {
 const html = origin ? await (await get(route)).text() : fs.readFileSync(`blog/${slug}/index.html`, 'utf8');
 const article = html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/)?.[1];
 assert.ok(article);
-assert.equal(html.match(/<title>(.*?)<\/title>/)?.[1], origin ? title : `${title} | FluidRWA`);
+assert.equal(html.match(/<title>(.*?)<\/title>/)?.[1], title);
 assert.equal(html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1], origin ? heading : cardTitle);
 const metas = Object.fromEntries([...html.matchAll(/<meta\b[^>]*>/g)].map(([tag]) => [attr(tag, 'name') || attr(tag, 'property'), attr(tag, 'content')]));
 assert.equal(metas.description, description);
@@ -39,14 +42,14 @@ if (origin) {
   for (const key of ['og:image:alt', 'twitter:image:alt']) assert.equal(metas[key], alt);
 }
 assert.ok(html.includes(`href="https://www.fluidrwa.com${route}"`));
-assert.equal([...article.matchAll(/<table\b/g)].length, 1);
+assert.equal([...article.matchAll(/<table\b/g)].length, 3);
 assert.ok([...article.matchAll(/<th\b[^>]*>/g)].every(m => m[0].includes('scope="col"')));
 const firstCells = [...article.matchAll(/<tr><td>([\s\S]*?)<\/td>/g)].map(m => m[1].replace(/<[^>]*>/g, ''));
-assert.deepEqual(firstCells, providers);
+assert.deepEqual(firstCells.slice(0, 10), providers);
 const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => { const d = JSON.parse(m[1]); return d['@graph'] || [d]; });
 const schema = schemas.find(s => s['@type'] === 'Article');
 assert.equal(schema.datePublished, '2026-07-11');
-assert.equal(schema.dateModified, '2026-11-08');
+assert.equal(schema.dateModified, '2026-11-23');
 for (const phrase of ['Buyer guidance revised November 6, 2026', 'September 30, 2026', 'reviewed November 8, 2026', 'does not act as the KYC agent', 'Circle International Bermuda Limited', 'ADDX Pte. Ltd.', 'IC SG Pte. Ltd.', 'Taurus-PROTECT', 'zConnect', 'comparison-consideration', 'mailto:contact@fluidrwa.com', '/blog/asset-tokenization-platform-comparison', '/blog/rwa-tokenization-platform-rfp-template', '/network-explorer/research/tokenized-fund-infrastructure-october-2026#october-findings']) assert.ok(article.includes(phrase), phrase);
 assert.ok(!article.includes('graphic still uses the former name'));
 assert.ok(!article.includes('utm_'));
@@ -56,7 +59,13 @@ for (const [tag, url] of article.matchAll(/<a\b[^>]*href="(https?:[^\"]+)"[^>]*>
   assert.ok(schema.citation.includes(url), `Missing citation: ${url}`);
   sources.add(url);
 }
-assert.equal(sources.size, 15);
+assert.equal(sources.size, 6);
+const allowedSourceHosts = new Set(['www.sec.gov', 'eips.ethereum.org', 'www.esma.europa.eu', 'www.bis.org']);
+for (const source of sources) assert.ok(allowedSourceHosts.has(new URL(source).hostname), `Outbound vendor link: ${source}`);
+for (const phrase of ['Updated November 23, 2026', 'Choose the deployment model', 'Trace investor onboarding', 'Separate payment support', 'Test the operating record', 'Inspect token standards', 'Make the chain and wallet', 'Require an exit and continuity', 'Read market scale', 'Where to go if you want to invest']) assert.ok(article.includes(phrase), phrase);
+const faqSchema = schemas.find(s => s['@type'] === 'FAQPage');
+assert.equal(faqSchema.mainEntity.length, 8);
+assert.ok(html.includes('scroll-margin-top:132px'));
 for (const suffix of ['', '-mobile']) {
   const svg = fs.readFileSync(`assets${graphic.slice(7)}${suffix}.svg`, 'utf8');
   for (const name of providers.map(p => p.startsWith('KAIO') ? 'KAIO' : p)) assert.ok(svg.includes(name));
@@ -70,7 +79,7 @@ assert.equal(card.match(/<h2>(.*?)<\/h2>/)?.[1], cardTitle);
 assert.equal(card.match(/<p>(.*?)<\/p>/)?.[1], description);
 const cardImage = card.match(/<img\b[^>]*>/)?.[0];
 assert.equal(attr(cardImage, 'src'), thumbnail);
-assert.equal(attr(cardImage, 'alt'), `FluidRWA: ${alt}`);
+assert.equal(attr(cardImage, 'alt'), `${cardTitle}: FluidRWA: ${alt}`);
 const assets = [];
 for (const path of [thumbnail, social, `${graphic}.png`, `${graphic}-mobile.png`]) {
   const local = fs.readFileSync(`public${path}`);

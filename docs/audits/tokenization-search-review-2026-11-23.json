@@ -1,0 +1,52 @@
+{
+  "observedDate": "2026-11-23",
+  "query": "top tokenization platforms",
+  "searchContext": "Google Chrome, India, personalized results. First page contained nine unique organic destinations. A tenth unique page was read from the following result page; it is not claimed to be a first-page result.",
+  "selectedPage": "/blog/top-tokenization-companies-2026",
+  "selectionEvidence": {
+    "source": "Live Google Search Console, domain property fluidrwa.com, Web (text), Pages table",
+    "start": "2026-10-25",
+    "end": "2026-11-21",
+    "pages": [
+      {"path": "/blog/top-tokenization-companies-2026", "clicks": 119, "impressions": 50608, "averagePosition": 5.1},
+      {"path": "/vendors/tokenization-platforms", "clicks": 2, "impressions": 16275, "averagePosition": 24.8},
+      {"path": "/blog/asset-tokenization-platform-comparison", "clicks": 0, "impressions": 6510, "averagePosition": 14.0}
+    ],
+    "rationale": "Upgrade the existing article with the strongest observed traffic, impressions and position, not a duplicate competing page. Retain the directory and procurement guide as separate buyer stages."
+  },
+  "aiObservation": {
+    "surface": "Google AI Overview for the query above",
+    "sourcesVisibleAfterExpansion": ["Gartner", "MetaMask", "FluidRWA", "Charles Philip on Medium", "Financely", "Token Peddler", "RWA.xyz"],
+    "fluidrwaCitedUrl": "https://www.fluidrwa.com/blog/top-tokenization-companies-2026",
+    "limitation": "One observed answer is not a stable rank, an exhaustive AI citation inventory, a Copilot result or evidence of recovered Bing citations. Search results changed across signed-in browser profiles."
+  },
+  "pagesRead": [
+    {"url": "https://www.gartner.com/reviews/market/tokenization-platform", "firstPage": true, "aiSource": true, "availability": "Public category and product summaries read in Chrome; individual reviews not audited", "coverage": ["Data security tokenization definition", "Product filters", "Ratings", "Sensitive data replacement"], "decision": "Different intent. Clarify distinction; do not import payment/security vendors or their ratings into an asset issuance ranking."},
+    {"url": "https://www.brickken.com/post/blog-top-tokenization-platforms-2025-comparison", "firstPage": true, "aiSource": false, "availability": "Full public article read in Chrome", "coverage": ["Six platforms", "SaaS/API/white-label", "Sandbox", "Payments", "Chains", "Onboarding", "Governance", "Signatures", "Partner marketplace", "Lifecycle"], "decision": "Cover buyer dimensions, but reject unverified competitor limitations and broad compliance claims. Verify Brickken architecture against its own current API documentation."},
+    {"url": "https://www.financely-group.com/top-10-tokenization-service-providers", "firstPage": true, "aiSource": true, "availability": "Full public article read in Chrome", "coverage": ["Ten providers", "Issuance/custody/market roles", "Regulatory perimeter", "Asset fit", "Keys", "Chain strategy", "Distribution", "Deployment sequence", "FAQs"], "decision": "Preserve role-based shortlist; deepen finality, failed payment, permissions and pilot requirements. No vendor claim accepted solely because Financely included it."},
+    {"url": "https://medium.com/@charlesphilip1228/i-reviewed-the-top-10-real-world-asset-tokenization-platforms-in-2026-heres-what-i-found-aa9e9833cc0e", "firstPage": true, "aiSource": true, "availability": "Public article text read in Chrome", "coverage": ["Ten mixed-role companies", "Founder/founding year", "Market growth", "Institutional issuance", "Treasuries", "Credit", "Property", "Trading", "Product fit"], "decision": "Use original reader-oriented opening and separate issuer versus investor paths. Do not reproduce founder trivia, undated market totals or promotional preference as evidence."},
+    {"url": "https://app.rwa.xyz/platforms", "firstPage": true, "aiSource": true, "availability": "Public platform dashboard and first displayed rows read in Chrome", "coverage": ["Distributed/represented/stablecoin categories", "Platform value", "Holders", "Asset count", "Asset classes", "Networks", "Date stamps", "Metric filters"], "decision": "Explain metric definitions, overlap and date scope without copying transient balances into a false provider ranking. Full paginated database not audited."},
+    {"url": "https://redduck.io/rankings/top-rwa-tokenization-companies", "firstPage": true, "aiSource": false, "availability": "Full public ranking and FAQs read in Chrome", "coverage": ["Eleven vendors despite Top 10 title", "Agency versus platform", "Methodology", "Standards", "References", "Audit claims", "Ratings", "Legal/KYC boundary", "Timing"], "decision": "Explain platform versus custom build and standard-specific acceptance checks. Do not adopt self-ranking, audit totals, review scores, price bands or Antier. No new boutique firms added."},
+    {"url": "https://www.fume.finance/resources/blog/best-fund-tokenization-platforms", "firstPage": true, "aiSource": false, "availability": "Full public article read in Chrome", "coverage": ["Five products", "Share issuance", "Fund administration automation", "Onchain strategy vaults", "NAV", "Subscriptions", "Fees", "Distributions"], "decision": "Expand operating-record checks and distinguish software from appointed administrator. Do not repeat blanket claims of replacing regulated roles or eliminating reconciliation."},
+    {"url": "https://metamask.com/news/best-rwa-tokenization-platforms", "firstPage": true, "aiSource": true, "availability": "Full public guide, comparison and wallet tables read in Chrome; collapsed FAQ answers not separately expanded", "coverage": ["Asset categories", "Issuer roles", "Legal structure", "Eligibility", "Market metrics", "Treasuries", "Equities", "Credit", "Gold", "Property", "Networks", "Wallet integration", "Risk"], "decision": "Add investor navigation and wallet/eligibility distinction while keeping issuer intent central. Do not inherit secondary amounts, regional access claims or every product status without primary verification."},
+    {"url": "https://tokenpeddler.com/blogs/top-asset-tokenization-platforms/", "firstPage": true, "aiSource": true, "availability": "Full public guide read in Chrome", "coverage": ["Six named profiles", "Legal rights", "Compliance", "Compatibility", "Security", "Ownership management", "Operating scope", "Custom versus ready-made", "Token generator limitations"], "decision": "Cover deployment tradeoffs and retained operational control. No need to copy generator promotion or add unrelated utility-token software."},
+    {"url": "https://www.linkedin.com/pulse/top-rwa-tokenization-platforms-2026-crypticweb3-1eeoe", "firstPage": false, "aiSource": false, "availability": "Full article read in signed-in Chrome; comments not used as evidence", "coverage": ["Ten platforms/products", "Asset classes", "Jurisdictions", "API/white-label", "Secondary market", "Lifecycle", "Company scale", "FAQs"], "decision": "Cover useful buyer dimensions; reject generalized MiCA jurisdiction statements and unsupported strongest/broadest rankings. Supplemental tenth unique result, not falsely labeled first-page. Public article only; no private messages accessed."}
+  ],
+  "primarySourcesForNewMaterial": [
+    {"url": "https://www.brickken.com/developers/api", "claim": "Unsigned transaction preparation and client-side signing", "date": "Undated current product documentation read November 23, 2026"},
+    {"url": "https://digishares.io/products/platform-capabilities", "claim": "Records, distributions, administrator-approved NAV; software scope distinct from payment and investment intermediation", "date": "Undated current capabilities read November 23, 2026"},
+    {"url": "https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-2-scope", "claim": "Financial instruments excluded from MiCA scope; no classification of a specific offering made", "date": "Rule text read November 23, 2026"},
+    {"url": "https://www.bis.org/publications/tokenisation-context-money-and-other-assets-concepts-and-implications-central-banks.pdf", "claim": "Operational/legal finality and linked versus atomic settlement distinctions", "date": "October 2024 report"},
+    {"url": "https://eips.ethereum.org/EIPS/eip-3643", "claim": "Identity/compliance controls and distinct privileged operations", "date": "Final specification read November 23, 2026"},
+    {"url": "https://github.com/ethereum/EIPs/issues/1411", "claim": "ERC-1400 umbrella proposal and component interfaces", "date": "Proposal created September 9, 2018"},
+    {"url": "https://eips.ethereum.org/EIPS/eip-4626", "claim": "Vault interface for a single underlying ERC-20 asset", "date": "Final specification read by research assistant November 23, 2026"},
+    {"url": "https://eips.ethereum.org/EIPS/eip-7540", "claim": "Asynchronous request/claim flows; cancellation outside scope and operator authority", "date": "Final specification read November 23, 2026"}
+  ],
+  "coverageOutcome": {
+    "existing": ["Role-based shortlist", "Asset fit", "Investor eligibility", "Custody", "Distribution", "Liquidity limitations", "Lifecycle", "Interoperability", "Company context", "RFP", "Scorecard", "FAQs"],
+    "expanded": ["Hosted/API/white-label/custom tradeoffs", "Sandbox versus live", "Roadmap labeling", "API repeated/delayed/failed events", "KYC changes and records", "MiCA scope distinction", "Payments and unmatched funds", "DvP and finality", "Redemption queues", "NAV and reconciliation", "Governance and signatures", "Standards and privilege checks", "Network/wallet fit", "Export and restoration", "Admin handover", "Release gates", "Market methodology", "Investor versus issuer journey"],
+    "deliberatelyNotImported": ["Data-security product rankings", "Competitor unsupported limitations", "Unverified totals and ratings", "Price amounts", "Promotional rankings", "Small new players", "Antier", "Regulatory conclusions about particular offerings"],
+    "notClaimed": ["Every competitor sentence reproduced", "Hands-on provider benchmark", "Guaranteed rank or traffic growth", "Causal explanation of search selection", "Bing citation recovery"]
+  },
+  "publicationPolicy": "No outbound vendor website hyperlinks. Internal FluidRWA links and neutral primary standards/regulatory references retained. Source URLs preserved privately in this evidence file. Existing provider review dates remain scoped; editorial modified date becomes November 23, 2026."
+}

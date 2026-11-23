@@ -273,6 +273,8 @@ function blogStyles() {
     @media(max-width:620px){.blog-hero,.post-hero{padding:72px 0 30px}.blog-hero .light-container,.post-hero .light-container{padding-inline:22px}.post-hero h1,.blog-hero h1{font-size:clamp(24px,7vw,32px);line-height:1.12}.post-hero p:not(.post-meta),.blog-hero p:not(.eyebrow){font-size:14.5px;line-height:1.55}.post-layout{padding:34px 0 52px}.post-main>img{border-radius:20px;margin-bottom:24px}.answer-box,.post-cta,.toc,.research-block{padding:20px}.post-intent-cta{display:grid;margin-top:-10px;padding:16px}.post-intent-cta a{width:100%}.research-links{display:grid;grid-template-columns:1fr;gap:8px}.research-links a{justify-content:center;width:100%;text-align:center}.source-list ul{grid-template-columns:1fr}.post-main h2{font-size:22px;margin-top:30px}.post-main h3{font-size:17px}.post-main p,.post-main li{font-size:15px;line-height:1.7}}
     .article-infographic figcaption{flex-wrap:wrap}.article-infographic figcaption span{flex:1 1 100%}.article-infographic figcaption a{white-space:nowrap;flex-shrink:0}
     @media(max-width:620px){.article-infographic figcaption{display:grid;gap:10px;padding:14px}.article-infographic-download{width:100%}.comparison-consideration{display:grid;margin-top:-16px}.comparison-consideration > a{width:100%}}
+    .post-main:has(#a-practical-platform-evaluation-from-feature-list-to-working-evidence) h2[id]{scroll-margin-top:132px}
+    @media(max-width:620px){.post-main:has(#a-practical-platform-evaluation-from-feature-list-to-working-evidence) h2[id]{scroll-margin-top:124px}}
   </style>`;
 }
 
