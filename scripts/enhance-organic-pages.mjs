@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { enhanceSmartContractCategory } from "./lib/smart-contract-category.mjs";
 
 const root = process.cwd();
 
@@ -96,6 +97,7 @@ function liftDirectoriesAcrossVendorPages() {
 
   for (const entry of fs.readdirSync(vendorsRoot)) {
     const relativePath = path.join("vendors", entry, "index.html");
+    if (entry === "smart-contract-development") continue;
     const fullPath = path.join(root, relativePath);
     if (!fs.existsSync(fullPath)) continue;
     updateFile(relativePath, (html) => removeEmbeddedHeroFragments(liftFirstDirectorySection(html)));
@@ -347,7 +349,7 @@ const custodyDeepSection = `
 updateFile("vendors/smart-contract-development/index.html", (html) => {
   html = setMeta(html, {
     title: "Smart Contract Development Companies for Web3 and RWA | FluidRWA",
-    description: "Find and compare vetted smart contract development companies for Web3, DeFi and tokenization. Review teams, specialties and engagement models before you commit.",
+    description: "Compare smart contract development companies for Web3 and RWA. Explore project fit, evidence checks, chain expertise, audit scope and a practical hiring brief.",
     url: "https://www.fluidrwa.com/vendors/smart-contract-development-companies",
     ogDescription: "Compare smart contract development companies, audit firms and Web3 security providers by workflow, chain and tokenization fit."
   });
@@ -370,7 +372,7 @@ updateFile("vendors/smart-contract-development/index.html", (html) => {
   html = addSectionBefore(html, "organic-smart-contract-intent", smartSection);
   html = addSectionBefore(html, "organic-smart-contract-depth", smartDeepSection);
   html = addSectionBefore(html, "organic-smart-contract-spoke-links", smartContractSpokeLinksSection);
-  return moveDirectoryAfterHero(html, "smart-contract-directory");
+  return enhanceSmartContractCategory(moveDirectoryAfterHero(html, "smart-contract-directory"));
 });
 
 updateFile("vendors/kyc-aml/index.html", (html) => {

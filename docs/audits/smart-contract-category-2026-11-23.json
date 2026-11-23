@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-23",
+  "scope": "First Web3 vendor menu category: Smart Contract Development Companies",
+  "page": "https://www.fluidrwa.com/vendors/smart-contract-development-companies",
+  "baselineCommit": "3cd346c3bc9fb03bd07fac7708b9ddd5c18e6cb4",
+  "search": {
+    "query": "top smart contract development companies",
+    "url": "https://www.google.com/search?q=top+smart+contract+development+companies",
+    "context": "One signed-in, personalized Google session. Search footer showed Netherlands/Amsterdam location. Results changed on a later navigation; the order below preserves the initial observation.",
+    "organicResultsObserved": 8,
+    "paidResultExcluded": "Sponsored Clutch get-matched placement was not treated as organic evidence.",
+    "aiOverviewCitations": ["HyprForge", "Medium / Alec Novella", "Clutch", "TechTarget", "LinkedIn / Anton Nesterov"],
+    "aiCompaniesNamed": ["OpenZeppelin", "Wonderland", "ChainSafe Systems", "Nethermind", "Ackee Blockchain", "Boosty Labs", "Protofire", "EvaCodes", "IdeaSoft", "PixelPlex", "Consensys Diligence", "Trail of Bits", "CertiK"],
+    "fluidrwaObservation": "Not cited in this AI Overview. A FluidRWA smart-contract blog appeared in the image pack. This does not establish a universal rank, exclusion or cause.",
+    "limitations": "No causal ranking experiment, backlink audit or Google internal ranking data. No claim that adding a percentage of text guarantees citations. Dynamic results and availability can change. The task reviewed first-page result landing pages, not every internal profile, review or pagination link."
+  },
+  "reviewedPages": [
+    {
+      "position": 1,
+      "publisher": "Purrweb",
+      "url": "https://www.purrweb.com/blog/top-smart-contract-development-companies/",
+      "access": "Clicked Google organic result in Chrome; full article and FAQ read.",
+      "structure": ["Key takeaways", "Nine-company table", "Headquarters, focus and network columns", "Own product case study and imagery", "Separate audit specialists", "Hiring criteria", "Six buyer FAQs"],
+      "companies": ["Purrweb", "Antier", "Webisoft", "Altoros", "Innowise", "Codiste", "PixelPlex", "Nadcab Labs", "MoogleLabs"],
+      "usefulPattern": "A scannable comparison followed by project-fit explanations, a concrete product example and buyer questions.",
+      "notImported": "Self-ranking, unverified ratings or headcounts, market-growth padding and obsolete hosted Defender assumptions.",
+      "implemented": ["smart-contract-fit", "smart-contract-scenarios", "smart-contract-brief", "smart-contract-faq"]
+    },
+    {
+      "position": 2,
+      "publisher": "HyprForge",
+      "url": "https://www.hyprforge.com/blog/who-will-be-crowned-as-the-best-smart-contract-developers-by-2026-top-blockchain-firms",
+      "access": "Opened from Google in Chrome and read the full article.",
+      "structure": ["Definition and adoption context", "Nine-firm comparison", "Separate auditors", "Project types", "Effort drivers", "Regional discussion", "Selection criteria", "Eight FAQs"],
+      "companies": ["Purrweb", "Antier", "Webisoft", "Altoros", "PixelPlex", "LeewayHertz", "Innowise", "SoluLab", "Minddeft"],
+      "usefulPattern": "Separates use cases and distinguishes development from an audit engagement.",
+      "notImported": "Geographical quality stereotypes, unsupported comparative rankings, generic adoption statistics and obsolete tooling recommendations.",
+      "implemented": ["smart-contract-chain", "smart-contract-scenarios", "smart-contract-brief", "smart-contract-scorecard"]
+    },
+    {
+      "position": 3,
+      "publisher": "LinkedIn / Anton Nesterov",
+      "url": "https://www.linkedin.com/pulse/top-10-smart-contract-development-companies-2026-anton-nesterov-oymze/",
+      "access": "Opened from Google in Chrome and read the article.",
+      "structure": ["Ten firms", "Fit narrative", "Core capabilities per firm", "Five selection questions"],
+      "companies": ["PixelPlex", "OpenZeppelin", "Consensys", "ChainSafe", "LimeChain", "ScienceSoft", "Antier", "SoluLab", "Unicsoft", "Peiko"],
+      "usefulPattern": "Short capability groups and business-to-technical selection questions.",
+      "notImported": "Unsupported deployment/exploit counts or a claim that an auditor is a full-product builder.",
+      "implemented": ["smart-contract-directory", "smart-contract-proof", "smart-contract-brief"]
+    },
+    {
+      "position": 4,
+      "publisher": "Medium / Alec Novella",
+      "url": "https://medium.com/@novellaalec/the-10-best-web3-development-companies-devshops-march-2026-edition-f2a8de6d34bb",
+      "access": "Opened from Google in Chrome and read the long-form article.",
+      "structure": ["Executive answer", "Five-part methodology", "Ten firms", "Best-for labels", "Documented work", "Limitations", "Public code references"],
+      "companies": ["Wonderland", "ChainSafe", "Nethermind", "OpenZeppelin", "Protofire", "Ackee", "Logiform", "IdeaSoft", "EvaCodes", "Unicsoft"],
+      "usefulPattern": "Inspectable engineering evidence and explicit fit and limits for each choice.",
+      "notImported": "Unsupported market-share or value claims, negative agency generalizations, Web3.js active-maintenance implication and hosted Defender recommendations.",
+      "implemented": ["smart-contract-shortlist", "smart-contract-directory", "smart-contract-proof", "smart-contract-operations"]
+    },
+    {
+      "position": 5,
+      "publisher": "Finextra / Gwen Adele",
+      "url": "https://www.finextra.com/blogposting/31901/top-smart-contract-development-companies",
+      "access": "Opened from Google in Chrome and read the article.",
+      "structure": ["Ten profiles", "Founded, location, team and rating fields", "Services", "Industries", "Company versus freelancer", "Eight hiring factors"],
+      "companies": ["Webisoft", "Coinsclone", "Nadcab", "Pixel Web Solutions", "PixelPlex", "Suffescom", "Antier", "HashCash", "Peiko", "Aetsoft"],
+      "usefulPattern": "Consistent comparison fields and an engagement-model discussion.",
+      "notImported": "Third-party star ratings and unsourced company facts. Community contributor content is not treated as Finextra's independent endorsement.",
+      "implemented": ["smart-contract-directory", "smart-contract-brief", "smart-contract-delivery"]
+    },
+    {
+      "position": 6,
+      "publisher": "Clutch",
+      "url": "https://clutch.co/developers/blockchain/smart-contract-development",
+      "access": "Opened from Google in Chrome; profile listings read there, final FAQ and footer content completed through web retrieval after Chrome disconnected.",
+      "structure": ["Review counts", "Location and team filters", "Service-focus percentages", "Project references", "Review themes", "Recent reviews", "Shortlisting", "FAQs", "Ranking methodology"],
+      "companiesSample": ["4soft", "Pharos Production", "Boosty Labs", "SpaceDev", "Aetsoft", "Dreamers", "Peiko", "EvaCodes", "SapientPro", "Wavect", "Artkai"],
+      "usefulPattern": "Evidence-rich profiles, comparable fields and an action-oriented shortlist.",
+      "notImported": "Review ratings or percentages as security evidence, sponsored order as merit, or a fabricated FluidRWA review dataset. No public price figures added, respecting the user's existing preference.",
+      "implemented": ["smart-contract-fit", "smart-contract-proof", "smart-contract-scorecard", "smart-contract-faq"]
+    },
+    {
+      "position": 7,
+      "publisher": "The Manifest",
+      "url": "https://themanifest.com/blockchain/smart-contract/companies",
+      "access": "Opened from Google in Chrome and read the first-page directory content.",
+      "structure": ["Top-100 framing", "First-page profiles", "Rating dimensions", "Clients", "Industries", "Most-reviewed segment", "Matching service"],
+      "companiesSample": ["SOTATEK", "4soft", "Pharos", "Boosty", "SpaceDev", "Dreamers", "Aetsoft", "MetaLamp", "IdeaUsher", "Nalikes", "Rather Labs", "Crypton", "Nadcab", "LimeChain", "Peiko", "EvaCodes"],
+      "usefulPattern": "Consistent service and industry fields with a clear path toward a shortlist.",
+      "notImported": "Clutch-linked review evidence counted as a second independent verification source, unsupported quality ratings or all paginated profiles represented as read.",
+      "implemented": ["smart-contract-directory", "smart-contract-scenarios", "smart-contract-scorecard"]
+    },
+    {
+      "position": 8,
+      "publisher": "Sortlist",
+      "url": "https://www.sortlist.com/smart-contract-development",
+      "access": "Opened directly in Chrome from the observed result URL. Read the directory and expanded all three buyer FAQs.",
+      "structure": ["Location and rating filters", "Portfolio-work counts", "Featured providers", "Client reviews", "Project examples", "Related locations", "Upgrade and security FAQs"],
+      "companiesSample": ["Metlabs", "Walther Kranz", "Webisoft", "TheCodingMachine", "Gaspa Agency", "Appstronaute", "Software Alliance", "NipsApp", "Debut Infotech", "Dreamers", "Wavect"],
+      "usefulPattern": "Project-fit discovery, portfolio checks, upgrade planning and security questions.",
+      "notImported": "Unlinked survey percentages, anonymous testimonial language as evidence, inaccurate Ethereum scaling generalizations or geographic quality assumptions.",
+      "implemented": ["smart-contract-proof", "smart-contract-acceptance", "smart-contract-delivery", "smart-contract-operations"]
+    },
+    {
+      "position": null,
+      "publisher": "TechTarget / George Lawton",
+      "url": "https://www.techtarget.com/news/Top-9-smart-contract-platforms-to-consider-in-2026/846565/",
+      "access": "Additional AI-cited source, opened in Chrome and full main article read.",
+      "structure": ["Named author and experts", "Selection rationale", "Definition", "Public and private environments", "Platform tradeoffs", "Enterprise management tools"],
+      "platforms": ["Ethereum", "BNB Smart Chain", "Solana", "Cardano", "Hyperledger Fabric", "Corda", "Casper", "Kaleido", "Docusign"],
+      "usefulPattern": "Distinguishes platforms, execution environments and enterprise contract management from delivery agencies.",
+      "notImported": "Treating all platforms as equivalent, universal legal conclusions, performance numbers without matched definitions or Docusign as a direct public-chain developer alternative.",
+      "implemented": ["smart-contract-chain", "smart-contract-fit", "smart-contract-rwa"]
+    }
+  ],
+  "coverageChecklist": {
+    "definitionsAndRoleSeparation": ["smart-contract-shortlist", "smart-contract-fit"],
+    "consistentCompanyComparison": ["smart-contract-directory"],
+    "chainLanguagesAndExecutionEnvironments": ["smart-contract-chain"],
+    "portfolioAndReferences": ["smart-contract-proof"],
+    "securityTestingAndIndependentAudit": ["smart-contract-acceptance"],
+    "industryUseCases": ["smart-contract-rwa", "smart-contract-scenarios"],
+    "scopeEffortAndTimelineDrivers": ["smart-contract-brief", "smart-contract-delivery"],
+    "agencyFreelancerTeamExtensionAndLocation": ["smart-contract-brief"],
+    "upgradesMonitoringAndSupport": ["smart-contract-operations"],
+    "redFlagsAndSelectionMethod": ["smart-contract-scorecard"],
+    "questionsAndNextAction": ["smart-contract-faq"]
+  },
+  "additionalOriginalResources": ["Commit-to-deployment-to-audit evidence chain", "Negative-action acceptance tests", "Issuer onboarding-to-redemption workflow", "Explicit responsibility boundaries", "Dependency failure and recovery scenarios", "Buyer-owned handover inventory", "Inspectable milestone gates", "Non-numerical evidence scorecard", "Current product retirement and transition corrections"],
+  "primaryStatusEvidence": [
+    {"url": "https://www.openzeppelin.com/news/defender-sunset-faq", "observation": "Hosted Defender retired July 1, 2026. Do not assume hosted service availability."},
+    {"url": "https://docs.openzeppelin.com/contracts/", "observation": "Current documentation includes Contracts, Relayer and Monitor. Product documentation is not a hands-on integration test."},
+    {"url": "https://blog.chainsafe.io/web3-js-sunset/", "observation": "Web3.js archival announced for March 4, 2025. Do not represent historical maintenance as current."},
+    {"url": "https://code4rena.com/", "observation": "Official site says winding down, completing active competitions and bounties. No closing date inferred."},
+    {"url": "https://spearbit.com/", "observation": "Official page says Spearbit now lives on Cantina."},
+    {"url": "https://cantina.xyz/", "resolvedUrl": "https://www.cantina.security/", "observation": "Current catalogue includes onchain security. Staffing or performance not inferred."},
+    {"url": "https://www.zetachain.com/", "observation": "Official site announces Solana transition and a scheduled December 9 chain halt/claims opening. Future event is not reported as completed."},
+    {"url": "https://solana.com/docs/core/programs", "observation": "Program and data-account model and upgrade authority described in official docs."},
+    {"url": "https://eips.ethereum.org/EIPS/eip-3643", "observation": "Standard defines token, identity and compliance interfaces. No legal compliance conclusion inferred."},
+    {"url": "https://owasp.org/projects/smart-contract-top-10", "observation": "Risk awareness categories, not exhaustive assurance or a vendor certification."},
+    {"url": "https://docs.soliditylang.org/en/latest/security-considerations.html", "observation": "Public visibility, reentrancy and other risks. Procurement procedures are original FluidRWA recommendations, not a copied source checklist."}
+  ],
+  "sourceAvailabilityExceptions": [
+    {"url": "https://wonderland.xyz/", "observation": "Web retrieval failed; capability note uses official https://github.com/defi-wonderland instead."},
+    {"url": "https://pixelplex.io/smart-contract-development/", "observation": "Deep URL unavailable to web retrieval; used official https://pixelplex.io/ for bounded service description."},
+    {"url": "https://www.cookbook.dev/", "observation": "502 during web retrieval. Does not prove the business or all services are unavailable; no current availability claim added."},
+    {"url": "https://www.manifoldfinance.com/", "observation": "Web retrieval timed out. Retained only a bounded infrastructure reference and direct confirmation questions, not a current availability assertion."}
+  ],
+  "diagnosis": {
+    "observedWeaknesses": ["29 visible cards but hero and result count claimed 30", "Unsourced aggregated 500B+ value figure", "Generic Yul/Assembly skill represented as an Organization", "Mainly auditors and tools despite developer-hiring intent", "Repeated generic guide sections", "Blanket runtime-added Vetted badges", "Unsupported comparative superlatives and safety guarantees", "Outdated product assumptions"],
+    "plausibleSearchGaps": ["Weak immediate developer-hiring answer compared with fit tables", "Too little inspectable engineering evidence", "Blurred builder versus reviewer versus tool roles", "Insufficient concrete procurement resources", "Potential overlap with the separate top-ten blog"],
+    "causalStatus": "These are observed content and experience gaps or plausible hypotheses, not proven reasons for Google or AI ranking decisions.",
+    "successMeasures": ["Crawl and index status for the exact canonical URL", "Search Console query/page impressions, clicks and position over comparable periods", "Repeated fixed-prompt AI citation observations by locale and date", "Qualified requirement submissions and directory interactions"],
+    "recoveryDemonstrated": false
+  }
+}

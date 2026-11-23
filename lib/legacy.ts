@@ -257,6 +257,7 @@ function addVettedBadgeToVendorCard(cardHtml: string) {
 }
 
 function addWeb3VettedBadges(file: string, html: string) {
+  if (file === "vendors/smart-contract-development/index.html") return html;
   if (!shouldShowWeb3VettedBadges(file)) return html;
   const badgedCards = html
     .replace(/<article class="bc-company-card[\s\S]*?<\/article>/g, addVettedBadgeToVendorCard)
@@ -625,6 +626,9 @@ export function legacyMainHtml(file: string) {
   }
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");
+  }
+  if (file === "vendors/smart-contract-development/index.html") {
+    renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Buyer guide and selected engineering sources reviewed: November 23, 2026");
   }
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }

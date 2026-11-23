@@ -1546,7 +1546,8 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   if (providerDirectory && providerDirectory.dataset.fluidrwaProcurementReady !== "true") {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
-  const serviceDirectory = ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
+  const smartContractDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/smart-contract-development-companies";
+  const serviceDirectory = smartContractDirectory || ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const providerCards = Array.from((serviceDirectory ? document : providerDirectory).querySelectorAll(".bc-provider-card, .bc-company-card"));
   const scopedDirectory = serviceDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
@@ -1634,6 +1635,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     const count = directorySection?.querySelector("#bcCount");
     if (count) count.textContent = document.documentElement.lang === "es"
       ? `Mostrando ${visibleCount} ${visibleCount === 1 ? "proveedor" : "proveedores"}`
+      : smartContractDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "company or tool" : "companies and tools"}`
       : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 
