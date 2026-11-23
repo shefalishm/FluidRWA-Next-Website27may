@@ -14,6 +14,8 @@ for (const anchor of root.querySelectorAll('a[href^="#"]')) {
   assert.ok(ids.includes(anchor.getAttribute("href").slice(1)), anchor.outerHTML);
 }
 const cards = root.querySelectorAll(".bc-company-card");
+assert.ok(!root.querySelector("#smart-contract-shortlist .sc-lead"), "Introduction should use the same paragraph styling and width as the other body text");
+assert.equal(root.querySelector("#smart-contract-shortlist .light-container > p").getAttribute("class"), undefined);
 const allowedExternalHosts = new Set(["fluidrwa.com", "solana.com", "owasp.org", "docs.soliditylang.org", "eips.ethereum.org", "ethereum.org"]);
 for (const anchor of root.querySelectorAll("main a[href]")) {
   const href = anchor.getAttribute("href");

@@ -41,7 +41,7 @@ function section(id, label, title, body) {
 }
 
 const quick = section("smart-contract-shortlist", "Start with the job", "A useful shortlist starts with what you need to ship", `
-  <p class="sc-lead">Deploying a token is only the beginning. A financial product can still fail at the first redemption, lost wallet or upgrade. Choose the team that can demonstrate the difficult workflow, not the one with the longest list of blockchain logos.</p>
+  <p>Deploying a token is only the beginning. A financial product can still fail at the first redemption, lost wallet or upgrade. Choose the team that can demonstrate the difficult workflow, not the one with the longest list of blockchain logos.</p>
   <p><strong>Quick answer:</strong> compare custom builders such as Minddeft, protocol-oriented groups such as ChainSafe and Wonderland, infrastructure and security engineering from Nethermind, and integration work from Protofire. For a separate security assessment, evaluate OpenZeppelin, Ackee Blockchain and Trail of Bits against the actual codebase. Frameworks, oracle networks and monitoring products support these teams; they are not interchangeable development agencies.</p>
   <nav class="sc-jump" aria-label="Smart contract buyer guide"><a href="#smart-contract-fit">Compare by project</a><a href="#smart-contract-directory">Companies &amp; tools</a><a href="#smart-contract-proof">Check the evidence</a><a href="#smart-contract-brief">Build your brief</a><a href="#smart-contract-faq">Buyer questions</a></nav>
   <div class="sc-method"><strong>How this shortlist works</strong><p>FluidRWA groups options by delivery role, public technical material, project scope and the questions a buyer must resolve. The order is not a quality score. The selected engineering profiles and primary references below were reviewed on November 23, 2026. Public documentation establishes described capabilities, not delivery performance on your project. We have not run a hands-on benchmark or collected a comparable client-review dataset for these companies.</p></div>`);
@@ -156,7 +156,7 @@ export function enhanceSmartContractCategory(html) {
   root.querySelector("#yul-assembly-specialists")?.remove();
   root.querySelector("#sc-category-styles")?.remove();
   root.querySelector("head").insertAdjacentHTML("beforeend", `<style id="sc-category-styles">${styles}</style>`);
-  root.querySelector("#sc-category-styles").set_content(`${styles}\n#smart-contract-directory .solutions-section-head{display:block!important}#smart-contract-directory .vendor-procurement-intro{display:none}`);
+  root.querySelector("#sc-category-styles").set_content(`${styles}\n#smart-contract-shortlist h2{text-wrap:balance}#smart-contract-directory .solutions-section-head{display:block!important}#smart-contract-directory .vendor-procurement-intro{display:none}`);
   const hero = root.querySelector(".bc-hero");
   hero.querySelector("h1").set_content("Smart Contract Development Companies for Web3 and RWA");
   hero.querySelector(".bc-hero-decision").set_content(`<span><strong>Build:</strong> compare delivery teams by project and chain.</span><span><strong>Review:</strong> scope independent security assessment separately.</span><span><strong>Operate:</strong> assign keys, upgrades, monitoring and recovery.</span>`);
