@@ -1548,6 +1548,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
   const smartContractDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/smart-contract-development-companies";
   const legalDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/legal-regulatory-vendors";
+  const rampDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/fiat-on-off-ramp-providers";
   const serviceDirectory = smartContractDirectory || ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const providerCards = Array.from((serviceDirectory ? document : providerDirectory).querySelectorAll(".bc-provider-card, .bc-company-card"));
   const scopedDirectory = serviceDirectory || legalDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
@@ -1590,6 +1591,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   resetButton.textContent = vendorUiText("Reset filters");
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
   if (serviceDirectory) locationSelect.remove();
+  if (rampDirectory) { locationSelect.remove(); regulatorySelect.remove(); }
   if (scopedDirectory) budgetSelect.remove();
   panel.querySelector(".vendor-procurement-search").after(filters);
   if (existingSearch) {
@@ -1600,7 +1602,7 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   const queryControl = existingSearch || panel.querySelector("[data-provider-query]");
   const locationControl = locationSelect.querySelector("select");
-  const initialHq = serviceDirectory ? null : new URLSearchParams(window.location.search).get("hq");
+  const initialHq = serviceDirectory || rampDirectory ? null : new URLSearchParams(window.location.search).get("hq");
   if (initialHq && [...locationControl.options].some((option) => option.value === initialHq)) locationControl.value = initialHq;
   const regulatoryControl = regulatorySelect.querySelector("select");
   const budgetControl = budgetSelect.querySelector("select");
@@ -1639,6 +1641,7 @@ const initLegacyVendorDirectoryWidgets = () => {
       : smartContractDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "company or tool" : "companies and tools"}`
       : legalDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "firm" : "firms"}`
       : window.location.pathname.replace(/\/$/, "") === "/vendors/growth-marketing-companies" ? `Showing ${visibleCount} ${visibleCount === 1 ? "listing" : "listings"}`
+      : rampDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "record" : "records"}`
       : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 

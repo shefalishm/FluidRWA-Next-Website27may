@@ -1,0 +1,288 @@
+{
+  "observedOn": "2026-11-24",
+  "query": "best crypto off ramp providers",
+  "context": "Chrome personalized India results exposed nine organic results. Additional tenth source is a Latin America comparison, not an invented tenth Google result.",
+  "records": [
+    {
+      "url": "https://www.finextra.com/blogposting/33092/top-crypto-on-ramp-and-off-ramp-providers",
+      "googlePosition": 1,
+      "additionalLatamSource": false,
+      "status": 403,
+      "finalUrl": "https://www.finextra.com/blogposting/33092/top-crypto-on-ramp-and-off-ramp-providers",
+      "title": "Just a moment...",
+      "robots": "noindex,nofollow",
+      "h1": [],
+      "headingSample": [],
+      "schemaTypes": [],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.alchemy.com/dapps/best/fiat-onramps",
+      "googlePosition": 2,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://www.alchemy.com/dapps/best/fiat-onramps",
+      "title": "List of 86 Fiat onramps (2026) | Alchemy",
+      "description": "Discover 86 Fiat onramps across the most popular web3 ecosystems with Alchemy's Dapp Store. Also explore related collections including Crypto exchanges, Decentralized exchanges (DEXs).",
+      "canonical": "https://www.alchemy.com/dapps/best/fiat-onramps",
+      "robots": null,
+      "h1": [
+        "Fiat onramps"
+      ],
+      "headingSample": [
+        "List of Fiat onramps",
+        "Related collections",
+        "Build blockchain magic",
+        "Supercharge your inbox",
+        "Products",
+        "Developers",
+        "Community",
+        "Company"
+      ],
+      "schemaTypes": [
+        "ItemList",
+        "ListItem"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.onramper.com/",
+      "googlePosition": 3,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://onramper.com/",
+      "title": "Onramper - the Leading Fiat-to-Crypto Onramp Aggregator",
+      "description": "Description: Go live with 30+ ramps and 175+ payment methods in your app. Let users buy crypto with the lowest fees and truly global coverage! Plug-and-play onramps, offramps and swaps.",
+      "canonical": "https://www.onramper.com",
+      "robots": null,
+      "h1": [
+        "Build Headless On/offramp Experiences",
+        "Meet your users where they are.Every time."
+      ],
+      "headingSample": [
+        "Double the volumes with a fraction of the effort",
+        "",
+        "Frequently asked questions.",
+        "Plug. Play. Prosper.",
+        "Plug.Play.Prosper."
+      ],
+      "schemaTypes": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.spark.money/tools/which-crypto-off-ramp-should-i-use",
+      "googlePosition": 4,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://www.spark.money/tools/which-crypto-off-ramp-should-i-use",
+      "title": "Which Crypto Off-Ramp Should I Use? | Spark",
+      "description": "Find the best crypto-to-fiat off-ramp for your location, volume, and speed needs with our comparison of top providers, fees, and KYC levels.",
+      "canonical": "https://www.spark.money/tools/which-crypto-off-ramp-should-i-use",
+      "robots": null,
+      "h1": [
+        "Which Crypto Off-Ramp Should I Use?"
+      ],
+      "headingSample": [
+        "Choosing the Right Crypto Off-Ramp",
+        "Off-Ramp Categories at a Glance",
+        "Centralized Exchanges",
+        "Payment Apps",
+        "P2P Platforms",
+        "OTC Desks",
+        "Crypto Debit Cards",
+        "The Stablecoin Intermediate Step"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebApplication",
+        "Offer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://utorg.com/learn/best-crypto-on-ramps-in-2026",
+      "googlePosition": 5,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://utorg.com/learn/best-crypto-on-ramps-in-2026",
+      "title": "Best Crypto On-Ramps in 2026: Compare Fees, Payment Methods and Availability | Utorg Learn",
+      "description": "Compare the best crypto on-ramps in 2026 by effective cost, payment methods and regional availability, including Utorg, MoonPay, Transak, Banxa and Mercuryo.",
+      "canonical": "https://utorg.com/learn/best-crypto-on-ramps-in-2026",
+      "robots": null,
+      "h1": [
+        "Best Crypto On-Ramps in 2026: Compare Fees, Payment Methods and Availability"
+      ],
+      "headingSample": [
+        "Why the Advertised Fee Is Rarely the Full Cost",
+        "Key Terminology",
+        "What Types of Crypto On-Ramps Exist",
+        "The Real Cost of an On-Ramp: The Effective-Cost Framework",
+        "Comparison Table",
+        "Worked Cost Comparison: Card vs Bank Transfer",
+        "Best On-Ramps by Payment Method",
+        "Best On-Ramps by Availability"
+      ],
+      "schemaTypes": [],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.finextra.com/blogposting/32712/on--and-off-ramp-providers-for-crypto-platforms-the-best-of-the-bunch",
+      "googlePosition": 6,
+      "additionalLatamSource": false,
+      "status": 403,
+      "finalUrl": "https://www.finextra.com/blogposting/32712/on--and-off-ramp-providers-for-crypto-platforms-the-best-of-the-bunch",
+      "title": "Just a moment...",
+      "robots": "noindex,nofollow",
+      "h1": [],
+      "headingSample": [],
+      "schemaTypes": [],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://xchange-360.com/insights/best-crypto-off-ramp-providers-for-businesses-2026/",
+      "googlePosition": 7,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://xchange-360.com/insights/best-crypto-off-ramp-providers-for-businesses-2026/",
+      "title": "Best Crypto Off-Ramp Providers for Businesses (2026)",
+      "description": "Which crypto off-ramp can your business actually use? Five routes compared, from Circle Mint to exchange accounts and regulated OTC providers.",
+      "canonical": "https://xchange-360.com/insights/best-crypto-off-ramp-providers-for-businesses-2026/",
+      "robots": null,
+      "h1": [
+        "Best Crypto Off-Ramp Providers for Businesses (2026)"
+      ],
+      "headingSample": [
+        "Frequently asked questions",
+        "Move your money where it needs to go"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "WebPage",
+        "Person",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.merge.money/products/stablecoin-on-off-ramp",
+      "googlePosition": 8,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://www.merge.money/products/stablecoin-on-off-ramp",
+      "title": "Crypto On-Ramp and Off-Ramp Infrastructure - Merge",
+      "description": "On-ramp fiat, off-ramp crypto, and move funds globally through Merge's regulated stablecoin infrastructure. Book a demo.",
+      "canonical": "https://www.merge.money/products/stablecoin-on-off-ramp",
+      "robots": null,
+      "h1": [
+        "Stablecoin On and Off Ramp Infrastructure"
+      ],
+      "headingSample": [
+        "How On-Ramps and Off-Ramps Enable Global Settlement",
+        "What On-Ramping and Off-Ramping Mean for Businesses",
+        "Fiat to Crypto and Crypto to Fiat Through One Regulated Flow",
+        "How Merge Fits Your Business",
+        "Compliance-First Stablecoin Payment Infrastructure",
+        "Move Between Fiat and Stablecoins with Regulated Infrastructure",
+        "FAQ"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem",
+        "Service",
+        "Place",
+        "BusinessAudience",
+        "Offer",
+        "PriceSpecification",
+        "OfferCatalog",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://www.quicknode.com/builders-guide/best/top-9-fiat-onramps",
+      "googlePosition": 9,
+      "additionalLatamSource": false,
+      "status": 200,
+      "finalUrl": "https://www.quicknode.com/builders-guide/best/top-9-fiat-onramps",
+      "title": "Top 9 Fiat Onramps in 2026 | Quicknode",
+      "description": "Compare the best fiat-to-crypto onramps with low fees, wide geographic coverage, and seamless wallet integration.",
+      "canonical": "https://www.quicknode.com/builders-guide/best/top-9-fiat-onramps",
+      "robots": null,
+      "h1": [
+        "Top 9 Fiat Onramps"
+      ],
+      "headingSample": [
+        "Get a blazing-fast RPC endpoint for trading, sniping, automation, and more",
+        "Is your tool missing from this list?",
+        "Top Fiat to Crypto Onramps for 2026: Best Platforms for Seamless Transactions",
+        "Key Takeaways",
+        "Understanding Fiat to Crypto Onramps",
+        "Key Features of Top Fiat to Crypto Onramps",
+        "Leading Platforms for Fiat to Crypto Transactions",
+        "Payment Methods for Fiat to Crypto Onramps"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "ImageObject",
+        "PostalAddress",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    },
+    {
+      "url": "https://blindpay.com/resources/more/best-stablecoin-offramp-latin-america-2026",
+      "googlePosition": null,
+      "additionalLatamSource": true,
+      "status": 200,
+      "finalUrl": "https://blindpay.com/resources/more/best-stablecoin-offramp-latin-america-2026",
+      "title": "Best stablecoin off-ramps for Latin America in 2026 | BlindPay",
+      "description": "Stablecoin off-ramps for paying Brazil, Mexico, Colombia, and Argentina compared on rails, locked quotes, refunds, and compliance, as of October 2026.",
+      "canonical": "https://blindpay.com/resources/more/best-stablecoin-offramp-latin-america-2026",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1": [
+        "Best stablecoin off-ramps for Latin America payouts in 2026"
+      ],
+      "headingSample": [
+        "What should you compare in a Latin America off-ramp?",
+        "How do the main options compare?",
+        "Why does BlindPay rank first for Latin America?",
+        "Which stablecoins and networks fund the payouts?",
+        "Where does Bridge fit?",
+        "Where do consumer widgets fit?",
+        "What does one payout in each country look like?",
+        "What to do next"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "scope": "Response availability and metadata only; claim verification is separate."
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import path from "path";
 import { enhanceSmartContractCategory } from "./lib/smart-contract-category.mjs";
 import { enhanceLegalCategory } from "./lib/legal-category.mjs";
 import { enhanceGrowthMarketingCategory } from "./lib/growth-marketing-category.mjs";
+import { enhanceFiatRampCategory } from "./lib/fiat-ramp-category.mjs";
 
 const root = process.cwd();
 
@@ -533,5 +534,6 @@ updateFile("vendors/legal-regulatory/index.html", (html) => {
 });
 
 updateFile("vendors/growth-marketing/index.html", enhanceGrowthMarketingCategory);
+updateFile("vendors/fiat-on-off-ramps/index.html", enhanceFiatRampCategory);
 
 liftDirectoriesAcrossVendorPages();

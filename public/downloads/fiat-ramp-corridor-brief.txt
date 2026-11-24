@@ -1,0 +1,43 @@
+FluidRWA Fiat Ramp Corridor Brief
+Buyer worksheet, November 24, 2026
+
+Business and product:
+Use case: consumer buy/sell / company treasury / merchant settlement / third-party payouts
+Customer entity type and residence:
+Source and destination countries:
+Direction and purpose:
+Funding fiat currency and payment rail:
+Funding account holder and first/third-party arrangement:
+Token, contract identifier where relevant, and blockchain:
+Source and receiving wallet model:
+Destination fiat currency and payout rail:
+Beneficiary type, country and account requirements:
+Expected transaction sizes, frequency and operational windows:
+
+Ask each candidate:
+1. Exact product, version, operator and contracting entity?
+2. Written eligibility for this customer, direction, country and rail combination?
+3. Partner KYB, end-user KYC, beneficiary validation and screening owners?
+4. Production access, rail endorsements and prerequisites?
+5. Supported tokens, networks, wallet model and confirmation rules?
+6. Quote type, expiry, funding deadline, deductions and net delivery?
+7. Funds-in-transit, account holder, ledger and withdrawal rights?
+8. Meaning of each status from funding to recipient credit?
+9. Treatment of late funding, incorrect amount and wrong-network transfers?
+10. Rejected-payout return currency, network, address, timing and support owner?
+11. Webhook authenticity, duplicates, replay and status retrieval?
+12. Order, chain, bank-reference and refund reconciliation exports?
+13. Liquidity, prefunding, limits and outage procedures?
+14. Exit process, open-order reconciliation and record access?
+
+Evidence record:
+Provider / product / route / source URL / publication date / review date
+Documented scope / agreed eligibility / open question / owner / next action
+
+Pilot record:
+Environment / authorized scope / scenario / expected outcome / observed outcome
+Order reference / chain reference / bank reference / exception / reconciliation sign-off
+
+Do not include passwords, private keys, seed phrases or customer identity documents
+in an initial vendor enquiry. This worksheet is procurement guidance, not legal,
+financial or tax advice, and does not authorize a transaction.

@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {enhanceFiatRampCategory} from './lib/fiat-ramp-category.mjs';
+const file='vendors/fiat-on-off-ramps/index.html';
+fs.writeFileSync(file,enhanceFiatRampCategory(fs.readFileSync(file,'utf8')));
+const sitemap='sitemap.xml';
+let xml=fs.readFileSync(sitemap,'utf8');
+const entry=xml.split('<url>').find(x=>/^<loc>https:\/\/www\.fluidrwa\.com\/vendors\/fiat-on-off-(?:ramps|ramp-providers)<\/loc>/.test(x));
+if(!entry)throw new Error('Missing canonical fiat-ramp sitemap entry');
+xml=xml.replace(entry,entry.replace('<loc>https://www.fluidrwa.com/vendors/fiat-on-off-ramps</loc>','<loc>https://www.fluidrwa.com/vendors/fiat-on-off-ramp-providers</loc>').replace(/<lastmod>[^<]*<\/lastmod>/,'<lastmod>2026-11-24</lastmod>'));
+fs.writeFileSync(sitemap,xml);
+console.log('Updated fiat-ramp category and its sitemap date only.');

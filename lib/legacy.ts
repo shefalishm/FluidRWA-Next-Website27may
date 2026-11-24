@@ -162,8 +162,8 @@ const seoOverrides: Record<string, SeoOverride> = {
     socialImageAlt: "FluidRWA vendor ecosystem directory, including growth and marketing services; not a performance ranking."
   },
   "vendors/fiat-on-off-ramps/index.html": {
-    title: "Crypto On-Ramp and Off-Ramp Providers: 29 Compared",
-    description: "Compare fiat-to-crypto and crypto-to-fiat providers by country, payment method, KYC ownership and payout route. Verify the corridor before integrating."
+    title: "Crypto On-Ramp & Off-Ramp Providers Compared | FluidRWA",
+    description: "Compare fiat and crypto ramps for wallets, business payouts and institutional conversion. Check PIX, SPEI, KYC, integration scope, settlement and refunds."
   },
   "vendors/payments-stablecoins/index.html": {
     title: "Stablecoin Infrastructure Providers for Payments & Payouts",
@@ -173,7 +173,7 @@ const seoOverrides: Record<string, SeoOverride> = {
 
 const articleDirectoryLinks: Record<string, { href: string; label: string }> = {
   "blog/top-tokenization-companies-2026/index.html": { href: "/vendors/tokenization-platforms", label: "Compare all tokenization platforms" },
-  "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": { href: "/vendors/fiat-on-off-ramp-providers", label: "Compare 29 fiat ramp providers" },
+  "blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers/index.html": { href: "/vendors/fiat-on-off-ramp-providers", label: "Compare fiat ramp providers" },
   "blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody/index.html": { href: "/vendors/crypto-custody-providers", label: "Compare 28 custody providers" },
   "blog/crypto-custody-providers-comparison-2026/index.html": { href: "/vendors/crypto-custody-providers", label: "Compare 28 custody providers" },
   "blog/best-blockchain-development-companies-web3-rwa/index.html": { href: "/vendors/blockchain-development-companies", label: "Compare 30 development companies" },
@@ -245,7 +245,7 @@ function readLegacy(file: string) {
 }
 
 function shouldShowWeb3VettedBadges(file: string) {
-  if (["vendors/legal-regulatory/index.html", "vendors/growth-marketing/index.html"].includes(file)) return false;
+  if (["vendors/legal-regulatory/index.html", "vendors/growth-marketing/index.html", "vendors/fiat-on-off-ramps/index.html"].includes(file)) return false;
   if (file === "vendor-ecosystem.html") return true;
   return file.startsWith("vendors/");
 }
@@ -546,7 +546,7 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
-  const guidance = html.includes('id="growth-marketing-research"') ? null : vendorAnswerGuidance(file);
+  const guidance = /id="(?:growth-marketing|fiat-ramp)-research"/.test(html) ? null : vendorAnswerGuidance(file);
   if (guidance) renderedHtml = renderedHtml.replace("</section>", `</section>${guidance}`);
   if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file) && !html.includes('id="growth-marketing-research"')) {
     const marketing = file.includes("growth-marketing");
@@ -585,7 +585,7 @@ export function legacyMainHtml(file: string) {
       '$1<p style="grid-column:1/-1;overflow-wrap:anywhere">Prefer email? <a href="mailto:contact@fluidrwa.com">contact@fluidrwa.com</a></p>');
   }
   renderedHtml = normalizeVendorCategoryCounts(renderedHtml);
-  if (file === "vendors/fiat-on-off-ramps/index.html") {
+  if (file === "vendors/fiat-on-off-ramps/index.html" && !html.includes('id="fiat-ramp-research"')) {
     renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Need customers to buy crypto, cash out or both? Start with the country, payment method and direction of travel. Then confirm who performs KYC, who handles failed payouts and which asset and network pairs are supported. See the <a href="/network-explorer/research/ramp-onboarding">ramp onboarding evidence map</a> for documented examples.</p>');
   }
   if (file === "vendors/payments-stablecoins/index.html") {
@@ -627,6 +627,7 @@ export function legacyMainHtml(file: string) {
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
     renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: ${html.includes('id="growth-marketing-research"') ? 'November 24, 2026' : 'September 29, 2026'}</p>`;
   }
+  if (html.includes('id="fiat-ramp-research"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 24, 2026');
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");
   }

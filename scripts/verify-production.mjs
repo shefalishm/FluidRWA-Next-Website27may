@@ -11,6 +11,7 @@ const routes = [
   "/vendors/tokenization-platforms",
   "/vendors/smart-contract-development-companies",
   "/vendors/growth-marketing-companies",
+  "/vendors/fiat-on-off-ramp-providers",
   "/vendor-membership",
   "/contact",
   "/submit-requirement",
