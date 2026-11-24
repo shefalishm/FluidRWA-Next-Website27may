@@ -1,5 +1,6 @@
 import { onchainSupplyContracts } from "../lib/onchainSupply.ts";
 import { readFileSync } from "node:fs";
+import { fetchProductionPage } from "./lib/production-revision-check.mjs";
 
 const origin = process.env.FLUIDRWA_PRODUCTION_URL || "https://www.fluidrwa.com";
 const expectedRevision = process.env.EXPECTED_COMMIT_SHA;
@@ -9,6 +10,7 @@ const routes = [
   "/web3vendorecosystem",
   "/vendors/tokenization-platforms",
   "/vendors/smart-contract-development-companies",
+  "/vendors/growth-marketing-companies",
   "/vendor-membership",
   "/contact",
   "/submit-requirement",
@@ -40,6 +42,13 @@ const spanishRoutes = [
 ];
 
 const failures = [];
+const fetchPage = url => fetchProductionPage(url, {
+  fetchResponse: fetchWithRetry,
+  expectedRevision,
+  onStale: ({ url, revision, attempt, attempts }) => console.log(
+    `Waiting for release on ${new URL(url).pathname}: observed ${revision || "missing marker"} (${attempt}/${attempts}).`
+  )
+});
 
 async function fetchWithRetry(url, attempts = 3) {
   let lastError;
@@ -101,9 +110,9 @@ for (const [route, field, minimum] of [
 for (const route of routes) {
   let response;
   let html;
+  let revision;
   try {
-    response = await fetchWithRetry(`${origin}${route}`);
-    html = await response.text();
+    ({ response, html, revision } = await fetchPage(`${origin}${route}`));
   } catch (error) {
     failures.push(`${route} could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
     continue;
@@ -116,20 +125,19 @@ for (const route of routes) {
   if (headerHtml.includes("Explore Vendor Ecosystem") || headerHtml.includes("Chain Ecosystem")) {
     failures.push(`${route} contains an obsolete navigation shell`);
   }
-  if (expectedRevision && !html.includes(`data-fluidrwa-build="${expectedRevision}"`)) {
-    failures.push(`${route} is not running the expected revision ${expectedRevision}`);
+  if (expectedRevision && revision !== expectedRevision) {
+    failures.push(`${route} is not running the expected revision ${expectedRevision}; observed ${revision || "missing marker"}`);
   }
 }
 
 for (const route of spanishRoutes) {
   try {
-    const response = await fetchWithRetry(`${origin}${route}`);
-    const html = await response.text();
+    const { response, html, revision } = await fetchPage(`${origin}${route}`);
     if (!response.ok) failures.push(`${route} returned ${response.status}`);
     if (!html.includes('<html lang="es">')) failures.push(`${route} is missing Spanish document language`);
     if (!html.includes(`rel="canonical" href="${origin}${route}"`)) failures.push(`${route} has an incorrect canonical URL`);
     if (!html.includes('hreflang="en"') || !html.includes('hreflang="es"')) failures.push(`${route} is missing language alternates`);
-    if (expectedRevision && !html.includes(`data-fluidrwa-build="${expectedRevision}"`)) failures.push(`${route} is not running the expected revision ${expectedRevision}`);
+    if (expectedRevision && revision !== expectedRevision) failures.push(`${route} is not running the expected revision ${expectedRevision}; observed ${revision || "missing marker"}`);
   } catch (error) {
     failures.push(`${route} could not be fetched: ${error instanceof Error ? error.message : String(error)}`);
   }

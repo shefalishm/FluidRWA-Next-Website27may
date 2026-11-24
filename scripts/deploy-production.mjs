@@ -24,6 +24,7 @@ if (local !== remote) {
   process.exit(1);
 }
 
+execFileSync("node", ["scripts/test-production-revision-check.mjs"], { stdio: "inherit" });
 execFileSync("npx", ["-y", "node@22", "node_modules/@opennextjs/cloudflare/dist/cli/index.js", "build"], {
   stdio: "inherit",
   env: { ...process.env, NEXT_PUBLIC_BUILD_REVISION: local }
