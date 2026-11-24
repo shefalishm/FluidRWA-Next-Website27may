@@ -5,6 +5,7 @@ import { fileForRoute, siteUrl } from "./routes";
 import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFallbacks";
 import { vendorAnswerGuidance } from "./vendorAnswerGuidance";
 import { searchTitle } from "./searchTitle";
+import { vendorSocialPreview } from "./vendorSocialPreviews";
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
@@ -300,8 +301,9 @@ export function legacyMetadata(file: string, canonicalPath: string): Metadata {
   );
   const parsedOgImage = matchTag(html, /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i);
   const scopedSocial = ["index.html", "vendors/tokenization-platforms/index.html", "vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file);
-  const ogImage = (file.startsWith("blog/") || scopedSocial) && parsedOgImage ? parsedOgImage : defaultSocialImage;
-  const socialImageAlt = override?.socialImageAlt || (file === "index.html" && parsedOgImage
+  const categoryPreview = vendorSocialPreview(canonicalPath);
+  const ogImage = categoryPreview?.image || ((file.startsWith("blog/") || scopedSocial) && parsedOgImage ? parsedOgImage : defaultSocialImage);
+  const socialImageAlt = categoryPreview?.alt || override?.socialImageAlt || (file === "index.html" && parsedOgImage
     ? matchTag(html, /<meta\s+property=["']og:image:alt["']\s+content=["']([^"']+)["']\s*\/?>/i)
     : undefined);
   const resolvedCanonicalPath = override?.canonicalPath || canonicalPath;

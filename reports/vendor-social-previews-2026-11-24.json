@@ -1,0 +1,564 @@
+[
+  {
+    "slug": "tokenization-platforms",
+    "title": "Tokenization Platforms",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 110543,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "rwa-protocols-marketplaces",
+    "title": "RWA Protocols & Marketplaces",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 115257,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "legal-regulatory-vendors",
+    "title": "Crypto & Web3 Law Firms and Legal Advisors",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 117636,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "kyc-aml-providers",
+    "title": "KYC & AML Providers",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 109548,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "smart-contract-development-companies",
+    "title": "Smart Contract Development",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 113749,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-infrastructure-providers",
+    "title": "AI Infrastructure",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 107376,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "crypto-custody-providers",
+    "title": "Crypto Custody Providers",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112252,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "fiat-on-off-ramp-providers",
+    "title": "Fiat On & Off Ramp Providers",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 113714,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "compliance-infrastructure-providers",
+    "title": "Compliance Infrastructure",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112348,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "defi-infrastructure-providers",
+    "title": "DeFi Infrastructure",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 108425,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "defi-trading-margin-infrastructure",
+    "title": "DeFi Trading & Margin Infrastructure",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 114176,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "institutional-digital-asset-trading-platforms",
+    "title": "Institutional Digital Asset Trading Platforms",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 117663,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "crypto-accounting-tax-software",
+    "title": "Crypto Accounting & Tax Software",
+    "fontSizes": [
+      65,
+      66
+    ],
+    "bytes": 116112,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "stablecoin-infrastructure-providers",
+    "title": "Stablecoin Infrastructure",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112150,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "security-audit-companies",
+    "title": "Security Audit Companies",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112522,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "growth-marketing-companies",
+    "title": "Growth & Marketing",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 109579,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "identity-solution-providers",
+    "title": "Digital Identity Solutions",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 111882,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "blockchain-development-companies",
+    "title": "Blockchain Development",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 111722,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "node-as-a-service-rpc-providers",
+    "title": "Node Services & RPC Providers",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 115081,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "institutional-staking-validator-infrastructure",
+    "title": "Institutional Staking & Validator Infrastructure",
+    "fontSizes": [
+      66,
+      63,
+      48
+    ],
+    "bytes": 118949,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "rollup-as-a-service-appchains",
+    "title": "Rollup-as-a-Service & Appchains",
+    "fontSizes": [
+      62,
+      66
+    ],
+    "bytes": 114362,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "venture-capital",
+    "title": "Venture Capital",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 106982,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "family-offices",
+    "title": "Family Offices",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 106392,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "broker-dealers",
+    "title": "Broker Dealers",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 106329,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "gaming-vendors",
+    "title": "Web3 Gaming Vendors",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 110939,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "fund-administration-transfer-agents",
+    "title": "Fund Administration & Transfer Agents",
+    "fontSizes": [
+      60,
+      66
+    ],
+    "bytes": 116605,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "oracles-data-proof-of-reserve",
+    "title": "Oracles, Data & Proof of Reserve",
+    "fontSizes": [
+      66,
+      64
+    ],
+    "bytes": 115034,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "physical-asset-verification-oracles",
+    "title": "Physical Asset Verification & Oracles",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 116114,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "insurance-risk-infrastructure",
+    "title": "Insurance & Risk Infrastructure",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 114129,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "trade-finance-supply-chain-infrastructure",
+    "title": "Trade Finance & Supply Chain Infrastructure",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 118321,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "carbon-climate-mrv-infrastructure",
+    "title": "Carbon & Climate MRV Infrastructure",
+    "fontSizes": [
+      66,
+      65
+    ],
+    "bytes": 116739,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-agents-autonomous-systems",
+    "title": "AI Agents & Autonomous Systems",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 114995,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-document-intelligence-knowledge-retrieval",
+    "title": "AI Document Intelligence & Knowledge Retrieval",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 118572,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-risk-analytics-compliance-intelligence",
+    "title": "AI Risk Analytics & Compliance Intelligence",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 118420,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "decentralized-ai-compute-gpu-infrastructure",
+    "title": "Decentralized AI Compute & GPU Infrastructure",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 119815,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-data-model-marketplaces",
+    "title": "AI Data & Model Marketplaces",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 114190,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "verifiable-ai-smart-contract-infrastructure",
+    "title": "Verifiable AI & Smart Contract Infrastructure",
+    "fontSizes": [
+      66,
+      66,
+      48
+    ],
+    "bytes": 118841,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-video-generation-tools",
+    "title": "AI Video Generation Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 111937,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-social-media-tools",
+    "title": "AI Social Media Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 109034,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-voiceover-avatar-tools",
+    "title": "AI Voiceover & Avatar Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112669,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-marketing-content-tools",
+    "title": "AI Marketing & Content Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 113567,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-sales-outreach-tools",
+    "title": "AI Sales & Outreach Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112195,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-crm-revops-tools",
+    "title": "AI CRM & RevOps Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 111214,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-research-market-intelligence-tools",
+    "title": "AI Research & Market Intelligence Tools",
+    "fontSizes": [
+      66,
+      58,
+      48
+    ],
+    "bytes": 116187,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-customer-support-tools",
+    "title": "AI Customer Support Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112583,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-design-creative-tools",
+    "title": "AI Design & Creative Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 112461,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-automation-agent-tools",
+    "title": "AI Automation & Agent Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 113261,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-compliance-document-tools",
+    "title": "AI Compliance & Document Tools",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 114976,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "web3vendorecosystem",
+    "title": "Web3 Vendor Directory",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 111165,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "slug": "ai-vendors",
+    "title": "AI Vendor Directory",
+    "fontSizes": [
+      66,
+      66
+    ],
+    "bytes": 109004,
+    "width": 1200,
+    "height": 630
+  }
+]
