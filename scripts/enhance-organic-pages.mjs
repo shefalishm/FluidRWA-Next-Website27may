@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { enhanceSmartContractCategory } from "./lib/smart-contract-category.mjs";
 import { enhanceLegalCategory } from "./lib/legal-category.mjs";
+import { enhanceGrowthMarketingCategory } from "./lib/growth-marketing-category.mjs";
 
 const root = process.cwd();
 
@@ -530,5 +531,7 @@ updateFile("vendors/legal-regulatory/index.html", (html) => {
   html = html.replace(/<p>Find specialized law firms and regulatory advisors for digital assets, RWA tokenization, securities compliance, MiCA, DeFi, DAOs, fund structuring, stablecoins, payments and cross-border operations\.<\/p>/, `<p>Compare law firms and regulatory advisors for asset tokenization, securities compliance, MiCA, DeFi, DAOs, fund structuring, stablecoins, payments, licensing and cross-border digital asset operations.</p>`);
   return enhanceLegalCategory(addSectionBefore(html, "organic-legal-regulatory-intent", legalSection));
 });
+
+updateFile("vendors/growth-marketing/index.html", enhanceGrowthMarketingCategory);
 
 liftDirectoriesAcrossVendorPages();

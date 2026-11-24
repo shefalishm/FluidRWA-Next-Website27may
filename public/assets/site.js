@@ -1638,6 +1638,7 @@ const initLegacyVendorDirectoryWidgets = () => {
       ? `Mostrando ${visibleCount} ${visibleCount === 1 ? "proveedor" : "proveedores"}`
       : smartContractDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "company or tool" : "companies and tools"}`
       : legalDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "firm" : "firms"}`
+      : window.location.pathname.replace(/\/$/, "") === "/vendors/growth-marketing-companies" ? `Showing ${visibleCount} ${visibleCount === 1 ? "listing" : "listings"}`
       : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 

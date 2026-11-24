@@ -156,9 +156,9 @@ const seoOverrides: Record<string, SeoOverride> = {
     socialImageAlt: "FluidRWA blockchain development and infrastructure directory; provider listing order is not a ranking."
   },
   "vendors/growth-marketing/index.html": {
-    title: "Web3 Growth & Marketing Companies Directory | FluidRWA",
-    description: "Browse Web3 marketing agencies, community tools and media partners by service. Compare strategy, PR, content, SEO, paid media and campaign responsibilities.",
-    heading: "Web3 Growth and Marketing Companies",
+    title: "Web3 Marketing Agencies: Compare Services & Buyer Fit | FluidRWA",
+    description: "Compare Web3 marketing agencies, community tools and media partners. Explore 32 listings, campaign metrics, case-study checks and a practical agency RFP.",
+    heading: "Web3 Marketing Agencies",
     socialImageAlt: "FluidRWA vendor ecosystem directory, including growth and marketing services; not a performance ranking."
   },
   "vendors/fiat-on-off-ramps/index.html": {
@@ -245,7 +245,7 @@ function readLegacy(file: string) {
 }
 
 function shouldShowWeb3VettedBadges(file: string) {
-  if (file === "vendors/legal-regulatory/index.html") return false;
+  if (["vendors/legal-regulatory/index.html", "vendors/growth-marketing/index.html"].includes(file)) return false;
   if (file === "vendor-ecosystem.html") return true;
   return file.startsWith("vendors/");
 }
@@ -358,7 +358,7 @@ export function legacyJsonLd(file: string) {
   const growth = file === "vendors/growth-marketing/index.html";
   const sourceNames = growth ? [...html.matchAll(/<h3 itemprop="name">([^<]*)<\/h3>/g)].map(m => m[1]) : [];
   const fallback = legacyVendorFallbackJsonLd(file, siteUrl, sourceNames);
-  if (growth && fallback) {
+  if (growth && fallback && !html.includes('id="growth-marketing-research"')) {
     const list = parsed.flatMap(block => block?.["@graph"] || [block]).find(entry => entry["@type"] === "ItemList");
     const additions = fallback["@graph"].find(entry => entry["@type"] === "ItemList")?.itemListElement || [];
     if (list) {
@@ -370,7 +370,7 @@ export function legacyJsonLd(file: string) {
   const normalized = JSON.parse(normalizeEditorialText(JSON.stringify(withFallback)));
   if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file)) {
     for (const block of normalized) for (const entry of block?.["@graph"] || [block]) {
-      if (entry?.["@type"] === "CollectionPage") entry.dateModified = "2026-11-09";
+      if (entry?.["@type"] === "CollectionPage") entry.dateModified = growth && html.includes('id="growth-marketing-research"') ? "2026-11-24" : "2026-11-09";
       if (entry?.["@type"] === "ItemList") for (const row of entry.itemListElement || []) {
         if (!row.item) continue;
         delete row.item.address;
@@ -546,9 +546,9 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
-  const guidance = vendorAnswerGuidance(file);
+  const guidance = html.includes('id="growth-marketing-research"') ? null : vendorAnswerGuidance(file);
   if (guidance) renderedHtml = renderedHtml.replace("</section>", `</section>${guidance}`);
-  if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file)) {
+  if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file) && !html.includes('id="growth-marketing-research"')) {
     const marketing = file.includes("growth-marketing");
     renderedHtml = renderedHtml
       .replace(/<dt>HQ<\/dt>/g, '<dt>Listed location</dt>')
@@ -625,7 +625,7 @@ export function legacyMainHtml(file: string) {
     renderedHtml += resources;
   }
   if (file.startsWith("vendors/") || file === "vendor-ecosystem.html") {
-    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: September 29, 2026</p>`;
+    renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: ${html.includes('id="growth-marketing-research"') ? 'November 24, 2026' : 'September 29, 2026'}</p>`;
   }
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");

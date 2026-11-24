@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import { enhanceGrowthMarketingCategory } from './lib/growth-marketing-category.mjs';
+const file='vendors/growth-marketing/index.html';
+fs.writeFileSync(file,enhanceGrowthMarketingCategory(fs.readFileSync(file,'utf8')));
+const sitemapFile='sitemap.xml';
+let sitemap=fs.readFileSync(sitemapFile,'utf8');
+const entry=sitemap.split('<url>').find(x=>/^<loc>https:\/\/www\.fluidrwa\.com\/vendors\/growth-marketing(?:-companies)?<\/loc>/.test(x));
+if(!entry)throw new Error('Missing growth marketing sitemap entry');
+sitemap=sitemap.replace(entry,entry.replace('<loc>https://www.fluidrwa.com/vendors/growth-marketing</loc>','<loc>https://www.fluidrwa.com/vendors/growth-marketing-companies</loc>').replace(/<lastmod>[^<]*<\/lastmod>/,'<lastmod>2026-11-24</lastmod>'));
+fs.writeFileSync(sitemapFile,sitemap);
+console.log('Updated the growth marketing category only.');
