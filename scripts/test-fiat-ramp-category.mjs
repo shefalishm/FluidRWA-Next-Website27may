@@ -26,6 +26,9 @@ assert.ok(main.text.includes('June 15, 2026'));assert.ok(main.text.includes('Aug
 assert.equal(root.querySelectorAll('h1').length,1);
 assert.equal(root.querySelector('h1').text,'Crypto On-Ramp and Off-Ramp Providers');
 assert.equal(main.querySelectorAll('.bc-vetted-badge').length,0);
+for(const phrase of ['reviewed current Google results','this research did not move funds','does not silently refresh that dataset','Research and maintenance','How this guide uses evidence']) assert.ok(!main.text.includes(phrase),`Internal process copy: ${phrase}`);
+assert.ok(main.text.includes('Choose the supporting services your route needs'));
+assert.ok(!main.querySelector('#ramp-directory .bc-directory-head'),'Directory heading must not inherit the globally hidden class');
 assert.ok(!main.text.includes('\u2014'));assert.ok(!/\$\s*\d/.test(main.text));
 const allowed=['www.bcb.gov.br','www.banxico.org.mx'];
 for(const a of main.querySelectorAll('a')){const href=a.getAttribute('href')||'';if(href.startsWith('https:'))assert.ok(allowed.includes(new URL(href).hostname),`Vendor backlink ${href}`);if(href.startsWith('#'))assert.ok(root.querySelector(href),`Missing ${href}`);}
