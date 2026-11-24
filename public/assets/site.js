@@ -1547,9 +1547,10 @@ const initLegacyVendorDirectoryWidgets = () => {
   if (providerDirectory && providerDirectory.dataset.fluidrwaProcurementReady !== "true") {
     providerDirectory.dataset.fluidrwaProcurementReady = "true";
   const smartContractDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/smart-contract-development-companies";
+  const legalDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/legal-regulatory-vendors";
   const serviceDirectory = smartContractDirectory || ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const providerCards = Array.from((serviceDirectory ? document : providerDirectory).querySelectorAll(".bc-provider-card, .bc-company-card"));
-  const scopedDirectory = serviceDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
+  const scopedDirectory = serviceDirectory || legalDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const directorySection = providerDirectory.closest("#vendor-directory") || providerDirectory.closest(".bc-section");
   const directoryHead = directorySection?.querySelector(".bc-directory-head, .solutions-section-head");
   const existingSearch = directorySection?.querySelector("#bcSearch");
@@ -1592,7 +1593,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   if (scopedDirectory) budgetSelect.remove();
   panel.querySelector(".vendor-procurement-search").after(filters);
   if (existingSearch) {
-    if (scopedDirectory) panel.querySelector(".vendor-procurement-search").replaceChildren(existingSearch.closest("label"));
+    if (scopedDirectory && !legalDirectory) panel.querySelector(".vendor-procurement-search").replaceChildren(existingSearch.closest("label"));
     else panel.querySelector(".vendor-procurement-search").remove();
   }
   directoryHead?.after(panel);
@@ -1636,6 +1637,7 @@ const initLegacyVendorDirectoryWidgets = () => {
     if (count) count.textContent = document.documentElement.lang === "es"
       ? `Mostrando ${visibleCount} ${visibleCount === 1 ? "proveedor" : "proveedores"}`
       : smartContractDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "company or tool" : "companies and tools"}`
+      : legalDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "firm" : "firms"}`
       : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 

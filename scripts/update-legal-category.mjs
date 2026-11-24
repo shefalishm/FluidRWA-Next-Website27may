@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import { enhanceLegalCategory } from './lib/legal-category.mjs';
+const file = 'vendors/legal-regulatory/index.html';
+fs.writeFileSync(file, enhanceLegalCategory(fs.readFileSync(file, 'utf8')));
+const sitemapFile = 'sitemap.xml';
+let sitemap = fs.readFileSync(sitemapFile, 'utf8');
+const entry = sitemap.split('<url>').find(part => part.startsWith('<loc>https://www.fluidrwa.com/vendors/legal-regulatory-vendors</loc>'));
+if (!entry) throw new Error('Missing legal category canonical sitemap entry');
+sitemap = sitemap.replace(entry, entry.replace(/<lastmod>[^<]*<\/lastmod>/, '<lastmod>2026-11-24</lastmod>'));
+fs.writeFileSync(sitemapFile, sitemap);
+console.log('Updated the legal vendor category only.');

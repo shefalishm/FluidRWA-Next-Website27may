@@ -244,6 +244,7 @@ function readLegacy(file: string) {
 }
 
 function shouldShowWeb3VettedBadges(file: string) {
+  if (file === "vendors/legal-regulatory/index.html") return false;
   if (file === "vendor-ecosystem.html") return true;
   return file.startsWith("vendors/");
 }

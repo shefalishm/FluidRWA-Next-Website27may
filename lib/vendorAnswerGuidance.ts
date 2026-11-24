@@ -45,9 +45,9 @@ const guidance: Record<string, Guidance> = {
     guide: "tokenization-platform-vs-custodian"
   },
   "legal-regulatory": {
-    heading: "Choose counsel by the offering and jurisdictions",
-    answer: "Start with the legal claim, issuer location, investor countries and distribution model. A blockchain specialty does not by itself establish experience with your asset class or applicable offering rules.",
-    checks: ["Relevant jurisdiction and asset-class experience", "Written service scope and local counsel dependencies", "Responsibility for entity, permission and offering analysis"],
+    heading: "Choose counsel by the business activity and jurisdictions",
+    answer: "Start with the actual product, operating entity, users, markets and control model. Exchanges, payments, DeFi, DAOs, custody, token launches and disputes need different combinations of legal expertise.",
+    checks: ["Named lawyers and relevant activity experience", "Written scope and local-counsel responsibilities", "Clear product, regulatory, tax and disputes work allocation"],
     guide: "are-tokenization-providers-regulated"
   },
   "family-offices": {
