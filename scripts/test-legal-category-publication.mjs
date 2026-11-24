@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
+
+const slug = 'tokenization-law-firms-rwa-projects';
+const source = fs.readFileSync(`content/blog/${slug}.md`, 'utf8');
+const old = execFileSync('git', ['show', `d45898dc09c4c54abadcae9072c94ddceac99ebb:content/blog/${slug}.md`], { encoding: 'utf8' });
+const words = s => s.split('---').slice(2).join('---').trim().split(/\s+/).length;
+assert.ok(words(source) >= 3000);
+assert.ok(words(source) >= words(old) * 1.3);
+const origin = process.argv[2];
+const route = `/blog/${slug}`;
+let html;
+if (origin) {
+  const response = await fetch(new URL(route, origin), { signal: AbortSignal.timeout(30000) });
+  assert.equal(response.status, 200, 'Live article status');
+  html = await response.text();
+} else html = fs.readFileSync(`blog/${slug}/index.html`, 'utf8');
+const article = html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/)?.[1];
+assert.ok(article, 'Article missing');
+assert.ok(article.includes('November 24, 2026'));
+assert.ok(!article.includes('\u2014'));
+assert.ok(article.includes('predecessor firm Allen and Overy'), 'Historical firm attribution');
+assert.ok(html.includes('scroll-margin-top:132px'), 'Anchor offset');
+const allow = new Set(['www.sra.org.uk', 'register.fca.org.uk', 'www.esma.europa.eu', 'www.eib.org']);
+for (const [, url] of article.matchAll(/href="(https?:[^\"]+)"/g)) assert.ok(allow.has(new URL(url).hostname), `Vendor link: ${url}`);
+const ids = [...article.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+assert.equal(ids.length, new Set(ids).size, 'Duplicate anchor');
+for (const [, id] of article.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(id), `Missing anchor: ${id}`);
+for (const text of ['A&amp;O Shearman', 'Ashurst Perkins Coie', 'Carey Olsen', 'Clifford Chance', 'DLA Piper', 'Harneys', 'Latham &amp; Watkins', 'Maples Group', 'Ogier', 'conflict', 'reconciliation', 'private credit', 'role-based access']) assert.ok(article.toLowerCase().includes(text.toLowerCase()), text);
+const data = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => { const x = JSON.parse(m[1]); return x['@graph'] || [x]; });
+assert.equal(data.find(x => x['@type'] === 'Article').dateModified, '2026-11-24');
+const faq = data.find(x => x['@type'] === 'FAQPage');
+assert.equal(faq.mainEntity.length, 8);
+for (const q of faq.mainEntity) assert.ok(html.includes(q.name.replaceAll('&', '&amp;')), q.name);
+assert.ok(!/\$\s*\d/.test(article), 'Price figure');
+console.log(JSON.stringify({ result: 'pass', words: words(source), previousWords: words(old), growthPercent: Math.round((words(source) / words(old) - 1) * 100), faqCount: faq.mainEntity.length, outboundVendorLinks: 0, route }));
