@@ -1,0 +1,78 @@
+FluidRWA | KYC and AML buyer worksheet
+Prepared November 25, 2026
+Companion guide: https://www.fluidrwa.com/blog/best-kyc-aml-providers-web3-startups
+
+1. LAUNCH SCOPE
+Buying entity and service entity:
+Product and permitted activities:
+Customer types and launch countries:
+Document issuers, document versions and languages:
+Business jurisdictions and ownership structures:
+Networks, assets, deposits and withdrawals:
+Policy owner and qualified advisers:
+
+2. COVERAGE MATRIX (repeat for each launch cohort)
+Residence / document issuer / customer type / service entity:
+Accepted evidence and required attributes:
+Data source, freshness and matching method:
+Capture channel / OS / browser / language:
+Fallback and manual review path:
+Unsupported cases and responsible owner:
+
+3. PROPOSED SERVICES
+Individual proofing / business verification / beneficial owners:
+Sanctions / PEP / adverse media / ongoing screening:
+Wallet screening / transaction monitoring / Travel Rule:
+Native modules / integrated services / direct third-party contracts:
+Selected product edition and configuration:
+
+4. DEMONSTRATION CASES (use synthetic or authorized test data)
+Interrupted upload and resumed session:
+Legitimate unfamiliar document:
+Similar-name screening match:
+Business with an overseas corporate shareholder:
+Pending manual review and requested evidence:
+Duplicate or out-of-order notification:
+Missing notification and API reconciliation:
+Changed decision after approval:
+New wallet and changed exposure result:
+Counterparty unable to exchange transfer information:
+Provider outage and recovery:
+Export of a closed case:
+For each: expected result / observed result / evidence / owner / open issue.
+
+5. PILOT MEASURES
+Define labels, sample size, cohorts and acceptance criteria before testing.
+Completion = submitted journeys / started journeys.
+Genuine acceptance = approved eligible legitimate cases / eligible legitimate cases.
+False acceptance = incorrectly accepted attack cases / attack cases tested.
+Screening false positives = benign cases flagged / benign cases tested.
+Alert clearance share = alerts cleared after review / all reviewed alerts.
+Missed risk = known-risk cases not flagged / known-risk cases tested.
+End-to-end time: start to usable permission; median and high percentile.
+Analyst time / queue age / retries / technical failures / reopened cases:
+Differences in policy, workflow or sample quality between finalists:
+
+6. INTEGRATION AND GOVERNANCE
+Session binding and client credential protection:
+Webhook authentication / duplicate handling / ordering / reconciliation:
+Identity, business, eligibility, wallet and transfer states:
+Rule versions / reviewer roles / approval / escalation:
+Review service hours and incident owner:
+
+7. DATA AND CONTRACT
+Capture / processing / storage / backup / reviewer locations:
+Subprocessors and assurance-report scope:
+Retention / deletion / legal holds / export / access revocation:
+Billable unit and retry treatment (no assumptions across providers):
+Included modules / monitoring / manual review / support:
+Outage terms / coverage changes / transition support:
+
+8. FINAL DECISION
+Critical unresolved dependencies:
+Evidence required before launch:
+Decision owner and approval date:
+Next review trigger:
+
+This worksheet supports procurement. It does not determine legal obligations,
+certify a provider or authorize a customer or transfer.
