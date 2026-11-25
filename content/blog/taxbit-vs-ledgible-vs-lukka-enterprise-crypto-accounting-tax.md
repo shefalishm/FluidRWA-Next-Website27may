@@ -232,6 +232,6 @@ The [IRS instructions for Form 1099-DA for 2026](https://www.irs.gov/instruction
 9. What charges apply to backfill, entities and exception review?
 10. What complete evidence package can we export?
 
-**Editorial change, November 20, 2026:** added the repeatability matrix, ten procurement questions and six operational FAQs; checked the linked product homepages for product-family scope and the current IRS instruction page for the covered/noncovered distinction. Earlier detailed product-documentation reviews retain their stated dates. Suggested trials are buyer exercises, not performance tests conducted by FluidRWA.
+
 
 Use the [cost-basis operating playbook](/use-cases/digital-asset-tax-reporting-cost-basis-operations), [tax-audit evidence checklist](/blog/digital-asset-tax-audit-evidence-checklist) and [enterprise reporting RFP](/blog/enterprise-crypto-tax-reporting-software-rfp) to build the acceptance pack.

@@ -188,5 +188,3 @@ If the biggest gap is asset safeguarding, procurement should first resolve the [
 8. Can operations recover after a missed event?
 9. Can an independent reviewer reconcile the final balances?
 10. What complete history do we receive when leaving?
-
-**Editorial change, November 20, 2026:** added the control-plane matrix, operational questions and six focused FAQs. The three linked product pages were checked today for these specific scope descriptions. Existing broader review and infographic dates remain unchanged. FluidRWA has not conducted a live execution benchmark or obtained equivalent contractual quotes.

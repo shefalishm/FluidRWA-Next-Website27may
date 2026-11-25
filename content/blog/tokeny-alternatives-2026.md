@@ -198,11 +198,11 @@ Compare the risk of change with the risk of staying. Include outstanding investo
 
 Turn the answers into release conditions with an owner and evidence reference. A decision memo should explain why the selected arrangement fits the business and why other routes were rejected. Avoid a conclusion that merely repeats a supplier's feature list. The approval is for a specific operating model, not for a brand in the abstract.
 
-## How we compare and what changed
+## Before you choose
 
-FluidRWA reviewed the linked primary pages on November 20, 2026 for the narrow product-role descriptions above. The scorecard and exercises are original buyer guidance, not independent software tests, regulatory determinations or implementation results. Availability and contractual coverage must be established for the actual engagement. Ratings and numerical performance scores are omitted because no comparable test supports them.
+Use the illustrative offering and scorecard to plan your own transition. Confirm register portability, administrator authority, investor servicing and contractual coverage before changing a live operating arrangement.
 
 Use the [Tokeny profile](/fluidrwa/tokeny) and [tokenization directory](/vendors/tokenization-platforms) to organize the shortlist. Read [Securitize vs Tokeny vs Zoniqx](/blog/securitize-vs-tokeny-vs-zoniqx-enterprise-tokenization-software), [fund-platform selection](/blog/best-fund-tokenization-platforms-asset-managers), and the [main tokenization guide](/blog/top-tokenization-companies-2026) for related but different operating decisions.
 
-**Change note, November 20, 2026:** Created this guide around register portability, authority transitions, investor servicing, replay safety and evidence-based exit. The worked offering is fictional and its numbers illustrate reconciliation only. [Submit your requirements](/submit-requirement) with the asset, existing operators, record history and intended change so candidates can respond to the same scope.
+[Submit your requirements](/submit-requirement) with the asset, existing operators, record history and intended change so candidates can respond to the same scope.
 

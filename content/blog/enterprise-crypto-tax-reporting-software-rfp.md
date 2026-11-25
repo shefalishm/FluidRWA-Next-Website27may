@@ -132,7 +132,7 @@ Keep the brief, data dictionary, expected results, observed exceptions, proposal
 
 For a current provider and product-scope discussion, read [TaxBit vs Ledgible vs Lukka](/blog/taxbit-vs-ledgible-vs-lukka-enterprise-crypto-accounting-tax). For the evidence retained after implementation, use the [digital asset tax audit checklist](/blog/digital-asset-tax-audit-evidence-checklist). Share the scoped requirement through the [project form](/submit-requirement?source=blog-shortlist&topic=enterprise-crypto-tax&article=enterprise-crypto-tax-reporting-software-rfp).
 
-**Editorial addition: November 19, 2026.** This section adds an evaluation rubric and does not claim a new vendor benchmark or silently refresh prior source observations.
+
 
 ## Keep tax rules separate from software output
 

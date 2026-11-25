@@ -296,7 +296,7 @@ Fireblocks' separate Trust Company page is an important reason to name the produ
 9. How are balances reconciled independently?
 10. How do we migrate if access or service is interrupted?
 
-**Editorial change, November 20, 2026:** added entity-specific procurement criteria, insurance questions and six focused FAQs. The linked service pages were checked for the limited product references above; this is not an independent regulatory determination, insurance review or security test.
+
 
 For connected workflows, read [institutional trading selection](/blog/talos-vs-wyden-vs-finery-markets-institutional-trading), [wallet policy engines](/blog/crypto-wallet-policy-engines-approvals-limits-recovery) and the [Anchorage Digital profile](/fluidrwa/anchorage-digital).
 

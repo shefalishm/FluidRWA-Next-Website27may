@@ -199,12 +199,10 @@ Assign an incident owner for each boundary: your app, provider order handling, p
 9. Which evidence demonstrates duplicate protection, destination binding and safe replay in our accepted implementation?
 10. What access, exports, support continuity and credential shutdown are required before we can complete an exit?
 
-## How we compare
+## Before you choose
 
-FluidRWA Research Team reviewed the linked primary pages on November 20, 2026 to establish the narrow product roles stated here. Public descriptions are not independent product tests. We did not conduct live purchases, measure conversion, verify every corridor or inspect private contracts. The scorecard is a proposed buyer evidence process, not a vendor performance ranking.
+Use the scorecard to test your exact customer, country, currency, payment method and network. Compare a direct provider with aggregation only after you know who owns the order, customer support and refund.
 
 The recommendation is conditional: choose a direct ramp evaluation when direct order ownership matches your requirements; evaluate aggregation when provider selection is part of the architecture; retain the incumbent for existing orders where continuity requires it. Do not choose a provider because this article labels it cheapest, fastest or universally best. It makes none of those findings.
 
 For adjacent procurement work, read [MoonPay versus Transak versus Banxa](/blog/moonpay-vs-transak-vs-banxa-fiat-on-ramp-providers), the [Sumsub, Persona and Chainalysis scope comparison](/blog/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers), and the [Trulioo, Veriff and Ondato comparison](/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification). Use the [pending orders, refunds and webhooks guide](/blog/crypto-on-ramp-failures-refunds-pending-orders-webhooks) for a deeper recovery worksheet. Identity procurement and funding procurement should inform one another without becoming the same decision.
-
-**Change note, November 20, 2026:** Added an alphabetical alternatives shortlist, source-scoped roles, a ten-criterion evidence scorecard and a migration runbook centered on pending orders, refunds, disputes and historical continuity.

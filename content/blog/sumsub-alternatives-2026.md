@@ -207,11 +207,11 @@ Add a transition scenario with overlapping open cases and historical evidence ac
 
 Use the answers to make a conditional decision with evidence and accountable owners. Retaining part of the incumbent arrangement can be a reasonable outcome if the alternative only addresses a narrower problem. The objective is a clearer, workable identity operation, not a migration for its own sake.
 
-## How we compare and what changed
+## Before you choose
 
-FluidRWA reviewed the linked primary pages on November 20, 2026 for the limited product-role descriptions above. The case pack, scorecard and migration guidance are original procurement exercises, not independent accuracy tests, legal determinations or customer-specific pricing results. No supplier has been assigned an invented rating or a universal approval recommendation.
+Use the illustrative case pack to assess your actual identity workflow. Confirm user and business coverage, review ownership, evidence retention and safe recovery before changing a live integration.
 
 Use the [KYC and AML directory](/vendors/kyc-aml-providers) alongside [Sumsub vs Persona vs Chainalysis](/blog/sumsub-vs-persona-vs-chainalysis-kyc-aml-providers), [Persona vs Alloy vs Socure](/blog/persona-vs-alloy-vs-socure-identity-orchestration), and [Trulioo vs Veriff vs Ondato](/blog/trulioo-vs-veriff-vs-ondato-kyc-kyb-verification). Each addresses a different boundary in the identity and risk stack.
 
-**Change note, November 20, 2026:** Created a role-based alternatives guide covering case continuity, business identity, evidence retention, reverification and safe integration recovery. The three-case pack is illustrative, not a reported vendor trial. [Submit your requirements](/submit-requirement) with the user population, current modules, review workload and unresolved operating problem to receive more relevant proposals.
+[Submit your requirements](/submit-requirement) with the user population, current modules, review workload and unresolved operating problem to receive more relevant proposals.
 

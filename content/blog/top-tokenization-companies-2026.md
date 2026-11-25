@@ -692,9 +692,9 @@ For a property sponsor, start with a branded investor journey and ongoing distri
 
 FluidRWA compares operating fit rather than awarding a universal winner. Sources are company product materials and the linked public records; suggested acceptance tests are our buyer guidance, not tests performed on vendor systems. No numerical rating is assigned without a comparable test.
 
-**Editorial change, November 20, 2026:** added the procurement scorecard, ten buyer questions and targeted FAQs. Tokeny, DigiShares and Zoniqx product pages were checked for these specific role descriptions on November 20; earlier ecosystem descriptions retain their separately stated review dates.
 
-**Editorial change, November 23, 2026:** expanded the buyer evaluation with seven practical operating tests, market-metric definitions and a separate investor research path after reviewing ten search-result pages. New evidence includes current Brickken API and DigiShares capability descriptions, ERC-3643 and ERC-7540 specifications, ESMA's MiCA scope text and the October 2024 BIS/CPMI report. No provider systems were tested, no new quality scores were assigned, and older product observations were not silently re-dated.
+
+
 
 Continue with [fund-platform selection](/blog/best-fund-tokenization-platforms-asset-managers), [custody and settlement](/blog/crypto-custody-providers-comparison-2026), and [the Tokeny profile](/fluidrwa/tokeny).
 

@@ -143,7 +143,7 @@ For jurisdiction, define the fund domicile, manager, target investors, distribut
 
 The [tokenization company shortlist](/blog/top-tokenization-companies-2026) helps separate software, access and market roles. [Submit a fund-launch brief](/submit-requirement?source=blog-shortlist&topic=fund-tokenization&article=best-fund-tokenization-platforms-asset-managers) with the intended structure and operating appointments rather than requesting an undefined "end-to-end" package.
 
-**Editorial workflow addition: November 19, 2026.** This is a proposed procurement exercise, not a product test or a refreshed verification date for the underlying fund research.
+
 
 ## Final Recommendation
 
@@ -199,7 +199,7 @@ For a smaller private-asset offering, include DigiShares or another relevant iss
 9. Which launch dependencies are outside the platform contract?
 10. Can the administrator service investors after a platform migration?
 
-**Editorial change, November 20, 2026:** added the launch-gate matrix and focused FAQs, with the linked Tokeny and Zoniqx role descriptions checked today. The older RWA platform-comparison URL remains consolidated into the main tokenization guide to avoid splitting the same buyer question across duplicate pages. Earlier review dates are preserved.
+
 
 Read the [main tokenization shortlist](/blog/top-tokenization-companies-2026), [institutional custody comparison](/blog/crypto-custody-providers-comparison-2026) and [fund distribution guide](/blog/tokenized-fund-distribution-models) alongside the operating evidence in [Network Explorer](/network-explorer/fund-comparison).
 

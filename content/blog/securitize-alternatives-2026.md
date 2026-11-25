@@ -196,12 +196,12 @@ Have the successor reconstruct a sample close and servicing event from the packa
 
 Write the answers into the decision record, with supporting artifacts and unresolved points. The meeting's purpose is to reduce uncertainty about a workable operating arrangement. It is not to award a winner based on confidence of presentation. A narrower, clearly owned proposal can be more useful than a broad proposal whose hardest handoffs remain undefined.
 
-## How we compare
+## Before you choose
 
-FluidRWA Research Team reviewed the linked primary pages on November 20, 2026. Short product descriptions are confined to published role scope. The purchasing rules, case packs and acceptance criteria are editorial guidance, not independent product tests. Public material does not establish your contractual coverage, legal permissions, implementation results, security assurance or investor demand. Request engagement-specific evidence and professional advice where appropriate.
+Use the example case packs to define your own acceptance tests. Confirm who performs issuance, investor checks, recordkeeping, custody and servicing, and obtain engagement-specific evidence before appointing the providers.
 
 For another angle on the same buying boundary, read [Securitize vs Tokeny vs Zoniqx](/blog/securitize-vs-tokeny-vs-zoniqx-enterprise-tokenization-software). To widen the shortlist, use [top tokenization companies](/blog/top-tokenization-companies-2026) and the [tokenization-platform directory](/vendors/tokenization-platforms). The [Securitize profile](/fluidrwa/securitize) is a reference point for the incumbent, not a substitute for reviewing its proposed engagement.
 
-**Change note, November 20, 2026:** Added an alternatives guide centered on coordinated issuance purchasing, service ownership, staged transitions and evidence-based acceptance. Product scope is based on the primary links above; the illustrative exercises are proposed buyer work, not reported vendor outcomes.
+
 
 Ready to compare arrangements? [Submit your requirements](/submit-requirement) with the asset, investor locations, existing appointments, unresolved service roles and whether the project concerns a new issuance or an existing book. That brief gives providers a concrete operating problem to price and demonstrate.

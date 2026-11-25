@@ -338,7 +338,7 @@ The [LimeChain service page](https://limechain.tech/lp-blockchain-development) d
 
 If the task is a custom rollup or core protocol change, ask protocol-oriented teams to explain the consensus, execution and operating assumptions. If it is a customer-facing investment portal, evaluate full-product teams against identity, payments, recordkeeping, support and contracts together. If the task is an independent security assessment, buy that assessment separately from the implementation relationship.
 
-The other firms in the ten-company table remain candidates under the earlier company-source review. This addition does not silently refresh every vendor profile or rank firms by a test we did not conduct.
+Compare the same architecture, delivery and handover requirements with every shortlisted firm before choosing the team.
 
 ### A production-oriented architecture exercise
 

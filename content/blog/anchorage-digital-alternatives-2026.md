@@ -198,11 +198,15 @@ Add migration, overlap and termination scenarios. Request retained access to his
 
 A sound decision may be to retain the existing service while adding a narrowly scoped second arrangement, or to delay a transition until a material dependency is resolved. The purpose of alternatives research is a better operating decision, not pressure to replace an incumbent. Preserve the reasons, evidence and conditions in the approval memo.
 
-## How we compare and what changed
+### Rehearse the first day after handover
 
-FluidRWA reviewed the linked primary product pages on November 20, 2026 for the limited service descriptions above. These are not independent security tests, legal determinations, insurance analyses or live custody trials. The fictional transition packet and acceptance exercises are proposed buyer work. No universal winner, comparable performance score or customer-specific price is asserted.
+Ask the receiving team to produce the opening holdings report, locate one historical instruction and explain an unresolved settlement without help from the outgoing provider. Identify who will investigate any difference between the old closing statement and the new opening record. Keep the incumbent access available until the agreed reconciliation is complete, then confirm who authorizes closure and retains the records. This exercise makes operational ownership visible before a transition becomes irreversible.
+
+## Before you choose
+
+Use the illustrative transition exercise to prepare your own custody review. Confirm the account holder, appointed entities, asset coverage, instruction process and exit conditions before moving an existing mandate.
 
 Use the [Anchorage Digital profile](/fluidrwa/anchorage-digital) and [custody directory](/vendors/crypto-custody-providers) to organize the shortlist. Related reading includes [Anchorage Digital vs BitGo vs Fireblocks](/blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody), [institutional custody models](/blog/crypto-custody-providers-comparison-2026), [Fireblocks vs BitGo vs Copper](/blog/fireblocks-vs-bitgo-vs-copper-custody-providers), and [Fireblocks alternatives](/blog/fireblocks-alternatives-2026).
 
-**Change note, November 20, 2026:** Created an institutional custody alternatives guide covering mandates, account ownership, settlement dependencies, reporting continuity and controlled exit. [Submit your requirements](/submit-requirement) with the owning entity, assets, intended activities and existing relationships so providers can propose the same scope.
+[Submit your requirements](/submit-requirement) with the owning entity, assets, intended activities and existing relationships so providers can propose the same scope.
 

@@ -209,12 +209,10 @@ Design exit during onboarding. Preserve address mappings, transaction identifier
 
 Use the answers to produce a short decision memo. Name the chosen operating model, rejected alternatives, unresolved conditions and accountable owners. Approval should be conditional where evidence is incomplete. Procurement becomes more useful when it says exactly what has to become true before production exposure increases.
 
-## How we compare
+## Before you choose
 
-FluidRWA Research Team reviewed the linked primary pages on November 20, 2026 for the limited product-role summaries in this guide. These are current primary-source descriptions, not independent product tests. We did not authenticate into vendor accounts, execute transactions, inspect private contracts, establish customer-specific pricing or determine regulatory suitability.
+Treat the migration scenarios as planning examples, not reported vendor outcomes. Confirm custody versus self-custody, production access, support obligations and recovery procedures for the service you intend to use.
 
-Alphabetical order is not a performance ranking. The implementation scenarios are explicitly illustrative buyer designs, and the scorecard contains questions and proposed acceptance evidence. Availability, entity scope, support obligations and recovery procedures require confirmation for the buyer's actual proposed service. A responding URL alone does not substantiate capabilities beyond the statements cited here.
+Compare the same operating model and acceptance requirements with every candidate. Ask for a named service entity, implementation plan and support commitment rather than assuming that a familiar brand or product page covers the whole journey.
 
 For broader context, read the existing [custody providers comparison](/blog/crypto-custody-providers-comparison-2026), [Anchorage Digital vs BitGo vs Fireblocks](/blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody), [Fireblocks vs BitGo vs Copper](/blog/fireblocks-vs-bitgo-vs-copper-custody-providers), and [Turnkey vs Dfns vs Fordefi wallet infrastructure](/blog/turnkey-vs-dfns-vs-fordefi-wallet-infrastructure). Each has its own scope and review context. Browse [custody providers](/vendors/crypto-custody-providers) to organize a shortlist, or [submit your requirements](/submit-requirement) with the responsibilities and evidence you need.
-
-**Change note, November 20, 2026:** Created this alternatives guide with separate infrastructure and Trust Company baselines, an alphabetical role-based shortlist, two distinct migration scenarios, failure exercises and buyer-owned acceptance criteria.
