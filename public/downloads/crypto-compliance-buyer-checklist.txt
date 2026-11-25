@@ -1,0 +1,46 @@
+FluidRWA Crypto Compliance Buyer Checklist
+Updated November 25, 2026
+
+This worksheet supports procurement discussions, not legal advice or vendor approval.
+Keep customer personal data and confidential cases out of an initial requirements brief.
+
+SCOPE
+Business activity and legal entities:
+Customer and beneficiary types:
+Jurisdictions and applicable requirements assessed by advisers:
+Assets, networks, contracts and transaction types:
+Required control and decision point:
+Existing identity, payment, wallet, case and finance systems:
+
+PRODUCT AND EVIDENCE
+Exact supplier product and partner modules:
+Coverage by required feature, not headline chain count:
+Label provenance, risk rationale and update timing:
+Direct versus indirect exposure handling:
+Name-match identifiers and review process:
+Attribution challenge and correction process:
+
+OPERATIONS
+Who owns alerts, reviews, holds, approvals and escalation:
+Travel Rule counterparties, field mapping and bilateral test results:
+Incomplete, rejected or late-information process:
+Unavailable-check and unsupported-asset policy:
+Rule versioning, testing and rollback:
+Case export, reporting approval and submission acknowledgement:
+
+SECURITY AND EXIT
+Data flow, access, retention and subprocessors:
+Security assurance scope and reporting period:
+Incident response and notification:
+Evidence retention and export rights after termination:
+Open-alert and unresolved-transfer migration:
+
+PILOT
+Approved test cases and independently held acceptance examples:
+Expected review outcomes and limitations:
+Observation period, sample size and exclusions:
+Coverage, false-positive burden and end-to-end review time:
+Missed cases, resilience tests and remediation owners:
+Named acceptance approvers and final decision:
+
+Share a non-sensitive requirements brief at https://www.fluidrwa.com/submit-requirement

@@ -169,6 +169,11 @@ const seoOverrides: Record<string, SeoOverride> = {
   "vendors/payments-stablecoins/index.html": {
     title: "Stablecoin Infrastructure Providers: Payments & Issuance",
     description: "Compare stablecoin providers by role: payments, issuance, wallets and risk tools. Check custody, redemption, bank payouts and integration before shortlisting."
+  },
+  "vendors/compliance-infrastructure/index.html": {
+    title: "Crypto Compliance Software: Compare Providers & Workflows",
+    description: "Compare crypto compliance tools for wallet screening, monitoring, Travel Rule, investigations and reporting. Explore 29 records and a practical buyer checklist.",
+    canonicalPath: "/vendors/compliance-infrastructure-providers"
   }
 };
 
@@ -542,7 +547,7 @@ export function legacyMainHtml(file: string) {
     .replace(/<script\b(?![^>]*type=["']application\/ld\+json["'])[\s\S]*?<\/script>/gi, ""));
   const badgedBodyHtml = addWeb3VettedBadges(file, bodyHtml);
   const growthNames = file === "vendors/growth-marketing/index.html" ? [...html.matchAll(/<h3 itemprop="name">([^<]*)<\/h3>/g)].map(m => m[1]) : [];
-  let fallbackDirectory = badgedBodyHtml.includes("bc-company-card") ? "" : legacyVendorFallbackHtml(file, growthNames);
+  let fallbackDirectory = badgedBodyHtml.includes("bc-company-card") || html.includes('id="compliance-buyer-guide"') ? "" : legacyVendorFallbackHtml(file, growthNames);
   if (growthNames.length) fallbackDirectory = fallbackDirectory.replace('id="vendor-directory"', 'id="additional-marketing-providers"')
     .replace(/<label class="bc-search">[\s\S]*?<\/label>/, '')
     .replace(/<p class="bc-count">[\s\S]*?<\/p>/, '')
@@ -550,7 +555,7 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
-  const guidance = /id="(?:(?:growth-marketing|fiat-ramp)-research|stablecoin-buyer-guide)"/.test(html) ? null : vendorAnswerGuidance(file);
+  const guidance = /id="(?:(?:growth-marketing|fiat-ramp)-research|(?:stablecoin|compliance)-buyer-guide)"/.test(html) ? null : vendorAnswerGuidance(file);
   if (guidance) renderedHtml = renderedHtml.replace("</section>", `</section>${guidance}`);
   if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file) && !html.includes('id="growth-marketing-research"')) {
     const marketing = file.includes("growth-marketing");
@@ -622,7 +627,7 @@ export function legacyMainHtml(file: string) {
   if (file === "vendor-ecosystem.html") {
     renderedHtml += `<script id="vendor-search-index-data" type="application/json" data-src="/assets/datasets/vendor-search-index.json"></script>`;
   }
-  const resources = html.includes('id="stablecoin-buyer-guide"') ? "" : relatedVendorDirectories(file);
+  const resources = /id="(?:stablecoin|compliance)-buyer-guide"/.test(html) ? "" : relatedVendorDirectories(file);
   if (file === "vendors/tokenization-platforms/index.html" && renderedHtml.includes('<label class="bc-search">')) {
     renderedHtml = renderedHtml.replace('<label class="bc-search">', () => `${resources}<label class="bc-search">`);
   } else {
@@ -633,6 +638,7 @@ export function legacyMainHtml(file: string) {
   }
   if (html.includes('id="fiat-ramp-research"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 24, 2026');
   if (html.includes('id="stablecoin-buyer-guide"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 25, 2026');
+  if (html.includes('id="compliance-buyer-guide"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 25, 2026');
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");
   }
