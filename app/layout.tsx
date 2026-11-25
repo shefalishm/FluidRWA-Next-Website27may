@@ -11,6 +11,7 @@ import { PayPalMembershipCheckout } from "@/components/PayPalMembershipCheckout"
 import { QuickIntakePopup } from "@/components/QuickIntakePopup";
 import { RouteReady } from "@/components/RouteReady";
 import { siteUrl } from "@/lib/routes";
+import { leadershipNodes, organizationNode, researchTeamNode } from "@/lib/brandIdentity";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,35 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const buildRevision = process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_BUILD_REVISION || "local";
   const organization = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteUrl}/#organization`,
-    name: "FluidRWA",
-    url: siteUrl,
-    logo: {
-      "@type": "ImageObject",
-      url: `${siteUrl}/assets/fluidrwa-small-logo.png`
-    },
-    description: "FluidRWA helps teams discover trusted Web3, RWA and AI infrastructure vendors across 1000+ tracked providers and 30+ categories.",
-    sameAs: [
-      "https://www.linkedin.com/company/fluidrwa",
-      "https://x.com/fluid_rwa",
-      "https://www.instagram.com/fluidrwa/",
-      "https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg"
-    ],
-    knowsAbout: [
-      "RWA tokenization",
-      "Web3 vendors",
-      "digital asset infrastructure",
-      "compliance infrastructure",
-      "custody solutions",
-      "stablecoin infrastructure",
-      "blockchain development"
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      url: `${siteUrl}/contact`
-    }
+    "@graph": [organizationNode, ...leadershipNodes, researchTeamNode]
   };
   const website = {
     "@context": "https://schema.org",

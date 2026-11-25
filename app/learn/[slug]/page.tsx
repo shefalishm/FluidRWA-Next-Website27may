@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getLearnArticle, learnArticles } from "@/lib/learn";
 import { siteUrl } from "@/lib/routes";
 import { searchTitle } from "@/lib/searchTitle";
+import { organizationId, researchTeamId } from "@/lib/brandIdentity";
 
 type LearnArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -47,9 +48,9 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
         description: article.description,
         dateModified: article.updatedAt,
         datePublished: article.updatedAt,
-        author: { "@type": "Organization", name: "FluidRWA" },
+        author: { "@type": "Organization", "@id": researchTeamId, name: "FluidRWA Research Team", url: `${siteUrl}/about#research-team` },
         ...(article.reviewedBy ? { reviewedBy: { "@type": "Organization", name: article.reviewedBy, url: `${siteUrl}/about` } } : {}),
-        publisher: { "@type": "Organization", name: "FluidRWA", url: siteUrl },
+        publisher: { "@id": organizationId },
         mainEntityOfPage: pageUrl,
         ...(article.illustration ? { image: `${siteUrl}${article.illustration.src}` } : {}),
         articleSection: article.topic,
@@ -70,7 +71,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
   };
 
   return (
-    <main className="learn-article-page">
+    <main id="main-content" className="learn-article-page">
       <JsonLd data={jsonLd} />
       <div className="learn-article-layout">
         <aside className="learn-toc" aria-label="In this article">
@@ -90,6 +91,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
           <p className="learn-eyebrow">FluidRWA Learn</p>
           <h1>{article.title}</h1>
           <div className="learn-article-meta">
+            <span>By <Link href="/about#research-team">FluidRWA Research Team</Link></span>
             {article.level ? <span>{article.level} tutorial</span> : null}
             <span>Last updated: {new Date(article.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
             <span>{article.readTime}</span>

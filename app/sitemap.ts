@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/investors`, lastModified: "2026-11-21", changeFrequency: "monthly", priority: 0.8 },
-    { url: siteUrl, lastModified: "2026-11-19", changeFrequency: "weekly", priority: 1 },
+    { url: siteUrl, lastModified: "2026-11-25", changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}${chainProjectsBasePath}`, lastModified: chainEcosystemUpdatedAt, changeFrequency: "weekly", priority: 0.9 },
     ...getChainEcosystems().map((chain) => ({
       url: `${siteUrl}${chainProjectsBasePath}/${chain.slug}`,
@@ -82,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...sitemapRoutePaths().filter((route) => route !== "fluidrwa/tokenizer-estate").map((route) => ({
       url: `${siteUrl}/${route}`,
-      lastModified: ["vendors/growth-marketing-companies", "vendors/blockchain-development-companies"].includes(route) ? "2026-11-09" : route === "vendors/tokenization-platforms" ? "2026-11-08" : ["vendors/crypto-accounting-tax-software", "vendors/fiat-on-off-ramp-providers", "vendors/stablecoin-infrastructure-providers"].includes(route) ? "2026-11-06" : route === "vendors/institutional-digital-asset-trading-platforms" ? "2026-10-10" : undefined,
+      lastModified: route === "about" ? "2026-11-25" : ["vendors/growth-marketing-companies", "vendors/blockchain-development-companies"].includes(route) ? "2026-11-09" : route === "vendors/tokenization-platforms" ? "2026-11-08" : ["vendors/crypto-accounting-tax-software", "vendors/fiat-on-off-ramp-providers", "vendors/stablecoin-infrastructure-providers"].includes(route) ? "2026-11-06" : route === "vendors/institutional-digital-asset-trading-platforms" ? "2026-10-10" : undefined,
       changeFrequency: "weekly" as const,
       priority: route.startsWith("vendors/") ? 0.8 : 0.75
     })),

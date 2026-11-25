@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+const {parse}=createRequire(import.meta.url)('next/dist/compiled/node-html-parser');
+const base=process.argv[2]||'https://www.fluidrwa.com';
+const canonical='https://www.fluidrwa.com';
+async function page(path){
+  const response=await fetch(base+path);
+  assert.equal(response.status,200,`${path}: HTTP ${response.status}`);
+  return parse(await response.text());
+}
+const graph=root=>root.querySelectorAll('script[type="application/ld+json"]').flatMap(s=>{const n=JSON.parse(s.textContent);return n['@graph']||[n];});
+const about=await page('/about');
+assert.equal(about.querySelectorAll('main').length,1);
+assert(about.querySelector('#vetting-methodology'));
+assert.equal(about.querySelectorAll('.entity-review-list > li').length,6);
+assert.equal(about.querySelector('link[rel="canonical"]').getAttribute('href'),`${canonical}/about`);
+assert(about.querySelector('header').closest('div[data-nosnippet]'));
+assert(about.querySelector('footer').closest('div[data-nosnippet]'));
+assert(!about.querySelector('main').closest('[data-nosnippet]'));
+const nodes=graph(about);
+assert.equal(nodes.filter(n=>n['@id']===`${canonical}/#organization`).length,1);
+for(const person of ['dimple-mirpuri','shefali-sharma'])assert(nodes.find(n=>n['@id']===`${canonical}/about#${person}`&&n['@type']==='Person'));
+assert.equal(nodes.find(n=>n['@type']==='FAQPage').mainEntity.length,about.querySelectorAll('.entity-faq details').length);
+const llms=await fetch(base+'/llms.txt');assert.equal(llms.status,200);const text=await llms.text();
+assert(text.includes(`${canonical}/about#vetting-methodology`));assert(text.includes('## Blog insights'));assert(!text.includes('1,000+ vetted'));
+const robots=await fetch(base+'/robots.txt');assert.equal(robots.status,200);assert(/User-Agent: \*\s+Allow: \//i.test(await robots.text()));
+const home=await page('/');assert(!home.querySelector('main').textContent.includes('Influencer status and ecosystem reach'));
+const blog=await page('/blog/anchorage-digital-vs-bitgo-vs-fireblocks-institutional-custody');
+const article=graph(blog).find(n=>n['@type']==='Article');
+assert.equal(article.publisher['@id'],`${canonical}/#organization`);
+assert.equal(article.author['@id'],`${canonical}/about#research-team`);
+const learn=await page('/learn/tokenization-vendor-comparison');
+assert.equal(graph(learn).find(n=>n['@type']==='Article').publisher['@id'],`${canonical}/#organization`);
+const category=await page('/vendors/tokenization-platforms');
+const badges=category.querySelectorAll('.bc-vetted-badge');assert(badges.length>0);
+badges.forEach(badge=>assert.equal(badge.getAttribute('href'),'/about#vetting-methodology'));
+console.log('PASS: About, company and founder schema, five matching FAQs, navigation snippet boundaries, llms.txt, robots, homepage, blog/Learn attribution and category badge links.');

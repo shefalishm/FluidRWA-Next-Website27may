@@ -87,7 +87,7 @@ export function RegistryExplorer({ vendors, categories, specificCategories, chai
                 <p className="registry-card-kicker">{vendor.specificCategories[0] || vendor.categories[0]}</p>
                 <h2>{vendor.name}</h2>
               </div>
-              <span>{vendor.verificationTier === "vetted-plus" ? "Vetted Plus" : "Vetted"}</span>
+              <a className="bc-vetted-badge" href="/about#vetting-methodology" title="Read the FluidRWA vendor review scope">{vendor.verificationTier === "vetted-plus" ? "Vetted Plus" : "Vetted"}</a>
             </div>
             <p>{vendor.description}</p>
             <div className="registry-tags">

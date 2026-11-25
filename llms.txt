@@ -10,6 +10,19 @@ FluidRWA helps tokenization issuers, fintechs, asset managers, real estate firms
 
 FluidRWA exists because finding a Web3 vendor is not easy. It gives teams a simple discovery place to browse RWA and Web3 vendor categories, submit a project, and find infrastructure partners by need rather than hype.
 
+## Company profile and review standard
+
+- About FluidRWA: https://www.fluidrwa.com/about
+- Purpose: FluidRWA is a vendor discovery, research and matchmaking platform for Web3, real-world asset tokenization and AI.
+- Coverage: 1,000+ tracked vendors across 30+ searchable categories. Coverage includes Web3 and AI directory listings and vendors tracked across blockchain-project ecosystems. A company may appear in multiple categories; tracked does not mean vetted.
+- Leadership: Dimple Mirpuri, Founder and CEO (https://www.linkedin.com/in/dimple-mirpuri-09bb02107/); Shefali Sharma, Co-Founder and CMO (https://www.linkedin.com/in/shefali-sharma-86403a67/).
+- Vendor review: https://www.fluidrwa.com/about#vetting-methodology
+- Review areas: Product and operating track record; Client work and references; Regulatory claims and service scope; Leadership and company identity; Website, documentation and ecosystem presence; Feedback and reputation. Evidence is matched to the provider's service and claims.
+- Scope: FluidRWA's vendor review is not a code-level security audit, legal opinion, financial due diligence, regulatory approval or guarantee of performance. Buyers remain responsible for their own project-specific assessment.
+- Fees: There is a fee for the vetting review. Marketing, visibility and advertising are separate services with separate fees. Payment does not determine the review outcome or guarantee a Vetted badge.
+- Refund terms: https://www.fluidrwa.com/refund-cancellation
+- Contact: contact@fluidrwa.com
+
 ## Core pages
 
 - Home: https://www.fluidrwa.com/

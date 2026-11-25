@@ -1,22 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/fluidrwa" },
-  { label: "X", href: "https://x.com/fluid_rwa" },
-  { label: "Instagram", href: "https://www.instagram.com/fluidrwa/" },
-  { label: "YouTube", href: "https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg" }
-];
+import { brandIdentity } from "@/lib/brandIdentity";
 
 export function Footer() {
   return (
-    <footer className="light-footer">
+    <div data-nosnippet="" style={{ display: "contents" }}><footer className="light-footer">
       <div className="light-container footer-directory">
         <div className="footer-intro">
           <Link className="footer-brand-link" href="/" aria-label="FluidRWA home">
             <Image className="footer-logo-lite" src="/assets/fluidrwa-small-logo.png" alt="FluidRWA" width={190} height={60} />
           </Link>
           <p>Building trust in Web3, RWA and AI through vendor discovery, evidence-led reviews and practical research.</p>
+          <p>{brandIdentity.coverage}. <Link href="/about#company-facts">About our coverage</Link>.</p>
           <p>Email us: <a href="mailto:contact@fluidrwa.com" style={{ overflowWrap: "anywhere" }}>contact@fluidrwa.com</a></p>
         </div>
         <nav aria-label="Vendor directories"><strong>Directories</strong><Link href="/web3vendorecosystem">All vendors</Link><Link href="/ai-vendors">AI vendors</Link><Link href="/vendors/tokenization-platforms">Tokenization platforms</Link><Link href="/blockchain-projects">Blockchain projects</Link></nav>
@@ -25,7 +20,7 @@ export function Footer() {
       </div>
       <div className="light-container footer-meta-row">
         <nav className="footer-social-links" aria-label="FluidRWA social profiles">
-          {socialLinks.map((link) => (
+          {brandIdentity.socialLinks.map((link) => (
             <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`FluidRWA on ${link.label}`}>
               {link.label}
             </a>
@@ -34,6 +29,6 @@ export function Footer() {
         <nav className="footer-policy-links" aria-label="Service policies"><Link href="/refund-cancellation">Refunds</Link><Link href="/shipping-delivery">Delivery</Link></nav>
       </div>
       <div className="light-container footer-bottom-lite">© 2026 FluidRWA.</div>
-    </footer>
+    </footer></div>
   );
 }

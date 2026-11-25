@@ -23,7 +23,7 @@ export function Header() {
     return () => { document.removeEventListener("pointerdown", closeOutside); document.removeEventListener("keydown", escape); };
   }, []);
   return (
-    <header ref={headerRef} className="site-header light-header" data-site-header onPointerLeave={(event) => { if (event.pointerType === "mouse") setOpenMenu(null); }} onClick={(event) => {
+    <div data-nosnippet="" style={{ display: "contents" }}><header ref={headerRef} className="site-header light-header" data-site-header onPointerLeave={(event) => { if (event.pointerType === "mouse") setOpenMenu(null); }} onClick={(event) => {
       const submenuLink = (event.target as HTMLElement).closest<HTMLAnchorElement>('.nav-mega a[href]');
       if (submenuLink) {
         event.preventDefault();
@@ -178,6 +178,6 @@ export function Header() {
           </a>
         </div>
       </nav>
-    </header>
+    </header></div>
   );
 }

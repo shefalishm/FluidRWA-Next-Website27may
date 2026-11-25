@@ -1,0 +1,31 @@
+{
+  "name": "FluidRWA",
+  "alternateName": "Fluid RWA",
+  "url": "https://www.fluidrwa.com",
+  "aboutPath": "/about",
+  "methodologyPath": "/about#vetting-methodology",
+  "email": "contact@fluidrwa.com",
+  "description": "FluidRWA is a vendor discovery, research and matchmaking platform for Web3, real-world asset tokenization and AI.",
+  "coverage": "1,000+ tracked vendors across 30+ searchable categories",
+  "coverageScope": "Coverage includes Web3 and AI directory listings and vendors tracked across blockchain-project ecosystems. A company may appear in multiple categories; tracked does not mean vetted.",
+  "socialLinks": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/fluidrwa" },
+    { "label": "X", "href": "https://x.com/fluid_rwa" },
+    { "label": "Instagram", "href": "https://www.instagram.com/fluidrwa/" },
+    { "label": "YouTube", "href": "https://www.youtube.com/channel/UCsiBOepcGO78f64tI5la_Qg" }
+  ],
+  "leadership": [
+    { "id": "dimple-mirpuri", "name": "Dimple Mirpuri", "title": "Founder and CEO", "linkedin": "https://www.linkedin.com/in/dimple-mirpuri-09bb02107/" },
+    { "id": "shefali-sharma", "name": "Shefali Sharma", "title": "Co-Founder and CMO", "linkedin": "https://www.linkedin.com/in/shefali-sharma-86403a67/" }
+  ],
+  "reviewAreas": [
+    { "name": "Product and operating track record", "description": "Review the actual service, documentation and evidence of delivery. For blockchain products, ask for relevant production deployments and transaction evidence; for AI and other services, use appropriate operating examples." },
+    { "name": "Client work and references", "description": "Examine relevant case studies and supporting references where available. Distinguish a named client engagement from an integration, ecosystem membership or partner logo." },
+    { "name": "Regulatory claims and service scope", "description": "Check claimed registrations or permissions against the named entity, activity and jurisdiction where applicable. A software vendor does not need the same permissions as a custodian or payment operator." },
+    { "name": "Leadership and company identity", "description": "Review the people behind the business, its corporate identity and the entity responsible for the proposed service. Separate a group brand from the company entering the contract." },
+    { "name": "Website, documentation and ecosystem presence", "description": "Check whether the public product description, documentation, company channels and supporting materials are consistent and relevant to the service being reviewed." },
+    { "name": "Feedback and reputation", "description": "Consider client feedback, references and material reputation concerns in context. Testimonials and a lack of public complaints are not guarantees of service quality or future performance." }
+  ],
+  "reviewScope": "FluidRWA's vendor review is not a code-level security audit, legal opinion, financial due diligence, regulatory approval or guarantee of performance. Buyers remain responsible for their own project-specific assessment.",
+  "feeScope": "There is a fee for the vetting review. Marketing, visibility and advertising are separate services with separate fees. Payment does not determine the review outcome or guarantee a Vetted badge."
+}

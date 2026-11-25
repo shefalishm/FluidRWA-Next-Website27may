@@ -6,6 +6,7 @@ import { legacyVendorFallbackHtml, legacyVendorFallbackJsonLd } from "./vendorFa
 import { vendorAnswerGuidance } from "./vendorAnswerGuidance";
 import { searchTitle } from "./searchTitle";
 import { vendorSocialPreview } from "./vendorSocialPreviews";
+import { organizationId, researchTeamId } from "./brandIdentity";
 
 const root = process.cwd();
 const defaultSocialImage = `${siteUrl}/assets/social/fluidrwa-preview.jpg`;
@@ -400,13 +401,16 @@ export function legacyJsonLd(file: string) {
         if (entry?.["@type"] !== "Article") continue;
         entry.author = {
           "@type": "Organization",
+          "@id": researchTeamId,
           name: "FluidRWA Research Team",
-          url: `${siteUrl}/about`
+          url: `${siteUrl}/about#research-team`
         };
+        entry.publisher = { "@id": organizationId };
         entry.reviewedBy = {
           "@type": "Organization",
+          "@id": researchTeamId,
           name: "FluidRWA Research Team",
-          url: `${siteUrl}/about`
+          url: `${siteUrl}/about#research-team`
         };
         const sources = articleSources[file];
         if (sources?.length) {
@@ -467,7 +471,7 @@ function enhanceBlogDecisionPage(file: string, html: string) {
 
   enhanced = enhanced.replace(
     /<p class="reviewed-line">Reviewed and updated by FluidRWA\s*·\s*([^<]+)<\/p>/i,
-    '<p class="reviewed-line">Reviewed by <a href="/about">FluidRWA Research Team</a> · $1</p>'
+    '<p class="reviewed-line">Reviewed by <a href="/about#research-team">FluidRWA Research Team</a> · $1</p>'
   );
   const repeatedEvidenceLine = "Ask for evidence that maps directly to the planned production workflow, not a generic capability statement.";
   const repeatedEvidenceCount = enhanced.split(repeatedEvidenceLine).length - 1;
@@ -634,6 +638,8 @@ export function legacyMainHtml(file: string) {
   if (file === "vendors/smart-contract-development/index.html") {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Buyer guide and selected engineering sources reviewed: November 23, 2026");
   }
+  renderedHtml = renderedHtml.replace(/<span\b([^>]*\bclass="[^"]*\b(?:bc-vetted-badge|vendor-vetted-badge)\b[^"]*"[^>]*)>([^<]*Vetted[^<]*)<\/span>/g,
+    '<a$1 href="/about#vetting-methodology" title="Read the FluidRWA vendor review scope">$2</a>');
   return pageStyles ? `${pageStyles}\n${renderedHtml}` : renderedHtml;
 }
 

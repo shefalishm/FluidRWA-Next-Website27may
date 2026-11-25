@@ -53,7 +53,7 @@ export default async function AppRoutePage({ params }: RouteParams) {
   if (!html) notFound();
 
   return (
-    <main className="next-page-shell">
+    <main id="main-content" className="next-page-shell">
       {legacyJsonLd(file).map((item, index) => (
         <JsonLd key={index} data={item} />
       ))}

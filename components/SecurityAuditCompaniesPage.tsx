@@ -288,7 +288,7 @@ export function SecurityAuditCompaniesPage() {
                     <div>
                       <p>{vendor.role}</p>
                       <h3>{vendor.name}</h3>
-                      <span className="bc-vetted-badge">Vetted</span>
+                      <a className="bc-vetted-badge" href="/about#vetting-methodology" title="Read the FluidRWA vendor review scope">Vetted</a>
                     </div>
                   </div>
                   <p className="security-best-fit">
