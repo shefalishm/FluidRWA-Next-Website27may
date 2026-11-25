@@ -1549,6 +1549,7 @@ const initLegacyVendorDirectoryWidgets = () => {
   const smartContractDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/smart-contract-development-companies";
   const legalDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/legal-regulatory-vendors";
   const rampDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/fiat-on-off-ramp-providers";
+  const stablecoinDirectory = window.location.pathname.replace(/\/$/, "") === "/vendors/stablecoin-infrastructure-providers";
   const serviceDirectory = smartContractDirectory || ["growth-marketing-companies", "blockchain-development-companies"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
   const providerCards = Array.from((serviceDirectory ? document : providerDirectory).querySelectorAll(".bc-provider-card, .bc-company-card"));
   const scopedDirectory = serviceDirectory || legalDirectory || ["tokenization-platforms", "crypto-custody-providers", "fiat-on-off-ramp-providers", "stablecoin-infrastructure-providers"].some(slug => window.location.pathname.replace(/\/$/, "") === `/vendors/${slug}`);
@@ -1577,7 +1578,9 @@ const initLegacyVendorDirectoryWidgets = () => {
   const filters = document.createElement("div");
   filters.className = "vendor-procurement-filters";
   const locationSelect = buildFilterSelect("HQ country", "location", buildHqCountryOptions(profiles));
-  const regulatorySelect = serviceDirectory
+  const regulatorySelect = stablecoinDirectory
+    ? buildFilterSelect("Service role", "regulatory", [["all", "All roles"], ["issuer", "Issuance and issuer access"], ["payments", "Payments and orchestration"], ["wallet", "Wallet and custody operations"], ["risk", "Financial-crime tools"], ["protocol", "Protocol and treasury context"], ["build", "Blockchain infrastructure"], ["legacy", "Legacy product"]])
+    : serviceDirectory
     ? buildFilterSelect("Service mentioned", "regulatory", window.location.pathname.includes("growth-marketing")
       ? [["all", "All services"], ["strategy", "Strategy / branding"], ["content", "Content / SEO"], ["community", "Community / influencers"], ["media", "PR / paid media"]]
       : [["all", "All services"], ["engineering", "Engineering / contracts"], ["rpc", "RPC / data"], ["security", "Security / audits"], ["networks", "Networks / interoperability"]])
@@ -1592,6 +1595,10 @@ const initLegacyVendorDirectoryWidgets = () => {
   filters.append(locationSelect, regulatorySelect, budgetSelect, resetButton);
   if (serviceDirectory) locationSelect.remove();
   if (rampDirectory) { locationSelect.remove(); regulatorySelect.remove(); }
+  if (stablecoinDirectory) {
+    locationSelect.remove();
+    panel.querySelector(".vendor-procurement-actions small").textContent = "Compare the service role first, then confirm the product, contracting entity and route that fit your requirements.";
+  }
   if (scopedDirectory) budgetSelect.remove();
   panel.querySelector(".vendor-procurement-search").after(filters);
   if (existingSearch) {
@@ -1602,7 +1609,7 @@ const initLegacyVendorDirectoryWidgets = () => {
 
   const queryControl = existingSearch || panel.querySelector("[data-provider-query]");
   const locationControl = locationSelect.querySelector("select");
-  const initialHq = serviceDirectory || rampDirectory ? null : new URLSearchParams(window.location.search).get("hq");
+  const initialHq = serviceDirectory || rampDirectory || stablecoinDirectory ? null : new URLSearchParams(window.location.search).get("hq");
   if (initialHq && [...locationControl.options].some((option) => option.value === initialHq)) locationControl.value = initialHq;
   const regulatoryControl = regulatorySelect.querySelector("select");
   const budgetControl = budgetSelect.querySelector("select");
@@ -1617,9 +1624,9 @@ const initLegacyVendorDirectoryWidgets = () => {
     providerCards.forEach((card) => {
       const profile = profiles.get(card);
       const matchesProcurement =
-        matchesVendorSearch(profile, query) &&
+        (stablecoinDirectory ? query.split(/\s+/).filter(Boolean).every(term => profile.text.includes(term)) : matchesVendorSearch(profile, query)) &&
         matchesHqCountry(profile, locationControl.value) &&
-        (regulatoryControl.value === "all" || (scopedDirectory
+        (regulatoryControl.value === "all" || (stablecoinDirectory ? card.dataset.stablecoinRole?.split(" ").includes(regulatoryControl.value) : scopedDirectory
           ? ({ strategy: /strategy|branding|brand /, content: /content|seo/, community: /community|influencer|kol/, media: /public relations|pr |paid media|paid ads|advertis/, engineering: /engineering|development|smart contract/, rpc: /rpc|api|indexing|data/, security: /security|audit|bounty/, networks: /layer 1|layer 2|l1|l2|cross chain|interoperability/, onboarding: /identity|kyc|onboarding/, custody: /custody|wallet/, payments: /payment|settlement|payout/, lifecycle: /issuance|lifecycle|servicing/ }[regulatoryControl.value]?.test(profile.text))
           : profile.regulatory === regulatoryControl.value)) &&
         (scopedDirectory || budgetControl.value === "all" || profile.budget === budgetControl.value);
@@ -1634,14 +1641,14 @@ const initLegacyVendorDirectoryWidgets = () => {
     }
     status.textContent = document.documentElement.lang === "es"
       ? `${visibleCount.toLocaleString()} de ${providerCards.length.toLocaleString()} proveedores cumplen los criterios`
-      : `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} providers match your criteria`;
+      : `${visibleCount.toLocaleString()} of ${providerCards.length.toLocaleString()} ${stablecoinDirectory ? "records" : "providers"} match your criteria`;
     const count = directorySection?.querySelector("#bcCount");
     if (count) count.textContent = document.documentElement.lang === "es"
       ? `Mostrando ${visibleCount} ${visibleCount === 1 ? "proveedor" : "proveedores"}`
       : smartContractDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "company or tool" : "companies and tools"}`
       : legalDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "firm" : "firms"}`
       : window.location.pathname.replace(/\/$/, "") === "/vendors/growth-marketing-companies" ? `Showing ${visibleCount} ${visibleCount === 1 ? "listing" : "listings"}`
-      : rampDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "record" : "records"}`
+      : rampDirectory || stablecoinDirectory ? `Showing ${visibleCount} ${visibleCount === 1 ? "record" : "records"}`
       : `Showing ${visibleCount} ${visibleCount === 1 ? "platform" : "platforms"}`;
   };
 

@@ -1,0 +1,28 @@
+FluidRWA Stablecoin Operating Brief
+
+Business and contracting entity:
+Job: merchant acceptance / supplier payouts / embedded accounts / issuance / wallet operations / treasury
+Whose funds move:
+Sender and beneficiary types:
+Origin and destination countries:
+Fiat currencies and bank rails, by direction:
+Token contracts and chain IDs:
+Custody and signing model:
+Funding, holding, checks, conversion, chain transfer and bank-payout counterparties:
+Issuer and redemption relationship, if relevant:
+Reserve report entity, report type, observation date and exclusions:
+Approved customer types and jurisdictional scope:
+Quote validity, liquidity and prefunding:
+Available balance versus settled balance:
+Payment status definitions and authoritative evidence:
+Wrong-chain, late-payment, hold, refund, bank-return and duplicate-event handling:
+Webhook verification, retries and idempotency:
+Ledger, chain, bank and ERP reconciliation:
+Support and upstream incident ownership:
+Sandbox acceptance tests and separately approved production tests:
+Commercial components and exclusions:
+Data retention, records export and exit plan:
+Outstanding questions and responsible decision-maker:
+
+Use one complete route per brief. Confirm current production scope and eligibility.
+This worksheet is for procurement planning, not legal or investment advice.

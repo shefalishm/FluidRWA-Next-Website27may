@@ -167,8 +167,8 @@ const seoOverrides: Record<string, SeoOverride> = {
     description: "Compare fiat and crypto ramps for wallets, business payouts and institutional conversion. Check PIX, SPEI, KYC, integration scope, settlement and refunds."
   },
   "vendors/payments-stablecoins/index.html": {
-    title: "Stablecoin Infrastructure Providers for Payments & Payouts",
-    description: "Compare 30 providers for stablecoin payment acceptance, payouts, issuance, treasury and compliance. Check who holds funds and handles conversion and settlement."
+    title: "Stablecoin Infrastructure Providers: Payments & Issuance",
+    description: "Compare stablecoin providers by role: payments, issuance, wallets and risk tools. Check custody, redemption, bank payouts and integration before shortlisting."
   }
 };
 
@@ -246,7 +246,7 @@ function readLegacy(file: string) {
 }
 
 function shouldShowWeb3VettedBadges(file: string) {
-  if (["vendors/legal-regulatory/index.html", "vendors/growth-marketing/index.html", "vendors/fiat-on-off-ramps/index.html"].includes(file)) return false;
+  if (["vendors/legal-regulatory/index.html", "vendors/growth-marketing/index.html", "vendors/fiat-on-off-ramps/index.html", "vendors/payments-stablecoins/index.html"].includes(file)) return false;
   if (file === "vendor-ecosystem.html") return true;
   return file.startsWith("vendors/");
 }
@@ -550,7 +550,7 @@ export function legacyMainHtml(file: string) {
   let renderedHtml = fallbackDirectory ? `${badgedBodyHtml}\n${fallbackDirectory}` : badgedBodyHtml;
   renderedHtml = normalizeEditorialText(renderedHtml);
   renderedHtml = enhanceBlogDecisionPage(file, renderedHtml);
-  const guidance = /id="(?:growth-marketing|fiat-ramp)-research"/.test(html) ? null : vendorAnswerGuidance(file);
+  const guidance = /id="(?:(?:growth-marketing|fiat-ramp)-research|stablecoin-buyer-guide)"/.test(html) ? null : vendorAnswerGuidance(file);
   if (guidance) renderedHtml = renderedHtml.replace("</section>", `</section>${guidance}`);
   if (["vendors/growth-marketing/index.html", "vendors/blockchain-development/index.html"].includes(file) && !html.includes('id="growth-marketing-research"')) {
     const marketing = file.includes("growth-marketing");
@@ -592,7 +592,7 @@ export function legacyMainHtml(file: string) {
   if (file === "vendors/fiat-on-off-ramps/index.html" && !html.includes('id="fiat-ramp-research"')) {
     renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Need customers to buy crypto, cash out or both? Start with the country, payment method and direction of travel. Then confirm who performs KYC, who handles failed payouts and which asset and network pairs are supported. See the <a href="/network-explorer/research/ramp-onboarding">ramp onboarding evidence map</a> for documented examples.</p>');
   }
-  if (file === "vendors/payments-stablecoins/index.html") {
+  if (file === "vendors/payments-stablecoins/index.html" && !html.includes('id="stablecoin-buyer-guide"')) {
     renderedHtml = renderedHtml.replace(/(<h1>[^<]+<\/h1>)<p>[^<]+<\/p>/, '$1<p>Start with the job: accept stablecoins, pay recipients, issue a token or manage treasury. Shortlist providers that support your corridor, then confirm who holds funds, who converts them and when the recipient can use the proceeds.</p>');
   }
   if (file === "vendors/tokenization-platforms/index.html") {
@@ -622,7 +622,7 @@ export function legacyMainHtml(file: string) {
   if (file === "vendor-ecosystem.html") {
     renderedHtml += `<script id="vendor-search-index-data" type="application/json" data-src="/assets/datasets/vendor-search-index.json"></script>`;
   }
-  const resources = relatedVendorDirectories(file);
+  const resources = html.includes('id="stablecoin-buyer-guide"') ? "" : relatedVendorDirectories(file);
   if (file === "vendors/tokenization-platforms/index.html" && renderedHtml.includes('<label class="bc-search">')) {
     renderedHtml = renderedHtml.replace('<label class="bc-search">', () => `${resources}<label class="bc-search">`);
   } else {
@@ -632,6 +632,7 @@ export function legacyMainHtml(file: string) {
     renderedHtml += `<aside class="directory-disclosure" aria-label="Directory disclosure"><strong>How listings, logos and counts work</strong><p>FluidRWA organizes companies for discovery and comparison. Company names and logos are shown for identification only; inclusion does not imply endorsement. The 1,000+ vendor count includes Web3 and AI listings plus vendors tracked across blockchain-project ecosystems, and a company may appear in more than one relevant category. Vetted indicates that a listing has passed our baseline review. Vetted Plus is reserved for companies that complete FluidRWA's enhanced review process. No company currently holds Vetted Plus status. Buyers should complete their own diligence.</p></aside><p class="page-last-updated">Last updated: ${html.includes('id="growth-marketing-research"') ? 'November 24, 2026' : 'September 29, 2026'}</p>`;
   }
   if (html.includes('id="fiat-ramp-research"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 24, 2026');
+  if (html.includes('id="stablecoin-buyer-guide"')) renderedHtml = renderedHtml.replace('Last updated: September 29, 2026', 'Last updated: November 25, 2026');
   if (["vendors/institutional-digital-asset-trading-platforms/index.html", "vendors/crypto-accounting-tax-software/index.html"].includes(file)) {
     renderedHtml = renderedHtml.replace("Last updated: September 29, 2026", "Last updated: October 10, 2026");
   }

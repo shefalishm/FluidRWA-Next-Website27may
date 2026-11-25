@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {enhanceStablecoinCategory} from './lib/stablecoin-category.mjs';
+const file='vendors/payments-stablecoins/index.html';
+fs.writeFileSync(file,enhanceStablecoinCategory(fs.readFileSync(file,'utf8')));
+const sitemap='sitemap.xml';
+const xml=fs.readFileSync(sitemap,'utf8');
+const changed=xml.replace(/<loc>https:\/\/www\.fluidrwa\.com\/vendors\/(?:payments-stablecoins|stablecoin-infrastructure-providers)<\/loc><lastmod>[^<]+/,'<loc>https://www.fluidrwa.com/vendors/stablecoin-infrastructure-providers</loc><lastmod>2026-11-25');
+if(!changed.includes('<loc>https://www.fluidrwa.com/vendors/stablecoin-infrastructure-providers</loc><lastmod>2026-11-25'))throw new Error('Missing stablecoin sitemap entry');
+fs.writeFileSync(sitemap,changed);
+console.log('Updated stablecoin category and its sitemap date.');
