@@ -1,0 +1,45 @@
+{
+  "observedAt":"2026-11-26",
+  "query":"best fund tokenization platforms for asset managers",
+  "target":"/blog/best-fund-tokenization-platforms-asset-managers",
+  "historicalEvidence":"Saved Bing report: 825 citations Oct 20-Nov 2; absent from Nov 5-18 export. Absence does not establish universal zero citations.",
+  "currentSnapshot":{"google":"First organic result; repeatedly cited in visible AI Overview. Overview also cited Medium, Restart Fintech, Stobox and Brickken. Personalized India results.","bing":"First organic result; no substantive AI answer observed.","causality":"Current snapshot is not evidence of Bing citation recovery or historical replacement. Preserve useful existing shortlist and decision framework."},
+  "rankedSources":[
+    {"url":"https://www.finextra.com/blogposting/33067/top-10-asset-tokenization-platform-development-companies","access":"readable","coverage":"External community author; development partners rather than equivalent fund operating platforms."},
+    {"url":"https://www.fume.finance/resources/blog/best-fund-tokenization-platforms","access":"readable","coverage":"Fund-share tokenization versus onchain strategy and administration; vendor-authored, no reproducible exception tests."},
+    {"url":"https://medium.com/@charlesphilip1228/i-reviewed-the-top-10-real-world-asset-tokenization-platforms-in-2026-heres-what-i-found-aa9e9833cc0e","access":"readable through tool extraction","coverage":"Mixed RWA categories; no demonstrated hands-on test despite review framing."},
+    {"url":"https://www.linkedin.com/products/categories/asset-tokenization-platforms","access":"limited public list readable","coverage":"Product descriptions; not full directory extraction or capability verification."},
+    {"url":"https://restartfintech.com/blog/best-asset-tokenization-platforms-asset-managers","access":"readable","coverage":"Self-ranked build-versus-buy; no fund-lifecycle implementation test."},
+    {"url":"https://www.brickken.com/fund-tokenization","access":"readable","coverage":"Appointed provider, administrator NAV and transfer-demand boundaries; examples not verified deployments."},
+    {"url":"https://s-pro.io/rwa-tokenization-platforms","access":"readable","coverage":"Feature checklist with mixed roles; NAV publication distinct from calculation, venue access distinct from liquidity."},
+    {"url":"https://www.stobox.io/learn/best-rwa-tokenization-platform-institutions","access":"readable","coverage":"Operating-model fit, continuity, lock-in; vendor-authored claims not independently verified."},
+    {"url":"https://thecfoclub.com/tools/best-asset-tokenization-platform/","access":"readable","coverage":"Profiles and criteria, commission disclosure; mixed issuance, products, custody and venues."},
+    {"url":"https://thecfoclub.com/tools/best-tokenization-platform/","access":"readable","coverage":"Includes unrelated data-deidentification/vaultless/PCI/HIPAA material. Excluded category contamination."},
+    {"url":"https://tradersunion.com/best-tokenization-platforms/","access":"readable","coverage":"Eligibility and variable liquidity acknowledged; broad later liquidity statements not imported."},
+    {"url":"https://www.upshift.finance/blog/asset-tokenization-platforms","access":"readable","coverage":"Fund interests, feeder structures and vaults; vendor-authored and no buyer-specific implementation evidence."},
+    {"url":"https://www.guideflow.com/blog/asset-tokenization-platform","access":"readable","coverage":"Mixes authentication, oracles, platforms and venues; inconsistent published/updated chronology."},
+    {"url":"https://www.linkedin.com/pulse/best-asset-tokenization-platforms-managers-2026-dennis-larik-a7ryf","access":"readable","coverage":"Custom build preference; no full fund-operations test."},
+    {"url":"https://www.f6s.com/software/category/fund-tokenization","access":"403 Forbidden","coverage":"Not assessed; no listings or title inferred."}
+  ],
+  "primaryRecords":[
+    "https://securitize.io/",
+    "https://securitize.io/fund-administration",
+    "https://investors.securitize.io/overview/",
+    "https://docs.tokeny.com/docs/t-rex-platform",
+    "https://www.zoniqx.com/zprotocol",
+    "https://www.zoniqx.com/z-360",
+    "https://www.zoniqx.com/",
+    "https://www.taurushq.com/capital/",
+    "https://docs.taurushq.com/protect-capital/reference/tokenization-issuance",
+    "https://kaio.xyz/",
+    "https://eips.ethereum.org/EIPS/eip-3643"
+  ],
+  "sourceLimits":[
+    "Securitize homepage web extraction returned JavaScript shell; rendered homepage and Fund Services text read in Chrome. Service availability not independently verified.",
+    "Old Taurus /taurus-capital/ inaccessible twice; current /capital/ and developer documentation readable. Do not describe old source as verified.",
+    "Zoniqx /zprotocol redirects to /z-360. Current product descriptions replace old protocol-status discussion; no regulatory approval inferred.",
+    "No AUM totals, minimum investments, licence conclusions, measured implementation performance or liquidity guarantees added.",
+    "Network Explorer source dataset, observations and dates unchanged."
+  ],
+  "changes":["Five-provider shortlist retained","Fund/feeder/class/vault distinctions","Four liquidity mechanisms","NAV approval and correction","100-to-105 unit lifecycle exercise","12 exception tests","Contract governance and network scope","Transition and privacy controls","No vendor-domain hyperlinks or pricing"]
+}

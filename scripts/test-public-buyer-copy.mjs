@@ -18,7 +18,7 @@ for(const slug of blogs){
  const file='content/blog/'+slug+'.md';
  const source=fs.readFileSync(file,'utf8');
  const before=execFileSync('git',['show','3ebd890:'+file],{encoding:'utf8'});
- if(slug==='crypto-custody-providers-comparison-2026'||slug==='talos-vs-wyden-vs-finery-markets-institutional-trading'){
+ if(['crypto-custody-providers-comparison-2026','talos-vs-wyden-vs-finery-markets-institutional-trading','best-fund-tokenization-platforms-asset-managers'].includes(slug)){
   const field=(text,key)=>text.match(new RegExp('^'+key+':.*$','m'))?.[0];
   for(const key of ['date','reviewedDate','reviewedLabel','infographicImage','infographicMobileImage','socialImage']) assert.equal(field(source,key),field(before,key),slug+' preserve historical dates and artwork');
   assert.equal(field(source,'modifiedDate'),'modifiedDate: "2026-11-26"');
