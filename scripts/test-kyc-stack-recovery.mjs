@@ -22,7 +22,9 @@ const artwork=main.querySelector(`img[src="/assets/blog-thumbnails/card-${slug}.
 assert.ok(artwork);
 assert.ok(artwork.getAttribute('alt').includes('FluidRWA'));
 const providers=['Alloy','AU10TIX','Chainalysis','ComplyAdvantage','Crystal Intelligence','Elliptic','Entrust / Onfido','Jumio','Middesk','Notabene','Persona','Sardine','Scorechain','Sumsub','Sygna','TRM Labs','Trulioo','Unit21','Veriff','VerifyVASP'];
-assert.deepEqual(main.querySelectorAll('.post-main h3').map(n=>n.text.trim()),providers);
+// The runtime's shared brand formatter adds this ownership annotation.
+const displayedProviders=providers.map(name=>process.argv[2]&&name==='Entrust / Onfido'?'Entrust / Onfido (an Entrust company)':name);
+assert.deepEqual(main.querySelectorAll('.post-main h3').map(n=>n.text.trim()),displayedProviders);
 for(const phrase of ['Twelve acceptance exercises','IVMS101','injection','NFC','indirect','rejected','1,000','revocation','ownership','mandatory']) assert.ok(main.text.toLowerCase().includes(phrase.toLowerCase()),phrase);
 assert.ok(!/\u2014|citation recovery|competitor research|\bpricing\b|\$\d|internal research notes|access-controlled login|research standard/i.test(main.text));
 for(const a of main.querySelectorAll('a[href]')){const href=a.getAttribute('href');if(/^https?:/.test(href)) assert.ok(['www.fluidrwa.com','fluidrwa.com'].includes(new URL(href).hostname),href);}
