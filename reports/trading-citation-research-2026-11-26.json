@@ -1,0 +1,43 @@
+{
+  "observedAt": "2026-11-26",
+  "query": "Talos vs Wyden vs Finery Markets institutional trading",
+  "target": "/blog/talos-vs-wyden-vs-finery-markets-institutional-trading",
+  "historicalEvidence": "Saved Bing comparison: 1008 citations Oct 20-Nov 2; absent from Nov 5-18 page export. Absence does not prove universal zero citations.",
+  "currentSnapshot": {
+    "google": "First organic result and repeatedly cited in visible AI Overview. Personalized India results. Overview also cited CoinAPI, Wyden and Finery Markets.",
+    "bing": "First organic result. No substantive AI answer observed.",
+    "interpretation": "Current presence does not establish recovery in Bing AI Performance or historical competitor replacement. Preserve successful comparison structure."
+  },
+  "rankedSourcesRead": [
+    {"url":"https://www.coinapi.io/blog/best-institutional-crypto-trading-platforms-2025","coverage":"Platform discovery and scenarios; no Finery or reproducible three-way test."},
+    {"url":"https://www.wyden.io/news/institutional-trading-tools/","coverage":"OMS/EMS/OEMS and orchestration categories; vendor-authored, not comparative test."},
+    {"url":"https://awards.hedgeweek.com/global-digital-assets-awards","coverage":"Awards/shortlists, not product performance evidence."},
+    {"url":"https://finerymarkets.com/blog/institutional-trading-platform","coverage":"Web tool failed twice; full article read in Chrome. November 24, 2026. Architecture, firm pricing, risk, kill switch, account hierarchy, TCA, launch/build-buy, bilateral settlement. Excluded unsupported blanket claims and legal generalizations."},
+    {"url":"https://wundertrading.com/journal/en/best-talos-alternatives","coverage":"Mixes platform roles; vendor-authored; no equivalent-scope test."},
+    {"url":"https://gov.capital/systematic-procurement-of-high-notional-bitcoin-strategic-execution-regulatory-arbitrage-and-liquidity-management-for-institutional-participants/","coverage":"Broad acquisition/routing/custody discussion, no full three-way comparison."},
+    {"url":"https://walletinvestor.com/news/crypto-news/talos-vs-trading-technologies-best-institutional-crypto-oems-platforms/","coverage":"Controls, routing, FIX, recovery and pilot questions; different comparison pair, no independent test logs."},
+    {"url":"https://riven-trust.com/compare/talos-vs-wyden/","coverage":"Pairwise comparison; discarded scores and inaccurate universal single-tenant claim."}
+  ],
+  "additionalComparisonsRead": [
+    "https://www.spark.money/tools/crypto-institutional-trading-platform-comparison",
+    "https://www.liquidmercury.com/resources/institutional-crypto-trading-platforms-comparison"
+  ],
+  "primaryRecords": [
+    "https://www.talos.com/our-solutions/trading",
+    "https://www.talos.com/our-solutions/white-label",
+    "https://www.talos.com/our-solutions/rfq-platform",
+    "https://www.wyden.io/news/launch-of-wyden-infinity-the-institutional-digital-asset-trading-and-banking-platform/",
+    "https://finerymarkets.com/rfq.html",
+    "https://finerymarkets.com/white-label.html",
+    "https://faq.finerymarkets.com/overview/about-our-products/fm-liquidity-match",
+    "https://finerymarkets.com/imprint.html",
+    "https://finerymarkets.com/legal.html"
+  ],
+  "boundaries": [
+    "Wyden launch announcement date September 3, 2024 retained; does not establish current contract availability.",
+    "Talos separate RFQ Platform marked coming soon; Trading RFQ functionality separately described.",
+    "Finery RFQ/imprint footer specifies BVI SaaS entity, independent operators and bilateral duties. Blog footer uses broader ECN solution wording. No dated business-model change inferred.",
+    "Finery operating rules display January 10, 2025 effective date; document statements are not independent legal conclusions.",
+    "No independent execution, throughput, certification, regulatory status or comparative performance verification."
+  ]
+}

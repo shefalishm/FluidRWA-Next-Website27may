@@ -18,12 +18,12 @@ for(const slug of blogs){
  const file='content/blog/'+slug+'.md';
  const source=fs.readFileSync(file,'utf8');
  const before=execFileSync('git',['show','3ebd890:'+file],{encoding:'utf8'});
- if(slug==='crypto-custody-providers-comparison-2026'){
+ if(slug==='crypto-custody-providers-comparison-2026'||slug==='talos-vs-wyden-vs-finery-markets-institutional-trading'){
   const field=(text,key)=>text.match(new RegExp('^'+key+':.*$','m'))?.[0];
   for(const key of ['date','reviewedDate','reviewedLabel','infographicImage','infographicMobileImage','socialImage']) assert.equal(field(source,key),field(before,key),slug+' preserve historical dates and artwork');
   assert.equal(field(source,'modifiedDate'),'modifiedDate: "2026-11-26"');
   assert.ok(source.includes('readerFirst: "true"'));
-  assert.ok(!/https?:\/\/(?:www\.)?(?:anchorage\.com|bitgo\.com|coinbase\.com|copper\.co|fidelitydigitalassets\.com|fireblocks\.com|fordefi\.com|gemini\.com|hextrust\.com|komainu\.com|paxos\.com|sygnum\.com|taurushq\.com|utila\.io|zodia-custody\.com)/i.test(source),slug+' no vendor-domain hyperlinks');
+  assert.ok(!/https?:\/\/(?:www\.)?(?:anchorage\.com|bitgo\.com|coinbase\.com|copper\.co|fidelitydigitalassets\.com|fireblocks\.com|fordefi\.com|gemini\.com|hextrust\.com|komainu\.com|paxos\.com|sygnum\.com|taurushq\.com|utila\.io|zodia-custody\.com|talos\.com|wyden\.io|finerymarkets\.com)/i.test(source),slug+' no vendor-domain hyperlinks');
   assert.equal([...source.matchAll(/^faq\d+q:/gm)].length,8);
   assert.ok(!source.includes('\u2014'),slug+' no em dashes');
   continue;
