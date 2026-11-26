@@ -489,7 +489,7 @@ const baseUseCases: UseCase[] = [
   },
   {
     slug: "digital-asset-tax-reporting-cost-basis-operations",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     title: "Digital Asset Tax Reporting and Cost-Basis Operations",
     industry: "Tax, Accounting and Digital Assets",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=76",
@@ -497,7 +497,7 @@ const baseUseCases: UseCase[] = [
     visualLabel: "Cost Basis",
     visualKicker: "Tax Operations",
     summary: "Institutions can normalize wallet, exchange and custody activity into reviewed tax lots, gains, income events and reportable customer records.",
-    seoDescription: "Explore digital asset tax reporting and cost-basis operations, including transaction normalization, tax lots, transfers, reconciliation and vendor requirements.",
+    seoDescription: "Automate digital asset cost-basis tracking with lot provenance, transfer matching, ERP reconciliation, correction controls and nine practical acceptance tests.",
     problem: "Blockchain transactions do not arrive as tax-ready records. Transfers can appear as disposals, fees change quantities, assets move between providers and missing historical cost basis can distort gains and customer reporting.",
     stack: ["Custody and exchange data ingestion", "Transaction normalization and classification", "Wallet and account ownership mapping", "Tax-lot and cost-basis engine", "Exception review and evidence", "Forms, statements and accounting export"],
     vendorCategories: [

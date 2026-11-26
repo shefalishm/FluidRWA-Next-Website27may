@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-11-26",
+  "page": "/use-cases/digital-asset-tax-reporting-cost-basis-operations",
+  "query": "automate digital asset cost basis tracking at scale",
+  "citationEvidence": "Saved Bing export compared Oct 20-Nov 2 with Nov 5-18: 1473 baseline citations; target absent from later page export. Absence is not proof of universal zero citations.",
+  "searchSnapshot": {
+    "google": "Personalized India results: AI Overview cited Bitwave, Apex, Cryptoworth, Wyden and Thomson Reuters. FluidRWA not visible in that Overview.",
+    "bing": "FluidRWA second organic result after ChainScore Labs. No substantive AI answer observed.",
+    "causality": "Current search results cannot establish which pages historically replaced FluidRWA. No recovery measured."
+  },
+  "readableSources": [
+    "https://chainscorelabs.com/use-cases/compliance-operations/tax-compliance-automation/digital-asset-cost-basis-tracker",
+    "https://www.bitwave.io/blog/crypto-cost-basis-tracking",
+    "https://apexfintechsolutions.com/products/cost-basis-tax/",
+    "https://www.thomsonreuters.com/en/press-releases/2025/september/thomson-reuters-and-ledgible-partner-to-simplify-digital-asset-tax-reporting-for-businesses",
+    "https://softledger.com/crypto-accounting-software",
+    "https://ledgible.io/cost-basis/",
+    "https://defitaxlots.com/track-defi-tax-lots-2026-cost-basis-guide",
+    "https://worldmetrics.org/best/cost-basis-software/",
+    "https://www.wolterskluwer.com/en/solutions/gainskeeper",
+    "https://chainscorelabs.com/use-cases/tokenized-treasury-bills-and-fixed-income/automated-regulatory-reporting/automated-tax-lot-tracking-and-reporting",
+    "https://research.com/software/cloud-based-asset-tracking-software"
+  ],
+  "unreadableSources": [
+    "https://cryptoworth.com/crypto-cost-basis-calculator",
+    "https://rsmus.com/services/business-tax/digital-assets-tax-services",
+    "https://wyden.io/solutions/digital-asset-accounting/",
+    "https://github.com/profullstack/basis-engine"
+  ],
+  "primaryReferences": [
+    "https://www.irs.gov/instructions/i1099da",
+    "https://www.irs.gov/businesses/understanding-your-form-1099-da",
+    "https://www.irs.gov/filing/digital-assets",
+    "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm"
+  ],
+  "coverageAdded": ["Output and entity boundaries", "Lot provenance", "Quantity reconciliation", "Transfer uncertainty", "Method approval and replay", "ERP reject and correction handling", "2026 US reporting scope", "Nine acceptance tests", "Workload-specific measurement", "Read-only access and evidence export"],
+  "limits": ["Vendor pages establish public descriptions, not independent capability verification.", "Excluded unsupported ROI and accuracy promises.", "Research.com result concerned physical inventory and was irrelevant.", "No legal interpretation, vendor performance benchmark or globally applicable tax-method recommendation published."]
+}
