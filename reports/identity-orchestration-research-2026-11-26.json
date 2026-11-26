@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-26",
+  "target": "/blog/persona-vs-alloy-vs-socure-identity-orchestration",
+  "citationEvidence": {"file": "data/bing-citation-period-comparison-2026-11-20.json", "earlierPeriodCitations": 612, "laterExport": "No page entry; not proof of universal zero citations."},
+  "searchObservation": {"query": "Persona vs Alloy vs Socure identity orchestration", "method": "Actual Google and Bing Chrome result pages", "scope": "Personalized India results, November 26, 2026; not a universal rank measurement", "google": "FluidRWA first organic; AI Overview referenced FluidRWA plus Decryption Digest, Microblink and FintechSpecs", "bing": "FluidRWA first organic; no actual Copilot answer captured", "limits": "Current search results do not establish historical replacement citations or citation recovery."},
+  "competitorPages": [
+    {"url":"https://www.decryptiondigest.com/blog/identity-verification-fraud-prevention-socure-persona-alloy-jumio","access":"readable","coverage":"Verification, orchestration, deployment, ownership; cites FluidRWA, not independent corroboration"},
+    {"url":"https://fintechspecs.com/blog/alloy-vs-persona-identity-orchestration-platform/","access":"readable","coverage":"Rules, cascades, KYB, auditability, implementation; self-assessment is not product benchmark"},
+    {"url":"https://microblink.com/resources/blog/identity-orchestration/","access":"readable","coverage":"Category explainer, step-up, connectors, fallback; vendor-authored, not a three-way test"},
+    {"url":"https://www.signzy.com/blogs/persona-alternatives","access":"readable","coverage":"US data, KYB, liveness, monitoring, migration; editorial fit scores not independent results"},
+    {"url":"https://fintechspecs.com/blog/persona-alternatives-fintech-kyc-identity-verification/","access":"cache miss twice","coverage":null},
+    {"url":"https://www.alloy.com/ai-info","access":"readable","coverage":"First-party positioning, native and partner products"},
+    {"url":"https://useorio.com/blog/kyc-automation-software-plaid-persona-stripe-alloy","access":"summary-only","coverage":"Full comparison unavailable"},
+    {"url":"https://www.complianceaiscout.com/compare/alloy/vs/persona","access":"cache miss twice","coverage":null},
+    {"url":"https://walletinvestor.com/news/finance-news/alloy-vs-persona-vs-socure-best-identity-verification-platforms-reviewed/","access":"readable","coverage":"Three-way overview, geography, KYB and manual review; metrics are secondary claims"},
+    {"url":"https://www.gartner.com/reviews/market/identity-verification/compare/persona-vs-socure","access":"inaccessible","coverage":null},
+    {"url":"https://fintechspecs.com/blog/alloy-alternatives-identity-kyb-orchestration-platforms/","access":"readable","coverage":"KYB, legal-name mismatches, holding companies and migration"},
+    {"url":"https://sourceforge.net/software/compare/Persona-vs-Socure/","access":"readable","coverage":"Directory fields and review placeholders, not comparative outcome evidence"},
+    {"url":"https://www.rfp.wiki/it-security/identity-verification/socure/persona","access":"inaccessible","coverage":null},
+    {"url":"https://myselectas.com/blog/persona-vs-alloy","access":"readable","coverage":"Short profiles, scope and audience; oversimplified verifier/orchestrator split"},
+    {"url":"https://apiscout.dev/guides/persona-vs-alloy-vs-sardine-identity-verification-api-2026","access":"readable","coverage":"API, asynchronous review, policy ownership; does not compare Socure"}
+  ],
+  "primarySources": [
+    {"url":"https://docs.withpersona.com/getting-started","supports":"Hosted, embedded and mobile routes"},
+    {"url":"https://docs.withpersona.com/how-persona-works","supports":"Inquiry, verification, account, case and workflow distinctions"},
+    {"url":"https://docs.withpersona.com/choosing-an-integration-method","supports":"Integration scope and applicant journey choices"},
+    {"url":"https://docs.withpersona.com/webhooks-best-practices","supports":"Authenticated processing, duplicates and ordering"},
+    {"url":"https://www.alloy.com/identity-verification","supports":"Source orchestration, SDK, lifecycle checks, native Fraud Signal"},
+    {"url":"https://www.alloy.com/orchestration-decisioning-engine","supports":"Policy testing, history, rollback and audit records"},
+    {"url":"https://www.socure.com/solutions/riskos","supports":"Native and external inputs, Launch and Enterprise positioning"},
+    {"url":"https://help.socure.com/riskos/docs/integrating-with-riskos","supports":"Evaluation versus decision and case states; asynchronous pause, webhooks and polling"}
+  ],
+  "evidenceLimits": "Availability is not independent claim verification. No provider performance benchmark was performed. No accuracy, price, customer-count, deployment-time or legal-superiority claims imported.",
+  "additions": ["Worked 1000-applicant cohort with separate denominators and unknown outcomes", "Twelve acceptance exercises", "Applicant recovery and accessibility", "KYB ownership evidence", "Review correction and permissions", "Asynchronous states and safe retries", "Tokenized-asset status handoffs", "Open-case migration and privacy"],
+  "linkPolicy": "User explicitly requested retaining Socure on this turn. One direct RiskOS link; other vendor domains remain unlinked.",
+  "notChanged": ["Network Explorer datasets", "Wrangler configuration", "routes", "D1 bindings", "historical publication date"]
+}
