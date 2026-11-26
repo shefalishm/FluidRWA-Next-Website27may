@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-26",
+  "target": "/blog/crypto-custody-providers-comparison-2026",
+  "bingPerformance": {
+    "property": "https://fluidrwa.com/",
+    "baseline": {"start": "2026-10-20", "end": "2026-11-02", "pageCitations": 340, "siteCitationsDisplay": "15.6K"},
+    "recent": {"start": "2026-11-10", "end": "2026-11-23", "pageCitations": 5, "siteCitations": 743},
+    "pageDeclinePercent": 98.52941176470588,
+    "source": "https://www.bing.com/webmasters/aiperformance?siteUrl=https%3A%2F%2Ffluidrwa.com%2F&activeTab=AIPagesReport",
+    "method": "Live authenticated Compare screen, two 14-day windows. Page row read directly. Export download timed out and was not treated as retrieved.",
+    "limits": "Bing says data represents a sample and can be refined. Counts do not identify a causal competitor replacement. November 24-25 not populated in the chart observed."
+  },
+  "search": {
+    "query": "best institutional crypto custody providers 2026",
+    "google": "https://www.google.com/search?q=best+institutional+crypto+custody+providers+2026",
+    "bing": "https://www.bing.com/search?q=best+institutional+crypto+custody+providers+2026",
+    "googleObservation": "Personalized India/Uttar Pradesh signed-in search: FluidRWA first organic result and visible AI Overview source. Nine organic entries, including an X post; not ten independent articles.",
+    "googleAISourcesObserved": ["FluidRWA", "Upshift Finance", "Guardian Security", "Token Metrics", "Cobo", "CEX.IO University", "Istanbul Blockchain Week YouTube"],
+    "bingAISourcesObserved": ["OwnProCrypto", "CoinGape", "Hashlock", "WalletInvestor"],
+    "limits": "Observed answer sources are not proof of which publisher replaced FluidRWA for a historical user query. Search positions and AI answers are a single personalized snapshot, not global rankings."
+  },
+  "competitors": [
+    {"url":"https://hashlock.com/blog/top-institutional-crypto-custody-providers-2026","status":"Full rendered article read in Chrome","coverage":"Eight provider profiles, region/insurance/assets, security, audits, settlement, integrations; vendor audit CTA","caution":"Do not repeat group-wide permissions, asset counts or historical architecture without product-specific primary checks."},
+    {"url":"https://coingape.com/best-institutional-custody-solutions-for-tokenized-assets/","status":"Article sections read through web extraction","coverage":"Eight profiles, quick comparison, tokenized-asset fit, ratings, regulation, insurance","caution":"Do not copy ratings or broad model/permission cells; some labels conflate security and regulatory authority."},
+    {"url":"https://ownprocrypto.com/best-institutional-crypto-custody-providers/","status":"Article sections and structure read through web extraction","coverage":"Long institutional segmentation, models, provider comparison, settlement, governance, deployment, migration and FAQs","caution":"Do not copy unsupported safety claims, universal feature checkmarks or statements that technology eliminates counterparty risk."},
+    {"url":"https://guardian.security/blog/best-crypto-custodians/","status":"Substantial article text read","coverage":"Ten entities, charter, attestations, insurance, segregation, public record, methodology","caution":"Verify precise entities and dates rather than treating disclosure completeness as security performance."},
+    {"url":"https://university.cex.io/uk/best-institutional-crypto-custody-providers/","status":"Article text read","coverage":"Three custody models, five providers, contract diligence and FAQs","caution":"Publisher's own product placed first; primary service scope needed."},
+    {"url":"https://alchemy.com/dapps/best/custody-solutions","status":"Inaccessible to research tool","coverage":"Google snippet only; full contents not claimed read"},
+    {"url":"https://dealroom.co/lists/crypto-custodian-startups/","status":"Partial text read; continuation failed","coverage":"Funding-ranked 50-company discovery list, HQ and founding details","caution":"Funding does not establish suitability; mixed categories."},
+    {"url":"https://cobo.com/post/institutional-crypto-custody-providers","status":"Inaccessible to research tool","coverage":"Full contents not claimed read"},
+    {"url":"https://cryptoticker.io/en/institutional/","status":"Retrieved text reviewed","coverage":"EU entity/service register directory and filters","caution":"No independent architecture, insurance or audit comparison."},
+    {"url":"https://tokenmetrics.com/blog/top-institutional-crypto-custody-providers-2026/","status":"Fetch timed out","coverage":"Search/AI snippet observed; full contents not claimed read"},
+    {"url":"https://upshift.finance/blog/institutional-crypto-custody-providers","status":"Inaccessible to research tool","coverage":"AI source observed; full contents not claimed read"},
+    {"url":"https://www.cregis.com/blog/best-institutional-crypto-custody-providers-in-2026-a-comparison-of-the-leading-platforms","status":"Retrieved text reviewed","coverage":"Six platforms, deployment, payments and settlement","caution":"Vendor-authored mixed service roles and assurance/regulation labels."},
+    {"url":"https://custodyproviders.com/best-custody-providers.html","status":"Retrieved text reviewed","coverage":"Non-ranked shortlist, entity diligence, bank/fund/stablecoin/RWA routes","caution":"Detailed evidence lives in linked pages not independently audited."},
+    {"url":"https://www.buckinghamcapitalconsulting.com/crypto-custody-index","status":"Substantial text reviewed","coverage":"Twelve providers, weighted index, insurance/segregation/assurance and source dates","caution":"Public disclosure scoring is not independent testing."},
+    {"url":"https://bitcoinfoundation.org/news/analysis/best-crypto-custody-providers-2026/","status":"HTTP 403","coverage":"Full contents not claimed read"},
+    {"url":"https://beincrypto.com/institutional-crypto-custody-providers-2026/","status":"Retrieved text reviewed","coverage":"Fifteen-provider market map, subsegments, HQ and representative work","caution":"Awards-oriented, limited row-level contractual evidence."},
+    {"url":"https://worldmetrics.org/service/crypto-custody/","status":"Extensive text reviewed","coverage":"Ten providers, pros/cons, workflows, logs, continuity and FAQs","caution":"Paid-placement disclosure; numeric ratings not treated as verified performance."},
+    {"url":"https://x.com/analyticsinme/status/2122487385032401170","status":"Google snippet only","coverage":"Social result not treated as a complete article"}
+  ],
+  "primarySources": [
+    "https://www.anchorage.com/platform/custody",
+    "https://www.bitgo.com/products/qualified-custody/",
+    "https://support.bitgo.com/support/solutions/articles/158000442565-bitgo-s-global-regulated-entities",
+    "https://www.coinbase.com/prime/custody",
+    "https://copper.co/en-ch/solutions/clearloop-network",
+    "https://www.fidelitydigitalassets.com/trading-custody",
+    "https://www.fireblocks.com/trustco",
+    "https://www.fordefi.com/",
+    "https://www.gemini.com/institutions/custody",
+    "https://www.hextrust.com/",
+    "https://komainu.com/",
+    "https://www.paxos.com/",
+    "https://www.sygnum.com/custody/",
+    "https://www.taurushq.com/protect/",
+    "https://docs.taurushq.com/protect-capital/v3.48/docs/taurus-platform-capabilities",
+    "https://utila.io/",
+    "https://zodia-custody.com/custody/",
+    "https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-125.html",
+    "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+    "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/cryptoassets-aml-ctf-regime",
+    "https://www.amf-france.org/en/warnings/white-lists/casp/zodia-custody-europe-sa"
+  ],
+  "implementation": {
+    "preserved": "Existing URL, original nine providers, old infographic date, creative thumbnail/social assets and original review date.",
+    "added": "Seven established providers to table; role boundaries, institution fit, mandate checks, security failure tests, insurance scope, asset schedule, reconciliation, controlled migration, scorecard and downloadable worksheet.",
+    "removed": "Repeated appended sections, numeric/rate pricing discussion, external vendor-domain hyperlinks and automatic research block via readerFirst.",
+    "publicationLimits": "No claimed exhaustive coverage of blocked pages, no independent provider test results, no invented ratings or insurance totals, no claim of citation recovery."
+  }
+}

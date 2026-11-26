@@ -123,9 +123,9 @@ const seoOverrides: Record<string, SeoOverride> = {
     heading: "10 blockchain development firms, compared"
   },
   "blog/crypto-custody-providers-comparison-2026/index.html": {
-    title: "9 Crypto Custody Providers Compared (2026)",
-    description: "Compare 9 crypto custody providers by qualified custody, MPC controls, wallet operations, DeFi access and tokenized asset support.",
-    heading: "9 institutional custody providers, compared"
+    title: "Institutional Crypto Custody Providers Compared (2026)",
+    description: "Compare 16 custody and wallet providers by service model, asset protection, settlement and recovery. Includes an institutional due-diligence checklist.",
+    heading: "Institutional crypto custody providers, compared"
   },
   "blog/nowpayments-vs-coinbase-commerce-vs-bitpay-crypto-payment-gateways/index.html": {
     title: "NOWPayments vs Coinbase Commerce vs BitPay (2026)",

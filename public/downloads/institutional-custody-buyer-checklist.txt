@@ -1,0 +1,64 @@
+FluidRWA Institutional Custody Buyer Checklist
+Updated November 26, 2026
+
+This is a buyer worksheet, not a provider certification or legal opinion.
+
+1. Mandate
+Customer legal entity:
+Jurisdictions and client eligibility:
+Assets, networks and contract addresses:
+Required activities: hold / transfer / trade / stake / contract interaction
+Responsible internal owner:
+
+2. Service model
+Contracting provider entity:
+Custody service or self-custody technology:
+Regulator, register identifier, activity scope and check date:
+Applicable agreements and asset schedule:
+Subcustodians and operational subcontractors:
+
+3. Protection and authority
+Legal and operational segregation:
+On-chain address arrangement:
+Liens, collateral rights and rehypothecation terms:
+Initiators, approvers, policy administrators and recovery roles:
+Key/signing dependencies and unavailable-operator procedure:
+Insurance insured parties, wallets, events, exclusions and shared limits:
+SOC report entity, service, period, exceptions and customer responsibilities:
+
+4. Asset-specific support
+Deposit / withdrawal / trading / staking confirmed separately:
+Restricted-token register owner and investor eligibility:
+Forks, airdrops, unsupported deposits and delisting treatment:
+Staking reward accounting, slashing and unbonding:
+Freeze, wallet replacement, distribution and redemption responsibilities:
+
+5. Settlement and records
+Custody balance versus trading balance and pledged collateral:
+Asset and cash counterparties:
+Settlement finality and incomplete-leg handling:
+Statements and approval logs:
+Transaction and trade identifiers:
+Missed-webhook recovery and duplicate-instruction prevention:
+Historical export, retention and administrator access:
+
+6. Acceptance tests
+[ ] Changed destination requires independent approval.
+[ ] Unavailable signer is replaced under an authorized process.
+[ ] Delayed settlement is resolved and both legs reconcile.
+[ ] Missed event is recovered without duplicate withdrawal.
+[ ] Limited exit transfer and complete record export succeed.
+
+7. Migration gates
+[ ] Scope and authority approved.
+[ ] Controls configured and tested.
+[ ] Limited deposit/withdrawal reconciled.
+[ ] Staked, pledged and restricted positions handled.
+[ ] Each batch independently approved and reconciled.
+[ ] Final statements and residual assets accounted for.
+[ ] Old access retired after continuity and retention checks.
+
+Record each open question with an owner, evidence required and due date.
+Do not replace missing evidence with a positive score.
+
+https://www.fluidrwa.com/blog/crypto-custody-providers-comparison-2026

@@ -18,13 +18,23 @@ for(const slug of blogs){
  const file='content/blog/'+slug+'.md';
  const source=fs.readFileSync(file,'utf8');
  const before=execFileSync('git',['show','3ebd890:'+file],{encoding:'utf8'});
+ if(slug==='crypto-custody-providers-comparison-2026'){
+  const field=(text,key)=>text.match(new RegExp('^'+key+':.*$','m'))?.[0];
+  for(const key of ['date','reviewedDate','reviewedLabel','infographicImage','infographicMobileImage','socialImage']) assert.equal(field(source,key),field(before,key),slug+' preserve historical dates and artwork');
+  assert.equal(field(source,'modifiedDate'),'modifiedDate: "2026-11-26"');
+  assert.ok(source.includes('readerFirst: "true"'));
+  assert.ok(!/https?:\/\/(?:www\.)?(?:anchorage\.com|bitgo\.com|coinbase\.com|copper\.co|fidelitydigitalassets\.com|fireblocks\.com|fordefi\.com|gemini\.com|hextrust\.com|komainu\.com|paxos\.com|sygnum\.com|taurushq\.com|utila\.io|zodia-custody\.com)/i.test(source),slug+' no vendor-domain hyperlinks');
+  assert.equal([...source.matchAll(/^faq\d+q:/gm)].length,8);
+  assert.ok(!source.includes('\u2014'),slug+' no em dashes');
+  continue;
+ }
  const metadata=s=>s.match(/^---\n[\s\S]*?\n---/)[0];
  assert.equal(metadata(source),metadata(before),slug+' preserve metadata, evidence dates, FAQs and source references');
  const links=s=>[...s.matchAll(/\]\(([^)]+)\)/g)].map(m=>m[1]).sort();
  assert.deepEqual(links(source),links(before),slug+' preserve source and internal links');
 }
 assert.ok(!parse(fs.readFileSync('vendors/growth-marketing/index.html','utf8')).querySelector('#vendor-directory .bc-directory-head'));
-console.log('PASS: 16 recent pages have reader-facing copy; article metadata, dated source references, FAQs and links remain unchanged.');
+console.log('PASS: 16 recent pages have reader-facing copy; historical snapshots preserved, including the explicitly updated custody guide.');
 if(process.argv[2]){
  const paths=[...blogs.map(s=>'/blog/'+s),'/vendors/growth-marketing-companies','/vendors/legal-regulatory-vendors','/vendors/smart-contract-development-companies'];
  for(const path of paths){
